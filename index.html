@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<head lang="zh-CN">
+    <title>yingyu5658的万事屋</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" />
+    </noscript>
+    <meta name="theme-color" content="#22849f">
+    <style type="text/css">
+        body {
+            height: 100%;
+            background-image: url("images/bgi.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: bottom center;
+            background-attachment: fixed;
+        }
+
+        body:after {
+            content: '';
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: inherit;
+            opacity: 0;
+            z-index: 1;
+            background-color: #ffffff;
+            background-image: url("images/gensou.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            -moz-transition: opacity 1.75s ease-out;
+            -webkit-transition: opacity 1.75s ease-out;
+            -ms-transition: opacity 1.75s ease-out;
+            transition: opacity 1.75s ease-out;
+        }
+
+        body.is-loading:after {
+            opacity: 1;
+        }
+
+        .bilibili {
+            background-image: url(images/bilibili.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .github {
+            background-image: url(images/github.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+
+        #main:hover {
+            transform: translateY(-9px);
+            transition: 1s;
+            opacity: 2;
+        }
+
+        #main {
+            opacity: 100;
+        }
+    </style>
+</head>
+
+<body class="is-loading">
+
+    <div id="wrapper">
+
+        <section id="main">
+            <header>
+                <span class="avatar"><img src="images/yuanxingtouxiang.png" height="130" width="130" alt="" /></span>
+                <h1>yingyu5658</h1>
+                <p>Let life be beautiful like summer flowers<br> and death like autumn leaves.</p>
+            </header>
+            <footer>
+                <ul class="icons">
+                    <li><a href="https://github.com/yingyu5658" class="github">GitHub</a></li>
+                    <li><a href="https://space.bilibili.com/604851180ef=" class="bilibili">BiliBili</a></li>
+                </ul>
+                <ul class="actions">
+                    <li><a href="http://www.yingyu5658.cn" class="button">Blog</a></li>
+                </ul>
+            </footer>
+        </section>
+
+
+        <!-- Footer -->
+        <footer id="footer">
+            &copy; Amamiya Chinatsu
+            </br>
+            <ul class="copyright">
+                <li>Use: <a href="https://github.com/BakaChinatsu/uuz-h5theme">uuz-h5theme</a></li>
+                <li>Powered: <a href="http://html5up.net">HTML5 UP</a></li>
+            </ul>
+        </footer>
+
+    </div>
+
+    <script>
+        if ('addEventListener' in window) {
+            window.addEventListener('load', function () { document.body.className = document.body.className.replace(/\bis-loading\b/, ''); });
+            document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
+        }
+    </script>
+</body>
