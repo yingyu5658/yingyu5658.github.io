@@ -151,7 +151,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -192,104 +192,6 @@
     </div>
 
     <div class="main-inner index posts-expand">
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.yingyu5658.cn/2024/12/19/Java/2024-12-19-String%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/static/avatar.png">
-      <meta itemprop="name" content="yingyu5658">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="yingyu5658的万事屋">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | yingyu5658的万事屋">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/12/19/Java/2024-12-19-String%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" class="post-title-link" itemprop="url">String的注意事项</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-12-19 22:28:15" itemprop="dateCreated datePublished" datetime="2024-12-19T22:28:15+08:00">2024-12-19</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/" itemprop="url" rel="index"><span itemprop="name">技术研究</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="String的注意事项"><a href="#String的注意事项" class="headerlink" title="String的注意事项"></a>String的注意事项</h1><ul>
-<li><ol>
-<li>String对象的内容不可改变， 被称为不可变字符串对象。</li>
-</ol>
-</li>
-<li><ol start="2">
-<li>只要是以“…”的方式写出的字符串，都会存储到字符串常量池，且相同的字符串只存储一份；</li>
-</ol>
-</li>
-<li>但通过new方式创建字符串对象，每new一次都会产生一个新的对象放在堆内存中。</li>
-</ul>
-<h1 id="不可变字符串对象"><a href="#不可变字符串对象" class="headerlink" title="不可变字符串对象"></a>不可变字符串对象</h1><p>不可变？它肯定可变啊，比如</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> string;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">StringDemo3</span> &#123;  </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;  </span><br><span class="line">        <span class="type">String</span> <span class="variable">name</span> <span class="operator">=</span> <span class="string">&quot;yingyu5658&quot;</span>;  </span><br><span class="line">        name += <span class="string">&quot;.cn&quot;</span>;  </span><br><span class="line">        name += <span class="string">&quot;域名&quot;</span>;  </span><br><span class="line">        System.out.println(name);  </span><br><span class="line">  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这时候把name打印出来不就是<code>yingyu5658.cn域名</code>了吗？<br><strong>每次试图改变字符串对象实际上是新产生可字符串对象，变量每次都与指向了新的字符串对象，之前字符串对象的内容确实是没有改变的，因此说String的对象都是不可变的。</strong></p>
-<h1 id="第二点注意事项"><a href="#第二点注意事项" class="headerlink" title="第二点注意事项"></a>第二点注意事项</h1><p>示例代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> string;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">StringDemo3</span> &#123;  </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;  </span><br><span class="line">        <span class="type">String</span> <span class="variable">s1</span> <span class="operator">=</span> <span class="string">&quot;abc&quot;</span>;  </span><br><span class="line">        <span class="type">String</span> <span class="variable">s2</span> <span class="operator">=</span> <span class="string">&quot;abc&quot;</span>;  </span><br><span class="line">        System.out.println(s1 == s2);  </span><br><span class="line">        <span class="comment">//true  </span></span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这里使用双等来判断两个变量的地址是否相同，返回结果为<code>true</code>,也就是说，地址是相同的。<br>原理：上文提到，双引号包裹住的字符串，会被保存到字符串常量池中，<strong>且相同的字符串只存储一份</strong>。这里我们声明了两个内容为abc的String类型变量。Java是很聪明的，当我们把s2声明，它要存到字符串常量池时，看到内容一样，就不再存了，而是把<strong>s2也指向abc</strong>，因此s1地址和s2地址是一样的。</p>
-<h2 id="new"><a href="#new" class="headerlink" title="new"></a>new</h2><p>示例代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> string;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">StringDemo3</span> &#123;  </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;  </span><br><span class="line">        <span class="type">char</span>[] chars = &#123;<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>&#125;;  </span><br><span class="line">       <span class="type">String</span> <span class="variable">a1</span> <span class="operator">=</span>  <span class="keyword">new</span> <span class="title class_">String</span>(chars);  </span><br><span class="line">       <span class="type">String</span> <span class="variable">a2</span> <span class="operator">=</span>  <span class="keyword">new</span> <span class="title class_">String</span>(chars);  </span><br><span class="line">        System.out.println(a1 == a2);  </span><br><span class="line">        <span class="comment">//false  </span></span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上文提到，每new一次就会创建一个新的对象，所以此时再比较两者地址，返回false，是不同的。</p>
-<p><img src="https://www.yingyu5658.cn/usr/uploads/2024/12/2743265221.jpg"></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
 
     
 
@@ -1213,6 +1115,107 @@
 <p><code>hexo g</code></p>
 <p><code>hexo s</code></p>
 <h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>还是typecho舒服，用hexo写篇文章发篇文章那个费劲呀，前前后后敲了几百万行命令，效率太低了。。。。而且部署在github pages上的页面如果不挂url链接，那个图片压根就加载不出来。。。要不是这玩意不花钱我才不用。。。。。。。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.yingyu5658.cn/2024/12/01/Java/2024-12-01-%E6%B7%B1%E5%88%BB%E8%AE%A4%E8%AF%86%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/static/avatar.png">
+      <meta itemprop="name" content="yingyu5658">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yingyu5658的万事屋">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | yingyu5658的万事屋">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/12/01/Java/2024-12-01-%E6%B7%B1%E5%88%BB%E8%AE%A4%E8%AF%86%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="post-title-link" itemprop="url">深刻认识面向对象</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-12-01 13:31:00" itemprop="dateCreated datePublished" datetime="2024-12-01T13:31:00+08:00">2024-12-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-12-07 10:55:00" itemprop="dateModified" datetime="2024-12-07T10:55:00+08:00">2024-12-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/" itemprop="url" rel="index"><span itemprop="name">技术研究</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>本文内容均为按照<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Cv411372m?spm_id_from=333.788.videopod.episodes&vd_source=c0385e4bcdefa80a5d3d394a8a23df4c&p=69">黑马程序员-磊哥Java教学视频（第69p）</a> 内容知识点整理而来。</p>
+</blockquote>
+<h1 id="面向对象编程的好处"><a href="#面向对象编程的好处" class="headerlink" title="面向对象编程的好处"></a>面向对象编程的好处</h1><blockquote>
+<p>按照<strong>詹姆斯·高斯林</strong>的看法，世间万物都是对象。好比要出去旅游，你要找到车这个对象调用他的行驶功能使用来带你出去旅游。</p>
+</blockquote>
+<p>所以面向对象编程的好处就是：<strong>符合人类思维习惯，编程更简单，更直观</strong>。</p>
+<h1 id="程序中的对象到底是什么"><a href="#程序中的对象到底是什么" class="headerlink" title="程序中的对象到底是什么"></a>程序中的对象到底是什么</h1><ul>
+<li>对象本质上是一种<strong>特殊的数据结构</strong>，很像数据库，但是数据库是持久存储的数据。体现出计算机各个学科的交叉。<br>一开始设计的类就是一张表，后续在其他类中填入这张表的内容。</li>
+</ul>
+<h1 id="对象是怎么出来的"><a href="#对象是怎么出来的" class="headerlink" title="对象是怎么出来的"></a>对象是怎么出来的</h1><p>class也就是<strong>类</strong>，也称为<strong>对象的设计图</strong>（或者<strong>对象的模板</strong>）</p>
+<ul>
+<li>类里可以设计很多变量，用来说明对象可以处理什么数据。</li>
+<li>类里还可以设计很多的方法，描述对象有什么功能，也就是要对数据进行什么样的处理。<br>接下来我们就可以在程序中new对象了<br><strong>也就是先用class设计对象，然后再用class new出对象。</strong></li>
+</ul>
+<p>具体使用语法见上一篇文章[post cid&#x3D;”98” &#x2F;]</p>
+<p><img src="http://www.yingyu5658.cn/usr/uploads/2024/12/2743265221.jpg" alt="v2-4b5c3f2b057efbc7e58cdfbd98a5e36d_720w.jpg"></p>
 
       
     </div>
