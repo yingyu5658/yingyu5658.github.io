@@ -76,6 +76,30 @@
       </tags>
   </entry>
   <entry>
+    <title>Java面向对象编程快速入门</title>
+    <url>/2024/12/01/Java/2024-12-01-Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/</url>
+    <content><![CDATA[<h1 id="什么是面向对象编程"><a href="#什么是面向对象编程" class="headerlink" title="什么是面向对象编程"></a>什么是面向对象编程</h1><p>通俗易懂的说，就是把一坨一坨的数据放到一起存储<br>比如要存储一个学生的语文成绩和数学成绩<br>新建一个类</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Student</span> &#123;</span><br><span class="line">    String name;<span class="comment">//名字</span></span><br><span class="line">    <span class="type">double</span> chinese;<span class="comment">//语文成绩</span></span><br><span class="line">    <span class="type">double</span> math;<span class="comment">//数学成绩</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">printTotalScore</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(name + <span class="string">&quot;的总成绩是&quot;</span> + (chinese + math));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">printAverageScore</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(name + <span class="string">&quot;的平均成绩是&quot;</span> + (chinese + math) / <span class="number">2.0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样学生的模板就创建好了，但是这个模板还没有指向学生的每一个个体。我们可以再同一个包下再新建一个类。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">//1.创建宇哥学生对象来封装学生a的数据</span></span><br><span class="line">        <span class="type">Student</span> <span class="variable">s1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>();</span><br><span class="line">        s1.name = <span class="string">&quot;学生a&quot;</span>;</span><br><span class="line">        s1.chinese = <span class="number">100</span>;</span><br><span class="line">        s1.math = <span class="number">100</span>;</span><br><span class="line">        s1.printTotalScore();</span><br><span class="line">        s1.printAverageScore();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//2.再创建一个学生对象，封装学生b的数据</span></span><br><span class="line">        <span class="type">Student</span> <span class="variable">s2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>();</span><br><span class="line">        s2.name = <span class="string">&quot;学生b&quot;</span>;</span><br><span class="line">        s2.chinese = <span class="number">100</span>;</span><br><span class="line">        s2.math = <span class="number">59</span>;</span><br><span class="line">        s2.printTotalScore();</span><br><span class="line">        s2.printAverageScore();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>用以上代码新建一个学生类并且调用我们之前写好的功能</p>
+<ul>
+<li><p>开发一个一个的对象，把数据交给对象，再用调用对象的方法来完成对数据的处理，这种方法叫<strong>面向对象编程</strong>。<br><img src="http://www.yingyu5658.cn/usr/uploads/2024/12/2743265221.jpg"></p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>技术研究</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>编程</tag>
+        <tag>笔记</tag>
+        <tag>面向对象编程</tag>
+        <tag>对象</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>深刻认识面向对象</title>
     <url>/2024/12/01/Java/2024-12-01-%E6%B7%B1%E5%88%BB%E8%AE%A4%E8%AF%86%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</url>
     <content><![CDATA[<blockquote>
@@ -103,30 +127,6 @@
         <tag>Java</tag>
         <tag>笔记</tag>
         <tag>面向对象编程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java面向对象编程快速入门</title>
-    <url>/2024/12/01/Java/2024-12-01-Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/</url>
-    <content><![CDATA[<h1 id="什么是面向对象编程"><a href="#什么是面向对象编程" class="headerlink" title="什么是面向对象编程"></a>什么是面向对象编程</h1><p>通俗易懂的说，就是把一坨一坨的数据放到一起存储<br>比如要存储一个学生的语文成绩和数学成绩<br>新建一个类</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Student</span> &#123;</span><br><span class="line">    String name;<span class="comment">//名字</span></span><br><span class="line">    <span class="type">double</span> chinese;<span class="comment">//语文成绩</span></span><br><span class="line">    <span class="type">double</span> math;<span class="comment">//数学成绩</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">printTotalScore</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(name + <span class="string">&quot;的总成绩是&quot;</span> + (chinese + math));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">printAverageScore</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(name + <span class="string">&quot;的平均成绩是&quot;</span> + (chinese + math) / <span class="number">2.0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这样学生的模板就创建好了，但是这个模板还没有指向学生的每一个个体。我们可以再同一个包下再新建一个类。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">//1.创建宇哥学生对象来封装学生a的数据</span></span><br><span class="line">        <span class="type">Student</span> <span class="variable">s1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>();</span><br><span class="line">        s1.name = <span class="string">&quot;学生a&quot;</span>;</span><br><span class="line">        s1.chinese = <span class="number">100</span>;</span><br><span class="line">        s1.math = <span class="number">100</span>;</span><br><span class="line">        s1.printTotalScore();</span><br><span class="line">        s1.printAverageScore();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//2.再创建一个学生对象，封装学生b的数据</span></span><br><span class="line">        <span class="type">Student</span> <span class="variable">s2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>();</span><br><span class="line">        s2.name = <span class="string">&quot;学生b&quot;</span>;</span><br><span class="line">        s2.chinese = <span class="number">100</span>;</span><br><span class="line">        s2.math = <span class="number">59</span>;</span><br><span class="line">        s2.printTotalScore();</span><br><span class="line">        s2.printAverageScore();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>用以上代码新建一个学生类并且调用我们之前写好的功能</p>
-<ul>
-<li><p>开发一个一个的对象，把数据交给对象，再用调用对象的方法来完成对数据的处理，这种方法叫<strong>面向对象编程</strong>。<br><img src="http://www.yingyu5658.cn/usr/uploads/2024/12/2743265221.jpg"></p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>技术研究</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>编程</tag>
-        <tag>笔记</tag>
-        <tag>面向对象编程</tag>
-        <tag>对象</tag>
       </tags>
   </entry>
   <entry>
@@ -190,6 +190,40 @@
       </tags>
   </entry>
   <entry>
+    <title>String的注意事项</title>
+    <url>/2024/12/19/Java/2024-12-19-String%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</url>
+    <content><![CDATA[<h1 id="String的注意事项"><a href="#String的注意事项" class="headerlink" title="String的注意事项"></a>String的注意事项</h1><ul>
+<li><ol>
+<li>String对象的内容不可改变， 被称为不可变字符串对象。</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>只要是以“…”的方式写出的字符串，都会存储到字符串常量池，且相同的字符串只存储一份；</li>
+</ol>
+</li>
+<li>但通过new方式创建字符串对象，每new一次都会产生一个新的对象放在堆内存中。</li>
+</ul>
+<h1 id="不可变字符串对象"><a href="#不可变字符串对象" class="headerlink" title="不可变字符串对象"></a>不可变字符串对象</h1><p>不可变？它肯定可变啊，比如</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> string;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">StringDemo3</span> &#123;  </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;  </span><br><span class="line">        <span class="type">String</span> <span class="variable">name</span> <span class="operator">=</span> <span class="string">&quot;yingyu5658&quot;</span>;  </span><br><span class="line">        name += <span class="string">&quot;.cn&quot;</span>;  </span><br><span class="line">        name += <span class="string">&quot;域名&quot;</span>;  </span><br><span class="line">        System.out.println(name);  </span><br><span class="line">  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这时候把name打印出来不就是<code>yingyu5658.cn域名</code>了吗？<br><strong>每次试图改变字符串对象实际上是新产生可字符串对象，变量每次都与指向了新的字符串对象，之前字符串对象的内容确实是没有改变的，因此说String的对象都是不可变的。</strong></p>
+<h1 id="第二点注意事项"><a href="#第二点注意事项" class="headerlink" title="第二点注意事项"></a>第二点注意事项</h1><p>示例代码：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> string;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">StringDemo3</span> &#123;  </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;  </span><br><span class="line">        <span class="type">String</span> <span class="variable">s1</span> <span class="operator">=</span> <span class="string">&quot;abc&quot;</span>;  </span><br><span class="line">        <span class="type">String</span> <span class="variable">s2</span> <span class="operator">=</span> <span class="string">&quot;abc&quot;</span>;  </span><br><span class="line">        System.out.println(s1 == s2);  </span><br><span class="line">        <span class="comment">//true  </span></span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里使用双等来判断两个变量的地址是否相同，返回结果为<code>true</code>,也就是说，地址是相同的。<br>原理：上文提到，双引号包裹住的字符串，会被保存到字符串常量池中，<strong>且相同的字符串只存储一份</strong>。这里我们声明了两个内容为abc的String类型变量。Java是很聪明的，当我们把s2声明，它要存到字符串常量池时，看到内容一样，就不再存了，而是把<strong>s2也指向abc</strong>，因此s1地址和s2地址是一样的。</p>
+<h2 id="new"><a href="#new" class="headerlink" title="new"></a>new</h2><p>示例代码：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> string;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">StringDemo3</span> &#123;  </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;  </span><br><span class="line">        <span class="type">char</span>[] chars = &#123;<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>&#125;;  </span><br><span class="line">       <span class="type">String</span> <span class="variable">a1</span> <span class="operator">=</span>  <span class="keyword">new</span> <span class="title class_">String</span>(chars);  </span><br><span class="line">       <span class="type">String</span> <span class="variable">a2</span> <span class="operator">=</span>  <span class="keyword">new</span> <span class="title class_">String</span>(chars);  </span><br><span class="line">        System.out.println(a1 == a2);  </span><br><span class="line">        <span class="comment">//false  </span></span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上文提到，每new一次就会创建一个新的对象，所以此时再比较两者地址，返回false，是不同的。</p>
+<p><img src="https://www.yingyu5658.cn/usr/uploads/2024/12/2743265221.jpg"></p>
+]]></content>
+      <categories>
+        <category>技术研究</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>API</tag>
+        <tag>String</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Spigot服务端控制台中文乱码解决方案</title>
     <url>/2025/01/04/Java/2025-01-04-Spigot%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%8E%A7%E5%88%B6%E5%8F%B0%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
     <content><![CDATA[<ol>
@@ -208,6 +242,63 @@
         <tag>Minecraft</tag>
         <tag>我的世界</tag>
         <tag>Spigot</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>我的4k进步史</title>
+    <url>/2024/11/13/%E5%BD%B1%E9%9F%B3%E5%A8%B1%E4%B9%90/2024-11-13-%E6%88%91%E7%9A%844k%E8%BF%9B%E6%AD%A5%E5%8F%B2/</url>
+    <content><![CDATA[<p>截止到目前玩4k也有一年多了，整理一下我的进步历程，给迷茫中的各位一点参考</p>
+<h1 id="常规段"><a href="#常规段" class="headerlink" title="常规段"></a>常规段</h1><ul>
+<li>2023.5.20 一个别人在和女人亲亲抱抱的日子，我孤身一人在玩4k并且pass掉0dan，开启了漫长的4k之路……</li>
+<li>2023.6.4 Regular 1 pass</li>
+<li>2023.6.22 Regular 2 pass</li>
+<li>2023.6.25 Regular 3 pass</li>
+<li>2023.7.26 Regular 4 pass</li>
+<li>2023.8.22 Regular 5 pass</li>
+<li>2023.11.24 Regular 6 pass</li>
+<li>2023.11.24 Regular 7 pass</li>
+<li>2023.11.27 Regular 8 pass</li>
+<li>2023.11.28 Regular 9 pass</li>
+<li>2023.11.28 Regular 10pass 常规段毕业！！！</li>
+</ul>
+<h1 id="Extra与字母段"><a href="#Extra与字母段" class="headerlink" title="Extra与字母段"></a>Extra与字母段</h1><ul>
+<li>2023.12.02 Extra-2 Jack pass（神秘4k常数9638）</li>
+</ul>
+<blockquote>
+<p>貌似淡坑了一段时间……..</p>
+</blockquote>
+<ul>
+<li>2024.9.15 α Jack 96.21</li>
+</ul>
+<blockquote>
+<p>（Ma侧c判与om的od9天差地别，故不写pass，成绩仅供参考。后文中不予注释）</p>
+</blockquote>
+<ul>
+<li>2024.9.22 Extra-4 Jack pass (v2)</li>
+<li>2024.9.22 Extra-5 Jack pass (Sample) </li>
+<li>2024.9.28 Extra-3 Jack pass</li>
+<li>2024.9.30 β Jack 96.29</li>
+<li>2024.10.7 Extra-2 pass</li>
+<li>2024.10.14 Extra-3 Stream pass(v2)</li>
+<li>2024.10.19 Extra-4 Technical pass(v2)</li>
+</ul>
+<blockquote>
+<p>这玩意其实就是叠，要不我也过不掉</p>
+</blockquote>
+<ul>
+<li>2024.10.19 γ Jack 96.33</li>
+<li>2024.11.18 Extra-5 Jack pass(v3)</li>
+</ul>
+<blockquote>
+<p>我认为此时叠力才算真正e5</p>
+</blockquote>
+<p>未完待续…….</p>
+]]></content>
+      <categories>
+        <category>影音娱乐</category>
+      </categories>
+      <tags>
+        <tag>游戏</tag>
       </tags>
   </entry>
   <entry>
@@ -400,97 +491,6 @@
       </tags>
   </entry>
   <entry>
-    <title>String的注意事项</title>
-    <url>/2024/12/19/Java/2024-12-19-String%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</url>
-    <content><![CDATA[<h1 id="String的注意事项"><a href="#String的注意事项" class="headerlink" title="String的注意事项"></a>String的注意事项</h1><ul>
-<li><ol>
-<li>String对象的内容不可改变， 被称为不可变字符串对象。</li>
-</ol>
-</li>
-<li><ol start="2">
-<li>只要是以“…”的方式写出的字符串，都会存储到字符串常量池，且相同的字符串只存储一份；</li>
-</ol>
-</li>
-<li>但通过new方式创建字符串对象，每new一次都会产生一个新的对象放在堆内存中。</li>
-</ul>
-<h1 id="不可变字符串对象"><a href="#不可变字符串对象" class="headerlink" title="不可变字符串对象"></a>不可变字符串对象</h1><p>不可变？它肯定可变啊，比如</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> string;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">StringDemo3</span> &#123;  </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;  </span><br><span class="line">        <span class="type">String</span> <span class="variable">name</span> <span class="operator">=</span> <span class="string">&quot;yingyu5658&quot;</span>;  </span><br><span class="line">        name += <span class="string">&quot;.cn&quot;</span>;  </span><br><span class="line">        name += <span class="string">&quot;域名&quot;</span>;  </span><br><span class="line">        System.out.println(name);  </span><br><span class="line">  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这时候把name打印出来不就是<code>yingyu5658.cn域名</code>了吗？<br><strong>每次试图改变字符串对象实际上是新产生可字符串对象，变量每次都与指向了新的字符串对象，之前字符串对象的内容确实是没有改变的，因此说String的对象都是不可变的。</strong></p>
-<h1 id="第二点注意事项"><a href="#第二点注意事项" class="headerlink" title="第二点注意事项"></a>第二点注意事项</h1><p>示例代码：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> string;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">StringDemo3</span> &#123;  </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;  </span><br><span class="line">        <span class="type">String</span> <span class="variable">s1</span> <span class="operator">=</span> <span class="string">&quot;abc&quot;</span>;  </span><br><span class="line">        <span class="type">String</span> <span class="variable">s2</span> <span class="operator">=</span> <span class="string">&quot;abc&quot;</span>;  </span><br><span class="line">        System.out.println(s1 == s2);  </span><br><span class="line">        <span class="comment">//true  </span></span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这里使用双等来判断两个变量的地址是否相同，返回结果为<code>true</code>,也就是说，地址是相同的。<br>原理：上文提到，双引号包裹住的字符串，会被保存到字符串常量池中，<strong>且相同的字符串只存储一份</strong>。这里我们声明了两个内容为abc的String类型变量。Java是很聪明的，当我们把s2声明，它要存到字符串常量池时，看到内容一样，就不再存了，而是把<strong>s2也指向abc</strong>，因此s1地址和s2地址是一样的。</p>
-<h2 id="new"><a href="#new" class="headerlink" title="new"></a>new</h2><p>示例代码：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> string;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">StringDemo3</span> &#123;  </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;  </span><br><span class="line">        <span class="type">char</span>[] chars = &#123;<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>&#125;;  </span><br><span class="line">       <span class="type">String</span> <span class="variable">a1</span> <span class="operator">=</span>  <span class="keyword">new</span> <span class="title class_">String</span>(chars);  </span><br><span class="line">       <span class="type">String</span> <span class="variable">a2</span> <span class="operator">=</span>  <span class="keyword">new</span> <span class="title class_">String</span>(chars);  </span><br><span class="line">        System.out.println(a1 == a2);  </span><br><span class="line">        <span class="comment">//false  </span></span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上文提到，每new一次就会创建一个新的对象，所以此时再比较两者地址，返回false，是不同的。</p>
-<p><img src="https://www.yingyu5658.cn/usr/uploads/2024/12/2743265221.jpg"></p>
-]]></content>
-      <categories>
-        <category>技术研究</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>API</tag>
-        <tag>String</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>我的4k进步史</title>
-    <url>/2024/11/13/%E5%BD%B1%E9%9F%B3%E5%A8%B1%E4%B9%90/2024-11-13-%E6%88%91%E7%9A%844k%E8%BF%9B%E6%AD%A5%E5%8F%B2/</url>
-    <content><![CDATA[<p>截止到目前玩4k也有一年多了，整理一下我的进步历程，给迷茫中的各位一点参考</p>
-<h1 id="常规段"><a href="#常规段" class="headerlink" title="常规段"></a>常规段</h1><ul>
-<li>2023.5.20 一个别人在和女人亲亲抱抱的日子，我孤身一人在玩4k并且pass掉0dan，开启了漫长的4k之路……</li>
-<li>2023.6.4 Regular 1 pass</li>
-<li>2023.6.22 Regular 2 pass</li>
-<li>2023.6.25 Regular 3 pass</li>
-<li>2023.7.26 Regular 4 pass</li>
-<li>2023.8.22 Regular 5 pass</li>
-<li>2023.11.24 Regular 6 pass</li>
-<li>2023.11.24 Regular 7 pass</li>
-<li>2023.11.27 Regular 8 pass</li>
-<li>2023.11.28 Regular 9 pass</li>
-<li>2023.11.28 Regular 10pass 常规段毕业！！！</li>
-</ul>
-<h1 id="Extra与字母段"><a href="#Extra与字母段" class="headerlink" title="Extra与字母段"></a>Extra与字母段</h1><ul>
-<li>2023.12.02 Extra-2 Jack pass（神秘4k常数9638）</li>
-</ul>
-<blockquote>
-<p>貌似淡坑了一段时间……..</p>
-</blockquote>
-<ul>
-<li>2024.9.15 α Jack 96.21</li>
-</ul>
-<blockquote>
-<p>（Ma侧c判与om的od9天差地别，故不写pass，成绩仅供参考。后文中不予注释）</p>
-</blockquote>
-<ul>
-<li>2024.9.22 Extra-4 Jack pass (v2)</li>
-<li>2024.9.22 Extra-5 Jack pass (Sample) </li>
-<li>2024.9.28 Extra-3 Jack pass</li>
-<li>2024.9.30 β Jack 96.29</li>
-<li>2024.10.7 Extra-2 pass</li>
-<li>2024.10.14 Extra-3 Stream pass(v2)</li>
-<li>2024.10.19 Extra-4 Technical pass(v2)</li>
-</ul>
-<blockquote>
-<p>这玩意其实就是叠，要不我也过不掉</p>
-</blockquote>
-<ul>
-<li>2024.10.19 γ Jack 96.33</li>
-<li>2024.11.18 Extra-5 Jack pass(v3)</li>
-</ul>
-<blockquote>
-<p>我认为此时叠力才算真正e5</p>
-</blockquote>
-<p>未完待续…….</p>
-]]></content>
-      <categories>
-        <category>影音娱乐</category>
-      </categories>
-      <tags>
-        <tag>游戏</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>醉酒哈基米寒假开服活动Q&amp;amp;A</title>
     <url>/2024/12/08/%E5%BD%B1%E9%9F%B3%E5%A8%B1%E4%B9%90/2024-12-08-%E9%86%89%E9%85%92%E5%93%88%E5%9F%BA%E7%B1%B3%E5%AF%92%E5%81%87%E5%BC%80%E6%9C%8D%E6%B4%BB%E5%8A%A8Q&amp;amp;A/</url>
     <content><![CDATA[<h1 id="醉酒哈基米寒假联机活动"><a href="#醉酒哈基米寒假联机活动" class="headerlink" title="醉酒哈基米寒假联机活动"></a>醉酒哈基米寒假联机活动</h1><p>为打发时间，<del>提升群友之间的羁绊</del>，2024年寒假特举行泰拉瑞亚&#x2F;我的世界服务器活动。</p>
@@ -543,6 +543,39 @@
       </tags>
   </entry>
   <entry>
+    <title>Vim基础操作快速入门</title>
+    <url>/2024/12/13/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/2024-12-13-Vim%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>各种鼠标操作让我有点抓狂，vim或许是一个很适合我的东西，全键盘操作听起来就很方便快捷，除了上手难度有点高以外，vim看起来似乎没有任何的缺点。在下载安装好了vim后，我开始学习了快捷键。<del>然后我们就可以直接把鼠标扔了。</del><br><strong>记住要先把输入法切换成英文模式</strong></p>
+<h1 id="普通模式"><a href="#普通模式" class="headerlink" title="普通模式"></a>普通模式</h1><h2 id="退出"><a href="#退出" class="headerlink" title="退出"></a>退出</h2><p>很多人第一次用vim，最难受的事情绝对是不知道怎么退出。<br>退出：<code>:q!</code></p>
+<h2 id="移动光标"><a href="#移动光标" class="headerlink" title="移动光标"></a>移动光标</h2><p><code>h</code> <code>j</code> <code>k</code> <code>l</code> 这四个按键分别对应左 下 上 右</p>
+<blockquote>
+<p>这个比较难适应，不过也比把手移动到右下方用箭头键舒服了</p>
+</blockquote>
+<h3 id="大范围移动"><a href="#大范围移动" class="headerlink" title="大范围移动"></a>大范围移动</h3><p>行数 + <code>h</code>&#x2F; <code>j</code>&#x2F; <code>k</code>&#x2F; <code>l</code><br>比如，想要向下移动三行，就是3<code>j</code>，向左移动四格，就是3<code>h</code><br><code>gg</code> 跳转到文档的最上方<br><code>G</code> 跳转到文档的最下方</p>
+<h3 id="按照单词跳转"><a href="#按照单词跳转" class="headerlink" title="按照单词跳转"></a>按照单词跳转</h3><p><code>w</code>，也就是“word”的首字母。就可以跳转到下一个单词的开头。<br><code>b</code> beginning就跳转到前一个单词的开头<br><code>f</code> find 查找单词。比如要把光标移动到离你最近的b，就可以输入<code>fb</code></p>
+<h3 id="翻页"><a href="#翻页" class="headerlink" title="翻页"></a>翻页</h3><p><code>Ctrl + u</code>向上翻页。u理解为up首字母。<br><code>Ctrl + d</code>向下翻页。d理解为down首字母。</p>
+<h2 id="复制粘贴"><a href="#复制粘贴" class="headerlink" title="复制粘贴"></a>复制粘贴</h2><p>在普通模式下，输入<code>y</code> （yank），复制整个单词：<code>yaw</code> “aw’“为<del>阿伟</del> all word<br><code>p</code> 即paste，粘贴。</p>
+<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><p>普通模式下，<code>d</code> 也就是delete，直接删除当前行和下一行的内容<br>还可以跟上文的<code>hjkl</code>结合起来，比如d8j就是向下删除八行</p>
+<h2 id="撤销"><a href="#撤销" class="headerlink" title="撤销"></a>撤销</h2><p><code>u</code> 也就是undo。</p>
+<blockquote>
+<p>这些快捷键很灵活，都可以互相结合使用</p>
+</blockquote>
+<h1 id="输入模式"><a href="#输入模式" class="headerlink" title="输入模式"></a>输入模式</h1><h2 id="进入输入模式"><a href="#进入输入模式" class="headerlink" title="进入输入模式"></a>进入输入模式</h2><p>在普通模式下，输入<code>i</code> 也就是insert，就可以进入输入模式了。</p>
+<ol>
+<li><code>i</code>是在当前光标的前一个字母开始输入。</li>
+<li>使用<code>a</code>也就是append，就可以在当前光标之后输入。</li>
+<li>使用<code>I</code>就会从这一行的开头进入输入模式。</li>
+<li>使用<code>A</code>就会从这一行的末尾进入输入模式。<br>完成编辑后，使用<code>ESC</code> 就可以退出编辑模式，回到普通模式了。</li>
+</ol>
+<h1 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h1><p>在普通模式下输入<code>：</code>就可以进入命令模式，按下<code>ESC</code>就会退出命令模式。<br>在下方的命令行中，可以输入命令<br><code>q</code>也就是quit就可以退出<br>保存<code>w</code><br> 保存并退出<code>wq</code></p>
+<h1 id="可视模式"><a href="#可视模式" class="headerlink" title="可视模式"></a>可视模式</h1><p>普通模式下按下<code>v</code>就可以进入可视模式。</p>
+<h1 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h1><p>vim中修改键位，安装主题全都是用一个配置文件来完成的。<br>原版vim的配置文件叫做.vimrc<br>关于修改键位，我的看法是不要改，因为你适应之后上服务端就会很难受，什么都不适应。</p>
+]]></content>
+      <categories>
+        <category>技术研究</category>
+      </categories>
+  </entry>
+  <entry>
     <title>游戏资源下载及连接服务器相关教程</title>
     <url>/2024/12/13/%E5%BD%B1%E9%9F%B3%E5%A8%B1%E4%B9%90/2024-12-13-%E6%B8%B8%E6%88%8F%E8%B5%84%E6%BA%90%E4%B8%8B%E8%BD%BD%E5%8F%8A%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%B8%E5%85%B3%E6%95%99%E7%A8%8B/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>为了避免不必要的麻烦和纠纷，也是为了打造一个纯粹干净高质量的社区，我们需要对想要参与的人员提出一些条件，请确保你自身可以满足这些条件后再来愉快的玩耍。<br><strong>所有的条件都是最基本的，一点也不苛刻，大部分要求仅仅是一些应该具备的能力。</strong></p>
@@ -576,39 +609,6 @@
         <tag>教程</tag>
         <tag>泰拉瑞亚</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Vim基础操作快速入门</title>
-    <url>/2024/12/13/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/2024-12-13-Vim%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>各种鼠标操作让我有点抓狂，vim或许是一个很适合我的东西，全键盘操作听起来就很方便快捷，除了上手难度有点高以外，vim看起来似乎没有任何的缺点。在下载安装好了vim后，我开始学习了快捷键。<del>然后我们就可以直接把鼠标扔了。</del><br><strong>记住要先把输入法切换成英文模式</strong></p>
-<h1 id="普通模式"><a href="#普通模式" class="headerlink" title="普通模式"></a>普通模式</h1><h2 id="退出"><a href="#退出" class="headerlink" title="退出"></a>退出</h2><p>很多人第一次用vim，最难受的事情绝对是不知道怎么退出。<br>退出：<code>:q!</code></p>
-<h2 id="移动光标"><a href="#移动光标" class="headerlink" title="移动光标"></a>移动光标</h2><p><code>h</code> <code>j</code> <code>k</code> <code>l</code> 这四个按键分别对应左 下 上 右</p>
-<blockquote>
-<p>这个比较难适应，不过也比把手移动到右下方用箭头键舒服了</p>
-</blockquote>
-<h3 id="大范围移动"><a href="#大范围移动" class="headerlink" title="大范围移动"></a>大范围移动</h3><p>行数 + <code>h</code>&#x2F; <code>j</code>&#x2F; <code>k</code>&#x2F; <code>l</code><br>比如，想要向下移动三行，就是3<code>j</code>，向左移动四格，就是3<code>h</code><br><code>gg</code> 跳转到文档的最上方<br><code>G</code> 跳转到文档的最下方</p>
-<h3 id="按照单词跳转"><a href="#按照单词跳转" class="headerlink" title="按照单词跳转"></a>按照单词跳转</h3><p><code>w</code>，也就是“word”的首字母。就可以跳转到下一个单词的开头。<br><code>b</code> beginning就跳转到前一个单词的开头<br><code>f</code> find 查找单词。比如要把光标移动到离你最近的b，就可以输入<code>fb</code></p>
-<h3 id="翻页"><a href="#翻页" class="headerlink" title="翻页"></a>翻页</h3><p><code>Ctrl + u</code>向上翻页。u理解为up首字母。<br><code>Ctrl + d</code>向下翻页。d理解为down首字母。</p>
-<h2 id="复制粘贴"><a href="#复制粘贴" class="headerlink" title="复制粘贴"></a>复制粘贴</h2><p>在普通模式下，输入<code>y</code> （yank），复制整个单词：<code>yaw</code> “aw’“为<del>阿伟</del> all word<br><code>p</code> 即paste，粘贴。</p>
-<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><p>普通模式下，<code>d</code> 也就是delete，直接删除当前行和下一行的内容<br>还可以跟上文的<code>hjkl</code>结合起来，比如d8j就是向下删除八行</p>
-<h2 id="撤销"><a href="#撤销" class="headerlink" title="撤销"></a>撤销</h2><p><code>u</code> 也就是undo。</p>
-<blockquote>
-<p>这些快捷键很灵活，都可以互相结合使用</p>
-</blockquote>
-<h1 id="输入模式"><a href="#输入模式" class="headerlink" title="输入模式"></a>输入模式</h1><h2 id="进入输入模式"><a href="#进入输入模式" class="headerlink" title="进入输入模式"></a>进入输入模式</h2><p>在普通模式下，输入<code>i</code> 也就是insert，就可以进入输入模式了。</p>
-<ol>
-<li><code>i</code>是在当前光标的前一个字母开始输入。</li>
-<li>使用<code>a</code>也就是append，就可以在当前光标之后输入。</li>
-<li>使用<code>I</code>就会从这一行的开头进入输入模式。</li>
-<li>使用<code>A</code>就会从这一行的末尾进入输入模式。<br>完成编辑后，使用<code>ESC</code> 就可以退出编辑模式，回到普通模式了。</li>
-</ol>
-<h1 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h1><p>在普通模式下输入<code>：</code>就可以进入命令模式，按下<code>ESC</code>就会退出命令模式。<br>在下方的命令行中，可以输入命令<br><code>q</code>也就是quit就可以退出<br>保存<code>w</code><br> 保存并退出<code>wq</code></p>
-<h1 id="可视模式"><a href="#可视模式" class="headerlink" title="可视模式"></a>可视模式</h1><p>普通模式下按下<code>v</code>就可以进入可视模式。</p>
-<h1 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h1><p>vim中修改键位，安装主题全都是用一个配置文件来完成的。<br>原版vim的配置文件叫做.vimrc<br>关于修改键位，我的看法是不要改，因为你适应之后上服务端就会很难受，什么都不适应。</p>
-]]></content>
-      <categories>
-        <category>技术研究</category>
-      </categories>
   </entry>
   <entry>
     <title>修复Geyser下基岩版玩家无法在地狱基岩层放置方块</title>
@@ -716,19 +716,6 @@
       </tags>
   </entry>
   <entry>
-    <title>孤独摇滚第二季制作决定发布</title>
-    <url>/2025/02/15/%E6%97%A5%E5%B8%B8%E5%88%86%E4%BA%AB/2025-02-15-%E5%AD%A4%E7%8B%AC%E6%91%87%E6%BB%9A%E7%AC%AC%E4%BA%8C%E5%AD%A3%E5%88%B6%E4%BD%9C%E5%86%B3%E5%AE%9A%E5%8F%91%E5%B8%83/</url>
-    <content><![CDATA[<p><img src="/../../images/2025/02/3572161185.jpg" alt="官号推文截图"></p>
-<p>普天同庆 皆大欢喜 可喜可贺 朝思夜想<br>你说的对，但是电视动画片《孤独摇滚！》改编自滨路晶创作的同名漫画作品，于2021年2月19日宣布电视动画化的消息 <a href="../../images/2025/02/3572161185.jpg">1</a>。该片由CloverWorks负责制作，于2022年10月8日至12月24日播出，全12集 [9]。<br>2024年3月24日，官方宣布总集篇前篇《电影总集篇孤独摇滚！ Re:》于2024年6月7日上映，后篇《电影总集篇孤独摇滚！ Re:Re:》于2024年8月9日上映 [29]。<br>我现在就要看孤独摇滚第二季<br>我现在就要看孤独摇滚第二季<br>我现在就要看孤独摇滚第二季<br>我现在就要看孤独摇滚第二季<br>我现在就要看孤独摇滚第二季<br>我现在就要看孤独摇滚第二季<br>我现在就要看孤独摇滚第二季<br>我现在就要看孤独摇滚第二季<br>我现在就要看孤独摇滚第二季<br>我现在就要看孤独摇滚第二季<br>我现在就要看孤独摇滚第二季<br>我现在就要看孤独摇滚第二季<br>我现在就要看孤独摇滚第二季<br>我现在就要看孤独摇滚第二季<br>我现在就要看孤独摇滚第二季<br>我现在就要看孤独摇滚第二季<br>我现在就要看孤独摇滚第二季<br>我现在就要看孤独摇滚第二季<br>花茶加倍歘白卡激活话，外喜欢吹夕会w吹黑彩hi这到场这到场被挡抄吧活儿底盒到场诶会撮合桌藏偶尔桌号二水哦二徐欧珠说二宝偶尔宝硕二队二队采耳偶尔对裁往外渤海我都被华欧黑东北菜黑比黑波好的啵还菜这报的说说这倒水偶财务桌晒w淬火外催偶得操B偶得催偶红黑炒荷花好舍不苍社上少社囧囧偶，偶尔可劲儿开车悟空烤鹅吃呢惨二餐三儿从哪</p>
-]]></content>
-      <categories>
-        <category>日常分享</category>
-      </categories>
-      <tags>
-        <tag>孤独摇滚</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【未解决】Windows WSL报错：Error: 0x80080005 ???????</title>
     <url>/2025/03/04/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/%E3%80%90%E6%9C%AA%E8%A7%A3%E5%86%B3%E3%80%91Windows-WSL%E6%8A%A5%E9%94%99%EF%BC%9AError-0x80080005/</url>
     <content><![CDATA[<p>设备环境：</p>
@@ -785,6 +772,19 @@
       </tags>
   </entry>
   <entry>
+    <title>孤独摇滚第二季制作决定发布</title>
+    <url>/2025/02/15/%E6%97%A5%E5%B8%B8%E5%88%86%E4%BA%AB/2025-02-15-%E5%AD%A4%E7%8B%AC%E6%91%87%E6%BB%9A%E7%AC%AC%E4%BA%8C%E5%AD%A3%E5%88%B6%E4%BD%9C%E5%86%B3%E5%AE%9A%E5%8F%91%E5%B8%83/</url>
+    <content><![CDATA[<p><img src="/../../images/2025/02/3572161185.jpg" alt="官号推文截图"></p>
+<p>普天同庆 皆大欢喜 可喜可贺 朝思夜想<br>你说的对，但是电视动画片《孤独摇滚！》改编自滨路晶创作的同名漫画作品，于2021年2月19日宣布电视动画化的消息 <a href="../../images/2025/02/3572161185.jpg">1</a>。该片由CloverWorks负责制作，于2022年10月8日至12月24日播出，全12集 [9]。<br>2024年3月24日，官方宣布总集篇前篇《电影总集篇孤独摇滚！ Re:》于2024年6月7日上映，后篇《电影总集篇孤独摇滚！ Re:Re:》于2024年8月9日上映 [29]。<br>我现在就要看孤独摇滚第二季<br>我现在就要看孤独摇滚第二季<br>我现在就要看孤独摇滚第二季<br>我现在就要看孤独摇滚第二季<br>我现在就要看孤独摇滚第二季<br>我现在就要看孤独摇滚第二季<br>我现在就要看孤独摇滚第二季<br>我现在就要看孤独摇滚第二季<br>我现在就要看孤独摇滚第二季<br>我现在就要看孤独摇滚第二季<br>我现在就要看孤独摇滚第二季<br>我现在就要看孤独摇滚第二季<br>我现在就要看孤独摇滚第二季<br>我现在就要看孤独摇滚第二季<br>我现在就要看孤独摇滚第二季<br>我现在就要看孤独摇滚第二季<br>我现在就要看孤独摇滚第二季<br>我现在就要看孤独摇滚第二季<br>花茶加倍歘白卡激活话，外喜欢吹夕会w吹黑彩hi这到场这到场被挡抄吧活儿底盒到场诶会撮合桌藏偶尔桌号二水哦二徐欧珠说二宝偶尔宝硕二队二队采耳偶尔对裁往外渤海我都被华欧黑东北菜黑比黑波好的啵还菜这报的说说这倒水偶财务桌晒w淬火外催偶得操B偶得催偶红黑炒荷花好舍不苍社上少社囧囧偶，偶尔可劲儿开车悟空烤鹅吃呢惨二餐三儿从哪</p>
+]]></content>
+      <categories>
+        <category>日常分享</category>
+      </categories>
+      <tags>
+        <tag>孤独摇滚</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>网站迁移</title>
     <url>/2024/11/21/%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91/2024-11-21-%E7%BD%91%E7%AB%99%E8%BF%81%E7%A7%BB/</url>
     <content><![CDATA[<p>原网站</p>
@@ -800,26 +800,6 @@
         <tag>Web</tag>
         <tag>网站</tag>
         <tag>开发</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Hexo】配置好服务器后如何发表编辑好的文章？</title>
-    <url>/2024/12/08/%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91/2024-12-08-%E3%80%90Hexo%E3%80%91%E9%85%8D%E7%BD%AE%E5%A5%BD%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%90%8E%E5%A6%82%E4%BD%95%E5%8F%91%E8%A1%A8%E7%BC%96%E8%BE%91%E5%A5%BD%E7%9A%84%E6%96%87%E7%AB%A0%EF%BC%9F/</url>
-    <content><![CDATA[<ol>
-<li><code>hexo s</code> 先在本地预览一下文章，如果都好了就进入下一步。</li>
-<li><code>hexo clean</code> 清除缓存</li>
-<li><code>hexo g</code> 生成文件</li>
-<li><code>hexo d</code> 部署</li>
-</ol>
-<p>等待部署完成后刷新页面就好了</p>
-<p><img src="/....%5Cimages%5C2024%5C12%5C1241193660.jpg"></p>
-]]></content>
-      <categories>
-        <category>技术研究</category>
-      </categories>
-      <tags>
-        <tag>教程</tag>
-        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -873,7 +853,7 @@
 <p>然后在控制台输入</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo init myBlog</span><br><span class="line">cd myBlog</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
 
-<p>然后我们就可以运行<code>hexo s</code>命令，在浏览器输入<a href="http://localhost:4000就能预览了">http://localhost:4000就能预览了</a></p>
+<p>然后我们就可以运行<code>hexo s</code>命令，访问控制台中的网站就可以预览了</p>
 <p>  可以看到hexo的默认模板还是很简约大气的。</p>
 <p>部署好后，我打算换一个主题，因为这不是主站，所以也就没必要那么花哨（有一说一hexo那么多主题还真有几个让老夫心动的）</p>
 <h2 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h2><p>把主题文件夹复制到安装目录下的&#x2F;themes文件夹内</p>
@@ -930,6 +910,26 @@
         <tag>博客</tag>
         <tag>网站</tag>
         <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Hexo】配置好服务器后如何发表编辑好的文章？</title>
+    <url>/2024/12/08/%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91/2024-12-08-%E3%80%90Hexo%E3%80%91%E9%85%8D%E7%BD%AE%E5%A5%BD%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%90%8E%E5%A6%82%E4%BD%95%E5%8F%91%E8%A1%A8%E7%BC%96%E8%BE%91%E5%A5%BD%E7%9A%84%E6%96%87%E7%AB%A0%EF%BC%9F/</url>
+    <content><![CDATA[<ol>
+<li><code>hexo s</code> 先在本地预览一下文章，如果都好了就进入下一步。</li>
+<li><code>hexo clean</code> 清除缓存</li>
+<li><code>hexo g</code> 生成文件</li>
+<li><code>hexo d</code> 部署</li>
+</ol>
+<p>等待部署完成后刷新页面就好了</p>
+<p><img src="/....%5Cimages%5C2024%5C12%5C1241193660.jpg"></p>
+]]></content>
+      <categories>
+        <category>技术研究</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
