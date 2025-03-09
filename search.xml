@@ -714,6 +714,163 @@
       </tags>
   </entry>
   <entry>
+    <title>Kitty终端美化记录</title>
+    <url>/2025/03/09/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/Kitty%E7%BB%88%E7%AB%AF%E7%BE%8E%E5%8C%96%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<p>Kitty这个终端可谓是兼顾了性能与美观，虽然默认设置很简陋，但是经过一番折腾后也能变得很漂亮。</p>
+<h1 id="选择配色"><a href="#选择配色" class="headerlink" title="选择配色"></a>选择配色</h1><p>运行<code>kitty + kitten themes</code>后会弹出一个选择配色的界面<br><img src="/../../images/Pasted%20image%2020250309124346.png"><br>令我感到非常高兴的是，这个界面支持vim的hjkl键位，也可以用&#x2F;来搜索。<br>选好后，回车按m，command + ^ + ,重载配置文件。</p>
+<h1 id="配置字体"><a href="#配置字体" class="headerlink" title="配置字体"></a>配置字体</h1><p>打开kitty的配置文件<code>nvim ~/.config/kitty/kitty.conf</code>，把字号改到12<br><code>font_size 12</code><br>输入<code>kitty list-fonts --psnames</code>来列出系统安装好的所有等宽字体。</p>
+<h1 id="设置窗口风格"><a href="#设置窗口风格" class="headerlink" title="设置窗口风格"></a>设置窗口风格</h1><p>进入配置文件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#window</span><br><span class="line"># 不显示窗口标题栏 保留窗口圆角</span><br><span class="line">hide_window_decorations titlebar-only</span><br><span class="line"># 边距</span><br><span class="line">window_padding_width 5           </span><br><span class="line"># 不透明度</span><br><span class="line">background_opacity   0.8 </span><br><span class="line"># 毛玻璃效果</span><br><span class="line">background_blur      30                  </span><br></pre></td></tr></table></figure>
+
+<h1 id="设置标签栏风格"><a href="#设置标签栏风格" class="headerlink" title="设置标签栏风格"></a>设置标签栏风格</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#tab bar</span><br><span class="line">tab_bar_edge          top</span><br><span class="line">tab_bar_style         powerline</span><br><span class="line">tab_powerline_style   slanted</span><br></pre></td></tr></table></figure>
+
+<h1 id="安装终端文件管理器"><a href="#安装终端文件管理器" class="headerlink" title="安装终端文件管理器"></a>安装终端文件管理器</h1><p><code>yay -S yazi</code><br>推荐yazi的原因，就是能用vim快捷键啊！hjkl好文明！<br>而且它还能直接在终端预览图片<br><img src="/../../images/Pasted%20image%2020250309131507.png"></p>
+<h1 id="最终效果预览"><a href="#最终效果预览" class="headerlink" title="最终效果预览"></a>最终效果预览</h1><p><img src="/../../images/Pasted%20image%2020250309131145.png"></p>
+<p><img src="/../../images/Pasted%20image%2020250309131221.png"></p>
+]]></content>
+      <categories>
+        <category>技术研究</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>终端</tag>
+        <tag>美化</tag>
+        <tag>Arch</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux排错手札：从日志深渊到问题核心的修炼指南</title>
+    <url>/2025/03/09/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/Linux%E6%8E%92%E9%94%99%E6%89%8B%E6%9C%AD%EF%BC%9A%E4%BB%8E%E6%97%A5%E5%BF%97%E6%B7%B1%E6%B8%8A%E5%88%B0%E9%97%AE%E9%A2%98%E6%A0%B8%E5%BF%83%E7%9A%84%E4%BF%AE%E7%82%BC%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<h3 id="一、日志：系统故障的「自白书」"><a href="#一、日志：系统故障的「自白书」" class="headerlink" title="一、日志：系统故障的「自白书」"></a>一、日志：系统故障的「自白书」</h3><p>折腾Linux系统，最怕的不是报错，而是面对满屏日志时的茫然。就像侦探破案需要线索，日志就是系统留给你的自白书。</p>
+<ol>
+<li><strong>优先级锁定法</strong><blockquote>
+<p>别总盯着控制台的输出发呆</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>通过<code>journalctl -b -1 | grep -i &quot;error\|fail\|warning&quot;</code>过滤关键错误，优先解决标红部分。例如，若看到<code>nvidia-gpu i2c timeout error</code>，直接定位显卡驱动兼容性问题 。</li>
+<li><strong>核心工具链</strong>：<code>dmesg</code>看内核咆哮，<code>htop</code>查资源瓶颈，<code>strace</code>跟踪进程行为——这三板斧能解决80%的玄学问题。</li>
+</ul>
+<ol start="2">
+<li><strong>分层排查术</strong></li>
+</ol>
+<ul>
+<li>硬件层：<code>smartctl</code>扫磁盘健康，<code>lspci -vvv</code>看设备状态。</li>
+<li>系统层：<code>systemd-analyze blame</code>揪出拖慢启动的服务，<code>chmod</code>和<code>chown</code>解决权限不足的经典报错（比如<code>Error EACCES(-13)</code>） 。</li>
+<li>网络层：<code>tcpdump</code>抓包拆解，<code>ss -tuln</code>查端口占用，拒绝「端口冲突」这种低级失误。</li>
+</ul>
+<h3 id="二、AI助手：一把双刃剑"><a href="#二、AI助手：一把双刃剑" class="headerlink" title="二、AI助手：一把双刃剑"></a>二、AI助手：一把双刃剑</h3><p>AI生成的解决方案像快餐——便捷但可能夹生。</p>
+<ol>
+<li><strong>环境差异陷阱</strong></li>
+</ol>
+<ul>
+<li>某次解决休眠失败时，AI建议修改<code>/etc/systemd/sleep.conf</code>，却忽略了我的NVIDIA闭源驱动与内核6.13.5-zen的兼容性问题，最终靠<code>nvidia-dkms</code>+LTS内核组合拳才搞定。</li>
+<li><strong>教训</strong>：永远手动验证命令，尤其是涉及<code>mkinitcpio</code>和<code>grub</code>的操作。</li>
+</ul>
+<ol start="2">
+<li><strong>提问的艺术</strong></li>
+</ol>
+<ul>
+<li>错误示范：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">我的系统挂了，怎么办？  </span><br></pre></td></tr></table></figure>
+<ul>
+<li>正确姿势：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">系统：Arch Linux 6.13.5-zen  </span><br><span class="line">现象：休眠后直接关机，日志见Pastebin链接  </span><br><span class="line">已尝试：更新NVIDIA驱动、调整logind.conf </span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>信息密度决定解决速度</strong>。</li>
+</ul>
+<h3 id="三、快速命中BUG要害的三大心法"><a href="#三、快速命中BUG要害的三大心法" class="headerlink" title="三、快速命中BUG要害的三大心法"></a>三、快速命中BUG要害的三大心法</h3><ol>
+<li><strong>最小化复现沙盒</strong></li>
+</ol>
+<ul>
+<li>用Docker构建纯净环境：<code>docker run -it archlinux/base</code>，逐层添加服务，直到BUG复现。某次KDE崩溃问题，正是通过对比沙盒与实机差异，发现是<code>fcitx5</code>与<code>qt6</code>插件未安装导致。</li>
+</ul>
+<ol>
+<li><strong>五问法：直捣问题本质</strong></li>
+</ol>
+<ul>
+<li>为什么休眠失败？→ systemd触发了混合休眠</li>
+<li>为什么混合休眠失败？→ swap分区未正确挂载</li>
+<li>为什么swap挂载异常？→ 内核参数漏了<code>resume=UUID=xxxx</code></li>
+<li>……（追问至硬件层或配置层）</li>
+</ul>
+<p> </p>
+<ol>
+<li><strong>社区暗网：逆向搜索术</strong></li>
+</ol>
+<ul>
+<li>在Arch Wiki直接搜索「Hibernation」比泛读文档高效十倍。</li>
+<li>GitHub Issues区用<code>error code: 0x80080005</code>等关键词筛选，常能找到同病相怜者的解决方案</li>
+</ul>
+<p> </p>
+<h3 id="四、从「排错」到「防御性运维」"><a href="#四、从「排错」到「防御性运维」" class="headerlink" title="四、从「排错」到「防御性运维」"></a>四、从「排错」到「防御性运维」</h3><ol>
+<li><strong>监控预警体系</strong></li>
+</ol>
+<ul>
+<li>用<code>prometheus</code>+<code>grafana</code>监控硬盘SMART值、内存泄漏趋势。</li>
+<li>自定义<code>systemd服务单元</code>检测关键进程，崩溃时自动发Telegram告警。</li>
+</ul>
+<ol>
+<li><strong>配置版本化管理</strong></li>
+</ol>
+<ul>
+<li>将<code>/etc</code>目录纳入Git仓库，每次修改前<code>git commit -m &quot;调整X配置&quot;</code>，回滚只需<code>git checkout -- /etc/nginx.conf</code>。</li>
+<li>重要操作前用<code>timeshift</code>拍快照，手滑执行<code>rm -rf /*</code>也能瞬间复活</li>
+</ul>
+<p> </p>
+<h3 id="结语：故障是进阶的垫脚石"><a href="#结语：故障是进阶的垫脚石" class="headerlink" title="结语：故障是进阶的垫脚石"></a>结语：故障是进阶的垫脚石</h3><p>每一次排错都是与系统的深度对话。那些在深夜与<code>journalctl</code>对视的时刻，终将化作终端里游刃有余的指尖舞蹈。记住：</p>
+<blockquote>
+<p><strong>“Linux不会背叛你，它只是用错误日志写情书。”</strong><br>（完）</p>
+</blockquote>
+<p><del>结尾发癫：突然感觉Arch好可爱啊，长时间不理她，她就生气，要花很长时间，很大精力去哄，最重要的是，她是蓝毛。</del></p>
+<p><strong>附：排错工具速查表</strong></p>
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>工具&#x2F;命令</th>
+<th>典型问题案例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>启动慢</td>
+<td><code>systemd-analyze blame</code></td>
+<td>被卡在<code>NetworkManager</code></td>
+</tr>
+<tr>
+<td>权限问题</td>
+<td><code>ls -l /path; getfacl /path</code></td>
+<td><code>Permission denied</code></td>
+</tr>
+<tr>
+<td>硬件兼容</td>
+<td><code>lspci -k; dmesg | grep acpi</code></td>
+<td>NVIDIA驱动加载失败</td>
+</tr>
+<tr>
+<td>资源泄漏</td>
+<td><code>vmstat 1; slabtop</code></td>
+<td>内存被<code>zombie</code>进程吞噬</td>
+</tr>
+</tbody></table>
+<p><em>本文部分解决方案参考自Arch Wiki及Linux内核文档</em></p>
+]]></content>
+      <categories>
+        <category>技术研究</category>
+      </categories>
+      <tags>
+        <tag>服务器</tag>
+        <tag>Linux</tag>
+        <tag>服务器运维</tag>
+        <tag>系统</tag>
+        <tag>系统运维</tag>
+        <tag>运维</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【无废话】全网最简单的Hexo+Obsidain图片解决方案</title>
     <url>/2025/03/05/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/%E3%80%90%E6%97%A0%E5%BA%9F%E8%AF%9D%E3%80%91%E5%85%A8%E7%BD%91%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84Hexo+Obsidain%E5%9B%BE%E7%89%87%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
     <content><![CDATA[<p>把Hexo博客根目录用黑曜石打开，如果已经打开了仓库<br><img src="/../../images/Pasted%20image%2020250305215423.png"><br>在弹出的窗口中选第二个。<br>在source目录下新建images文件夹用于存放图片<br>设置 &#x3D;&gt; 文件与链接 &#x3D;&gt; 附件默认存放路径：选择指定的附件文件夹。路径填写刚刚创建的image文件夹的相对路径<br>取消使用Wiki链接<br>注意。由于我的文件结构是这样的所以这么填写，要<strong>根据自己的文件结构填写相对路径</strong>。<br><img src="/../../images/Pasted%20image%2020250305215642.png"><br><img src="/../../images/Pasted%20image%2020250305215910.png" alt="我的文件结构"><br>搞定，同时可以在本地编辑环境和博客网站中显示。</p>
