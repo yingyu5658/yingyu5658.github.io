@@ -1,386 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>C语言Linux标准IO函数学习笔记</title>
-    <url>/2025/03/10/C%E8%AF%AD%E8%A8%80%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E2%80%94%E2%80%94%E9%80%92%E5%BD%92%E9%81%8D%E5%8E%86/</url>
-    <content><![CDATA[<p>打开文件：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-]]></content>
-  </entry>
-  <entry>
-    <title>Vim基础操作快速入门</title>
-    <url>/2024/12/13/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/2024-12-13-Vim%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>各种鼠标操作让我有点抓狂，vim或许是一个很适合我的东西，全键盘操作听起来就很方便快捷，除了上手难度有点高以外，vim看起来似乎没有任何的缺点。在下载安装好了vim后，我开始学习了快捷键。<del>然后我们就可以直接把鼠标扔了。</del><br><strong>记住要先把输入法切换成英文模式</strong></p>
-<h1 id="普通模式"><a href="#普通模式" class="headerlink" title="普通模式"></a>普通模式</h1><h2 id="退出"><a href="#退出" class="headerlink" title="退出"></a>退出</h2><p>很多人第一次用vim，最难受的事情绝对是不知道怎么退出。<br>退出：<code>:q!</code></p>
-<h2 id="移动光标"><a href="#移动光标" class="headerlink" title="移动光标"></a>移动光标</h2><p><code>h</code> <code>j</code> <code>k</code> <code>l</code> 这四个按键分别对应左 下 上 右</p>
-<blockquote>
-<p>这个比较难适应，不过也比把手移动到右下方用箭头键舒服了</p>
-</blockquote>
-<h3 id="大范围移动"><a href="#大范围移动" class="headerlink" title="大范围移动"></a>大范围移动</h3><p>行数 + <code>h</code>&#x2F; <code>j</code>&#x2F; <code>k</code>&#x2F; <code>l</code><br>比如，想要向下移动三行，就是3<code>j</code>，向左移动四格，就是3<code>h</code><br><code>gg</code> 跳转到文档的最上方<br><code>G</code> 跳转到文档的最下方</p>
-<h3 id="按照单词跳转"><a href="#按照单词跳转" class="headerlink" title="按照单词跳转"></a>按照单词跳转</h3><p><code>w</code>，也就是“word”的首字母。就可以跳转到下一个单词的开头。<br><code>b</code> beginning就跳转到前一个单词的开头<br><code>f</code> find 查找单词。比如要把光标移动到离你最近的b，就可以输入<code>fb</code></p>
-<h3 id="翻页"><a href="#翻页" class="headerlink" title="翻页"></a>翻页</h3><p><code>Ctrl + u</code>向上翻页。u理解为up首字母。<br><code>Ctrl + d</code>向下翻页。d理解为down首字母。</p>
-<h2 id="复制粘贴"><a href="#复制粘贴" class="headerlink" title="复制粘贴"></a>复制粘贴</h2><p>在普通模式下，输入<code>y</code> （yank），复制整个单词：<code>yaw</code> “aw’“为<del>阿伟</del> all word<br><code>p</code> 即paste，粘贴。</p>
-<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><p>普通模式下，<code>d</code> 也就是delete，直接删除当前行和下一行的内容<br>还可以跟上文的<code>hjkl</code>结合起来，比如d8j就是向下删除八行</p>
-<h2 id="撤销"><a href="#撤销" class="headerlink" title="撤销"></a>撤销</h2><p><code>u</code> 也就是undo。</p>
-<blockquote>
-<p>这些快捷键很灵活，都可以互相结合使用</p>
-</blockquote>
-<h1 id="输入模式"><a href="#输入模式" class="headerlink" title="输入模式"></a>输入模式</h1><h2 id="进入输入模式"><a href="#进入输入模式" class="headerlink" title="进入输入模式"></a>进入输入模式</h2><p>在普通模式下，输入<code>i</code> 也就是insert，就可以进入输入模式了。</p>
-<ol>
-<li><code>i</code>是在当前光标的前一个字母开始输入。</li>
-<li>使用<code>a</code>也就是append，就可以在当前光标之后输入。</li>
-<li>使用<code>I</code>就会从这一行的开头进入输入模式。</li>
-<li>使用<code>A</code>就会从这一行的末尾进入输入模式。<br>完成编辑后，使用<code>ESC</code> 就可以退出编辑模式，回到普通模式了。</li>
-</ol>
-<h1 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h1><p>在普通模式下输入<code>：</code>就可以进入命令模式，按下<code>ESC</code>就会退出命令模式。<br>在下方的命令行中，可以输入命令<br><code>q</code>也就是quit就可以退出<br>保存<code>w</code><br> 保存并退出<code>wq</code></p>
-<h1 id="可视模式"><a href="#可视模式" class="headerlink" title="可视模式"></a>可视模式</h1><p>普通模式下按下<code>v</code>就可以进入可视模式。</p>
-<h1 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h1><p>vim中修改键位，安装主题全都是用一个配置文件来完成的。<br>原版vim的配置文件叫做.vimrc<br>关于修改键位，我的看法是不要改，因为你适应之后上服务端就会很难受，什么都不适应。</p>
-]]></content>
-      <categories>
-        <category>技术研究</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>开箱即用的neovim配置文件</title>
-    <url>/2025/01/22/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/2025-01-22-%E5%BC%80%E7%AE%B1%E5%8D%B3%E7%94%A8%E7%9A%84neovim%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</url>
-    <content><![CDATA[<h3 id="下载链接"><a href="#下载链接" class="headerlink" title="下载链接"></a>下载链接</h3><p><a href="https://yingyu5658.lanzoup.com/iWfXQ2ln6jre">https://yingyu5658.lanzoup.com/iWfXQ2ln6jre</a><br>为了兄弟们下得爽点就不用百度网盘或者夸克了<br>代码都有比较详细的注释</p>
-<h3 id="语言支持策略"><a href="#语言支持策略" class="headerlink" title="语言支持策略"></a>语言支持策略</h3><ul>
-<li><p><strong>核心开发场景</strong><br>  <code>HTML/CSS/JavaScript</code> </p>
-</li>
-<li><p><strong>扩展语言</strong><br>  <code>C/CPP</code> 基础语法支持<br>  Java建议 JetBrains IDE 深度开发</p>
-</li>
-</ul>
-<h3 id="插件生态："><a href="#插件生态：" class="headerlink" title="插件生态："></a>插件生态：</h3><table>
-<thead>
-<tr>
-<th>插件名称</th>
-<th>功能定位</th>
-<th>配置文件位置</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>LazyVim</strong></td>
-<td>现代化配置框架</td>
-<td><code>lua/lazyvim/config/lazy.lua</code></td>
-</tr>
-<tr>
-<td><strong>coc.nvim</strong></td>
-<td>智能语言服务引擎</td>
-<td><code>coc-settings.json</code> + 内联配置</td>
-</tr>
-<tr>
-<td><strong>TokyoNight</strong></td>
-<td>专业暗色主题</td>
-<td>主题配置文件</td>
-</tr>
-<tr>
-<td><strong>nvim-tree</strong></td>
-<td>可视化文件系统</td>
-<td><code>keymaps.lua</code> 集成快捷键</td>
-</tr>
-</tbody></table>
-<p>还有一些辅助性质的插件，在此不一一列举</p>
-<h3 id="文件结构："><a href="#文件结构：" class="headerlink" title="文件结构："></a>文件结构：</h3><p>nvim<br>│<br>├── coc-settings.json    # LSP&#x2F;语法检查&#x2F;代码补全规则库<br>├── init.lua             # 配置入口（模块化加载器）<br>├── lazy-lock.json       # 插件版本锁定文件（自动生成）<br>│<br>└─lua&#x2F;<br>   ├─core&#x2F;<br>   │   └─keymaps.lua     # 全模式快捷键中枢<br>   │<br>   ├─lazyvim&#x2F;            # LazyVim 框架核心<br>   │  └─config&#x2F;<br>   │      └─lazy.lua     # 插件加载策略<br>   │<br>   └─plugins&#x2F;            # 插件扩展区<br>       └─plugins.lua     # 第三方插件注册中心</p>
-<h3 id="快捷键配置"><a href="#快捷键配置" class="headerlink" title="快捷键配置"></a>快捷键配置</h3><p> 全局设置<br>▸ 主键(leader) &#x3D; 空格键</p>
-<p> 窗口管理 (正常模式)<br>▸ <code>&lt;空格&gt; + s + v</code> 垂直分割窗口<br>▸ <code>&lt;空格&gt; + s + h</code> 水平分割窗口<br>▸ <code>&lt;空格&gt; + n + h</code> 取消搜索结果高亮</p>
-<p> 文件树操作 (正常模式)<br>▸ <code>&lt;空格&gt; + Tab键</code> 切换NvimTree显示</p>
-<p> 文本操作 (可视模式)<br>▸ <code>J</code> 向下移动选中块(保持选中状态)<br>▸ <code>K</code> 向上移动选中块(保持选中状态)</p>
-<p> 代码补全 (插入模式)<br>▸ <code>Ctrl + Space</code> 触发补全建议<br>▸ <code>Enter</code> 确认补全选择(补全可见时)&#x2F;普通回车<br>▸ <code>Tab</code> 选择下一个补全项(补全可见时)&#x2F;普通Tab<br>▸ <code>Shift + Tab</code> 选择上一个补全项(补全可见时)&#x2F;反向Tab</p>
-]]></content>
-      <categories>
-        <category>技术研究</category>
-      </categories>
-      <tags>
-        <tag>Neovim</tag>
-        <tag>Vim</tag>
-        <tag>Nvim</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JavaScript鼠标指针操作</title>
-    <url>/2025/03/04/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/CSS%E9%BC%A0%E6%A0%87%E6%8C%87%E9%92%88%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<p>今天在上网冲浪的时候，看到Github上有一个明日方舟风格的<a href="https://github.com/Yue-plus/hexo-theme-arknights">主题</a>，这个主题让我感到新鲜的一点是网页中的鼠标指针特效<br><img src="/../../images/view.gif"><br>这么舒服的动画效果我必须也要做一个，说干就干，新建个HTML文档。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">* &#123;</span><br><span class="line"> <span class="attribute">cursor</span>: pointer;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这样，我们整个网页的鼠标指针样式就都变成了小手指的样式，不过这样还是太丑，我们仿照arknights主题的样式，打开PS，画一个指针图标出来看看<br><img src="/../../images/screen.png"><br>使用url()属性可以替换自己的素材图片</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">   <span class="attribute">cursor</span>: <span class="built_in">url</span>(<span class="string">&#x27;./source/cu.ico&#x27;</span>), auto;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-
-<p>这样鼠标指针的效果就做好了（因为我的截图软件要用鼠标指针选区，所以截不到图&gt;&lt;）</p>
-]]></content>
-      <tags>
-        <tag>编程</tag>
-        <tag>Javascript</tag>
-        <tag>前端</tag>
-        <tag>网页</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>KDE桌面环境无法在Konsole切换中文输入法的解决方案</title>
-    <url>/2025/03/08/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/KDE%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E6%97%A0%E6%B3%95%E5%9C%A8Konsole%E5%88%87%E6%8D%A2%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
-    <content><![CDATA[<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>KDE默认使用Wayland会话，而fcitx4不支持Wayland，需升级到fcitx5。若无法升级到fcitx5或升级后仍然无法切换中文输入法，<strong>安装fcitx-qt6</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S fcitx-qt6</span><br></pre></td></tr></table></figure>
-
-<p>安装后执行<code>sudo reboot now</code>进行重启，问题解决。</p>
-]]></content>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Kitty终端美化记录</title>
-    <url>/2025/03/09/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/Kitty%E7%BB%88%E7%AB%AF%E7%BE%8E%E5%8C%96%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<p>Kitty这个终端可谓是兼顾了性能与美观，虽然默认设置很简陋，但是经过一番折腾后也能变得很漂亮。</p>
-<h1 id="选择配色"><a href="#选择配色" class="headerlink" title="选择配色"></a>选择配色</h1><p>运行<code>kitty + kitten themes</code>后会弹出一个选择配色的界面<br><img src="/../../images/Pasted%20image%2020250309124346.png"><br>令我感到非常高兴的是，这个界面支持vim的hjkl键位，也可以用&#x2F;来搜索。<br>选好后，回车按m，command + ^ + ,重载配置文件。</p>
-<h1 id="配置字体"><a href="#配置字体" class="headerlink" title="配置字体"></a>配置字体</h1><p>打开kitty的配置文件<code>nvim ~/.config/kitty/kitty.conf</code>，把字号改到12<br><code>font_size 12</code><br>输入<code>kitty list-fonts --psnames</code>来列出系统安装好的所有等宽字体。</p>
-<h1 id="设置窗口风格"><a href="#设置窗口风格" class="headerlink" title="设置窗口风格"></a>设置窗口风格</h1><p>进入配置文件</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#window</span><br><span class="line"># 不显示窗口标题栏 保留窗口圆角</span><br><span class="line">hide_window_decorations titlebar-only</span><br><span class="line"># 边距</span><br><span class="line">window_padding_width 5           </span><br><span class="line"># 不透明度</span><br><span class="line">background_opacity   0.8 </span><br><span class="line"># 毛玻璃效果</span><br><span class="line">background_blur      30                  </span><br></pre></td></tr></table></figure>
-
-<h1 id="设置标签栏风格"><a href="#设置标签栏风格" class="headerlink" title="设置标签栏风格"></a>设置标签栏风格</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#tab bar</span><br><span class="line">tab_bar_edge          top</span><br><span class="line">tab_bar_style         powerline</span><br><span class="line">tab_powerline_style   slanted</span><br></pre></td></tr></table></figure>
-
-<h1 id="安装终端文件管理器"><a href="#安装终端文件管理器" class="headerlink" title="安装终端文件管理器"></a>安装终端文件管理器</h1><p><code>yay -S yazi</code><br>推荐yazi的原因，就是能用vim快捷键啊！hjkl好文明！<br>而且它还能直接在终端预览图片<br><img src="/../../images/Pasted%20image%2020250309131507.png"></p>
-<h1 id="最终效果预览"><a href="#最终效果预览" class="headerlink" title="最终效果预览"></a>最终效果预览</h1><p><img src="/../../images/Pasted%20image%2020250309131145.png"></p>
-<p><img src="/../../images/Pasted%20image%2020250309131221.png"></p>
-]]></content>
-      <categories>
-        <category>技术研究</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>终端</tag>
-        <tag>美化</tag>
-        <tag>Arch</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux排错手札：从日志深渊到问题核心的修炼指南</title>
-    <url>/2025/03/09/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/Linux%E6%8E%92%E9%94%99%E6%89%8B%E6%9C%AD%EF%BC%9A%E4%BB%8E%E6%97%A5%E5%BF%97%E6%B7%B1%E6%B8%8A%E5%88%B0%E9%97%AE%E9%A2%98%E6%A0%B8%E5%BF%83%E7%9A%84%E4%BF%AE%E7%82%BC%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<h3 id="一、日志：系统故障的「自白书」"><a href="#一、日志：系统故障的「自白书」" class="headerlink" title="一、日志：系统故障的「自白书」"></a>一、日志：系统故障的「自白书」</h3><p>折腾Linux系统，最怕的不是报错，而是面对满屏日志时的茫然。就像侦探破案需要线索，日志就是系统留给你的自白书。</p>
-<ol>
-<li><strong>优先级锁定法</strong><blockquote>
-<p>别总盯着控制台的输出发呆</p>
-</blockquote>
-</li>
-</ol>
-<ul>
-<li>通过<code>journalctl -b -1 | grep -i &quot;error\|fail\|warning&quot;</code>过滤关键错误，优先解决标红部分。例如，若看到<code>nvidia-gpu i2c timeout error</code>，直接定位显卡驱动兼容性问题 。</li>
-<li><strong>核心工具链</strong>：<code>dmesg</code>看内核咆哮，<code>htop</code>查资源瓶颈，<code>strace</code>跟踪进程行为——这三板斧能解决80%的玄学问题。</li>
-</ul>
-<ol start="2">
-<li><strong>分层排查术</strong></li>
-</ol>
-<ul>
-<li>硬件层：<code>smartctl</code>扫磁盘健康，<code>lspci -vvv</code>看设备状态。</li>
-<li>系统层：<code>systemd-analyze blame</code>揪出拖慢启动的服务，<code>chmod</code>和<code>chown</code>解决权限不足的经典报错（比如<code>Error EACCES(-13)</code>） 。</li>
-<li>网络层：<code>tcpdump</code>抓包拆解，<code>ss -tuln</code>查端口占用，拒绝「端口冲突」这种低级失误。</li>
-</ul>
-<h3 id="二、AI助手：一把双刃剑"><a href="#二、AI助手：一把双刃剑" class="headerlink" title="二、AI助手：一把双刃剑"></a>二、AI助手：一把双刃剑</h3><p>AI生成的解决方案像快餐——便捷但可能夹生。</p>
-<ol>
-<li><strong>环境差异陷阱</strong></li>
-</ol>
-<ul>
-<li>某次解决休眠失败时，AI建议修改<code>/etc/systemd/sleep.conf</code>，却忽略了我的NVIDIA闭源驱动与内核6.13.5-zen的兼容性问题，最终靠<code>nvidia-dkms</code>+LTS内核组合拳才搞定。</li>
-<li><strong>教训</strong>：永远手动验证命令，尤其是涉及<code>mkinitcpio</code>和<code>grub</code>的操作。</li>
-</ul>
-<ol start="2">
-<li><strong>提问的艺术</strong></li>
-</ol>
-<ul>
-<li>错误示范：</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">我的系统挂了，怎么办？  </span><br></pre></td></tr></table></figure>
-<ul>
-<li>正确姿势：</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">系统：Arch Linux 6.13.5-zen  </span><br><span class="line">现象：休眠后直接关机，日志见Pastebin链接  </span><br><span class="line">已尝试：更新NVIDIA驱动、调整logind.conf </span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>信息密度决定解决速度</strong>。</li>
-</ul>
-<h3 id="三、快速命中BUG要害的三大心法"><a href="#三、快速命中BUG要害的三大心法" class="headerlink" title="三、快速命中BUG要害的三大心法"></a>三、快速命中BUG要害的三大心法</h3><ol>
-<li><strong>最小化复现沙盒</strong></li>
-</ol>
-<ul>
-<li>用Docker构建纯净环境：<code>docker run -it archlinux/base</code>，逐层添加服务，直到BUG复现。某次KDE崩溃问题，正是通过对比沙盒与实机差异，发现是<code>fcitx5</code>与<code>qt6</code>插件未安装导致。</li>
-</ul>
-<ol>
-<li><strong>五问法：直捣问题本质</strong></li>
-</ol>
-<ul>
-<li>为什么休眠失败？→ systemd触发了混合休眠</li>
-<li>为什么混合休眠失败？→ swap分区未正确挂载</li>
-<li>为什么swap挂载异常？→ 内核参数漏了<code>resume=UUID=xxxx</code></li>
-<li>……（追问至硬件层或配置层）</li>
-</ul>
-<p> </p>
-<ol>
-<li><strong>社区暗网：逆向搜索术</strong></li>
-</ol>
-<ul>
-<li>在Arch Wiki直接搜索「Hibernation」比泛读文档高效十倍。</li>
-<li>GitHub Issues区用<code>error code: 0x80080005</code>等关键词筛选，常能找到同病相怜者的解决方案</li>
-</ul>
-<p> </p>
-<h3 id="四、从「排错」到「防御性运维」"><a href="#四、从「排错」到「防御性运维」" class="headerlink" title="四、从「排错」到「防御性运维」"></a>四、从「排错」到「防御性运维」</h3><ol>
-<li><strong>监控预警体系</strong></li>
-</ol>
-<ul>
-<li>用<code>prometheus</code>+<code>grafana</code>监控硬盘SMART值、内存泄漏趋势。</li>
-<li>自定义<code>systemd服务单元</code>检测关键进程，崩溃时自动发Telegram告警。</li>
-</ul>
-<ol>
-<li><strong>配置版本化管理</strong></li>
-</ol>
-<ul>
-<li>将<code>/etc</code>目录纳入Git仓库，每次修改前<code>git commit -m &quot;调整X配置&quot;</code>，回滚只需<code>git checkout -- /etc/nginx.conf</code>。</li>
-<li>重要操作前用<code>timeshift</code>拍快照，手滑执行<code>rm -rf /*</code>也能瞬间复活</li>
-</ul>
-<p> </p>
-<h3 id="结语：故障是进阶的垫脚石"><a href="#结语：故障是进阶的垫脚石" class="headerlink" title="结语：故障是进阶的垫脚石"></a>结语：故障是进阶的垫脚石</h3><p>每一次排错都是与系统的深度对话。那些在深夜与<code>journalctl</code>对视的时刻，终将化作终端里游刃有余的指尖舞蹈。记住：</p>
-<blockquote>
-<p><strong>“Linux不会背叛你，它只是用错误日志写情书。”</strong><br>（完）</p>
-</blockquote>
-<p><del>结尾发癫：突然感觉Arch好可爱啊，长时间不理她，她就生气，要花很长时间，很大精力去哄，最重要的是，她是蓝毛。</del></p>
-<p><strong>附：排错工具速查表</strong></p>
-<table>
-<thead>
-<tr>
-<th>场景</th>
-<th>工具&#x2F;命令</th>
-<th>典型问题案例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>启动慢</td>
-<td><code>systemd-analyze blame</code></td>
-<td>被卡在<code>NetworkManager</code></td>
-</tr>
-<tr>
-<td>权限问题</td>
-<td><code>ls -l /path; getfacl /path</code></td>
-<td><code>Permission denied</code></td>
-</tr>
-<tr>
-<td>硬件兼容</td>
-<td><code>lspci -k; dmesg | grep acpi</code></td>
-<td>NVIDIA驱动加载失败</td>
-</tr>
-<tr>
-<td>资源泄漏</td>
-<td><code>vmstat 1; slabtop</code></td>
-<td>内存被<code>zombie</code>进程吞噬</td>
-</tr>
-</tbody></table>
-<p><em>本文部分解决方案参考自Arch Wiki及Linux内核文档</em></p>
-]]></content>
-      <categories>
-        <category>技术研究</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>服务器</tag>
-        <tag>服务器运维</tag>
-        <tag>系统</tag>
-        <tag>系统运维</tag>
-        <tag>运维</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【无废话】全网最简单的Hexo+Obsidain图片解决方案</title>
-    <url>/2025/03/05/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/%E3%80%90%E6%97%A0%E5%BA%9F%E8%AF%9D%E3%80%91%E5%85%A8%E7%BD%91%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84Hexo+Obsidain%E5%9B%BE%E7%89%87%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
-    <content><![CDATA[<p>把Hexo博客根目录用黑曜石打开，如果已经打开了仓库<br><img src="/../../images/Pasted%20image%2020250305215423.png"><br>在弹出的窗口中选第二个。<br>在source目录下新建images文件夹用于存放图片<br>设置 &#x3D;&gt; 文件与链接 &#x3D;&gt; 附件默认存放路径：选择指定的附件文件夹。路径填写刚刚创建的image文件夹的相对路径<br>取消使用Wiki链接<br>注意。由于我的文件结构是这样的所以这么填写，要<strong>根据自己的文件结构填写相对路径</strong>。<br><img src="/../../images/Pasted%20image%2020250305215642.png"><br><img src="/../../images/Pasted%20image%2020250305215910.png" alt="我的文件结构"><br>搞定，同时可以在本地编辑环境和博客网站中显示。</p>
-]]></content>
-      <categories>
-        <category>技术研究</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>Obsidain</tag>
-        <tag>博客</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【未解决】Windows WSL报错：Error: 0x80080005 ???????</title>
-    <url>/2025/03/04/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/%E3%80%90%E6%9C%AA%E8%A7%A3%E5%86%B3%E3%80%91Windows-WSL%E6%8A%A5%E9%94%99%EF%BC%9AError-0x80080005/</url>
-    <content><![CDATA[<p>设备环境：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">操作系统：Windows 10</span><br><span class="line">安装系统：Arch Linux</span><br><span class="line">错误日志：</span><br><span class="line">Installing, this may take a few minutes...</span><br><span class="line">WslRegisterDistribution failed with error: 0x80080005</span><br><span class="line">Error: 0x80080005 ???????</span><br><span class="line"></span><br><span class="line">Press any key to continue...</span><br></pre></td></tr></table></figure>
-<p>网上有一篇<a href="https://ask.csdn.net/questions/7625716">文章</a>提到这个错误，下面的评论回复以管理员权限运行命令提示符并执行<code>sc stop LxssManager</code>和<code>sc start LxssManager</code><br>出现如下报错：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">C:\Windows\system32&gt;sc stop LxssManager</span><br><span class="line">[SC] OpenService 失败 1060:</span><br><span class="line"></span><br><span class="line">指定的服务未安装。</span><br></pre></td></tr></table></figure>
-<p>顺藤摸瓜，在网上寻找<code>LxssManager</code>这个服务要如何安装。<br>网上暂时还没有找到相关文章能够解决这个问题，但是CSDN的一篇文章引起了我的注意<br><a href="https://blog.csdn.net/renwudao24/article/details/52061906">[SC] OpenService 失败：1060指定的服务未安装_[sc] openservice 失败 1060: 指定的服务未安装。-CSDN博客</a><br>文章中提到了“服务”，在开始菜单中搜索服务，进入应用找到了一个名为WSL Service的服务。点左上角启动。<br>![[_posts\Windows-WSL报错：Error-0x80080005\Pasted image 20250304211246.png]]<br>提取关键信息：<strong>1058、被禁用、关联的设备没有启动</strong>。<br>检查功能是否开启：按下 <code>Win+S</code> 搜索 <strong>启用或关闭Windows功能</strong><br>勾选<code>适用于Linux的Windows子系统</code>和<code>虚拟机平台</code>这两项，点击确定<br>![[_posts\Windows-WSL报错：Error-0x80080005\Pasted image 20250304212523.png]]<br>![[_posts\Windows-WSL报错：Error-0x80080005\Pasted image 20250304212716.png]]<br>重启电脑。<br>回来以后，用管理员身份运行powershell，强制重置WSL服务，依次执行：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wsl --shutdown </span><br><span class="line">wsl --unregister Arch <span class="comment"># 替换为你的发行版名称 </span></span><br><span class="line">wsl --install -d Arch <span class="comment"># 重新注册发行版</span></span><br></pre></td></tr></table></figure>
-<p>如果提示内核缺失，在这里下<a href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi">https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi</a></p>
-<p>如果有以下输出：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">zcz  system32  ♥ 21:32  wsl --shutdown</span><br><span class="line">此应用程序需要适用于 Linux 的 Windows 子系统可选组件。</span><br><span class="line">通过运行安装它： wsl.exe --install --no-distribution</span><br><span class="line">可能需要重新启动系统才能使更改生效。</span><br><span class="line">错误代码: Wsl/WSL_E_WSL_OPTIONAL_COMPONENT_REQUIRED</span><br></pre></td></tr></table></figure>
-<p>两种可能：</p>
-<ol>
-<li>没有安装WSL服务</li>
-<li><strong>服务被禁用</strong><br>后者比较棘手，我们先做第一种尝试<br><strong>强制安装WSL组件</strong><br><strong>以管理员身份运行 PowerShell</strong>，执行以下命令：</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装WSL核心组件（会自动启用虚拟化功能） </span></span><br><span class="line">wsl --install</span><br></pre></td></tr></table></figure>
-<p>输出：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">zcz  system32  ♥ 21:34  wsl --install</span><br><span class="line">正在安装 Windows 可选组件: Microsoft-Windows-Subsystem-Linux</span><br><span class="line"></span><br><span class="line">Deployment Image Servicing and Management tool</span><br><span class="line">Version: 10.0.19041.3636</span><br><span class="line"></span><br><span class="line">Image Version: 10.0.19045.5487</span><br><span class="line"></span><br><span class="line">启用一个或多个功能</span><br><span class="line">[==========================100.0%==========================]</span><br><span class="line">The operation completed successfully.</span><br><span class="line">正在安装 Windows 可选组件: VirtualMachinePlatform</span><br><span class="line"></span><br><span class="line">Deployment Image Servicing and Management tool</span><br><span class="line">Version: 10.0.19041.3636</span><br><span class="line"></span><br><span class="line">Image Version: 10.0.19045.5487</span><br><span class="line"></span><br><span class="line">启用一个或多个功能</span><br><span class="line">[==========================100.0%==========================]</span><br><span class="line">The operation completed successfully.</span><br><span class="line">请求的操作成功。直到重新启动系统前更改将不会生效。</span><br></pre></td></tr></table></figure>
-<p>再次进行重启。<br><code>Restart-Computer</code><br>开机加载界面显示：我们无法完成更新，正在撤销更改。。<br>尝试过的方法：进入安全模式，尝试重启更新，失败。<br>安全模式仍然失败，选择临时禁用WSL服务<br>管理员cmd执行</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sc</span> config LxssManager <span class="built_in">start</span>= disabled </span><br><span class="line">shutdown /<span class="built_in">r</span> /t <span class="number">0</span></span><br></pre></td></tr></table></figure>
-<p>输出：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">C:\Windows\system32&gt;sc config LxssManager start= disabled&amp;&amp; shutdown /r /t 0</span><br><span class="line">[SC] OpenService 失败 1060:</span><br><span class="line"></span><br><span class="line">指定的服务未安装。</span><br></pre></td></tr></table></figure>
-<p>唉，老朋友，又见面了。只能祭出来我的终极大杀器。</p>
-<h3 id="彻底重装WSL"><a href="#彻底重装WSL" class="headerlink" title="彻底重装WSL"></a><strong>彻底重装WSL</strong></h3><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 卸载所有发行版 </span></span><br><span class="line">wsl <span class="literal">--unregister</span> * </span><br><span class="line"><span class="comment"># 删除残留配置 </span></span><br><span class="line"><span class="built_in">Remove-Item</span> <span class="literal">-Path</span> <span class="string">&quot;<span class="variable">$env:USERPROFILE</span>\AppData\Local\Packages\*Linux*&quot;</span> <span class="literal">-Recurse</span> <span class="literal">-Force</span></span><br></pre></td></tr></table></figure>
-<p>输出：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">zcz  system32  ♥ 22:04  # 卸载所有发行版</span><br><span class="line">&gt; wsl --unregister *</span><br><span class="line">&gt; # 删除残留配置</span><br><span class="line">&gt; Remove-Item -Path &quot;$env:USERPROFILE\AppData\Local\Packages\*Linux*&quot; -Recurse -Force</span><br><span class="line">正在注销。</span><br><span class="line">此应用程序需要适用于 Linux 的 Windows 子系统可选组件。</span><br><span class="line">通过运行安装它： wsl.exe --install --no-distribution</span><br><span class="line">可能需要重新启动系统才能使更改生效。</span><br><span class="line">错误代码: Wsl/WSL_E_WSL_OPTIONAL_COMPONENT_REQUIRED</span><br></pre></td></tr></table></figure>
-<p>输入<code>wsl.exe --install --no-distribution</code><br>输出：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">zcz  system32  ♥ 22:09  wsl.exe --install --no-distribution</span><br><span class="line">正在安装 Windows 可选组件: Microsoft-Windows-Subsystem-Linux</span><br><span class="line"></span><br><span class="line">Deployment Image Servicing and Management tool</span><br><span class="line">Version: 10.0.19041.3636</span><br><span class="line"></span><br><span class="line">Image Version: 10.0.19045.5487</span><br><span class="line"></span><br><span class="line">启用一个或多个功能</span><br><span class="line">[==========================100.0%==========================]</span><br><span class="line">The operation completed successfully.</span><br><span class="line">正在安装 Windows 可选组件: VirtualMachinePlatform</span><br><span class="line"></span><br><span class="line">Deployment Image Servicing and Management tool</span><br><span class="line">Version: 10.0.19041.3636</span><br><span class="line"></span><br><span class="line">Image Version: 10.0.19045.5487</span><br><span class="line"></span><br><span class="line">启用一个或多个功能</span><br><span class="line">[==========================100.0%==========================]</span><br><span class="line">The operation completed successfully.</span><br><span class="line">请求的操作成功。直到重新启动系统前更改将不会生效。</span><br></pre></td></tr></table></figure>
-<p>继续重启，显示“我们无法完成更新，正在撤销更改。”</p>
-<p><strong>以管理员身份打开CMD</strong>：<br>按下 <code>Win+S</code> → 输入 <code>cmd</code> → 右键选择 <strong>“以管理员身份运行”</strong>   <strong>执行以下命令（注意语法）</strong>：</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">sc config LxssManager <span class="built_in">start</span>= auto</span><br><span class="line">sc config vmcompute <span class="built_in">start</span>= auto </span><br><span class="line"><span class="built_in">net</span> <span class="built_in">start</span> LxssManager </span><br><span class="line"><span class="built_in">net</span> <span class="built_in">start</span> vmcompute</span><br></pre></td></tr></table></figure>
-<p>仍然1085，管理员cmd执行</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">dism /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart </span><br><span class="line"></span><br><span class="line">dism /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart</span><br></pre></td></tr></table></figure>
-<p>尝试重装WSL，出现<br>![[_posts\Windows-WSL报错：Error-0x80080005\Pasted image 20250304222548.png]]</p>
-<p>研究了一阵子，<strong><code>vmcompute</code></strong>（虚拟机核心服务）和 <strong><code>LxssManager</code></strong>（WSL管理服务）均未注册，导致WSL安装向导崩溃。</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 以管理员身份运行 </span></span><br><span class="line">dism.exe /online /<span class="built_in">enable-feature</span> /featurename:Microsoft<span class="literal">-Windows-Subsystem-Linux</span> /all /norestart </span><br><span class="line">dism.exe /online /<span class="built_in">enable-feature</span> /featurename:VirtualMachinePlatform /all /norestart </span><br><span class="line">dism.exe /online /<span class="built_in">enable-feature</span> /featurename:HypervisorPlatform /all /norestart</span><br></pre></td></tr></table></figure>
-<p>重启，“我们无法完成更新，正在撤销更改。”<br>。。。。。、、、、<br>尽力了。现在看来，是系统层面的硬伤了。可能行得通的有重装系统和保留文件重置系统两个选择。不过我还是会和这个问题死磕一下，我就不信我干不成这个事。明天还要苦逼上学，先睡了。<br>2025.3.4 22:57</p>
-<p>————————————————————————————</p>
-<p>2025.3.5</p>
-<p>尝试<strong>强制修复系统核心组件</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 以管理员身份运行 PowerShell </span><br><span class="line">sfc /scannow </span><br><span class="line">DISM /Online /Cleanup-Image /RestoreHealth</span><br></pre></td></tr></table></figure>
-
-<p><strong>重置 Windows Update 组件</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 管理员cmd执行 net stop wuauserv </span><br><span class="line">net stop cryptSvc </span><br><span class="line">net stop bits </span><br><span class="line">net stop msiserver </span><br><span class="line">rmdir C:\Windows\SoftwareDistribution /S /Q </span><br><span class="line">net start wuauserv </span><br><span class="line">net start cryptSvc </span><br><span class="line">net start bits </span><br><span class="line">net start msiserver</span><br><span class="line"># 强制重建WSL核心服务 </span><br><span class="line">sc create vmcompute binPath= &quot;C:\Windows\System32\vmcompute.exe&quot; start= auto type= kernel </span><br><span class="line">sc create LxssManager binPath= &quot;C:\Windows\System32\lxss\LxssManager.dll&quot; start= auto type= own </span><br><span class="line">net start vmcompute </span><br><span class="line">net start LxssManager</span><br></pre></td></tr></table></figure>
-<p>仍然无法启动。使用wsl偶遇神秘怪异bug拼尽全力无法战胜。我都已经浪费这么长时间来研究这个问题，为什么我不直接装个Linux系统呢。周末就把这傻卵系统换成Arch！</p>
-]]></content>
-      <categories>
-        <category>技术研究</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Windows</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>记录安装Arch Linux</title>
-    <url>/2025/03/07/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/%E8%AE%B0%E5%BD%95%E5%AE%89%E8%A3%85Arch-Linux/</url>
-    <content><![CDATA[<p>虽然我并没有什么Linux的刚需，但是折腾系统的过程很让我乐在其中。从Windows换到Linux，先想想要备份什么文件，拿到Linux上可以直接用的、再想想要重新安装什么软件。</p>
-<h1 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h1><ul>
-<li>所有源代码</li>
-<li>博客源文件</li>
-<li>图片</li>
-<li>游戏服务器文件，如存档、配置文件。</li>
-<li>nvim配置文件</li>
-</ul>
-<h1 id="需要重新安装的软件"><a href="#需要重新安装的软件" class="headerlink" title="需要重新安装的软件"></a>需要重新安装的软件</h1><ul>
-<li>Neovim</li>
-<li>Neovide</li>
-<li>VSCode</li>
-<li>VS</li>
-<li>IDEA</li>
-<li>QQ</li>
-<li>微信</li>
-<li>Obsidain</li>
-<li>SAI2<br>暂时还没想到其他的，就先这样，一边用一边想着装吧~<br>把要备份的东西拷到一个超大的U盘里，开始干活了。</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Linux</tag>
-        <tag>系统镜像</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java方法的基本使用</title>
     <url>/2024/11/29/Java/2024-11-29-Java%E6%96%B9%E6%B3%95%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h1 id="方法是什么"><a href="#方法是什么" class="headerlink" title="方法是什么"></a>方法是什么</h1><p>方法是一种语法结构，它可以把代码封装成一段功能，以便重复调用。</p>
@@ -411,8 +31,8 @@
         <category>技术研究</category>
       </categories>
       <tags>
-        <tag>编程</tag>
         <tag>Java</tag>
+        <tag>编程</tag>
         <tag>笔记</tag>
       </tags>
   </entry>
@@ -472,8 +92,8 @@
         <category>技术研究</category>
       </categories>
       <tags>
-        <tag>编程</tag>
         <tag>Java</tag>
+        <tag>编程</tag>
         <tag>笔记</tag>
         <tag>面向对象编程</tag>
         <tag>对象</tag>
@@ -617,8 +237,8 @@
         <category>技术研究</category>
       </categories>
       <tags>
-        <tag>服务器</tag>
         <tag>Java</tag>
+        <tag>服务器</tag>
         <tag>Minecraft</tag>
         <tag>我的世界</tag>
         <tag>Spigot</tag>
@@ -966,13 +586,386 @@
         <category>技术研究</category>
       </categories>
       <tags>
-        <tag>服务器</tag>
         <tag>Java</tag>
+        <tag>服务器</tag>
         <tag>Minecraft</tag>
         <tag>我的世界</tag>
         <tag>Spigot</tag>
         <tag>间歇泉</tag>
         <tag>Geyser</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vim基础操作快速入门</title>
+    <url>/2024/12/13/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/2024-12-13-Vim%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>各种鼠标操作让我有点抓狂，vim或许是一个很适合我的东西，全键盘操作听起来就很方便快捷，除了上手难度有点高以外，vim看起来似乎没有任何的缺点。在下载安装好了vim后，我开始学习了快捷键。<del>然后我们就可以直接把鼠标扔了。</del><br><strong>记住要先把输入法切换成英文模式</strong></p>
+<h1 id="普通模式"><a href="#普通模式" class="headerlink" title="普通模式"></a>普通模式</h1><h2 id="退出"><a href="#退出" class="headerlink" title="退出"></a>退出</h2><p>很多人第一次用vim，最难受的事情绝对是不知道怎么退出。<br>退出：<code>:q!</code></p>
+<h2 id="移动光标"><a href="#移动光标" class="headerlink" title="移动光标"></a>移动光标</h2><p><code>h</code> <code>j</code> <code>k</code> <code>l</code> 这四个按键分别对应左 下 上 右</p>
+<blockquote>
+<p>这个比较难适应，不过也比把手移动到右下方用箭头键舒服了</p>
+</blockquote>
+<h3 id="大范围移动"><a href="#大范围移动" class="headerlink" title="大范围移动"></a>大范围移动</h3><p>行数 + <code>h</code>&#x2F; <code>j</code>&#x2F; <code>k</code>&#x2F; <code>l</code><br>比如，想要向下移动三行，就是3<code>j</code>，向左移动四格，就是3<code>h</code><br><code>gg</code> 跳转到文档的最上方<br><code>G</code> 跳转到文档的最下方</p>
+<h3 id="按照单词跳转"><a href="#按照单词跳转" class="headerlink" title="按照单词跳转"></a>按照单词跳转</h3><p><code>w</code>，也就是“word”的首字母。就可以跳转到下一个单词的开头。<br><code>b</code> beginning就跳转到前一个单词的开头<br><code>f</code> find 查找单词。比如要把光标移动到离你最近的b，就可以输入<code>fb</code></p>
+<h3 id="翻页"><a href="#翻页" class="headerlink" title="翻页"></a>翻页</h3><p><code>Ctrl + u</code>向上翻页。u理解为up首字母。<br><code>Ctrl + d</code>向下翻页。d理解为down首字母。</p>
+<h2 id="复制粘贴"><a href="#复制粘贴" class="headerlink" title="复制粘贴"></a>复制粘贴</h2><p>在普通模式下，输入<code>y</code> （yank），复制整个单词：<code>yaw</code> “aw’“为<del>阿伟</del> all word<br><code>p</code> 即paste，粘贴。</p>
+<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><p>普通模式下，<code>d</code> 也就是delete，直接删除当前行和下一行的内容<br>还可以跟上文的<code>hjkl</code>结合起来，比如d8j就是向下删除八行</p>
+<h2 id="撤销"><a href="#撤销" class="headerlink" title="撤销"></a>撤销</h2><p><code>u</code> 也就是undo。</p>
+<blockquote>
+<p>这些快捷键很灵活，都可以互相结合使用</p>
+</blockquote>
+<h1 id="输入模式"><a href="#输入模式" class="headerlink" title="输入模式"></a>输入模式</h1><h2 id="进入输入模式"><a href="#进入输入模式" class="headerlink" title="进入输入模式"></a>进入输入模式</h2><p>在普通模式下，输入<code>i</code> 也就是insert，就可以进入输入模式了。</p>
+<ol>
+<li><code>i</code>是在当前光标的前一个字母开始输入。</li>
+<li>使用<code>a</code>也就是append，就可以在当前光标之后输入。</li>
+<li>使用<code>I</code>就会从这一行的开头进入输入模式。</li>
+<li>使用<code>A</code>就会从这一行的末尾进入输入模式。<br>完成编辑后，使用<code>ESC</code> 就可以退出编辑模式，回到普通模式了。</li>
+</ol>
+<h1 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h1><p>在普通模式下输入<code>：</code>就可以进入命令模式，按下<code>ESC</code>就会退出命令模式。<br>在下方的命令行中，可以输入命令<br><code>q</code>也就是quit就可以退出<br>保存<code>w</code><br> 保存并退出<code>wq</code></p>
+<h1 id="可视模式"><a href="#可视模式" class="headerlink" title="可视模式"></a>可视模式</h1><p>普通模式下按下<code>v</code>就可以进入可视模式。</p>
+<h1 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h1><p>vim中修改键位，安装主题全都是用一个配置文件来完成的。<br>原版vim的配置文件叫做.vimrc<br>关于修改键位，我的看法是不要改，因为你适应之后上服务端就会很难受，什么都不适应。</p>
+]]></content>
+      <categories>
+        <category>技术研究</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>开箱即用的neovim配置文件</title>
+    <url>/2025/01/22/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/2025-01-22-%E5%BC%80%E7%AE%B1%E5%8D%B3%E7%94%A8%E7%9A%84neovim%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</url>
+    <content><![CDATA[<h3 id="下载链接"><a href="#下载链接" class="headerlink" title="下载链接"></a>下载链接</h3><p><a href="https://yingyu5658.lanzoup.com/iWfXQ2ln6jre">https://yingyu5658.lanzoup.com/iWfXQ2ln6jre</a><br>为了兄弟们下得爽点就不用百度网盘或者夸克了<br>代码都有比较详细的注释</p>
+<h3 id="语言支持策略"><a href="#语言支持策略" class="headerlink" title="语言支持策略"></a>语言支持策略</h3><ul>
+<li><p><strong>核心开发场景</strong><br>  <code>HTML/CSS/JavaScript</code> </p>
+</li>
+<li><p><strong>扩展语言</strong><br>  <code>C/CPP</code> 基础语法支持<br>  Java建议 JetBrains IDE 深度开发</p>
+</li>
+</ul>
+<h3 id="插件生态："><a href="#插件生态：" class="headerlink" title="插件生态："></a>插件生态：</h3><table>
+<thead>
+<tr>
+<th>插件名称</th>
+<th>功能定位</th>
+<th>配置文件位置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>LazyVim</strong></td>
+<td>现代化配置框架</td>
+<td><code>lua/lazyvim/config/lazy.lua</code></td>
+</tr>
+<tr>
+<td><strong>coc.nvim</strong></td>
+<td>智能语言服务引擎</td>
+<td><code>coc-settings.json</code> + 内联配置</td>
+</tr>
+<tr>
+<td><strong>TokyoNight</strong></td>
+<td>专业暗色主题</td>
+<td>主题配置文件</td>
+</tr>
+<tr>
+<td><strong>nvim-tree</strong></td>
+<td>可视化文件系统</td>
+<td><code>keymaps.lua</code> 集成快捷键</td>
+</tr>
+</tbody></table>
+<p>还有一些辅助性质的插件，在此不一一列举</p>
+<h3 id="文件结构："><a href="#文件结构：" class="headerlink" title="文件结构："></a>文件结构：</h3><p>nvim<br>│<br>├── coc-settings.json    # LSP&#x2F;语法检查&#x2F;代码补全规则库<br>├── init.lua             # 配置入口（模块化加载器）<br>├── lazy-lock.json       # 插件版本锁定文件（自动生成）<br>│<br>└─lua&#x2F;<br>   ├─core&#x2F;<br>   │   └─keymaps.lua     # 全模式快捷键中枢<br>   │<br>   ├─lazyvim&#x2F;            # LazyVim 框架核心<br>   │  └─config&#x2F;<br>   │      └─lazy.lua     # 插件加载策略<br>   │<br>   └─plugins&#x2F;            # 插件扩展区<br>       └─plugins.lua     # 第三方插件注册中心</p>
+<h3 id="快捷键配置"><a href="#快捷键配置" class="headerlink" title="快捷键配置"></a>快捷键配置</h3><p> 全局设置<br>▸ 主键(leader) &#x3D; 空格键</p>
+<p> 窗口管理 (正常模式)<br>▸ <code>&lt;空格&gt; + s + v</code> 垂直分割窗口<br>▸ <code>&lt;空格&gt; + s + h</code> 水平分割窗口<br>▸ <code>&lt;空格&gt; + n + h</code> 取消搜索结果高亮</p>
+<p> 文件树操作 (正常模式)<br>▸ <code>&lt;空格&gt; + Tab键</code> 切换NvimTree显示</p>
+<p> 文本操作 (可视模式)<br>▸ <code>J</code> 向下移动选中块(保持选中状态)<br>▸ <code>K</code> 向上移动选中块(保持选中状态)</p>
+<p> 代码补全 (插入模式)<br>▸ <code>Ctrl + Space</code> 触发补全建议<br>▸ <code>Enter</code> 确认补全选择(补全可见时)&#x2F;普通回车<br>▸ <code>Tab</code> 选择下一个补全项(补全可见时)&#x2F;普通Tab<br>▸ <code>Shift + Tab</code> 选择上一个补全项(补全可见时)&#x2F;反向Tab</p>
+]]></content>
+      <categories>
+        <category>技术研究</category>
+      </categories>
+      <tags>
+        <tag>Neovim</tag>
+        <tag>Vim</tag>
+        <tag>Nvim</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JavaScript鼠标指针操作</title>
+    <url>/2025/03/04/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/CSS%E9%BC%A0%E6%A0%87%E6%8C%87%E9%92%88%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<p>今天在上网冲浪的时候，看到Github上有一个明日方舟风格的<a href="https://github.com/Yue-plus/hexo-theme-arknights">主题</a>，这个主题让我感到新鲜的一点是网页中的鼠标指针特效<br><img src="/../../images/view.gif"><br>这么舒服的动画效果我必须也要做一个，说干就干，新建个HTML文档。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">* &#123;</span><br><span class="line"> <span class="attribute">cursor</span>: pointer;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样，我们整个网页的鼠标指针样式就都变成了小手指的样式，不过这样还是太丑，我们仿照arknights主题的样式，打开PS，画一个指针图标出来看看<br><img src="/../../images/screen.png"><br>使用url()属性可以替换自己的素材图片</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">   <span class="attribute">cursor</span>: <span class="built_in">url</span>(<span class="string">&#x27;./source/cu.ico&#x27;</span>), auto;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样鼠标指针的效果就做好了（因为我的截图软件要用鼠标指针选区，所以截不到图&gt;&lt;）</p>
+]]></content>
+      <tags>
+        <tag>编程</tag>
+        <tag>Javascript</tag>
+        <tag>前端</tag>
+        <tag>网页</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>KDE桌面环境无法在Konsole切换中文输入法的解决方案</title>
+    <url>/2025/03/08/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/KDE%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E6%97%A0%E6%B3%95%E5%9C%A8Konsole%E5%88%87%E6%8D%A2%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
+    <content><![CDATA[<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>KDE默认使用Wayland会话，而fcitx4不支持Wayland，需升级到fcitx5。若无法升级到fcitx5或升级后仍然无法切换中文输入法，<strong>安装fcitx-qt6</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S fcitx-qt6</span><br></pre></td></tr></table></figure>
+
+<p>安装后执行<code>sudo reboot now</code>进行重启，问题解决。</p>
+]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Kitty终端美化记录</title>
+    <url>/2025/03/09/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/Kitty%E7%BB%88%E7%AB%AF%E7%BE%8E%E5%8C%96%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<p>Kitty这个终端可谓是兼顾了性能与美观，虽然默认设置很简陋，但是经过一番折腾后也能变得很漂亮。</p>
+<h1 id="选择配色"><a href="#选择配色" class="headerlink" title="选择配色"></a>选择配色</h1><p>运行<code>kitty + kitten themes</code>后会弹出一个选择配色的界面<br><img src="/../../images/Pasted%20image%2020250309124346.png"><br>令我感到非常高兴的是，这个界面支持vim的hjkl键位，也可以用&#x2F;来搜索。<br>选好后，回车按m，command + ^ + ,重载配置文件。</p>
+<h1 id="配置字体"><a href="#配置字体" class="headerlink" title="配置字体"></a>配置字体</h1><p>打开kitty的配置文件<code>nvim ~/.config/kitty/kitty.conf</code>，把字号改到12<br><code>font_size 12</code><br>输入<code>kitty list-fonts --psnames</code>来列出系统安装好的所有等宽字体。</p>
+<h1 id="设置窗口风格"><a href="#设置窗口风格" class="headerlink" title="设置窗口风格"></a>设置窗口风格</h1><p>进入配置文件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#window</span><br><span class="line"># 不显示窗口标题栏 保留窗口圆角</span><br><span class="line">hide_window_decorations titlebar-only</span><br><span class="line"># 边距</span><br><span class="line">window_padding_width 5           </span><br><span class="line"># 不透明度</span><br><span class="line">background_opacity   0.8 </span><br><span class="line"># 毛玻璃效果</span><br><span class="line">background_blur      30                  </span><br></pre></td></tr></table></figure>
+
+<h1 id="设置标签栏风格"><a href="#设置标签栏风格" class="headerlink" title="设置标签栏风格"></a>设置标签栏风格</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#tab bar</span><br><span class="line">tab_bar_edge          top</span><br><span class="line">tab_bar_style         powerline</span><br><span class="line">tab_powerline_style   slanted</span><br></pre></td></tr></table></figure>
+
+<h1 id="安装终端文件管理器"><a href="#安装终端文件管理器" class="headerlink" title="安装终端文件管理器"></a>安装终端文件管理器</h1><p><code>yay -S yazi</code><br>推荐yazi的原因，就是能用vim快捷键啊！hjkl好文明！<br>而且它还能直接在终端预览图片<br><img src="/../../images/Pasted%20image%2020250309131507.png"></p>
+<h1 id="最终效果预览"><a href="#最终效果预览" class="headerlink" title="最终效果预览"></a>最终效果预览</h1><p><img src="/../../images/Pasted%20image%2020250309131145.png"></p>
+<p><img src="/../../images/Pasted%20image%2020250309131221.png"></p>
+]]></content>
+      <categories>
+        <category>技术研究</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>终端</tag>
+        <tag>美化</tag>
+        <tag>Arch</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux排错手札：从日志深渊到问题核心的修炼指南</title>
+    <url>/2025/03/09/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/Linux%E6%8E%92%E9%94%99%E6%89%8B%E6%9C%AD%EF%BC%9A%E4%BB%8E%E6%97%A5%E5%BF%97%E6%B7%B1%E6%B8%8A%E5%88%B0%E9%97%AE%E9%A2%98%E6%A0%B8%E5%BF%83%E7%9A%84%E4%BF%AE%E7%82%BC%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<h3 id="一、日志：系统故障的「自白书」"><a href="#一、日志：系统故障的「自白书」" class="headerlink" title="一、日志：系统故障的「自白书」"></a>一、日志：系统故障的「自白书」</h3><p>折腾Linux系统，最怕的不是报错，而是面对满屏日志时的茫然。就像侦探破案需要线索，日志就是系统留给你的自白书。</p>
+<ol>
+<li><strong>优先级锁定法</strong><blockquote>
+<p>别总盯着控制台的输出发呆</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>通过<code>journalctl -b -1 | grep -i &quot;error\|fail\|warning&quot;</code>过滤关键错误，优先解决标红部分。例如，若看到<code>nvidia-gpu i2c timeout error</code>，直接定位显卡驱动兼容性问题 。</li>
+<li><strong>核心工具链</strong>：<code>dmesg</code>看内核咆哮，<code>htop</code>查资源瓶颈，<code>strace</code>跟踪进程行为——这三板斧能解决80%的玄学问题。</li>
+</ul>
+<ol start="2">
+<li><strong>分层排查术</strong></li>
+</ol>
+<ul>
+<li>硬件层：<code>smartctl</code>扫磁盘健康，<code>lspci -vvv</code>看设备状态。</li>
+<li>系统层：<code>systemd-analyze blame</code>揪出拖慢启动的服务，<code>chmod</code>和<code>chown</code>解决权限不足的经典报错（比如<code>Error EACCES(-13)</code>） 。</li>
+<li>网络层：<code>tcpdump</code>抓包拆解，<code>ss -tuln</code>查端口占用，拒绝「端口冲突」这种低级失误。</li>
+</ul>
+<h3 id="二、AI助手：一把双刃剑"><a href="#二、AI助手：一把双刃剑" class="headerlink" title="二、AI助手：一把双刃剑"></a>二、AI助手：一把双刃剑</h3><p>AI生成的解决方案像快餐——便捷但可能夹生。</p>
+<ol>
+<li><strong>环境差异陷阱</strong></li>
+</ol>
+<ul>
+<li>某次解决休眠失败时，AI建议修改<code>/etc/systemd/sleep.conf</code>，却忽略了我的NVIDIA闭源驱动与内核6.13.5-zen的兼容性问题，最终靠<code>nvidia-dkms</code>+LTS内核组合拳才搞定。</li>
+<li><strong>教训</strong>：永远手动验证命令，尤其是涉及<code>mkinitcpio</code>和<code>grub</code>的操作。</li>
+</ul>
+<ol start="2">
+<li><strong>提问的艺术</strong></li>
+</ol>
+<ul>
+<li>错误示范：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">我的系统挂了，怎么办？  </span><br></pre></td></tr></table></figure>
+<ul>
+<li>正确姿势：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">系统：Arch Linux 6.13.5-zen  </span><br><span class="line">现象：休眠后直接关机，日志见Pastebin链接  </span><br><span class="line">已尝试：更新NVIDIA驱动、调整logind.conf </span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>信息密度决定解决速度</strong>。</li>
+</ul>
+<h3 id="三、快速命中BUG要害的三大心法"><a href="#三、快速命中BUG要害的三大心法" class="headerlink" title="三、快速命中BUG要害的三大心法"></a>三、快速命中BUG要害的三大心法</h3><ol>
+<li><strong>最小化复现沙盒</strong></li>
+</ol>
+<ul>
+<li>用Docker构建纯净环境：<code>docker run -it archlinux/base</code>，逐层添加服务，直到BUG复现。某次KDE崩溃问题，正是通过对比沙盒与实机差异，发现是<code>fcitx5</code>与<code>qt6</code>插件未安装导致。</li>
+</ul>
+<ol>
+<li><strong>五问法：直捣问题本质</strong></li>
+</ol>
+<ul>
+<li>为什么休眠失败？→ systemd触发了混合休眠</li>
+<li>为什么混合休眠失败？→ swap分区未正确挂载</li>
+<li>为什么swap挂载异常？→ 内核参数漏了<code>resume=UUID=xxxx</code></li>
+<li>……（追问至硬件层或配置层）</li>
+</ul>
+<p> </p>
+<ol>
+<li><strong>社区暗网：逆向搜索术</strong></li>
+</ol>
+<ul>
+<li>在Arch Wiki直接搜索「Hibernation」比泛读文档高效十倍。</li>
+<li>GitHub Issues区用<code>error code: 0x80080005</code>等关键词筛选，常能找到同病相怜者的解决方案</li>
+</ul>
+<p> </p>
+<h3 id="四、从「排错」到「防御性运维」"><a href="#四、从「排错」到「防御性运维」" class="headerlink" title="四、从「排错」到「防御性运维」"></a>四、从「排错」到「防御性运维」</h3><ol>
+<li><strong>监控预警体系</strong></li>
+</ol>
+<ul>
+<li>用<code>prometheus</code>+<code>grafana</code>监控硬盘SMART值、内存泄漏趋势。</li>
+<li>自定义<code>systemd服务单元</code>检测关键进程，崩溃时自动发Telegram告警。</li>
+</ul>
+<ol>
+<li><strong>配置版本化管理</strong></li>
+</ol>
+<ul>
+<li>将<code>/etc</code>目录纳入Git仓库，每次修改前<code>git commit -m &quot;调整X配置&quot;</code>，回滚只需<code>git checkout -- /etc/nginx.conf</code>。</li>
+<li>重要操作前用<code>timeshift</code>拍快照，手滑执行<code>rm -rf /*</code>也能瞬间复活</li>
+</ul>
+<p> </p>
+<h3 id="结语：故障是进阶的垫脚石"><a href="#结语：故障是进阶的垫脚石" class="headerlink" title="结语：故障是进阶的垫脚石"></a>结语：故障是进阶的垫脚石</h3><p>每一次排错都是与系统的深度对话。那些在深夜与<code>journalctl</code>对视的时刻，终将化作终端里游刃有余的指尖舞蹈。记住：</p>
+<blockquote>
+<p><strong>“Linux不会背叛你，它只是用错误日志写情书。”</strong><br>（完）</p>
+</blockquote>
+<p><del>结尾发癫：突然感觉Arch好可爱啊，长时间不理她，她就生气，要花很长时间，很大精力去哄，最重要的是，她是蓝毛。</del></p>
+<p><strong>附：排错工具速查表</strong></p>
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>工具&#x2F;命令</th>
+<th>典型问题案例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>启动慢</td>
+<td><code>systemd-analyze blame</code></td>
+<td>被卡在<code>NetworkManager</code></td>
+</tr>
+<tr>
+<td>权限问题</td>
+<td><code>ls -l /path; getfacl /path</code></td>
+<td><code>Permission denied</code></td>
+</tr>
+<tr>
+<td>硬件兼容</td>
+<td><code>lspci -k; dmesg | grep acpi</code></td>
+<td>NVIDIA驱动加载失败</td>
+</tr>
+<tr>
+<td>资源泄漏</td>
+<td><code>vmstat 1; slabtop</code></td>
+<td>内存被<code>zombie</code>进程吞噬</td>
+</tr>
+</tbody></table>
+<p><em>本文部分解决方案参考自Arch Wiki及Linux内核文档</em></p>
+]]></content>
+      <categories>
+        <category>技术研究</category>
+      </categories>
+      <tags>
+        <tag>服务器</tag>
+        <tag>Linux</tag>
+        <tag>服务器运维</tag>
+        <tag>系统</tag>
+        <tag>系统运维</tag>
+        <tag>运维</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【无废话】全网最简单的Hexo+Obsidain图片解决方案</title>
+    <url>/2025/03/05/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/%E3%80%90%E6%97%A0%E5%BA%9F%E8%AF%9D%E3%80%91%E5%85%A8%E7%BD%91%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84Hexo+Obsidain%E5%9B%BE%E7%89%87%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
+    <content><![CDATA[<p>把Hexo博客根目录用黑曜石打开，如果已经打开了仓库<br><img src="/../../images/Pasted%20image%2020250305215423.png"><br>在弹出的窗口中选第二个。<br>在source目录下新建images文件夹用于存放图片<br>设置 &#x3D;&gt; 文件与链接 &#x3D;&gt; 附件默认存放路径：选择指定的附件文件夹。路径填写刚刚创建的image文件夹的相对路径<br>取消使用Wiki链接<br>注意。由于我的文件结构是这样的所以这么填写，要<strong>根据自己的文件结构填写相对路径</strong>。<br><img src="/../../images/Pasted%20image%2020250305215642.png"><br><img src="/../../images/Pasted%20image%2020250305215910.png" alt="我的文件结构"><br>搞定，同时可以在本地编辑环境和博客网站中显示。</p>
+]]></content>
+      <categories>
+        <category>技术研究</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Obsidain</tag>
+        <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【未解决】Windows WSL报错：Error: 0x80080005 ???????</title>
+    <url>/2025/03/04/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/%E3%80%90%E6%9C%AA%E8%A7%A3%E5%86%B3%E3%80%91Windows-WSL%E6%8A%A5%E9%94%99%EF%BC%9AError-0x80080005/</url>
+    <content><![CDATA[<p>设备环境：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">操作系统：Windows 10</span><br><span class="line">安装系统：Arch Linux</span><br><span class="line">错误日志：</span><br><span class="line">Installing, this may take a few minutes...</span><br><span class="line">WslRegisterDistribution failed with error: 0x80080005</span><br><span class="line">Error: 0x80080005 ???????</span><br><span class="line"></span><br><span class="line">Press any key to continue...</span><br></pre></td></tr></table></figure>
+<p>网上有一篇<a href="https://ask.csdn.net/questions/7625716">文章</a>提到这个错误，下面的评论回复以管理员权限运行命令提示符并执行<code>sc stop LxssManager</code>和<code>sc start LxssManager</code><br>出现如下报错：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">C:\Windows\system32&gt;sc stop LxssManager</span><br><span class="line">[SC] OpenService 失败 1060:</span><br><span class="line"></span><br><span class="line">指定的服务未安装。</span><br></pre></td></tr></table></figure>
+<p>顺藤摸瓜，在网上寻找<code>LxssManager</code>这个服务要如何安装。<br>网上暂时还没有找到相关文章能够解决这个问题，但是CSDN的一篇文章引起了我的注意<br><a href="https://blog.csdn.net/renwudao24/article/details/52061906">[SC] OpenService 失败：1060指定的服务未安装_[sc] openservice 失败 1060: 指定的服务未安装。-CSDN博客</a><br>文章中提到了“服务”，在开始菜单中搜索服务，进入应用找到了一个名为WSL Service的服务。点左上角启动。<br>![[_posts\Windows-WSL报错：Error-0x80080005\Pasted image 20250304211246.png]]<br>提取关键信息：<strong>1058、被禁用、关联的设备没有启动</strong>。<br>检查功能是否开启：按下 <code>Win+S</code> 搜索 <strong>启用或关闭Windows功能</strong><br>勾选<code>适用于Linux的Windows子系统</code>和<code>虚拟机平台</code>这两项，点击确定<br>![[_posts\Windows-WSL报错：Error-0x80080005\Pasted image 20250304212523.png]]<br>![[_posts\Windows-WSL报错：Error-0x80080005\Pasted image 20250304212716.png]]<br>重启电脑。<br>回来以后，用管理员身份运行powershell，强制重置WSL服务，依次执行：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wsl --shutdown </span><br><span class="line">wsl --unregister Arch <span class="comment"># 替换为你的发行版名称 </span></span><br><span class="line">wsl --install -d Arch <span class="comment"># 重新注册发行版</span></span><br></pre></td></tr></table></figure>
+<p>如果提示内核缺失，在这里下<a href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi">https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi</a></p>
+<p>如果有以下输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">zcz  system32  ♥ 21:32  wsl --shutdown</span><br><span class="line">此应用程序需要适用于 Linux 的 Windows 子系统可选组件。</span><br><span class="line">通过运行安装它： wsl.exe --install --no-distribution</span><br><span class="line">可能需要重新启动系统才能使更改生效。</span><br><span class="line">错误代码: Wsl/WSL_E_WSL_OPTIONAL_COMPONENT_REQUIRED</span><br></pre></td></tr></table></figure>
+<p>两种可能：</p>
+<ol>
+<li>没有安装WSL服务</li>
+<li><strong>服务被禁用</strong><br>后者比较棘手，我们先做第一种尝试<br><strong>强制安装WSL组件</strong><br><strong>以管理员身份运行 PowerShell</strong>，执行以下命令：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装WSL核心组件（会自动启用虚拟化功能） </span></span><br><span class="line">wsl --install</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">zcz  system32  ♥ 21:34  wsl --install</span><br><span class="line">正在安装 Windows 可选组件: Microsoft-Windows-Subsystem-Linux</span><br><span class="line"></span><br><span class="line">Deployment Image Servicing and Management tool</span><br><span class="line">Version: 10.0.19041.3636</span><br><span class="line"></span><br><span class="line">Image Version: 10.0.19045.5487</span><br><span class="line"></span><br><span class="line">启用一个或多个功能</span><br><span class="line">[==========================100.0%==========================]</span><br><span class="line">The operation completed successfully.</span><br><span class="line">正在安装 Windows 可选组件: VirtualMachinePlatform</span><br><span class="line"></span><br><span class="line">Deployment Image Servicing and Management tool</span><br><span class="line">Version: 10.0.19041.3636</span><br><span class="line"></span><br><span class="line">Image Version: 10.0.19045.5487</span><br><span class="line"></span><br><span class="line">启用一个或多个功能</span><br><span class="line">[==========================100.0%==========================]</span><br><span class="line">The operation completed successfully.</span><br><span class="line">请求的操作成功。直到重新启动系统前更改将不会生效。</span><br></pre></td></tr></table></figure>
+<p>再次进行重启。<br><code>Restart-Computer</code><br>开机加载界面显示：我们无法完成更新，正在撤销更改。。<br>尝试过的方法：进入安全模式，尝试重启更新，失败。<br>安全模式仍然失败，选择临时禁用WSL服务<br>管理员cmd执行</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sc</span> config LxssManager <span class="built_in">start</span>= disabled </span><br><span class="line">shutdown /<span class="built_in">r</span> /t <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">C:\Windows\system32&gt;sc config LxssManager start= disabled&amp;&amp; shutdown /r /t 0</span><br><span class="line">[SC] OpenService 失败 1060:</span><br><span class="line"></span><br><span class="line">指定的服务未安装。</span><br></pre></td></tr></table></figure>
+<p>唉，老朋友，又见面了。只能祭出来我的终极大杀器。</p>
+<h3 id="彻底重装WSL"><a href="#彻底重装WSL" class="headerlink" title="彻底重装WSL"></a><strong>彻底重装WSL</strong></h3><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 卸载所有发行版 </span></span><br><span class="line">wsl <span class="literal">--unregister</span> * </span><br><span class="line"><span class="comment"># 删除残留配置 </span></span><br><span class="line"><span class="built_in">Remove-Item</span> <span class="literal">-Path</span> <span class="string">&quot;<span class="variable">$env:USERPROFILE</span>\AppData\Local\Packages\*Linux*&quot;</span> <span class="literal">-Recurse</span> <span class="literal">-Force</span></span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">zcz  system32  ♥ 22:04  # 卸载所有发行版</span><br><span class="line">&gt; wsl --unregister *</span><br><span class="line">&gt; # 删除残留配置</span><br><span class="line">&gt; Remove-Item -Path &quot;$env:USERPROFILE\AppData\Local\Packages\*Linux*&quot; -Recurse -Force</span><br><span class="line">正在注销。</span><br><span class="line">此应用程序需要适用于 Linux 的 Windows 子系统可选组件。</span><br><span class="line">通过运行安装它： wsl.exe --install --no-distribution</span><br><span class="line">可能需要重新启动系统才能使更改生效。</span><br><span class="line">错误代码: Wsl/WSL_E_WSL_OPTIONAL_COMPONENT_REQUIRED</span><br></pre></td></tr></table></figure>
+<p>输入<code>wsl.exe --install --no-distribution</code><br>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">zcz  system32  ♥ 22:09  wsl.exe --install --no-distribution</span><br><span class="line">正在安装 Windows 可选组件: Microsoft-Windows-Subsystem-Linux</span><br><span class="line"></span><br><span class="line">Deployment Image Servicing and Management tool</span><br><span class="line">Version: 10.0.19041.3636</span><br><span class="line"></span><br><span class="line">Image Version: 10.0.19045.5487</span><br><span class="line"></span><br><span class="line">启用一个或多个功能</span><br><span class="line">[==========================100.0%==========================]</span><br><span class="line">The operation completed successfully.</span><br><span class="line">正在安装 Windows 可选组件: VirtualMachinePlatform</span><br><span class="line"></span><br><span class="line">Deployment Image Servicing and Management tool</span><br><span class="line">Version: 10.0.19041.3636</span><br><span class="line"></span><br><span class="line">Image Version: 10.0.19045.5487</span><br><span class="line"></span><br><span class="line">启用一个或多个功能</span><br><span class="line">[==========================100.0%==========================]</span><br><span class="line">The operation completed successfully.</span><br><span class="line">请求的操作成功。直到重新启动系统前更改将不会生效。</span><br></pre></td></tr></table></figure>
+<p>继续重启，显示“我们无法完成更新，正在撤销更改。”</p>
+<p><strong>以管理员身份打开CMD</strong>：<br>按下 <code>Win+S</code> → 输入 <code>cmd</code> → 右键选择 <strong>“以管理员身份运行”</strong>   <strong>执行以下命令（注意语法）</strong>：</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">sc config LxssManager <span class="built_in">start</span>= auto</span><br><span class="line">sc config vmcompute <span class="built_in">start</span>= auto </span><br><span class="line"><span class="built_in">net</span> <span class="built_in">start</span> LxssManager </span><br><span class="line"><span class="built_in">net</span> <span class="built_in">start</span> vmcompute</span><br></pre></td></tr></table></figure>
+<p>仍然1085，管理员cmd执行</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">dism /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart </span><br><span class="line"></span><br><span class="line">dism /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart</span><br></pre></td></tr></table></figure>
+<p>尝试重装WSL，出现<br>![[_posts\Windows-WSL报错：Error-0x80080005\Pasted image 20250304222548.png]]</p>
+<p>研究了一阵子，<strong><code>vmcompute</code></strong>（虚拟机核心服务）和 <strong><code>LxssManager</code></strong>（WSL管理服务）均未注册，导致WSL安装向导崩溃。</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 以管理员身份运行 </span></span><br><span class="line">dism.exe /online /<span class="built_in">enable-feature</span> /featurename:Microsoft<span class="literal">-Windows-Subsystem-Linux</span> /all /norestart </span><br><span class="line">dism.exe /online /<span class="built_in">enable-feature</span> /featurename:VirtualMachinePlatform /all /norestart </span><br><span class="line">dism.exe /online /<span class="built_in">enable-feature</span> /featurename:HypervisorPlatform /all /norestart</span><br></pre></td></tr></table></figure>
+<p>重启，“我们无法完成更新，正在撤销更改。”<br>。。。。。、、、、<br>尽力了。现在看来，是系统层面的硬伤了。可能行得通的有重装系统和保留文件重置系统两个选择。不过我还是会和这个问题死磕一下，我就不信我干不成这个事。明天还要苦逼上学，先睡了。<br>2025.3.4 22:57</p>
+<p>————————————————————————————</p>
+<p>2025.3.5</p>
+<p>尝试<strong>强制修复系统核心组件</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 以管理员身份运行 PowerShell </span><br><span class="line">sfc /scannow </span><br><span class="line">DISM /Online /Cleanup-Image /RestoreHealth</span><br></pre></td></tr></table></figure>
+
+<p><strong>重置 Windows Update 组件</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 管理员cmd执行 net stop wuauserv </span><br><span class="line">net stop cryptSvc </span><br><span class="line">net stop bits </span><br><span class="line">net stop msiserver </span><br><span class="line">rmdir C:\Windows\SoftwareDistribution /S /Q </span><br><span class="line">net start wuauserv </span><br><span class="line">net start cryptSvc </span><br><span class="line">net start bits </span><br><span class="line">net start msiserver</span><br><span class="line"># 强制重建WSL核心服务 </span><br><span class="line">sc create vmcompute binPath= &quot;C:\Windows\System32\vmcompute.exe&quot; start= auto type= kernel </span><br><span class="line">sc create LxssManager binPath= &quot;C:\Windows\System32\lxss\LxssManager.dll&quot; start= auto type= own </span><br><span class="line">net start vmcompute </span><br><span class="line">net start LxssManager</span><br></pre></td></tr></table></figure>
+<p>仍然无法启动。使用wsl偶遇神秘怪异bug拼尽全力无法战胜。我都已经浪费这么长时间来研究这个问题，为什么我不直接装个Linux系统呢。周末就把这傻卵系统换成Arch！</p>
+]]></content>
+      <categories>
+        <category>技术研究</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Windows</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>记录安装Arch Linux</title>
+    <url>/2025/03/07/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/%E8%AE%B0%E5%BD%95%E5%AE%89%E8%A3%85Arch-Linux/</url>
+    <content><![CDATA[<p>虽然我并没有什么Linux的刚需，但是折腾系统的过程很让我乐在其中。从Windows换到Linux，先想想要备份什么文件，拿到Linux上可以直接用的、再想想要重新安装什么软件。</p>
+<h1 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h1><ul>
+<li>所有源代码</li>
+<li>博客源文件</li>
+<li>图片</li>
+<li>游戏服务器文件，如存档、配置文件。</li>
+<li>nvim配置文件</li>
+</ul>
+<h1 id="需要重新安装的软件"><a href="#需要重新安装的软件" class="headerlink" title="需要重新安装的软件"></a>需要重新安装的软件</h1><ul>
+<li>Neovim</li>
+<li>Neovide</li>
+<li>VSCode</li>
+<li>VS</li>
+<li>IDEA</li>
+<li>QQ</li>
+<li>微信</li>
+<li>Obsidain</li>
+<li>SAI2<br>暂时还没想到其他的，就先这样，一边用一边想着装吧~<br>把要备份的东西拷到一个超大的U盘里，开始干活了。</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Linux</tag>
+        <tag>系统镜像</tag>
       </tags>
   </entry>
   <entry>
@@ -1132,8 +1125,8 @@
         <category>技术研究</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>教程</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
