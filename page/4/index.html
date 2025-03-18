@@ -154,7 +154,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">34</span>
+          <span class="site-state-item-count">35</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -196,6 +196,121 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.yingyu5658.cn/2024/11/30/Java/2024-11-30-Java%E6%96%B9%E6%B3%95%E7%9A%84%E4%BC%A0%E5%8F%82%E5%8E%9F%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/static/avatar.png">
+      <meta itemprop="name" content="yingyu5658">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yingyu5658的万事屋">
+      <meta itemprop="description" content="博客 技术博客 日志">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | yingyu5658的万事屋">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/11/30/Java/2024-11-30-Java%E6%96%B9%E6%B3%95%E7%9A%84%E4%BC%A0%E5%8F%82%E5%8E%9F%E7%90%86/" class="post-title-link" itemprop="url">Java方法的传参原理</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-11-30 20:14:00" itemprop="dateCreated datePublished" datetime="2024-11-30T20:14:00+08:00">2024-11-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-12-07 10:56:51" itemprop="dateModified" datetime="2024-12-07T10:56:51+08:00">2024-12-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/" itemprop="url" rel="index"><span itemprop="name">技术研究</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Java方法的参数传递机制-基本类型"><a href="#Java方法的参数传递机制-基本类型" class="headerlink" title="Java方法的参数传递机制-基本类型"></a>Java方法的参数传递机制-基本类型</h1><p>值传递</p>
+<h2 id="值传递是什么"><a href="#值传递是什么" class="headerlink" title="值传递是什么"></a>值传递是什么</h2><p>在传输实参给方法的形参的时候，<strong>传输的是实参变量中存储的副本</strong><br>说人话，把实参里面的东西赋值了一部分扔了给形参</p>
+<h1 id="值传递具体理解案例"><a href="#值传递具体理解案例" class="headerlink" title="值传递具体理解案例"></a>值传递具体理解案例</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">prameter</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">10</span>; <span class="comment">//定义一个int变量a赋值为10</span></span><br><span class="line">        change(a); <span class="comment">//调用change方法</span></span><br><span class="line">        System.out.println(<span class="string">&quot;main&quot;</span> + a); <span class="comment">//打印mian a中的值</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//这里开始写方法</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">change</span><span class="params">(<span class="type">int</span> a)</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;change1&quot;</span> + a); <span class="comment">//打印方法中a的值</span></span><br><span class="line">        a = <span class="number">20</span>;</span><br><span class="line">        System.out.println(<span class="string">&quot;change2&quot;</span>a); <span class="comment">//打印赋值后a的值</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们运行以后，控制台输出的结果为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">change1 10</span><br><span class="line">change2 20</span><br><span class="line">main 10</span><br></pre></td></tr></table></figure>
+<h2 id="为什么main中打印的不是赋值后的20？"><a href="#为什么main中打印的不是赋值后的20？" class="headerlink" title="为什么main中打印的不是赋值后的20？"></a>为什么main中打印的不是赋值后的20？</h2><p>这就要提到刚才的概念：<strong>值传递</strong><br>我们定义了一个变量<code>a = 10；</code>,在方法中<code>public static void change(int a)</code><br>由于<strong>值传递</strong>，也就是把值复制了一分传给方法，所以我们方法里用的值永远都是刚刚定义的<code>int a = 10;</code>，所以<code>change(a); = change(10);</code><br>我们后面再赋值，打印出来的结果还是10，除非你把变量定义的代码改了，否则方法里的值不会变。</p>
+<h1 id="引用类型的参数传递"><a href="#引用类型的参数传递" class="headerlink" title="引用类型的参数传递"></a>引用类型的参数传递</h1><p>引用类型的参数传递也满足值传递，但代码中会有不同的地方。<br>示例代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">int</span>[] arrs = <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>&#125;;</span><br><span class="line">    change(arrs);</span><br><span class="line">    System.out.println(<span class="string">&quot;main&quot;</span> + arrs[<span class="number">1</span>]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">change</span><span class="params">(<span class="type">int</span>[] arrs)</span> &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;方法内1&quot;</span> + arrs[<span class="number">1</span>]);</span><br><span class="line">    arrs[<span class="number">1</span>] = <span class="number">222</span>;</span><br><span class="line">    System.out.println(<span class="string">&quot;方法内2&quot;</span> + arrs[<span class="number">1</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">方法内1：20</span><br><span class="line">方法内2：222</span><br><span class="line">main：222</span><br></pre></td></tr></table></figure>
+<p>上一篇文章提到了栈内存的执行顺序，根据上一篇所讲，代码执行顺序如下:<br>1.先执行</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">change</span><span class="params">(<span class="type">int</span>[] arrs)</span> &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;方法内1&quot;</span> + arrs[<span class="number">1</span>]);</span><br><span class="line">    arrs[<span class="number">1</span>] = <span class="number">222</span>;</span><br><span class="line">    System.out.println(<span class="string">&quot;方法内2&quot;</span> + arrs[<span class="number">1</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.再回到main方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="string">&quot;main&quot;</span> + arrs[<span class="number">1</span>]);</span><br></pre></td></tr></table></figure>
+<p>在1时进行打印，结果得到数组内第二个位置存储的20.<br>代码继续向下执行，第二个位置被赋值为222，此时再打印它，结果得到222.<br>这时候change方法执行完，它在栈内存中会被清除，然后回到main方法，由于刚才change方法中对arr<a href="http://www.yingyu5658.cn/usr/uploads/2024/12/2743265221.jpg">1</a>进行了赋值，所以我们再打印，结果得到的还是它赋值出来的222.</p>
+<p><img src="http://www.yingyu5658.cn/usr/uploads/2024/12/2743265221.jpg"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -680,7 +795,7 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">29k</span>
+    <span title="站点总字数">30k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
