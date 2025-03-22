@@ -154,7 +154,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">34</span>
+          <span class="site-state-item-count">35</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -165,7 +165,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -196,6 +196,101 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.yingyu5658.cn/2025/03/22/Nodejs%E7%8E%AF%E5%A2%83%E4%B8%8B%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%8B%BC%E6%8E%A5%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%87%BA%E6%9C%89undefind/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/static/avatar.png">
+      <meta itemprop="name" content="yingyu5658">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yingyu5658的万事屋">
+      <meta itemprop="description" content="一个喜欢被电脑虐待的咸鱼初中生">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | yingyu5658的万事屋">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/03/22/Nodejs%E7%8E%AF%E5%A2%83%E4%B8%8B%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%8B%BC%E6%8E%A5%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%87%BA%E6%9C%89undefind/" class="post-title-link" itemprop="url">Nodejs环境下控制台拼接字符串输出有undefind</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-03-22 18:56:33 / 修改时间：19:06:39" itemprop="dateCreated datePublished" datetime="2025-03-22T18:56:33+08:00">2025-03-22</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>今天在Nodejs环境下搓小工具，控制台输出拼接字符串时，发现有<code>undefind</code>，代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> date = <span class="keyword">new</span> <span class="title class_">Date</span>();</span><br><span class="line"><span class="keyword">const</span> year = date.<span class="title function_">getFullYear</span>();</span><br><span class="line"><span class="keyword">const</span> month = date.<span class="title function_">getMonth</span>();</span><br><span class="line"><span class="keyword">const</span> day = date.<span class="title function_">getDate</span>();</span><br><span class="line"><span class="keyword">const</span> hour = date.<span class="title function_">getHours</span>();</span><br><span class="line"><span class="keyword">const</span> minute = date.<span class="title function_">getMinutes</span>();</span><br><span class="line"><span class="keyword">const</span> second = date.<span class="title function_">getSeconds</span>();</span><br><span class="line"><span class="keyword">const</span> logTime = <span class="string">`[<span class="subst">$&#123;year&#125;</span>-<span class="subst">$&#123;month&#125;</span>-<span class="subst">$&#123;day&#125;</span> <span class="subst">$&#123;hour&#125;</span>:<span class="subst">$&#123;minute&#125;</span>:<span class="subst">$&#123;second&#125;</span>] `</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">GenerateLog</span> &#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="title function_">log</span>(<span class="params"></span>) &#123;</span><br><span class="line">    process.<span class="property">stdout</span>.<span class="title function_">write</span>(logTime);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">GenerateLog</span>.<span class="title function_">log</span>() + <span class="string">&quot;log output on the console&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>输出确是这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[2025-3-22 18:56:33] undefindlog output on the console</span><br></pre></td></tr></table></figure>
+
+<p>原因<br>：<code>GenerateLog.log()</code>方法没有返回值，所以输出<code>undefind</code>，解决方法如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 让log方法返回logTime</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">GenerateLog</span> &#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="title function_">log</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> logTime; <span class="comment">// 返回字符串</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">GenerateLog</span>.<span class="title function_">log</span>() + <span class="string">&quot;log output on the console&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>关键总结：<br>Javascript中，如果方法没有返回值，那么输出的就是<code>undefind</code></p>
+<h4 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h4><p>为什么 console.log() 本身会返回 undefined？<br>在 REPL 环境（如 Node.js 命令行或浏览器控制台）中，每条语句的执行结果会被隐式打印。由于 console.log() 函数本身没有返回值（即返回 undefined），因此会显示 undefined。但在脚本执行时，这一行为不会发生，因为脚本模式不自动打印返回值</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1241,102 +1336,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.yingyu5658.cn/2025/03/04/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/CSS%E9%BC%A0%E6%A0%87%E6%8C%87%E9%92%88%E6%93%8D%E4%BD%9C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/static/avatar.png">
-      <meta itemprop="name" content="yingyu5658">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="yingyu5658的万事屋">
-      <meta itemprop="description" content="一个喜欢被电脑虐待的咸鱼初中生">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | yingyu5658的万事屋">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/03/04/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/CSS%E9%BC%A0%E6%A0%87%E6%8C%87%E9%92%88%E6%93%8D%E4%BD%9C/" class="post-title-link" itemprop="url">JavaScript鼠标指针操作</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-03-04 10:13:10" itemprop="dateCreated datePublished" datetime="2025-03-04T10:13:10+08:00">2025-03-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-06 06:35:18" itemprop="dateModified" datetime="2025-03-06T06:35:18+08:00">2025-03-06</time>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>320</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>今天在上网冲浪的时候，看到Github上有一个明日方舟风格的<a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">主题</a>，这个主题让我感到新鲜的一点是网页中的鼠标指针特效<br><img src="/../../images/view.gif"><br>这么舒服的动画效果我必须也要做一个，说干就干，新建个HTML文档。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">* &#123;</span><br><span class="line"> <span class="attribute">cursor</span>: pointer;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这样，我们整个网页的鼠标指针样式就都变成了小手指的样式，不过这样还是太丑，我们仿照arknights主题的样式，打开PS，画一个指针图标出来看看<br><img src="/../../images/screen.png"><br>使用url()属性可以替换自己的素材图片</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">   <span class="attribute">cursor</span>: <span class="built_in">url</span>(<span class="string">&#x27;./source/cu.ico&#x27;</span>), auto;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-
-<p>这样鼠标指针的效果就做好了（因为我的截图软件要用鼠标指针选区，所以截不到图&gt;&lt;）</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -1361,14 +1360,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">32k</span>
+    <span title="站点总字数">33k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">29 分钟</span>
+    <span title="站点阅读时长">30 分钟</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
