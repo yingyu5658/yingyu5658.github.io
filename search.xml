@@ -1,187 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Nodejs环境下控制台拼接字符串输出有undefind</title>
-    <url>/2025/03/22/Nodejs%E7%8E%AF%E5%A2%83%E4%B8%8B%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%8B%BC%E6%8E%A5%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%87%BA%E6%9C%89undefind/</url>
-    <content><![CDATA[<p>今天在Nodejs环境下搓小工具，控制台输出拼接字符串时，发现有<code>undefind</code>，代码如下：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> date = <span class="keyword">new</span> <span class="title class_">Date</span>();</span><br><span class="line"><span class="keyword">const</span> year = date.<span class="title function_">getFullYear</span>();</span><br><span class="line"><span class="keyword">const</span> month = date.<span class="title function_">getMonth</span>();</span><br><span class="line"><span class="keyword">const</span> day = date.<span class="title function_">getDate</span>();</span><br><span class="line"><span class="keyword">const</span> hour = date.<span class="title function_">getHours</span>();</span><br><span class="line"><span class="keyword">const</span> minute = date.<span class="title function_">getMinutes</span>();</span><br><span class="line"><span class="keyword">const</span> second = date.<span class="title function_">getSeconds</span>();</span><br><span class="line"><span class="keyword">const</span> logTime = <span class="string">`[<span class="subst">$&#123;year&#125;</span>-<span class="subst">$&#123;month&#125;</span>-<span class="subst">$&#123;day&#125;</span> <span class="subst">$&#123;hour&#125;</span>:<span class="subst">$&#123;minute&#125;</span>:<span class="subst">$&#123;second&#125;</span>] `</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">GenerateLog</span> &#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="title function_">log</span>(<span class="params"></span>) &#123;</span><br><span class="line">    process.<span class="property">stdout</span>.<span class="title function_">write</span>(logTime);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">GenerateLog</span>.<span class="title function_">log</span>() + <span class="string">&quot;log output on the console&quot;</span>);</span><br></pre></td></tr></table></figure>
-
-<p>输出确是这样：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[2025-3-22 18:56:33] undefindlog output on the console</span><br></pre></td></tr></table></figure>
-
-<p>原因<br>：<code>GenerateLog.log()</code>方法没有返回值，所以输出<code>undefind</code>，解决方法如下：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 让log方法返回logTime</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">GenerateLog</span> &#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="title function_">log</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> logTime; <span class="comment">// 返回字符串</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">GenerateLog</span>.<span class="title function_">log</span>() + <span class="string">&quot;log output on the console&quot;</span>);</span><br></pre></td></tr></table></figure>
-
-<p>关键总结：<br>Javascript中，如果方法没有返回值，那么输出的就是<code>undefind</code></p>
-<h4 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h4><p>为什么 console.log() 本身会返回 undefined？<br>在 REPL 环境（如 Node.js 命令行或浏览器控制台）中，每条语句的执行结果会被隐式打印。由于 console.log() 函数本身没有返回值（即返回 undefined），因此会显示 undefined。但在脚本执行时，这一行为不会发生，因为脚本模式不自动打印返回值</p>
-]]></content>
-      <tags>
-        <tag>Javascript 开发 Nodejs</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>我的4k进步史</title>
-    <url>/2024/11/13/%E5%BD%B1%E9%9F%B3%E5%A8%B1%E4%B9%90/2024-11-13-%E6%88%91%E7%9A%844k%E8%BF%9B%E6%AD%A5%E5%8F%B2/</url>
-    <content><![CDATA[<p>截止到目前玩4k也有一年多了，整理一下我的进步历程，给迷茫中的各位一点参考</p>
-<h1 id="常规段"><a href="#常规段" class="headerlink" title="常规段"></a>常规段</h1><ul>
-<li>2023.5.20 一个别人在和女人亲亲抱抱的日子，我孤身一人在玩4k并且pass掉0dan，开启了漫长的4k之路……</li>
-<li>2023.6.4 Regular 1 pass</li>
-<li>2023.6.22 Regular 2 pass</li>
-<li>2023.6.25 Regular 3 pass</li>
-<li>2023.7.26 Regular 4 pass</li>
-<li>2023.8.22 Regular 5 pass</li>
-<li>2023.11.24 Regular 6 pass</li>
-<li>2023.11.24 Regular 7 pass</li>
-<li>2023.11.27 Regular 8 pass</li>
-<li>2023.11.28 Regular 9 pass</li>
-<li>2023.11.28 Regular 10pass 常规段毕业！！！</li>
-</ul>
-<h1 id="Extra与字母段"><a href="#Extra与字母段" class="headerlink" title="Extra与字母段"></a>Extra与字母段</h1><ul>
-<li>2023.12.02 Extra-2 Jack pass（神秘4k常数9638）</li>
-</ul>
-<blockquote>
-<p>貌似淡坑了一段时间……..</p>
-</blockquote>
-<ul>
-<li>2024.9.15 α Jack 96.21</li>
-</ul>
-<blockquote>
-<p>（Ma侧c判与om的od9天差地别，故不写pass，成绩仅供参考。后文中不予注释）</p>
-</blockquote>
-<ul>
-<li>2024.9.22 Extra-4 Jack pass (v2)</li>
-<li>2024.9.22 Extra-5 Jack pass (Sample) </li>
-<li>2024.9.28 Extra-3 Jack pass</li>
-<li>2024.9.30 β Jack 96.29</li>
-<li>2024.10.7 Extra-2 pass</li>
-<li>2024.10.14 Extra-3 Stream pass(v2)</li>
-<li>2024.10.19 Extra-4 Technical pass(v2)</li>
-</ul>
-<blockquote>
-<p>这玩意其实就是叠，要不我也过不掉</p>
-</blockquote>
-<ul>
-<li>2024.10.19 γ Jack 96.33</li>
-<li>2024.11.18 Extra-5 Jack pass(v3)</li>
-</ul>
-<blockquote>
-<p>我认为此时叠力才算真正e5</p>
-</blockquote>
-<p>未完待续…….</p>
-]]></content>
-      <categories>
-        <category>影音娱乐</category>
-      </categories>
-      <tags>
-        <tag>游戏</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>醉酒哈基米寒假开服活动Q&amp;amp;A</title>
-    <url>/2024/12/08/%E5%BD%B1%E9%9F%B3%E5%A8%B1%E4%B9%90/2024-12-08-%E9%86%89%E9%85%92%E5%93%88%E5%9F%BA%E7%B1%B3%E5%AF%92%E5%81%87%E5%BC%80%E6%9C%8D%E6%B4%BB%E5%8A%A8Q&amp;amp;A/</url>
-    <content><![CDATA[<h1 id="醉酒哈基米寒假联机活动"><a href="#醉酒哈基米寒假联机活动" class="headerlink" title="醉酒哈基米寒假联机活动"></a>醉酒哈基米寒假联机活动</h1><p>为打发时间，<del>提升群友之间的羁绊</del>，2024年寒假特举行泰拉瑞亚&#x2F;我的世界服务器活动。</p>
-<p>对于有可能出现的疑问，下方都做了详细的解答，文档中没有的问题可直接咨询我。</p>
-<h1 id="服务器相关疑问"><a href="#服务器相关疑问" class="headerlink" title="服务器相关疑问"></a>服务器相关疑问</h1><h2 id="收费相关"><a href="#收费相关" class="headerlink" title="收费相关"></a>收费相关</h2><h3 id="为什么要收费？"><a href="#为什么要收费？" class="headerlink" title="为什么要收费？"></a>为什么要收费？</h3><p>公益服务器的支出太大了，保证很多人玩，又要保证流畅不卡顿，对服务器的性能要求很高。而且服务器维护的时间成本也很高。大家每个人都投点资，合到一起，人多力量大，能租到更好的服务器，玩的更舒服。</p>
-<h3 id="费用大概是多少？"><a href="#费用大概是多少？" class="headerlink" title="费用大概是多少？"></a>费用大概是多少？</h3><p>不会太多，每人十元到五十不等，看目前游玩的人数和你个人的经济能力。</p>
-<h3 id="这笔钱会有其他用途吗？"><a href="#这笔钱会有其他用途吗？" class="headerlink" title="这笔钱会有其他用途吗？"></a>这笔钱会有其他用途吗？</h3><p>当然不会，我在这里承诺，这笔钱不会有任何服务器开销意外的用途。所有的钱都用来支付服务器相关的费用。我个人也不会有任何提成。</p>
-<p>我尽量寻找最靠谱性价比最高的机器，让大家尽可能少花钱。如果寻找到合适的机器后，多余的钱会以“总金额 &#x2F; 人数”的方式退还给大家。</p>
-<h3 id="付费多的玩家会有“特权”吗？"><a href="#付费多的玩家会有“特权”吗？" class="headerlink" title="付费多的玩家会有“特权”吗？"></a>付费多的玩家会有“特权”吗？</h3><p>很明确的告诉你，不会。因为每个人的经济状况不同，能给予支持就相当感谢，不会存在这种机制来造成攀比经济实力的状况。</p>
-<p>并且每个人所支付的金额不会公开展示，我只会不定期地在群内公开支出流水账单和目前筹集到的总金额。</p>
-<h3 id="我要去哪里交费？"><a href="#我要去哪里交费？" class="headerlink" title="我要去哪里交费？"></a>我要去哪里交费？</h3><p>我会发布二维码，仅支持微信支付。所以阿里云的机子不能用了。</p>
-<h3 id="为什么只能用微信支付"><a href="#为什么只能用微信支付" class="headerlink" title="为什么只能用微信支付"></a>为什么只能用微信支付</h3><p>保证钱到手就可以直接选购服务器，如果一个微信一个支付宝一个银行卡，很难凑到一起去租服务器。</p>
-<h3 id="有没有大家都不用花钱的方案？"><a href="#有没有大家都不用花钱的方案？" class="headerlink" title="有没有大家都不用花钱的方案？"></a>有没有大家都不用花钱的方案？</h3><p>这个有倒是有，我会尽力去实现。但是效果怎么样就不一定了。</p>
-<p>我家里有一台机器，但是正在跑其它业务。我会想办法榨出点性能来给咱们的服务器。保证大家不用花钱也能享受到优质的游戏体验。</p>
-<h3 id="资金其它事项声明"><a href="#资金其它事项声明" class="headerlink" title="资金其它事项声明"></a>资金其它事项声明</h3><ol>
-<li>支付后，除下文提到的活动外概不退款。</li>
-<li>支付金额最小不能低于8元。（毕竟服务器多贵大家应该都挺清楚的。）</li>
-</ol>
-<h2 id="服务商相关"><a href="#服务商相关" class="headerlink" title="服务商相关"></a>服务商相关</h2><p>服务商首选简幻云，不考虑阿里云、腾讯云、华为云。</p>
-<p>主要原因：</p>
-<ol>
-<li>简幻云无须备案，且有成熟的面板。价格相对于大厂低。</li>
-<li>排除阿里云的原因是付费渠道只有微信，阿里云要用支付宝且很贵。</li>
-</ol>
-<p>###游戏平台相关</p>
-<ol>
-<li><p>泰拉瑞亚：手机PC是互通的。</p>
-</li>
-<li><p>Minecraft：首选BE，次选JE，互通再议。</p>
-<p>不过JE端手机玩家也有办法玩，具体方案再议。</p>
-</li>
-</ol>
-<h1 id="游戏相关疑问"><a href="#游戏相关疑问" class="headerlink" title="游戏相关疑问"></a>游戏相关疑问</h1><h2 id="其他游戏"><a href="#其他游戏" class="headerlink" title="其他游戏"></a>其他游戏</h2><h3 id="后续还会开其他游戏的服务器吗？"><a href="#后续还会开其他游戏的服务器吗？" class="headerlink" title="后续还会开其他游戏的服务器吗？"></a>后续还会开其他游戏的服务器吗？</h3><p>会的，看大家想不想玩，选择权在你们。你们是金主爸爸，我就是个管机器的。目前暂定泰拉瑞亚。后期会在群里发布投票来选择要玩什么游戏。</p>
-<h2 id="技术支持"><a href="#技术支持" class="headerlink" title="技术支持"></a>技术支持</h2><h3 id="我没有这个游戏的安装包，怎么办？"><a href="#我没有这个游戏的安装包，怎么办？" class="headerlink" title="我没有这个游戏的安装包，怎么办？"></a>我没有这个游戏的安装包，怎么办？</h3><p>我会在群文件或者网盘发布游戏的所有链接并附上详细的使用方法。不懂的还可以继续来问我。包教包会。</p>
-<h1 id="宣传相关疑问"><a href="#宣传相关疑问" class="headerlink" title="宣传相关疑问"></a>宣传相关疑问</h1><h3 id="我想拉我的朋友一起玩"><a href="#我想拉我的朋友一起玩" class="headerlink" title="我想拉我的朋友一起玩"></a>我想拉我的朋友一起玩</h3><p>对于想加入服务器且有交费意向的，要先加入醉酒哈基米群聊，后交费添加至白名单。</p>
-<h1 id="一些小活动"><a href="#一些小活动" class="headerlink" title="一些小活动"></a>一些小活动</h1><h3 id="免费机制"><a href="#免费机制" class="headerlink" title="免费机制"></a>免费机制</h3><p>当资金超过50元，我会用我自己编写的随机数小程序随机生成一个等于玩家总人数的随机整数，按照付费顺序编号。我会全额把资金退回被抽中的玩家，并由我个人垫付。</p>
-<p>抽奖过程在群内全程直播，展示源码以保证无人怀疑<strong>他有一套算法</strong>。</p>
-<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>支付费用后，代表您仔细阅读并同意了文本的所有观点和条款。本活动最终解释权归我个人所有。<br>醉酒哈基米官方页面<a href="http://www.yingyu5658.cn/zjhajimi.html">www.yingyu5658.cn/zjhajimi.html</a><br>群号591067249，欢迎来玩。</p>
-<p><img src="/../../images/2024/12/1280508906.png"></p>
-]]></content>
-      <categories>
-        <category>影音娱乐</category>
-      </categories>
-      <tags>
-        <tag>醉酒哈基米</tag>
-        <tag>服务器</tag>
-        <tag>Minecraft</tag>
-        <tag>我的世界</tag>
-        <tag>Terraria</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>游戏资源下载及连接服务器相关教程</title>
-    <url>/2024/12/13/%E5%BD%B1%E9%9F%B3%E5%A8%B1%E4%B9%90/2024-12-13-%E6%B8%B8%E6%88%8F%E8%B5%84%E6%BA%90%E4%B8%8B%E8%BD%BD%E5%8F%8A%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%B8%E5%85%B3%E6%95%99%E7%A8%8B/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>为了避免不必要的麻烦和纠纷，也是为了打造一个纯粹干净高质量的社区，我们需要对想要参与的人员提出一些条件，请确保你自身可以满足这些条件后再来愉快的玩耍。<br><strong>所有的条件都是最基本的，一点也不苛刻，大部分要求仅仅是一些应该具备的能力。</strong></p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><ol>
-<li>具备一定的耐心</li>
-<li>具备文档阅读能力</li>
-<li>不是伸手党，具备在互联网上搜索的能力</li>
-<li>拥有思考和自己解决问题的能力，而不是有点什么问题直接在群里发问，我编写的各种文档已经涵盖了可能出现的大部分问题，请仔细阅读文档。</li>
-<li>拥有支配自己钱财的权利</li>
-<li>不在游戏内使用外挂、修改器。（当然你开了我也没法知道，全凭良心）</li>
-</ol>
-<p>在你确保满足上篇文章的各项要求后，可以开始阅读这篇文章。本文章将详细地讲解<strong>泰拉瑞亚PC&#x2F;Android端下载</strong>以及<strong>连接服务器</strong>的方法。</p>
-<h1 id="泰拉瑞亚Android版本下载"><a href="#泰拉瑞亚Android版本下载" class="headerlink" title="泰拉瑞亚Android版本下载"></a>泰拉瑞亚Android版本下载</h1><p>你可以直接打开群聊&gt;群文件&gt;泰拉瑞亚&gt;Terraria_1.4.4.9.apk.<strong>1</strong></p>
-<h2 id="安装apk-1的方法"><a href="#安装apk-1的方法" class="headerlink" title="安装apk.1的方法"></a>安装apk.1的方法</h2><p>几年前的新版本QQ中，所有的apk都会被强行篡改为apk.1导致很多用户无法正常下载。<br>首先，你需要下载<strong>MT管理器</strong>（直接在应用商城搜或者浏览器搜）<br>下载好后，打开MT管理器，进入&#x2F;storage&#x2F;emulated&#x2F;0&#x2F;Android&#x2F;data&#x2F;com.tencent.mobileqq&#x2F;tencent&#x2F;QQfile_recv<br>找到你刚刚下载好的apk.1文件，点击它，在弹出的窗口中点击左下角的“类型”，点击全部。<br>不同型号的手机这个界面的选项会有所不同，以oppo手机为例，在这个页面向下滑动就会找到一个“软件包安装程序”的按钮。点击它就会进入软件安装页面，所有的选项全部点同意后，等待一段时间就可以打开游戏了。<br>其他品牌型号的手机也差不多，多尝试寻找。寻找差不多的字样。</p>
-<h2 id="我无法打开-Android-data"><a href="#我无法打开-Android-data" class="headerlink" title="我无法打开&#x2F;Android&#x2F;data"></a>我无法打开&#x2F;Android&#x2F;data</h2><p>自安卓11起，访问Android&#x2F;data等目录需要授权；自安卓14起，授权途径被阻止。在2024年2月的安全更新中，谷歌将该项限制合入，覆盖到了安卓11、12、12L、13、14。在系统设置-关于手机中安全更新日期大于等于2024年2月的系统可能会遇到无法授权的问题。</p>
-<p>遇到这种问题的同学，可以点击这个链接从网盘下载。<strong>要点击后缀名为.apk的文件下载</strong><br><a href="https://pan.quark.cn/s/a5d434ab6145">https://pan.quark.cn/s/a5d434ab6145</a></p>
-<h1 id="泰拉瑞亚PC版本下载"><a href="#泰拉瑞亚PC版本下载" class="headerlink" title="泰拉瑞亚PC版本下载"></a>泰拉瑞亚PC版本下载</h1><p>PC端也可以通过群文件或网盘下载<br><a href="https://pan.quark.cn/s/856451f8f210">https://pan.quark.cn/s/856451f8f210</a></p>
-<p>把压缩包下载好后，<strong>解压出来</strong>，在解压出来的文件夹内双击<code>setup_terraria_v1.4.4.9_v4_(60319).exe</code>运行，弹出的窗口左下角可以配置路径，按照你的需求配置好后同意协议，等待一段时间后安装就完成了（有些电脑时间可能比较长，请耐心等待）。</p>
-<h1 id="连接服务器教程"><a href="#连接服务器教程" class="headerlink" title="连接服务器教程"></a>连接服务器教程</h1><p>以PC端为例，当你下载安装好了游戏之后，创建一个人物。创建好后，左下角返回。点击多人游戏，选择最上面的加入。把群公告里的ip输入进去，然后输入端口。（手机端要直接添加一个英文冒号并跟上端口）</p>
-<h2 id="注册登录"><a href="#注册登录" class="headerlink" title="注册登录"></a>注册登录</h2><p>为了保证游戏的公平性，本服务器开启了强制开荒，也就是进入服务器后强行把物品栏清除到服务器配置文档的默认值（同志短剑、铜稿、铜斧）。即使毕业人物存档进服也只能被废尽武功从头修炼。</p>
-<p>连接到服务器后，你会发现你无法进行移动、破坏方块、拾取物品等操作，这是因为你还没有<strong>注册</strong>。<br>打开聊天栏，按照以下格式输入命令<br><code>/register &lt;password&gt;</code><br>比如我的密码是114514，我就可以输入<br><code>/register 114514</code><br>注册好后，再打开聊天栏按照以下格式输入<br><code>/login username password</code>即可登录。同一设备登陆过一次后，无需再次登录。<br>例如<br><code>/login yingyu5658 114514</code><br>恭喜你，你可以开始游玩了！</p>
-<p><img src="http://www.yingyu5658.cn/usr/uploads/2024/12/1280508906.png"></p>
-]]></content>
-      <categories>
-        <category>影音娱乐</category>
-      </categories>
-      <tags>
-        <tag>醉酒哈基米</tag>
-        <tag>服务器</tag>
-        <tag>Terraria</tag>
-        <tag>教程</tag>
-        <tag>泰拉瑞亚</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>修复Geyser下基岩版玩家无法在地狱基岩层放置方块</title>
-    <url>/2025/01/08/%E5%BD%B1%E9%9F%B3%E5%A8%B1%E4%B9%90/2025-01-08-%E4%BF%AE%E5%A4%8DGeyser%E4%B8%8B%E5%9F%BA%E5%B2%A9%E7%89%88%E7%8E%A9%E5%AE%B6%E6%97%A0%E6%B3%95%E5%9C%A8%E5%9C%B0%E7%8B%B1%E5%9F%BA%E5%B2%A9%E5%B1%82%E6%94%BE%E7%BD%AE%E6%96%B9%E5%9D%97/</url>
-    <content><![CDATA[<p>在<code>plugins\Geyser-Spigot\config.yml</code>中把第160行的<code>above-bedrock-nether-building: false</code>改为<code>true</code>，重启服务器，问题解决~<br>原理：geyser把下界翻译成了末地，会导致下界天空变成末地的样式，不过可以解决基岩版玩家在地狱基岩层的问题。</p>
-]]></content>
-      <categories>
-        <category>技术研究</category>
-      </categories>
-      <tags>
-        <tag>服务器</tag>
-        <tag>Minecraft</tag>
-        <tag>我的世界</tag>
-        <tag>Java</tag>
-        <tag>Spigot</tag>
-        <tag>间歇泉</tag>
-        <tag>Geyser</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java方法的基本使用</title>
     <url>/2024/11/29/Java/2024-11-29-Java%E6%96%B9%E6%B3%95%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h1 id="方法是什么"><a href="#方法是什么" class="headerlink" title="方法是什么"></a>方法是什么</h1><p>方法是一种语法结构，它可以把代码封装成一段功能，以便重复调用。</p>
@@ -418,10 +237,10 @@
         <category>技术研究</category>
       </categories>
       <tags>
+        <tag>Java</tag>
         <tag>服务器</tag>
         <tag>Minecraft</tag>
         <tag>我的世界</tag>
-        <tag>Java</tag>
         <tag>Spigot</tag>
       </tags>
   </entry>
@@ -628,9 +447,174 @@
       </tags>
   </entry>
   <entry>
+    <title>我的4k进步史</title>
+    <url>/2024/11/13/%E5%BD%B1%E9%9F%B3%E5%A8%B1%E4%B9%90/2024-11-13-%E6%88%91%E7%9A%844k%E8%BF%9B%E6%AD%A5%E5%8F%B2/</url>
+    <content><![CDATA[<p>截止到目前玩4k也有一年多了，整理一下我的进步历程，给迷茫中的各位一点参考</p>
+<h1 id="常规段"><a href="#常规段" class="headerlink" title="常规段"></a>常规段</h1><ul>
+<li>2023.5.20 一个别人在和女人亲亲抱抱的日子，我孤身一人在玩4k并且pass掉0dan，开启了漫长的4k之路……</li>
+<li>2023.6.4 Regular 1 pass</li>
+<li>2023.6.22 Regular 2 pass</li>
+<li>2023.6.25 Regular 3 pass</li>
+<li>2023.7.26 Regular 4 pass</li>
+<li>2023.8.22 Regular 5 pass</li>
+<li>2023.11.24 Regular 6 pass</li>
+<li>2023.11.24 Regular 7 pass</li>
+<li>2023.11.27 Regular 8 pass</li>
+<li>2023.11.28 Regular 9 pass</li>
+<li>2023.11.28 Regular 10pass 常规段毕业！！！</li>
+</ul>
+<h1 id="Extra与字母段"><a href="#Extra与字母段" class="headerlink" title="Extra与字母段"></a>Extra与字母段</h1><ul>
+<li>2023.12.02 Extra-2 Jack pass（神秘4k常数9638）</li>
+</ul>
+<blockquote>
+<p>貌似淡坑了一段时间……..</p>
+</blockquote>
+<ul>
+<li>2024.9.15 α Jack 96.21</li>
+</ul>
+<blockquote>
+<p>（Ma侧c判与om的od9天差地别，故不写pass，成绩仅供参考。后文中不予注释）</p>
+</blockquote>
+<ul>
+<li>2024.9.22 Extra-4 Jack pass (v2)</li>
+<li>2024.9.22 Extra-5 Jack pass (Sample) </li>
+<li>2024.9.28 Extra-3 Jack pass</li>
+<li>2024.9.30 β Jack 96.29</li>
+<li>2024.10.7 Extra-2 pass</li>
+<li>2024.10.14 Extra-3 Stream pass(v2)</li>
+<li>2024.10.19 Extra-4 Technical pass(v2)</li>
+</ul>
+<blockquote>
+<p>这玩意其实就是叠，要不我也过不掉</p>
+</blockquote>
+<ul>
+<li>2024.10.19 γ Jack 96.33</li>
+<li>2024.11.18 Extra-5 Jack pass(v3)</li>
+</ul>
+<blockquote>
+<p>我认为此时叠力才算真正e5</p>
+</blockquote>
+<p>未完待续…….</p>
+]]></content>
+      <categories>
+        <category>影音娱乐</category>
+      </categories>
+      <tags>
+        <tag>游戏</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>醉酒哈基米寒假开服活动Q&amp;amp;A</title>
+    <url>/2024/12/08/%E5%BD%B1%E9%9F%B3%E5%A8%B1%E4%B9%90/2024-12-08-%E9%86%89%E9%85%92%E5%93%88%E5%9F%BA%E7%B1%B3%E5%AF%92%E5%81%87%E5%BC%80%E6%9C%8D%E6%B4%BB%E5%8A%A8Q&amp;amp;A/</url>
+    <content><![CDATA[<h1 id="醉酒哈基米寒假联机活动"><a href="#醉酒哈基米寒假联机活动" class="headerlink" title="醉酒哈基米寒假联机活动"></a>醉酒哈基米寒假联机活动</h1><p>为打发时间，<del>提升群友之间的羁绊</del>，2024年寒假特举行泰拉瑞亚&#x2F;我的世界服务器活动。</p>
+<p>对于有可能出现的疑问，下方都做了详细的解答，文档中没有的问题可直接咨询我。</p>
+<h1 id="服务器相关疑问"><a href="#服务器相关疑问" class="headerlink" title="服务器相关疑问"></a>服务器相关疑问</h1><h2 id="收费相关"><a href="#收费相关" class="headerlink" title="收费相关"></a>收费相关</h2><h3 id="为什么要收费？"><a href="#为什么要收费？" class="headerlink" title="为什么要收费？"></a>为什么要收费？</h3><p>公益服务器的支出太大了，保证很多人玩，又要保证流畅不卡顿，对服务器的性能要求很高。而且服务器维护的时间成本也很高。大家每个人都投点资，合到一起，人多力量大，能租到更好的服务器，玩的更舒服。</p>
+<h3 id="费用大概是多少？"><a href="#费用大概是多少？" class="headerlink" title="费用大概是多少？"></a>费用大概是多少？</h3><p>不会太多，每人十元到五十不等，看目前游玩的人数和你个人的经济能力。</p>
+<h3 id="这笔钱会有其他用途吗？"><a href="#这笔钱会有其他用途吗？" class="headerlink" title="这笔钱会有其他用途吗？"></a>这笔钱会有其他用途吗？</h3><p>当然不会，我在这里承诺，这笔钱不会有任何服务器开销意外的用途。所有的钱都用来支付服务器相关的费用。我个人也不会有任何提成。</p>
+<p>我尽量寻找最靠谱性价比最高的机器，让大家尽可能少花钱。如果寻找到合适的机器后，多余的钱会以“总金额 &#x2F; 人数”的方式退还给大家。</p>
+<h3 id="付费多的玩家会有“特权”吗？"><a href="#付费多的玩家会有“特权”吗？" class="headerlink" title="付费多的玩家会有“特权”吗？"></a>付费多的玩家会有“特权”吗？</h3><p>很明确的告诉你，不会。因为每个人的经济状况不同，能给予支持就相当感谢，不会存在这种机制来造成攀比经济实力的状况。</p>
+<p>并且每个人所支付的金额不会公开展示，我只会不定期地在群内公开支出流水账单和目前筹集到的总金额。</p>
+<h3 id="我要去哪里交费？"><a href="#我要去哪里交费？" class="headerlink" title="我要去哪里交费？"></a>我要去哪里交费？</h3><p>我会发布二维码，仅支持微信支付。所以阿里云的机子不能用了。</p>
+<h3 id="为什么只能用微信支付"><a href="#为什么只能用微信支付" class="headerlink" title="为什么只能用微信支付"></a>为什么只能用微信支付</h3><p>保证钱到手就可以直接选购服务器，如果一个微信一个支付宝一个银行卡，很难凑到一起去租服务器。</p>
+<h3 id="有没有大家都不用花钱的方案？"><a href="#有没有大家都不用花钱的方案？" class="headerlink" title="有没有大家都不用花钱的方案？"></a>有没有大家都不用花钱的方案？</h3><p>这个有倒是有，我会尽力去实现。但是效果怎么样就不一定了。</p>
+<p>我家里有一台机器，但是正在跑其它业务。我会想办法榨出点性能来给咱们的服务器。保证大家不用花钱也能享受到优质的游戏体验。</p>
+<h3 id="资金其它事项声明"><a href="#资金其它事项声明" class="headerlink" title="资金其它事项声明"></a>资金其它事项声明</h3><ol>
+<li>支付后，除下文提到的活动外概不退款。</li>
+<li>支付金额最小不能低于8元。（毕竟服务器多贵大家应该都挺清楚的。）</li>
+</ol>
+<h2 id="服务商相关"><a href="#服务商相关" class="headerlink" title="服务商相关"></a>服务商相关</h2><p>服务商首选简幻云，不考虑阿里云、腾讯云、华为云。</p>
+<p>主要原因：</p>
+<ol>
+<li>简幻云无须备案，且有成熟的面板。价格相对于大厂低。</li>
+<li>排除阿里云的原因是付费渠道只有微信，阿里云要用支付宝且很贵。</li>
+</ol>
+<p>###游戏平台相关</p>
+<ol>
+<li><p>泰拉瑞亚：手机PC是互通的。</p>
+</li>
+<li><p>Minecraft：首选BE，次选JE，互通再议。</p>
+<p>不过JE端手机玩家也有办法玩，具体方案再议。</p>
+</li>
+</ol>
+<h1 id="游戏相关疑问"><a href="#游戏相关疑问" class="headerlink" title="游戏相关疑问"></a>游戏相关疑问</h1><h2 id="其他游戏"><a href="#其他游戏" class="headerlink" title="其他游戏"></a>其他游戏</h2><h3 id="后续还会开其他游戏的服务器吗？"><a href="#后续还会开其他游戏的服务器吗？" class="headerlink" title="后续还会开其他游戏的服务器吗？"></a>后续还会开其他游戏的服务器吗？</h3><p>会的，看大家想不想玩，选择权在你们。你们是金主爸爸，我就是个管机器的。目前暂定泰拉瑞亚。后期会在群里发布投票来选择要玩什么游戏。</p>
+<h2 id="技术支持"><a href="#技术支持" class="headerlink" title="技术支持"></a>技术支持</h2><h3 id="我没有这个游戏的安装包，怎么办？"><a href="#我没有这个游戏的安装包，怎么办？" class="headerlink" title="我没有这个游戏的安装包，怎么办？"></a>我没有这个游戏的安装包，怎么办？</h3><p>我会在群文件或者网盘发布游戏的所有链接并附上详细的使用方法。不懂的还可以继续来问我。包教包会。</p>
+<h1 id="宣传相关疑问"><a href="#宣传相关疑问" class="headerlink" title="宣传相关疑问"></a>宣传相关疑问</h1><h3 id="我想拉我的朋友一起玩"><a href="#我想拉我的朋友一起玩" class="headerlink" title="我想拉我的朋友一起玩"></a>我想拉我的朋友一起玩</h3><p>对于想加入服务器且有交费意向的，要先加入醉酒哈基米群聊，后交费添加至白名单。</p>
+<h1 id="一些小活动"><a href="#一些小活动" class="headerlink" title="一些小活动"></a>一些小活动</h1><h3 id="免费机制"><a href="#免费机制" class="headerlink" title="免费机制"></a>免费机制</h3><p>当资金超过50元，我会用我自己编写的随机数小程序随机生成一个等于玩家总人数的随机整数，按照付费顺序编号。我会全额把资金退回被抽中的玩家，并由我个人垫付。</p>
+<p>抽奖过程在群内全程直播，展示源码以保证无人怀疑<strong>他有一套算法</strong>。</p>
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>支付费用后，代表您仔细阅读并同意了文本的所有观点和条款。本活动最终解释权归我个人所有。<br>醉酒哈基米官方页面<a href="http://www.yingyu5658.cn/zjhajimi.html">www.yingyu5658.cn/zjhajimi.html</a><br>群号591067249，欢迎来玩。</p>
+<p><img src="/../../images/2024/12/1280508906.png"></p>
+]]></content>
+      <categories>
+        <category>影音娱乐</category>
+      </categories>
+      <tags>
+        <tag>服务器</tag>
+        <tag>Minecraft</tag>
+        <tag>我的世界</tag>
+        <tag>醉酒哈基米</tag>
+        <tag>Terraria</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>游戏资源下载及连接服务器相关教程</title>
+    <url>/2024/12/13/%E5%BD%B1%E9%9F%B3%E5%A8%B1%E4%B9%90/2024-12-13-%E6%B8%B8%E6%88%8F%E8%B5%84%E6%BA%90%E4%B8%8B%E8%BD%BD%E5%8F%8A%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%B8%E5%85%B3%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>为了避免不必要的麻烦和纠纷，也是为了打造一个纯粹干净高质量的社区，我们需要对想要参与的人员提出一些条件，请确保你自身可以满足这些条件后再来愉快的玩耍。<br><strong>所有的条件都是最基本的，一点也不苛刻，大部分要求仅仅是一些应该具备的能力。</strong></p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><ol>
+<li>具备一定的耐心</li>
+<li>具备文档阅读能力</li>
+<li>不是伸手党，具备在互联网上搜索的能力</li>
+<li>拥有思考和自己解决问题的能力，而不是有点什么问题直接在群里发问，我编写的各种文档已经涵盖了可能出现的大部分问题，请仔细阅读文档。</li>
+<li>拥有支配自己钱财的权利</li>
+<li>不在游戏内使用外挂、修改器。（当然你开了我也没法知道，全凭良心）</li>
+</ol>
+<p>在你确保满足上篇文章的各项要求后，可以开始阅读这篇文章。本文章将详细地讲解<strong>泰拉瑞亚PC&#x2F;Android端下载</strong>以及<strong>连接服务器</strong>的方法。</p>
+<h1 id="泰拉瑞亚Android版本下载"><a href="#泰拉瑞亚Android版本下载" class="headerlink" title="泰拉瑞亚Android版本下载"></a>泰拉瑞亚Android版本下载</h1><p>你可以直接打开群聊&gt;群文件&gt;泰拉瑞亚&gt;Terraria_1.4.4.9.apk.<strong>1</strong></p>
+<h2 id="安装apk-1的方法"><a href="#安装apk-1的方法" class="headerlink" title="安装apk.1的方法"></a>安装apk.1的方法</h2><p>几年前的新版本QQ中，所有的apk都会被强行篡改为apk.1导致很多用户无法正常下载。<br>首先，你需要下载<strong>MT管理器</strong>（直接在应用商城搜或者浏览器搜）<br>下载好后，打开MT管理器，进入&#x2F;storage&#x2F;emulated&#x2F;0&#x2F;Android&#x2F;data&#x2F;com.tencent.mobileqq&#x2F;tencent&#x2F;QQfile_recv<br>找到你刚刚下载好的apk.1文件，点击它，在弹出的窗口中点击左下角的“类型”，点击全部。<br>不同型号的手机这个界面的选项会有所不同，以oppo手机为例，在这个页面向下滑动就会找到一个“软件包安装程序”的按钮。点击它就会进入软件安装页面，所有的选项全部点同意后，等待一段时间就可以打开游戏了。<br>其他品牌型号的手机也差不多，多尝试寻找。寻找差不多的字样。</p>
+<h2 id="我无法打开-Android-data"><a href="#我无法打开-Android-data" class="headerlink" title="我无法打开&#x2F;Android&#x2F;data"></a>我无法打开&#x2F;Android&#x2F;data</h2><p>自安卓11起，访问Android&#x2F;data等目录需要授权；自安卓14起，授权途径被阻止。在2024年2月的安全更新中，谷歌将该项限制合入，覆盖到了安卓11、12、12L、13、14。在系统设置-关于手机中安全更新日期大于等于2024年2月的系统可能会遇到无法授权的问题。</p>
+<p>遇到这种问题的同学，可以点击这个链接从网盘下载。<strong>要点击后缀名为.apk的文件下载</strong><br><a href="https://pan.quark.cn/s/a5d434ab6145">https://pan.quark.cn/s/a5d434ab6145</a></p>
+<h1 id="泰拉瑞亚PC版本下载"><a href="#泰拉瑞亚PC版本下载" class="headerlink" title="泰拉瑞亚PC版本下载"></a>泰拉瑞亚PC版本下载</h1><p>PC端也可以通过群文件或网盘下载<br><a href="https://pan.quark.cn/s/856451f8f210">https://pan.quark.cn/s/856451f8f210</a></p>
+<p>把压缩包下载好后，<strong>解压出来</strong>，在解压出来的文件夹内双击<code>setup_terraria_v1.4.4.9_v4_(60319).exe</code>运行，弹出的窗口左下角可以配置路径，按照你的需求配置好后同意协议，等待一段时间后安装就完成了（有些电脑时间可能比较长，请耐心等待）。</p>
+<h1 id="连接服务器教程"><a href="#连接服务器教程" class="headerlink" title="连接服务器教程"></a>连接服务器教程</h1><p>以PC端为例，当你下载安装好了游戏之后，创建一个人物。创建好后，左下角返回。点击多人游戏，选择最上面的加入。把群公告里的ip输入进去，然后输入端口。（手机端要直接添加一个英文冒号并跟上端口）</p>
+<h2 id="注册登录"><a href="#注册登录" class="headerlink" title="注册登录"></a>注册登录</h2><p>为了保证游戏的公平性，本服务器开启了强制开荒，也就是进入服务器后强行把物品栏清除到服务器配置文档的默认值（同志短剑、铜稿、铜斧）。即使毕业人物存档进服也只能被废尽武功从头修炼。</p>
+<p>连接到服务器后，你会发现你无法进行移动、破坏方块、拾取物品等操作，这是因为你还没有<strong>注册</strong>。<br>打开聊天栏，按照以下格式输入命令<br><code>/register &lt;password&gt;</code><br>比如我的密码是114514，我就可以输入<br><code>/register 114514</code><br>注册好后，再打开聊天栏按照以下格式输入<br><code>/login username password</code>即可登录。同一设备登陆过一次后，无需再次登录。<br>例如<br><code>/login yingyu5658 114514</code><br>恭喜你，你可以开始游玩了！</p>
+<p><img src="http://www.yingyu5658.cn/usr/uploads/2024/12/1280508906.png"></p>
+]]></content>
+      <categories>
+        <category>影音娱乐</category>
+      </categories>
+      <tags>
+        <tag>服务器</tag>
+        <tag>醉酒哈基米</tag>
+        <tag>Terraria</tag>
+        <tag>教程</tag>
+        <tag>泰拉瑞亚</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>修复Geyser下基岩版玩家无法在地狱基岩层放置方块</title>
+    <url>/2025/01/08/%E5%BD%B1%E9%9F%B3%E5%A8%B1%E4%B9%90/2025-01-08-%E4%BF%AE%E5%A4%8DGeyser%E4%B8%8B%E5%9F%BA%E5%B2%A9%E7%89%88%E7%8E%A9%E5%AE%B6%E6%97%A0%E6%B3%95%E5%9C%A8%E5%9C%B0%E7%8B%B1%E5%9F%BA%E5%B2%A9%E5%B1%82%E6%94%BE%E7%BD%AE%E6%96%B9%E5%9D%97/</url>
+    <content><![CDATA[<p>在<code>plugins\Geyser-Spigot\config.yml</code>中把第160行的<code>above-bedrock-nether-building: false</code>改为<code>true</code>，重启服务器，问题解决~<br>原理：geyser把下界翻译成了末地，会导致下界天空变成末地的样式，不过可以解决基岩版玩家在地狱基岩层的问题。</p>
+]]></content>
+      <categories>
+        <category>技术研究</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>服务器</tag>
+        <tag>Minecraft</tag>
+        <tag>我的世界</tag>
+        <tag>Spigot</tag>
+        <tag>间歇泉</tag>
+        <tag>Geyser</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Vim基础操作快速入门</title>
     <url>/2024/12/13/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/2024-12-13-Vim%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>各种鼠标操作让我有点抓狂，vim或许是一个很适合我的东西，全键盘操作听起来就很方便快捷，除了上手难度有点高以外，vim看起来似乎没有任何的缺点。在下载安装好了vim后，我开始学习了快捷键。<del>然后我们就可以直接把鼠标扔了。</del><br><strong>记住要先把输入法切换成英文模式</strong></p>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>各种鼠标操作让我有点抓狂，vim或许是一个很适合我的东西，全键盘操作听起来就很方便快捷，除了上手难度有点高以外，vim看起来似乎没有任何的缺点。在下载安装好了vim后，我开始学习了快捷键。<del>然后我们就可以直接把鼠标扔了。</del></p>
+<span id="more"></span>
+
+<p><strong>记住要先把输入法切换成英文模式</strong></p>
 <h1 id="普通模式"><a href="#普通模式" class="headerlink" title="普通模式"></a>普通模式</h1><h2 id="退出"><a href="#退出" class="headerlink" title="退出"></a>退出</h2><p>很多人第一次用vim，最难受的事情绝对是不知道怎么退出。<br>退出：<code>:q!</code></p>
 <h2 id="移动光标"><a href="#移动光标" class="headerlink" title="移动光标"></a>移动光标</h2><p><code>h</code> <code>j</code> <code>k</code> <code>l</code> 这四个按键分别对应左 下 上 右</p>
 <blockquote>
@@ -652,7 +636,7 @@
 <li>使用<code>I</code>就会从这一行的开头进入输入模式。</li>
 <li>使用<code>A</code>就会从这一行的末尾进入输入模式。<br>完成编辑后，使用<code>ESC</code> 就可以退出编辑模式，回到普通模式了。</li>
 </ol>
-<h1 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h1><p>在普通模式下输入<code>：</code>就可以进入命令模式，按下<code>ESC</code>就会退出命令模式。<br>在下方的命令行中，可以输入命令<br><code>q</code>也就是quit就可以退出<br>保存<code>w</code><br> 保存并退出<code>wq</code></p>
+<h1 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h1><p>在普通模式下输入<code>：</code>就可以进入命令模式，按下<code>ESC</code>就会退出命令模式。<br>在下方的命令行中，可以输入命令<br><code>q</code>也就是quit就可以退出<br>保存<code>w</code><br>保存并退出<code>wq</code></p>
 <h1 id="可视模式"><a href="#可视模式" class="headerlink" title="可视模式"></a>可视模式</h1><p>普通模式下按下<code>v</code>就可以进入可视模式。</p>
 <h1 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h1><p>vim中修改键位，安装主题全都是用一个配置文件来完成的。<br>原版vim的配置文件叫做.vimrc<br>关于修改键位，我的看法是不要改，因为你适应之后上服务端就会很难受，什么都不适应。</p>
 ]]></content>
@@ -664,13 +648,13 @@
     <title>开箱即用的neovim配置文件</title>
     <url>/2025/01/22/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/2025-01-22-%E5%BC%80%E7%AE%B1%E5%8D%B3%E7%94%A8%E7%9A%84neovim%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</url>
     <content><![CDATA[<h3 id="下载链接"><a href="#下载链接" class="headerlink" title="下载链接"></a>下载链接</h3><p><a href="https://yingyu5658.lanzoup.com/iWfXQ2ln6jre">https://yingyu5658.lanzoup.com/iWfXQ2ln6jre</a><br>为了兄弟们下得爽点就不用百度网盘或者夸克了<br>代码都有比较详细的注释</p>
+<span id="more"></span>
+
 <h3 id="语言支持策略"><a href="#语言支持策略" class="headerlink" title="语言支持策略"></a>语言支持策略</h3><ul>
-<li><p><strong>核心开发场景</strong><br>  <code>HTML/CSS/JavaScript</code> </p>
-</li>
-<li><p><strong>扩展语言</strong><br>  <code>C/CPP</code> 基础语法支持<br>  Java建议 JetBrains IDE 深度开发</p>
-</li>
+<li><strong>核心开发场景</strong><br> <code>HTML/CSS/JavaScript</code></li>
+<li><strong>扩展语言</strong><br> <code>C/CPP</code> 基础语法支持<br>Java建议 JetBrains IDE 深度开发</li>
 </ul>
-<h3 id="插件生态："><a href="#插件生态：" class="headerlink" title="插件生态："></a>插件生态：</h3><table>
+<h3 id="插件生态"><a href="#插件生态" class="headerlink" title="插件生态"></a>插件生态</h3><table>
 <thead>
 <tr>
 <th>插件名称</th>
@@ -700,12 +684,12 @@
 </tr>
 </tbody></table>
 <p>还有一些辅助性质的插件，在此不一一列举</p>
-<h3 id="文件结构："><a href="#文件结构：" class="headerlink" title="文件结构："></a>文件结构：</h3><p>nvim<br>│<br>├── coc-settings.json    # LSP&#x2F;语法检查&#x2F;代码补全规则库<br>├── init.lua             # 配置入口（模块化加载器）<br>├── lazy-lock.json       # 插件版本锁定文件（自动生成）<br>│<br>└─lua&#x2F;<br>   ├─core&#x2F;<br>   │   └─keymaps.lua     # 全模式快捷键中枢<br>   │<br>   ├─lazyvim&#x2F;            # LazyVim 框架核心<br>   │  └─config&#x2F;<br>   │      └─lazy.lua     # 插件加载策略<br>   │<br>   └─plugins&#x2F;            # 插件扩展区<br>       └─plugins.lua     # 第三方插件注册中心</p>
-<h3 id="快捷键配置"><a href="#快捷键配置" class="headerlink" title="快捷键配置"></a>快捷键配置</h3><p> 全局设置<br>▸ 主键(leader) &#x3D; 空格键</p>
-<p> 窗口管理 (正常模式)<br>▸ <code>&lt;空格&gt; + s + v</code> 垂直分割窗口<br>▸ <code>&lt;空格&gt; + s + h</code> 水平分割窗口<br>▸ <code>&lt;空格&gt; + n + h</code> 取消搜索结果高亮</p>
-<p> 文件树操作 (正常模式)<br>▸ <code>&lt;空格&gt; + Tab键</code> 切换NvimTree显示</p>
-<p> 文本操作 (可视模式)<br>▸ <code>J</code> 向下移动选中块(保持选中状态)<br>▸ <code>K</code> 向上移动选中块(保持选中状态)</p>
-<p> 代码补全 (插入模式)<br>▸ <code>Ctrl + Space</code> 触发补全建议<br>▸ <code>Enter</code> 确认补全选择(补全可见时)&#x2F;普通回车<br>▸ <code>Tab</code> 选择下一个补全项(补全可见时)&#x2F;普通Tab<br>▸ <code>Shift + Tab</code> 选择上一个补全项(补全可见时)&#x2F;反向Tab</p>
+<h3 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h3><p>nvim<br>│<br>├── coc-settings.json # LSP&#x2F;语法检查&#x2F;代码补全规则库<br>├── init.lua # 配置入口（模块化加载器）<br>├── lazy-lock.json # 插件版本锁定文件（自动生成）<br>│<br>└─lua&#x2F;<br>├─core&#x2F;<br>│ └─keymaps.lua # 全模式快捷键中枢<br>│<br>├─lazyvim&#x2F; # LazyVim 框架核心<br>│ └─config&#x2F;<br>│ └─lazy.lua # 插件加载策略<br>│<br>└─plugins&#x2F; # 插件扩展区<br>└─plugins.lua # 第三方插件注册中心</p>
+<h3 id="快捷键配置"><a href="#快捷键配置" class="headerlink" title="快捷键配置"></a>快捷键配置</h3><p>全局设置<br>▸ 主键(leader) &#x3D; 空格键</p>
+<p>窗口管理 (正常模式)<br>▸ <code>&lt;空格&gt; + s + v</code> 垂直分割窗口<br>▸ <code>&lt;空格&gt; + s + h</code> 水平分割窗口<br>▸ <code>&lt;空格&gt; + n + h</code> 取消搜索结果高亮</p>
+<p>文件树操作 (正常模式)<br>▸ <code>&lt;空格&gt; + Tab键</code> 切换NvimTree显示</p>
+<p>文本操作 (可视模式)<br>▸ <code>J</code> 向下移动选中块(保持选中状态)<br>▸ <code>K</code> 向上移动选中块(保持选中状态)</p>
+<p>代码补全 (插入模式)<br>▸ <code>Ctrl + Space</code> 触发补全建议<br>▸ <code>Enter</code> 确认补全选择(补全可见时)&#x2F;普通回车<br>▸ <code>Tab</code> 选择下一个补全项(补全可见时)&#x2F;普通Tab<br>▸ <code>Shift + Tab</code> 选择上一个补全项(补全可见时)&#x2F;反向Tab</p>
 ]]></content>
       <categories>
         <category>技术研究</category>
@@ -737,6 +721,8 @@
     <title>KDE桌面环境无法在Konsole切换中文输入法的解决方案</title>
     <url>/2025/03/08/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/KDE%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E6%97%A0%E6%B3%95%E5%9C%A8Konsole%E5%88%87%E6%8D%A2%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
     <content><![CDATA[<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>KDE默认使用Wayland会话，而fcitx4不支持Wayland，需升级到fcitx5。若无法升级到fcitx5或升级后仍然无法切换中文输入法，<strong>安装fcitx-qt6</strong></p>
+<span id="more"></span>
+
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S fcitx-qt6</span><br></pre></td></tr></table></figure>
 
 <p>安装后执行<code>sudo reboot now</code>进行重启，问题解决。</p>
@@ -749,10 +735,12 @@
     <title>Kitty终端美化记录</title>
     <url>/2025/03/09/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/Kitty%E7%BB%88%E7%AB%AF%E7%BE%8E%E5%8C%96%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<p>Kitty这个终端可谓是兼顾了性能与美观，虽然默认设置很简陋，但是经过一番折腾后也能变得很漂亮。</p>
+<span id="more"></span>
+
 <h1 id="选择配色"><a href="#选择配色" class="headerlink" title="选择配色"></a>选择配色</h1><p>运行<code>kitty + kitten themes</code>后会弹出一个选择配色的界面<br><img src="/../../images/Pasted%20image%2020250309124346.png"><br>令我感到非常高兴的是，这个界面支持vim的hjkl键位，也可以用&#x2F;来搜索。<br>选好后，回车按m，command + ^ + ,重载配置文件。</p>
 <h1 id="配置字体"><a href="#配置字体" class="headerlink" title="配置字体"></a>配置字体</h1><p>打开kitty的配置文件<code>nvim ~/.config/kitty/kitty.conf</code>，把字号改到12<br><code>font_size 12</code><br>输入<code>kitty list-fonts --psnames</code>来列出系统安装好的所有等宽字体。</p>
 <h1 id="设置窗口风格"><a href="#设置窗口风格" class="headerlink" title="设置窗口风格"></a>设置窗口风格</h1><p>进入配置文件</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#window</span><br><span class="line"># 不显示窗口标题栏 保留窗口圆角</span><br><span class="line">hide_window_decorations titlebar-only</span><br><span class="line"># 边距</span><br><span class="line">window_padding_width 5           </span><br><span class="line"># 不透明度</span><br><span class="line">background_opacity   0.8 </span><br><span class="line"># 毛玻璃效果</span><br><span class="line">background_blur      30                  </span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#window</span><br><span class="line"># 不显示窗口标题栏 保留窗口圆角</span><br><span class="line">hide_window_decorations titlebar-only</span><br><span class="line"># 边距</span><br><span class="line">window_padding_width 5</span><br><span class="line"># 不透明度</span><br><span class="line">background_opacity   0.8</span><br><span class="line"># 毛玻璃效果</span><br><span class="line">background_blur      30</span><br></pre></td></tr></table></figure>
 
 <h1 id="设置标签栏风格"><a href="#设置标签栏风格" class="headerlink" title="设置标签栏风格"></a>设置标签栏风格</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#tab bar</span><br><span class="line">tab_bar_edge          top</span><br><span class="line">tab_bar_style         powerline</span><br><span class="line">tab_powerline_style   slanted</span><br></pre></td></tr></table></figure>
 
@@ -903,9 +891,33 @@
       </tags>
   </entry>
   <entry>
+    <title>Nodejs环境下控制台拼接字符串输出有undefind</title>
+    <url>/2025/03/22/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/Nodejs%E7%8E%AF%E5%A2%83%E4%B8%8B%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%8B%BC%E6%8E%A5%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%87%BA%E6%9C%89undefind/</url>
+    <content><![CDATA[<p>今天在Nodejs环境下搓小工具，控制台输出拼接字符串时，发现有<code>undefind</code>，代码如下：</p>
+<span id="more"></span>
+
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> date = <span class="keyword">new</span> <span class="title class_">Date</span>();</span><br><span class="line"><span class="keyword">const</span> year = date.<span class="title function_">getFullYear</span>();</span><br><span class="line"><span class="keyword">const</span> month = date.<span class="title function_">getMonth</span>();</span><br><span class="line"><span class="keyword">const</span> day = date.<span class="title function_">getDate</span>();</span><br><span class="line"><span class="keyword">const</span> hour = date.<span class="title function_">getHours</span>();</span><br><span class="line"><span class="keyword">const</span> minute = date.<span class="title function_">getMinutes</span>();</span><br><span class="line"><span class="keyword">const</span> second = date.<span class="title function_">getSeconds</span>();</span><br><span class="line"><span class="keyword">const</span> logTime = <span class="string">`[<span class="subst">$&#123;year&#125;</span>-<span class="subst">$&#123;month&#125;</span>-<span class="subst">$&#123;day&#125;</span> <span class="subst">$&#123;hour&#125;</span>:<span class="subst">$&#123;minute&#125;</span>:<span class="subst">$&#123;second&#125;</span>] `</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">GenerateLog</span> &#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="title function_">log</span>(<span class="params"></span>) &#123;</span><br><span class="line">    process.<span class="property">stdout</span>.<span class="title function_">write</span>(logTime);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">GenerateLog</span>.<span class="title function_">log</span>() + <span class="string">&quot;log output on the console&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>输出确是这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[2025-3-22 18:56:33] undefindlog output on the console</span><br></pre></td></tr></table></figure>
+
+<p>原因<br>：<code>GenerateLog.log()</code>方法没有返回值，所以输出<code>undefind</code>，解决方法如下：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 让log方法返回logTime</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">GenerateLog</span> &#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="title function_">log</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> logTime; <span class="comment">// 返回字符串</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">GenerateLog</span>.<span class="title function_">log</span>() + <span class="string">&quot;log output on the console&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>关键总结：<br>Javascript中，如果方法没有返回值，那么输出的就是<code>undefind</code></p>
+<h4 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h4><p>为什么 console.log() 本身会返回 undefined？<br>在 REPL 环境（如 Node.js 命令行或浏览器控制台）中，每条语句的执行结果会被隐式打印。由于 console.log() 函数本身没有返回值（即返回 undefined），因此会显示 undefined。但在脚本执行时，这一行为不会发生，因为脚本模式不自动打印返回值</p>
+]]></content>
+      <tags>
+        <tag>Javascript 开发 Nodejs</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【无废话】全网最简单的Hexo+Obsidain图片解决方案</title>
     <url>/2025/03/05/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/%E3%80%90%E6%97%A0%E5%BA%9F%E8%AF%9D%E3%80%91%E5%85%A8%E7%BD%91%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84Hexo+Obsidain%E5%9B%BE%E7%89%87%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
-    <content><![CDATA[<p>把Hexo博客根目录用黑曜石打开，如果已经打开了仓库<br><img src="/../../images/Pasted%20image%2020250305215423.png"><br>在弹出的窗口中选第二个。<br>在source目录下新建images文件夹用于存放图片<br>设置 &#x3D;&gt; 文件与链接 &#x3D;&gt; 附件默认存放路径：选择指定的附件文件夹。路径填写刚刚创建的image文件夹的相对路径<br>取消使用Wiki链接<br>注意。由于我的文件结构是这样的所以这么填写，要<strong>根据自己的文件结构填写相对路径</strong>。<br><img src="/../../images/Pasted%20image%2020250305215642.png"><br><img src="/../../images/Pasted%20image%2020250305215910.png" alt="我的文件结构"><br>搞定，同时可以在本地编辑环境和博客网站中显示。</p>
+    <content><![CDATA[<p>把Hexo博客根目录用黑曜石打开，如果已经打开了仓库<br><img src="/../../images/Pasted%20image%2020250305215423.png"><br>在弹出的窗口中选第二个。</p>
+<span id="more"></span>
+
+<p>在source目录下新建images文件夹用于存放图片<br>设置 &#x3D;&gt; 文件与链接 &#x3D;&gt; 附件默认存放路径：选择指定的附件文件夹。路径填写刚刚创建的image文件夹的相对路径<br>取消使用Wiki链接<br>注意。由于我的文件结构是这样的所以这么填写，要<strong>根据自己的文件结构填写相对路径</strong>。<br><img src="/../../images/Pasted%20image%2020250305215642.png"><br><img src="/../../images/Pasted%20image%2020250305215910.png" alt="我的文件结构"><br>搞定，同时可以在本地编辑环境和博客网站中显示。</p>
 ]]></content>
       <categories>
         <category>技术研究</category>
@@ -921,47 +933,64 @@
     <url>/2025/03/04/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/%E3%80%90%E6%9C%AA%E8%A7%A3%E5%86%B3%E3%80%91Windows-WSL%E6%8A%A5%E9%94%99%EF%BC%9AError-0x80080005/</url>
     <content><![CDATA[<p>设备环境：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">操作系统：Windows 10</span><br><span class="line">安装系统：Arch Linux</span><br><span class="line">错误日志：</span><br><span class="line">Installing, this may take a few minutes...</span><br><span class="line">WslRegisterDistribution failed with error: 0x80080005</span><br><span class="line">Error: 0x80080005 ???????</span><br><span class="line"></span><br><span class="line">Press any key to continue...</span><br></pre></td></tr></table></figure>
+
 <p>网上有一篇<a href="https://ask.csdn.net/questions/7625716">文章</a>提到这个错误，下面的评论回复以管理员权限运行命令提示符并执行<code>sc stop LxssManager</code>和<code>sc start LxssManager</code><br>出现如下报错：</p>
+<span id="more"></span>
+
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">C:\Windows\system32&gt;sc stop LxssManager</span><br><span class="line">[SC] OpenService 失败 1060:</span><br><span class="line"></span><br><span class="line">指定的服务未安装。</span><br></pre></td></tr></table></figure>
+
 <p>顺藤摸瓜，在网上寻找<code>LxssManager</code>这个服务要如何安装。<br>网上暂时还没有找到相关文章能够解决这个问题，但是CSDN的一篇文章引起了我的注意<br><a href="https://blog.csdn.net/renwudao24/article/details/52061906">[SC] OpenService 失败：1060指定的服务未安装_[sc] openservice 失败 1060: 指定的服务未安装。-CSDN博客</a><br>文章中提到了“服务”，在开始菜单中搜索服务，进入应用找到了一个名为WSL Service的服务。点左上角启动。<br>![[_posts\Windows-WSL报错：Error-0x80080005\Pasted image 20250304211246.png]]<br>提取关键信息：<strong>1058、被禁用、关联的设备没有启动</strong>。<br>检查功能是否开启：按下 <code>Win+S</code> 搜索 <strong>启用或关闭Windows功能</strong><br>勾选<code>适用于Linux的Windows子系统</code>和<code>虚拟机平台</code>这两项，点击确定<br>![[_posts\Windows-WSL报错：Error-0x80080005\Pasted image 20250304212523.png]]<br>![[_posts\Windows-WSL报错：Error-0x80080005\Pasted image 20250304212716.png]]<br>重启电脑。<br>回来以后，用管理员身份运行powershell，强制重置WSL服务，依次执行：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wsl --shutdown </span><br><span class="line">wsl --unregister Arch <span class="comment"># 替换为你的发行版名称 </span></span><br><span class="line">wsl --install -d Arch <span class="comment"># 重新注册发行版</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wsl --shutdown</span><br><span class="line">wsl --unregister Arch <span class="comment"># 替换为你的发行版名称</span></span><br><span class="line">wsl --install -d Arch <span class="comment"># 重新注册发行版</span></span><br></pre></td></tr></table></figure>
+
 <p>如果提示内核缺失，在这里下<a href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi">https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi</a></p>
 <p>如果有以下输出：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">zcz  system32  ♥ 21:32  wsl --shutdown</span><br><span class="line">此应用程序需要适用于 Linux 的 Windows 子系统可选组件。</span><br><span class="line">通过运行安装它： wsl.exe --install --no-distribution</span><br><span class="line">可能需要重新启动系统才能使更改生效。</span><br><span class="line">错误代码: Wsl/WSL_E_WSL_OPTIONAL_COMPONENT_REQUIRED</span><br></pre></td></tr></table></figure>
+
 <p>两种可能：</p>
 <ol>
 <li>没有安装WSL服务</li>
 <li><strong>服务被禁用</strong><br>后者比较棘手，我们先做第一种尝试<br><strong>强制安装WSL组件</strong><br><strong>以管理员身份运行 PowerShell</strong>，执行以下命令：</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装WSL核心组件（会自动启用虚拟化功能） </span></span><br><span class="line">wsl --install</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装WSL核心组件（会自动启用虚拟化功能）</span></span><br><span class="line">wsl --install</span><br></pre></td></tr></table></figure>
+
 <p>输出：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">zcz  system32  ♥ 21:34  wsl --install</span><br><span class="line">正在安装 Windows 可选组件: Microsoft-Windows-Subsystem-Linux</span><br><span class="line"></span><br><span class="line">Deployment Image Servicing and Management tool</span><br><span class="line">Version: 10.0.19041.3636</span><br><span class="line"></span><br><span class="line">Image Version: 10.0.19045.5487</span><br><span class="line"></span><br><span class="line">启用一个或多个功能</span><br><span class="line">[==========================100.0%==========================]</span><br><span class="line">The operation completed successfully.</span><br><span class="line">正在安装 Windows 可选组件: VirtualMachinePlatform</span><br><span class="line"></span><br><span class="line">Deployment Image Servicing and Management tool</span><br><span class="line">Version: 10.0.19041.3636</span><br><span class="line"></span><br><span class="line">Image Version: 10.0.19045.5487</span><br><span class="line"></span><br><span class="line">启用一个或多个功能</span><br><span class="line">[==========================100.0%==========================]</span><br><span class="line">The operation completed successfully.</span><br><span class="line">请求的操作成功。直到重新启动系统前更改将不会生效。</span><br></pre></td></tr></table></figure>
+
 <p>再次进行重启。<br><code>Restart-Computer</code><br>开机加载界面显示：我们无法完成更新，正在撤销更改。。<br>尝试过的方法：进入安全模式，尝试重启更新，失败。<br>安全模式仍然失败，选择临时禁用WSL服务<br>管理员cmd执行</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sc</span> config LxssManager <span class="built_in">start</span>= disabled </span><br><span class="line">shutdown /<span class="built_in">r</span> /t <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sc</span> config LxssManager <span class="built_in">start</span>= disabled</span><br><span class="line">shutdown /<span class="built_in">r</span> /t <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
 <p>输出：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">C:\Windows\system32&gt;sc config LxssManager start= disabled&amp;&amp; shutdown /r /t 0</span><br><span class="line">[SC] OpenService 失败 1060:</span><br><span class="line"></span><br><span class="line">指定的服务未安装。</span><br></pre></td></tr></table></figure>
+
 <p>唉，老朋友，又见面了。只能祭出来我的终极大杀器。</p>
-<h3 id="彻底重装WSL"><a href="#彻底重装WSL" class="headerlink" title="彻底重装WSL"></a><strong>彻底重装WSL</strong></h3><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 卸载所有发行版 </span></span><br><span class="line">wsl <span class="literal">--unregister</span> * </span><br><span class="line"><span class="comment"># 删除残留配置 </span></span><br><span class="line"><span class="built_in">Remove-Item</span> <span class="literal">-Path</span> <span class="string">&quot;<span class="variable">$env:USERPROFILE</span>\AppData\Local\Packages\*Linux*&quot;</span> <span class="literal">-Recurse</span> <span class="literal">-Force</span></span><br></pre></td></tr></table></figure>
+<h3 id="彻底重装WSL"><a href="#彻底重装WSL" class="headerlink" title="彻底重装WSL"></a><strong>彻底重装WSL</strong></h3><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 卸载所有发行版</span></span><br><span class="line">wsl <span class="literal">--unregister</span> *</span><br><span class="line"><span class="comment"># 删除残留配置</span></span><br><span class="line"><span class="built_in">Remove-Item</span> <span class="literal">-Path</span> <span class="string">&quot;<span class="variable">$env:USERPROFILE</span>\AppData\Local\Packages\*Linux*&quot;</span> <span class="literal">-Recurse</span> <span class="literal">-Force</span></span><br></pre></td></tr></table></figure>
+
 <p>输出：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">zcz  system32  ♥ 22:04  # 卸载所有发行版</span><br><span class="line">&gt; wsl --unregister *</span><br><span class="line">&gt; # 删除残留配置</span><br><span class="line">&gt; Remove-Item -Path &quot;$env:USERPROFILE\AppData\Local\Packages\*Linux*&quot; -Recurse -Force</span><br><span class="line">正在注销。</span><br><span class="line">此应用程序需要适用于 Linux 的 Windows 子系统可选组件。</span><br><span class="line">通过运行安装它： wsl.exe --install --no-distribution</span><br><span class="line">可能需要重新启动系统才能使更改生效。</span><br><span class="line">错误代码: Wsl/WSL_E_WSL_OPTIONAL_COMPONENT_REQUIRED</span><br></pre></td></tr></table></figure>
+
 <p>输入<code>wsl.exe --install --no-distribution</code><br>输出：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">zcz  system32  ♥ 22:09  wsl.exe --install --no-distribution</span><br><span class="line">正在安装 Windows 可选组件: Microsoft-Windows-Subsystem-Linux</span><br><span class="line"></span><br><span class="line">Deployment Image Servicing and Management tool</span><br><span class="line">Version: 10.0.19041.3636</span><br><span class="line"></span><br><span class="line">Image Version: 10.0.19045.5487</span><br><span class="line"></span><br><span class="line">启用一个或多个功能</span><br><span class="line">[==========================100.0%==========================]</span><br><span class="line">The operation completed successfully.</span><br><span class="line">正在安装 Windows 可选组件: VirtualMachinePlatform</span><br><span class="line"></span><br><span class="line">Deployment Image Servicing and Management tool</span><br><span class="line">Version: 10.0.19041.3636</span><br><span class="line"></span><br><span class="line">Image Version: 10.0.19045.5487</span><br><span class="line"></span><br><span class="line">启用一个或多个功能</span><br><span class="line">[==========================100.0%==========================]</span><br><span class="line">The operation completed successfully.</span><br><span class="line">请求的操作成功。直到重新启动系统前更改将不会生效。</span><br></pre></td></tr></table></figure>
+
 <p>继续重启，显示“我们无法完成更新，正在撤销更改。”</p>
-<p><strong>以管理员身份打开CMD</strong>：<br>按下 <code>Win+S</code> → 输入 <code>cmd</code> → 右键选择 <strong>“以管理员身份运行”</strong>   <strong>执行以下命令（注意语法）</strong>：</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">sc config LxssManager <span class="built_in">start</span>= auto</span><br><span class="line">sc config vmcompute <span class="built_in">start</span>= auto </span><br><span class="line"><span class="built_in">net</span> <span class="built_in">start</span> LxssManager </span><br><span class="line"><span class="built_in">net</span> <span class="built_in">start</span> vmcompute</span><br></pre></td></tr></table></figure>
+<p><strong>以管理员身份打开CMD</strong>：<br>按下 <code>Win+S</code> → 输入 <code>cmd</code> → 右键选择 <strong>“以管理员身份运行”</strong>  <strong>执行以下命令（注意语法）</strong>：</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">sc config LxssManager <span class="built_in">start</span>= auto</span><br><span class="line">sc config vmcompute <span class="built_in">start</span>= auto</span><br><span class="line"><span class="built_in">net</span> <span class="built_in">start</span> LxssManager</span><br><span class="line"><span class="built_in">net</span> <span class="built_in">start</span> vmcompute</span><br></pre></td></tr></table></figure>
+
 <p>仍然1085，管理员cmd执行</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">dism /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart </span><br><span class="line"></span><br><span class="line">dism /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">dism /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart</span><br><span class="line"></span><br><span class="line">dism /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart</span><br></pre></td></tr></table></figure>
+
 <p>尝试重装WSL，出现<br>![[_posts\Windows-WSL报错：Error-0x80080005\Pasted image 20250304222548.png]]</p>
 <p>研究了一阵子，<strong><code>vmcompute</code></strong>（虚拟机核心服务）和 <strong><code>LxssManager</code></strong>（WSL管理服务）均未注册，导致WSL安装向导崩溃。</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 以管理员身份运行 </span></span><br><span class="line">dism.exe /online /<span class="built_in">enable-feature</span> /featurename:Microsoft<span class="literal">-Windows-Subsystem-Linux</span> /all /norestart </span><br><span class="line">dism.exe /online /<span class="built_in">enable-feature</span> /featurename:VirtualMachinePlatform /all /norestart </span><br><span class="line">dism.exe /online /<span class="built_in">enable-feature</span> /featurename:HypervisorPlatform /all /norestart</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 以管理员身份运行</span></span><br><span class="line">dism.exe /online /<span class="built_in">enable-feature</span> /featurename:Microsoft<span class="literal">-Windows-Subsystem-Linux</span> /all /norestart</span><br><span class="line">dism.exe /online /<span class="built_in">enable-feature</span> /featurename:VirtualMachinePlatform /all /norestart</span><br><span class="line">dism.exe /online /<span class="built_in">enable-feature</span> /featurename:HypervisorPlatform /all /norestart</span><br></pre></td></tr></table></figure>
+
 <p>重启，“我们无法完成更新，正在撤销更改。”<br>。。。。。、、、、<br>尽力了。现在看来，是系统层面的硬伤了。可能行得通的有重装系统和保留文件重置系统两个选择。不过我还是会和这个问题死磕一下，我就不信我干不成这个事。明天还要苦逼上学，先睡了。<br>2025.3.4 22:57</p>
 <p>————————————————————————————</p>
 <p>2025.3.5</p>
 <p>尝试<strong>强制修复系统核心组件</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 以管理员身份运行 PowerShell </span><br><span class="line">sfc /scannow </span><br><span class="line">DISM /Online /Cleanup-Image /RestoreHealth</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 以管理员身份运行 PowerShell</span><br><span class="line">sfc /scannow</span><br><span class="line">DISM /Online /Cleanup-Image /RestoreHealth</span><br></pre></td></tr></table></figure>
 
 <p><strong>重置 Windows Update 组件</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 管理员cmd执行 net stop wuauserv </span><br><span class="line">net stop cryptSvc </span><br><span class="line">net stop bits </span><br><span class="line">net stop msiserver </span><br><span class="line">rmdir C:\Windows\SoftwareDistribution /S /Q </span><br><span class="line">net start wuauserv </span><br><span class="line">net start cryptSvc </span><br><span class="line">net start bits </span><br><span class="line">net start msiserver</span><br><span class="line"># 强制重建WSL核心服务 </span><br><span class="line">sc create vmcompute binPath= &quot;C:\Windows\System32\vmcompute.exe&quot; start= auto type= kernel </span><br><span class="line">sc create LxssManager binPath= &quot;C:\Windows\System32\lxss\LxssManager.dll&quot; start= auto type= own </span><br><span class="line">net start vmcompute </span><br><span class="line">net start LxssManager</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 管理员cmd执行 net stop wuauserv</span><br><span class="line">net stop cryptSvc</span><br><span class="line">net stop bits</span><br><span class="line">net stop msiserver</span><br><span class="line">rmdir C:\Windows\SoftwareDistribution /S /Q</span><br><span class="line">net start wuauserv</span><br><span class="line">net start cryptSvc</span><br><span class="line">net start bits</span><br><span class="line">net start msiserver</span><br><span class="line"># 强制重建WSL核心服务</span><br><span class="line">sc create vmcompute binPath= &quot;C:\Windows\System32\vmcompute.exe&quot; start= auto type= kernel</span><br><span class="line">sc create LxssManager binPath= &quot;C:\Windows\System32\lxss\LxssManager.dll&quot; start= auto type= own</span><br><span class="line">net start vmcompute</span><br><span class="line">net start LxssManager</span><br></pre></td></tr></table></figure>
+
 <p>仍然无法启动。使用wsl偶遇神秘怪异bug拼尽全力无法战胜。我都已经浪费这么长时间来研究这个问题，为什么我不直接装个Linux系统呢。周末就把这傻卵系统换成Arch！</p>
 ]]></content>
       <categories>
@@ -975,8 +1004,12 @@
   <entry>
     <title>光速破解作文网站禁止复制</title>
     <url>/2025/03/21/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/%E5%85%89%E9%80%9F%E7%A0%B4%E8%A7%A3%E4%BD%9C%E6%96%87%E7%BD%91%E7%AB%99%E7%A6%81%E6%AD%A2%E5%A4%8D%E5%88%B6/</url>
-    <content><![CDATA[<p>今天上网搜集范文，又遇到了这个很多年前就让我非常痛恨的网站。可以看到，这个网站应该是通过JS，检测鼠标左键或者CTRL+C再弹出这个窗口达到的防止用户复制的目的，可以此为切入点，查看一下这个网站的源码。找到问题所在。<br><img src="/../../images/Pasted%20image%2020250321081959.png"><br>今天定要把这个仇报了。下载网页到本地，这里出了一个小插曲，在FIREFOX浏览器下载的所有网页文件，中文都是乱码，顺便来解决一下这个问题。<br>在平板MT管理器右上角可以看到，这个文件的编码格式是GB2312，在vim中输入<code>:e ++enc=gb2312</code>，在输入<code>set fileencoding=utf-8</code>就可正常查看了。现在的代码结构非常屎，保存格式化一下。<br>第159行，有一个webchatbox的盒子，可以看到，这里就是为防止复制创建的盒子，把这段代码注释掉。<br><img src="/../../images/Pasted%20image%2020250321112804.png"><br>这还没完，再去到页面复制发现还是有未处理完善的残留页面<br><img src="/../../images/Pasted%20image%2020250321112937.png"><br>原因在于第223行的开始的一个盒子，把这段也注释掉即可</p>
+    <content><![CDATA[<p>今天上网搜集范文，又遇到了这个很多年前就让我非常痛恨的网站。可以看到，这个网站应该是通过JS，检测鼠标左键或者CTRL+C再弹出这个窗口达到的防止用户复制的目的，可以此为切入点，查看一下这个网站的源码。找到问题所在。</p>
+<span id="more"></span>
+
+<p><img src="/../../images/Pasted%20image%2020250321081959.png"><br>今天定要把这个仇报了。下载网页到本地，这里出了一个小插曲，在FIREFOX浏览器下载的所有网页文件，中文都是乱码，顺便来解决一下这个问题。<br>在平板MT管理器右上角可以看到，这个文件的编码格式是GB2312，在vim中输入<code>:e ++enc=gb2312</code>，在输入<code>set fileencoding=utf-8</code>就可正常查看了。现在的代码结构非常屎，保存格式化一下。<br>第159行，有一个webchatbox的盒子，可以看到，这里就是为防止复制创建的盒子，把这段代码注释掉。<br><img src="/../../images/Pasted%20image%2020250321112804.png"><br>这还没完，再去到页面复制发现还是有未处理完善的残留页面<br><img src="/../../images/Pasted%20image%2020250321112937.png"><br>原因在于第223行的开始的一个盒子，把这段也注释掉即可</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;modal modal-server&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;wx_pic_img&quot;</span> <span class="attr">id</span>=<span class="string">&quot;webchat-server-box&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;modal-close&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;payqr_box&quot;</span> <span class="attr">style</span>=<span class="string">&quot;display: block;&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;cj_title&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>常见问题<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;customer_service_box&quot;</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;que&quot;</span>&gt;</span>1.支付成功后，怎么复制？<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;ans&quot;</span>&gt;</span>亲，您好！付款成功后，无需验证码，直接复制哦！<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;que&quot;</span>&gt;</span>2.支付成功后，为何无法复制内容？<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;ans&quot;</span>&gt;</span>亲，请尝试刷新一下网页（按键盘F5键），再进行复制。<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;que&quot;</span>&gt;</span>3.付费后能否更换浏览器、更换电脑进行复制？<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;ans&quot;</span>&gt;</span>亲，更换浏览器或电脑会导致复制不成功哦！请确保付费时的浏览器及电脑和复制文章时所用的浏览器是一样的。<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;que&quot;</span>&gt;</span>4.如何联系客服？<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;ans&quot;</span>&gt;</span>麻烦您添加客服微信：zjdddx1 ，留言“付款后无法复制文章”，并发送相关付款截图，客服将为您处理。<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;copy-success alert-bounceIn&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;co_files/payed.png&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">class</span>=<span class="string">&quot;icon&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>复制成功！<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;co_files/js.cookie.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">language</span>=<span class="string">&quot;javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;co_files/bottom.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">language</span>=<span class="string">&quot;javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;co_files/doc.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p>这样再保存，回到页面中就可正常复制了。前端的这点小儿科把戏，轻松搞定。</p>
 <p>可能会写一个脚本来把这个页面的p标签内容都解析出来并输出。</p>
 ]]></content>
