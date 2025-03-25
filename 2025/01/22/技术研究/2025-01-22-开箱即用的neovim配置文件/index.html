@@ -1,282 +1,240 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/static/avatar.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/static/avatar.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/static/avatar.png">
-  <link rel="mask-icon" href="/images/static/avatar.png" color="#222">
-  <link rel="manifest" href="/images/static/avatar.png">
-
-<link rel="stylesheet" href="/css/main.css">
+    <meta name="author" content="yingyu5658">
 
 
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
-
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.yingyu5658.cn","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12,"onmobile":false},"hljswrap":true,"copycode":{"enable":false,"style":null,"show_result":false},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js"></script>
-
-    <meta name="description" content="下载链接https:&#x2F;&#x2F;yingyu5658.lanzoup.com&#x2F;iWfXQ2ln6jre为了兄弟们下得爽点就不用百度网盘或者夸克了代码都有比较详细的注释">
-<meta property="og:type" content="article">
-<meta property="og:title" content="开箱即用的neovim配置文件">
-<meta property="og:url" content="https://www.yingyu5658.cn/2025/01/22/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/2025-01-22-%E5%BC%80%E7%AE%B1%E5%8D%B3%E7%94%A8%E7%9A%84neovim%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/index.html">
-<meta property="og:site_name" content="yingyu5658的万事屋">
-<meta property="og:description" content="下载链接https:&#x2F;&#x2F;yingyu5658.lanzoup.com&#x2F;iWfXQ2ln6jre为了兄弟们下得爽点就不用百度网盘或者夸克了代码都有比较详细的注释">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-01-22T10:13:27.000Z">
-<meta property="article:modified_time" content="2025-01-22T10:13:27.000Z">
-<meta property="article:author" content="yingyu5658">
-<meta property="article:tag" content="Neovim">
-<meta property="article:tag" content="Vim">
-<meta property="article:tag" content="Nvim">
-<meta name="twitter:card" content="summary">
+    <meta name="subtitle" content="我现在就要看孤独摇滚第二季！">
 
 
-<link rel="canonical" href="https://www.yingyu5658.cn/2025/01/22/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/2025-01-22-%E5%BC%80%E7%AE%B1%E5%8D%B3%E7%94%A8%E7%9A%84neovim%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/">
+    <meta name="description" content="一个喜欢被电脑虐待的咸鱼初中生">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.yingyu5658.cn/2025/01/22/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/2025-01-22-%E5%BC%80%E7%AE%B1%E5%8D%B3%E7%94%A8%E7%9A%84neovim%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/","path":"2025/01/22/技术研究/2025-01-22-开箱即用的neovim配置文件/","title":"开箱即用的neovim配置文件"}</script>
+    <meta name="keywords" content="java,javascript,web,cpp,c,c#,csharp,.net,minecraft,我的世界,mc,服务器运维,泰拉瑞亚,服务器,linux,美术,二次元,素描,动漫,孤独摇滚,建站,编程,网站开发,程序开发,醉酒哈基米,yingyu5658">
 
-<script class="next-config" data-name="calendar" type="application/json">""</script>
+
 <title>开箱即用的neovim配置文件 | yingyu5658的万事屋</title>
-  
+
+
+
+    <link rel="icon" href="/favicon.ico">
 
 
 
 
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- highlight.js 样式（默认亮色） -->
+<link id="hljs-theme" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/github.css">
+<!-- highlight.js 自动上色功能 -->
+<script src="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/lib/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+    
 
 
 
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
 
-  <noscript>
-    <link rel="stylesheet" href="/css/noscript.css">
-  </noscript>
-<link rel="alternate" href="/atom.xml" title="yingyu5658的万事屋" type="application/atom+xml">
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="yingyu5658的万事屋" type="application/atom+xml">
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-  <div class="headband"></div>
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
 
-  <main class="main">
-    <div class="column">
-      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏" role="button">
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <i class="logo-line"></i>
-      <p class="site-title">yingyu5658的万事屋</p>
-      <i class="logo-line"></i>
-    </a>
-      <p class="site-subtitle" itemprop="description">我现在就要看孤独摇滚第二季！</p>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="搜索" role="button">
-        <i class="fa fa-search fa-fw fa-lg"></i>
-    </div>
-  </div>
-</div>
-
-
-
-<nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fas fa-link fa-fw"></i>友情链接</a></li>
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
-        </a>
-      </li>
-  </ul>
-</nav>
-
-
-
-  <div class="search-pop-overlay">
-    <div class="popup search-popup">
-      <div class="search-header">
-        <span class="search-icon">
-          <i class="fa fa-search"></i>
-        </span>
-        <div class="search-input-container">
-          <input autocomplete="off" autocapitalize="off" maxlength="80"
-                placeholder="搜索..." spellcheck="false"
-                type="search" class="search-input">
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">yingyu5658的万事屋</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
         </div>
-        <span class="popup-btn-close" role="button">
-          <i class="fa fa-times-circle"></i>
-        </span>
-      </div>
-      <div class="search-result-container">
-        <div class="search-result-icon">
-          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">yingyu5658的万事屋</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
+    </nav>
 
 </header>
-        
-  
-  <aside class="sidebar">
-
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
-      <ul class="sidebar-nav">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <div class="sidebar-panel-container">
-        <!--noindex-->
-        <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E9%93%BE%E6%8E%A5"><span class="nav-number">1.</span> <span class="nav-text">下载链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E8%A8%80%E6%94%AF%E6%8C%81%E7%AD%96%E7%95%A5"><span class="nav-number">2.</span> <span class="nav-text">语言支持策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%92%E4%BB%B6%E7%94%9F%E6%80%81"><span class="nav-number">3.</span> <span class="nav-text">插件生态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84"><span class="nav-number">4.</span> <span class="nav-text">文件结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BF%AB%E6%8D%B7%E9%94%AE%E9%85%8D%E7%BD%AE"><span class="nav-number">5.</span> <span class="nav-text">快捷键配置</span></a></li></ol></div>
-        </div>
-        <!--/noindex-->
-
-        <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="yingyu5658"
-      src="/images/static/avatar.png">
-  <p class="site-author-name" itemprop="name">yingyu5658</p>
-  <div class="site-description" itemprop="description">一个喜欢被电脑虐待的咸鱼初中生</div>
-</div>
-<div class="site-state-wrap animated">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-        <a href="/archives/">
-          <span class="site-state-item-count">35</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-          <a href="/categories/">
-        <span class="site-state-item-count">4</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-          <a href="/tags/">
-        <span class="site-state-item-count">56</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author animated">
-      <span class="links-of-author-item">
-        <a href="https://github.com/yingyu5658" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yingyu5658" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="mailto:yingyu5658@outlook.com" title="E-Mail → mailto:yingyu5658@outlook.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://space.bilibili.com/604851180" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;604851180" rel="noopener me" target="_blank"><i class="fa-brands fa-bilibili fa-fw"></i>Bilibili</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="fa fa-rss fa-fw"></i>RSS</a>
-      </span>
-  </div>
-
-        </div>
-      </div>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
     </div>
-
-    
-  </aside>
-
-
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
     </div>
-
-    <div class="main-inner post posts-expand">
-
-
-  
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.yingyu5658.cn/2025/01/22/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/2025-01-22-%E5%BC%80%E7%AE%B1%E5%8D%B3%E7%94%A8%E7%9A%84neovim%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/static/avatar.png">
-      <meta itemprop="name" content="yingyu5658">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="yingyu5658的万事屋">
-      <meta itemprop="description" content="一个喜欢被电脑虐待的咸鱼初中生">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="开箱即用的neovim配置文件 | yingyu5658的万事屋">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          开箱即用的neovim配置文件
-        </h1>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-01-22 18:13:27" itemprop="dateCreated datePublished" datetime="2025-01-22T18:13:27+08:00">2025-01-22</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/" itemprop="url" rel="index"><span itemprop="name">技术研究</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>891</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
 </div>
 
-        </div>
-      </header>
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
 
     
-    
-    
-    <div class="post-body" itemprop="articleBody"><h3 id="下载链接"><a href="#下载链接" class="headerlink" title="下载链接"></a>下载链接</h3><p><a target="_blank" rel="noopener" href="https://yingyu5658.lanzoup.com/iWfXQ2ln6jre">https://yingyu5658.lanzoup.com/iWfXQ2ln6jre</a><br>为了兄弟们下得爽点就不用百度网盘或者夸克了<br>代码都有比较详细的注释</p>
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">开箱即用的neovim配置文件</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">yingyu5658</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">一月 22, 2025&nbsp;&nbsp;18:13:27</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/">技术研究</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h3 id="下载链接"><a href="#下载链接" class="headerlink" title="下载链接"></a>下载链接</h3><p><a target="_blank" rel="noopener" href="https://yingyu5658.lanzoup.com/iWfXQ2ln6jre">https://yingyu5658.lanzoup.com/iWfXQ2ln6jre</a><br>为了兄弟们下得爽点就不用百度网盘或者夸克了<br>代码都有比较详细的注释</p>
 <span id="more"></span>
 
 <h3 id="语言支持策略"><a href="#语言支持策略" class="headerlink" title="语言支持策略"></a>语言支持策略</h3><ul>
@@ -320,149 +278,132 @@
 <p>文本操作 (可视模式)<br>▸ <code>J</code> 向下移动选中块(保持选中状态)<br>▸ <code>K</code> 向上移动选中块(保持选中状态)</p>
 <p>代码补全 (插入模式)<br>▸ <code>Ctrl + Space</code> 触发补全建议<br>▸ <code>Enter</code> 确认补全选择(补全可见时)&#x2F;普通回车<br>▸ <code>Tab</code> 选择下一个补全项(补全可见时)&#x2F;普通Tab<br>▸ <code>Shift + Tab</code> 选择上一个补全项(补全可见时)&#x2F;反向Tab</p>
 
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/Neovim/" rel="tag"># Neovim</a>
-              <a href="/tags/Vim/" rel="tag"># Vim</a>
-              <a href="/tags/Nvim/" rel="tag"># Nvim</a>
-          </div>
+        </div>
 
         
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>yingyu5658</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://www.yingyu5658.cn/2025/01/22/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/2025-01-22-%E5%BC%80%E7%AE%B1%E5%8D%B3%E7%94%A8%E7%9A%84neovim%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/">https://www.yingyu5658.cn/2025/01/22/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/2025-01-22-%E5%BC%80%E7%AE%B1%E5%8D%B3%E7%94%A8%E7%9A%84neovim%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY</strong>?</span>
+                     </p>
+                
 
-          <div class="post-nav">
-            <div class="post-nav-item">
-                <a href="/2025/01/10/Java/2025-01-10-Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E2%80%94%E2%80%94%E5%A4%9A%E6%80%81%E3%80%81%E6%8A%BD%E8%B1%A1%E7%B1%BB%E3%80%81%E6%8E%A5%E5%8F%A3/" rel="prev" title="Java面向对象编程——多态、抽象类、接口">
-                  <i class="fa fa-angle-left"></i> Java面向对象编程——多态、抽象类、接口
-                </a>
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Neovim/"># Neovim</a>
+                    
+                        <a href="/tags/Vim/"># Vim</a>
+                    
+                        <a href="/tags/Nvim/"># Nvim</a>
+                    
+                        
+                </span>
             </div>
-            <div class="post-nav-item">
-                <a href="/2025/01/24/%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91/2025-01-24-%E5%88%86%E4%BA%AB%E4%B8%80%E4%B8%AAcss%E5%93%8D%E5%BA%94%E5%BC%8F%E6%A8%A1%E6%9D%BF/" rel="next" title="分享一个css响应式模板">
-                  分享一个css响应式模板 <i class="fa fa-angle-right"></i>
-                </a>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
             </div>
-          </div>
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-
-    
-  
-  <div class="comments giscus-container">
-  </div>
-  
-  
-</div>
-  </main>
-
-  <footer class="footer">
-    <div class="footer-inner">
-
-  <div class="copyright">
-    &copy; 2024 – 
-    <span itemprop="copyrightYear">2025</span>
-    <span class="with-love">
-      <i class="fa fa-heart"></i>
-    </span>
-    <span class="author" itemprop="copyrightHolder">yingyu5658</span>
-  </div>
-<div class="wordcount">
-  <span class="post-meta-item">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-chart-line"></i>
-    </span>
-      <span>站点总字数：</span>
-    <span title="站点总字数">33k</span>
-  </span>
-  <span class="post-meta-item">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-coffee"></i>
-    </span>
-      <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">30 分钟</span>
-  </span>
-</div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
-  </div>
-    <a href="https://icp.gov.moe/?keyword=www.yingyu5658.cn" target="_blank" rel="noopener">萌ICP备20251553号</a>
-</div>
-
-    </div>
-  </footer>
-
-  
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-  <div class="sidebar-dimmer"></div>
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up fa-lg"></i>
-    <span>0%</span>
-  </div>
-
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
-
-
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
-<script src="/js/third-party/search/local-search.js"></script>
-
-
-
-
-
-
-
-  
-
-
-
-
-<script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"yingyu5658/yingyu5658.github.io","repo_id":"R_kgDOOBetsA","category":"Announcements","category_id":"DIC_kwDOOBetsM4CoF_Z","mapping":"pathname","strict":0,"reactions_enabled":1,"emit_metadata":1,"theme":"dark","lang":"zh-CN","crossorigin":"anonymous","input_position":"bottom","loading":"lazy"}</script>
-
-<script>
-document.addEventListener('page:loaded', () => {
-  if (!CONFIG.page.comments) return;
-
-  NexT.utils.loadComments('.giscus-container')
-    .then(() => NexT.utils.getScript('https://giscus.app/client.js', {
-      attributes: {
-        async                   : true,
-        crossOrigin             : 'anonymous',
-        'data-repo'             : CONFIG.giscus.repo,
-        'data-repo-id'          : CONFIG.giscus.repo_id,
-        'data-category'         : CONFIG.giscus.category,
-        'data-category-id'      : CONFIG.giscus.category_id,
-        'data-mapping'          : CONFIG.giscus.mapping,
-        'data-strict'           : CONFIG.giscus.strict,
-        'data-reactions-enabled': CONFIG.giscus.reactions_enabled,
-        'data-emit-metadata'    : CONFIG.giscus.emit_metadata,
-        'data-theme'            : CONFIG.giscus.theme,
-        'data-lang'             : CONFIG.giscus.lang,
-        'data-input-position'   : CONFIG.giscus.input_position,
-        'data-loading'          : CONFIG.giscus.loading
-      },
-      parentNode: document.querySelector('.giscus-container')
-    }));
-});
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2025/01/24/%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91/2025-01-24-%E5%88%86%E4%BA%AB%E4%B8%80%E4%B8%AAcss%E5%93%8D%E5%BA%94%E5%BC%8F%E6%A8%A1%E6%9D%BF/">分享一个css响应式模板</a>
+            
+            
+            <a class="next" rel="next" href="/2025/01/10/Java/2025-01-10-Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E2%80%94%E2%80%94%E5%A4%9A%E6%80%81%E3%80%81%E6%8A%BD%E8%B1%A1%E7%B1%BB%E3%80%81%E6%8E%A5%E5%8F%A3/">Java面向对象编程——多态、抽象类、接口</a>
+            
+        </section>
+        <script src="https://giscus.app/client.js"
+        data-repo="yingyu5658/yingyu5658.github.io"
+        data-repo-id="R_kgDOOBetsA"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOOBetsM4CoF_Z"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
 </script>
 
+
+<script>
+  function setGiscusTheme(theme) {
+    const iframe = document.querySelector('iframe.giscus-frame');
+    if (!iframe) return;
+
+    iframe.contentWindow.postMessage({
+      giscus: {
+        setConfig: {
+          theme: theme === 'dark' ? 'dark' : 'light'
+        }
+      }
+    }, 'https://giscus.app');
+  }
+
+  // 初始加载时设置主题
+  window.addEventListener('DOMContentLoaded', () => {
+    const storedTheme = localStorage.getItem('theme');
+    const currentTheme = storedTheme === 'dark' ? 'dark' : 'light';
+    setGiscusTheme(currentTheme);
+  });
+
+  // 切换按钮点击时同步 Giscus 主题
+  document.addEventListener('DOMContentLoaded', () => {
+    const themeButtons = [
+      document.querySelector('.toggleBtn'),
+      document.getElementById('mobile-toggle-theme')
+    ];
+
+    themeButtons.forEach(btn => {
+      if (!btn) return;
+      btn.addEventListener('click', () => {
+        const newTheme = document.body.classList.contains('dark-theme') ? 'dark' : 'light';
+        setGiscusTheme(newTheme);
+      });
+    });
+  });
+</script>
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© yingyu5658 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
 </body>
+
 </html>
