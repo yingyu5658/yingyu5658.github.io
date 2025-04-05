@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="yingyu5658">
+
+
+    <meta name="subtitle" content="我现在就要看孤独摇滚第二季！">
+
+
+    <meta name="description" content="一个喜欢被电脑虐待的咸鱼初中生">
+
+
+    <meta name="keywords" content="java,javascript,web,cpp,c,c#,csharp,.net,minecraft,我的世界,mc,服务器运维,泰拉瑞亚,服务器,linux,美术,二次元,素描,动漫,孤独摇滚,建站,编程,网站开发,程序开发,醉酒哈基米,yingyu5658">
+
+
+<title>面向对象编程总结 | yingyu5658的万事屋</title>
+
+
+
+    <link rel="icon" href="/images/static/avatar_nijika.png">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- highlight.js 样式（默认亮色） -->
+<link id="hljs-theme" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/github.css">
+<!-- highlight.js 自动上色功能 -->
+<script src="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/lib/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+    
+    <link rel="stylesheet" href="/css/seach.css">
+    <!-- highlight.js 样式（默认亮色） -->
+<link id="hljs-theme" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/github.css">
+<!-- highlight.js 自动上色功能 -->
+<script src="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/lib/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- highlight.js 样式（默认亮色） -->
+<link id="hljs-theme" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/github.css">
+<!-- highlight.js 自动上色功能 -->
+<script src="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/lib/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="yingyu5658的万事屋" type="application/atom+xml">
+</head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">YingYu5658的万事屋</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Category</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                    <a class="menu-item" href="/links">Links</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">YingYu5658的万事屋</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Category</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                    <a class="menu-item" href="/links">Links</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">面向对象编程总结</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">yingyu5658</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">十二月 18, 2024&nbsp;&nbsp;16:30:00</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/">技术研究</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p>面向对象（oop）</p>
+<h1 id="面向对象编程的思想：面向。拿或者找。"><a href="#面向对象编程的思想：面向。拿或者找。" class="headerlink" title="面向对象编程的思想：面向。拿或者找。"></a>面向对象编程的思想：面向。拿或者找。</h1><p>对象：东西<br> 面向对象编程：拿东西过来编程<br> 面向对象：把现实世界中的食物看成一个一个对象来解决问题的。（万物皆 对象）<br>面向对象的好处：代码更符合人类的思维习惯。编程更简单。看程序更容易理解（？）</p>
+<h1 id="类、对象："><a href="#类、对象：" class="headerlink" title="类、对象："></a>类、对象：</h1><p>类（设计图）：相同事物，共同特征的描述。<br>对象：对象是类的具体的实例。<br> 对象 &#x3D; 实例<br> 在Java中必须先定义类，才能得到对象</p>
+<h1 id="定义类来创建对象使用"><a href="#定义类来创建对象使用" class="headerlink" title="定义类来创建对象使用"></a>定义类来创建对象使用</h1><h2 id="定义类的格式"><a href="#定义类的格式" class="headerlink" title="定义类的格式"></a>定义类的格式</h2><ol>
+<li>成员变量（代表属性，一般是名词）：数据类型 名称;</li>
+<li>成员方法（代表行为，一般是动词）</li>
+<li>构造器（前面的区域以后再来探索吧）</li>
+<li>代码块（前面的区域以后再来探索吧）</li>
+<li>内部类（前面的区域以后再来探索吧）</li>
+</ol>
+<h2 id="类中具体怎么写："><a href="#类中具体怎么写：" class="headerlink" title="类中具体怎么写："></a>类中具体怎么写：</h2><p>  一般名词定义成成员变量（属性）<br><code>修饰符 数据类型 变量名称 = 初始值</code><br> 成员变量不建议给初始值，它存在默认值。</p>
+<h2 id="一般动词定义成方法（行为）"><a href="#一般动词定义成方法（行为）" class="headerlink" title="一般动词定义成方法（行为）"></a>一般动词定义成方法（行为）</h2><h3 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h3><p><code>类名 对象名 = new 构造器();</code></p>
+<h2 id="对象使用："><a href="#对象使用：" class="headerlink" title="对象使用："></a>对象使用：</h2><p><code>对象名.成员变量</code><br><code>对象名.成员方法</code></p>
+<h1 id="构造器"><a href="#构造器" class="headerlink" title="构造器"></a>构造器</h1><pre><code>	作用：
+		初始化一个累的对象并且返回这个类的地址。
+		详细格式：修饰符 类名(形参)&#123;...&#125;
+		构造器的分类：
+					无参数构造器：初始化一个类的对象，里面的数据都是默认值，并返回地址。
+					有参数构造器：初始化一个类的对象，并返回地址，并且可以同时为对象赋值。
+		构造器如何调用：
+					类名 对象 = new 构造器;
+		注意：任何类写出来，自带无参数构造器
+			   但是在这个类中定义了一个有参数构造器了，那么无参数构造器就消失了，此时如果还要使用无参数构造器，必须自己写一个。
+</code></pre>
+<h2 id="this关键字"><a href="#this关键字" class="headerlink" title="this关键字"></a>this关键字</h2><p>作用：代表了当前对象的地址。可以访问当前对象的成员变量信息和成员方法</p>
+<h3 id="具体应用场景"><a href="#具体应用场景" class="headerlink" title="具体应用场景"></a>具体应用场景</h3><p>可以用在有参数构造器中<br>可以用在方法中</p>
+<h1 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h1><p>面向对象三大特征：封装、继承、多态。<br>封装的基本思想：决定属性和行为归属谁的问题。</p>
+<h2 id="如何更好的封装："><a href="#如何更好的封装：" class="headerlink" title="如何更好的封装："></a>如何更好的封装：</h2><p>成员变量私有化，只能在本类访问。</p>
+<h4 id="合理暴露"><a href="#合理暴露" class="headerlink" title="合理暴露"></a>合理暴露</h4><p> 提供成套的getter和setter方法暴露取值赋值。</p>
+<h1 id="标准JavaBean"><a href="#标准JavaBean" class="headerlink" title="标准JavaBean"></a>标准JavaBean</h1><p>JavaBean是什么：是实体类。<br>作用：创建对象，封装数据。</p>
+<p><img src="https://www.yingyu5658.cn/usr/uploads/2024/12/2743265221.jpg"></p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>yingyu5658</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://www.yingyu5658.cn/post/1385380729/">http://www.yingyu5658.cn/post/1385380729/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY</strong>?</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Java/"># Java</a>
+                    
+                        <a href="/tags/%E7%AC%94%E8%AE%B0/"># 笔记</a>
+                    
+                        <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/"># 面向对象编程</a>
+                    
+                        <a href="/tags/OOP/"># OOP</a>
+                    
+                        <a href="/tags/%E6%80%BB%E7%BB%93/"># 总结</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/post/837169233/">Java遍历字符串</a>
+            
+            
+            <a class="next" rel="next" href="/post/1636322595/">记录配置SSL证书</a>
+            
+        </section>
+        <script src="https://giscus.app/client.js"
+        data-repo="yingyu5658/yingyu5658.github.io"
+        data-repo-id="R_kgDOOBetsA"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOOBetsM4CoF_Z"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+<script>
+  function setGiscusTheme(theme) {
+    const iframe = document.querySelector('iframe.giscus-frame');
+    if (!iframe) return;
+
+    iframe.contentWindow.postMessage({
+      giscus: {
+        setConfig: {
+          theme: theme === 'dark' ? 'dark' : 'light'
+        }
+      }
+    }, 'https://giscus.app');
+  }
+
+  // 初始加载时设置主题
+  window.addEventListener('DOMContentLoaded', () => {
+    const storedTheme = localStorage.getItem('theme');
+    const currentTheme = storedTheme === 'dark' ? 'dark' : 'light';
+    setGiscusTheme(currentTheme);
+  });
+
+  // 切换按钮点击时同步 Giscus 主题
+  document.addEventListener('DOMContentLoaded', () => {
+    const themeButtons = [
+      document.querySelector('.toggleBtn'),
+      document.getElementById('mobile-toggle-theme')
+    ];
+
+    themeButtons.forEach(btn => {
+      if (!btn) return;
+      btn.addEventListener('click', () => {
+        const newTheme = document.body.classList.contains('dark-theme') ? 'dark' : 'light';
+        setGiscusTheme(newTheme);
+      });
+    });
+  });
+</script>
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© yingyu5658 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
