@@ -19,7 +19,7 @@
     <meta name="keywords" content="java,javascript,web,cpp,c,c#,csharp,.net,minecraft,我的世界,mc,服务器运维,泰拉瑞亚,服务器,linux,美术,二次元,素描,动漫,孤独摇滚,建站,编程,网站开发,程序开发,醉酒哈基米,yingyu5658">
 
 
-<title>记录Typecho博客转移到Hexo | yingyu5658的万事屋</title>
+<title>把主力机换成Arch Linux是我这辈子做过的最蠢的决定 | yingyu5658的万事屋</title>
 
 
 
@@ -230,7 +230,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">记录Typecho博客转移到Hexo</h1>
+            <h1 class="post-title">把主力机换成Arch Linux是我这辈子做过的最蠢的决定</h1>
             
                 <div class="post-meta">
                     
@@ -239,46 +239,84 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">四月 5, 2025&nbsp;&nbsp;8:38:14</a>
+                        Date: <a href="#">四月 6, 2025&nbsp;&nbsp;17:58:48</a>
                         </span>
                     
-                    
-                        <span class="post-category">
-                    Category:
-                            
-                                <a href="/categories/%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91/">网站开发</a>
-                            
-                        </span>
                     
                 </div>
             
         </header>
 
         <div class="post-content">
-            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>折腾来折腾去，最后发现归宿还是静态博客，安全性高、性能开销小，用Github直接省去服务器费用还差不多永生。每年把域名钱交了就得了，图片的问题再想想办法，总能解决的。<br><del>突然有一种为了躲避战乱带着一家人四处奔波的悲凉感</del></p>
-<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>博客网站的内容，都可以拆分为以下几个点：</p>
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>先说结论。</p>
+<p><strong>我是傻逼！</strong></p>
+<p><strong>我是傻逼！！</strong></p>
+<p><strong>我是傻逼！！！</strong></p>
+<p>本文将讲述</p>
 <ul>
-<li>文章</li>
-<li>评论</li>
-<li>文章插图</li>
-<li>网站贴图资源</li>
+<li>为什么我放弃了Arch</li>
+<li>为什么我放弃了Linux。</li>
+<li>什么人适合用Linux做主力系统</li>
 </ul>
-<p>先从最主要的文章开始，想想有没有什么可以用的。<br>gitee上有一个<a target="_blank" rel="noopener" href="https://gitcode.com/gh_mirrors/ty/Typecho-Plugin-Tp2MD">插件</a>，看起来好像有点用，折腾安装一下试试先。</p>
-<h1 id="Tp2MD插件迁移文章"><a href="#Tp2MD插件迁移文章" class="headerlink" title="Tp2MD插件迁移文章"></a>Tp2MD插件迁移文章</h1><p> 远程登录服务器，把本地下号的zip传到服务器上并解压。<br> cd到插件目录<br> <code>/usr/share/nginx/html/usr/plugins</code></p>
-<p> 解压压缩包<br> <code>unzip Typecho-Plugin-Tp2MD-master.zip</code></p>
-<p> 重命名为插件的自述文件要求的名称<br> <code>mv Typecho-Plugin-Tp2MD-master Tp2MD</code></p>
-<p>登录网站后台，启用插件。点击插件的设置，保存后按照教程访问。<br>这里提示<code>不能写入文件，请检查 cache 文件夹权限！</code>，我们在插件目录设置一下权限<br> <code>sudo chmod -R 777 cache</code>a<br>注意是这个插件目录下的cache！！</p>
-<p>提示导出成功，cd到这个目录，把文件压缩下载下来查看<br>可能是因为我有的文章点了多篇分类，导出文件夹有点问题，无所谓，后期再调，拿到了就行。至此，文章部分搞定！</p>
-<h1 id="评论"><a href="#评论" class="headerlink" title="评论"></a>评论</h1><p>评论这里，我折腾了两天，尝试尽了各种方案（Disqus Valine Waline Utterances Twikoo Atalk），最后还是选择了Giscus。我也知道这样读者没有github就没办法发评论，但是其他几种方案都会出现各种奇奇怪怪且无法解决的问题比如Cloudflare拦截、CORS出毛病、服务器被墙以及莫名其妙404、403。我真的尽力了。</p>
-<h1 id="文章插图"><a href="#文章插图" class="headerlink" title="文章插图"></a>文章插图</h1><h2 id="转移图片文件"><a href="#转移图片文件" class="headerlink" title="转移图片文件"></a>转移图片文件</h2><p>进入<code>/usr/uploads/</code>，压缩下载图片</p>
-<p>重组Hexo图片目录：复制所有图片到Hexo的<code>source/images/</code>目录。</p>
-<p>手动替换图片路径 ，注意，静态资源解析默认以source为根目录，所以直接写以source为根目录的绝对路径就行。</p>
-<h1 id="部署到vercel加速访问"><a href="#部署到vercel加速访问" class="headerlink" title="部署到vercel加速访问"></a>部署到vercel加速访问</h1><ol>
-<li>注册vercel账号</li>
-<li>创建项目，关联仓库</li>
-<li>域名解析</li>
-</ol>
-<p>2025.3.3，博客全部迁移完毕，粗略累计用时六天，一直没什么时间搞，耗时最长的还是在评论系统上的试错。</p>
+<p>本文的所有观点仅仅代表个人观点，我纯菜。你问我为什么要选择Arch，而不是Ubuntu或者其他新手友好的发行版，我不知道，正如上文所说，我是傻逼！</p>
+<h2 id="为什么我放弃了Arch"><a href="#为什么我放弃了Arch" class="headerlink" title="为什么我放弃了Arch"></a>为什么我放弃了Arch</h2><p>说到这个问题，就要先来谈谈为什么我要把Windows换成Linux。</p>
+<p>Linux这个系统对于我来说一直是神秘而美好的，至少在当时。我痴迷于命令行、终端、Vim这种工具。小时候也看过爸爸零几年买的《鸟哥的Linux私房菜》，给我当时幼小的心灵带来的极大的震撼。</p>
+<p>我当时也对Linux的目录结构非常新鲜，不分盘的设定感觉很好玩。</p>
+<p>我网站的服务器是Linux、身边的各种设备都有Linux的影子，这更加提高了我对Linux的向往程度。</p>
+<p>还有一个原因是，我当时正在用C语言写一个小工具，Windows下的gcc无法使用通配符<code>*</code>，要想用只能去打开Git Bash或者MSYS2，这俩东西界面的丑陋程度相比就不用我多说了，我当时就是喜欢把精力浪费在不必要的地方上，Windows的那个终端被我“美化”得花里胡哨的，上面两者的界面当然入不了我的眼。</p>
+<p>为了解决这个问题，我开始使用WSL2，但仅仅停留在开始阶段。</p>
+<p>我这个系统不知道怎么回事，根本没办法用WSL2，详情见<a href="https://www.yingyu5658.cn/post/1348465439/">https://www.yingyu5658.cn/post/1348465439/</a></p>
+<p>全网都没有遇到这个问题的，那既然如此，重装系统吧。</p>
+<p>和系统相处就像谈恋爱，总有一段热恋期，过了这个时期后就冷淡了、矛盾也就浮出水面。刚装好的前几天，我的热情前所未有的高涨，学习各种命令、各种工具，当然少不了配置我最爱的Vim。那么说到Vim，归根结底是文本编辑器对吧，打字的软件，那么就要说说我用Linux的第一大困难——<strong>输入法配置难</strong></p>
+<h3 id="输入法配置难"><a href="#输入法配置难" class="headerlink" title="输入法配置难"></a>输入法配置难</h3><p>我是双拼用户，从小学六年级就开始用小鹤双拼打字了，这么长时间的习惯很难改，我也不想改。但是Linux上对双拼友好的输入法方案几乎没几个，我尝试过两个，Fcitx5 + 搜狗, Fcitx5 + Rime。</p>
+<p>这两个方案都大差不差，只是搜狗的可能略微智能一点，下载源什么的换成国内镜像，分分钟搞定下载问题。难就难在，我使用的终端不兼容Fcitx。</p>
+<p>没错，我用的就是Kitty。</p>
+<p>那么，肯定有人就想说，KDE自带的Console不能用吗？非得额外下载一个干什么？？</p>
+<p>我的答案就是：<strong>丑</strong>。</p>
+<p>没错，就是因为Console丑。当然他也可以美化，但问题就在于，他的窗口圆角不彻底，而且把标签页显示关掉后，只能额外开一个窗口，占用屏幕空间。</p>
+<p>而Kitty就不同，窗口边框干净利落，看起来很舒服，而且配色看起来也比Konsole那高饱和度的方案舒服太多了。标签页不是类似于系统组件的那种形式，所以不会额外占窗口空间。</p>
+<p>虽然不兼容问题，在程序启动参数添加一条指定ibus接口的命令就解决了。</p>
+<p>你问我为什么非得要追求好看，闲的么？我当时可能会扣一大串字来回怼你，但是我现在觉得我错了，我认同你的观点，就是闲的。</p>
+<p>如开头所说，我是傻逼！</p>
+<p>配置各种东西就免不了使用Github下载，那么就由此引出了第二个问题，<strong>代理配置难</strong></p>
+<h3 id="代理配置难"><a href="#代理配置难" class="headerlink" title="代理配置难"></a>代理配置难</h3><p>我这边访问Github非常不稳定，有时候能丝滑裸连，有时候挂代理都难上。我先用了Steam++的Github加速服务，但是他会把Github的一些地址都重定向到localhost导致使用Git的某些功能如<code>git push</code>异常。我又换到FastGithub，这东西很好用，但也有不稳定的时候，当他作为系统服务启动的时候，发生异常，想杀死他就变得十分困难，然后导致几乎所有Git功能都瘫痪，非常麻烦，<code>git clone</code>都跑不下来。</p>
+<h3 id="显卡驱动安装难"><a href="#显卡驱动安装难" class="headerlink" title="显卡驱动安装难"></a>显卡驱动安装难</h3><p>Linux显卡驱动问题一直都是社区津津乐道的蛋疼问题，更蛋疼的是我的显卡还是英伟达的，你问我为什么用英伟达显卡还玩Linux，我不知道。正如开头所说，我是傻逼！</p>
+<p>显卡驱动的问题，我研究了一周左右，虽然最后还是成功了，但是离正常使用还有一段距离。也是有很多小问题，比如使用系统自带的截图会黑屏，用不了i3等窗口管理器等等。</p>
+<p>当初安装显卡驱动导致的问题包括但不限于：</p>
+<ul>
+<li>鼠标灵敏度异常</li>
+<li>显示比例异常</li>
+<li>画面撕裂</li>
+<li>系统炸了</li>
+<li>桌面炸了</li>
+<li>能进图形界面但是不能登录</li>
+</ul>
+<p>嗯对就是这么离谱。当然经过我一番折腾还是达到了能用但体验不好的程度。</p>
+<h3 id="安装软件难"><a href="#安装软件难" class="headerlink" title="安装软件难"></a>安装软件难</h3><p>拿QQ举例，QQ官网的Linux安装包是.deb，如果我想安装，还是要经过一大通折腾，拼凑出来一个半成品QQ，而且最难受的是，每次他都会自动推送更新，我还更不了，还不能忽略版本，让我这个强迫症非常折磨。</p>
+<h2 id="为什么我放弃了Linux"><a href="#为什么我放弃了Linux" class="headerlink" title="为什么我放弃了Linux"></a>为什么我放弃了Linux</h2><p>其实原本我是不打算放弃Linux的，因为我突然想玩星露谷物语了，就想着要不要装双系统，但是我装Arch根本没有经验，磁盘分区做的很烂，上面的一番折腾已经让我筋疲力尽，我不想再玩Arch，只想找一个开箱即用的Linux发行版。</p>
+<p>我的目光理所应当地投到了Ubuntu，这是我小时候体验的第一个Linux发行版，对我来说意义有点特殊，而且也属于开箱即用，所以Arch就光荣的升级为我的前任了。</p>
+<p>Windows系统的安装非常简单，只要一直下一步下一步下一步，然后等就行了。Ubuntu也差不多，但需要注意的一点是，有一个步骤让用户选择以怎样的方式安装Ubuntu，给了三个选项，一个是用Windows Boot Manager管理，一个是擦除磁盘，好像还有一个，没注意。</p>
+<p>我要装双系统，当然是选第一个选项，系统正常装上了，一切正常。下载软件，Neovim、VSCode、kitty。</p>
+<p>kitty……</p>
+<p>上文提到，Kitty不支持fcitx5，理论上这个问题还是可以像Arch时期那么解决，但是我当时没找到怎么给程序添加启动参数。跟着网上的教程折腾了半天系统配置文件后，我成功的又把系统玩炸了，进不去桌面。</p>
+<p>当时已经是晚上十点多了，当天上午刚出去踏青，走了一万一千步，对于我来说已经把这一个月的活动量都用完了，筋疲力尽。非常困倦的状态下，我打算重装Ubuntu，正式因为特别困，智商下降得厉害，在安装程序选择了第二个：擦除磁盘。</p>
+<p>我原本Windows系统的D盘擦干净装了个Ubuntu。</p>
+<p>……….</p>
+<p>那就这样吧，也行，我试着在Windows里把C盘装的那个坏掉的Ubuntu删掉，但是Windows访问不了那块神秘区域。。。</p>
+<p>那行吧，重装系统。我格式化了C盘，删除了所有的分区，重装了Windows。在下载软件的时候猛地一惊。</p>
+<blockquote>
+<p>我为什么现在不用WSL了呢？</p>
+</blockquote>
+<p>这是个好问题，对吧，你问我为什么到这时候才想起来用WSL，我不知道，正如开头所说，我是傻逼！</p>
+<p>于是，我不再安装Ubuntu，执行wsl的安装命令，没有像上次使用Windows那样报错，报各种偏门错，报全网都找不到解决方法的错。</p>
+<p>此时我心中一万头曹尼玛奔腾，只有一句话想说：</p>
+<p><strong>我是傻逼！！！！！！</strong></p>
+<h2 id="什么人适合用Linux做主力系统"><a href="#什么人适合用Linux做主力系统" class="headerlink" title="什么人适合用Linux做主力系统"></a>什么人适合用Linux做主力系统</h2><p>我个人认为，对Linux有刚需，如嵌入式、AI、机器学习这种领域，离开Linux干不了活的，我会推荐你用WSL，而不是主力Linux。我不建议任何人主力系统用Linux。。。。更不建议主力Linux发行版是Arch。</p>
+<p>WSL的好处太多了，最大的好处就是方便。</p>
+<p>当然，你爱折腾，对Linux有热情，有好奇心，完全可以把我这话当放屁。</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p><strong>我是傻逼！</strong></p>
+<p><strong>我是傻逼！！</strong></p>
+<p><strong>我是傻逼！！！</strong></p>
 
         </div>
 
@@ -293,7 +331,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="http://www.yingyu5658.cn/post/64728457/">http://www.yingyu5658.cn/post/64728457/</a></span>
+                        <span><a href="http://www.yingyu5658.cn/post/4108562128/">http://www.yingyu5658.cn/post/4108562128/</a></span>
                     </p>
                 
                 
@@ -317,9 +355,11 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/%E5%8D%9A%E5%AE%A2/"># 博客</a>
+                        <a href="/tags/Linux/"># Linux</a>
                     
-                        <a href="/tags/%E7%BD%91%E7%AB%99/"># 网站</a>
+                        <a href="/tags/Arch/"># Arch</a>
+                    
+                        <a href="/tags/%E7%B3%BB%E7%BB%9F/"># 系统</a>
                     
                         
                 </span>
@@ -332,10 +372,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/post/4108562128/">把主力机换成Arch Linux是我这辈子做过的最蠢的决定</a>
             
-            
-            <a class="next" rel="next" href="/post/964047394/">上帝类是什么？该如何避免上帝类？</a>
+            <a class="next" rel="next" href="/post/64728457/">记录Typecho博客转移到Hexo</a>
             
         </section>
         <script src="https://giscus.app/client.js"
