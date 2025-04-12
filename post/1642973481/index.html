@@ -312,7 +312,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">change</span><span class="params">(<span class="type">int</span>[] arrs)</span> &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;方法内1&quot;</span> + arrs[<span class="number">1</span>]);</span><br><span class="line">    arrs[<span class="number">1</span>] = <span class="number">222</span>;</span><br><span class="line">    System.out.println(<span class="string">&quot;方法内2&quot;</span> + arrs[<span class="number">1</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>2.再回到main方法</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="string">&quot;main&quot;</span> + arrs[<span class="number">1</span>]);</span><br></pre></td></tr></table></figure>
-<p>在1时进行打印，结果得到数组内第二个位置存储的20.<br>代码继续向下执行，第二个位置被赋值为222，此时再打印它，结果得到222.<br>这时候change方法执行完，它在栈内存中会被清除，然后回到main方法，由于刚才change方法中对arr<a href="http://www.yingyu5658.cn/usr/uploads/2024/12/2743265221.jpg">1</a>进行了赋值，所以我们再打印，结果得到的还是它赋值出来的222.</p>
+<p>在1时进行打印，结果得到数组内第二个位置存储的20.<br>代码继续向下执行，第二个位置被赋值为222，此时再打印它，结果得到222.<br>这时候change方法执行完，它在栈内存中会被清除，然后回到main方法，由于刚才change方法中对arr<a target="_blank" rel="noopener" href="http://www.yingyu5658.cn/usr/uploads/2024/12/2743265221.jpg">1</a>进行了赋值，所以我们再打印，结果得到的还是它赋值出来的222.</p>
 <p><img src="http://www.yingyu5658.cn/usr/uploads/2024/12/2743265221.jpg"></p>
 
         </div>
@@ -328,7 +328,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="http://www.yingyu5658.cn/post/1642973481/">http://www.yingyu5658.cn/post/1642973481/</a></span>
+                        <span><a href="http://www.yingyu5658.me/post/1642973481/">http://www.yingyu5658.me/post/1642973481/</a></span>
                     </p>
                 
                 
@@ -340,7 +340,7 @@
                 
                      <p class="copyright-item">
                          <span>Slogan:</span>
-                         <span>Do you believe in <strong>DESTINY</strong>?</span>
+                         <span>UNITE.</span>
                      </p>
                 
 
