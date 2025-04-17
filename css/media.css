@@ -30,24 +30,22 @@
     position: relative;
   }
   .navbar-mobile .container .navbar-header .menu-toggle {
+    display: flex;
     cursor: pointer;
     line-height: 5.5em;
-    padding: auto 2em;
+    user-select: none;
   }
-  .navbar-mobile .container .navbar-header .menu-toggle span {
+  .navbar-mobile .container .navbar-header .menu-toggle .menu-icon {
     display: block;
-    background: #000;
-    width: 36px;
-    height: 2px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-    -webkit-transition: 0.25s margin 0.25s, 0.25s transform;
-    -moz-transition: 0.25s margin 0.25s, 0.25s transform;
-    transition: 0.25s margin 0.25s, 0.25s transform;
   }
-  .dark-theme .navbar-mobile .container .navbar-header .menu-toggle span {
-    background: $dark-font-color;
+  .navbar-mobile .container .navbar-header .menu-toggle .close-icon {
+    display: none;
+  }
+  .navbar-mobile .container .navbar-header .menu-toggle.active .menu-icon {
+    display: none;
+  }
+  .navbar-mobile .container .navbar-header .menu-toggle.active .close-icon {
+    display: block;
   }
   .navbar-mobile .container .navbar-header .menu-toggle span:nth-child(1) {
     margin-bottom: 8px;
@@ -77,10 +75,11 @@
   }
   .navbar-mobile .container .menu {
     text-align: center;
-    background: #fff;
+    background: $light-background-color;
     border-top: 1px solid #000;
     padding-top: 1em;
     padding-bottom: 1em;
+    user-select: none;
     display: none;
     box-shadow: 0px 2px 4px rgba(0,0,0,0.1), 0px 4px 8px rgba(0,0,0,0.1);
   }

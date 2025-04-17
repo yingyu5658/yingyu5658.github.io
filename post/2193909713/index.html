@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="yingyu5658">
+
+
+    <meta name="subtitle" content="我现在就要看孤独摇滚第二季！">
+
+
+    <meta name="description" content="一个喜欢被电脑虐待的咸鱼初中生">
+
+
+    <meta name="keywords" content="java,javascript,web,cpp,c,c#,csharp,.net,minecraft,我的世界,mc,服务器运维,泰拉瑞亚,服务器,linux,美术,二次元,素描,动漫,孤独摇滚,建站,编程,网站开发,程序开发,醉酒哈基米,yingyu5658">
+
+
+<title>初折腾Emacs记录 | yingyu5658的万事屋</title>
+
+
+
+    <link rel="icon" href="/images/static/nijika.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="yingyu5658的万事屋" type="application/atom+xml">
+</head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const pagebody = document.getElementsByTagName('body')[0]
+
+            function setTheme(status) {
+
+                if (status === 'dark') {
+                    window.sessionStorage.theme = 'dark'
+                    pagebody.classList.add('dark-theme');
+
+                } else if (status === 'light') {
+                    window.sessionStorage.theme = 'light'
+                    pagebody.classList.remove('dark-theme');
+                }
+            };
+
+            setTheme(window.sessionStorage.theme)
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">YingYu5658的万事屋</a></div>
+            <div class="menu navbar-right">
+                
+                <a class="menu-item" href="/archives">Posts</a>
+                
+                <a class="menu-item" href="/category">Category</a>
+                
+                <a class="menu-item" href="/tag">Tags</a>
+                
+                <a class="menu-item" href="/about">About</a>
+                
+                <a class="menu-item" href="/links">Links</a>
+                
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">YingYu5658的万事屋</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">
+                    <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M4.5 17.27q-.213 0-.356-.145T4 16.768t.144-.356t.356-.143h15q.213 0 .356.144q.144.144.144.357t-.144.356t-.356.143zm0-4.77q-.213 0-.356-.144T4 11.999t.144-.356t.356-.143h15q.213 0 .356.144t.144.357t-.144.356t-.356.143zm0-4.77q-.213 0-.356-.143Q4 7.443 4 7.23t.144-.356t.356-.143h15q.213 0 .356.144T20 7.23t-.144.356t-.356.144z"/></svg>
+                    <svg class="close-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Material Symbols Light by Google - https://github.com/google/material-design-icons/blob/master/LICENSE --><path fill="currentColor" d="m12 12.708l-5.246 5.246q-.14.14-.344.15t-.364-.15t-.16-.354t.16-.354L11.292 12L6.046 6.754q-.14-.14-.15-.344t.15-.364t.354-.16t.354.16L12 11.292l5.246-5.246q.14-.14.345-.15q.203-.01.363.15t.16.354t-.16.354L12.708 12l5.246 5.246q.14.14.15.345q.01.203-.15.363t-.354.16t-.354-.16z"/></svg>
+                </div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                <a class="menu-item" href="/archives">Posts</a>
+                
+                <a class="menu-item" href="/category">Category</a>
+                
+                <a class="menu-item" href="/tag">Tags</a>
+                
+                <a class="menu-item" href="/about">About</a>
+                
+                <a class="menu-item" href="/links">Links</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.classList.contains("active")) {
+            toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        } else {
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">初折腾Emacs记录</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">yingyu5658</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">四月 13, 2025&nbsp;&nbsp;12:15:33</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/">计算机技术</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="基础配置"><a href="#基础配置" class="headerlink" title="基础配置"></a>基础配置</h2><p>Windows下需要在软件顶部Toolbar的Options中随便更改一个选项，然后再点Save Options，这样就会再<code>C:\Users\Username\appdata\Roaming\</code>下生成.emacs和.emacs.d&#x2F;</p>
+<p>在emacs.d中新建一个文件<code>init.el</code>，填写如下配置</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">;;; init.el --- Load the full configuration -*- lexical-binding: t -*-</span></span><br><span class="line"><span class="comment">;;; Commentary:</span></span><br><span class="line"></span><br><span class="line"><span class="comment">;; This file bootstraps the configuration, which is divided into</span></span><br><span class="line"><span class="comment">;; a number of other files.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">;;; Code:</span></span><br><span class="line"></span><br><span class="line">(<span class="name">let</span> ((<span class="name">minver</span> <span class="string">&quot;25.1&quot;</span>))</span><br><span class="line"> (<span class="name">when</span> (<span class="name">version&lt;</span> emacs-version minver)</span><br><span class="line">  (<span class="name">error</span> <span class="string">&quot;Your Emacs is too old -- this config requires v%s or higher&quot;</span> minver)))</span><br><span class="line">(<span class="name">when</span> (<span class="name">version&lt;</span> emacs-version <span class="string">&quot;26.1&quot;</span>)</span><br><span class="line"> (<span class="name">message</span> <span class="string">&quot;Your Emacs is old, and some functionality in this config will be disabled. Please upgrade if possible.&quot;</span>))</span><br><span class="line"></span><br><span class="line">(<span class="name">add-to-list</span> &#x27;load-path (<span class="name">expand-file-name</span> <span class="string">&quot;lisp&quot;</span> user-emacs-directory)) <span class="comment">; 设定源码加载路径</span></span><br><span class="line"><span class="comment">;; (require &#x27;init-benchmarking) ;; Measure startup time</span></span><br><span class="line"></span><br><span class="line">(<span class="name">defconst</span> *spell-check-support-enabled* <span class="literal">nil</span>) <span class="comment">;; Enable with t if you prefer</span></span><br><span class="line">(<span class="name">defconst</span> *is-a-mac* (<span class="name">eq</span> system-type &#x27;darwin))</span><br><span class="line"></span><br><span class="line"><span class="comment">;; Adjust garbage collection thresholds during startup, and thereafter</span></span><br><span class="line"></span><br><span class="line">(<span class="name">let</span> ((<span class="name">normal-gc-cons-threshold</span> (<span class="name">*</span> <span class="number">20</span> <span class="number">1024</span> <span class="number">1024</span>))</span><br><span class="line">   (<span class="name">init-gc-cons-threshold</span> (<span class="name">*</span> <span class="number">128</span> <span class="number">1024</span> <span class="number">1024</span>)))</span><br><span class="line"> (<span class="name">setq</span> gc-cons-threshold init-gc-cons-threshold)</span><br><span class="line"> (<span class="name">add-hook</span> &#x27;emacs-startup-hook</span><br><span class="line">      (<span class="name">lambda</span> () (<span class="name">setq</span> gc-cons-threshold normal-gc-cons-threshold))))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">;; ==========================================================================================================</span></span><br><span class="line"><span class="comment">;; ===========================================日常使用配置===================================================</span></span><br><span class="line"><span class="comment">;; ==========================================================================================================</span></span><br><span class="line">(<span class="name">setq</span> confirm-kill-emacs #&#x27;yes-or-no-p)   <span class="comment">; 在关闭 Emacs 前询问是否确认关闭，防止误触</span></span><br><span class="line">(<span class="name">electric-pair-mode</span> <span class="literal">t</span>)            <span class="comment">; 自动补全括号</span></span><br><span class="line">(<span class="name">add-hook</span> &#x27;prog-mode-hook #&#x27;show-paren-mode) <span class="comment">; 编程模式下，光标在括号上时高亮另一个括号</span></span><br><span class="line">(<span class="name">column-number-mode</span> <span class="literal">t</span>)            <span class="comment">; 在 Mode line 上显示列号</span></span><br><span class="line">(<span class="name">global-auto-revert-mode</span> <span class="literal">t</span>)         <span class="comment">; 当另一程序修改了文件时，让 Emacs 及时刷新 Buffer</span></span><br><span class="line">(<span class="name">delete-selection-mode</span> <span class="literal">t</span>)          <span class="comment">; 选中文本后输入文本会替换文本（更符合我们习惯了的其它编辑器的逻辑）</span></span><br><span class="line">(<span class="name">setq</span> inhibit-startup-message <span class="literal">t</span>)       <span class="comment">; 关闭启动 Emacs 时的欢迎界面</span></span><br><span class="line">(<span class="name">setq</span> make-backup-files <span class="literal">nil</span>)         <span class="comment">; 关闭文件自动备份</span></span><br><span class="line">(<span class="name">add-hook</span> &#x27;prog-mode-hook #&#x27;hs-minor-mode)  <span class="comment">; 编程模式下，可以折叠代码块</span></span><br><span class="line">(<span class="name">global-display-line-numbers-mode</span> <span class="number">1</span>)     <span class="comment">; 在 Window 显示行号</span></span><br><span class="line">(<span class="name">tool-bar-mode</span> <span class="number">-1</span>)              <span class="comment">; （熟练后可选）关闭 Tool bar</span></span><br><span class="line">(<span class="name">when</span> (<span class="name">display-graphic-p</span>) (<span class="name">toggle-scroll-bar</span> <span class="number">-1</span>)) <span class="comment">; 图形界面时关闭滚动条</span></span><br><span class="line"></span><br><span class="line">(<span class="name">savehist-mode</span> <span class="number">1</span>)              <span class="comment">; （可选）打开 Buffer 历史记录保存</span></span><br><span class="line">(<span class="name">setq</span> display-line-numbers-type &#x27;relative)  <span class="comment">; （可选）显示相对行号</span></span><br><span class="line">(<span class="name">add-to-list</span> &#x27;default-frame-alist &#x27;(width . <span class="number">90</span>)) <span class="comment">; （可选）设定启动图形界面时的初始 Frame 宽度（字符数）</span></span><br><span class="line">(<span class="name">add-to-list</span> &#x27;default-frame-alist &#x27;(height . <span class="number">55</span>)) <span class="comment">; （可选）设定启动图形界面时的初始 Frame 高度（字符数）</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">;; ==========================================================================================================</span></span><br><span class="line"><span class="comment">;; ===========================================插件镜像配置===================================================</span></span><br><span class="line"><span class="comment">;; ==========================================================================================================</span></span><br><span class="line"><span class="comment">; 腾讯镜像</span></span><br><span class="line">(<span class="name">require</span> &#x27;package)</span><br><span class="line">(<span class="name">setq</span> package-archives &#x27;((<span class="string">&quot;gnu&quot;</span>  . <span class="string">&quot;http://mirrors.cloud.tencent.com/elpa/gnu/&quot;</span>)</span><br><span class="line">             (<span class="string">&quot;melpa&quot;</span> . <span class="string">&quot;http://mirrors.cloud.tencent.com/elpa/melpa/&quot;</span>)))</span><br><span class="line">(<span class="name">package-initialize</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">;;; init.el ends here</span></span><br></pre></td></tr></table></figure>
+
+<p>基础的设置和插件镜像源就配置好了，此配置可完全复制照抄。</p>
+<p>重启Emacs，按下<code>M-x</code>输入<code>package-list-packages</code>即可查看仓库中的所有插件</p>
+<p><img src="/../../images/image-20250413122315180.png" alt="image-20250413122315180"></p>
+<blockquote>
+<p> 在此列表界面下还可按下h显示帮助，按U检查所有已安装插件是否需要更新，如有就标注更新，按i标记想要安装，最后按下x就可更新。</p>
+</blockquote>
+<p>插件默认会被安装到<code>~/.emacs.d/elpa</code>下，Windows同理。</p>
+<p>删除插件输入<code>package-delete</code>，然后输入想删除的插件名即可。</p>
+<h2 id="use-package"><a href="#use-package" class="headerlink" title="use-package"></a>use-package</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>输入命令<code>package-install</code>回车后输入use-package回车，然后在init.el的最上面写</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(<span class="name">eval-when-compile</span></span><br><span class="line"> (<span class="name">require</span> &#x27;use-package))</span><br></pre></td></tr></table></figure>
+
+<p>每次启动Emacs优先加载此插件</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>yingyu5658</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://www.yingyu5658.me/post/2193909713/">http://www.yingyu5658.me/post/2193909713/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>UNITE.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Linux/"># Linux</a>
+                    
+                        <a href="/tags/%E9%85%8D%E7%BD%AE/"># 配置</a>
+                    
+                        <a href="/tags/Emacs/"># Emacs</a>
+                    
+                        <a href="/tags/GNU/"># GNU</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/post/2799171278/">从0开始搭建自己的终端开发环境</a>
+            
+            
+            <a class="next" rel="next" href="/post/2388259561/">盼望下雨</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© yingyu5658 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>

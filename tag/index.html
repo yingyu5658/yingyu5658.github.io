@@ -31,28 +31,8 @@
     <!-- stylesheets list from _config.yml -->
     
     <link rel="stylesheet" href="/css/style.css">
-    <!-- highlight.js 样式（默认亮色） -->
-<link id="hljs-theme" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/github.css">
-<!-- highlight.js 自动上色功能 -->
-<script src="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/lib/highlight.min.js"></script>
-<script>hljs.highlightAll();</script>
-
-    
-    <link rel="stylesheet" href="/css/search.css">
-    <!-- highlight.js 样式（默认亮色） -->
-<link id="hljs-theme" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/github.css">
-<!-- highlight.js 自动上色功能 -->
-<script src="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/lib/highlight.min.js"></script>
-<script>hljs.highlightAll();</script>
-
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
-    <!-- highlight.js 样式（默认亮色） -->
-<link id="hljs-theme" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/github.css">
-<!-- highlight.js 自动上色功能 -->
-<script src="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/lib/highlight.min.js"></script>
-<script>hljs.highlightAll();</script>
-
     
 
 
@@ -79,18 +59,21 @@
     <script>
         // this function is used to check current theme before page loaded.
         (() => {
-            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
-            const isDark = currentTheme === 'dark';
             const pagebody = document.getElementsByTagName('body')[0]
-            if (isDark) {
-                pagebody.classList.add('dark-theme');
-                // mobile
-                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
-            } else {
-                pagebody.classList.remove('dark-theme');
-                // mobile
-                document.getElementById("mobile-toggle-theme").innerText = "· Light"
-            }
+
+            function setTheme(status) {
+
+                if (status === 'dark') {
+                    window.sessionStorage.theme = 'dark'
+                    pagebody.classList.add('dark-theme');
+
+                } else if (status === 'light') {
+                    window.sessionStorage.theme = 'light'
+                    pagebody.classList.remove('dark-theme');
+                }
+            };
+
+            setTheme(window.sessionStorage.theme)
         })();
     </script>
 
@@ -101,17 +84,16 @@
             <div class="navbar-header header-logo"><a href="/">YingYu5658的万事屋</a></div>
             <div class="menu navbar-right">
                 
-                    <a class="menu-item" href="/archives">Posts</a>
+                <a class="menu-item" href="/archives">Posts</a>
                 
-                    <a class="menu-item" href="/category">Category</a>
+                <a class="menu-item" href="/category">Category</a>
                 
-                    <a class="menu-item" href="/tag">Tags</a>
+                <a class="menu-item" href="/tag">Tags</a>
                 
-                    <a class="menu-item" href="/about">About</a>
+                <a class="menu-item" href="/about">About</a>
                 
-                    <a class="menu-item" href="/links">Links</a>
+                <a class="menu-item" href="/links">Links</a>
                 
-                    <a class="menu-item" href="/search/">Search</a>
                 
                 <input id="switch_default" type="checkbox" class="switch_default">
                 <label for="switch_default" class="toggleBtn"></label>
@@ -126,21 +108,22 @@
                 <div>
                     <a href="/">YingYu5658的万事屋</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
                 </div>
-                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+                <div class="menu-toggle" onclick="mobileBtn()">
+                    <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M4.5 17.27q-.213 0-.356-.145T4 16.768t.144-.356t.356-.143h15q.213 0 .356.144q.144.144.144.357t-.144.356t-.356.143zm0-4.77q-.213 0-.356-.144T4 11.999t.144-.356t.356-.143h15q.213 0 .356.144t.144.357t-.144.356t-.356.143zm0-4.77q-.213 0-.356-.143Q4 7.443 4 7.23t.144-.356t.356-.143h15q.213 0 .356.144T20 7.23t-.144.356t-.356.144z"/></svg>
+                    <svg class="close-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Material Symbols Light by Google - https://github.com/google/material-design-icons/blob/master/LICENSE --><path fill="currentColor" d="m12 12.708l-5.246 5.246q-.14.14-.344.15t-.364-.15t-.16-.354t.16-.354L11.292 12L6.046 6.754q-.14-.14-.15-.344t.15-.364t.354-.16t.354.16L12 11.292l5.246-5.246q.14-.14.345-.15q.203-.01.363.15t.16.354t-.16.354L12.708 12l5.246 5.246q.14.14.15.345q.01.203-.15.363t-.354.16t-.354-.16z"/></svg>
+                </div>
             </div>
             <div class="menu" id="mobile-menu">
                 
-                    <a class="menu-item" href="/archives">Posts</a>
+                <a class="menu-item" href="/archives">Posts</a>
                 
-                    <a class="menu-item" href="/category">Category</a>
+                <a class="menu-item" href="/category">Category</a>
                 
-                    <a class="menu-item" href="/tag">Tags</a>
+                <a class="menu-item" href="/tag">Tags</a>
                 
-                    <a class="menu-item" href="/about">About</a>
+                <a class="menu-item" href="/about">About</a>
                 
-                    <a class="menu-item" href="/links">Links</a>
-                
-                    <a class="menu-item" href="/search/">Search</a>
+                <a class="menu-item" href="/links">Links</a>
                 
             </div>
         </div>
@@ -151,16 +134,15 @@
     var mobileBtn = function f() {
         var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
         var mobileMenu = document.getElementById("mobile-menu");
-        if(toggleMenu.classList.contains("active")){
-           toggleMenu.classList.remove("active")
+        if (toggleMenu.classList.contains("active")) {
+            toggleMenu.classList.remove("active")
             mobileMenu.classList.remove("active")
-        }else{
+        } else {
             toggleMenu.classList.add("active")
             mobileMenu.classList.add("active")
         }
     }
 </script>
-
             <div class="main">
                 
 
@@ -182,21 +164,25 @@
                 
                     <a href="/tags/Terraria/">Terraria<small>(2)</small></a>
                 
-                    <a href="/tags/Java/">Java<small>(12)</small></a>
-                
-                    <a href="/tags/Spigot/">Spigot<small>(2)</small></a>
-                
-                    <a href="/tags/%E9%97%B4%E6%AD%87%E6%B3%89/">间歇泉<small>(1)</small></a>
-                
-                    <a href="/tags/Geyser/">Geyser<small>(1)</small></a>
-                
                     <a href="/tags/%E6%95%99%E7%A8%8B/">教程<small>(2)</small></a>
                 
                     <a href="/tags/%E6%B3%B0%E6%8B%89%E7%91%9E%E4%BA%9A/">泰拉瑞亚<small>(1)</small></a>
                 
+                    <a href="/tags/Web/">Web<small>(2)</small></a>
+                
+                    <a href="/tags/%E7%BD%91%E7%AB%99/">网站<small>(3)</small></a>
+                
+                    <a href="/tags/%E5%BC%80%E5%8F%91/">开发<small>(2)</small></a>
+                
+                    <a href="/tags/Java/">Java<small>(12)</small></a>
+                
                     <a href="/tags/%E7%BC%96%E7%A8%8B/">编程<small>(3)</small></a>
                 
                     <a href="/tags/%E7%AC%94%E8%AE%B0/">笔记<small>(6)</small></a>
+                
+                    <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/">面向对象编程<small>(6)</small></a>
+                
+                    <a href="/tags/%E5%AF%B9%E8%B1%A1/">对象<small>(1)</small></a>
                 
                     <a href="/tags/%E6%96%B9%E6%B3%95/">方法<small>(1)</small></a>
                 
@@ -204,87 +190,9 @@
                 
                     <a href="/tags/%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92/">参数传递<small>(1)</small></a>
                 
-                    <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/">面向对象编程<small>(6)</small></a>
-                
-                    <a href="/tags/%E5%AF%B9%E8%B1%A1/">对象<small>(1)</small></a>
-                
-                    <a href="/tags/OOP/">OOP<small>(1)</small></a>
-                
-                    <a href="/tags/%E6%80%BB%E7%BB%93/">总结<small>(1)</small></a>
-                
-                    <a href="/tags/API/">API<small>(1)</small></a>
-                
-                    <a href="/tags/String/">String<small>(1)</small></a>
-                
-                    <a href="/tags/%E5%A4%9A%E6%80%81/">多态<small>(1)</small></a>
-                
-                    <a href="/tags/%E6%8A%BD%E8%B1%A1%E7%B1%BB/">抽象类<small>(1)</small></a>
-                
-                    <a href="/tags/%E6%8E%A5%E5%8F%A3/">接口<small>(1)</small></a>
-                
-                    <a href="/tags/Javascript/">Javascript<small>(1)</small></a>
-                
-                    <a href="/tags/%E5%89%8D%E7%AB%AF/">前端<small>(3)</small></a>
-                
-                    <a href="/tags/%E7%BD%91%E9%A1%B5/">网页<small>(1)</small></a>
-                
-                    <a href="/tags/Neovim/">Neovim<small>(1)</small></a>
-                
-                    <a href="/tags/Vim/">Vim<small>(1)</small></a>
-                
-                    <a href="/tags/Nvim/">Nvim<small>(1)</small></a>
-                
-                    <a href="/tags/Linux/">Linux<small>(6)</small></a>
-                
-                    <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%90%E7%BB%B4/">服务器运维<small>(1)</small></a>
-                
-                    <a href="/tags/%E7%B3%BB%E7%BB%9F/">系统<small>(2)</small></a>
-                
-                    <a href="/tags/%E7%B3%BB%E7%BB%9F%E8%BF%90%E7%BB%B4/">系统运维<small>(1)</small></a>
-                
-                    <a href="/tags/%E8%BF%90%E7%BB%B4/">运维<small>(1)</small></a>
-                
-                    <a href="/tags/%E7%BB%88%E7%AB%AF/">终端<small>(1)</small></a>
-                
-                    <a href="/tags/%E7%BE%8E%E5%8C%96/">美化<small>(1)</small></a>
-                
-                    <a href="/tags/Arch/">Arch<small>(2)</small></a>
-                
-                    <a href="/tags/Javascript-%E5%BC%80%E5%8F%91-Nodejs/">Javascript 开发 Nodejs<small>(1)</small></a>
-                
-                    <a href="/tags/osu/">osu!<small>(1)</small></a>
-                
-                    <a href="/tags/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82/">网络请求<small>(1)</small></a>
-                
-                    <a href="/tags/Nodejs/">Nodejs<small>(1)</small></a>
-                
-                    <a href="/tags/JavaScript/">JavaScript<small>(1)</small></a>
-                
                     <a href="/tags/Hexo/">Hexo<small>(3)</small></a>
                 
-                    <a href="/tags/Obsidain/">Obsidain<small>(1)</small></a>
-                
                     <a href="/tags/%E5%8D%9A%E5%AE%A2/">博客<small>(3)</small></a>
-                
-                    <a href="/tags/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/">软件开发<small>(1)</small></a>
-                
-                    <a href="/tags/%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/">程序开发<small>(1)</small></a>
-                
-                    <a href="/tags/%E8%AE%BE%E8%AE%A1/">设计<small>(1)</small></a>
-                
-                    <a href="/tags/%E4%BB%A3%E7%A0%81/">代码<small>(1)</small></a>
-                
-                    <a href="/tags/Windows/">Windows<small>(1)</small></a>
-                
-                    <a href="/tags/%E6%8A%80%E6%9C%AF/">技术<small>(1)</small></a>
-                
-                    <a href="/tags/%E8%BE%93%E5%85%A5%E6%B3%95/">输入法<small>(1)</small></a>
-                
-                    <a href="/tags/Web/">Web<small>(2)</small></a>
-                
-                    <a href="/tags/%E7%BD%91%E7%AB%99/">网站<small>(3)</small></a>
-                
-                    <a href="/tags/%E5%BC%80%E5%8F%91/">开发<small>(1)</small></a>
                 
                     <a href="/tags/%E8%AE%B0%E5%BD%95/">记录<small>(1)</small></a>
                 
@@ -296,7 +204,93 @@
                 
                     <a href="/tags/%E7%B3%BB%E7%BB%9F%E9%95%9C%E5%83%8F/">系统镜像<small>(1)</small></a>
                 
+                    <a href="/tags/OOP/">OOP<small>(1)</small></a>
+                
+                    <a href="/tags/%E6%80%BB%E7%BB%93/">总结<small>(1)</small></a>
+                
+                    <a href="/tags/API/">API<small>(1)</small></a>
+                
+                    <a href="/tags/String/">String<small>(1)</small></a>
+                
+                    <a href="/tags/Spigot/">Spigot<small>(2)</small></a>
+                
+                    <a href="/tags/%E9%97%B4%E6%AD%87%E6%B3%89/">间歇泉<small>(1)</small></a>
+                
+                    <a href="/tags/Geyser/">Geyser<small>(1)</small></a>
+                
+                    <a href="/tags/%E5%A4%9A%E6%80%81/">多态<small>(1)</small></a>
+                
+                    <a href="/tags/%E6%8A%BD%E8%B1%A1%E7%B1%BB/">抽象类<small>(1)</small></a>
+                
+                    <a href="/tags/%E6%8E%A5%E5%8F%A3/">接口<small>(1)</small></a>
+                
+                    <a href="/tags/Neovim/">Neovim<small>(1)</small></a>
+                
+                    <a href="/tags/Vim/">Vim<small>(1)</small></a>
+                
+                    <a href="/tags/Nvim/">Nvim<small>(1)</small></a>
+                
+                    <a href="/tags/%E5%89%8D%E7%AB%AF/">前端<small>(3)</small></a>
+                
                     <a href="/tags/CSS/">CSS<small>(1)</small></a>
+                
+                    <a href="/tags/Javascript/">Javascript<small>(1)</small></a>
+                
+                    <a href="/tags/%E7%BD%91%E9%A1%B5/">网页<small>(1)</small></a>
+                
+                    <a href="/tags/Linux/">Linux<small>(7)</small></a>
+                
+                    <a href="/tags/%E7%BB%88%E7%AB%AF/">终端<small>(2)</small></a>
+                
+                    <a href="/tags/%E7%BE%8E%E5%8C%96/">美化<small>(1)</small></a>
+                
+                    <a href="/tags/Arch/">Arch<small>(2)</small></a>
+                
+                    <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%90%E7%BB%B4/">服务器运维<small>(1)</small></a>
+                
+                    <a href="/tags/%E7%B3%BB%E7%BB%9F/">系统<small>(2)</small></a>
+                
+                    <a href="/tags/%E7%B3%BB%E7%BB%9F%E8%BF%90%E7%BB%B4/">系统运维<small>(1)</small></a>
+                
+                    <a href="/tags/%E8%BF%90%E7%BB%B4/">运维<small>(1)</small></a>
+                
+                    <a href="/tags/Javascript-%E5%BC%80%E5%8F%91-Nodejs/">Javascript 开发 Nodejs<small>(1)</small></a>
+                
+                    <a href="/tags/osu/">osu!<small>(1)</small></a>
+                
+                    <a href="/tags/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82/">网络请求<small>(1)</small></a>
+                
+                    <a href="/tags/Nodejs/">Nodejs<small>(1)</small></a>
+                
+                    <a href="/tags/JavaScript/">JavaScript<small>(1)</small></a>
+                
+                    <a href="/tags/Obsidain/">Obsidain<small>(1)</small></a>
+                
+                    <a href="/tags/Windows/">Windows<small>(1)</small></a>
+                
+                    <a href="/tags/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/">软件开发<small>(1)</small></a>
+                
+                    <a href="/tags/%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/">程序开发<small>(1)</small></a>
+                
+                    <a href="/tags/%E8%AE%BE%E8%AE%A1/">设计<small>(1)</small></a>
+                
+                    <a href="/tags/%E4%BB%A3%E7%A0%81/">代码<small>(1)</small></a>
+                
+                    <a href="/tags/vim/">vim<small>(1)</small></a>
+                
+                    <a href="/tags/neovim/">neovim<small>(1)</small></a>
+                
+                    <a href="/tags/nvim/">nvim<small>(1)</small></a>
+                
+                    <a href="/tags/%E9%85%8D%E7%BD%AE/">配置<small>(2)</small></a>
+                
+                    <a href="/tags/%E6%8A%80%E6%9C%AF/">技术<small>(1)</small></a>
+                
+                    <a href="/tags/Emacs/">Emacs<small>(1)</small></a>
+                
+                    <a href="/tags/GNU/">GNU<small>(1)</small></a>
+                
+                    <a href="/tags/%E8%BE%93%E5%85%A5%E6%B3%95/">输入法<small>(1)</small></a>
                 
                     <a href="/tags/%E5%AD%A4%E7%8B%AC%E6%91%87%E6%BB%9A/">孤独摇滚<small>(1)</small></a>
                 

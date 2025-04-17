@@ -31,28 +31,8 @@
     <!-- stylesheets list from _config.yml -->
     
     <link rel="stylesheet" href="/css/style.css">
-    <!-- highlight.js 样式（默认亮色） -->
-<link id="hljs-theme" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/github.css">
-<!-- highlight.js 自动上色功能 -->
-<script src="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/lib/highlight.min.js"></script>
-<script>hljs.highlightAll();</script>
-
-    
-    <link rel="stylesheet" href="/css/search.css">
-    <!-- highlight.js 样式（默认亮色） -->
-<link id="hljs-theme" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/github.css">
-<!-- highlight.js 自动上色功能 -->
-<script src="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/lib/highlight.min.js"></script>
-<script>hljs.highlightAll();</script>
-
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
-    <!-- highlight.js 样式（默认亮色） -->
-<link id="hljs-theme" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/github.css">
-<!-- highlight.js 自动上色功能 -->
-<script src="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/lib/highlight.min.js"></script>
-<script>hljs.highlightAll();</script>
-
     
 
 
@@ -79,18 +59,21 @@
     <script>
         // this function is used to check current theme before page loaded.
         (() => {
-            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
-            const isDark = currentTheme === 'dark';
             const pagebody = document.getElementsByTagName('body')[0]
-            if (isDark) {
-                pagebody.classList.add('dark-theme');
-                // mobile
-                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
-            } else {
-                pagebody.classList.remove('dark-theme');
-                // mobile
-                document.getElementById("mobile-toggle-theme").innerText = "· Light"
-            }
+
+            function setTheme(status) {
+
+                if (status === 'dark') {
+                    window.sessionStorage.theme = 'dark'
+                    pagebody.classList.add('dark-theme');
+
+                } else if (status === 'light') {
+                    window.sessionStorage.theme = 'light'
+                    pagebody.classList.remove('dark-theme');
+                }
+            };
+
+            setTheme(window.sessionStorage.theme)
         })();
     </script>
 
@@ -101,17 +84,16 @@
             <div class="navbar-header header-logo"><a href="/">YingYu5658的万事屋</a></div>
             <div class="menu navbar-right">
                 
-                    <a class="menu-item" href="/archives">Posts</a>
+                <a class="menu-item" href="/archives">Posts</a>
                 
-                    <a class="menu-item" href="/category">Category</a>
+                <a class="menu-item" href="/category">Category</a>
                 
-                    <a class="menu-item" href="/tag">Tags</a>
+                <a class="menu-item" href="/tag">Tags</a>
                 
-                    <a class="menu-item" href="/about">About</a>
+                <a class="menu-item" href="/about">About</a>
                 
-                    <a class="menu-item" href="/links">Links</a>
+                <a class="menu-item" href="/links">Links</a>
                 
-                    <a class="menu-item" href="/search/">Search</a>
                 
                 <input id="switch_default" type="checkbox" class="switch_default">
                 <label for="switch_default" class="toggleBtn"></label>
@@ -126,21 +108,22 @@
                 <div>
                     <a href="/">YingYu5658的万事屋</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
                 </div>
-                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+                <div class="menu-toggle" onclick="mobileBtn()">
+                    <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M4.5 17.27q-.213 0-.356-.145T4 16.768t.144-.356t.356-.143h15q.213 0 .356.144q.144.144.144.357t-.144.356t-.356.143zm0-4.77q-.213 0-.356-.144T4 11.999t.144-.356t.356-.143h15q.213 0 .356.144t.144.357t-.144.356t-.356.143zm0-4.77q-.213 0-.356-.143Q4 7.443 4 7.23t.144-.356t.356-.143h15q.213 0 .356.144T20 7.23t-.144.356t-.356.144z"/></svg>
+                    <svg class="close-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Material Symbols Light by Google - https://github.com/google/material-design-icons/blob/master/LICENSE --><path fill="currentColor" d="m12 12.708l-5.246 5.246q-.14.14-.344.15t-.364-.15t-.16-.354t.16-.354L11.292 12L6.046 6.754q-.14-.14-.15-.344t.15-.364t.354-.16t.354.16L12 11.292l5.246-5.246q.14-.14.345-.15q.203-.01.363.15t.16.354t-.16.354L12.708 12l5.246 5.246q.14.14.15.345q.01.203-.15.363t-.354.16t-.354-.16z"/></svg>
+                </div>
             </div>
             <div class="menu" id="mobile-menu">
                 
-                    <a class="menu-item" href="/archives">Posts</a>
+                <a class="menu-item" href="/archives">Posts</a>
                 
-                    <a class="menu-item" href="/category">Category</a>
+                <a class="menu-item" href="/category">Category</a>
                 
-                    <a class="menu-item" href="/tag">Tags</a>
+                <a class="menu-item" href="/tag">Tags</a>
                 
-                    <a class="menu-item" href="/about">About</a>
+                <a class="menu-item" href="/about">About</a>
                 
-                    <a class="menu-item" href="/links">Links</a>
-                
-                    <a class="menu-item" href="/search/">Search</a>
+                <a class="menu-item" href="/links">Links</a>
                 
             </div>
         </div>
@@ -151,16 +134,15 @@
     var mobileBtn = function f() {
         var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
         var mobileMenu = document.getElementById("mobile-menu");
-        if(toggleMenu.classList.contains("active")){
-           toggleMenu.classList.remove("active")
+        if (toggleMenu.classList.contains("active")) {
+            toggleMenu.classList.remove("active")
             mobileMenu.classList.remove("active")
-        }else{
+        } else {
             toggleMenu.classList.add("active")
             mobileMenu.classList.add("active")
         }
     }
 </script>
-
             <div class="main">
                 <div class="container">
     
@@ -185,7 +167,7 @@
                         <span class="post-category">
                     Category:
                             
-                                <a href="/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/">技术研究</a>
+                                <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/">计算机技术</a>
                             
                         </span>
                     
@@ -253,60 +235,7 @@
             <a class="next" rel="next" href="/post/2215014205/">Linux排错手札：从日志深渊到问题核心的修炼指南</a>
             
         </section>
-        <script src="https://giscus.app/client.js"
-        data-repo="yingyu5658/yingyu5658.github.io"
-        data-repo-id="R_kgDOOBetsA"
-        data-category="Announcements"
-        data-category-id="DIC_kwDOOBetsM4CoF_Z"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="bottom"
-        data-theme="preferred_color_scheme"
-        data-lang="zh-CN"
-        crossorigin="anonymous"
-        async>
-</script>
 
-
-<script>
-  function setGiscusTheme(theme) {
-    const iframe = document.querySelector('iframe.giscus-frame');
-    if (!iframe) return;
-
-    iframe.contentWindow.postMessage({
-      giscus: {
-        setConfig: {
-          theme: theme === 'dark' ? 'dark' : 'light'
-        }
-      }
-    }, 'https://giscus.app');
-  }
-
-  // 初始加载时设置主题
-  window.addEventListener('DOMContentLoaded', () => {
-    const storedTheme = localStorage.getItem('theme');
-    const currentTheme = storedTheme === 'dark' ? 'dark' : 'light';
-    setGiscusTheme(currentTheme);
-  });
-
-  // 切换按钮点击时同步 Giscus 主题
-  document.addEventListener('DOMContentLoaded', () => {
-    const themeButtons = [
-      document.querySelector('.toggleBtn'),
-      document.getElementById('mobile-toggle-theme')
-    ];
-
-    themeButtons.forEach(btn => {
-      if (!btn) return;
-      btn.addEventListener('click', () => {
-        const newTheme = document.body.classList.contains('dark-theme') ? 'dark' : 'light';
-        setGiscusTheme(newTheme);
-      });
-    });
-  });
-</script>
 
     </article>
 </div>
