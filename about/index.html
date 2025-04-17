@@ -31,8 +31,20 @@
     <!-- stylesheets list from _config.yml -->
     
     <link rel="stylesheet" href="/css/style.css">
+    <!-- highlight.js 样式（默认亮色） -->
+<link id="hljs-theme" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/github.css">
+<!-- highlight.js 自动上色功能 -->
+<script src="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/lib/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- highlight.js 样式（默认亮色） -->
+<link id="hljs-theme" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/github.css">
+<!-- highlight.js 自动上色功能 -->
+<script src="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/lib/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
     
 
 
@@ -59,21 +71,18 @@
     <script>
         // this function is used to check current theme before page loaded.
         (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
             const pagebody = document.getElementsByTagName('body')[0]
-
-            function setTheme(status) {
-
-                if (status === 'dark') {
-                    window.sessionStorage.theme = 'dark'
-                    pagebody.classList.add('dark-theme');
-
-                } else if (status === 'light') {
-                    window.sessionStorage.theme = 'light'
-                    pagebody.classList.remove('dark-theme');
-                }
-            };
-
-            setTheme(window.sessionStorage.theme)
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
         })();
     </script>
 
@@ -84,16 +93,15 @@
             <div class="navbar-header header-logo"><a href="/">YingYu5658的万事屋</a></div>
             <div class="menu navbar-right">
                 
-                <a class="menu-item" href="/archives">Posts</a>
+                    <a class="menu-item" href="/archives">Posts</a>
                 
-                <a class="menu-item" href="/category">Category</a>
+                    <a class="menu-item" href="/category">Category</a>
                 
-                <a class="menu-item" href="/tag">Tags</a>
+                    <a class="menu-item" href="/tag">Tags</a>
                 
-                <a class="menu-item" href="/about">About</a>
+                    <a class="menu-item" href="/about">About</a>
                 
-                <a class="menu-item" href="/links">Links</a>
-                
+                    <a class="menu-item" href="/links">Links</a>
                 
                 <input id="switch_default" type="checkbox" class="switch_default">
                 <label for="switch_default" class="toggleBtn"></label>
@@ -108,22 +116,19 @@
                 <div>
                     <a href="/">YingYu5658的万事屋</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
                 </div>
-                <div class="menu-toggle" onclick="mobileBtn()">
-                    <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M4.5 17.27q-.213 0-.356-.145T4 16.768t.144-.356t.356-.143h15q.213 0 .356.144q.144.144.144.357t-.144.356t-.356.143zm0-4.77q-.213 0-.356-.144T4 11.999t.144-.356t.356-.143h15q.213 0 .356.144t.144.357t-.144.356t-.356.143zm0-4.77q-.213 0-.356-.143Q4 7.443 4 7.23t.144-.356t.356-.143h15q.213 0 .356.144T20 7.23t-.144.356t-.356.144z"/></svg>
-                    <svg class="close-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Material Symbols Light by Google - https://github.com/google/material-design-icons/blob/master/LICENSE --><path fill="currentColor" d="m12 12.708l-5.246 5.246q-.14.14-.344.15t-.364-.15t-.16-.354t.16-.354L11.292 12L6.046 6.754q-.14-.14-.15-.344t.15-.364t.354-.16t.354.16L12 11.292l5.246-5.246q.14-.14.345-.15q.203-.01.363.15t.16.354t-.16.354L12.708 12l5.246 5.246q.14.14.15.345q.01.203-.15.363t-.354.16t-.354-.16z"/></svg>
-                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
             </div>
             <div class="menu" id="mobile-menu">
                 
-                <a class="menu-item" href="/archives">Posts</a>
+                    <a class="menu-item" href="/archives">Posts</a>
                 
-                <a class="menu-item" href="/category">Category</a>
+                    <a class="menu-item" href="/category">Category</a>
                 
-                <a class="menu-item" href="/tag">Tags</a>
+                    <a class="menu-item" href="/tag">Tags</a>
                 
-                <a class="menu-item" href="/about">About</a>
+                    <a class="menu-item" href="/about">About</a>
                 
-                <a class="menu-item" href="/links">Links</a>
+                    <a class="menu-item" href="/links">Links</a>
                 
             </div>
         </div>
@@ -134,15 +139,16 @@
     var mobileBtn = function f() {
         var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
         var mobileMenu = document.getElementById("mobile-menu");
-        if (toggleMenu.classList.contains("active")) {
-            toggleMenu.classList.remove("active")
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
             mobileMenu.classList.remove("active")
-        } else {
+        }else{
             toggleMenu.classList.add("active")
             mobileMenu.classList.add("active")
         }
     }
 </script>
+
             <div class="main">
                 <div class="container">
     <article class="post-wrap page">
@@ -152,7 +158,7 @@
         <section class="post-content">
             <h2 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h2><h3 id="自我介绍"><a href="#自我介绍" class="headerlink" title="自我介绍"></a>自我介绍</h3><p>一个普通初中生</p>
 <h3 id="兴趣爱好"><a href="#兴趣爱好" class="headerlink" title="兴趣爱好"></a>兴趣爱好</h3><p>编程：前端 Java C#<br>美术：素描 速写 板绘<br>文玩：核桃 葫芦 星月 菩提根<br>素描六级 拿过两次没什么含金量的全国比赛奖</p>
-<h3 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h3><p>Email: <a href="mailto:&#x79;&#x69;&#110;&#103;&#x79;&#x75;&#x35;&#54;&#53;&#56;&#x40;&#x6f;&#x75;&#x74;&#x6c;&#111;&#111;&#x6b;&#46;&#99;&#111;&#109;">yingyu5658@outlook.com</a><br>Github: github.com&#x2F;yingyu5658<br>Bilibili: <a target="_blank" rel="noopener" href="https://space.bilibili.com/604851180">https://space.bilibili.com/604851180</a></p>
+<h3 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h3><p>Email: <a href="mailto:&#x79;&#x69;&#110;&#103;&#121;&#x75;&#x35;&#54;&#53;&#x38;&#64;&#111;&#117;&#116;&#108;&#111;&#x6f;&#x6b;&#x2e;&#99;&#x6f;&#109;">yingyu5658@outlook.com</a><br>Github: github.com&#x2F;yingyu5658<br>Bilibili: <a target="_blank" rel="noopener" href="https://space.bilibili.com/604851180">https://space.bilibili.com/604851180</a></p>
 <h3 id="友链申请"><a href="#友链申请" class="headerlink" title="友链申请"></a>友链申请</h3><p>随时欢迎双向友链申请，<strong>若无Github账号，无法评论，请发送邮件</strong>。</p>
 <h3 id="站点信息"><a href="#站点信息" class="headerlink" title="站点信息"></a>站点信息</h3><ul>
 <li>博客系统：Hexo</li>
