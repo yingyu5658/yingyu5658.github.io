@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="yingyu5658">
+
+
+    <meta name="subtitle" content="我现在就要看孤独摇滚第二季！">
+
+
+    <meta name="description" content="一个喜欢被电脑虐待的咸鱼初中生">
+
+
+    <meta name="keywords" content="java,javascript,web,cpp,c,c#,csharp,.net,minecraft,我的世界,mc,服务器运维,泰拉瑞亚,服务器,linux,美术,二次元,素描,动漫,孤独摇滚,建站,编程,网站开发,程序开发,醉酒哈基米,yingyu5658">
+
+
+<title>【黑历史】读自己以前写的代码 | yingyu5658的万事屋</title>
+
+
+
+    <link rel="icon" href="/images/static/nijika.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- highlight.js 样式（默认亮色） -->
+<link id="hljs-theme" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/github.css">
+<!-- highlight.js 自动上色功能 -->
+<script src="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/lib/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- highlight.js 样式（默认亮色） -->
+<link id="hljs-theme" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/github.css">
+<!-- highlight.js 自动上色功能 -->
+<script src="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/lib/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="yingyu5658的万事屋" type="application/atom+xml">
+</head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">YingYu5658的万事屋</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Category</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                    <a class="menu-item" href="/links">Links</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">YingYu5658的万事屋</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Category</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                    <a class="menu-item" href="/links">Links</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+
+            <div class="main">
+                <div class="container">
+    
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">【黑历史】读自己以前写的代码</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">yingyu5658</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">四月 19, 2025&nbsp;&nbsp;15:20:19</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/">计算机技术</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p>仓库地址就不放出来了，太耻辱了……</p>
+<p>先来看看Main.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.yingyu5658.lbl;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> yingyu5658</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">LuBuLu</span> <span class="variable">cmd</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">LuBuLu</span>();</span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">            cmd.command();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>嗯还写了Author，生怕别人不知道这坨屎是谁拉的。</p>
+<p>Main方法里面新建了一个LuBuLu对象，在主循环里调用了他的command()方法。</p>
+<p>进入这个神秘的LuBuLu.java一探究竟。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Scanner sc;</span><br><span class="line">    String one;</span><br><span class="line">    String two;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> times;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">LuBuLu</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.sc = <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">        <span class="built_in">this</span>.times = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>在类的开头进行了一些初始化，有点不理解one和two是什么，为什么他们没有权限修饰符。。。</p>
+<p>好的，接下来就到了主方法调用的command()</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">command</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">this</span>.times == <span class="number">0</span>) &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot; __       __    __  .______    __    __   __       __    __                                                                                                                       \n|  |     |  |  |  | |   _  \\  |  |  |  | |  |     |  |  |  |                                                                                                                      \n|  |     |  |  |  | |  |_)  | |  |  |  | |  |     |  |  |  |                                                                                                                      \n|  |     |  |  |  | |   _  &lt;  |  |  |  | |  |     |  |  |  |                                                                                                                      \n|  `----.|  `--&#x27;  | |  |_)  | |  `--&#x27;  | |  `----.|  `--&#x27;  |                                                                                                                      \n|_______| \\______/  |______/   \\______/  |_______| \\______/                                                                                                                       \n                                                                                                                                                                                  \n.___  ___.      ___       _______   _______          .______   ____    ____          ____    ____  __  .__   __.   ___________    ____  __    __   _____     __    _____    ___   \n|   \\/   |     /   \\     |       \\ |   ____|         |   _  \\  \\   \\  /   /          \\   \\  /   / |  | |  \\ |  |  /  _____\\   \\  /   / |  |  |  | | ____|   / /   | ____|  / _ \\  \n|  \\  /  |    /  ^  \\    |  .--.  ||  |__            |  |_)  |  \\   \\/   /            \\   \\/   /  |  | |   \\|  | |  |  __  \\   \\/   /  |  |  |  | | |__    / /_   | |__   | (_) | \n|  |\\/|  |   /  /_\\  \\   |  |  |  ||   __|           |   _  &lt;    \\_    _/              \\_    _/   |  | |  . `  | |  | |_ |  \\_    _/   |  |  |  | |___ \\  | &#x27;_ \\  |___ \\   &gt; _ &lt;  \n|  |  |  |  /  _____  \\  |  &#x27;--&#x27;  ||  |____          |  |_)  |     |  |                  |  |     |  | |  |\\   | |  |__| |    |  |     |  `--&#x27;  |  ___) | | (_) |  ___) | | (_) | \n|__|  |__| /__/     \\__\\ |_______/ |_______|         |______/      |__|                  |__|     |__| |__| \\__|  \\______|    |__|      \\______/  |____/   \\___/  |____/   \\___/  \n                                                                                                                                                                                  &quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            System.out.println(<span class="string">&quot;卢布卢 v1.4&quot;</span>);</span><br><span class="line">            <span class="type">LocalDate</span> <span class="variable">date</span> <span class="operator">=</span> LocalDate.now();</span><br><span class="line">            <span class="type">DateTimeFormatter</span> <span class="variable">formatter</span> <span class="operator">=</span> DateTimeFormatter.ofPattern(<span class="string">&quot;yyyy-MM-dd&quot;</span>);</span><br><span class="line">            <span class="type">PrintStream</span> <span class="variable">var10000</span> <span class="operator">=</span> System.out;</span><br><span class="line">            <span class="type">String</span> <span class="variable">var10001</span> <span class="operator">=</span> date.format(formatter);</span><br><span class="line">            var10000.println(<span class="string">&quot;你在&quot;</span> + var10001 + <span class="string">&quot;奇了星雨并打开本软件，来看看老天让不让你卢吧！&quot;</span>);</span><br><span class="line">            System.out.println(<span class="string">&quot;========================================&quot;</span>);</span><br><span class="line">            System.out.println(<span class="string">&quot;输入&#x27;/help&#x27;获取帮助&quot;</span>);</span><br><span class="line">            <span class="keyword">switch</span> (<span class="built_in">this</span>.sc.nextLine()) &#123;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">&quot;/help&quot;</span>:</span><br><span class="line">                    <span class="built_in">this</span>.help();</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">&quot;/lbl&quot;</span>:</span><br><span class="line">                    <span class="built_in">this</span>.luMa();</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">&quot;/exit&quot;</span>:</span><br><span class="line">                    System.exit(<span class="number">0</span>);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">&quot;/coott&quot;</span>:</span><br><span class="line">                    <span class="keyword">if</span> (<span class="string">&quot;/coott&quot;</span>.equals(sc.nextLine())) &#123;</span><br><span class="line">                        <span class="type">Scanner</span> <span class="variable">sc1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">                        System.out.println(<span class="string">&quot;请输入您的第一个选项。&quot;</span>);</span><br><span class="line">                        <span class="type">String</span> <span class="variable">one</span> <span class="operator">=</span> sc1.nextLine();</span><br><span class="line">                        System.out.println(<span class="string">&quot;请输入您的第二个选项。&quot;</span>);</span><br><span class="line">                        <span class="type">String</span> <span class="variable">two</span> <span class="operator">=</span> sc1.nextLine();</span><br><span class="line">                        <span class="built_in">this</span>.chooseOneOfTheTwo(one, two);</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">&quot;/cofm&quot;</span>:</span><br><span class="line">                    chooseOneFromMany();</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">default</span>:</span><br><span class="line">                    <span class="built_in">this</span>.clear();</span><br><span class="line">                    System.out.println(<span class="string">&quot;不存在该指令！将在1000ms后回到主页面。&quot;</span>);</span><br><span class="line">                    <span class="built_in">this</span>.sleep();</span><br><span class="line">                    <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            ++times;</span><br><span class="line">            System.out.println(<span class="string">&quot;*调试信息* 运行轮数： &quot;</span> + <span class="built_in">this</span>.times);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以看到、个方法内部代码都是在无限循环内执行的，那么为什么要在main方法里又套一层循环呢？？？</p>
+<p>这里的代码是反编译出来的，当时我还不会用git，idea也用不明白，误删了代码。找到以前的版本反编译再重新写。</p>
+<p>命令解析部分则是用了switch，这种方法在命令不多的情况下还可以。但是要输入斜杠是什么鬼啊，玩mc呢？</p>
+<p>那么再来看看伟大的<code>case: &quot;/coott&quot;</code>，前面还在调用函数，这里直接实现？？？这是人能写出来的代码？？</p>
+<p>函数尾部的++times也没看懂，我甚至现在都不理解这个运行轮数存在的意义是什么。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 程序休眠，目前仅用于输入命令错误时</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">sleep</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">long</span> <span class="variable">start</span> <span class="operator">=</span> System.currentTimeMillis();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(<span class="number">1000L</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">long</span> <span class="variable">end</span> <span class="operator">=</span> System.currentTimeMillis();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个功能更令人费解，为什么敲错命令不直接return，还要sleep一下。。。</p>
+<p>OK，下面就是人类有史以来最伟大的发明。</p>
+<p><strong>打印大量空字符串清屏。</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 清屏方法，一般会在其他功能方法中的第一行首先调用，打印大量空白字符来达到清屏的效果</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">clear</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">500</span>; ++i) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>我真的好奇我到底是不是人类了，这么蠢的方法还好意思写在注释里，这么大的IO性能损失还好意思直接写在注释里。</p>
+<p>多选一这个功能更是逆天了，选项和随机数范围严重错位。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">chooseOneFromMany</span><span class="params">()</span> &#123;</span><br><span class="line">       <span class="type">ArrayList</span> <span class="variable">choicesList</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ArrayList</span>();</span><br><span class="line">       <span class="type">Random</span> <span class="variable">r</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Random</span>();</span><br><span class="line">       clear();</span><br><span class="line">       System.out.println(<span class="string">&quot;===多选一界面===&quot;</span>);</span><br><span class="line">       System.out.println(<span class="string">&quot;请输入选项总数&quot;</span>);</span><br><span class="line">       <span class="type">int</span> <span class="variable">choicesCount</span> <span class="operator">=</span> sc.nextInt(); <span class="comment">// 定义变量用于记录选项总数</span></span><br><span class="line">       sc.nextLine();</span><br><span class="line">       <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; choicesCount; ++i) &#123;</span><br><span class="line">           System.out.println(<span class="string">&quot;请输入您的第&quot;</span> + i + <span class="string">&quot;个选项&quot;</span>);</span><br><span class="line">           <span class="type">String</span> <span class="variable">chices</span> <span class="operator">=</span> sc.nextLine();</span><br><span class="line">           choicesList.add(chices);</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="type">int</span> <span class="variable">randomIndex</span> <span class="operator">=</span> r.nextInt((choicesCount));</span><br><span class="line">       System.out.println(<span class="string">&quot;老天帮你选了第&quot;</span> + (randomIndex + <span class="number">1</span>) + <span class="string">&quot;个：&quot;</span> + choicesList.get(randomIndex));</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p>逆天，，，，除了代码不规范以外，逻辑硬伤更是多的离谱。</p>
+<p>总结，像一头蠢猪用带着粪的猪蹄乱敲键盘敲出来的代码。</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>yingyu5658</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://www.yingyu5658.me/post/2296531966/">http://www.yingyu5658.me/post/2296531966/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>UNITE.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Java/"># Java</a>
+                    
+                        <a href="/tags/%E7%BC%96%E7%A8%8B/"># 编程</a>
+                    
+                        <a href="/tags/%E4%BB%A3%E7%A0%81/"># 代码</a>
+                    
+                        <a href="/tags/C/"># C</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/post/2799171278/">从0开始搭建自己的终端开发环境</a>
+            
+        </section>
+        <script src="https://giscus.app/client.js"
+        data-repo="yingyu5658/yingyu5658.github.io"
+        data-repo-id="R_kgDOOBetsA"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOOBetsM4CoF_Z"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+<script>
+  function setGiscusTheme(theme) {
+    const iframe = document.querySelector('iframe.giscus-frame');
+    if (!iframe) return;
+
+    iframe.contentWindow.postMessage({
+      giscus: {
+        setConfig: {
+          theme: theme === 'dark' ? 'dark' : 'light'
+        }
+      }
+    }, 'https://giscus.app');
+  }
+
+  // 初始加载时设置主题
+  window.addEventListener('DOMContentLoaded', () => {
+    const storedTheme = localStorage.getItem('theme');
+    const currentTheme = storedTheme === 'dark' ? 'dark' : 'light';
+    setGiscusTheme(currentTheme);
+  });
+
+  // 切换按钮点击时同步 Giscus 主题
+  document.addEventListener('DOMContentLoaded', () => {
+    const themeButtons = [
+      document.querySelector('.toggleBtn'),
+      document.getElementById('mobile-toggle-theme')
+    ];
+
+    themeButtons.forEach(btn => {
+      if (!btn) return;
+      btn.addEventListener('click', () => {
+        const newTheme = document.body.classList.contains('dark-theme') ? 'dark' : 'light';
+        setGiscusTheme(newTheme);
+      });
+    });
+  });
+</script>
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© yingyu5658 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
