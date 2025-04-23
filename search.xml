@@ -81,17 +81,6 @@
       </tags>
   </entry>
   <entry>
-    <title>盼望下雨</title>
-    <url>/post/2388259561/</url>
-    <content><![CDATA[<p>我喜欢下雨。下雨可以没有理由地发呆，看着窗外雨水倾盆洒落，听着打在窗沿上的滴答声，闻着空气里泥土和雨水混合的潮湿味，最享受的时光。下雨天适合做除了外出的任何事。读一本书，画一幅画，听一首歌，或是搬一把椅子，坐在窗前看雨。雨天阴沉的天空色调很舒服，很有安全感。<br>夜行动物都是浪漫的。夜晚很安静，很短暂，能安静独处的时间不多了。<br>想画画，正好今天不用上课了，画点好玩的吧。手好酸。一听夏露露这首歌就能想起好多事，好多回忆，但是记不清是什么了。回忆。淡黄氧化色和线描小花，这是回忆的一部分吗？想起一本叫秘密花园的书，是一本涂色书，上面有很多精美的线稿，小时候妈妈买过，没涂完，已经不知道扔到哪去了。<br>为什么听起以前听过的歌就会难过呢？为什么谈起小时候的事就会流泪呢？现在过得不好吗？想做的事做不到啊，想要的东西得不到啊，想说的话没人听啊。<br>他本应属于我的，怎么被外来者夺取了呢？</p>
-<p>真可怜，只能把情感寄托在冰冷的键盘和几寸屏幕上，被液晶分子在电场作用下改变排列方式触动。</p>
-<p>2025.4.12 凌晨2:09<br>听着歌困到神志不清的我。</p>
-]]></content>
-      <categories>
-        <category>日常分享</category>
-      </categories>
-  </entry>
-  <entry>
     <title>攒钱目标达成？！</title>
     <url>/post/2718133590/</url>
     <content><![CDATA[<p>是的，攒钱目标达成。</p>
@@ -168,6 +157,17 @@
       <tags>
         <tag>游戏</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>盼望下雨</title>
+    <url>/post/2388259561/</url>
+    <content><![CDATA[<p>我喜欢下雨。下雨可以没有理由地发呆，看着窗外雨水倾盆洒落，听着打在窗沿上的滴答声，闻着空气里泥土和雨水混合的潮湿味，最享受的时光。下雨天适合做除了外出的任何事。读一本书，画一幅画，听一首歌，或是搬一把椅子，坐在窗前看雨。雨天阴沉的天空色调很舒服，很有安全感。<br>夜行动物都是浪漫的。夜晚很安静，很短暂，能安静独处的时间不多了。<br>想画画，正好今天不用上课了，画点好玩的吧。手好酸。一听夏露露这首歌就能想起好多事，好多回忆，但是记不清是什么了。回忆。淡黄氧化色和线描小花，这是回忆的一部分吗？想起一本叫秘密花园的书，是一本涂色书，上面有很多精美的线稿，小时候妈妈买过，没涂完，已经不知道扔到哪去了。<br>为什么听起以前听过的歌就会难过呢？为什么谈起小时候的事就会流泪呢？现在过得不好吗？想做的事做不到啊，想要的东西得不到啊，想说的话没人听啊。<br>他本应属于我的，怎么被外来者夺取了呢？</p>
+<p>真可怜，只能把情感寄托在冰冷的键盘和几寸屏幕上，被液晶分子在电场作用下改变排列方式触动。</p>
+<p>2025.4.12 凌晨2:09<br>听着歌困到神志不清的我。</p>
+]]></content>
+      <categories>
+        <category>日常分享</category>
+      </categories>
   </entry>
   <entry>
     <title>醉酒哈基米寒假开服活动Q&amp;amp;A</title>
@@ -275,6 +275,15 @@
       </tags>
   </entry>
   <entry>
+    <title>Java小程序之两数计算器</title>
+    <url>/post/3073696125/</url>
+    <content><![CDATA[<p>这个案例是我练习方法的使用时做的，应该能有更好的方式实现这个功能。<br>代码如下</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.yingyu5658.basic;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.w3c.dom.ls.LSOutput;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Basic</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (; ; ) &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            System.out.println(<span class="string">&quot;欢迎使用！&quot;</span>);</span><br><span class="line">            System.out.println(<span class="string">&quot;按键1 2 3 4分别为加 减 乘 除，输入后请回车&quot;</span>);</span><br><span class="line">            <span class="type">Scanner</span> <span class="variable">startSc</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">            <span class="type">int</span> <span class="variable">selectNumber</span> <span class="operator">=</span> startSc.nextInt();</span><br><span class="line">            <span class="keyword">if</span>(selectNumber &gt;<span class="number">4</span>) &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;请输入正确的数字以选择！&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//以下为加法</span></span><br><span class="line">            <span class="keyword">if</span> (selectNumber == <span class="number">1</span>) &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;请输入您要计算的第一个数字&quot;</span>);</span><br><span class="line">                <span class="type">Scanner</span> <span class="variable">jiafaSc</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">                <span class="type">int</span> <span class="variable">jiafa1</span> <span class="operator">=</span> jiafaSc.nextInt();</span><br><span class="line">                System.out.println(<span class="string">&quot;请输入您要计算的第二个数字&quot;</span>);</span><br><span class="line">                <span class="type">int</span> <span class="variable">jiafa2</span> <span class="operator">=</span> jiafaSc.nextInt();</span><br><span class="line">                jiafa(jiafa1, jiafa2);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//以下为减法</span></span><br><span class="line">            <span class="keyword">if</span> (selectNumber == <span class="number">2</span>) &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;请输入您要计算的第一个数字&quot;</span>);</span><br><span class="line">                <span class="type">Scanner</span> <span class="variable">jianfaSc</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">                <span class="type">int</span> <span class="variable">jianfa1</span> <span class="operator">=</span> jianfaSc.nextInt();</span><br><span class="line">                System.out.println(<span class="string">&quot;请输入您要计算的第二个数字&quot;</span>);</span><br><span class="line">                <span class="type">int</span> <span class="variable">jianfa2</span> <span class="operator">=</span> jianfaSc.nextInt();</span><br><span class="line">                jianfa(jianfa1, jianfa2);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//以下为乘法</span></span><br><span class="line">            <span class="keyword">if</span> (selectNumber == <span class="number">3</span>) &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;请输入您要计算的第一个数字&quot;</span>);</span><br><span class="line">                <span class="type">Scanner</span> <span class="variable">chengfaSc</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">                <span class="type">int</span> <span class="variable">chengfa1</span> <span class="operator">=</span> chengfaSc.nextInt();</span><br><span class="line">                System.out.println(<span class="string">&quot;请输入您要计算的第二个数字&quot;</span>);</span><br><span class="line">                <span class="type">int</span> <span class="variable">chengfa2</span> <span class="operator">=</span> chengfaSc.nextInt();</span><br><span class="line">                chengfa(chengfa1, chengfa2);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (selectNumber == <span class="number">4</span>) &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;请输入您要计算的第一个数字&quot;</span>);</span><br><span class="line">                <span class="type">Scanner</span> <span class="variable">chufaSc</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">                <span class="type">int</span> <span class="variable">chufa1</span> <span class="operator">=</span> chufaSc.nextInt();</span><br><span class="line">                System.out.println(<span class="string">&quot;请输入您要计算的第二个数字&quot;</span>);</span><br><span class="line">                <span class="type">int</span> <span class="variable">chufa2</span> <span class="operator">=</span> chufaSc.nextInt();</span><br><span class="line">                chufa(chufa1, chufa2);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(<span class="string">&quot;-----------------------------------------&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//加减乘除各项功能的方法，上面直接调用</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">jiafa</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">jieguo</span> <span class="operator">=</span> a + b;</span><br><span class="line">        System.out.println(jieguo);</span><br><span class="line">        <span class="keyword">return</span> a + b;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">jianfa</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">jieguo</span> <span class="operator">=</span> a - b;</span><br><span class="line">        System.out.println(jieguo);</span><br><span class="line">        <span class="keyword">return</span> a - b;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">chengfa</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">jieguo</span> <span class="operator">=</span> a * b;</span><br><span class="line">        System.out.println(jieguo);</span><br><span class="line">        <span class="keyword">return</span> a * b;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">chufa</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">jieguo</span> <span class="operator">=</span> a / b;</span><br><span class="line">        System.out.println(jieguo);</span><br><span class="line">        <span class="keyword">return</span> a / b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>计算机技术</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Java方法的基本使用</title>
     <url>/post/3033809787/</url>
     <content><![CDATA[<h1 id="方法是什么"><a href="#方法是什么" class="headerlink" title="方法是什么"></a>方法是什么</h1><p>方法是一种语法结构，它可以把代码封装成一段功能，以便重复调用。</p>
@@ -311,15 +320,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Java小程序之两数计算器</title>
-    <url>/post/3073696125/</url>
-    <content><![CDATA[<p>这个案例是我练习方法的使用时做的，应该能有更好的方式实现这个功能。<br>代码如下</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.yingyu5658.basic;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.w3c.dom.ls.LSOutput;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Basic</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (; ; ) &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            System.out.println(<span class="string">&quot;欢迎使用！&quot;</span>);</span><br><span class="line">            System.out.println(<span class="string">&quot;按键1 2 3 4分别为加 减 乘 除，输入后请回车&quot;</span>);</span><br><span class="line">            <span class="type">Scanner</span> <span class="variable">startSc</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">            <span class="type">int</span> <span class="variable">selectNumber</span> <span class="operator">=</span> startSc.nextInt();</span><br><span class="line">            <span class="keyword">if</span>(selectNumber &gt;<span class="number">4</span>) &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;请输入正确的数字以选择！&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//以下为加法</span></span><br><span class="line">            <span class="keyword">if</span> (selectNumber == <span class="number">1</span>) &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;请输入您要计算的第一个数字&quot;</span>);</span><br><span class="line">                <span class="type">Scanner</span> <span class="variable">jiafaSc</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">                <span class="type">int</span> <span class="variable">jiafa1</span> <span class="operator">=</span> jiafaSc.nextInt();</span><br><span class="line">                System.out.println(<span class="string">&quot;请输入您要计算的第二个数字&quot;</span>);</span><br><span class="line">                <span class="type">int</span> <span class="variable">jiafa2</span> <span class="operator">=</span> jiafaSc.nextInt();</span><br><span class="line">                jiafa(jiafa1, jiafa2);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//以下为减法</span></span><br><span class="line">            <span class="keyword">if</span> (selectNumber == <span class="number">2</span>) &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;请输入您要计算的第一个数字&quot;</span>);</span><br><span class="line">                <span class="type">Scanner</span> <span class="variable">jianfaSc</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">                <span class="type">int</span> <span class="variable">jianfa1</span> <span class="operator">=</span> jianfaSc.nextInt();</span><br><span class="line">                System.out.println(<span class="string">&quot;请输入您要计算的第二个数字&quot;</span>);</span><br><span class="line">                <span class="type">int</span> <span class="variable">jianfa2</span> <span class="operator">=</span> jianfaSc.nextInt();</span><br><span class="line">                jianfa(jianfa1, jianfa2);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//以下为乘法</span></span><br><span class="line">            <span class="keyword">if</span> (selectNumber == <span class="number">3</span>) &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;请输入您要计算的第一个数字&quot;</span>);</span><br><span class="line">                <span class="type">Scanner</span> <span class="variable">chengfaSc</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">                <span class="type">int</span> <span class="variable">chengfa1</span> <span class="operator">=</span> chengfaSc.nextInt();</span><br><span class="line">                System.out.println(<span class="string">&quot;请输入您要计算的第二个数字&quot;</span>);</span><br><span class="line">                <span class="type">int</span> <span class="variable">chengfa2</span> <span class="operator">=</span> chengfaSc.nextInt();</span><br><span class="line">                chengfa(chengfa1, chengfa2);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (selectNumber == <span class="number">4</span>) &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;请输入您要计算的第一个数字&quot;</span>);</span><br><span class="line">                <span class="type">Scanner</span> <span class="variable">chufaSc</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">                <span class="type">int</span> <span class="variable">chufa1</span> <span class="operator">=</span> chufaSc.nextInt();</span><br><span class="line">                System.out.println(<span class="string">&quot;请输入您要计算的第二个数字&quot;</span>);</span><br><span class="line">                <span class="type">int</span> <span class="variable">chufa2</span> <span class="operator">=</span> chufaSc.nextInt();</span><br><span class="line">                chufa(chufa1, chufa2);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(<span class="string">&quot;-----------------------------------------&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//加减乘除各项功能的方法，上面直接调用</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">jiafa</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">jieguo</span> <span class="operator">=</span> a + b;</span><br><span class="line">        System.out.println(jieguo);</span><br><span class="line">        <span class="keyword">return</span> a + b;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">jianfa</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">jieguo</span> <span class="operator">=</span> a - b;</span><br><span class="line">        System.out.println(jieguo);</span><br><span class="line">        <span class="keyword">return</span> a - b;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">chengfa</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">jieguo</span> <span class="operator">=</span> a * b;</span><br><span class="line">        System.out.println(jieguo);</span><br><span class="line">        <span class="keyword">return</span> a * b;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">chufa</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">jieguo</span> <span class="operator">=</span> a / b;</span><br><span class="line">        System.out.println(jieguo);</span><br><span class="line">        <span class="keyword">return</span> a / b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>计算机技术</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Java方法的传参原理</title>
     <url>/post/1642973481/</url>
     <content><![CDATA[<h1 id="Java方法的参数传递机制-基本类型"><a href="#Java方法的参数传递机制-基本类型" class="headerlink" title="Java方法的参数传递机制-基本类型"></a>Java方法的参数传递机制-基本类型</h1><p>值传递</p>
@@ -350,29 +350,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Java面向对象编程快速入门</title>
-    <url>/post/1091767210/</url>
-    <content><![CDATA[<h1 id="什么是面向对象编程"><a href="#什么是面向对象编程" class="headerlink" title="什么是面向对象编程"></a>什么是面向对象编程</h1><p>通俗易懂的说，就是把一坨一坨的数据放到一起存储<br>比如要存储一个学生的语文成绩和数学成绩<br>新建一个类</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Student</span> &#123;</span><br><span class="line">    String name;<span class="comment">//名字</span></span><br><span class="line">    <span class="type">double</span> chinese;<span class="comment">//语文成绩</span></span><br><span class="line">    <span class="type">double</span> math;<span class="comment">//数学成绩</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">printTotalScore</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(name + <span class="string">&quot;的总成绩是&quot;</span> + (chinese + math));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">printAverageScore</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(name + <span class="string">&quot;的平均成绩是&quot;</span> + (chinese + math) / <span class="number">2.0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这样学生的模板就创建好了，但是这个模板还没有指向学生的每一个个体。我们可以再同一个包下再新建一个类。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">//1.创建宇哥学生对象来封装学生a的数据</span></span><br><span class="line">        <span class="type">Student</span> <span class="variable">s1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>();</span><br><span class="line">        s1.name = <span class="string">&quot;学生a&quot;</span>;</span><br><span class="line">        s1.chinese = <span class="number">100</span>;</span><br><span class="line">        s1.math = <span class="number">100</span>;</span><br><span class="line">        s1.printTotalScore();</span><br><span class="line">        s1.printAverageScore();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//2.再创建一个学生对象，封装学生b的数据</span></span><br><span class="line">        <span class="type">Student</span> <span class="variable">s2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>();</span><br><span class="line">        s2.name = <span class="string">&quot;学生b&quot;</span>;</span><br><span class="line">        s2.chinese = <span class="number">100</span>;</span><br><span class="line">        s2.math = <span class="number">59</span>;</span><br><span class="line">        s2.printTotalScore();</span><br><span class="line">        s2.printAverageScore();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>用以上代码新建一个学生类并且调用我们之前写好的功能</p>
-<ul>
-<li>开发一个一个的对象，把数据交给对象，再用调用对象的方法来完成对数据的处理，这种方法叫<strong>面向对象编程</strong>。<br><img src="http://www.yingyu5658.cn/usr/uploads/2024/12/2743265221.jpg"></li>
-</ul>
-]]></content>
-      <categories>
-        <category>计算机技术</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>编程</tag>
-        <tag>笔记</tag>
-        <tag>面向对象编程</tag>
-        <tag>对象</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>深刻认识面向对象</title>
     <url>/post/841546109/</url>
     <content><![CDATA[<blockquote>
@@ -400,6 +377,29 @@
         <tag>Java</tag>
         <tag>笔记</tag>
         <tag>面向对象编程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java面向对象编程快速入门</title>
+    <url>/post/1091767210/</url>
+    <content><![CDATA[<h1 id="什么是面向对象编程"><a href="#什么是面向对象编程" class="headerlink" title="什么是面向对象编程"></a>什么是面向对象编程</h1><p>通俗易懂的说，就是把一坨一坨的数据放到一起存储<br>比如要存储一个学生的语文成绩和数学成绩<br>新建一个类</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Student</span> &#123;</span><br><span class="line">    String name;<span class="comment">//名字</span></span><br><span class="line">    <span class="type">double</span> chinese;<span class="comment">//语文成绩</span></span><br><span class="line">    <span class="type">double</span> math;<span class="comment">//数学成绩</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">printTotalScore</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(name + <span class="string">&quot;的总成绩是&quot;</span> + (chinese + math));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">printAverageScore</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(name + <span class="string">&quot;的平均成绩是&quot;</span> + (chinese + math) / <span class="number">2.0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样学生的模板就创建好了，但是这个模板还没有指向学生的每一个个体。我们可以再同一个包下再新建一个类。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">//1.创建宇哥学生对象来封装学生a的数据</span></span><br><span class="line">        <span class="type">Student</span> <span class="variable">s1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>();</span><br><span class="line">        s1.name = <span class="string">&quot;学生a&quot;</span>;</span><br><span class="line">        s1.chinese = <span class="number">100</span>;</span><br><span class="line">        s1.math = <span class="number">100</span>;</span><br><span class="line">        s1.printTotalScore();</span><br><span class="line">        s1.printAverageScore();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//2.再创建一个学生对象，封装学生b的数据</span></span><br><span class="line">        <span class="type">Student</span> <span class="variable">s2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>();</span><br><span class="line">        s2.name = <span class="string">&quot;学生b&quot;</span>;</span><br><span class="line">        s2.chinese = <span class="number">100</span>;</span><br><span class="line">        s2.math = <span class="number">59</span>;</span><br><span class="line">        s2.printTotalScore();</span><br><span class="line">        s2.printAverageScore();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>用以上代码新建一个学生类并且调用我们之前写好的功能</p>
+<ul>
+<li>开发一个一个的对象，把数据交给对象，再用调用对象的方法来完成对数据的处理，这种方法叫<strong>面向对象编程</strong>。<br><img src="http://www.yingyu5658.cn/usr/uploads/2024/12/2743265221.jpg"></li>
+</ul>
+]]></content>
+      <categories>
+        <category>计算机技术</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>编程</tag>
+        <tag>笔记</tag>
+        <tag>面向对象编程</tag>
+        <tag>对象</tag>
       </tags>
   </entry>
   <entry>
@@ -586,6 +586,23 @@
       </tags>
   </entry>
   <entry>
+    <title>记录配置SSL证书</title>
+    <url>/post/1636322595/</url>
+    <content><![CDATA[<blockquote>
+<p>本文章可能无参考价值，整个配置文件发生的变化相当大，发布仅为记录。</p>
+</blockquote>
+<p>首先你要有一个SSL证书，建议在阿里云购买或者<a href="https://developer.aliyun.com/article/1595201">免费申请</a>，具体过程阿里云这个页面讲的很详细，在此不过多赘述。</p>
+<h1 id="配置证书"><a href="#配置证书" class="headerlink" title="配置证书"></a>配置证书</h1><p>由于我的nginx安装了ssl模块，直接进入配置证书。</p>
+<p>解压下载好的证书，然后上传到服务器。位置自己方便找到即可<br>我放到了root&#x2F;card</p>
+<h1 id="配置nginx-conf"><a href="#配置nginx-conf" class="headerlink" title="配置nginx.conf"></a>配置nginx.conf</h1><p>进入nginx.conf，我的文件位置在<code>/etc/nginx/nginx.conf</code>,有些可能在<code>/usr/local/nginx/conf</code><br>编辑模式，启动！</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">http &#123;</span><br><span class="line"></span><br><span class="line">    include       mime.types;  # 包含 MIME 类型定义</span><br><span class="line"></span><br><span class="line">    default_type  application/octet-stream;</span><br><span class="line"></span><br><span class="line">    sendfile        on;</span><br><span class="line"></span><br><span class="line">    keepalive_timeout  65;</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">    # HTTPS server block</span><br><span class="line"></span><br><span class="line">    server &#123;</span><br><span class="line"></span><br><span class="line">        # 监听443端口（HTTPS）</span><br><span class="line"></span><br><span class="line">        listen 443 ssl;</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">        # 【请修改】您的域名</span><br><span class="line"></span><br><span class="line">        server_name yingyu5658.cn;</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">        # 启用 SSL (注意: &quot;ssl on;&quot; 已被弃用，直接使用 &quot;listen ... ssl;&quot;)</span><br><span class="line"></span><br><span class="line">        ssl on;</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">        # 【请修改】SSL 证书的 PEM 文件路径</span><br><span class="line"></span><br><span class="line">        ssl_certificate  /root/card/www.yingyu5658.cn.pem;</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">        # 【请修改】SSL 证书的 KEY 文件路径</span><br><span class="line"></span><br><span class="line">        ssl_certificate_key /root/card/www.yingyu5658.cn.key;</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">        location / &#123;</span><br><span class="line"></span><br><span class="line">            # 【请修改】代理转发的目标地址和端口（例如公网IP和项目端口号）</span><br><span class="line"></span><br><span class="line">            proxy_pass  http://公网地址:项目端口号;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">    # HTTP server block for redirecting to HTTPS</span><br><span class="line"></span><br><span class="line">    server &#123;</span><br><span class="line"></span><br><span class="line">        # 监听80端口（HTTP）</span><br><span class="line"></span><br><span class="line">        listen 80;</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">        # 【请修改】您的域名</span><br><span class="line"></span><br><span class="line">        server_name huiblog.top;</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">        # 将所有 HTTP 请求永久重定向到 HTTPS</span><br><span class="line"></span><br><span class="line">        rewrite ^(.*)$ https://$host$1 permanent;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="重新加载Nginx"><a href="#重新加载Nginx" class="headerlink" title="重新加载Nginx"></a>重新加载Nginx</h1><p><code>sudo systemctl reload nginx</code></p>
+]]></content>
+      <categories>
+        <category>计算机技术</category>
+      </categories>
+  </entry>
+  <entry>
     <title>面向对象编程总结</title>
     <url>/post/1385380729/</url>
     <content><![CDATA[<p>面向对象（oop）</p>
@@ -630,23 +647,6 @@
         <tag>OOP</tag>
         <tag>总结</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>记录配置SSL证书</title>
-    <url>/post/1636322595/</url>
-    <content><![CDATA[<blockquote>
-<p>本文章可能无参考价值，整个配置文件发生的变化相当大，发布仅为记录。</p>
-</blockquote>
-<p>首先你要有一个SSL证书，建议在阿里云购买或者<a href="https://developer.aliyun.com/article/1595201">免费申请</a>，具体过程阿里云这个页面讲的很详细，在此不过多赘述。</p>
-<h1 id="配置证书"><a href="#配置证书" class="headerlink" title="配置证书"></a>配置证书</h1><p>由于我的nginx安装了ssl模块，直接进入配置证书。</p>
-<p>解压下载好的证书，然后上传到服务器。位置自己方便找到即可<br>我放到了root&#x2F;card</p>
-<h1 id="配置nginx-conf"><a href="#配置nginx-conf" class="headerlink" title="配置nginx.conf"></a>配置nginx.conf</h1><p>进入nginx.conf，我的文件位置在<code>/etc/nginx/nginx.conf</code>,有些可能在<code>/usr/local/nginx/conf</code><br>编辑模式，启动！</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">http &#123;</span><br><span class="line"></span><br><span class="line">    include       mime.types;  # 包含 MIME 类型定义</span><br><span class="line"></span><br><span class="line">    default_type  application/octet-stream;</span><br><span class="line"></span><br><span class="line">    sendfile        on;</span><br><span class="line"></span><br><span class="line">    keepalive_timeout  65;</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">    # HTTPS server block</span><br><span class="line"></span><br><span class="line">    server &#123;</span><br><span class="line"></span><br><span class="line">        # 监听443端口（HTTPS）</span><br><span class="line"></span><br><span class="line">        listen 443 ssl;</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">        # 【请修改】您的域名</span><br><span class="line"></span><br><span class="line">        server_name yingyu5658.cn;</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">        # 启用 SSL (注意: &quot;ssl on;&quot; 已被弃用，直接使用 &quot;listen ... ssl;&quot;)</span><br><span class="line"></span><br><span class="line">        ssl on;</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">        # 【请修改】SSL 证书的 PEM 文件路径</span><br><span class="line"></span><br><span class="line">        ssl_certificate  /root/card/www.yingyu5658.cn.pem;</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">        # 【请修改】SSL 证书的 KEY 文件路径</span><br><span class="line"></span><br><span class="line">        ssl_certificate_key /root/card/www.yingyu5658.cn.key;</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">        location / &#123;</span><br><span class="line"></span><br><span class="line">            # 【请修改】代理转发的目标地址和端口（例如公网IP和项目端口号）</span><br><span class="line"></span><br><span class="line">            proxy_pass  http://公网地址:项目端口号;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">    # HTTP server block for redirecting to HTTPS</span><br><span class="line"></span><br><span class="line">    server &#123;</span><br><span class="line"></span><br><span class="line">        # 监听80端口（HTTP）</span><br><span class="line"></span><br><span class="line">        listen 80;</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">        # 【请修改】您的域名</span><br><span class="line"></span><br><span class="line">        server_name huiblog.top;</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">        # 将所有 HTTP 请求永久重定向到 HTTPS</span><br><span class="line"></span><br><span class="line">        rewrite ^(.*)$ https://$host$1 permanent;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h1 id="重新加载Nginx"><a href="#重新加载Nginx" class="headerlink" title="重新加载Nginx"></a>重新加载Nginx</h1><p><code>sudo systemctl reload nginx</code></p>
-]]></content>
-      <categories>
-        <category>计算机技术</category>
-      </categories>
   </entry>
   <entry>
     <title>String的注意事项</title>
@@ -697,6 +697,24 @@
       </tags>
   </entry>
   <entry>
+    <title>修复Geyser下基岩版玩家无法在地狱基岩层放置方块</title>
+    <url>/post/1177643335/</url>
+    <content><![CDATA[<p>在<code>plugins\Geyser-Spigot\config.yml</code>中把第160行的<code>above-bedrock-nether-building: false</code>改为<code>true</code>，重启服务器，问题解决~<br>原理：geyser把下界翻译成了末地，会导致下界天空变成末地的样式，不过可以解决基岩版玩家在地狱基岩层的问题。</p>
+]]></content>
+      <categories>
+        <category>计算机技术</category>
+      </categories>
+      <tags>
+        <tag>服务器</tag>
+        <tag>Minecraft</tag>
+        <tag>我的世界</tag>
+        <tag>Java</tag>
+        <tag>Spigot</tag>
+        <tag>间歇泉</tag>
+        <tag>Geyser</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Spigot服务端控制台中文乱码解决方案</title>
     <url>/post/4161445720/</url>
     <content><![CDATA[<ol>
@@ -715,102 +733,6 @@
         <tag>我的世界</tag>
         <tag>Java</tag>
         <tag>Spigot</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java面向对象编程——多态、抽象类、接口</title>
-    <url>/post/2251989209/</url>
-    <content><![CDATA[<h1 id="什么是多态"><a href="#什么是多态" class="headerlink" title="什么是多态"></a>什么是多态</h1><ul>
-<li>在继承&#x2F;实现情况下的一种现象，表现为：对象多态、行为多态。</li>
-</ul>
-<h2 id="多态的前提"><a href="#多态的前提" class="headerlink" title="多态的前提"></a>多态的前提</h2><ul>
-<li>有<strong>继承&#x2F;实</strong>现关系；存在父类引用子类对象；<strong>存在方法重写</strong></li>
-<li><h2 id="多态的注意事项"><a href="#多态的注意事项" class="headerlink" title="多态的注意事项"></a>多态的注意事项</h2></li>
-<li>多态是对象、行为的多态，成员变量不体现多态。</li>
-</ul>
-<h1 id="使用多态的好处"><a href="#使用多态的好处" class="headerlink" title="使用多态的好处"></a>使用多态的好处</h1><ul>
-<li>在多态形式下，右边的对象是解耦合的，更便于拓展和维护。</li>
-<li>定义方法时，使用父类类型的形参，可以接收一切子类对象，扩展性更强、更便利。</li>
-</ul>
-<h1 id="多态下产生的一个问题"><a href="#多态下产生的一个问题" class="headerlink" title="多态下产生的一个问题"></a>多态下产生的一个问题</h1><ul>
-<li>多态下不能使用子类的独有功能。</li>
-</ul>
-<h2 id="多态下的类型转换"><a href="#多态下的类型转换" class="headerlink" title="多态下的类型转换"></a>多态下的类型转换</h2><ul>
-<li>自动类型转换：<code>父类 变量名 = new 子类();</code></li>
-<li>强制类型转换： <code>子类 变量名 = (子类)父类变量</code></li>
-</ul>
-<h2 id="强制类型转换的注意事项"><a href="#强制类型转换的注意事项" class="headerlink" title="强制类型转换的注意事项"></a>强制类型转换的注意事项</h2><ul>
-<li>存在继承&#x2F;实现关系就可以在编译阶段进行强制类型转换，编译阶段不会报错。</li>
-<li>运行时，如果发现对象的真实类型与强转后的类型不同，就会报类型转换异常(ClassCastException)</li>
-</ul>
-<h3 id="强转前，Java建议："><a href="#强转前，Java建议：" class="headerlink" title="强转前，Java建议："></a>强转前，Java建议：</h3><ul>
-<li>使用instanceof关键字，判断当前对象的真是类型，再进行强制类型转换。</li>
-</ul>
-<h1 id="final"><a href="#final" class="headerlink" title="final"></a>final</h1><ul>
-<li>final关键字的中文是最终的意思，可以修饰类、方法、变量<ul>
-<li>修饰类：该类被称为最终类，特点是不能被继承了。</li>
-<li>修饰方法：该方法被称为最终方法，特点是不能被重写了。</li>
-<li>修饰变量：该变量只能被赋值一次。</li>
-</ul>
-</li>
-</ul>
-<h1 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h1><ul>
-<li>使用了static final 修饰的成员变量就被称为常量；</li>
-<li>作用：通常用于记录系统的配置信息。</li>
-<li><strong>注意：常量的命名规范：使用大写英文单词，多个单词使用下划线连接起来。</strong></li>
-</ul>
-<h2 id="视同常量记录系统配置信息的优势、执行原理"><a href="#视同常量记录系统配置信息的优势、执行原理" class="headerlink" title="视同常量记录系统配置信息的优势、执行原理"></a>视同常量记录系统配置信息的优势、执行原理</h2><ul>
-<li>代码可读性更好、可维护性也更好。</li>
-<li>程序编译后，常量会被宏替换：出现常量的地方全部会被替换成其记住的字面量，这样可以保证使用常量和直接用字面量的性能是一样的。</li>
-</ul>
-<h1 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h1><h2 id="什么是抽象类"><a href="#什么是抽象类" class="headerlink" title="什么是抽象类"></a>什么是抽象类</h2><ul>
-<li>Java中有个关键字叫abstract，他就是抽象的意思，可以用来修饰类、成员方法</li>
-<li>abstract修饰类，这个就是抽象类，修饰成员方法同理。</li>
-</ul>
-<h2 id="抽象类的注意事项、特点"><a href="#抽象类的注意事项、特点" class="headerlink" title="抽象类的注意事项、特点"></a>抽象类的注意事项、特点</h2><ul>
-<li>抽象类中不一定有抽象方法，有抽象方法的类一定是抽象类。</li>
-<li>类该有的成员（成员变量、方法、构造器）抽象类都可以有。</li>
-<li><strong>抽象类最主要的特点：</strong> 抽象类不能创建对象，仅作为一种特殊的父类，让子类继承并实现。</li>
-<li>一个类继承抽象类，必须重写完抽象类的全部抽象方法，否则这个类也必须定义成抽象类。</li>
-</ul>
-<h2 id="抽象类的使用场景和好处"><a href="#抽象类的使用场景和好处" class="headerlink" title="抽象类的使用场景和好处"></a>抽象类的使用场景和好处</h2><ul>
-<li>父类知道每个子类都要做某个行为，但每个子类做的情况不一样，父类就定义成抽象方法，交给子类去重写实现，我们设计这样的抽象类，就是为了更好的支持多态。<del>爸爸画饼儿子烙饼</del></li>
-</ul>
-<h1 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h1><h2 id="接口概述"><a href="#接口概述" class="headerlink" title="接口概述"></a>接口概述</h2><ul>
-<li>Java提供了一个关键字interface，用这个关键字我们可以定义出一个特殊的结构：接口。</li>
-<li>注意：接口不能创建对象；接口是用来被类实现（implements）的，实现接口的类被称为实现类。 </li>
-<li>一个类可以实现多个接口，实现类实现多个接口必须重写完全部接口的全部抽象方法，否则实现类需要定义成抽象类。</li>
-</ul>
-<p><img src="https://www.yingyu5658.cn/usr/uploads/2024/12/2743265221.jpg"></p>
-]]></content>
-      <categories>
-        <category>计算机技术</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>笔记</tag>
-        <tag>面向对象编程</tag>
-        <tag>多态</tag>
-        <tag>抽象类</tag>
-        <tag>接口</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>修复Geyser下基岩版玩家无法在地狱基岩层放置方块</title>
-    <url>/post/1177643335/</url>
-    <content><![CDATA[<p>在<code>plugins\Geyser-Spigot\config.yml</code>中把第160行的<code>above-bedrock-nether-building: false</code>改为<code>true</code>，重启服务器，问题解决~<br>原理：geyser把下界翻译成了末地，会导致下界天空变成末地的样式，不过可以解决基岩版玩家在地狱基岩层的问题。</p>
-]]></content>
-      <categories>
-        <category>计算机技术</category>
-      </categories>
-      <tags>
-        <tag>服务器</tag>
-        <tag>Minecraft</tag>
-        <tag>我的世界</tag>
-        <tag>Java</tag>
-        <tag>Spigot</tag>
-        <tag>间歇泉</tag>
-        <tag>Geyser</tag>
       </tags>
   </entry>
   <entry>
@@ -981,6 +903,97 @@
       </tags>
   </entry>
   <entry>
+    <title>Java面向对象编程——多态、抽象类、接口</title>
+    <url>/post/2251989209/</url>
+    <content><![CDATA[<h1 id="什么是多态"><a href="#什么是多态" class="headerlink" title="什么是多态"></a>什么是多态</h1><ul>
+<li>在继承&#x2F;实现情况下的一种现象，表现为：对象多态、行为多态。</li>
+</ul>
+<h2 id="多态的前提"><a href="#多态的前提" class="headerlink" title="多态的前提"></a>多态的前提</h2><ul>
+<li>有<strong>继承&#x2F;实</strong>现关系；存在父类引用子类对象；<strong>存在方法重写</strong></li>
+<li><h2 id="多态的注意事项"><a href="#多态的注意事项" class="headerlink" title="多态的注意事项"></a>多态的注意事项</h2></li>
+<li>多态是对象、行为的多态，成员变量不体现多态。</li>
+</ul>
+<h1 id="使用多态的好处"><a href="#使用多态的好处" class="headerlink" title="使用多态的好处"></a>使用多态的好处</h1><ul>
+<li>在多态形式下，右边的对象是解耦合的，更便于拓展和维护。</li>
+<li>定义方法时，使用父类类型的形参，可以接收一切子类对象，扩展性更强、更便利。</li>
+</ul>
+<h1 id="多态下产生的一个问题"><a href="#多态下产生的一个问题" class="headerlink" title="多态下产生的一个问题"></a>多态下产生的一个问题</h1><ul>
+<li>多态下不能使用子类的独有功能。</li>
+</ul>
+<h2 id="多态下的类型转换"><a href="#多态下的类型转换" class="headerlink" title="多态下的类型转换"></a>多态下的类型转换</h2><ul>
+<li>自动类型转换：<code>父类 变量名 = new 子类();</code></li>
+<li>强制类型转换： <code>子类 变量名 = (子类)父类变量</code></li>
+</ul>
+<h2 id="强制类型转换的注意事项"><a href="#强制类型转换的注意事项" class="headerlink" title="强制类型转换的注意事项"></a>强制类型转换的注意事项</h2><ul>
+<li>存在继承&#x2F;实现关系就可以在编译阶段进行强制类型转换，编译阶段不会报错。</li>
+<li>运行时，如果发现对象的真实类型与强转后的类型不同，就会报类型转换异常(ClassCastException)</li>
+</ul>
+<h3 id="强转前，Java建议："><a href="#强转前，Java建议：" class="headerlink" title="强转前，Java建议："></a>强转前，Java建议：</h3><ul>
+<li>使用instanceof关键字，判断当前对象的真是类型，再进行强制类型转换。</li>
+</ul>
+<h1 id="final"><a href="#final" class="headerlink" title="final"></a>final</h1><ul>
+<li>final关键字的中文是最终的意思，可以修饰类、方法、变量<ul>
+<li>修饰类：该类被称为最终类，特点是不能被继承了。</li>
+<li>修饰方法：该方法被称为最终方法，特点是不能被重写了。</li>
+<li>修饰变量：该变量只能被赋值一次。</li>
+</ul>
+</li>
+</ul>
+<h1 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h1><ul>
+<li>使用了static final 修饰的成员变量就被称为常量；</li>
+<li>作用：通常用于记录系统的配置信息。</li>
+<li><strong>注意：常量的命名规范：使用大写英文单词，多个单词使用下划线连接起来。</strong></li>
+</ul>
+<h2 id="视同常量记录系统配置信息的优势、执行原理"><a href="#视同常量记录系统配置信息的优势、执行原理" class="headerlink" title="视同常量记录系统配置信息的优势、执行原理"></a>视同常量记录系统配置信息的优势、执行原理</h2><ul>
+<li>代码可读性更好、可维护性也更好。</li>
+<li>程序编译后，常量会被宏替换：出现常量的地方全部会被替换成其记住的字面量，这样可以保证使用常量和直接用字面量的性能是一样的。</li>
+</ul>
+<h1 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h1><h2 id="什么是抽象类"><a href="#什么是抽象类" class="headerlink" title="什么是抽象类"></a>什么是抽象类</h2><ul>
+<li>Java中有个关键字叫abstract，他就是抽象的意思，可以用来修饰类、成员方法</li>
+<li>abstract修饰类，这个就是抽象类，修饰成员方法同理。</li>
+</ul>
+<h2 id="抽象类的注意事项、特点"><a href="#抽象类的注意事项、特点" class="headerlink" title="抽象类的注意事项、特点"></a>抽象类的注意事项、特点</h2><ul>
+<li>抽象类中不一定有抽象方法，有抽象方法的类一定是抽象类。</li>
+<li>类该有的成员（成员变量、方法、构造器）抽象类都可以有。</li>
+<li><strong>抽象类最主要的特点：</strong> 抽象类不能创建对象，仅作为一种特殊的父类，让子类继承并实现。</li>
+<li>一个类继承抽象类，必须重写完抽象类的全部抽象方法，否则这个类也必须定义成抽象类。</li>
+</ul>
+<h2 id="抽象类的使用场景和好处"><a href="#抽象类的使用场景和好处" class="headerlink" title="抽象类的使用场景和好处"></a>抽象类的使用场景和好处</h2><ul>
+<li>父类知道每个子类都要做某个行为，但每个子类做的情况不一样，父类就定义成抽象方法，交给子类去重写实现，我们设计这样的抽象类，就是为了更好的支持多态。<del>爸爸画饼儿子烙饼</del></li>
+</ul>
+<h1 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h1><h2 id="接口概述"><a href="#接口概述" class="headerlink" title="接口概述"></a>接口概述</h2><ul>
+<li>Java提供了一个关键字interface，用这个关键字我们可以定义出一个特殊的结构：接口。</li>
+<li>注意：接口不能创建对象；接口是用来被类实现（implements）的，实现接口的类被称为实现类。 </li>
+<li>一个类可以实现多个接口，实现类实现多个接口必须重写完全部接口的全部抽象方法，否则实现类需要定义成抽象类。</li>
+</ul>
+<p><img src="https://www.yingyu5658.cn/usr/uploads/2024/12/2743265221.jpg"></p>
+]]></content>
+      <categories>
+        <category>计算机技术</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>笔记</tag>
+        <tag>面向对象编程</tag>
+        <tag>多态</tag>
+        <tag>抽象类</tag>
+        <tag>接口</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>分享一个css响应式模板</title>
+    <url>/post/2655802011/</url>
+    <content><![CDATA[<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">  <span class="attribute">color-scheme</span>: light dark; <span class="comment">/*自由切换深色浅色主题*/</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*限制图片最大宽度防止溢出*/</span></span><br><span class="line"><span class="selector-tag">svg</span>,</span><br><span class="line"><span class="selector-tag">img</span>,</span><br><span class="line"><span class="selector-tag">video</span>&#123;</span><br><span class="line">  <span class="attribute">max-width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: system-ui;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">1.25rem</span>;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">1.5</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*这里可以使用任意容器*/</span></span><br><span class="line"><span class="selector-tag">main</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="built_in">min</span>(<span class="number">65ch</span> , <span class="number">100%</span> - <span class="number">4rem</span>);</span><br><span class="line">  magrin-inline: auto;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>计算机技术</category>
+      </categories>
+      <tags>
+        <tag>Web</tag>
+        <tag>前端</tag>
+        <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>记录Typecho博客转移到Hexo</title>
     <url>/post/64728457/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>折腾来折腾去，最后发现归宿还是静态博客，安全性高、性能开销小，用Github直接省去服务器费用还差不多永生。每年把域名钱交了就得了，图片的问题再想想办法，总能解决的。<br><del>突然有一种为了躲避战乱带着一家人四处奔波的悲凉感</del></p>
@@ -1017,36 +1030,6 @@
       </tags>
   </entry>
   <entry>
-    <title>分享一个css响应式模板</title>
-    <url>/post/2655802011/</url>
-    <content><![CDATA[<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">  <span class="attribute">color-scheme</span>: light dark; <span class="comment">/*自由切换深色浅色主题*/</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*限制图片最大宽度防止溢出*/</span></span><br><span class="line"><span class="selector-tag">svg</span>,</span><br><span class="line"><span class="selector-tag">img</span>,</span><br><span class="line"><span class="selector-tag">video</span>&#123;</span><br><span class="line">  <span class="attribute">max-width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: system-ui;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">1.25rem</span>;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">1.5</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*这里可以使用任意容器*/</span></span><br><span class="line"><span class="selector-tag">main</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="built_in">min</span>(<span class="number">65ch</span> , <span class="number">100%</span> - <span class="number">4rem</span>);</span><br><span class="line">  magrin-inline: auto;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>计算机技术</category>
-      </categories>
-      <tags>
-        <tag>Web</tag>
-        <tag>前端</tag>
-        <tag>CSS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>KDE桌面环境无法在Konsole切换中文输入法的解决方案</title>
-    <url>/post/3134572074/</url>
-    <content><![CDATA[<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>KDE默认使用Wayland会话，而fcitx4不支持Wayland，需升级到fcitx5。若无法升级到fcitx5或升级后仍然无法切换中文输入法，<strong>安装fcitx-qt6</strong></p>
-<span id="more"></span>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S fcitx-qt6</span><br></pre></td></tr></table></figure>
-
-<p>安装后执行<code>sudo reboot now</code>进行重启，问题解决。</p>
-]]></content>
-      <categories>
-        <category>计算机技术</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CSS鼠标指针操作</title>
     <url>/post/3385388897/</url>
     <content><![CDATA[<p>今天在上网冲浪的时候，看到Github上有一个明日方舟风格的<a href="https://github.com/Yue-plus/hexo-theme-arknights">主题</a>，这个主题让我感到新鲜的一点是网页中的鼠标指针特效<br><img src="/../../images/view.gif"><br>这么舒服的动画效果我必须也要做一个，说干就干，新建个HTML文档。</p>
@@ -1065,6 +1048,23 @@
         <tag>前端</tag>
         <tag>Javascript</tag>
         <tag>网页</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>KDE桌面环境无法在Konsole切换中文输入法的解决方案</title>
+    <url>/post/3134572074/</url>
+    <content><![CDATA[<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>KDE默认使用Wayland会话，而fcitx4不支持Wayland，需升级到fcitx5。若无法升级到fcitx5或升级后仍然无法切换中文输入法，<strong>安装fcitx-qt6</strong></p>
+<span id="more"></span>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S fcitx-qt6</span><br></pre></td></tr></table></figure>
+
+<p>安装后执行<code>sudo reboot now</code>进行重启，问题解决。</p>
+]]></content>
+      <categories>
+        <category>计算机技术</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -1227,6 +1227,30 @@
       </tags>
   </entry>
   <entry>
+    <title>Valine评论系统踩坑记录</title>
+    <url>/post/955127510/</url>
+    <content><![CDATA[<p>我个人很早以前就惦记着换上这个评论系统，曾经使用Butterfly主题的时候就有折腾过Valine，当时是浏览器缓存策略和CORS跨域拦截的问题。网上能找到的教程都比较老，几年以前的情况不再适用于现在了，所以现在去折腾的话，大概率要踩非常多的坑。本文主要讲述我个人踩到的坑和解决方法。</p>
+<p>本文内容是我自己试错出来的，不要问为什么要这么做，我也不清楚，但是这么做可以正常使用！</p>
+<p>首先你要有一个自己的域名，不要用.github.io。LeanCloud中设置-域名绑定-API访问域名要绑定你自己的二级域。</p>
+<p><img src="/../../images/image-20250423220150404.png"></p>
+<p>这里一定一定要做DNS解析，非常重要。</p>
+<p>然后就是安全中心里面的Web安全域名，LeanCloud默认放行localhost，但是127.0.0.1我这边测试是不行的，如果有需求要自己填写。Web安全域名要填写https、http两种协议保险。</p>
+<p>主题配置文件中，以我这个主题为例，serverURLs要填写自己的二级域名</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">serverURLs:</span> <span class="string">http://comment.yingyu5658.me</span></span><br></pre></td></tr></table></figure>
+
+<p>注意我这里用的是http协议，一定要加协议头，否则将会在你的博客域名下构建请求，比如我的<code>www.yingyu5658.me/comment.yingyu5658.me/</code>，这将导致报错。即使你使用国际版也要填写这一项！Leancloud请求不到。</p>
+<p>现在Valine的教程都有过时，遇到问题还需结合具体情况分析。我看LeanCloud的各种API结构变更还挺多的，太久远的教程就不建议看了。</p>
+]]></content>
+      <categories>
+        <category>计算机技术</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>博客</tag>
+        <tag>网站运维</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Nodejs环境下控制台拼接字符串输出有undefind</title>
     <url>/post/2367638025/</url>
     <content><![CDATA[<p>今天在Nodejs环境下搓小工具，控制台输出拼接字符串时，发现有<code>undefind</code>，代码如下：</p>
@@ -1287,6 +1311,48 @@
         <tag>Hexo</tag>
         <tag>博客</tag>
         <tag>Obsidain</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【黑历史】读自己以前写的代码</title>
+    <url>/post/2296531966/</url>
+    <content><![CDATA[<p>仓库地址就不放出来了，太耻辱了……</p>
+<p>先来看看Main.java</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.yingyu5658.lbl;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> yingyu5658</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">LuBuLu</span> <span class="variable">cmd</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">LuBuLu</span>();</span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">            cmd.command();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>嗯还写了Author，生怕别人不知道这坨屎是谁拉的。</p>
+<p>Main方法里面新建了一个LuBuLu对象，在主循环里调用了他的command()方法。</p>
+<p>进入这个神秘的LuBuLu.java一探究竟。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Scanner sc;</span><br><span class="line">    String one;</span><br><span class="line">    String two;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> times;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">LuBuLu</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.sc = <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">        <span class="built_in">this</span>.times = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>在类的开头进行了一些初始化，有点不理解one和two是什么，为什么他们没有权限修饰符。。。</p>
+<p>好的，接下来就到了主方法调用的command()</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">command</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">this</span>.times == <span class="number">0</span>) &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot; __       __    __  .______    __    __   __       __    __                                                                                                                       \n|  |     |  |  |  | |   _  \\  |  |  |  | |  |     |  |  |  |                                                                                                                      \n|  |     |  |  |  | |  |_)  | |  |  |  | |  |     |  |  |  |                                                                                                                      \n|  |     |  |  |  | |   _  &lt;  |  |  |  | |  |     |  |  |  |                                                                                                                      \n|  `----.|  `--&#x27;  | |  |_)  | |  `--&#x27;  | |  `----.|  `--&#x27;  |                                                                                                                      \n|_______| \\______/  |______/   \\______/  |_______| \\______/                                                                                                                       \n                                                                                                                                                                                  \n.___  ___.      ___       _______   _______          .______   ____    ____          ____    ____  __  .__   __.   ___________    ____  __    __   _____     __    _____    ___   \n|   \\/   |     /   \\     |       \\ |   ____|         |   _  \\  \\   \\  /   /          \\   \\  /   / |  | |  \\ |  |  /  _____\\   \\  /   / |  |  |  | | ____|   / /   | ____|  / _ \\  \n|  \\  /  |    /  ^  \\    |  .--.  ||  |__            |  |_)  |  \\   \\/   /            \\   \\/   /  |  | |   \\|  | |  |  __  \\   \\/   /  |  |  |  | | |__    / /_   | |__   | (_) | \n|  |\\/|  |   /  /_\\  \\   |  |  |  ||   __|           |   _  &lt;    \\_    _/              \\_    _/   |  | |  . `  | |  | |_ |  \\_    _/   |  |  |  | |___ \\  | &#x27;_ \\  |___ \\   &gt; _ &lt;  \n|  |  |  |  /  _____  \\  |  &#x27;--&#x27;  ||  |____          |  |_)  |     |  |                  |  |     |  | |  |\\   | |  |__| |    |  |     |  `--&#x27;  |  ___) | | (_) |  ___) | | (_) | \n|__|  |__| /__/     \\__\\ |_______/ |_______|         |______/      |__|                  |__|     |__| |__| \\__|  \\______|    |__|      \\______/  |____/   \\___/  |____/   \\___/  \n                                                                                                                                                                                  &quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            System.out.println(<span class="string">&quot;卢布卢 v1.4&quot;</span>);</span><br><span class="line">            <span class="type">LocalDate</span> <span class="variable">date</span> <span class="operator">=</span> LocalDate.now();</span><br><span class="line">            <span class="type">DateTimeFormatter</span> <span class="variable">formatter</span> <span class="operator">=</span> DateTimeFormatter.ofPattern(<span class="string">&quot;yyyy-MM-dd&quot;</span>);</span><br><span class="line">            <span class="type">PrintStream</span> <span class="variable">var10000</span> <span class="operator">=</span> System.out;</span><br><span class="line">            <span class="type">String</span> <span class="variable">var10001</span> <span class="operator">=</span> date.format(formatter);</span><br><span class="line">            var10000.println(<span class="string">&quot;你在&quot;</span> + var10001 + <span class="string">&quot;奇了星雨并打开本软件，来看看老天让不让你卢吧！&quot;</span>);</span><br><span class="line">            System.out.println(<span class="string">&quot;========================================&quot;</span>);</span><br><span class="line">            System.out.println(<span class="string">&quot;输入&#x27;/help&#x27;获取帮助&quot;</span>);</span><br><span class="line">            <span class="keyword">switch</span> (<span class="built_in">this</span>.sc.nextLine()) &#123;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">&quot;/help&quot;</span>:</span><br><span class="line">                    <span class="built_in">this</span>.help();</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">&quot;/lbl&quot;</span>:</span><br><span class="line">                    <span class="built_in">this</span>.luMa();</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">&quot;/exit&quot;</span>:</span><br><span class="line">                    System.exit(<span class="number">0</span>);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">&quot;/coott&quot;</span>:</span><br><span class="line">                    <span class="keyword">if</span> (<span class="string">&quot;/coott&quot;</span>.equals(sc.nextLine())) &#123;</span><br><span class="line">                        <span class="type">Scanner</span> <span class="variable">sc1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">                        System.out.println(<span class="string">&quot;请输入您的第一个选项。&quot;</span>);</span><br><span class="line">                        <span class="type">String</span> <span class="variable">one</span> <span class="operator">=</span> sc1.nextLine();</span><br><span class="line">                        System.out.println(<span class="string">&quot;请输入您的第二个选项。&quot;</span>);</span><br><span class="line">                        <span class="type">String</span> <span class="variable">two</span> <span class="operator">=</span> sc1.nextLine();</span><br><span class="line">                        <span class="built_in">this</span>.chooseOneOfTheTwo(one, two);</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">&quot;/cofm&quot;</span>:</span><br><span class="line">                    chooseOneFromMany();</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">default</span>:</span><br><span class="line">                    <span class="built_in">this</span>.clear();</span><br><span class="line">                    System.out.println(<span class="string">&quot;不存在该指令！将在1000ms后回到主页面。&quot;</span>);</span><br><span class="line">                    <span class="built_in">this</span>.sleep();</span><br><span class="line">                    <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            ++times;</span><br><span class="line">            System.out.println(<span class="string">&quot;*调试信息* 运行轮数： &quot;</span> + <span class="built_in">this</span>.times);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以看到、个方法内部代码都是在无限循环内执行的，那么为什么要在main方法里又套一层循环呢？？？</p>
+<p>这里的代码是反编译出来的，当时我还不会用git，idea也用不明白，误删了代码。找到以前的版本反编译再重新写。</p>
+<p>命令解析部分则是用了switch，这种方法在命令不多的情况下还可以。但是要输入斜杠是什么鬼啊，玩mc呢？</p>
+<p>那么再来看看伟大的<code>case: &quot;/coott&quot;</code>，前面还在调用函数，这里直接实现？？？这是人能写出来的代码？？</p>
+<p>函数尾部的++times也没看懂，我甚至现在都不理解这个运行轮数存在的意义是什么。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 程序休眠，目前仅用于输入命令错误时</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">sleep</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">long</span> <span class="variable">start</span> <span class="operator">=</span> System.currentTimeMillis();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(<span class="number">1000L</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">long</span> <span class="variable">end</span> <span class="operator">=</span> System.currentTimeMillis();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个功能更令人费解，为什么敲错命令不直接return，还要sleep一下。。。</p>
+<p>OK，下面就是人类有史以来最伟大的发明。</p>
+<p><strong>打印大量空字符串清屏。</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 清屏方法，一般会在其他功能方法中的第一行首先调用，打印大量空白字符来达到清屏的效果</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">clear</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">500</span>; ++i) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>我真的好奇我到底是不是人类了，这么蠢的方法还好意思写在注释里，这么大的IO性能损失还好意思直接写在注释里。</p>
+<p>多选一这个功能更是逆天了，选项和随机数范围严重错位。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">chooseOneFromMany</span><span class="params">()</span> &#123;</span><br><span class="line">       <span class="type">ArrayList</span> <span class="variable">choicesList</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ArrayList</span>();</span><br><span class="line">       <span class="type">Random</span> <span class="variable">r</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Random</span>();</span><br><span class="line">       clear();</span><br><span class="line">       System.out.println(<span class="string">&quot;===多选一界面===&quot;</span>);</span><br><span class="line">       System.out.println(<span class="string">&quot;请输入选项总数&quot;</span>);</span><br><span class="line">       <span class="type">int</span> <span class="variable">choicesCount</span> <span class="operator">=</span> sc.nextInt(); <span class="comment">// 定义变量用于记录选项总数</span></span><br><span class="line">       sc.nextLine();</span><br><span class="line">       <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; choicesCount; ++i) &#123;</span><br><span class="line">           System.out.println(<span class="string">&quot;请输入您的第&quot;</span> + i + <span class="string">&quot;个选项&quot;</span>);</span><br><span class="line">           <span class="type">String</span> <span class="variable">chices</span> <span class="operator">=</span> sc.nextLine();</span><br><span class="line">           choicesList.add(chices);</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="type">int</span> <span class="variable">randomIndex</span> <span class="operator">=</span> r.nextInt((choicesCount));</span><br><span class="line">       System.out.println(<span class="string">&quot;老天帮你选了第&quot;</span> + (randomIndex + <span class="number">1</span>) + <span class="string">&quot;个：&quot;</span> + choicesList.get(randomIndex));</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p>逆天，，，，除了代码不规范以外，逻辑硬伤更是多的离谱。</p>
+<p>总结，像一头蠢猪用带着粪的猪蹄乱敲键盘敲出来的代码。</p>
+]]></content>
+      <tags>
+        <tag>Java</tag>
+        <tag>编程</tag>
+        <tag>代码</tag>
+        <tag>C</tag>
       </tags>
   </entry>
   <entry>
@@ -1363,6 +1429,39 @@
       </tags>
   </entry>
   <entry>
+    <title>人话简单理解八下遗传之生物的遗传变异</title>
+    <url>/post/53701281/</url>
+    <content><![CDATA[<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 母亲类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Mother</span> &#123;</span><br><span class="line"><span class="comment">// 母亲的性格是开朗的</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">String</span> <span class="variable">personality</span> <span class="operator">=</span> <span class="string">&quot;cheerful&quot;</span>;</span><br><span class="line"><span class="comment">// 母亲的身高是160.5</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">double</span> <span class="variable">height</span> <span class="operator">=</span> <span class="number">160.5</span>;</span><br><span class="line"><span class="comment">// 母亲有耳垂</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="variable">hasEarlobe</span> <span class="operator">=</span> <span class="literal">true</span>;</span><br><span class="line"><span class="comment">// 吃东西方法</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">eating</span><span class="params">(Foods food)</span> &#123;</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">&quot;母亲吃东西细嚼慢咽&quot;</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 孩子类继承母亲类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Child</span> <span class="keyword">extends</span> <span class="title class_">Mother</span>&#123;</span><br><span class="line"><span class="comment">// 变异</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 孩子的性格是内向的</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">String</span> <span class="variable">personality</span> <span class="operator">=</span> <span class="string">&quot;introverted&quot;</span>;</span><br><span class="line"><span class="comment">// 孩子无耳垂</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="variable">hasEarlobe</span> <span class="operator">=</span> <span class="literal">false</span>;</span><br><span class="line"><span class="comment">// 孩子身高比母亲高</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">double</span> <span class="variable">height</span> <span class="operator">=</span> <span class="number">180.5</span>;</span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">eating</span><span class="params">(Foods food)</span> &#123;</span><br><span class="line">System.out.println(<span class="string">&quot;孩子吃东西狼吞虎咽&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>感觉比书上讲的一大堆狗屁废话简练多了。。（？</p>
+]]></content>
+      <categories>
+        <category>计算机技术</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>光速破解作文网站禁止复制</title>
+    <url>/post/3995609697/</url>
+    <content><![CDATA[<p>今天上网搜集范文，又遇到了这个很多年前就让我非常痛恨的网站。可以看到，这个网站应该是通过JS，检测鼠标左键或者CTRL+C再弹出这个窗口达到的防止用户复制的目的，可以此为切入点，查看一下这个网站的源码。找到问题所在。</p>
+<span id="more"></span>
+
+<p><img src="/../../images/Pasted%20image%2020250321081959.png"><br>今天定要把这个仇报了。下载网页到本地，这里出了一个小插曲，在FIREFOX浏览器下载的所有网页文件，中文都是乱码，顺便来解决一下这个问题。<br>在平板MT管理器右上角可以看到，这个文件的编码格式是GB2312，在vim中输入<code>:e ++enc=gb2312</code>，在输入<code>set fileencoding=utf-8</code>就可正常查看了。现在的代码结构非常屎，保存格式化一下。<br>第159行，有一个webchatbox的盒子，可以看到，这里就是为防止复制创建的盒子，把这段代码注释掉。<br><img src="/../../images/Pasted%20image%2020250321112804.png"><br>这还没完，再去到页面复制发现还是有未处理完善的残留页面<br><img src="/../../images/Pasted%20image%2020250321112937.png"><br>原因在于第223行的开始的一个盒子，把这段也注释掉即可</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;modal modal-server&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;wx_pic_img&quot;</span> <span class="attr">id</span>=<span class="string">&quot;webchat-server-box&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;modal-close&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;payqr_box&quot;</span> <span class="attr">style</span>=<span class="string">&quot;display: block;&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;cj_title&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>常见问题<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;customer_service_box&quot;</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;que&quot;</span>&gt;</span>1.支付成功后，怎么复制？<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;ans&quot;</span>&gt;</span>亲，您好！付款成功后，无需验证码，直接复制哦！<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;que&quot;</span>&gt;</span>2.支付成功后，为何无法复制内容？<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;ans&quot;</span>&gt;</span>亲，请尝试刷新一下网页（按键盘F5键），再进行复制。<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;que&quot;</span>&gt;</span>3.付费后能否更换浏览器、更换电脑进行复制？<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;ans&quot;</span>&gt;</span>亲，更换浏览器或电脑会导致复制不成功哦！请确保付费时的浏览器及电脑和复制文章时所用的浏览器是一样的。<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;que&quot;</span>&gt;</span>4.如何联系客服？<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;ans&quot;</span>&gt;</span>麻烦您添加客服微信：zjdddx1 ，留言“付款后无法复制文章”，并发送相关付款截图，客服将为您处理。<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;copy-success alert-bounceIn&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;co_files/payed.png&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">class</span>=<span class="string">&quot;icon&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>复制成功！<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;co_files/js.cookie.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">language</span>=<span class="string">&quot;javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;co_files/bottom.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">language</span>=<span class="string">&quot;javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;co_files/doc.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这样再保存，回到页面中就可正常复制了。前端的这点小儿科把戏，轻松搞定。</p>
+<p>可能会写一个脚本来把这个页面的p标签内容都解析出来并输出。</p>
+]]></content>
+      <categories>
+        <category>计算机技术</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>技术</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>上帝类是什么？该如何避免上帝类？</title>
     <url>/post/964047394/</url>
     <content><![CDATA[<h1 id="什么是上帝类"><a href="#什么是上帝类" class="headerlink" title="什么是上帝类"></a>什么是上帝类</h1><p>所谓的上帝类，就是指<strong>一个类承担了过多的职能</strong>，变得过于<strong>臃肿</strong>和<strong>复杂</strong>、<strong>难以维护</strong>。没有遵守单一职责原则。像上帝一样什么都能干，每个功能高度耦合，牵一发而动全身，不利于业务的拓展。</p>
@@ -1386,68 +1485,10 @@
       </categories>
       <tags>
         <tag>面向对象编程</tag>
+        <tag>代码</tag>
         <tag>软件开发</tag>
         <tag>程序开发</tag>
         <tag>设计</tag>
-        <tag>代码</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【黑历史】读自己以前写的代码</title>
-    <url>/post/2296531966/</url>
-    <content><![CDATA[<p>仓库地址就不放出来了，太耻辱了……</p>
-<p>先来看看Main.java</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.yingyu5658.lbl;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> yingyu5658</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">LuBuLu</span> <span class="variable">cmd</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">LuBuLu</span>();</span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">            cmd.command();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>嗯还写了Author，生怕别人不知道这坨屎是谁拉的。</p>
-<p>Main方法里面新建了一个LuBuLu对象，在主循环里调用了他的command()方法。</p>
-<p>进入这个神秘的LuBuLu.java一探究竟。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Scanner sc;</span><br><span class="line">    String one;</span><br><span class="line">    String two;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> times;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">LuBuLu</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.sc = <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">        <span class="built_in">this</span>.times = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p>在类的开头进行了一些初始化，有点不理解one和two是什么，为什么他们没有权限修饰符。。。</p>
-<p>好的，接下来就到了主方法调用的command()</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">command</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">this</span>.times == <span class="number">0</span>) &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot; __       __    __  .______    __    __   __       __    __                                                                                                                       \n|  |     |  |  |  | |   _  \\  |  |  |  | |  |     |  |  |  |                                                                                                                      \n|  |     |  |  |  | |  |_)  | |  |  |  | |  |     |  |  |  |                                                                                                                      \n|  |     |  |  |  | |   _  &lt;  |  |  |  | |  |     |  |  |  |                                                                                                                      \n|  `----.|  `--&#x27;  | |  |_)  | |  `--&#x27;  | |  `----.|  `--&#x27;  |                                                                                                                      \n|_______| \\______/  |______/   \\______/  |_______| \\______/                                                                                                                       \n                                                                                                                                                                                  \n.___  ___.      ___       _______   _______          .______   ____    ____          ____    ____  __  .__   __.   ___________    ____  __    __   _____     __    _____    ___   \n|   \\/   |     /   \\     |       \\ |   ____|         |   _  \\  \\   \\  /   /          \\   \\  /   / |  | |  \\ |  |  /  _____\\   \\  /   / |  |  |  | | ____|   / /   | ____|  / _ \\  \n|  \\  /  |    /  ^  \\    |  .--.  ||  |__            |  |_)  |  \\   \\/   /            \\   \\/   /  |  | |   \\|  | |  |  __  \\   \\/   /  |  |  |  | | |__    / /_   | |__   | (_) | \n|  |\\/|  |   /  /_\\  \\   |  |  |  ||   __|           |   _  &lt;    \\_    _/              \\_    _/   |  | |  . `  | |  | |_ |  \\_    _/   |  |  |  | |___ \\  | &#x27;_ \\  |___ \\   &gt; _ &lt;  \n|  |  |  |  /  _____  \\  |  &#x27;--&#x27;  ||  |____          |  |_)  |     |  |                  |  |     |  | |  |\\   | |  |__| |    |  |     |  `--&#x27;  |  ___) | | (_) |  ___) | | (_) | \n|__|  |__| /__/     \\__\\ |_______/ |_______|         |______/      |__|                  |__|     |__| |__| \\__|  \\______|    |__|      \\______/  |____/   \\___/  |____/   \\___/  \n                                                                                                                                                                                  &quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            System.out.println(<span class="string">&quot;卢布卢 v1.4&quot;</span>);</span><br><span class="line">            <span class="type">LocalDate</span> <span class="variable">date</span> <span class="operator">=</span> LocalDate.now();</span><br><span class="line">            <span class="type">DateTimeFormatter</span> <span class="variable">formatter</span> <span class="operator">=</span> DateTimeFormatter.ofPattern(<span class="string">&quot;yyyy-MM-dd&quot;</span>);</span><br><span class="line">            <span class="type">PrintStream</span> <span class="variable">var10000</span> <span class="operator">=</span> System.out;</span><br><span class="line">            <span class="type">String</span> <span class="variable">var10001</span> <span class="operator">=</span> date.format(formatter);</span><br><span class="line">            var10000.println(<span class="string">&quot;你在&quot;</span> + var10001 + <span class="string">&quot;奇了星雨并打开本软件，来看看老天让不让你卢吧！&quot;</span>);</span><br><span class="line">            System.out.println(<span class="string">&quot;========================================&quot;</span>);</span><br><span class="line">            System.out.println(<span class="string">&quot;输入&#x27;/help&#x27;获取帮助&quot;</span>);</span><br><span class="line">            <span class="keyword">switch</span> (<span class="built_in">this</span>.sc.nextLine()) &#123;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">&quot;/help&quot;</span>:</span><br><span class="line">                    <span class="built_in">this</span>.help();</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">&quot;/lbl&quot;</span>:</span><br><span class="line">                    <span class="built_in">this</span>.luMa();</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">&quot;/exit&quot;</span>:</span><br><span class="line">                    System.exit(<span class="number">0</span>);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">&quot;/coott&quot;</span>:</span><br><span class="line">                    <span class="keyword">if</span> (<span class="string">&quot;/coott&quot;</span>.equals(sc.nextLine())) &#123;</span><br><span class="line">                        <span class="type">Scanner</span> <span class="variable">sc1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">                        System.out.println(<span class="string">&quot;请输入您的第一个选项。&quot;</span>);</span><br><span class="line">                        <span class="type">String</span> <span class="variable">one</span> <span class="operator">=</span> sc1.nextLine();</span><br><span class="line">                        System.out.println(<span class="string">&quot;请输入您的第二个选项。&quot;</span>);</span><br><span class="line">                        <span class="type">String</span> <span class="variable">two</span> <span class="operator">=</span> sc1.nextLine();</span><br><span class="line">                        <span class="built_in">this</span>.chooseOneOfTheTwo(one, two);</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">&quot;/cofm&quot;</span>:</span><br><span class="line">                    chooseOneFromMany();</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">default</span>:</span><br><span class="line">                    <span class="built_in">this</span>.clear();</span><br><span class="line">                    System.out.println(<span class="string">&quot;不存在该指令！将在1000ms后回到主页面。&quot;</span>);</span><br><span class="line">                    <span class="built_in">this</span>.sleep();</span><br><span class="line">                    <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            ++times;</span><br><span class="line">            System.out.println(<span class="string">&quot;*调试信息* 运行轮数： &quot;</span> + <span class="built_in">this</span>.times);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p>可以看到、个方法内部代码都是在无限循环内执行的，那么为什么要在main方法里又套一层循环呢？？？</p>
-<p>这里的代码是反编译出来的，当时我还不会用git，idea也用不明白，误删了代码。找到以前的版本反编译再重新写。</p>
-<p>命令解析部分则是用了switch，这种方法在命令不多的情况下还可以。但是要输入斜杠是什么鬼啊，玩mc呢？</p>
-<p>那么再来看看伟大的<code>case: &quot;/coott&quot;</code>，前面还在调用函数，这里直接实现？？？这是人能写出来的代码？？</p>
-<p>函数尾部的++times也没看懂，我甚至现在都不理解这个运行轮数存在的意义是什么。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 程序休眠，目前仅用于输入命令错误时</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">sleep</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">long</span> <span class="variable">start</span> <span class="operator">=</span> System.currentTimeMillis();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(<span class="number">1000L</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">long</span> <span class="variable">end</span> <span class="operator">=</span> System.currentTimeMillis();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p>这个功能更令人费解，为什么敲错命令不直接return，还要sleep一下。。。</p>
-<p>OK，下面就是人类有史以来最伟大的发明。</p>
-<p><strong>打印大量空字符串清屏。</strong></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 清屏方法，一般会在其他功能方法中的第一行首先调用，打印大量空白字符来达到清屏的效果</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">clear</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">500</span>; ++i) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p>我真的好奇我到底是不是人类了，这么蠢的方法还好意思写在注释里，这么大的IO性能损失还好意思直接写在注释里。</p>
-<p>多选一这个功能更是逆天了，选项和随机数范围严重错位。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">chooseOneFromMany</span><span class="params">()</span> &#123;</span><br><span class="line">       <span class="type">ArrayList</span> <span class="variable">choicesList</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ArrayList</span>();</span><br><span class="line">       <span class="type">Random</span> <span class="variable">r</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Random</span>();</span><br><span class="line">       clear();</span><br><span class="line">       System.out.println(<span class="string">&quot;===多选一界面===&quot;</span>);</span><br><span class="line">       System.out.println(<span class="string">&quot;请输入选项总数&quot;</span>);</span><br><span class="line">       <span class="type">int</span> <span class="variable">choicesCount</span> <span class="operator">=</span> sc.nextInt(); <span class="comment">// 定义变量用于记录选项总数</span></span><br><span class="line">       sc.nextLine();</span><br><span class="line">       <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; choicesCount; ++i) &#123;</span><br><span class="line">           System.out.println(<span class="string">&quot;请输入您的第&quot;</span> + i + <span class="string">&quot;个选项&quot;</span>);</span><br><span class="line">           <span class="type">String</span> <span class="variable">chices</span> <span class="operator">=</span> sc.nextLine();</span><br><span class="line">           choicesList.add(chices);</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="type">int</span> <span class="variable">randomIndex</span> <span class="operator">=</span> r.nextInt((choicesCount));</span><br><span class="line">       System.out.println(<span class="string">&quot;老天帮你选了第&quot;</span> + (randomIndex + <span class="number">1</span>) + <span class="string">&quot;个：&quot;</span> + choicesList.get(randomIndex));</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-
-<p>逆天，，，，除了代码不规范以外，逻辑硬伤更是多的离谱。</p>
-<p>总结，像一头蠢猪用带着粪的猪蹄乱敲键盘敲出来的代码。</p>
-]]></content>
-      <categories>
-        <category>计算机技术</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>编程</tag>
-        <tag>代码</tag>
-        <tag>C</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>人话简单理解八下遗传之生物的遗传变异</title>
-    <url>/post/53701281/</url>
-    <content><![CDATA[<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 母亲类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Mother</span> &#123;</span><br><span class="line"><span class="comment">// 母亲的性格是开朗的</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">String</span> <span class="variable">personality</span> <span class="operator">=</span> <span class="string">&quot;cheerful&quot;</span>;</span><br><span class="line"><span class="comment">// 母亲的身高是160.5</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">double</span> <span class="variable">height</span> <span class="operator">=</span> <span class="number">160.5</span>;</span><br><span class="line"><span class="comment">// 母亲有耳垂</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="variable">hasEarlobe</span> <span class="operator">=</span> <span class="literal">true</span>;</span><br><span class="line"><span class="comment">// 吃东西方法</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">eating</span><span class="params">(Foods food)</span> &#123;</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">&quot;母亲吃东西细嚼慢咽&quot;</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 孩子类继承母亲类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Child</span> <span class="keyword">extends</span> <span class="title class_">Mother</span>&#123;</span><br><span class="line"><span class="comment">// 变异</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 孩子的性格是内向的</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">String</span> <span class="variable">personality</span> <span class="operator">=</span> <span class="string">&quot;introverted&quot;</span>;</span><br><span class="line"><span class="comment">// 孩子无耳垂</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="variable">hasEarlobe</span> <span class="operator">=</span> <span class="literal">false</span>;</span><br><span class="line"><span class="comment">// 孩子身高比母亲高</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">double</span> <span class="variable">height</span> <span class="operator">=</span> <span class="number">180.5</span>;</span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">eating</span><span class="params">(Foods food)</span> &#123;</span><br><span class="line">System.out.println(<span class="string">&quot;孩子吃东西狼吞虎咽&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>感觉比书上讲的一大堆狗屁废话简练多了。。（？</p>
-]]></content>
-      <categories>
-        <category>计算机技术</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -1574,26 +1615,6 @@
         <tag>配置</tag>
         <tag>Emacs</tag>
         <tag>GNU</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>光速破解作文网站禁止复制</title>
-    <url>/post/3995609697/</url>
-    <content><![CDATA[<p>今天上网搜集范文，又遇到了这个很多年前就让我非常痛恨的网站。可以看到，这个网站应该是通过JS，检测鼠标左键或者CTRL+C再弹出这个窗口达到的防止用户复制的目的，可以此为切入点，查看一下这个网站的源码。找到问题所在。</p>
-<span id="more"></span>
-
-<p><img src="/../../images/Pasted%20image%2020250321081959.png"><br>今天定要把这个仇报了。下载网页到本地，这里出了一个小插曲，在FIREFOX浏览器下载的所有网页文件，中文都是乱码，顺便来解决一下这个问题。<br>在平板MT管理器右上角可以看到，这个文件的编码格式是GB2312，在vim中输入<code>:e ++enc=gb2312</code>，在输入<code>set fileencoding=utf-8</code>就可正常查看了。现在的代码结构非常屎，保存格式化一下。<br>第159行，有一个webchatbox的盒子，可以看到，这里就是为防止复制创建的盒子，把这段代码注释掉。<br><img src="/../../images/Pasted%20image%2020250321112804.png"><br>这还没完，再去到页面复制发现还是有未处理完善的残留页面<br><img src="/../../images/Pasted%20image%2020250321112937.png"><br>原因在于第223行的开始的一个盒子，把这段也注释掉即可</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;modal modal-server&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;wx_pic_img&quot;</span> <span class="attr">id</span>=<span class="string">&quot;webchat-server-box&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;modal-close&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;payqr_box&quot;</span> <span class="attr">style</span>=<span class="string">&quot;display: block;&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;cj_title&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>常见问题<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;customer_service_box&quot;</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;que&quot;</span>&gt;</span>1.支付成功后，怎么复制？<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;ans&quot;</span>&gt;</span>亲，您好！付款成功后，无需验证码，直接复制哦！<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;que&quot;</span>&gt;</span>2.支付成功后，为何无法复制内容？<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;ans&quot;</span>&gt;</span>亲，请尝试刷新一下网页（按键盘F5键），再进行复制。<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;que&quot;</span>&gt;</span>3.付费后能否更换浏览器、更换电脑进行复制？<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;ans&quot;</span>&gt;</span>亲，更换浏览器或电脑会导致复制不成功哦！请确保付费时的浏览器及电脑和复制文章时所用的浏览器是一样的。<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;que&quot;</span>&gt;</span>4.如何联系客服？<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;ans&quot;</span>&gt;</span>麻烦您添加客服微信：zjdddx1 ，留言“付款后无法复制文章”，并发送相关付款截图，客服将为您处理。<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;copy-success alert-bounceIn&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;co_files/payed.png&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">class</span>=<span class="string">&quot;icon&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>复制成功！<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;co_files/js.cookie.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">language</span>=<span class="string">&quot;javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;co_files/bottom.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">language</span>=<span class="string">&quot;javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;co_files/doc.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>这样再保存，回到页面中就可正常复制了。前端的这点小儿科把戏，轻松搞定。</p>
-<p>可能会写一个脚本来把这个页面的p标签内容都解析出来并输出。</p>
-]]></content>
-      <categories>
-        <category>计算机技术</category>
-      </categories>
-      <tags>
-        <tag>前端</tag>
-        <tag>技术</tag>
       </tags>
   </entry>
   <entry>
