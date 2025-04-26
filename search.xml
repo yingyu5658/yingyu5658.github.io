@@ -414,6 +414,62 @@
       </tags>
   </entry>
   <entry>
+    <title>【Hexo】配置好服务器后如何发表编辑好的文章？</title>
+    <url>/post/2530852277/</url>
+    <content><![CDATA[<ol>
+<li><code>hexo s</code> 先在本地预览一下文章，如果都好了就进入下一步。</li>
+<li><code>hexo clean</code> 清除缓存</li>
+<li><code>hexo g</code> 生成文件</li>
+<li><code>hexo d</code> 部署</li>
+</ol>
+<p>等待部署完成后刷新页面就好了</p>
+<p><img src="/....%5Cimages%5C2024%5C12%5C1241193660.jpg"></p>
+]]></content>
+      <categories>
+        <category>计算机技术</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vim基础操作快速入门</title>
+    <url>/post/2074174141/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>各种鼠标操作让我有点抓狂，vim或许是一个很适合我的东西，全键盘操作听起来就很方便快捷，除了上手难度有点高以外，vim看起来似乎没有任何的缺点。在下载安装好了vim后，我开始学习了快捷键。<del>然后我们就可以直接把鼠标扔了。</del></p>
+<span id="more"></span>
+
+<p><strong>记住要先把输入法切换成英文模式</strong></p>
+<h1 id="普通模式"><a href="#普通模式" class="headerlink" title="普通模式"></a>普通模式</h1><h2 id="退出"><a href="#退出" class="headerlink" title="退出"></a>退出</h2><p>很多人第一次用vim，最难受的事情绝对是不知道怎么退出。<br>退出：<code>:q!</code></p>
+<h2 id="移动光标"><a href="#移动光标" class="headerlink" title="移动光标"></a>移动光标</h2><p><code>h</code> <code>j</code> <code>k</code> <code>l</code> 这四个按键分别对应左 下 上 右</p>
+<blockquote>
+<p>这个比较难适应，不过也比把手移动到右下方用箭头键舒服了</p>
+</blockquote>
+<h3 id="大范围移动"><a href="#大范围移动" class="headerlink" title="大范围移动"></a>大范围移动</h3><p>行数 + <code>h</code>&#x2F; <code>j</code>&#x2F; <code>k</code>&#x2F; <code>l</code><br>比如，想要向下移动三行，就是3<code>j</code>，向左移动四格，就是3<code>h</code><br><code>gg</code> 跳转到文档的最上方<br><code>G</code> 跳转到文档的最下方</p>
+<h3 id="按照单词跳转"><a href="#按照单词跳转" class="headerlink" title="按照单词跳转"></a>按照单词跳转</h3><p><code>w</code>，也就是“word”的首字母。就可以跳转到下一个单词的开头。<br><code>b</code> beginning就跳转到前一个单词的开头<br><code>f</code> find 查找单词。比如要把光标移动到离你最近的b，就可以输入<code>fb</code></p>
+<h3 id="翻页"><a href="#翻页" class="headerlink" title="翻页"></a>翻页</h3><p><code>Ctrl + u</code>向上翻页。u理解为up首字母。<br><code>Ctrl + d</code>向下翻页。d理解为down首字母。</p>
+<h2 id="复制粘贴"><a href="#复制粘贴" class="headerlink" title="复制粘贴"></a>复制粘贴</h2><p>在普通模式下，输入<code>y</code> （yank），复制整个单词：<code>yaw</code> “aw’“为<del>阿伟</del> all word<br><code>p</code> 即paste，粘贴。</p>
+<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><p>普通模式下，<code>d</code> 也就是delete，直接删除当前行和下一行的内容<br>还可以跟上文的<code>hjkl</code>结合起来，比如d8j就是向下删除八行</p>
+<h2 id="撤销"><a href="#撤销" class="headerlink" title="撤销"></a>撤销</h2><p><code>u</code> 也就是undo。</p>
+<blockquote>
+<p>这些快捷键很灵活，都可以互相结合使用</p>
+</blockquote>
+<h1 id="输入模式"><a href="#输入模式" class="headerlink" title="输入模式"></a>输入模式</h1><h2 id="进入输入模式"><a href="#进入输入模式" class="headerlink" title="进入输入模式"></a>进入输入模式</h2><p>在普通模式下，输入<code>i</code> 也就是insert，就可以进入输入模式了。</p>
+<ol>
+<li><code>i</code>是在当前光标的前一个字母开始输入。</li>
+<li>使用<code>a</code>也就是append，就可以在当前光标之后输入。</li>
+<li>使用<code>I</code>就会从这一行的开头进入输入模式。</li>
+<li>使用<code>A</code>就会从这一行的末尾进入输入模式。<br>完成编辑后，使用<code>ESC</code> 就可以退出编辑模式，回到普通模式了。</li>
+</ol>
+<h1 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h1><p>在普通模式下输入<code>：</code>就可以进入命令模式，按下<code>ESC</code>就会退出命令模式。<br>在下方的命令行中，可以输入命令<br><code>q</code>也就是quit就可以退出<br>保存<code>w</code><br>保存并退出<code>wq</code></p>
+<h1 id="可视模式"><a href="#可视模式" class="headerlink" title="可视模式"></a>可视模式</h1><p>普通模式下按下<code>v</code>就可以进入可视模式。</p>
+<h1 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h1><p>vim中修改键位，安装主题全都是用一个配置文件来完成的。<br>原版vim的配置文件叫做.vimrc<br>关于修改键位，我的看法是不要改，因为你适应之后上服务端就会很难受，什么都不适应。</p>
+]]></content>
+      <categories>
+        <category>计算机技术</category>
+      </categories>
+  </entry>
+  <entry>
     <title>记录Hexo搭建博客</title>
     <url>/post/3093271062/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我今天在写网页的时候突然发现我居然忘了一些标签的使用格式，只好打开搜索引擎一顿复习。我正在寻找一种更高效的复习方式。</p>
@@ -523,62 +579,6 @@
       </tags>
   </entry>
   <entry>
-    <title>【Hexo】配置好服务器后如何发表编辑好的文章？</title>
-    <url>/post/2530852277/</url>
-    <content><![CDATA[<ol>
-<li><code>hexo s</code> 先在本地预览一下文章，如果都好了就进入下一步。</li>
-<li><code>hexo clean</code> 清除缓存</li>
-<li><code>hexo g</code> 生成文件</li>
-<li><code>hexo d</code> 部署</li>
-</ol>
-<p>等待部署完成后刷新页面就好了</p>
-<p><img src="/....%5Cimages%5C2024%5C12%5C1241193660.jpg"></p>
-]]></content>
-      <categories>
-        <category>计算机技术</category>
-      </categories>
-      <tags>
-        <tag>教程</tag>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Vim基础操作快速入门</title>
-    <url>/post/2074174141/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>各种鼠标操作让我有点抓狂，vim或许是一个很适合我的东西，全键盘操作听起来就很方便快捷，除了上手难度有点高以外，vim看起来似乎没有任何的缺点。在下载安装好了vim后，我开始学习了快捷键。<del>然后我们就可以直接把鼠标扔了。</del></p>
-<span id="more"></span>
-
-<p><strong>记住要先把输入法切换成英文模式</strong></p>
-<h1 id="普通模式"><a href="#普通模式" class="headerlink" title="普通模式"></a>普通模式</h1><h2 id="退出"><a href="#退出" class="headerlink" title="退出"></a>退出</h2><p>很多人第一次用vim，最难受的事情绝对是不知道怎么退出。<br>退出：<code>:q!</code></p>
-<h2 id="移动光标"><a href="#移动光标" class="headerlink" title="移动光标"></a>移动光标</h2><p><code>h</code> <code>j</code> <code>k</code> <code>l</code> 这四个按键分别对应左 下 上 右</p>
-<blockquote>
-<p>这个比较难适应，不过也比把手移动到右下方用箭头键舒服了</p>
-</blockquote>
-<h3 id="大范围移动"><a href="#大范围移动" class="headerlink" title="大范围移动"></a>大范围移动</h3><p>行数 + <code>h</code>&#x2F; <code>j</code>&#x2F; <code>k</code>&#x2F; <code>l</code><br>比如，想要向下移动三行，就是3<code>j</code>，向左移动四格，就是3<code>h</code><br><code>gg</code> 跳转到文档的最上方<br><code>G</code> 跳转到文档的最下方</p>
-<h3 id="按照单词跳转"><a href="#按照单词跳转" class="headerlink" title="按照单词跳转"></a>按照单词跳转</h3><p><code>w</code>，也就是“word”的首字母。就可以跳转到下一个单词的开头。<br><code>b</code> beginning就跳转到前一个单词的开头<br><code>f</code> find 查找单词。比如要把光标移动到离你最近的b，就可以输入<code>fb</code></p>
-<h3 id="翻页"><a href="#翻页" class="headerlink" title="翻页"></a>翻页</h3><p><code>Ctrl + u</code>向上翻页。u理解为up首字母。<br><code>Ctrl + d</code>向下翻页。d理解为down首字母。</p>
-<h2 id="复制粘贴"><a href="#复制粘贴" class="headerlink" title="复制粘贴"></a>复制粘贴</h2><p>在普通模式下，输入<code>y</code> （yank），复制整个单词：<code>yaw</code> “aw’“为<del>阿伟</del> all word<br><code>p</code> 即paste，粘贴。</p>
-<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><p>普通模式下，<code>d</code> 也就是delete，直接删除当前行和下一行的内容<br>还可以跟上文的<code>hjkl</code>结合起来，比如d8j就是向下删除八行</p>
-<h2 id="撤销"><a href="#撤销" class="headerlink" title="撤销"></a>撤销</h2><p><code>u</code> 也就是undo。</p>
-<blockquote>
-<p>这些快捷键很灵活，都可以互相结合使用</p>
-</blockquote>
-<h1 id="输入模式"><a href="#输入模式" class="headerlink" title="输入模式"></a>输入模式</h1><h2 id="进入输入模式"><a href="#进入输入模式" class="headerlink" title="进入输入模式"></a>进入输入模式</h2><p>在普通模式下，输入<code>i</code> 也就是insert，就可以进入输入模式了。</p>
-<ol>
-<li><code>i</code>是在当前光标的前一个字母开始输入。</li>
-<li>使用<code>a</code>也就是append，就可以在当前光标之后输入。</li>
-<li>使用<code>I</code>就会从这一行的开头进入输入模式。</li>
-<li>使用<code>A</code>就会从这一行的末尾进入输入模式。<br>完成编辑后，使用<code>ESC</code> 就可以退出编辑模式，回到普通模式了。</li>
-</ol>
-<h1 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h1><p>在普通模式下输入<code>：</code>就可以进入命令模式，按下<code>ESC</code>就会退出命令模式。<br>在下方的命令行中，可以输入命令<br><code>q</code>也就是quit就可以退出<br>保存<code>w</code><br>保存并退出<code>wq</code></p>
-<h1 id="可视模式"><a href="#可视模式" class="headerlink" title="可视模式"></a>可视模式</h1><p>普通模式下按下<code>v</code>就可以进入可视模式。</p>
-<h1 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h1><p>vim中修改键位，安装主题全都是用一个配置文件来完成的。<br>原版vim的配置文件叫做.vimrc<br>关于修改键位，我的看法是不要改，因为你适应之后上服务端就会很难受，什么都不适应。</p>
-]]></content>
-      <categories>
-        <category>计算机技术</category>
-      </categories>
-  </entry>
-  <entry>
     <title>记录配置SSL证书</title>
     <url>/post/1636322595/</url>
     <content><![CDATA[<blockquote>
@@ -594,24 +594,6 @@
       <categories>
         <category>计算机技术</category>
       </categories>
-  </entry>
-  <entry>
-    <title>Typecho不要用阿里云系统镜像</title>
-    <url>/post/3097784315/</url>
-    <content><![CDATA[<p>不要用阿里云的系统镜像，那个是1.1版本的。。。很多插件都没办法正常用。。。比如这两个插件就会这样</p>
-<p><img src="/../../images/2024/12/4097191903.png" alt="图"></p>
-<p>还有很多主题和插件都犯这样的毛病，在此不多提，我会想办法升级版本的（又挖了个坑）</p>
-<p>难受</p>
-]]></content>
-      <categories>
-        <category>计算机技术</category>
-      </categories>
-      <tags>
-        <tag>typecho</tag>
-        <tag>插件</tag>
-        <tag>阿里云</tag>
-        <tag>系统镜像</tag>
-      </tags>
   </entry>
   <entry>
     <title>面向对象编程总结</title>
@@ -936,6 +918,24 @@
       </tags>
   </entry>
   <entry>
+    <title>Typecho不要用阿里云系统镜像</title>
+    <url>/post/3097784315/</url>
+    <content><![CDATA[<p>不要用阿里云的系统镜像，那个是1.1版本的。。。很多插件都没办法正常用。。。比如这两个插件就会这样</p>
+<p><img src="/../../images/2024/12/4097191903.png" alt="图"></p>
+<p>还有很多主题和插件都犯这样的毛病，在此不多提，我会想办法升级版本的（又挖了个坑）</p>
+<p>难受</p>
+]]></content>
+      <categories>
+        <category>计算机技术</category>
+      </categories>
+      <tags>
+        <tag>typecho</tag>
+        <tag>插件</tag>
+        <tag>阿里云</tag>
+        <tag>系统镜像</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>开箱即用的neovim配置文件</title>
     <url>/post/3400972171/</url>
     <content><![CDATA[<h3 id="下载链接"><a href="#下载链接" class="headerlink" title="下载链接"></a>下载链接</h3><p><a href="https://yingyu5658.lanzoup.com/iWfXQ2ln6jre">https://yingyu5658.lanzoup.com/iWfXQ2ln6jre</a><br>为了兄弟们下得爽点就不用百度网盘或者夸克了<br>代码都有比较详细的注释</p>
@@ -992,6 +992,19 @@
       </tags>
   </entry>
   <entry>
+    <title>分享一个css响应式模板</title>
+    <url>/post/2655802011/</url>
+    <content><![CDATA[<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">  <span class="attribute">color-scheme</span>: light dark; <span class="comment">/*自由切换深色浅色主题*/</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*限制图片最大宽度防止溢出*/</span></span><br><span class="line"><span class="selector-tag">svg</span>,</span><br><span class="line"><span class="selector-tag">img</span>,</span><br><span class="line"><span class="selector-tag">video</span>&#123;</span><br><span class="line">  <span class="attribute">max-width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: system-ui;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">1.25rem</span>;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">1.5</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*这里可以使用任意容器*/</span></span><br><span class="line"><span class="selector-tag">main</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="built_in">min</span>(<span class="number">65ch</span> , <span class="number">100%</span> - <span class="number">4rem</span>);</span><br><span class="line">  magrin-inline: auto;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>计算机技术</category>
+      </categories>
+      <tags>
+        <tag>Web</tag>
+        <tag>前端</tag>
+        <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>记录Typecho博客转移到Hexo</title>
     <url>/post/64728457/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>折腾来折腾去，最后发现归宿还是静态博客，安全性高、性能开销小，用Github直接省去服务器费用还差不多永生。每年把域名钱交了就得了，图片的问题再想想办法，总能解决的。<br><del>突然有一种为了躲避战乱带着一家人四处奔波的悲凉感</del></p>
@@ -1025,19 +1038,6 @@
       <tags>
         <tag>网站</tag>
         <tag>博客</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>分享一个css响应式模板</title>
-    <url>/post/2655802011/</url>
-    <content><![CDATA[<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">  <span class="attribute">color-scheme</span>: light dark; <span class="comment">/*自由切换深色浅色主题*/</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*限制图片最大宽度防止溢出*/</span></span><br><span class="line"><span class="selector-tag">svg</span>,</span><br><span class="line"><span class="selector-tag">img</span>,</span><br><span class="line"><span class="selector-tag">video</span>&#123;</span><br><span class="line">  <span class="attribute">max-width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: system-ui;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">1.25rem</span>;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">1.5</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*这里可以使用任意容器*/</span></span><br><span class="line"><span class="selector-tag">main</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="built_in">min</span>(<span class="number">65ch</span> , <span class="number">100%</span> - <span class="number">4rem</span>);</span><br><span class="line">  magrin-inline: auto;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>计算机技术</category>
-      </categories>
-      <tags>
-        <tag>Web</tag>
-        <tag>前端</tag>
-        <tag>CSS</tag>
       </tags>
   </entry>
   <entry>
@@ -1308,6 +1308,23 @@
       </tags>
   </entry>
   <entry>
+    <title>【无废话】全网最简单的Hexo+Obsidain图片解决方案</title>
+    <url>/post/1008281873/</url>
+    <content><![CDATA[<p>把Hexo博客根目录用黑曜石打开，如果已经打开了仓库<br><img src="/../../images/Pasted%20image%2020250305215423.png"><br>在弹出的窗口中选第二个。</p>
+<span id="more"></span>
+
+<p>在source目录下新建images文件夹用于存放图片<br>设置 &#x3D;&gt; 文件与链接 &#x3D;&gt; 附件默认存放路径：选择指定的附件文件夹。路径填写刚刚创建的image文件夹的相对路径<br>取消使用Wiki链接<br>注意。由于我的文件结构是这样的所以这么填写，要<strong>根据自己的文件结构填写相对路径</strong>。<br><img src="/../../images/Pasted%20image%2020250305215642.png"><br><img src="/../../images/Pasted%20image%2020250305215910.png" alt="我的文件结构"><br>搞定，同时可以在本地编辑环境和博客网站中显示。</p>
+]]></content>
+      <categories>
+        <category>计算机技术</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>博客</tag>
+        <tag>Obsidain</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【未解决】Windows WSL报错：Error: 0x80080005 ???????</title>
     <url>/post/1348465439/</url>
     <content><![CDATA[<p>设备环境：</p>
@@ -1426,23 +1443,6 @@
       </tags>
   </entry>
   <entry>
-    <title>【无废话】全网最简单的Hexo+Obsidain图片解决方案</title>
-    <url>/post/1008281873/</url>
-    <content><![CDATA[<p>把Hexo博客根目录用黑曜石打开，如果已经打开了仓库<br><img src="/../../images/Pasted%20image%2020250305215423.png"><br>在弹出的窗口中选第二个。</p>
-<span id="more"></span>
-
-<p>在source目录下新建images文件夹用于存放图片<br>设置 &#x3D;&gt; 文件与链接 &#x3D;&gt; 附件默认存放路径：选择指定的附件文件夹。路径填写刚刚创建的image文件夹的相对路径<br>取消使用Wiki链接<br>注意。由于我的文件结构是这样的所以这么填写，要<strong>根据自己的文件结构填写相对路径</strong>。<br><img src="/../../images/Pasted%20image%2020250305215642.png"><br><img src="/../../images/Pasted%20image%2020250305215910.png" alt="我的文件结构"><br>搞定，同时可以在本地编辑环境和博客网站中显示。</p>
-]]></content>
-      <categories>
-        <category>计算机技术</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>博客</tag>
-        <tag>Obsidain</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>上帝类是什么？该如何避免上帝类？</title>
     <url>/post/964047394/</url>
     <content><![CDATA[<h1 id="什么是上帝类"><a href="#什么是上帝类" class="headerlink" title="什么是上帝类"></a>什么是上帝类</h1><p>所谓的上帝类，就是指<strong>一个类承担了过多的职能</strong>，变得过于<strong>臃肿</strong>和<strong>复杂</strong>、<strong>难以维护</strong>。没有遵守单一职责原则。像上帝一样什么都能干，每个功能高度耦合，牵一发而动全身，不利于业务的拓展。</p>
@@ -1470,19 +1470,6 @@
         <tag>软件开发</tag>
         <tag>程序开发</tag>
         <tag>设计</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>人话简单理解八下遗传之生物的遗传变异</title>
-    <url>/post/53701281/</url>
-    <content><![CDATA[<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 母亲类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Mother</span> &#123;</span><br><span class="line"><span class="comment">// 母亲的性格是开朗的</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">String</span> <span class="variable">personality</span> <span class="operator">=</span> <span class="string">&quot;cheerful&quot;</span>;</span><br><span class="line"><span class="comment">// 母亲的身高是160.5</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">double</span> <span class="variable">height</span> <span class="operator">=</span> <span class="number">160.5</span>;</span><br><span class="line"><span class="comment">// 母亲有耳垂</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="variable">hasEarlobe</span> <span class="operator">=</span> <span class="literal">true</span>;</span><br><span class="line"><span class="comment">// 吃东西方法</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">eating</span><span class="params">(Foods food)</span> &#123;</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">&quot;母亲吃东西细嚼慢咽&quot;</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 孩子类继承母亲类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Child</span> <span class="keyword">extends</span> <span class="title class_">Mother</span>&#123;</span><br><span class="line"><span class="comment">// 变异</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 孩子的性格是内向的</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">String</span> <span class="variable">personality</span> <span class="operator">=</span> <span class="string">&quot;introverted&quot;</span>;</span><br><span class="line"><span class="comment">// 孩子无耳垂</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="variable">hasEarlobe</span> <span class="operator">=</span> <span class="literal">false</span>;</span><br><span class="line"><span class="comment">// 孩子身高比母亲高</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">double</span> <span class="variable">height</span> <span class="operator">=</span> <span class="number">180.5</span>;</span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">eating</span><span class="params">(Foods food)</span> &#123;</span><br><span class="line">System.out.println(<span class="string">&quot;孩子吃东西狼吞虎咽&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>感觉比书上讲的一大堆狗屁废话简练多了。。（？</p>
-]]></content>
-      <categories>
-        <category>计算机技术</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -1582,6 +1569,19 @@
       </tags>
   </entry>
   <entry>
+    <title>人话简单理解八下遗传之生物的遗传变异</title>
+    <url>/post/53701281/</url>
+    <content><![CDATA[<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 母亲类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Mother</span> &#123;</span><br><span class="line"><span class="comment">// 母亲的性格是开朗的</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">String</span> <span class="variable">personality</span> <span class="operator">=</span> <span class="string">&quot;cheerful&quot;</span>;</span><br><span class="line"><span class="comment">// 母亲的身高是160.5</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">double</span> <span class="variable">height</span> <span class="operator">=</span> <span class="number">160.5</span>;</span><br><span class="line"><span class="comment">// 母亲有耳垂</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="variable">hasEarlobe</span> <span class="operator">=</span> <span class="literal">true</span>;</span><br><span class="line"><span class="comment">// 吃东西方法</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">eating</span><span class="params">(Foods food)</span> &#123;</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">&quot;母亲吃东西细嚼慢咽&quot;</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 孩子类继承母亲类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Child</span> <span class="keyword">extends</span> <span class="title class_">Mother</span>&#123;</span><br><span class="line"><span class="comment">// 变异</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 孩子的性格是内向的</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">String</span> <span class="variable">personality</span> <span class="operator">=</span> <span class="string">&quot;introverted&quot;</span>;</span><br><span class="line"><span class="comment">// 孩子无耳垂</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="variable">hasEarlobe</span> <span class="operator">=</span> <span class="literal">false</span>;</span><br><span class="line"><span class="comment">// 孩子身高比母亲高</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">double</span> <span class="variable">height</span> <span class="operator">=</span> <span class="number">180.5</span>;</span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">eating</span><span class="params">(Foods food)</span> &#123;</span><br><span class="line">System.out.println(<span class="string">&quot;孩子吃东西狼吞虎咽&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>感觉比书上讲的一大堆狗屁废话简练多了。。（？</p>
+]]></content>
+      <categories>
+        <category>计算机技术</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>光速破解作文网站禁止复制</title>
     <url>/post/3995609697/</url>
     <content><![CDATA[<p>今天上网搜集范文，又遇到了这个很多年前就让我非常痛恨的网站。可以看到，这个网站应该是通过JS，检测鼠标左键或者CTRL+C再弹出这个窗口达到的防止用户复制的目的，可以此为切入点，查看一下这个网站的源码。找到问题所在。</p>
@@ -1599,36 +1599,6 @@
       <tags>
         <tag>前端</tag>
         <tag>技术</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>初折腾Emacs记录</title>
-    <url>/post/2193909713/</url>
-    <content><![CDATA[<h2 id="基础配置"><a href="#基础配置" class="headerlink" title="基础配置"></a>基础配置</h2><p>Windows下需要在软件顶部Toolbar的Options中随便更改一个选项，然后再点Save Options，这样就会再<code>C:\Users\Username\appdata\Roaming\</code>下生成.emacs和.emacs.d&#x2F;</p>
-<p>在emacs.d中新建一个文件<code>init.el</code>，填写如下配置</p>
-<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line"><span class="comment">;;; init.el --- Load the full configuration -*- lexical-binding: t -*-</span></span><br><span class="line"><span class="comment">;;; Commentary:</span></span><br><span class="line"></span><br><span class="line"><span class="comment">;; This file bootstraps the configuration, which is divided into</span></span><br><span class="line"><span class="comment">;; a number of other files.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">;;; Code:</span></span><br><span class="line"></span><br><span class="line">(<span class="name">let</span> ((<span class="name">minver</span> <span class="string">&quot;25.1&quot;</span>))</span><br><span class="line"> (<span class="name">when</span> (<span class="name">version&lt;</span> emacs-version minver)</span><br><span class="line">  (<span class="name">error</span> <span class="string">&quot;Your Emacs is too old -- this config requires v%s or higher&quot;</span> minver)))</span><br><span class="line">(<span class="name">when</span> (<span class="name">version&lt;</span> emacs-version <span class="string">&quot;26.1&quot;</span>)</span><br><span class="line"> (<span class="name">message</span> <span class="string">&quot;Your Emacs is old, and some functionality in this config will be disabled. Please upgrade if possible.&quot;</span>))</span><br><span class="line"></span><br><span class="line">(<span class="name">add-to-list</span> &#x27;load-path (<span class="name">expand-file-name</span> <span class="string">&quot;lisp&quot;</span> user-emacs-directory)) <span class="comment">; 设定源码加载路径</span></span><br><span class="line"><span class="comment">;; (require &#x27;init-benchmarking) ;; Measure startup time</span></span><br><span class="line"></span><br><span class="line">(<span class="name">defconst</span> *spell-check-support-enabled* <span class="literal">nil</span>) <span class="comment">;; Enable with t if you prefer</span></span><br><span class="line">(<span class="name">defconst</span> *is-a-mac* (<span class="name">eq</span> system-type &#x27;darwin))</span><br><span class="line"></span><br><span class="line"><span class="comment">;; Adjust garbage collection thresholds during startup, and thereafter</span></span><br><span class="line"></span><br><span class="line">(<span class="name">let</span> ((<span class="name">normal-gc-cons-threshold</span> (<span class="name">*</span> <span class="number">20</span> <span class="number">1024</span> <span class="number">1024</span>))</span><br><span class="line">   (<span class="name">init-gc-cons-threshold</span> (<span class="name">*</span> <span class="number">128</span> <span class="number">1024</span> <span class="number">1024</span>)))</span><br><span class="line"> (<span class="name">setq</span> gc-cons-threshold init-gc-cons-threshold)</span><br><span class="line"> (<span class="name">add-hook</span> &#x27;emacs-startup-hook</span><br><span class="line">      (<span class="name">lambda</span> () (<span class="name">setq</span> gc-cons-threshold normal-gc-cons-threshold))))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">;; ==========================================================================================================</span></span><br><span class="line"><span class="comment">;; ===========================================日常使用配置===================================================</span></span><br><span class="line"><span class="comment">;; ==========================================================================================================</span></span><br><span class="line">(<span class="name">setq</span> confirm-kill-emacs #&#x27;yes-or-no-p)   <span class="comment">; 在关闭 Emacs 前询问是否确认关闭，防止误触</span></span><br><span class="line">(<span class="name">electric-pair-mode</span> <span class="literal">t</span>)            <span class="comment">; 自动补全括号</span></span><br><span class="line">(<span class="name">add-hook</span> &#x27;prog-mode-hook #&#x27;show-paren-mode) <span class="comment">; 编程模式下，光标在括号上时高亮另一个括号</span></span><br><span class="line">(<span class="name">column-number-mode</span> <span class="literal">t</span>)            <span class="comment">; 在 Mode line 上显示列号</span></span><br><span class="line">(<span class="name">global-auto-revert-mode</span> <span class="literal">t</span>)         <span class="comment">; 当另一程序修改了文件时，让 Emacs 及时刷新 Buffer</span></span><br><span class="line">(<span class="name">delete-selection-mode</span> <span class="literal">t</span>)          <span class="comment">; 选中文本后输入文本会替换文本（更符合我们习惯了的其它编辑器的逻辑）</span></span><br><span class="line">(<span class="name">setq</span> inhibit-startup-message <span class="literal">t</span>)       <span class="comment">; 关闭启动 Emacs 时的欢迎界面</span></span><br><span class="line">(<span class="name">setq</span> make-backup-files <span class="literal">nil</span>)         <span class="comment">; 关闭文件自动备份</span></span><br><span class="line">(<span class="name">add-hook</span> &#x27;prog-mode-hook #&#x27;hs-minor-mode)  <span class="comment">; 编程模式下，可以折叠代码块</span></span><br><span class="line">(<span class="name">global-display-line-numbers-mode</span> <span class="number">1</span>)     <span class="comment">; 在 Window 显示行号</span></span><br><span class="line">(<span class="name">tool-bar-mode</span> <span class="number">-1</span>)              <span class="comment">; （熟练后可选）关闭 Tool bar</span></span><br><span class="line">(<span class="name">when</span> (<span class="name">display-graphic-p</span>) (<span class="name">toggle-scroll-bar</span> <span class="number">-1</span>)) <span class="comment">; 图形界面时关闭滚动条</span></span><br><span class="line"></span><br><span class="line">(<span class="name">savehist-mode</span> <span class="number">1</span>)              <span class="comment">; （可选）打开 Buffer 历史记录保存</span></span><br><span class="line">(<span class="name">setq</span> display-line-numbers-type &#x27;relative)  <span class="comment">; （可选）显示相对行号</span></span><br><span class="line">(<span class="name">add-to-list</span> &#x27;default-frame-alist &#x27;(width . <span class="number">90</span>)) <span class="comment">; （可选）设定启动图形界面时的初始 Frame 宽度（字符数）</span></span><br><span class="line">(<span class="name">add-to-list</span> &#x27;default-frame-alist &#x27;(height . <span class="number">55</span>)) <span class="comment">; （可选）设定启动图形界面时的初始 Frame 高度（字符数）</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">;; ==========================================================================================================</span></span><br><span class="line"><span class="comment">;; ===========================================插件镜像配置===================================================</span></span><br><span class="line"><span class="comment">;; ==========================================================================================================</span></span><br><span class="line"><span class="comment">; 腾讯镜像</span></span><br><span class="line">(<span class="name">require</span> &#x27;package)</span><br><span class="line">(<span class="name">setq</span> package-archives &#x27;((<span class="string">&quot;gnu&quot;</span>  . <span class="string">&quot;http://mirrors.cloud.tencent.com/elpa/gnu/&quot;</span>)</span><br><span class="line">             (<span class="string">&quot;melpa&quot;</span> . <span class="string">&quot;http://mirrors.cloud.tencent.com/elpa/melpa/&quot;</span>)))</span><br><span class="line">(<span class="name">package-initialize</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">;;; init.el ends here</span></span><br></pre></td></tr></table></figure>
-
-<p>基础的设置和插件镜像源就配置好了，此配置可完全复制照抄。</p>
-<p>重启Emacs，按下<code>M-x</code>输入<code>package-list-packages</code>即可查看仓库中的所有插件</p>
-<p><img src="/../../images/image-20250413122315180.png" alt="image-20250413122315180"></p>
-<blockquote>
-<p> 在此列表界面下还可按下h显示帮助，按U检查所有已安装插件是否需要更新，如有就标注更新，按i标记想要安装，最后按下x就可更新。</p>
-</blockquote>
-<p>插件默认会被安装到<code>~/.emacs.d/elpa</code>下，Windows同理。</p>
-<p>删除插件输入<code>package-delete</code>，然后输入想删除的插件名即可。</p>
-<h2 id="use-package"><a href="#use-package" class="headerlink" title="use-package"></a>use-package</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>输入命令<code>package-install</code>回车后输入use-package回车，然后在init.el的最上面写</p>
-<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">(<span class="name">eval-when-compile</span></span><br><span class="line"> (<span class="name">require</span> &#x27;use-package))</span><br></pre></td></tr></table></figure>
-
-<p>每次启动Emacs优先加载此插件</p>
-]]></content>
-      <categories>
-        <category>计算机技术</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>配置</tag>
-        <tag>Emacs</tag>
-        <tag>GNU</tag>
       </tags>
   </entry>
   <entry>
@@ -1660,6 +1630,36 @@
       <tags>
         <tag>Linux</tag>
         <tag>输入法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>初折腾Emacs记录</title>
+    <url>/post/2193909713/</url>
+    <content><![CDATA[<h2 id="基础配置"><a href="#基础配置" class="headerlink" title="基础配置"></a>基础配置</h2><p>Windows下需要在软件顶部Toolbar的Options中随便更改一个选项，然后再点Save Options，这样就会再<code>C:\Users\Username\appdata\Roaming\</code>下生成.emacs和.emacs.d&#x2F;</p>
+<p>在emacs.d中新建一个文件<code>init.el</code>，填写如下配置</p>
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line"><span class="comment">;;; init.el --- Load the full configuration -*- lexical-binding: t -*-</span></span><br><span class="line"><span class="comment">;;; Commentary:</span></span><br><span class="line"></span><br><span class="line"><span class="comment">;; This file bootstraps the configuration, which is divided into</span></span><br><span class="line"><span class="comment">;; a number of other files.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">;;; Code:</span></span><br><span class="line"></span><br><span class="line">(<span class="name">let</span> ((<span class="name">minver</span> <span class="string">&quot;25.1&quot;</span>))</span><br><span class="line"> (<span class="name">when</span> (<span class="name">version&lt;</span> emacs-version minver)</span><br><span class="line">  (<span class="name">error</span> <span class="string">&quot;Your Emacs is too old -- this config requires v%s or higher&quot;</span> minver)))</span><br><span class="line">(<span class="name">when</span> (<span class="name">version&lt;</span> emacs-version <span class="string">&quot;26.1&quot;</span>)</span><br><span class="line"> (<span class="name">message</span> <span class="string">&quot;Your Emacs is old, and some functionality in this config will be disabled. Please upgrade if possible.&quot;</span>))</span><br><span class="line"></span><br><span class="line">(<span class="name">add-to-list</span> &#x27;load-path (<span class="name">expand-file-name</span> <span class="string">&quot;lisp&quot;</span> user-emacs-directory)) <span class="comment">; 设定源码加载路径</span></span><br><span class="line"><span class="comment">;; (require &#x27;init-benchmarking) ;; Measure startup time</span></span><br><span class="line"></span><br><span class="line">(<span class="name">defconst</span> *spell-check-support-enabled* <span class="literal">nil</span>) <span class="comment">;; Enable with t if you prefer</span></span><br><span class="line">(<span class="name">defconst</span> *is-a-mac* (<span class="name">eq</span> system-type &#x27;darwin))</span><br><span class="line"></span><br><span class="line"><span class="comment">;; Adjust garbage collection thresholds during startup, and thereafter</span></span><br><span class="line"></span><br><span class="line">(<span class="name">let</span> ((<span class="name">normal-gc-cons-threshold</span> (<span class="name">*</span> <span class="number">20</span> <span class="number">1024</span> <span class="number">1024</span>))</span><br><span class="line">   (<span class="name">init-gc-cons-threshold</span> (<span class="name">*</span> <span class="number">128</span> <span class="number">1024</span> <span class="number">1024</span>)))</span><br><span class="line"> (<span class="name">setq</span> gc-cons-threshold init-gc-cons-threshold)</span><br><span class="line"> (<span class="name">add-hook</span> &#x27;emacs-startup-hook</span><br><span class="line">      (<span class="name">lambda</span> () (<span class="name">setq</span> gc-cons-threshold normal-gc-cons-threshold))))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">;; ==========================================================================================================</span></span><br><span class="line"><span class="comment">;; ===========================================日常使用配置===================================================</span></span><br><span class="line"><span class="comment">;; ==========================================================================================================</span></span><br><span class="line">(<span class="name">setq</span> confirm-kill-emacs #&#x27;yes-or-no-p)   <span class="comment">; 在关闭 Emacs 前询问是否确认关闭，防止误触</span></span><br><span class="line">(<span class="name">electric-pair-mode</span> <span class="literal">t</span>)            <span class="comment">; 自动补全括号</span></span><br><span class="line">(<span class="name">add-hook</span> &#x27;prog-mode-hook #&#x27;show-paren-mode) <span class="comment">; 编程模式下，光标在括号上时高亮另一个括号</span></span><br><span class="line">(<span class="name">column-number-mode</span> <span class="literal">t</span>)            <span class="comment">; 在 Mode line 上显示列号</span></span><br><span class="line">(<span class="name">global-auto-revert-mode</span> <span class="literal">t</span>)         <span class="comment">; 当另一程序修改了文件时，让 Emacs 及时刷新 Buffer</span></span><br><span class="line">(<span class="name">delete-selection-mode</span> <span class="literal">t</span>)          <span class="comment">; 选中文本后输入文本会替换文本（更符合我们习惯了的其它编辑器的逻辑）</span></span><br><span class="line">(<span class="name">setq</span> inhibit-startup-message <span class="literal">t</span>)       <span class="comment">; 关闭启动 Emacs 时的欢迎界面</span></span><br><span class="line">(<span class="name">setq</span> make-backup-files <span class="literal">nil</span>)         <span class="comment">; 关闭文件自动备份</span></span><br><span class="line">(<span class="name">add-hook</span> &#x27;prog-mode-hook #&#x27;hs-minor-mode)  <span class="comment">; 编程模式下，可以折叠代码块</span></span><br><span class="line">(<span class="name">global-display-line-numbers-mode</span> <span class="number">1</span>)     <span class="comment">; 在 Window 显示行号</span></span><br><span class="line">(<span class="name">tool-bar-mode</span> <span class="number">-1</span>)              <span class="comment">; （熟练后可选）关闭 Tool bar</span></span><br><span class="line">(<span class="name">when</span> (<span class="name">display-graphic-p</span>) (<span class="name">toggle-scroll-bar</span> <span class="number">-1</span>)) <span class="comment">; 图形界面时关闭滚动条</span></span><br><span class="line"></span><br><span class="line">(<span class="name">savehist-mode</span> <span class="number">1</span>)              <span class="comment">; （可选）打开 Buffer 历史记录保存</span></span><br><span class="line">(<span class="name">setq</span> display-line-numbers-type &#x27;relative)  <span class="comment">; （可选）显示相对行号</span></span><br><span class="line">(<span class="name">add-to-list</span> &#x27;default-frame-alist &#x27;(width . <span class="number">90</span>)) <span class="comment">; （可选）设定启动图形界面时的初始 Frame 宽度（字符数）</span></span><br><span class="line">(<span class="name">add-to-list</span> &#x27;default-frame-alist &#x27;(height . <span class="number">55</span>)) <span class="comment">; （可选）设定启动图形界面时的初始 Frame 高度（字符数）</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">;; ==========================================================================================================</span></span><br><span class="line"><span class="comment">;; ===========================================插件镜像配置===================================================</span></span><br><span class="line"><span class="comment">;; ==========================================================================================================</span></span><br><span class="line"><span class="comment">; 腾讯镜像</span></span><br><span class="line">(<span class="name">require</span> &#x27;package)</span><br><span class="line">(<span class="name">setq</span> package-archives &#x27;((<span class="string">&quot;gnu&quot;</span>  . <span class="string">&quot;http://mirrors.cloud.tencent.com/elpa/gnu/&quot;</span>)</span><br><span class="line">             (<span class="string">&quot;melpa&quot;</span> . <span class="string">&quot;http://mirrors.cloud.tencent.com/elpa/melpa/&quot;</span>)))</span><br><span class="line">(<span class="name">package-initialize</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">;;; init.el ends here</span></span><br></pre></td></tr></table></figure>
+
+<p>基础的设置和插件镜像源就配置好了，此配置可完全复制照抄。</p>
+<p>重启Emacs，按下<code>M-x</code>输入<code>package-list-packages</code>即可查看仓库中的所有插件</p>
+<p><img src="/../../images/image-20250413122315180.png" alt="image-20250413122315180"></p>
+<blockquote>
+<p> 在此列表界面下还可按下h显示帮助，按U检查所有已安装插件是否需要更新，如有就标注更新，按i标记想要安装，最后按下x就可更新。</p>
+</blockquote>
+<p>插件默认会被安装到<code>~/.emacs.d/elpa</code>下，Windows同理。</p>
+<p>删除插件输入<code>package-delete</code>，然后输入想删除的插件名即可。</p>
+<h2 id="use-package"><a href="#use-package" class="headerlink" title="use-package"></a>use-package</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>输入命令<code>package-install</code>回车后输入use-package回车，然后在init.el的最上面写</p>
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">(<span class="name">eval-when-compile</span></span><br><span class="line"> (<span class="name">require</span> &#x27;use-package))</span><br></pre></td></tr></table></figure>
+
+<p>每次启动Emacs优先加载此插件</p>
+]]></content>
+      <categories>
+        <category>计算机技术</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>配置</tag>
+        <tag>Emacs</tag>
+        <tag>GNU</tag>
       </tags>
   </entry>
   <entry>
