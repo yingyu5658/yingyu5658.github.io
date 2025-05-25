@@ -6,7 +6,7 @@
   <link href="http://www.yingyu5658.me/atom.xml" rel="self"/>
   
   <link href="http://www.yingyu5658.me/"/>
-  <updated>2025-05-25T11:37:47.524Z</updated>
+  <updated>2025-05-25T14:17:22.051Z</updated>
   <id>http://www.yingyu5658.me/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://www.yingyu5658.me/post/1421131593/"/>
     <id>http://www.yingyu5658.me/post/1421131593/</id>
     <published>2025-05-25T10:46:37.000Z</published>
-    <updated>2025-05-25T11:37:47.524Z</updated>
+    <updated>2025-05-25T14:17:22.051Z</updated>
     
     <content type="html"><![CDATA[<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>二叉树（binary tree）是指树中节点的度不大于2的有序树，它是一种最简单且最重要的树。二叉树的递归定义为：二叉树是一棵空树，或者是一棵由一个根节点和两棵互不相交的，分别称作根的左子树和右子树组成的非空树；左子树和右子树又同样都是二叉树。</p><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h3 id="结构定义"><a href="#结构定义" class="headerlink" title="结构定义"></a>结构定义</h3><p><del>尝试了一下C语言，各种指针乱指，各种bug，暂时放自己一马，跟自己和解一下用js写写吧。</del></p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">TreeNode</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">data</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">data</span> = data;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">left</span> = <span class="literal">null</span>;  <span class="comment">// 左节点</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">right</span> = <span class="literal">null</span>; <span class="comment">// 右边节点</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="创建对象并绑定节点"><a href="#创建对象并绑定节点" class="headerlink" title="创建对象并绑定节点"></a>创建对象并绑定节点</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 手动绑定节点</span></span><br><span class="line"><span class="keyword">let</span> root = <span class="keyword">new</span> <span class="title class_">TreeNode</span>(<span class="number">1</span>)</span><br><span class="line">root.<span class="property">left</span> = <span class="keyword">new</span> <span class="title class_">TreeNode</span>(<span class="number">2</span>)</span><br><span class="line">root.<span class="property">right</span> = <span class="keyword">new</span> <span class="title class_">TreeNode</span>(<span class="number">3</span>)</span><br><span class="line">root.<span class="property">left</span>.<span class="property">left</span> = <span class="keyword">new</span> <span class="title class_">TreeNode</span>(<span class="number">4</span>)</span><br><span class="line">root.<span class="property">right</span>.<span class="property">right</span> = <span class="keyword">new</span> <span class="title class_">TreeNode</span>(<span class="number">5</span>)</span><br></pre></td></tr></table></figure><p>此时树的结构：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">    1</span><br><span class="line">   /  \</span><br><span class="line">   2   3</span><br><span class="line"> /  \   \</span><br><span class="line">4    5   6</span><br></pre></td></tr></table></figure><h3 id="遍历二叉树"><a href="#遍历二叉树" class="headerlink" title="遍历二叉树"></a>遍历二叉树</h3><h4 id="前序遍历（DFS）"><a href="#前序遍历（DFS）" class="headerlink" title="前序遍历（DFS）"></a>前序遍历（DFS）</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">preOrder</span>(<span class="params">node</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span>(node) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(node.<span class="property">data</span>)</span><br><span class="line">    <span class="title function_">preOrder</span>(node.<span class="property">left</span>)</span><br><span class="line">    <span class="title function_">preOrder</span>(node.<span class="property">right</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这里用递归调用，遍历到左右元素</p><h4 id="层序遍历（BFS）"><a href="#层序遍历（BFS）" class="headerlink" title="层序遍历（BFS）"></a>层序遍历（BFS）</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">levelOrder</span>(<span class="params">root</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> queue = [];</span><br><span class="line">  queue.<span class="title function_">push</span>(root);</span><br><span class="line">  <span class="keyword">while</span> (queue.<span class="property">length</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> node = queue.<span class="title function_">shift</span>();</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(node.<span class="property">data</span>);</span><br><span class="line">    <span class="keyword">if</span> (node.<span class="property">left</span>) queue.<span class="title function_">push</span>(node.<span class="property">left</span>);</span><br><span class="line">    <span class="keyword">if</span> (node.<span class="property">right</span>) queue.<span class="title function_">push</span>(node.<span class="property">right</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -694,13 +694,13 @@
     
     <category term="面向对象编程" scheme="http://www.yingyu5658.me/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/"/>
     
+    <category term="代码" scheme="http://www.yingyu5658.me/tags/%E4%BB%A3%E7%A0%81/"/>
+    
     <category term="软件开发" scheme="http://www.yingyu5658.me/tags/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/"/>
     
     <category term="程序开发" scheme="http://www.yingyu5658.me/tags/%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/"/>
     
     <category term="设计" scheme="http://www.yingyu5658.me/tags/%E8%AE%BE%E8%AE%A1/"/>
-    
-    <category term="代码" scheme="http://www.yingyu5658.me/tags/%E4%BB%A3%E7%A0%81/"/>
     
   </entry>
   
@@ -973,9 +973,9 @@
     
     <category term="编程" scheme="http://www.yingyu5658.me/tags/%E7%BC%96%E7%A8%8B/"/>
     
-    <category term="前端" scheme="http://www.yingyu5658.me/tags/%E5%89%8D%E7%AB%AF/"/>
-    
     <category term="Javascript" scheme="http://www.yingyu5658.me/tags/Javascript/"/>
+    
+    <category term="前端" scheme="http://www.yingyu5658.me/tags/%E5%89%8D%E7%AB%AF/"/>
     
     <category term="网页" scheme="http://www.yingyu5658.me/tags/%E7%BD%91%E9%A1%B5/"/>
     
@@ -1382,15 +1382,15 @@
     <category term="游戏娱乐" scheme="http://www.yingyu5658.me/categories/%E6%B8%B8%E6%88%8F%E5%A8%B1%E4%B9%90/"/>
     
     
-    <category term="教程" scheme="http://www.yingyu5658.me/tags/%E6%95%99%E7%A8%8B/"/>
-    
     <category term="醉酒哈基米" scheme="http://www.yingyu5658.me/tags/%E9%86%89%E9%85%92%E5%93%88%E5%9F%BA%E7%B1%B3/"/>
     
     <category term="服务器" scheme="http://www.yingyu5658.me/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
-    <category term="泰拉瑞亚" scheme="http://www.yingyu5658.me/tags/%E6%B3%B0%E6%8B%89%E7%91%9E%E4%BA%9A/"/>
-    
     <category term="Terraria" scheme="http://www.yingyu5658.me/tags/Terraria/"/>
+    
+    <category term="教程" scheme="http://www.yingyu5658.me/tags/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="泰拉瑞亚" scheme="http://www.yingyu5658.me/tags/%E6%B3%B0%E6%8B%89%E7%91%9E%E4%BA%9A/"/>
     
   </entry>
   
@@ -1439,11 +1439,11 @@
     
     <category term="服务器" scheme="http://www.yingyu5658.me/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
-    <category term="Terraria" scheme="http://www.yingyu5658.me/tags/Terraria/"/>
-    
     <category term="Minecraft" scheme="http://www.yingyu5658.me/tags/Minecraft/"/>
     
     <category term="我的世界" scheme="http://www.yingyu5658.me/tags/%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C/"/>
+    
+    <category term="Terraria" scheme="http://www.yingyu5658.me/tags/Terraria/"/>
     
   </entry>
   
