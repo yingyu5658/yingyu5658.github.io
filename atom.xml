@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>yingyu5658的万事屋</title>
   
-  <subtitle>我现在就要看孤独摇滚第二季！</subtitle>
+  <subtitle>有编程、有日常、还有音乐。偶尔观察人类。</subtitle>
   <link href="http://www.yingyu5658.me/atom.xml" rel="self"/>
   
   <link href="http://www.yingyu5658.me/"/>
-  <updated>2025-05-20T12:55:02.383Z</updated>
+  <updated>2025-05-25T11:37:47.524Z</updated>
   <id>http://www.yingyu5658.me/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【数据结构与算法】二叉树</title>
+    <link href="http://www.yingyu5658.me/post/1421131593/"/>
+    <id>http://www.yingyu5658.me/post/1421131593/</id>
+    <published>2025-05-25T10:46:37.000Z</published>
+    <updated>2025-05-25T11:37:47.524Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>二叉树（binary tree）是指树中节点的度不大于2的有序树，它是一种最简单且最重要的树。二叉树的递归定义为：二叉树是一棵空树，或者是一棵由一个根节点和两棵互不相交的，分别称作根的左子树和右子树组成的非空树；左子树和右子树又同样都是二叉树。</p><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h3 id="结构定义"><a href="#结构定义" class="headerlink" title="结构定义"></a>结构定义</h3><p><del>尝试了一下C语言，各种指针乱指，各种bug，暂时放自己一马，跟自己和解一下用js写写吧。</del></p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">TreeNode</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">data</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">data</span> = data;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">left</span> = <span class="literal">null</span>;  <span class="comment">// 左节点</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">right</span> = <span class="literal">null</span>; <span class="comment">// 右边节点</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="创建对象并绑定节点"><a href="#创建对象并绑定节点" class="headerlink" title="创建对象并绑定节点"></a>创建对象并绑定节点</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 手动绑定节点</span></span><br><span class="line"><span class="keyword">let</span> root = <span class="keyword">new</span> <span class="title class_">TreeNode</span>(<span class="number">1</span>)</span><br><span class="line">root.<span class="property">left</span> = <span class="keyword">new</span> <span class="title class_">TreeNode</span>(<span class="number">2</span>)</span><br><span class="line">root.<span class="property">right</span> = <span class="keyword">new</span> <span class="title class_">TreeNode</span>(<span class="number">3</span>)</span><br><span class="line">root.<span class="property">left</span>.<span class="property">left</span> = <span class="keyword">new</span> <span class="title class_">TreeNode</span>(<span class="number">4</span>)</span><br><span class="line">root.<span class="property">right</span>.<span class="property">right</span> = <span class="keyword">new</span> <span class="title class_">TreeNode</span>(<span class="number">5</span>)</span><br></pre></td></tr></table></figure><p>此时树的结构：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">    1</span><br><span class="line">   /  \</span><br><span class="line">   2   3</span><br><span class="line"> /  \   \</span><br><span class="line">4    5   6</span><br></pre></td></tr></table></figure><h3 id="遍历二叉树"><a href="#遍历二叉树" class="headerlink" title="遍历二叉树"></a>遍历二叉树</h3><h4 id="前序遍历（DFS）"><a href="#前序遍历（DFS）" class="headerlink" title="前序遍历（DFS）"></a>前序遍历（DFS）</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">preOrder</span>(<span class="params">node</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span>(node) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(node.<span class="property">data</span>)</span><br><span class="line">    <span class="title function_">preOrder</span>(node.<span class="property">left</span>)</span><br><span class="line">    <span class="title function_">preOrder</span>(node.<span class="property">right</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这里用递归调用，遍历到左右元素</p><h4 id="层序遍历（BFS）"><a href="#层序遍历（BFS）" class="headerlink" title="层序遍历（BFS）"></a>层序遍历（BFS）</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">levelOrder</span>(<span class="params">root</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> queue = [];</span><br><span class="line">  queue.<span class="title function_">push</span>(root);</span><br><span class="line">  <span class="keyword">while</span> (queue.<span class="property">length</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> node = queue.<span class="title function_">shift</span>();</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(node.<span class="property">data</span>);</span><br><span class="line">    <span class="keyword">if</span> (node.<span class="property">left</span>) queue.<span class="title function_">push</span>(node.<span class="property">left</span>);</span><br><span class="line">    <span class="keyword">if</span> (node.<span class="property">right</span>) queue.<span class="title function_">push</span>(node.<span class="property">right</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot; title=&quot;定义&quot;&gt;&lt;/a&gt;定义&lt;/h2&gt;&lt;p&gt;二叉树（binary tree）是指树中节点的度不大于2的有序树，它是一种最简单且最重要的树。二叉树的递归定义为：二叉树是一棵空树，或者是一</summary>
+      
+    
+    
+    
+    <category term="计算机技术" scheme="http://www.yingyu5658.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/"/>
+    
+    <category term="数据结构" scheme="http://www.yingyu5658.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    
+    <category term="二叉树" scheme="http://www.yingyu5658.me/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
+    
+    <category term="数据结构" scheme="http://www.yingyu5658.me/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    <category term="算法" scheme="http://www.yingyu5658.me/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>“我有厌蠢症”</title>
@@ -137,7 +167,7 @@
     <link href="http://www.yingyu5658.me/post/3557841346/"/>
     <id>http://www.yingyu5658.me/post/3557841346/</id>
     <published>2025-05-11T02:09:21.000Z</published>
-    <updated>2025-05-11T03:02:07.485Z</updated>
+    <updated>2025-05-24T02:59:22.498Z</updated>
     
     <content type="html"><![CDATA[<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>栈（Stack）是一种后进先出（LIFO）原则的线性数据结构。核心操作包括：</p><ul><li>压栈（Push）：将元素添加到栈顶</li><li>出栈（Pop）：移除并返回栈顶元素</li><li>查看栈顶（Check）获取但移除栈顶元素</li><li>判空（is_empty）检查栈是否为空</li></ul><h2 id="结构定义"><a href="#结构定义" class="headerlink" title="结构定义"></a>结构定义</h2><p>使用动态数组实现栈，包含三个核心属性：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Stack</span> &#123;</span></span><br><span class="line">    <span class="type">int</span>* data; <span class="comment">// 存储元素的数组</span></span><br><span class="line">    <span class="type">int</span> top;   <span class="comment">// 栈顶指针（当前元素位置）</span></span><br><span class="line">    <span class="type">int</span> capacity; <span class="comment">// 栈的最大容量</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li><code>data</code>：动态分配的数组指针</li><li><code>top</code>：初始值为-1，表示空栈，压栈时递增，出栈时递减</li><li><code>capacity</code>：栈的容量上限</li></ul><h2 id="功能实现"><a href="#功能实现" class="headerlink" title="功能实现"></a>功能实现</h2><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 初始化栈</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">init_stack</span><span class="params">(Stack *s, <span class="type">int</span> capacity)</span> &#123;</span><br><span class="line">  <span class="comment">// 计算最大容量</span></span><br><span class="line">  s -&gt; data = (<span class="type">int</span>*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="type">int</span>) * capacity)</span><br><span class="line">  <span class="keyword">if</span>(!s -&gt; data) &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;内存分配失败！\n&quot;</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 初始化栈顶为-1，表空</span></span><br><span class="line">  s -&gt; top = <span class="number">-1</span>;</span><br><span class="line">  <span class="comment">// 把当前计算的最大容量赋值给传进来的栈</span></span><br><span class="line">  s -&gt; capacity = capacity;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这个函数中进行了动态分配内存计算最大容量，初始化赋值和异常处理。</p><h3 id="压栈（Push）"><a href="#压栈（Push）" class="headerlink" title="压栈（Push）"></a>压栈（Push）</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 压栈（Push）</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">push</span><span class="params">(Stack *s, <span class="type">int</span> value)</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (s -&gt; top = s -&gt; capacity <span class="number">-1</span>) &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;栈已满！\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  s -&gt; data[++s-&gt;top] = value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>检查栈是否已满，先递增指针再存入数据</p><h3 id="出栈（Pop）"><a href="#出栈（Pop）" class="headerlink" title="出栈（Pop）"></a>出栈（Pop）</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 出栈（Pop）</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">pop</span><span class="params">(Stack *s)</span> &#123;</span><br><span class="line">  <span class="keyword">if</span>(is_empty(s)) &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;栈为空！\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> s-&gt;data[s-&gt;top--];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>检查栈是否为空，返回当前栈顶元素后移动指针</p><h3 id="辅助功能"><a href="#辅助功能" class="headerlink" title="辅助功能"></a>辅助功能</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 判空</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">is_empty</span><span class="params">(Stack *s)</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> s-&gt; top == <span class="number">-1</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 查看栈顶元素</span></span><br><span class="line"><span class="type">int</span> peek(Stack *s) &#123;</span><br><span class="line">  <span class="keyword">return</span> is_empty(s) ? <span class="number">-1</span> : s-&gt;data[s-&gt;top];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 销毁</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">destory_stack</span><span class="params">(Stack *S)</span> &#123;</span><br><span class="line">  <span class="built_in">free</span>(s-&gt;data);</span><br><span class="line">  s -&gt; top = <span class="number">-1</span>;</span><br><span class="line">  s -&gt; capacity = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -156,9 +186,9 @@
     <category term="数据结构" scheme="http://www.yingyu5658.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
     
-    <category term="数据结构与算法" scheme="http://www.yingyu5658.me/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
-    
     <category term="数据结构" scheme="http://www.yingyu5658.me/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    <category term="数据结构与算法" scheme="http://www.yingyu5658.me/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
     
     <category term="栈" scheme="http://www.yingyu5658.me/tags/%E6%A0%88/"/>
     
@@ -288,7 +318,7 @@
     <link href="http://www.yingyu5658.me/post/717508352/"/>
     <id>http://www.yingyu5658.me/post/717508352/</id>
     <published>2025-04-29T02:02:49.000Z</published>
-    <updated>2025-04-29T05:21:04.252Z</updated>
+    <updated>2025-05-24T02:43:28.419Z</updated>
     
     <content type="html"><![CDATA[<p>检查是否安装全部依赖，如yay、pip等。我这里是由于没有安装pip导致的。</p><p><code>sudo pacman -S python-pip</code></p><p>安装好后，进入eaf安装目录</p><p><code>cd ~/.emacs.d/site-lisp/emacs-application-framework &amp;&amp; ./install-eaf.py</code></p><p>重新安装eaf。等待脚本运行完成，打开emacs，输入<code>M-x eaf-install-and-update</code>，等待执行完成。</p><p>重新输入<code>M-x eaf-open-browser</code>，输入网址，即可正常访问网页。</p><p><img src="/../../images/image-20250429101516564.png" alt="图"></p>]]></content>
     
@@ -664,13 +694,13 @@
     
     <category term="面向对象编程" scheme="http://www.yingyu5658.me/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/"/>
     
-    <category term="代码" scheme="http://www.yingyu5658.me/tags/%E4%BB%A3%E7%A0%81/"/>
-    
     <category term="软件开发" scheme="http://www.yingyu5658.me/tags/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/"/>
     
     <category term="程序开发" scheme="http://www.yingyu5658.me/tags/%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/"/>
     
     <category term="设计" scheme="http://www.yingyu5658.me/tags/%E8%AE%BE%E8%AE%A1/"/>
+    
+    <category term="代码" scheme="http://www.yingyu5658.me/tags/%E4%BB%A3%E7%A0%81/"/>
     
   </entry>
   
@@ -1352,15 +1382,15 @@
     <category term="游戏娱乐" scheme="http://www.yingyu5658.me/categories/%E6%B8%B8%E6%88%8F%E5%A8%B1%E4%B9%90/"/>
     
     
+    <category term="教程" scheme="http://www.yingyu5658.me/tags/%E6%95%99%E7%A8%8B/"/>
+    
     <category term="醉酒哈基米" scheme="http://www.yingyu5658.me/tags/%E9%86%89%E9%85%92%E5%93%88%E5%9F%BA%E7%B1%B3/"/>
     
     <category term="服务器" scheme="http://www.yingyu5658.me/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
-    <category term="Terraria" scheme="http://www.yingyu5658.me/tags/Terraria/"/>
-    
-    <category term="教程" scheme="http://www.yingyu5658.me/tags/%E6%95%99%E7%A8%8B/"/>
-    
     <category term="泰拉瑞亚" scheme="http://www.yingyu5658.me/tags/%E6%B3%B0%E6%8B%89%E7%91%9E%E4%BA%9A/"/>
+    
+    <category term="Terraria" scheme="http://www.yingyu5658.me/tags/Terraria/"/>
     
   </entry>
   
@@ -1409,11 +1439,11 @@
     
     <category term="服务器" scheme="http://www.yingyu5658.me/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
+    <category term="Terraria" scheme="http://www.yingyu5658.me/tags/Terraria/"/>
+    
     <category term="Minecraft" scheme="http://www.yingyu5658.me/tags/Minecraft/"/>
     
     <category term="我的世界" scheme="http://www.yingyu5658.me/tags/%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C/"/>
-    
-    <category term="Terraria" scheme="http://www.yingyu5658.me/tags/Terraria/"/>
     
   </entry>
   
