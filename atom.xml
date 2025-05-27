@@ -6,7 +6,7 @@
   <link href="http://www.yingyu5658.me/atom.xml" rel="self"/>
   
   <link href="http://www.yingyu5658.me/"/>
-  <updated>2025-05-26T11:57:33.939Z</updated>
+  <updated>2025-05-27T13:45:30.650Z</updated>
   <id>http://www.yingyu5658.me/</id>
   
   <author>
@@ -15,6 +15,46 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【数据结构与算法】众数、中位数</title>
+    <link href="http://www.yingyu5658.me/post/2344272299/"/>
+    <id>http://www.yingyu5658.me/post/2344272299/</id>
+    <published>2025-05-27T11:41:53.000Z</published>
+    <updated>2025-05-27T13:45:30.650Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天学这个东西的时候，看到这种线性的数据结构加上排序步骤，很难不想写个程序来跑跑。</p><p>先来说说中位数，这个比较有思路。</p><h2 id="中位数"><a href="#中位数" class="headerlink" title="中位数"></a>中位数</h2><p>具体的操作步骤应该是：<strong>排序 &#x3D;&gt; 获得数据元素个数n &#x3D;&gt; 是奇数 ? (n+1) &#x2F; 2 : n &#x2F; 2</strong></p><p>那么排序就用之前学的冒泡排序，这种题目大概不会完全倒序给数据，编写sort函数：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">sort</span><span class="params">(<span class="type">int</span> arr[], <span class="type">int</span> n)</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n - <span class="number">1</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; n - i - <span class="number">1</span>; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;</span><br><span class="line">        <span class="type">int</span> temp = arr[j];</span><br><span class="line">        arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">        arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>接下来是判断奇偶，奇偶的判断非常简单，对取模运算的值比对就可以，编写is_even函数，判断奇偶性。</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">is_even</span><span class="params">(<span class="type">int</span> data)</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">if</span> (data % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>完成了奇偶判断，下一步就可以正式进行中位数的运算，编写get_median函数。</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">double</span> <span class="title function_">get_median</span><span class="params">(<span class="type">int</span> arr[], <span class="type">int</span> length)</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="comment">// 获取索引</span></span><br><span class="line">  <span class="type">double</span> result = <span class="number">0</span>;</span><br><span class="line">  sort(arr, length);</span><br><span class="line">  <span class="keyword">if</span> (is_even(length)) &#123;</span><br><span class="line">    <span class="type">int</span> median_index_1 = arr[(length / <span class="number">2</span>) - <span class="number">1</span>];</span><br><span class="line">    <span class="type">int</span> median_index_2 = arr[length / <span class="number">2</span>];</span><br><span class="line">    <span class="comment">// 计算数据</span></span><br><span class="line">    result = (median_index_1 + median_index_2) / <span class="number">2.0</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    result = arr[length / <span class="number">2</span>];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这个函数首先计算了中位数在数组的哪个索引，然后进行了计算。</p><h2 id="众数"><a href="#众数" class="headerlink" title="众数"></a>众数</h2><p>众数（Mode）是指在<a href="https://baike.baidu.com/item/%E7%BB%9F%E8%AE%A1%E5%88%86%E5%B8%83/8478867?fromModule=lemma_inlink">统计分布</a>上具有明显集中趋势点的<a href="https://baike.baidu.com/item/%E6%95%B0%E5%80%BC/2013853?fromModule=lemma_inlink">数值</a>，代表<a href="https://baike.baidu.com/item/%E6%95%B0%E6%8D%AE/33305?fromModule=lemma_inlink">数据</a>的一般水平。 也是一组数据中出现次数最多的数值，有时众数在一组数中有好几个。用M表示。</p><p>那么，在程序中，想要计算一个值出现的次数并比对，可拆分为两步。</p><ol><li>计算出每一个数据出现的次数</li><li>结果排序比对</li><li>找出最大值</li></ol><p>我没学过什么高级的数据结构，就用这个复制数组的笨办法吧。</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">get_mode</span><span class="params">(<span class="type">int</span> arr[], <span class="type">int</span> length)</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="type">int</span> *copy_arr = <span class="built_in">malloc</span>(length * <span class="keyword">sizeof</span>(<span class="type">int</span>));</span><br><span class="line">  <span class="built_in">memcpy</span>(copy_arr, arr, length * <span class="keyword">sizeof</span>(<span class="type">int</span>));</span><br><span class="line">  sort(copy_arr, length);</span><br><span class="line"></span><br><span class="line">  <span class="type">int</span> max_count = <span class="number">0</span>;</span><br><span class="line">  <span class="type">int</span> current_count = <span class="number">1</span>;</span><br><span class="line">  <span class="type">int</span> mode = copy_arr[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; length; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (copy_arr[i] == copy_arr[i - <span class="number">1</span>]) &#123;</span><br><span class="line">      current_count++;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (current_count &gt; max_count) &#123;</span><br><span class="line">        max_count = current_count;</span><br><span class="line">        mode = copy_arr[i - <span class="number">1</span>];</span><br><span class="line">      &#125;</span><br><span class="line">      current_count = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (current_count &gt; max_count) &#123;</span><br><span class="line">    mode = copy_arr[length - <span class="number">1</span>];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">free</span>(copy_arr);</span><br><span class="line">  <span class="keyword">return</span> mode;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这个函数干了以下几件事：</p><ul><li>复制数组</li><li>排序复制好的数组</li><li>对比数组元素，如果array[i] &#x3D;&#x3D; array[i - 1]，出现次数+1</li><li>如果遇到新元素，检查是否需要更新最大值</li><li>动态更新众数值</li></ul><p>测试跑一把，输出如下</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="type">int</span> arr[] = &#123;<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">4</span>, <span class="number">4</span>, <span class="number">4</span>, <span class="number">4</span>, <span class="number">4</span>, <span class="number">4</span>, <span class="number">4</span>, <span class="number">4</span>, <span class="number">4</span>, <span class="number">2</span>&#125;;</span><br><span class="line">  <span class="type">int</span> length = <span class="keyword">sizeof</span>(arr) / <span class="keyword">sizeof</span>(arr[<span class="number">0</span>]);</span><br><span class="line">  <span class="type">int</span> result = get_mode(arr, length);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;result = %d\n&quot;</span>, result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">result = 4</span><br></pre></td></tr></table></figure><p><del>这个办法实在是有点蠢，找时间仔细学学哈希表，应该能更快。</del></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;今天学这个东西的时候，看到这种线性的数据结构加上排序步骤，很难不想写个程序来跑跑。&lt;/p&gt;
+&lt;p&gt;先来说说中位数，这个比较有思路。&lt;/p&gt;
+&lt;h2 id=&quot;中位数&quot;&gt;&lt;a href=&quot;#中位数&quot; class=&quot;headerlink&quot; title=&quot;中位数&quot;&gt;&lt;/a&gt;中位数&lt;</summary>
+      
+    
+    
+    
+    <category term="计算机技术" scheme="http://www.yingyu5658.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/"/>
+    
+    <category term="算法" scheme="http://www.yingyu5658.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="数据结构" scheme="http://www.yingyu5658.me/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    <category term="算法" scheme="http://www.yingyu5658.me/tags/%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="数据结构与算法" scheme="http://www.yingyu5658.me/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="众数" scheme="http://www.yingyu5658.me/tags/%E4%BC%97%E6%95%B0/"/>
+    
+    <category term="中位数" scheme="http://www.yingyu5658.me/tags/%E4%B8%AD%E4%BD%8D%E6%95%B0/"/>
+    
+    <category term="数学" scheme="http://www.yingyu5658.me/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+    <category term="统计学" scheme="http://www.yingyu5658.me/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>高效率的沟通绝不会从在吗开始</title>
@@ -153,11 +193,11 @@
     <category term="音乐" scheme="http://www.yingyu5658.me/categories/%E9%9F%B3%E4%B9%90/"/>
     
     
-    <category term="贝斯" scheme="http://www.yingyu5658.me/tags/%E8%B4%9D%E6%96%AF/"/>
-    
     <category term="音乐" scheme="http://www.yingyu5658.me/tags/%E9%9F%B3%E4%B9%90/"/>
     
     <category term="声卡" scheme="http://www.yingyu5658.me/tags/%E5%A3%B0%E5%8D%A1/"/>
+    
+    <category term="贝斯" scheme="http://www.yingyu5658.me/tags/%E8%B4%9D%E6%96%AF/"/>
     
     <category term="音频" scheme="http://www.yingyu5658.me/tags/%E9%9F%B3%E9%A2%91/"/>
     
@@ -448,9 +488,9 @@
     
     <category term="日常" scheme="http://www.yingyu5658.me/tags/%E6%97%A5%E5%B8%B8/"/>
     
-    <category term="贝斯" scheme="http://www.yingyu5658.me/tags/%E8%B4%9D%E6%96%AF/"/>
-    
     <category term="音乐" scheme="http://www.yingyu5658.me/tags/%E9%9F%B3%E4%B9%90/"/>
+    
+    <category term="贝斯" scheme="http://www.yingyu5658.me/tags/%E8%B4%9D%E6%96%AF/"/>
     
   </entry>
   
@@ -725,13 +765,13 @@
     
     <category term="面向对象编程" scheme="http://www.yingyu5658.me/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/"/>
     
-    <category term="代码" scheme="http://www.yingyu5658.me/tags/%E4%BB%A3%E7%A0%81/"/>
-    
     <category term="软件开发" scheme="http://www.yingyu5658.me/tags/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/"/>
     
     <category term="程序开发" scheme="http://www.yingyu5658.me/tags/%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/"/>
     
     <category term="设计" scheme="http://www.yingyu5658.me/tags/%E8%AE%BE%E8%AE%A1/"/>
+    
+    <category term="代码" scheme="http://www.yingyu5658.me/tags/%E4%BB%A3%E7%A0%81/"/>
     
   </entry>
   
