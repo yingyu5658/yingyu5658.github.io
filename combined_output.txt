@@ -271,6 +271,40 @@ categories:
 穷凶极恶的罪犯们要好好改造。他们笑得多开心啊。一定没有为自己正在做这么可悲的事而难过！
 
 可笑就是可笑，笑他们，笑制度，笑风气。笑身陷泥潭无法自救的自己。要放肆的笑，大胆的笑。本身可笑的事被训斥不准笑，才是最可笑的。---
+title: 感谢恩师夸奖
+tags:
+  - 感谢恩师夸奖
+categories:
+  - 废话闲唠叨
+description: 选择、信任、奋斗、感恩、驯化、忠诚、死亡、堙灭。
+abbrlink: 2981262757
+date: 2025-05-28 20:27:55
+---
+课上没能回答出某个问题，遂借势挖苦批评，其中几个句子记忆犹新：“你主意太正”、“成绩不上不下”、“回家不知道是研究问题了还是学习了”。
+
+感谢恩师夸奖。我就是主意正。
+
+我主意正，因为我是一个有血有肉，更有灵魂的活生生的人，我有思想，我主意正，人和猩猩在行为上的显著区别就是，人知道自己在做什么，因为人的脑子很好用。我不会被戴上项圈，又或是打磨成木偶任人操控。这是我作为活人，基本该有的。
+
+我不碌碌无为，不生活不平淡平庸。我既不会被你驯化，也没有成为推荐算法定时批量投喂的赛博牲畜，无休止地享受奶头乐，因为我主意正。
+
+我活着有我自己的目的和意义，我主意非常正。
+
+---
+
+感谢恩师夸奖，我成绩确实不上不下。
+
+我成绩不上不下，但我至少有一颗健全健康的心。我还是不会戴上项圈，被驯化成跪坐在主人身旁吐舌头的狗。我成绩不上不下，但是我能保证有学上。上学，成绩固然重要，但最基本要保证是活着的，肉体活着，灵魂活着。我活着快乐，我活着有意义，我活着为我。
+
+---
+
+感谢恩师夸奖，我回家就是在学习，研究问题。
+
+我不沉迷电子游戏，也不刷短视频。我有值得我付出的事情等着我去做，并且都小有了一番成就。我从来没有停止过学习，极度的求知欲和好奇心是我保证灵魂活下去的因素之一。课余生活从逻辑冷硬的计算机到感情喷薄的文学美术作品，再到观察披着人皮的地外物种。做什么都比死读书，读死书，读书死好。我能保证有学上，而且保证灵魂活着。
+
+因为主意正，成绩不上不下，回家学习，研究问题，我才真正的活着。永远不要试图驯化我，我永远也不会被驯化，永远不会成为谁。
+
+感谢恩师夸奖。---
 title: “我有厌蠢症”
 tags:
   - 日常
@@ -356,6 +390,8 @@ tags:
   - 人际交往
   - 沟通
   - 网络用语
+categories:
+  - 废话闲唠叨
 abbrlink: 2523582669
 date: 2025-05-26 18:55:29
 ---
@@ -3171,7 +3207,101 @@ MOV RAX, RCX
 ```
 
 意思是，把RCX寄存器的值赋值给RAX
-title: 【数据结构与算法】二叉树
+---
+title: 【数据结构与算法】链表
+tags:
+  - 数据结构与算法
+  - 数据结构
+  - 链表
+categories:
+  - 计算机技术
+  - 数据结构
+abbrlink: 299080965
+date: 2025-05-28 22:23:30
+---
+链表（Linked List）是一种动态数据结构，通过指针将离散的节点连接成逻辑上连续的序列。
+
+## 结构定义
+```c
+// 节点结构 
+typedef struct Node
+{
+    int data;
+    struct Node* next; // 指针域，指向下一个节点
+} Node;
+
+  
+
+// 链表结构
+typedef struct
+{
+    Node* head;
+} LinkedList;
+```
+这里的链表结构可以省略，直接使用头指针来管理，但我看的舒服点就写了一下。
+```c
+// 初始化链表（头指针初始化为空）
+LinkedList* creatLinkedList()
+{
+    LinkedList* list = (LinkedList**)malloc(sizeof(LinkedList));
+    list->head = NULL;
+    return list;
+}
+```
+动态分配内存，初始化赋值
+
+## 新增节点
+```c
+// 创建新节点
+Node* createNode(int value)
+{
+    Node* newNode = (Node*)malloc(sizeof(Node));
+    if(newNode == NULL)
+    {
+        printf("内存分配失败\n");
+        return -1;
+    }
+    newNode->data = value;
+    newNode->next = NULL;
+    return newNode;
+}
+```
+创建新的结构体对象，动态分配内存，赋值。
+
+## 插入
+### 头插法
+```c
+void insertAtHead(LinkedList* list,int value)
+{
+    Node* newNode = createNode(value);
+    newNode->next = list->head; // 新节点指向原头节点
+    list->head = newNode; // 更新头指针
+}
+```
+
+###  尾插法
+```c
+// 尾插
+void insertAtEnd(LinkedList *list, int value)
+{
+    Node *newNode = createNode(value);
+    // 空链表直接插入
+    if (list->head == NULL)
+    {
+        list->head == newNode;
+    }
+    Node *current = list->head;
+
+    // 遍历到最后一个节点
+    while (current->next != NULL)
+    {
+        current = current->next;
+    }
+  
+    // 尾节点指向新节点
+    current->next = newNode;
+}
+```title: 【数据结构与算法】二叉树
 tags:
   - 二叉树
   - 数据结构
@@ -3251,6 +3381,149 @@ function levelOrder(root) {
   }
 }
 ```---
+title: 【数据结构与算法】众数、中位数
+tags:
+  - 数据结构
+  - 算法
+  - 数据结构与算法
+  - 众数
+  - 中位数
+  - 数学
+  - 统计学
+categories:
+  - 计算机技术
+  - 算法
+abbrlink: 2344272299
+date: 2025-05-27 19:41:53
+---
+今天学这个东西的时候，看到这种线性的数据结构加上排序步骤，很难不想写个程序来跑跑。
+
+先来说说中位数，这个比较有思路。
+
+## 中位数
+
+具体的操作步骤应该是：**排序 => 获得数据元素个数n => 是奇数 ? (n+1) / 2 : n / 2**
+
+
+那么排序就用之前学的冒泡排序，这种题目大概不会完全倒序给数据，编写sort函数：
+
+```c
+void sort(int arr[], int n)
+{
+  for (int i = 0; i < n - 1; i++) {
+    for (int j = 0; j < n - i - 1; j++) {
+      if (arr[j] > arr[j + 1]) {
+        int temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
+      }
+    }
+  }
+}
+```
+
+接下来是判断奇偶，奇偶的判断非常简单，对取模运算的值比对就可以，编写is_even函数，判断奇偶性。
+```c
+int is_even(int data)
+{
+  if (data % 2 == 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
+```
+
+完成了奇偶判断，下一步就可以正式进行中位数的运算，编写get_median函数。
+```c
+double get_median(int arr[], int length)
+{
+  // 获取索引
+  double result = 0;
+  sort(arr, length);
+  if (is_even(length)) {
+    int median_index_1 = arr[(length / 2) - 1];
+    int median_index_2 = arr[length / 2];
+    // 计算数据
+    result = (median_index_1 + median_index_2) / 2.0;
+  } else {
+    result = arr[length / 2];
+  }
+
+  return result;
+}
+```
+
+这个函数首先计算了中位数在数组的哪个索引，然后进行了计算。
+
+
+## 众数
+
+众数（Mode）是指在[统计分布](https://baike.baidu.com/item/%E7%BB%9F%E8%AE%A1%E5%88%86%E5%B8%83/8478867?fromModule=lemma_inlink)上具有明显集中趋势点的[数值](https://baike.baidu.com/item/%E6%95%B0%E5%80%BC/2013853?fromModule=lemma_inlink)，代表[数据](https://baike.baidu.com/item/%E6%95%B0%E6%8D%AE/33305?fromModule=lemma_inlink)的一般水平。 也是一组数据中出现次数最多的数值，有时众数在一组数中有好几个。用M表示。
+
+那么，在程序中，想要计算一个值出现的次数并比对，可拆分为两步。
+
+1. 计算出每一个数据出现的次数
+2. 结果排序比对
+3. 找出最大值
+
+我没学过什么高级的数据结构，就用这个复制数组的笨办法吧。
+
+```c
+int get_mode(int arr[], int length)
+{
+  int *copy_arr = malloc(length * sizeof(int));
+  memcpy(copy_arr, arr, length * sizeof(int));
+  sort(copy_arr, length);
+
+  int max_count = 0;
+  int current_count = 1;
+  int mode = copy_arr[0];
+
+  for (int i = 1; i < length; i++) {
+    if (copy_arr[i] == copy_arr[i - 1]) {
+      current_count++;
+    } else {
+      if (current_count > max_count) {
+        max_count = current_count;
+        mode = copy_arr[i - 1];
+      }
+      current_count = 1;
+    }
+  }
+
+  if (current_count > max_count) {
+    mode = copy_arr[length - 1];
+  }
+
+  free(copy_arr);
+  return mode;
+}
+```
+
+这个函数干了以下几件事：
+- 复制数组
+- 排序复制好的数组
+- 对比数组元素，如果array[i] == array[i - 1]，出现次数+1
+- 如果遇到新元素，检查是否需要更新最大值
+- 动态更新众数值
+
+测试跑一把，输出如下
+```c
+int main()
+{
+  int arr[] = {1, 1, 1, 1, 2, 2, 4, 5, 7, 4, 4, 4, 4, 4, 4, 4, 4, 4, 2};
+  int length = sizeof(arr) / sizeof(arr[0]);
+  int result = get_mode(arr, length);
+  printf("result = %d\n", result);
+}
+```
+
+```
+result = 4
+```
+
+~~这个办法实在是有点蠢，找时间仔细学学哈希表，应该能更快。~~---
 title: 【数据结构与算法】冒泡排序
 tags:
   - 数据结构与算法
@@ -3363,6 +3636,139 @@ n = 20 / 4 = 5
 
 
 ---
+title: 【数据结构与算法】哈希表
+tags:
+  - 数据结构
+  - 数据结构与算法
+  - 哈希表
+  - 散列表
+categories:
+  - 计算机技术
+  - 数据结构
+abbrlink: 971437699
+date: 2025-05-28 21:44:28
+---
+哈希表（Hash Table）是一种基于键（Key）直接访问数据的高效数据结构，其核心思想是通过哈希函数将键映射到数组的特定位置，从而实现平均时间复杂度为 O(1)O(1) 的插入、查找和删除操作。
+
+## 结构定义
+```c
+// 哈希表节点
+typedef struct HashNode {
+    int key;
+    int value;
+    struct Hashcode* next;
+} HashNode;
+
+// 哈希表
+typedef struct {
+    int size;
+    HashNode** buckets;
+} HashTable;
+```
+
+## 初始化
+创建HashTable结构体变量，进行初始化赋值，分配桶的内存。
+```c
+// 初始化哈希表
+HashTable *creat_hash_table(int size)
+{
+    HashTable* table = (HashTable*)malloc(sizeof(HashTable));
+    table->size = size;
+    table->buckets = (HashNode**)malloc(size * sizeof(HashNode*));
+    for(int i = 0; i < size; i++)
+    {
+        table->buckets[i] = NULL;
+    }
+    return table;
+}
+```
+
+## 哈希函数
+```c
+// 哈希函数
+int hash(int key, int size)
+{
+    return key % size;
+}
+```
+
+通过简单取模运算获得哈希值
+
+## 插入
+```c
+// 插入
+void insert(HashTable *table, int key, int value)
+{
+    int index = hash(key, table->size);
+    HashNode *newNode = (HashNode *)malloc(sizeof(HashNode));
+    newNode->key = key;
+    newNode->value = value;
+    newNode->next = NULL;
+
+    // 插入链表头部，避免遍历链表
+    if (table->buckets[index] == NULL)
+    {
+        table->buckets[index] = newNode;
+    }
+    else
+    {
+        newNode->next = table->buckets[index];
+        table->buckets[index] = newNode;
+    }
+}
+```
+头插法无需遍历到尾部。
+
+## 查找
+```c
+// 查找
+
+int search(HashTable *table, int key)
+{
+    int index = hash(key, table->size);
+    HashNode *current = table->buckets[index];
+    while (current != NULL)
+    {
+        if (current->key == key)
+        {
+            return current->value;
+        }
+        current = current->next;
+    }
+    return -1;
+}
+```
+
+## 删除
+```c
+void deleate(HashTable* table, int key)
+{
+	int index = hash(key, table->size);
+	HashNode* current = table->buckets[index];
+	HashNode* prev = NULL;
+
+	while(current != NULL)
+	{
+		if(current->key == key)
+		{
+			if(prev == NULL)
+			{
+				table->buckets[index] = current->next;
+			}
+			else
+			{
+				prev->next = current->next;
+			}
+
+			free(current);
+			return;
+		}
+			prev = current;
+			current = current->next;
+	}
+}
+
+```---
 title: 【数据结构与算法】栈
 tags:
   - 数据结构与算法

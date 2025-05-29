@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>yingyu5658的万事屋</title>
+  <title>映屿哨站</title>
   
   <subtitle>有编程、有日常、还有音乐。偶尔观察人类。</subtitle>
   <link href="http://www.yingyu5658.me/atom.xml" rel="self"/>
   
   <link href="http://www.yingyu5658.me/"/>
-  <updated>2025-05-28T12:55:56.564Z</updated>
+  <updated>2025-05-29T13:42:54.270Z</updated>
   <id>http://www.yingyu5658.me/</id>
   
   <author>
@@ -15,6 +15,101 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>面向对象与面向过程的本质区别</title>
+    <link href="http://www.yingyu5658.me/post/1518948190/"/>
+    <id>http://www.yingyu5658.me/post/1518948190/</id>
+    <published>2025-05-29T13:21:36.000Z</published>
+    <updated>2025-05-29T13:42:54.270Z</updated>
+    
+    <content type="html"><![CDATA[<p>面向对象与面向过程这两种编程思想主要体现在一件事上：面向对象关心<strong>谁来做</strong>，而面向过程关心<strong>做什么</strong>。</p><p>举个例子，如果我现在要开发一个五子棋小游戏，在面向对象的思想中，实现步骤应该是这样的。</p><ul><li>有一个窗口对象，可以让我的游戏内容展示在里面</li><li>创建棋盘对象</li><li>初始化棋盘</li><li>创建计分板对象</li><li>初始化计分板</li><li>玩家开始下棋，棋盘对象创建棋子对象，绘制出来</li></ul><p>不难看出，面向对象就是在关心<strong>谁来做</strong>，先关心哪个对象去做，再去研究这个对象要去<strong>怎么做</strong>。抽象层级更高，但是符合人类的思维。从代码结构上来看，写面向对象更偏向在画一个树状图，一级一级划分谁要做什么事情，而面向过程更像一个线性的流程图，全程都在关心需要做什么事情。</p><p>更官方地说，面向对象以算法和流程为核心，强调步骤拆解。而面向对象以与对象交互为核心，强调责任分配</p><p>当然，写法在语言上就有所限定。C更适合面向过程，头文件的引用使用函数做事就意味着C很难实现面向对象的设计模式，当然有一些比较邪门的技巧，容易开枪把自己脚指头崩掉，比如<code>void*</code>模拟泛型这种不在本文讨论范围。</p><p>C缺乏类、继承等基础语法支持，但可以用结构体加函数指针简单模拟对象，但设计难度有所增加，调试难度更有所增加。面向过程更适合处理逻辑简单的任务或算法密集型任务，而面向对象更适合构建GUI应用等复杂系统。</p><p>面向对象并非在所有情况下都是最优选择。还是需要依据开发项目的实际需求考量。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;面向对象与面向过程这两种编程思想主要体现在一件事上：面向对象关心&lt;strong&gt;谁来做&lt;/strong&gt;，而面向过程关心&lt;strong&gt;做什么&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;举个例子，如果我现在要开发一个五子棋小游戏，在面向对象的思想中，实现步骤应该是这样的。&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    <category term="计算机技术" scheme="http://www.yingyu5658.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="编程" scheme="http://www.yingyu5658.me/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+    <category term="面向对象编程" scheme="http://www.yingyu5658.me/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/"/>
+    
+    <category term="面向过程编程" scheme="http://www.yingyu5658.me/tags/%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B%E7%BC%96%E7%A8%8B/"/>
+    
+    <category term="程序设计" scheme="http://www.yingyu5658.me/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【数据结构与算法】力扣#1 两数之和——暴力法&amp;哈希表法</title>
+    <link href="http://www.yingyu5658.me/post/3860811249/"/>
+    <id>http://www.yingyu5658.me/post/3860811249/</id>
+    <published>2025-05-29T11:51:17.000Z</published>
+    <updated>2025-05-29T12:52:43.926Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一个整数数组 <code>nums</code> 和一个整数目标值 <code>target</code>，请你在该数组中找出 <strong>和为目标值</strong> <em><code>target</code></em>  的那 <strong>两个</strong> 整数，并返回它们的数组下标。</p><p>你可以假设每种输入只会对应一个答案，并且你不能使用两次相同的元素。</p><p>你可以按任意顺序返回答案。</p><h2 id="暴力解法"><a href="#暴力解法" class="headerlink" title="暴力解法"></a>暴力解法</h2><p>通过两次循环依次比对i和i+1的值计算结果</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>* <span class="title function_">twoSum</span><span class="params">(<span class="type">int</span>* nums, <span class="type">int</span> numsSize, <span class="type">int</span> target, <span class="type">int</span>* returnSize)</span> &#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; numsSize; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = i + <span class="number">1</span>; j &lt;numsSize; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i] + nums[j] == target) &#123;</span><br><span class="line">                *returnSize = <span class="number">2</span>;</span><br><span class="line">                <span class="type">int</span>* rtn = (<span class="type">int</span>*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="type">int</span>) * <span class="number">2</span>);</span><br><span class="line">                rtn[<span class="number">0</span>] = i;</span><br><span class="line">                rtn[<span class="number">1</span>] = j;</span><br><span class="line">                <span class="keyword">return</span> rtn;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>第一次循环</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2 7 11 15</span><br><span class="line">i j</span><br></pre></td></tr></table></figure><p>第一次第二层循环</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2 7 11 15</span><br><span class="line">i    j</span><br></pre></td></tr></table></figure><p>……<br>第二次第一层循环：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2 7 11 15</span><br><span class="line">(i++)</span><br><span class="line">j  i  </span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2 7 11 15</span><br><span class="line">  i j</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2 7 11 15</span><br><span class="line">  i     j</span><br></pre></td></tr></table></figure><p>这种算法简单好写，缺点是时间复杂度高，处理大型数据时性能捉急。</p><h2 id="哈希表法"><a href="#哈希表法" class="headerlink" title="哈希表法"></a>哈希表法</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>假设函数输入还是同上，<code>2, 7, 11, 15</code></p><p>建立一个哈希表，由于我们需要的是元素的索引，就把索引存到value里，用元素作为key来查找。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">target = 9</span><br><span class="line">-----------</span><br><span class="line">key  value</span><br><span class="line">2    0</span><br><span class="line">7    1</span><br><span class="line">11   2</span><br><span class="line">15   3</span><br><span class="line">-----------</span><br></pre></td></tr></table></figure><p>尝试用target - key，得到的差就是要在表中查找的值。</p><p>比如用target: 9 - key[0] &#x3D; 7；</p><p>这时候在表中找一下有没有这个数，然后返回它的value和减数的value即可。</p><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>用JavaScript的map函数来实现</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">number[]</span>&#125; <span class="variable">nums</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">number</span>&#125; <span class="variable">target</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> &#123;<span class="type">number[]</span>&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> twoSum = <span class="keyword">function</span>(<span class="params">nums, target</span>) &#123;</span><br><span class="line">   <span class="keyword">const</span> map = <span class="keyword">new</span> <span class="title class_">Map</span>()</span><br><span class="line">   <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; nums.<span class="property">length</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">const</span> a = target - nums[i]</span><br><span class="line">    <span class="keyword">if</span>(map.<span class="title function_">has</span>(a)) &#123;</span><br><span class="line">        <span class="keyword">return</span> [map.<span class="title function_">get</span>(a), i];</span><br><span class="line">    &#125;</span><br><span class="line">    map.<span class="title function_">set</span>(nums[i], i)</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> [];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>创建map对象，循环查找key:a，返回下标。时间复杂度O(n)。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h2&gt;&lt;p&gt;给定一个整数数组 &lt;code&gt;nums&lt;/code&gt; 和一个整数目标值 &lt;code&gt;target&lt;/code&gt;，请你在该数组中找出 &lt;str</summary>
+      
+    
+    
+    
+    <category term="计算机技术" scheme="http://www.yingyu5658.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/"/>
+    
+    <category term="算法" scheme="http://www.yingyu5658.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="算法" scheme="http://www.yingyu5658.me/tags/%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="数据结构与算法" scheme="http://www.yingyu5658.me/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="哈希表" scheme="http://www.yingyu5658.me/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【数据结构与算法】哈希表</title>
+    <link href="http://www.yingyu5658.me/post/971437699/"/>
+    <id>http://www.yingyu5658.me/post/971437699/</id>
+    <published>2025-05-28T13:44:28.000Z</published>
+    <updated>2025-05-28T15:06:00.091Z</updated>
+    
+    <content type="html"><![CDATA[<p>哈希表（Hash Table）是一种基于键（Key）直接访问数据的高效数据结构，其核心思想是通过哈希函数将键映射到数组的特定位置，从而实现平均时间复杂度为 O(1)O(1) 的插入、查找和删除操作。</p><h2 id="结构定义"><a href="#结构定义" class="headerlink" title="结构定义"></a>结构定义</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 哈希表节点</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">HashNode</span> &#123;</span></span><br><span class="line">    <span class="type">int</span> key;</span><br><span class="line">    <span class="type">int</span> value;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Hashcode</span>* <span class="title">next</span>;</span></span><br><span class="line">&#125; HashNode;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 哈希表</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">    <span class="type">int</span> size;</span><br><span class="line">    HashNode** buckets;</span><br><span class="line">&#125; HashTable;</span><br></pre></td></tr></table></figure><h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><p>创建HashTable结构体变量，进行初始化赋值，分配桶的内存。</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 初始化哈希表</span></span><br><span class="line">HashTable *<span class="title function_">creat_hash_table</span><span class="params">(<span class="type">int</span> size)</span></span><br><span class="line">&#123;</span><br><span class="line">    HashTable* table = (HashTable*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(HashTable));</span><br><span class="line">    table-&gt;size = size;</span><br><span class="line">    table-&gt;buckets = (HashNode**)<span class="built_in">malloc</span>(size * <span class="keyword">sizeof</span>(HashNode*));</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; size; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        table-&gt;buckets[i] = <span class="literal">NULL</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> table;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="哈希函数"><a href="#哈希函数" class="headerlink" title="哈希函数"></a>哈希函数</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 哈希函数</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">hash</span><span class="params">(<span class="type">int</span> key, <span class="type">int</span> size)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> key % size;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>通过简单取模运算获得哈希值</p><h2 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 插入</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">insert</span><span class="params">(HashTable *table, <span class="type">int</span> key, <span class="type">int</span> value)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> index = hash(key, table-&gt;size);</span><br><span class="line">    HashNode *newNode = (HashNode *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(HashNode));</span><br><span class="line">    newNode-&gt;key = key;</span><br><span class="line">    newNode-&gt;value = value;</span><br><span class="line">    newNode-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 插入链表头部，避免遍历链表</span></span><br><span class="line">    <span class="keyword">if</span> (table-&gt;buckets[index] == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        table-&gt;buckets[index] = newNode;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        newNode-&gt;next = table-&gt;buckets[index];</span><br><span class="line">        table-&gt;buckets[index] = newNode;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>头插法无需遍历到尾部。</p><h2 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 查找</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">search</span><span class="params">(HashTable *table, <span class="type">int</span> key)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> index = hash(key, table-&gt;size);</span><br><span class="line">    HashNode *current = table-&gt;buckets[index];</span><br><span class="line">    <span class="keyword">while</span> (current != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (current-&gt;key == key)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> current-&gt;value;</span><br><span class="line">        &#125;</span><br><span class="line">        current = current-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">deleate</span><span class="params">(HashTable* table, <span class="type">int</span> key)</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="type">int</span> index = hash(key, table-&gt;size);</span><br><span class="line">HashNode* current = table-&gt;buckets[index];</span><br><span class="line">HashNode* prev = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(current != <span class="literal">NULL</span>)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">if</span>(current-&gt;key == key)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">if</span>(prev == <span class="literal">NULL</span>)</span><br><span class="line">&#123;</span><br><span class="line">table-&gt;buckets[index] = current-&gt;next;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">prev-&gt;next = current-&gt;next;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">free</span>(current);</span><br><span class="line"><span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line">prev = current;</span><br><span class="line">current = current-&gt;next;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;哈希表（Hash Table）是一种基于键（Key）直接访问数据的高效数据结构，其核心思想是通过哈希函数将键映射到数组的特定位置，从而实现平均时间复杂度为 O(1)O(1) 的插入、查找和删除操作。&lt;/p&gt;
+&lt;h2 id=&quot;结构定义&quot;&gt;&lt;a href=&quot;#结构定义&quot; cla</summary>
+      
+    
+    
+    
+    <category term="计算机技术" scheme="http://www.yingyu5658.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/"/>
+    
+    <category term="数据结构" scheme="http://www.yingyu5658.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    
+    <category term="数据结构" scheme="http://www.yingyu5658.me/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    <category term="数据结构与算法" scheme="http://www.yingyu5658.me/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="哈希表" scheme="http://www.yingyu5658.me/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/"/>
+    
+    <category term="散列表" scheme="http://www.yingyu5658.me/tags/%E6%95%A3%E5%88%97%E8%A1%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>感谢恩师夸奖</title>
@@ -659,9 +754,9 @@
     <category term="计算机技术" scheme="http://www.yingyu5658.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/"/>
     
     
-    <category term="osu!" scheme="http://www.yingyu5658.me/tags/osu/"/>
-    
     <category term="游戏" scheme="http://www.yingyu5658.me/tags/%E6%B8%B8%E6%88%8F/"/>
+    
+    <category term="osu!" scheme="http://www.yingyu5658.me/tags/osu/"/>
     
     <category term="网络请求" scheme="http://www.yingyu5658.me/tags/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82/"/>
     
@@ -1249,13 +1344,13 @@
     <category term="Java" scheme="http://www.yingyu5658.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/Java/"/>
     
     
-    <category term="Java" scheme="http://www.yingyu5658.me/tags/Java/"/>
-    
     <category term="服务器" scheme="http://www.yingyu5658.me/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
     <category term="Minecraft" scheme="http://www.yingyu5658.me/tags/Minecraft/"/>
     
     <category term="我的世界" scheme="http://www.yingyu5658.me/tags/%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C/"/>
+    
+    <category term="Java" scheme="http://www.yingyu5658.me/tags/Java/"/>
     
     <category term="Spigot" scheme="http://www.yingyu5658.me/tags/Spigot/"/>
     
@@ -1290,13 +1385,13 @@
     <category term="Java" scheme="http://www.yingyu5658.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/Java/"/>
     
     
-    <category term="Java" scheme="http://www.yingyu5658.me/tags/Java/"/>
-    
     <category term="服务器" scheme="http://www.yingyu5658.me/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
     <category term="Minecraft" scheme="http://www.yingyu5658.me/tags/Minecraft/"/>
     
     <category term="我的世界" scheme="http://www.yingyu5658.me/tags/%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C/"/>
+    
+    <category term="Java" scheme="http://www.yingyu5658.me/tags/Java/"/>
     
     <category term="Spigot" scheme="http://www.yingyu5658.me/tags/Spigot/"/>
     
@@ -1476,13 +1571,13 @@
     <category term="游戏娱乐" scheme="http://www.yingyu5658.me/categories/%E6%B8%B8%E6%88%8F%E5%A8%B1%E4%B9%90/"/>
     
     
-    <category term="教程" scheme="http://www.yingyu5658.me/tags/%E6%95%99%E7%A8%8B/"/>
+    <category term="醉酒哈基米" scheme="http://www.yingyu5658.me/tags/%E9%86%89%E9%85%92%E5%93%88%E5%9F%BA%E7%B1%B3/"/>
     
     <category term="服务器" scheme="http://www.yingyu5658.me/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
-    <category term="醉酒哈基米" scheme="http://www.yingyu5658.me/tags/%E9%86%89%E9%85%92%E5%93%88%E5%9F%BA%E7%B1%B3/"/>
-    
     <category term="Terraria" scheme="http://www.yingyu5658.me/tags/Terraria/"/>
+    
+    <category term="教程" scheme="http://www.yingyu5658.me/tags/%E6%95%99%E7%A8%8B/"/>
     
     <category term="泰拉瑞亚" scheme="http://www.yingyu5658.me/tags/%E6%B3%B0%E6%8B%89%E7%91%9E%E4%BA%9A/"/>
     
@@ -1529,13 +1624,13 @@
     <category term="游戏娱乐" scheme="http://www.yingyu5658.me/categories/%E6%B8%B8%E6%88%8F%E5%A8%B1%E4%B9%90/"/>
     
     
+    <category term="醉酒哈基米" scheme="http://www.yingyu5658.me/tags/%E9%86%89%E9%85%92%E5%93%88%E5%9F%BA%E7%B1%B3/"/>
+    
     <category term="服务器" scheme="http://www.yingyu5658.me/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
     <category term="Minecraft" scheme="http://www.yingyu5658.me/tags/Minecraft/"/>
     
     <category term="我的世界" scheme="http://www.yingyu5658.me/tags/%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C/"/>
-    
-    <category term="醉酒哈基米" scheme="http://www.yingyu5658.me/tags/%E9%86%89%E9%85%92%E5%93%88%E5%9F%BA%E7%B1%B3/"/>
     
     <category term="Terraria" scheme="http://www.yingyu5658.me/tags/Terraria/"/>
     
@@ -1567,9 +1662,9 @@
     <category term="网站瞎折腾" scheme="http://www.yingyu5658.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/%E7%BD%91%E7%AB%99%E7%9E%8E%E6%8A%98%E8%85%BE/"/>
     
     
-    <category term="Hexo" scheme="http://www.yingyu5658.me/tags/Hexo/"/>
-    
     <category term="教程" scheme="http://www.yingyu5658.me/tags/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="Hexo" scheme="http://www.yingyu5658.me/tags/Hexo/"/>
     
   </entry>
   
