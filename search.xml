@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>C语言的头文件与OOP范式的抽象类、接口的异同点</title>
+      <link href="/post/3508058237/"/>
+      <url>/post/3508058237/</url>
+      
+        <content type="html"><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>说真的，从去年十一月份开始接触编程，到现在也好几个月了，自认为进步速度较快，但速度快也就导致了深度浅，走马观花式的学习，现在还是有很多理解不深刻的点，今天来仔细研究一下这个问题。我也是先入为主，第一门编程语言学的是Java，所以再接触C，一些概念就混淆了。</p><h2 id="C语言模块化设计的核心"><a href="#C语言模块化设计的核心" class="headerlink" title="C语言模块化设计的核心"></a>C语言模块化设计的核心</h2><p>头文件本质是对外提供的接口<strong>契约</strong>，包含函数声明、宏定义、结构体类型声明。例如：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// math_utils.h</span></span><br><span class="line"><span class="meta">#<span class="keyword">ifndef</span> MATH_UTILS_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MATH_UTILS_H</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">add</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span>;  <span class="comment">// 函数声明</span></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure><ul><li>编译隔离：通过头文件守卫(#ifndef)实现模块之间的编译隔离。</li><li>虽然头文件可以实现函数，但这会破坏模块化。</li></ul><h3 id="模块化实现规范"><a href="#模块化实现规范" class="headerlink" title="模块化实现规范"></a>模块化实现规范</h3><ul><li>源文件承载具体实现，通过包含对应头文件实现联系</li><li>模块间通过<code>extern</code>关键字声明共享全局变量（谨慎使用）</li></ul><h2 id="面向对象中的抽象机制"><a href="#面向对象中的抽象机制" class="headerlink" title="面向对象中的抽象机制"></a>面向对象中的抽象机制</h2><p>抽象类可以包含部分实现，它的目的是：<strong>描述一个公共基类，有共同的特征，有部分方法实现，但另一部分依赖子类自行实现</strong>。</p><p>接口是一系列方法的声明，一个接口就是在描述一种能力。</p><p>设计目标上，抽象类为了代码复用+多台，而接口是行为契约。</p><h2 id="设计范式对比"><a href="#设计范式对比" class="headerlink" title="设计范式对比"></a>设计范式对比</h2><h3 id="C模块化-vs-OOP抽象"><a href="#C模块化-vs-OOP抽象" class="headerlink" title="C模块化 vs OOP抽象"></a>C模块化 vs OOP抽象</h3><ul><li>抽象粒度：C模块关注功能单元（做什么），而OOP抽象关注对象行为契约（是谁做什么）</li><li>扩展方式：C通过函数指针传递上下文，OOP通过继承、实现扩展。</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C语言 </tag>
+            
+            <tag> 面向对象编程 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Emacs配置记录 2——C/C++环境配置</title>
       <link href="/post/24667834/"/>
       <url>/post/24667834/</url>
@@ -891,11 +918,11 @@
       
         <tags>
             
+            <tag> 面向对象编程 </tag>
+            
             <tag> 软件开发 </tag>
             
             <tag> 程序开发 </tag>
-            
-            <tag> 面向对象编程 </tag>
             
         </tags>
       
@@ -1849,17 +1876,6 @@
     
     
     <entry>
-      <title>关于</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
-      
-        <content type="html"><![CDATA[<ul><li>11年生人的小孩。</li><li>爱好画画、弹琴、观察人类。</li><li>有一定智商情商</li><li>如果哪天你发现这个博客没了，那可能我也没了</li></ul><p>我的PGP指纹是 <code>0BEAA0E01519D8311A2939E801627883DEB774D8</code></p><p>可以通过以下命令导入：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sL https://www.yingyu5658.me/pgp/public-key.asc | gpg --import</span><br></pre></td></tr></table></figure><!-- 随时欢迎双向友链申请，**若无Github账号，无法评论，请发送邮件**。### 站点信息- 博客系统：Hexo- 部署方案：Github Page托管页面 + Vercel加速内地访问## 建站初心在互联网这摊臭味横生的化粪池外有着自己的世外桃源很酷，不是吗？## 个人趣闻### ID由来小时候玩MC，国际版。因为ID要用英文，就随便拼了个yingyu，因为重复自动生成的5658，其他游戏也不知道该叫什么，就继续沿用，到后来，各种软件、网站、社交平台都叫yingy5658了。曾用名yingyu谐音嘤鱼，后弃用。认识我比较早的朋友会称呼我为银鱼。### 逐步深入~~(坠入深渊)~~学习的经历- 对这些东西都好奇心来源于小时候上课用的一台旧电脑，玩VBS脚本（万恶之源了属于是233）- 在某机构学Scratch- 2019年左右在某个MC服务器担任管理员，了解到了更多服务器运维知识- 刷机PSP（现在想想我都不知道我怎么做到的）- 2020年左右在猿辅导学习过Python，不过现在看来完全无用- 2020-2022搭建MC、泰拉服务器- 2023用毛子的一个软件在平板上做博客，折腾内网穿透（成功）- 2023搭建出一个博客（已废弃）- 2024.11用Gmeek搭了一个博客（已废弃）  自学Java、前端  开发实用工具卢布卢  编写问卷调查页面- 2024.11.22在阿里云租服务器、域名。用Typecho搭建了一个博客- 2025.3为了省钱，把博客迁移到了Hexo。- 2025.3.15 注销备案。--><h3 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h3><p>Email: <a href="mailto:&#x79;&#x69;&#110;&#x67;&#x79;&#x75;&#x35;&#x36;&#53;&#x38;&#64;&#x6f;&#117;&#x74;&#x6c;&#x6f;&#111;&#x6b;&#46;&#x63;&#x6f;&#x6d;">yingyu5658@outlook.com</a></p><blockquote><p>最后更新：2025-6-1</p></blockquote>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>archives</title>
       <link href="/archives/index.html"/>
       <url>/archives/index.html</url>
@@ -1871,22 +1887,11 @@
     
     
     <entry>
-      <title>category</title>
-      <link href="/category/index.html"/>
-      <url>/category/index.html</url>
+      <title>关于</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
       
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/links/index.html"/>
-      <url>/links/index.html</url>
-      
-        <content type="html"><![CDATA[<h1 id="MRZHU的小站-———-向着计算物理出发吧！"><a href="#MRZHU的小站-———-向着计算物理出发吧！" class="headerlink" title="MRZHU的小站 ——— 向着计算物理出发吧！"></a><a href="https://www.sifangbazhu.tech/">MRZHU的小站 ——— 向着计算物理出发吧！</a></h1><h1 id="RhoPaperの小站-———-纸至执"><a href="#RhoPaperの小站-———-纸至执" class="headerlink" title="RhoPaperの小站 ——— 纸至执"></a><a href="https://rhopaper.top/">RhoPaperの小站 ——— 纸至执</a></h1><h1 id="Geneliunx-———-行胜于言"><a href="#Geneliunx-———-行胜于言" class="headerlink" title="Geneliunx ——— 行胜于言"></a><a href="https://geneliunx.com/">Geneliunx ——— 行胜于言</a></h1><h1 id="PRIN-BLOG-———-半吊子全栈开发者的日常"><a href="#PRIN-BLOG-———-半吊子全栈开发者的日常" class="headerlink" title="PRIN BLOG ——— 半吊子全栈开发者的日常"></a><a href="https://printempw.github.io/">PRIN BLOG ——— 半吊子全栈开发者的日常</a></h1>]]></content>
+        <content type="html"><![CDATA[<ul><li>11年生人的小孩。</li><li>爱好画画、弹琴、观察人类。</li><li>有一定智商情商</li><li>如果哪天你发现这个博客没了，那可能我也没了</li></ul><p>我的PGP指纹是 <code>0BEAA0E01519D8311A2939E801627883DEB774D8</code></p><p>可以通过以下命令导入：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sL https://www.yingyu5658.me/pgp/public-key.asc | gpg --import</span><br></pre></td></tr></table></figure><!-- 随时欢迎双向友链申请，**若无Github账号，无法评论，请发送邮件**。### 站点信息- 博客系统：Hexo- 部署方案：Github Page托管页面 + Vercel加速内地访问## 建站初心在互联网这摊臭味横生的化粪池外有着自己的世外桃源很酷，不是吗？## 个人趣闻### ID由来小时候玩MC，国际版。因为ID要用英文，就随便拼了个yingyu，因为重复自动生成的5658，其他游戏也不知道该叫什么，就继续沿用，到后来，各种软件、网站、社交平台都叫yingy5658了。曾用名yingyu谐音嘤鱼，后弃用。认识我比较早的朋友会称呼我为银鱼。### 逐步深入~~(坠入深渊)~~学习的经历- 对这些东西都好奇心来源于小时候上课用的一台旧电脑，玩VBS脚本（万恶之源了属于是233）- 在某机构学Scratch- 2019年左右在某个MC服务器担任管理员，了解到了更多服务器运维知识- 刷机PSP（现在想想我都不知道我怎么做到的）- 2020年左右在猿辅导学习过Python，不过现在看来完全无用- 2020-2022搭建MC、泰拉服务器- 2023用毛子的一个软件在平板上做博客，折腾内网穿透（成功）- 2023搭建出一个博客（已废弃）- 2024.11用Gmeek搭了一个博客（已废弃）  自学Java、前端  开发实用工具卢布卢  编写问卷调查页面- 2024.11.22在阿里云租服务器、域名。用Typecho搭建了一个博客- 2025.3为了省钱，把博客迁移到了Hexo。- 2025.3.15 注销备案。--><h3 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h3><p>Email: <a href="mailto:&#121;&#105;&#x6e;&#103;&#x79;&#x75;&#53;&#x36;&#x35;&#56;&#64;&#111;&#x75;&#x74;&#x6c;&#x6f;&#111;&#107;&#46;&#99;&#x6f;&#109;">yingyu5658@outlook.com</a></p><blockquote><p>最后更新：2025-6-1</p></blockquote>]]></content>
       
     </entry>
     
@@ -1904,9 +1909,20 @@
     
     
     <entry>
-      <title>search</title>
-      <link href="/search/index.html"/>
-      <url>/search/index.html</url>
+      <title></title>
+      <link href="/links/index.html"/>
+      <url>/links/index.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="MRZHU的小站-———-向着计算物理出发吧！"><a href="#MRZHU的小站-———-向着计算物理出发吧！" class="headerlink" title="MRZHU的小站 ——— 向着计算物理出发吧！"></a><a href="https://www.sifangbazhu.tech/">MRZHU的小站 ——— 向着计算物理出发吧！</a></h1><h1 id="RhoPaperの小站-———-纸至执"><a href="#RhoPaperの小站-———-纸至执" class="headerlink" title="RhoPaperの小站 ——— 纸至执"></a><a href="https://rhopaper.top/">RhoPaperの小站 ——— 纸至执</a></h1><h1 id="Geneliunx-———-行胜于言"><a href="#Geneliunx-———-行胜于言" class="headerlink" title="Geneliunx ——— 行胜于言"></a><a href="https://geneliunx.com/">Geneliunx ——— 行胜于言</a></h1><h1 id="PRIN-BLOG-———-半吊子全栈开发者的日常"><a href="#PRIN-BLOG-———-半吊子全栈开发者的日常" class="headerlink" title="PRIN BLOG ——— 半吊子全栈开发者的日常"></a><a href="https://printempw.github.io/">PRIN BLOG ——— 半吊子全栈开发者的日常</a></h1>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>category</title>
+      <link href="/category/index.html"/>
+      <url>/category/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -1926,9 +1942,20 @@
     
     
     <entry>
+      <title>search</title>
+      <link href="/search/index.html"/>
+      <url>/search/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>不成文</title>
-      <link href="/unwitten/index.html"/>
-      <url>/unwitten/index.html</url>
+      <link href="/unwritten/index.html"/>
+      <url>/unwritten/index.html</url>
       
         <content type="html"><![CDATA[<p>这里用于存放一些不成文的摄影图片、语段。</p><hr><p><img src="/../images/%E5%9D%90%E9%98%B1%E8%A7%82%E5%A4%A9.jpg" alt="坐阱观天"><br>2025.5.31</p><hr>]]></content>
       
