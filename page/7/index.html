@@ -1,59 +1,1670 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="yingyu5658的数字花园"><title>映屿 | yingyu5658的数字花园</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="https://unpkg.com/normalize.css"><link rel="stylesheet" type="text/css" href="https://unpkg.com/purecss/build/pure-min.css"><link rel="stylesheet" type="text/css" href="https://unpkg.com/purecss/build/grids-responsive-min.css"><link rel="stylesheet" href="https://unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="https://unpkg.com/jquery/dist/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script type="text/javascript" src="https://unpkg.com/clipboard/dist/clipboard.min.js"></script><script type="text/javascript" src="https://unpkg.com/toastr/build/toastr.min.js"></script><link rel="stylesheet" href="https://unpkg.com/toastr/build/toastr.min.css"><div class="darkmode-toggle">🌓</div><script>var prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)');
-var toggle = document.querySelector('.darkmode-toggle');
-var html = document.querySelector('html');
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="yingyu5658的数字花园">
+<meta property="og:type" content="website">
+<meta property="og:title" content="映屿">
+<meta property="og:url" content="http://www.yingyu5658.me/page/7/index.html">
+<meta property="og:site_name" content="映屿">
+<meta property="og:description" content="yingyu5658的数字花园">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="yingyu5658">
+<meta property="article:tag" content="java,javascript,web,cpp,c,c#,csharp,.net,minecraft,我的世界,mc,服务器运维,泰拉瑞亚,服务器,linux,美术,二次元,素描,动漫,孤独摇滚,建站,编程,网站开发,程序开发,醉酒哈基米,yingyu5658">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/static/avatar.png">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/static/avatar.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/">
+        
+      
+    
+    <!-- title -->
+    <title>映屿</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
 
-html.dataset.dark = localStorage.dark || prefersDarkMode.matches;
 
-toggle.addEventListener('click', () => {
-localStorage.dark = !(html.dataset.dark == 'true');
-html.dataset.dark = localStorage.dark;
-});</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">映屿</h1><a id="logo" href="/.">映屿</a><p class="description">yingyu5658的数字花园</p></div><div id="nav-menu"><a href="/./"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/unwitten/"><i class="fa fa-camera"> 不成文</i></a><a href="/message/"><i class="fa fa-comments"> 留言</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title"><a href="/post/742638195/">醉酒哈基米寒假开服活动Q&amp;amp;A</a></h1><div class="post-meta">2024-12-08</div><div class="post-content">醉酒哈基米寒假联机活动为打发时间，提升群友之间的羁绊，2024年寒假特举行泰拉瑞亚&#x2F;我的世界服务器活动。
-对于有可能出现的疑问，下方都做了详细的解答，文档中没有的问题可直接咨询我。
-服务器相关疑问收费相关为什么要收费？公益服务器的支出太大了，保证很多人玩，又要保证流畅不卡顿，对服务器的性能要求很高。而且服务器维护的时间成本也很高。大家每个人都投点资...</div><p class="readmore"><a href="/post/742638195/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/post/2530852277/">【Hexo】配置好服务器后如何发表编辑好的文章？</a></h1><div class="post-meta">2024-12-08</div><div class="post-content">
-hexo s 先在本地预览一下文章，如果都好了就进入下一步。
-hexo clean 清除缓存
-hexo g 生成文件
-hexo d 部署
+    <!-- Umami Analytics -->
 
-等待部署完成后刷新页面就好了
 
-</div><p class="readmore"><a href="/post/2530852277/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/post/3093271062/">记录Hexo搭建博客</a></h1><div class="post-meta">2024-12-07</div><div class="post-content">前言我今天在写网页的时候突然发现我居然忘了一些标签的使用格式，只好打开搜索引擎一顿复习。我正在寻找一种更高效的复习方式。
-我现在的网站风格发布大量的技术文章有点突兀。
-于是，搭建一个专门用于整理技术的网站的想法浮现在我的脑海中。
-思想挣扎了一段时间，我考虑了一下他的意义：
-1.如果我再搭建一个网站，那我现在这个站点还有什么意义？
-   如果不新建一个站点，那...</div><p class="readmore"><a href="/post/3093271062/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/post/841546109/">深刻认识面向对象</a></h1><div class="post-meta">2024-12-01</div><div class="post-content">面向对象编程的好处
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
 
-按照詹姆斯·高斯林的看法，世间万物都是对象。好比要出去旅游，你要找到车这个对象调用他的行驶功能使用来带你出去旅游。
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="https://www.yingyu5658.me/atom.xml" title="映屿" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<meta name="generator" content="Hexo 7.3.0"></head>
 
-所以面向对象编程的好处就是：符合人类思维习惯，编程更简单，更直观。
-程序中的对象到底是什么
-对象本质上是一种特殊的数据结构，很像数据库，但是数据库是持久存储的数据。体现出计算机各个学科的交叉。一开始设计的类就是一张表，后...</div><p class="readmore"><a href="/post/841546109/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/post/1091767210/">Java面向对象编程快速入门</a></h1><div class="post-meta">2024-12-01</div><div class="post-content">什么是面向对象编程通俗易懂的说，就是把一坨一坨的数据放到一起存储比如要存储一个学生的语文成绩和数学成绩新建一个类
-12345678910111213public class Student &#123;    String name;//名字    double chinese;//语文成绩    double math;//数学成绩    public v...</div><p class="readmore"><a href="/post/1091767210/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/post/1642973481/">Java方法的传参原理</a></h1><div class="post-meta">2024-11-30</div><div class="post-content">Java方法的参数传递机制-基本类型值传递
-值传递是什么在传输实参给方法的形参的时候，传输的是实参变量中存储的副本说人话，把实参里面的东西赋值了一部分扔了给形参
-值传递具体理解案例1234567891011121314public class prameter &#123;    public static void main(String[] args) ...</div><p class="readmore"><a href="/post/1642973481/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/post/3073696125/">Java小程序之两数计算器</a></h1><div class="post-meta">2024-11-30</div><div class="post-content">这个案例是我练习方法的使用时做的，应该能有更好的方式实现这个功能。代码如下
-1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757...</div><p class="readmore"><a href="/post/3073696125/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/post/3033809787/">Java方法的基本使用</a></h1><div class="post-meta">2024-11-29</div><div class="post-content">方法是什么方法是一种语法结构，它可以把代码封装成一段功能，以便重复调用。
-方法的完整格式：
-例子：数字求和
-1234public static  int sum(int a,int b)&#123;    int c = a + b;    return c;&#125;
+<body class="max-width mx-auto px3 ltr">
+    
+    <div class="content index py4 h-card">
+        
+          <header id="header">
+  <a class="u-url u-uid" href="/">
+  
+    <div id="title">
+      <h1 class="p-name">映屿</h1>
+    </div>
+  </a>
+  <div id="nav">
+    <ul>
+      <li class="icon">
+        <a href="#" aria-label="目录"><i class="fa-solid fa-bars fa-2x"></i></a>
+      </li>
+      <!--
+     --><li><a href="/">首页</a></li><!--
+   --><!--
+     --><li><a href="/archives/">归档</a></li><!--
+   --><!--
+     --><li><a href="/categories">分类</a></li><!--
+   --><!--
+     --><li><a href="/about/">关于</a></li><!--
+   --><!--
+     --><li><a href="/links/">友链</a></li><!--
+   -->
+    </ul>
+  </div>
+</header>
 
-方法的调用：
-1int rs= sum(10,20);
+        
+        <section id="about" class="p-note">
+  
+    <p>yingyu5658的数字花园</p>
 
-方法使用的注意点：方法申明...</div><p class="readmore"><a href="/post/3033809787/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/post/45320503/">网站迁移</a></h1><div class="post-meta">2024-11-21</div><div class="post-content">原网站
+  
+  
+    <p>
+      在这里找到我：
+      
+      
+      
+        
+        
+          <a class="icon u-url" target="_blank" rel="noopener me" href="http://github.com/yingyu5658" aria-label="github" title="github">
+            <i class="fa-brands fa-github"></i><!--
+      ---></a><!--
+    ---><!--
+    ---> 和 
+        
+      
+        
+        
+          <a class="icon u-email" target="_blank" rel="noopener" href="mailto:yingyu5658@outlook.com" aria-label="mail" title="mail">
+            <i class="fa-solid fa-envelope"></i><!--
+      ---></a>
+        <!--
+    --->.
+        
+      
+    </p>
+  
+</section>
 
-yingyu5658.github.io
+<section id="writing">
+  <span class="h1"><a href="/">文章</a></span>
+  
+  <ul class="post-list">
+    
+    
+      
+    
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-06-07T05:08:07.000Z" class="dt-published" itemprop="datePublished">2025-06-07</time>
+        
+      
+    </div>
 
-将会迁移到这里。我会把有价值的文章转过来原因仅仅是gmeek有点太简陋了，虽然typecho也差不多，不过他可以折腾一下主题之类的，并且我每个月还多花出去九十大洋。但是总比gmeek逼格高点吧。不得不说，Linux绝对是世界上最麻烦的玩意，解压下载文件都费劲。要不是Windows资源占用多我绝对不会去用这...</div><p class="readmore"><a href="/post/45320503/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/post/3402853196/">我的4k进步史</a></h1><div class="post-meta">2024-11-13</div><div class="post-content">截止到目前玩4k也有一年多了，整理一下我的进步历程，给迷茫中的各位一点参考
-常规段
-2023.5.20 一个别人在和女人亲亲抱抱的日子，我孤身一人在玩4k并且pass掉0dan，开启了漫长的4k之路……
-2023.6.4 Regular 1 pass
-2023.6.22 Regular 2 pass
-2023.6.25 Regular 3 pass
-2023...</div><p class="readmore"><a href="/post/3402853196/">阅读全文</a></p></div><nav class="page-navigator"><a class="extend prev" rel="prev" href="/page/6/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/8/">下一页</a></nav></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"/><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/post/3691550015/">杂记#2025-06-06</a></li><li class="post-list-item"><a class="post-list-link" href="/post/3508058237/">C语言的头文件与OOP范式的抽象类、接口的异同点</a></li><li class="post-list-item"><a class="post-list-link" href="/post/24667834/">Emacs配置记录 2——C/C++环境配置</a></li><li class="post-list-item"><a class="post-list-link" href="/post/2888969971/">【星落】关于我对命运既定的想法</a></li><li class="post-list-item"><a class="post-list-link" href="/post/393175956/">我还是放不下Emacs！</a></li><li class="post-list-item"><a class="post-list-link" href="/post/2245964304/">猫</a></li><li class="post-list-item"><a class="post-list-link" href="/post/472869193/">Electron CommonJS require踩坑</a></li><li class="post-list-item"><a class="post-list-link" href="/post/1518948190/">面向对象与面向过程的本质区别</a></li><li class="post-list-item"><a class="post-list-link" href="/post/3860811249/">【数据结构与算法】力扣#1 两数之和——暴力法&哈希表法</a></li><li class="post-list-item"><a class="post-list-link" href="/post/971437699/">【数据结构与算法】哈希表</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ACGN/">ACGN</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a><span class="category-list-count">54</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%95%E7%A8%BF/">投稿</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E5%B8%B8/">日常</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a><span class="category-list-count">10</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://www.sifangbazhu.tech/" title="MRZHU的小站" target="_blank">MRZHU的小站</a><ul></ul><a href="https://rhopaper.top/" title="RhoPaperの小站" target="_blank">RhoPaperの小站</a><ul></ul><a href="https://geneliunx.com/" title="Geneliunx" target="_blank">Geneliunx</a><ul></ul><a href="https://printempw.github.io/" title="PRIN BLOG" target="_blank">PRIN BLOG</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2025 <a href="/." rel="nofollow">映屿.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=1.0.0" async></script><script type="text/javascript" src="https://unpkg.com/@fancyapps/fancybox/dist/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=1.0.0" async></script><link rel="stylesheet" type="text/css" href="https://unpkg.com/@fancyapps/fancybox/dist/jquery.fancybox.min.css"><link rel="stylesheet" type="text/css" href="/css/search.css?v=1.0.0"><script type="text/javascript" src="/js/search.js?v=1.0.0"></script><script>var search_path = 'search.xml';
-if (search_path.length == 0) {
-  search_path = 'search.xml';
-}
-var path = '/' + search_path;
-searchFunc(path, 'local-search-input', 'local-search-result');
-</script><script type="text/javascript" src="/js/copycode.js?v=1.0.0" successtext="复制成功！"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css?v=1.0.0"><script type="text/javascript" src="/js/codeblock-resizer.js?v=1.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=1.0.0"></script></div></body></html>
+
+        <span>
+    
+        <a class="" href="/post/594023371/">4Key音游段位单曲成绩计算的程序实现</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-06-06T15:19:56.000Z" class="dt-published" itemprop="datePublished">2025-06-06</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/3691550015/">杂记#2025-06-06</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-06-06T12:16:56.000Z" class="dt-published" itemprop="datePublished">2025-06-06</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/3508058237/">C语言的头文件与OOP范式的抽象类、接口的异同点</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-06-04T10:58:37.000Z" class="dt-published" itemprop="datePublished">2025-06-04</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/24667834/">Emacs配置记录 2——C/C++环境配置</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-06-03T12:47:13.000Z" class="dt-published" itemprop="datePublished">2025-06-03</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/2888969971/">【星落】关于我对命运既定的想法</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-06-03T12:07:15.000Z" class="dt-published" itemprop="datePublished">2025-06-03</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/393175956/">我还是放不下Emacs！</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-06-01T12:36:05.000Z" class="dt-published" itemprop="datePublished">2025-06-01</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/2245964304/">猫</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-05-31T01:07:36.000Z" class="dt-published" itemprop="datePublished">2025-05-31</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/472869193/">Electron CommonJS require踩坑</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-05-29T13:21:36.000Z" class="dt-published" itemprop="datePublished">2025-05-29</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/1518948190/">面向对象与面向过程的本质区别</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-05-29T11:51:17.000Z" class="dt-published" itemprop="datePublished">2025-05-29</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/3860811249/">【数据结构与算法】力扣#1 两数之和——暴力法&amp;哈希表法</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-05-28T13:44:28.000Z" class="dt-published" itemprop="datePublished">2025-05-28</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/971437699/">【数据结构与算法】哈希表</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-05-28T12:27:55.000Z" class="dt-published" itemprop="datePublished">2025-05-28</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/2981262757/">感谢恩师夸奖</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-05-27T11:41:53.000Z" class="dt-published" itemprop="datePublished">2025-05-27</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/2344272299/">【数据结构与算法】众数、中位数</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-05-26T10:55:29.000Z" class="dt-published" itemprop="datePublished">2025-05-26</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/2523582669/">高效率的沟通绝不会从在吗开始</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-05-25T10:46:37.000Z" class="dt-published" itemprop="datePublished">2025-05-25</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/1421131593/">【数据结构与算法】二叉树</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-05-20T11:48:56.000Z" class="dt-published" itemprop="datePublished">2025-05-20</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/460449479/">“我有厌蠢症”</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-05-19T13:53:10.000Z" class="dt-published" itemprop="datePublished">2025-05-19</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/493132927/">这样的博客的意义是？</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-05-13T09:00:07.000Z" class="dt-published" itemprop="datePublished">2025-05-13</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/12562222/">Sonic Cube声卡开箱</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-05-12T10:56:36.000Z" class="dt-published" itemprop="datePublished">2025-05-12</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/908639301/">在VSCode上搭建C51单片机开发环境</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-05-11T02:09:21.000Z" class="dt-published" itemprop="datePublished">2025-05-11</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/3557841346/">【数据结构与算法】栈</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-05-10T12:06:05.000Z" class="dt-published" itemprop="datePublished">2025-05-10</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/403994443/">【数据结构与算法】冒泡排序</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-05-09T11:51:18.000Z" class="dt-published" itemprop="datePublished">2025-05-09</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/1211829201/">IDEA2025.1最新破解教程 无需扫码关注任何公众号</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-04-29T05:44:13.000Z" class="dt-published" itemprop="datePublished">2025-04-29</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/2938437705/">x86-64汇编学习笔记</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-04-29T02:31:26.000Z" class="dt-published" itemprop="datePublished">2025-04-29</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/570074617/">WSL Arch Linux ZSH输入中文&lt;0xffffffff&gt;解决方法</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-04-29T02:02:49.000Z" class="dt-published" itemprop="datePublished">2025-04-29</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/717508352/">Emacs EAF插件打开浏览器只显示opening http://xxx.xxx的解决方法</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-04-26T10:42:46.000Z" class="dt-published" itemprop="datePublished">2025-04-26</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/1767559137/">隐居</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-04-23T13:54:03.000Z" class="dt-published" itemprop="datePublished">2025-04-23</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/955127510/">Valine评论系统踩坑记录</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-04-19T10:42:29.000Z" class="dt-published" itemprop="datePublished">2025-04-19</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/2718133590/">攒钱目标达成？！</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-04-19T07:20:19.000Z" class="dt-published" itemprop="datePublished">2025-04-19</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/2296531966/">【黑历史】读自己以前写的代码</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-04-15T13:15:24.000Z" class="dt-published" itemprop="datePublished">2025-04-15</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/2799171278/">从0开始搭建自己的终端开发环境</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-04-13T04:15:33.000Z" class="dt-published" itemprop="datePublished">2025-04-13</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/2193909713/">初折腾Emacs记录</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-04-11T18:10:41.000Z" class="dt-published" itemprop="datePublished">2025-04-12</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/2388259561/">盼望下雨</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-04-11T14:29:23.000Z" class="dt-published" itemprop="datePublished">2025-04-11</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/3260068752/">osu!APIv1请求示例</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-04-11T12:13:20.000Z" class="dt-published" itemprop="datePublished">2025-04-11</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/1557917560/">我的攒钱计划</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-04-08T12:18:36.000Z" class="dt-published" itemprop="datePublished">2025-04-08</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/3993050935/">思想驯化不是艺术</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-04-06T09:58:48.000Z" class="dt-published" itemprop="datePublished">2025-04-06</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/4108562128/">把主力机系统换成Arch Linux是我这辈子做过的最蠢的决定</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-03-30T02:47:35.000Z" class="dt-published" itemprop="datePublished">2025-03-30</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/964047394/">上帝类是什么？该如何避免上帝类？</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-03-24T12:37:38.000Z" class="dt-published" itemprop="datePublished">2025-03-24</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/2682509886/">安装配置Rime输入法</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-03-22T10:56:33.000Z" class="dt-published" itemprop="datePublished">2025-03-22</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/2367638025/">Nodejs环境下控制台拼接字符串输出有undefind</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-03-21T00:17:54.000Z" class="dt-published" itemprop="datePublished">2025-03-21</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/3995609697/">光速破解作文网站禁止复制</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-03-18T11:37:25.000Z" class="dt-published" itemprop="datePublished">2025-03-18</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/53701281/">人话简单理解八下遗传之生物的遗传变异</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-03-09T12:18:36.000Z" class="dt-published" itemprop="datePublished">2025-03-09</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/2215014205/">Linux排错手札：从日志深渊到问题核心的修炼指南</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-03-09T04:41:10.000Z" class="dt-published" itemprop="datePublished">2025-03-09</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/2218331126/">Kitty终端美化记录</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-03-08T14:07:58.000Z" class="dt-published" itemprop="datePublished">2025-03-08</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/3134572074/">KDE桌面环境无法在Konsole切换中文输入法的解决方案</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-03-05T13:17:42.000Z" class="dt-published" itemprop="datePublished">2025-03-05</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/1008281873/">【无废话】全网最简单的Hexo+Obsidain图片解决方案</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-03-04T12:58:30.000Z" class="dt-published" itemprop="datePublished">2025-03-04</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/1348465439/">【未解决】Windows WSL报错：Error: 0x80080005 ???????</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-03-04T02:13:10.000Z" class="dt-published" itemprop="datePublished">2025-03-04</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/3385388897/">CSS鼠标指针操作</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-02-15T12:25:00.000Z" class="dt-published" itemprop="datePublished">2025-02-15</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/1615110437/">孤独摇滚第二季制作决定发布</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-01-24T09:57:12.000Z" class="dt-published" itemprop="datePublished">2025-01-24</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/2655802011/">分享一个css响应式模板</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-01-22T10:13:27.000Z" class="dt-published" itemprop="datePublished">2025-01-22</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/3400972171/">开箱即用的neovim配置文件</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-01-10T07:05:00.000Z" class="dt-published" itemprop="datePublished">2025-01-10</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/2251989209/">Java面向对象编程——多态、抽象类、接口</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-01-10T05:19:11.000Z" class="dt-published" itemprop="datePublished">2025-01-10</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/850254895/">Java面向对象编程——继承</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-01-08T10:14:26.000Z" class="dt-published" itemprop="datePublished">2025-01-08</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/1302644923/">为什么我关闭了评论功能</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-01-08T09:26:00.000Z" class="dt-published" itemprop="datePublished">2025-01-08</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/1177643335/">修复Geyser下基岩版玩家无法在地狱基岩层放置方块</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-01-04T00:35:00.000Z" class="dt-published" itemprop="datePublished">2025-01-04</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/4161445720/">Spigot服务端控制台中文乱码解决方案</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2024-12-19T14:28:15.000Z" class="dt-published" itemprop="datePublished">2024-12-19</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/1413738899/">String的注意事项</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2024-12-19T08:42:00.000Z" class="dt-published" itemprop="datePublished">2024-12-19</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/837169233/">Java遍历字符串</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2024-12-18T08:30:00.000Z" class="dt-published" itemprop="datePublished">2024-12-18</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/1385380729/">面向对象编程总结</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2024-12-17T03:46:07.000Z" class="dt-published" itemprop="datePublished">2024-12-17</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/1636322595/">记录配置SSL证书</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2024-12-15T13:45:47.000Z" class="dt-published" itemprop="datePublished">2024-12-15</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/3097784315/">Typecho不要用阿里云系统镜像</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2024-12-13T12:26:00.000Z" class="dt-published" itemprop="datePublished">2024-12-13</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/4074028373/">游戏资源下载及连接服务器相关教程</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2024-12-13T08:13:36.000Z" class="dt-published" itemprop="datePublished">2024-12-13</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/2074174141/">Vim基础操作快速入门</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2024-12-08T11:31:00.000Z" class="dt-published" itemprop="datePublished">2024-12-08</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/742638195/">醉酒哈基米寒假开服活动Q&amp;amp;A</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2024-12-07T16:17:58.000Z" class="dt-published" itemprop="datePublished">2024-12-08</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/2530852277/">【Hexo】配置好服务器后如何发表编辑好的文章？</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2024-12-07T15:40:00.000Z" class="dt-published" itemprop="datePublished">2024-12-07</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/3093271062/">记录Hexo搭建博客</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2024-12-01T05:31:00.000Z" class="dt-published" itemprop="datePublished">2024-12-01</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/841546109/">深刻认识面向对象</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2024-12-01T05:05:00.000Z" class="dt-published" itemprop="datePublished">2024-12-01</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/1091767210/">Java面向对象编程快速入门</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2024-11-30T12:14:00.000Z" class="dt-published" itemprop="datePublished">2024-11-30</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/1642973481/">Java方法的传参原理</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2024-11-30T10:51:07.000Z" class="dt-published" itemprop="datePublished">2024-11-30</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/3073696125/">Java小程序之两数计算器</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2024-11-29T12:45:20.000Z" class="dt-published" itemprop="datePublished">2024-11-29</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/3033809787/">Java方法的基本使用</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2024-11-21T14:59:00.000Z" class="dt-published" itemprop="datePublished">2024-11-21</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/45320503/">网站迁移</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2024-11-12T19:41:00.000Z" class="dt-published" itemprop="datePublished">2024-11-13</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/3402853196/">我的4k进步史</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2024-03-03T07:40:00.000Z" class="dt-published" itemprop="datePublished">2024-03-03</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/post/64728457/">记录Typecho博客转移到Hexo</a>
+    
+
+
+</span>
+      </li>
+    
+  </ul>
+  
+</section>
+
+
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2025
+    yingyu5658
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/categories">分类</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/links/">友链</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
