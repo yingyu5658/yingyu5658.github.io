@@ -207,8 +207,28 @@
 <p>检查栈是否为空，返回当前栈顶元素后移动指针</p>
 <h3 id="辅助功能"><a href="#辅助功能" class="headerlink" title="辅助功能"></a>辅助功能</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 判空</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">is_empty</span><span class="params">(Stack *s)</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> s-&gt; top == <span class="number">-1</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 查看栈顶元素</span></span><br><span class="line"><span class="type">int</span> peek(Stack *s) &#123;</span><br><span class="line">  <span class="keyword">return</span> is_empty(s) ? <span class="number">-1</span> : s-&gt;data[s-&gt;top];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 销毁</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">destory_stack</span><span class="params">(Stack *S)</span> &#123;</span><br><span class="line">  <span class="built_in">free</span>(s-&gt;data);</span><br><span class="line">  s -&gt; top = <span class="number">-1</span>;</span><br><span class="line">  s -&gt; capacity = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
   </div>
+  
 </article>
 
+
+
+    <div class="blog-post-comments">
+        <script src="https://giscus.app/client.js"
+        data-repo="yingyu5658/yingyu5658.github.io"
+        data-repo-id="R_kgDOOBetsA"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOOBetsM4CoF_Z"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light_protanopia"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+    async>
+  </script>
+</div>
 
 
         

@@ -573,9 +573,9 @@
       
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> IDEA </tag>
+            
+            <tag> Java </tag>
             
             <tag> 破解 </tag>
             
@@ -1610,11 +1610,11 @@
       
         <tags>
             
+            <tag> 教程 </tag>
+            
             <tag> 服务器 </tag>
             
             <tag> Terraria </tag>
-            
-            <tag> 教程 </tag>
             
         </tags>
       
@@ -1660,9 +1660,9 @@
             
             <tag> 服务器 </tag>
             
-            <tag> Minecraft </tag>
-            
             <tag> Terraria </tag>
+            
+            <tag> Minecraft </tag>
             
         </tags>
       
@@ -1938,17 +1938,6 @@
     
     
     <entry>
-      <title>【数据结构与算法】链表</title>
-      <link href="/%E3%80%90%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E3%80%91%20%E5%8D%95%E9%93%BE%E8%A1%A8.html"/>
-      <url>/%E3%80%90%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E3%80%91%20%E5%8D%95%E9%93%BE%E8%A1%A8.html</url>
-      
-        <content type="html"><![CDATA[<p>链表（Linked List）是一种动态数据结构，通过指针将离散的节点连接成逻辑上连续的序列。</p><h2 id="结构定义"><a href="#结构定义" class="headerlink" title="结构定义"></a>结构定义</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 节点结构 </span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="type">int</span> data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span>* <span class="title">next</span>;</span> <span class="comment">// 指针域，指向下一个节点</span></span><br><span class="line">&#125; Node;</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="comment">// 链表结构</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    Node* head;</span><br><span class="line">&#125; LinkedList;</span><br></pre></td></tr></table></figure><p>这里的链表结构可以省略，直接使用头指针来管理，但我看的舒服点就写了一下。</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 初始化链表（头指针初始化为空）</span></span><br><span class="line">LinkedList* <span class="title function_">creatLinkedList</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    LinkedList* <span class="built_in">list</span> = (LinkedList**)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LinkedList));</span><br><span class="line">    <span class="built_in">list</span>-&gt;head = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">list</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>动态分配内存，初始化赋值</p><h2 id="新增节点"><a href="#新增节点" class="headerlink" title="新增节点"></a>新增节点</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建新节点</span></span><br><span class="line">Node* <span class="title function_">createNode</span><span class="params">(<span class="type">int</span> value)</span></span><br><span class="line">&#123;</span><br><span class="line">    Node* newNode = (Node*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node));</span><br><span class="line">    <span class="keyword">if</span>(newNode == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;内存分配失败\n&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    newNode-&gt;data = value;</span><br><span class="line">    newNode-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">return</span> newNode;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>创建新的结构体对象，动态分配内存，赋值。</p><h2 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h2><h3 id="头插法"><a href="#头插法" class="headerlink" title="头插法"></a>头插法</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">insertAtHead</span><span class="params">(LinkedList* <span class="built_in">list</span>,<span class="type">int</span> value)</span></span><br><span class="line">&#123;</span><br><span class="line">    Node* newNode = createNode(value);</span><br><span class="line">    newNode-&gt;next = <span class="built_in">list</span>-&gt;head; <span class="comment">// 新节点指向原头节点</span></span><br><span class="line">    <span class="built_in">list</span>-&gt;head = newNode; <span class="comment">// 更新头指针</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="尾插法"><a href="#尾插法" class="headerlink" title="尾插法"></a>尾插法</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 尾插</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">insertAtEnd</span><span class="params">(LinkedList *<span class="built_in">list</span>, <span class="type">int</span> value)</span></span><br><span class="line">&#123;</span><br><span class="line">    Node *newNode = createNode(value);</span><br><span class="line">    <span class="comment">// 空链表直接插入</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">list</span>-&gt;head == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">list</span>-&gt;head == newNode;</span><br><span class="line">    &#125;</span><br><span class="line">    Node *current = <span class="built_in">list</span>-&gt;head;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 遍历到最后一个节点</span></span><br><span class="line">    <span class="keyword">while</span> (current-&gt;next != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        current = current-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">    <span class="comment">// 尾节点指向新节点</span></span><br><span class="line">    current-&gt;next = newNode;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>归档</title>
       <link href="/archives/index.html"/>
       <url>/archives/index.html</url>
@@ -1960,11 +1949,22 @@
     
     
     <entry>
+      <title></title>
+      <link href="/TODO/2025-06-08.html"/>
+      <url>/TODO/2025-06-08.html</url>
+      
+        <content type="html"><![CDATA[<ul><li><input disabled="" type="checkbox"> 博客添加Github评论系统</li><li><input disabled="" type="checkbox"> 更新关于脚本同步博客配置、博客文章的新文章</li></ul>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>关于</title>
       <link href="/about/index.html"/>
       <url>/about/index.html</url>
       
-        <content type="html"><![CDATA[<h1 id="关于"><a href="#关于" class="headerlink" title="关于"></a>关于</h1><ul><li>11年生人的小孩。</li><li>爱好画画、贝斯、写点代码。</li><li>有一定智商情商</li><li>如果哪天你发现这个博客没了，那可能我也没了</li></ul><p>我的PGP指纹是 <code>0BEAA0E01519D8311A2939E801627883DEB774D8</code><br>可以通过以下命令导入：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sL https://www.yingyu5658.me/pgp/public-key.asc | gpg --import</span><br></pre></td></tr></table></figure><p>本站<strong>已关闭评论功能</strong><a href="https://www.yingyu5658.me/1302644923">（为什么？）</a>，若有想法想与我交流，可发送邮件到 <strong><a href="mailto:&#121;&#x69;&#110;&#103;&#x79;&#117;&#53;&#54;&#x35;&#56;&#64;&#x6f;&#x75;&#x74;&#108;&#111;&#x6f;&#x6b;&#46;&#99;&#x6f;&#x6d;">yingyu5658@outlook.com</a></strong> 或在<a href="https://waline.yingyu5658.me/">此页面</a>留言。</p><!-- 随时欢迎双向友链申请，**若无Github账号，无法评论，请发送邮件**。### 站点信息- 博客系统：Hexo- 部署方案：Github Page托管页面 + Vercel加速内地访问## 建站初心在互联网这摊臭味横生的化粪池外有着自己的世外桃源很酷，不是吗？## 个人趣闻### ID由来小时候玩MC，国际版。因为ID要用英文，就随便拼了个yingyu，因为重复自动生成的5658，其他游戏也不知道该叫什么，就继续沿用，到后来，各种软件、网站、社交平台都叫yingy5658了。曾用名yingyu谐音嘤鱼，后弃用。认识我比较早的朋友会称呼我为银鱼。### 逐步深入~~(坠入深渊)~~学习的经历- 对这些东西都好奇心来源于小时候上课用的一台旧电脑，玩VBS脚本（万恶之源了属于是233）- 在某机构学Scratch- 2019年左右在某个MC服务器担任管理员，了解到了更多服务器运维知识- 刷机PSP（现在想想我都不知道我怎么做到的）- 2020年左右在猿辅导学习过Python，不过现在看来完全无用- 2020-2022搭建MC、泰拉服务器- 2023用毛子的一个软件在平板上做博客，折腾内网穿透（成功）- 2023搭建出一个博客（已废弃）- 2024.11用Gmeek搭了一个博客（已废弃）  自学Java、前端  开发实用工具卢布卢  编写问卷调查页面- 2024.11.22在阿里云租服务器、域名。用Typecho搭建了一个博客- 2025.3为了省钱，把博客迁移到了Hexo。- 2025.3.15 注销备案。--><blockquote><p>最后更新：2025-6-8</p></blockquote>]]></content>
+        <content type="html"><![CDATA[<h1 id="关于"><a href="#关于" class="headerlink" title="关于"></a>关于</h1><ul><li>11年生人的小孩。</li><li>爱好画画、贝斯、写点代码。</li><li>有一定智商情商</li><li>如果哪天你发现这个博客没了，那可能我也没了</li></ul><p>我的PGP指纹是 <code>0BEAA0E01519D8311A2939E801627883DEB774D8</code><br>可以通过以下命令导入：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sL https://www.yingyu5658.me/pgp/public-key.asc | gpg --import</span><br></pre></td></tr></table></figure><!-- 随时欢迎双向友链申请，**若无Github账号，无法评论，请发送邮件**。### 站点信息- 博客系统：Hexo- 部署方案：Github Page托管页面 + Vercel加速内地访问## 建站初心在互联网这摊臭味横生的化粪池外有着自己的世外桃源很酷，不是吗？## 个人趣闻### ID由来小时候玩MC，国际版。因为ID要用英文，就随便拼了个yingyu，因为重复自动生成的5658，其他游戏也不知道该叫什么，就继续沿用，到后来，各种软件、网站、社交平台都叫yingy5658了。曾用名yingyu谐音嘤鱼，后弃用。认识我比较早的朋友会称呼我为银鱼。### 逐步深入~~(坠入深渊)~~学习的经历- 对这些东西都好奇心来源于小时候上课用的一台旧电脑，玩VBS脚本（万恶之源了属于是233）- 在某机构学Scratch- 2019年左右在某个MC服务器担任管理员，了解到了更多服务器运维知识- 刷机PSP（现在想想我都不知道我怎么做到的）- 2020年左右在猿辅导学习过Python，不过现在看来完全无用- 2020-2022搭建MC、泰拉服务器- 2023用毛子的一个软件在平板上做博客，折腾内网穿透（成功）- 2023搭建出一个博客（已废弃）- 2024.11用Gmeek搭了一个博客（已废弃）  自学Java、前端  开发实用工具卢布卢  编写问卷调查页面- 2024.11.22在阿里云租服务器、域名。用Typecho搭建了一个博客- 2025.3为了省钱，把博客迁移到了Hexo。- 2025.3.15 注销备案。--><blockquote><p>最后更新：2025-6-8</p></blockquote>]]></content>
       
     </entry>
     
@@ -1993,17 +1993,6 @@
     
     
     <entry>
-      <title>留言</title>
-      <link href="/messages/index.html"/>
-      <url>/messages/index.html</url>
-      
-        <content type="html"><![CDATA[<p>欢迎给我留言！</p>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title></title>
       <link href="/links/index.html"/>
       <url>/links/index.html</url>
@@ -2015,11 +2004,11 @@
     
     
     <entry>
-      <title>不成文</title>
-      <link href="/unwritten/index.html"/>
-      <url>/unwritten/index.html</url>
+      <title>留言</title>
+      <link href="/messages/index.html"/>
+      <url>/messages/index.html</url>
       
-        <content type="html"><![CDATA[<p>这里用于存放一些不成文的摄影图片、语段。</p><hr><p><img src="/../images/%E5%9D%90%E9%98%B1%E8%A7%82%E5%A4%A9.jpg" alt="坐阱观天"><br>2025.5.31</p><hr>]]></content>
+        <content type="html"><![CDATA[<p>欢迎给我留言！</p>]]></content>
       
     </entry>
     
@@ -2042,6 +2031,17 @@
       <url>/search/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>不成文</title>
+      <link href="/unwritten/index.html"/>
+      <url>/unwritten/index.html</url>
+      
+        <content type="html"><![CDATA[<p>这里用于存放一些不成文的摄影图片、语段。</p><hr><p><img src="/../../images/%E5%9D%90%E9%98%B1%E8%A7%82%E5%A4%A9.jpg" alt="坐阱观天"><br>2025.5.31</p><hr>]]></content>
       
     </entry>
     
