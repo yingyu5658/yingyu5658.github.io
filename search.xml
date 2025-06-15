@@ -8,7 +8,7 @@
       <link href="/post/1493508134/"/>
       <url>/post/1493508134/</url>
       
-        <content type="html"><![CDATA[<h2 id="操作系统做什么"><a href="#操作系统做什么" class="headerlink" title="操作系统做什么"></a>操作系统做什么</h2><ul><li>它取得并虚拟化CPU、内存或磁盘等物理资源。</li><li>处理并发问题。</li><li>持久地存储文件，使文件长期安全。</li></ul><h2 id="设计目标"><a href="#设计目标" class="headerlink" title="设计目标"></a>设计目标</h2><p>最基本的，建立一些抽象，让系统方便使用。将其划分为<strong>小而且容易理解的部分</strong>。</p><p>提供<strong>高性能</strong>，最小化系统开销。</p><p>提供程序保护，确保恶意或偶然的不良行为不会损害其他程序和系统本身，即隔离。让进程彼此隔离是关键。</p><p>不间断运行的能力，力求可靠性。</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="操作系统做什么"><a href="#操作系统做什么" class="headerlink" title="操作系统做什么"></a>操作系统做什么</h2><ul><li>它取得并虚拟化CPU、内存或磁盘等物理资源。</li><li>处理并发问题。</li><li>持久地存储文件，使文件长期安全。</li></ul><h2 id="设计目标"><a href="#设计目标" class="headerlink" title="设计目标"></a>设计目标</h2><p>最基本的，建立一些抽象，让系统方便使用。将其划分为<strong>小而且容易理解的部分</strong>。</p><p>提供<strong>高性能</strong>，最小化系统开销。</p><p>提供程序保护，确保恶意或偶然的不良行为不会损害其他程序和系统本身，即隔离。让进程彼此隔离是关键。</p><p>不间断运行的能力，力求可靠性。</p><h2 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>运行中的程序。</p><p>程序本身没有生命周期的概念，只是存储在磁盘上的指令和静态数据，操作系统让这些字节运行起来。</p><h3 id="虚拟化"><a href="#虚拟化" class="headerlink" title="虚拟化"></a>虚拟化</h3><p>操作系统通过虚拟化CPU来提供有无数CPU可用的假象。通过让一个进程只运行一个时间片，然后切换到其他进程，操作系统提供了存在多个虚拟CPU的假象，这就是<strong>时分共享CPU技术</strong>。允许用户运行多个并发进程，潜在的开销就是性能损失，因为CPU共享，每个进程的运行速度就会变慢。（受力面积和压强的关系）。</p><h3 id="进程API"><a href="#进程API" class="headerlink" title="进程API"></a>进程API</h3><ul><li><p>创建（create）：调用系统操作来创建新进程。</p></li><li><p>销毁（destroy）：强制销毁进程，大部分程序会再结束后自动退出，但如果用户想终止，这个接口很有用。</p></li><li><p>等待（wait）：等待进程停止运行。</p></li><li><p>状态（status）：获得有关进程的状态信息，如运行时间等。</p></li><li><p>其他控制（miscellaneous control）：除了杀死和等待进程外还有其他控制，如暂停。</p></li></ul><blockquote><p>[!NOTE]<br>书签：P21 4.3</p></blockquote>]]></content>
       
       
       <categories>
@@ -850,9 +850,9 @@
       
         <tags>
             
-            <tag> Hexo </tag>
-            
             <tag> 博客 </tag>
+            
+            <tag> Hexo </tag>
             
             <tag> 网站运维 </tag>
             
@@ -1006,9 +1006,9 @@
       
         <tags>
             
-            <tag> 游戏 </tag>
-            
             <tag> Nodejs </tag>
+            
+            <tag> 游戏 </tag>
             
             <tag> JavaScript </tag>
             
@@ -1243,9 +1243,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 运维 </tag>
             
@@ -1328,9 +1328,9 @@
       
         <tags>
             
-            <tag> Hexo </tag>
-            
             <tag> 博客 </tag>
+            
+            <tag> Hexo </tag>
             
             <tag> Obsidain </tag>
             
@@ -1567,11 +1567,11 @@
       
         <tags>
             
+            <tag> Java </tag>
+            
             <tag> 服务器 </tag>
             
             <tag> Minecraft </tag>
-            
-            <tag> Java </tag>
             
             <tag> Geyser </tag>
             
@@ -1598,11 +1598,11 @@
       
         <tags>
             
+            <tag> Java </tag>
+            
             <tag> 服务器 </tag>
             
             <tag> Minecraft </tag>
-            
-            <tag> Java </tag>
             
         </tags>
       
@@ -1758,9 +1758,9 @@
       
         <tags>
             
-            <tag> 教程 </tag>
-            
             <tag> 服务器 </tag>
+            
+            <tag> 教程 </tag>
             
             <tag> Terraria </tag>
             
@@ -1808,9 +1808,9 @@
             
             <tag> 服务器 </tag>
             
-            <tag> Terraria </tag>
-            
             <tag> Minecraft </tag>
+            
+            <tag> Terraria </tag>
             
         </tags>
       
@@ -1835,9 +1835,9 @@
       
         <tags>
             
-            <tag> 教程 </tag>
-            
             <tag> Hexo </tag>
+            
+            <tag> 教程 </tag>
             
         </tags>
       
@@ -1862,9 +1862,9 @@
       
         <tags>
             
-            <tag> Hexo </tag>
-            
             <tag> 博客 </tag>
+            
+            <tag> Hexo </tag>
             
         </tags>
       
@@ -2086,17 +2086,6 @@
     
     
     <entry>
-      <title>关于</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
-      
-        <content type="html"><![CDATA[<h1 id="关于"><a href="#关于" class="headerlink" title="关于"></a>关于</h1><ul><li>11年生人的小孩。</li><li>爱好画画、贝斯、写点代码。</li><li>有一定智商情商</li><li>如果哪天你发现这个博客没了，那可能我也没了</li></ul><p>我的PGP指纹是 <code>0BEAA0E01519D8311A2939E801627883DEB774D8</code><br>可以通过以下命令导入：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sL https://www.yingyu5658.me/pgp/public-key.asc | gpg --import</span><br></pre></td></tr></table></figure><!-- 随时欢迎双向友链申请，**若无Github账号，无法评论，请发送邮件**。### 站点信息- 博客系统：Hexo- 部署方案：Github Page托管页面 + Vercel加速内地访问## 建站初心在互联网这摊臭味横生的化粪池外有着自己的世外桃源很酷，不是吗？## 个人趣闻### ID由来小时候玩MC，国际版。因为ID要用英文，就随便拼了个yingyu，因为重复自动生成的5658，其他游戏也不知道该叫什么，就继续沿用，到后来，各种软件、网站、社交平台都叫yingy5658了。曾用名yingyu谐音嘤鱼，后弃用。认识我比较早的朋友会称呼我为银鱼。### 逐步深入~~(坠入深渊)~~学习的经历- 对这些东西都好奇心来源于小时候上课用的一台旧电脑，玩VBS脚本（万恶之源了属于是233）- 在某机构学Scratch- 2019年左右在某个MC服务器担任管理员，了解到了更多服务器运维知识- 刷机PSP（现在想想我都不知道我怎么做到的）- 2020年左右在猿辅导学习过Python，不过现在看来完全无用- 2020-2022搭建MC、泰拉服务器- 2023用毛子的一个软件在平板上做博客，折腾内网穿透（成功）- 2023搭建出一个博客（已废弃）- 2024.11用Gmeek搭了一个博客（已废弃）  自学Java、前端  开发实用工具卢布卢  编写问卷调查页面- 2024.11.22在阿里云租服务器、域名。用Typecho搭建了一个博客- 2025.3为了省钱，把博客迁移到了Hexo。- 2025.3.15 注销备案。--><blockquote><p>最后更新：2025-6-8</p></blockquote>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title></title>
       <link href="/README.html"/>
       <url>/README.html</url>
@@ -2108,22 +2097,11 @@
     
     
     <entry>
-      <title>category</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
+      <title>关于</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
       
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>归档</title>
-      <link href="/archives/index.html"/>
-      <url>/archives/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h1 id="关于"><a href="#关于" class="headerlink" title="关于"></a>关于</h1><ul><li>11年生人的小孩。</li><li>爱好画画、贝斯、写点代码。</li><li>有一定智商情商</li><li>如果哪天你发现这个博客没了，那可能我也没了</li></ul><p>我的PGP指纹是 <code>0BEAA0E01519D8311A2939E801627883DEB774D8</code><br>可以通过以下命令导入：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sL https://www.yingyu5658.me/pgp/public-key.asc | gpg --import</span><br></pre></td></tr></table></figure><!-- 随时欢迎双向友链申请，**若无Github账号，无法评论，请发送邮件**。### 站点信息- 博客系统：Hexo- 部署方案：Github Page托管页面 + Vercel加速内地访问## 建站初心在互联网这摊臭味横生的化粪池外有着自己的世外桃源很酷，不是吗？## 个人趣闻### ID由来小时候玩MC，国际版。因为ID要用英文，就随便拼了个yingyu，因为重复自动生成的5658，其他游戏也不知道该叫什么，就继续沿用，到后来，各种软件、网站、社交平台都叫yingy5658了。曾用名yingyu谐音嘤鱼，后弃用。认识我比较早的朋友会称呼我为银鱼。### 逐步深入~~(坠入深渊)~~学习的经历- 对这些东西都好奇心来源于小时候上课用的一台旧电脑，玩VBS脚本（万恶之源了属于是233）- 在某机构学Scratch- 2019年左右在某个MC服务器担任管理员，了解到了更多服务器运维知识- 刷机PSP（现在想想我都不知道我怎么做到的）- 2020年左右在猿辅导学习过Python，不过现在看来完全无用- 2020-2022搭建MC、泰拉服务器- 2023用毛子的一个软件在平板上做博客，折腾内网穿透（成功）- 2023搭建出一个博客（已废弃）- 2024.11用Gmeek搭了一个博客（已废弃）  自学Java、前端  开发实用工具卢布卢  编写问卷调查页面- 2024.11.22在阿里云租服务器、域名。用Typecho搭建了一个博客- 2025.3为了省钱，把博客迁移到了Hexo。- 2025.3.15 注销备案。--><blockquote><p>最后更新：2025-6-8</p></blockquote>]]></content>
       
     </entry>
     
@@ -2152,6 +2130,28 @@
     
     
     <entry>
+      <title>category</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>归档</title>
+      <link href="/archives/index.html"/>
+      <url>/archives/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title></title>
       <link href="/links/index.html"/>
       <url>/links/index.html</url>
@@ -2163,22 +2163,22 @@
     
     
     <entry>
-      <title>tag</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
+      <title>不成文</title>
+      <link href="/unwritten/index.html"/>
+      <url>/unwritten/index.html</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<p>这里用于存放一些不成文的摄影图片、语段。</p><hr><p><img src="/../../images/%E5%9D%90%E9%98%B1%E8%A7%82%E5%A4%A9.jpg" alt="坐阱观天"><br>2025.5.31</p><hr>]]></content>
       
     </entry>
     
     
     
     <entry>
-      <title>不成文</title>
-      <link href="/unwritten/index.html"/>
-      <url>/unwritten/index.html</url>
+      <title>tag</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       
-        <content type="html"><![CDATA[<p>这里用于存放一些不成文的摄影图片、语段。</p><hr><p><img src="/../../images/%E5%9D%90%E9%98%B1%E8%A7%82%E5%A4%A9.jpg" alt="坐阱观天"><br>2025.5.31</p><hr>]]></content>
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     

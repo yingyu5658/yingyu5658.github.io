@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="操作系统做什么 它取得并虚拟化CPU、内存或磁盘等物理资源。 处理并发问题。 持久地存储文件，使文件长期安全。  设计目标最基本的，建立一些抽象，让系统方便使用。将其划分为小而且容易理解的部分。 提供高性能，最小化系统开销。 提供程序保护，确保恶意或偶然的不良行为不会损害其他程序和系统本身，即隔离。让进程彼此隔离是关键。 不间断运行的能力，力求可靠性。">
+    <meta name="description" content="操作系统做什么 它取得并虚拟化CPU、内存或磁盘等物理资源。 处理并发问题。 持久地存储文件，使文件长期安全。  设计目标最基本的，建立一些抽象，让系统方便使用。将其划分为小而且容易理解的部分。 提供高性能，最小化系统开销。 提供程序保护，确保恶意或偶然的不良行为不会损害其他程序和系统本身，即隔离。让进程彼此隔离是关键。 不间断运行的能力，力求可靠性。 进程定义运行中的程序。 程序本身没有生命周期">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《操作系统导论》学习笔记">
 <meta property="og:url" content="http://www.yingyu5658.me/post/1493508134/index.html">
 <meta property="og:site_name" content="映屿">
-<meta property="og:description" content="操作系统做什么 它取得并虚拟化CPU、内存或磁盘等物理资源。 处理并发问题。 持久地存储文件，使文件长期安全。  设计目标最基本的，建立一些抽象，让系统方便使用。将其划分为小而且容易理解的部分。 提供高性能，最小化系统开销。 提供程序保护，确保恶意或偶然的不良行为不会损害其他程序和系统本身，即隔离。让进程彼此隔离是关键。 不间断运行的能力，力求可靠性。">
+<meta property="og:description" content="操作系统做什么 它取得并虚拟化CPU、内存或磁盘等物理资源。 处理并发问题。 持久地存储文件，使文件长期安全。  设计目标最基本的，建立一些抽象，让系统方便使用。将其划分为小而且容易理解的部分。 提供高性能，最小化系统开销。 提供程序保护，确保恶意或偶然的不良行为不会损害其他程序和系统本身，即隔离。让进程彼此隔离是关键。 不间断运行的能力，力求可靠性。 进程定义运行中的程序。 程序本身没有生命周期">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-06-15T10:36:21.000Z">
-<meta property="article:modified_time" content="2025-06-15T12:32:41.937Z">
+<meta property="article:modified_time" content="2025-06-15T13:25:54.956Z">
 <meta property="article:author" content="yingyu5658">
 <meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary">
@@ -129,7 +129,7 @@
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%81%9A%E4%BB%80%E4%B9%88"><span class="toc-number">1.</span> <span class="toc-text">操作系统做什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E7%9B%AE%E6%A0%87"><span class="toc-number">2.</span> <span class="toc-text">设计目标</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%81%9A%E4%BB%80%E4%B9%88"><span class="toc-number">1.</span> <span class="toc-text">操作系统做什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E7%9B%AE%E6%A0%87"><span class="toc-number">2.</span> <span class="toc-text">设计目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B"><span class="toc-number">3.</span> <span class="toc-text">进程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-number">3.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E5%8C%96"><span class="toc-number">3.2.</span> <span class="toc-text">虚拟化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8BAPI"><span class="toc-number">3.3.</span> <span class="toc-text">进程API</span></a></li></ol></li></ol>
       </div>
     
   </span>
@@ -188,6 +188,24 @@
 <p>提供<strong>高性能</strong>，最小化系统开销。</p>
 <p>提供程序保护，确保恶意或偶然的不良行为不会损害其他程序和系统本身，即隔离。让进程彼此隔离是关键。</p>
 <p>不间断运行的能力，力求可靠性。</p>
+<h2 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>运行中的程序。</p>
+<p>程序本身没有生命周期的概念，只是存储在磁盘上的指令和静态数据，操作系统让这些字节运行起来。</p>
+<h3 id="虚拟化"><a href="#虚拟化" class="headerlink" title="虚拟化"></a>虚拟化</h3><p>操作系统通过虚拟化CPU来提供有无数CPU可用的假象。通过让一个进程只运行一个时间片，然后切换到其他进程，操作系统提供了存在多个虚拟CPU的假象，这就是<strong>时分共享CPU技术</strong>。允许用户运行多个并发进程，潜在的开销就是性能损失，因为CPU共享，每个进程的运行速度就会变慢。（受力面积和压强的关系）。</p>
+<h3 id="进程API"><a href="#进程API" class="headerlink" title="进程API"></a>进程API</h3><ul>
+<li><p>创建（create）：调用系统操作来创建新进程。</p>
+</li>
+<li><p>销毁（destroy）：强制销毁进程，大部分程序会再结束后自动退出，但如果用户想终止，这个接口很有用。</p>
+</li>
+<li><p>等待（wait）：等待进程停止运行。</p>
+</li>
+<li><p>状态（status）：获得有关进程的状态信息，如运行时间等。</p>
+</li>
+<li><p>其他控制（miscellaneous control）：除了杀死和等待进程外还有其他控制，如暂停。</p>
+</li>
+</ul>
+<blockquote>
+<p>[!NOTE]<br>书签：P21 4.3</p>
+</blockquote>
 
   </div>
   
@@ -239,7 +257,7 @@
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%81%9A%E4%BB%80%E4%B9%88"><span class="toc-number">1.</span> <span class="toc-text">操作系统做什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E7%9B%AE%E6%A0%87"><span class="toc-number">2.</span> <span class="toc-text">设计目标</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%81%9A%E4%BB%80%E4%B9%88"><span class="toc-number">1.</span> <span class="toc-text">操作系统做什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E7%9B%AE%E6%A0%87"><span class="toc-number">2.</span> <span class="toc-text">设计目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B"><span class="toc-number">3.</span> <span class="toc-text">进程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-number">3.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E5%8C%96"><span class="toc-number">3.2.</span> <span class="toc-text">虚拟化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8BAPI"><span class="toc-number">3.3.</span> <span class="toc-text">进程API</span></a></li></ol></li></ol>
       </div>
     
 

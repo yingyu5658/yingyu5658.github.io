@@ -6,7 +6,7 @@
   <link href="http://www.yingyu5658.me/atom.xml" rel="self"/>
   
   <link href="http://www.yingyu5658.me/"/>
-  <updated>2025-06-15T12:32:41.937Z</updated>
+  <updated>2025-06-15T13:25:54.956Z</updated>
   <id>http://www.yingyu5658.me/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://www.yingyu5658.me/post/1493508134/"/>
     <id>http://www.yingyu5658.me/post/1493508134/</id>
     <published>2025-06-15T10:36:21.000Z</published>
-    <updated>2025-06-15T12:32:41.937Z</updated>
+    <updated>2025-06-15T13:25:54.956Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="操作系统做什么"><a href="#操作系统做什么" class="headerlink" title="操作系统做什么"></a>操作系统做什么</h2><ul><li>它取得并虚拟化CPU、内存或磁盘等物理资源。</li><li>处理并发问题。</li><li>持久地存储文件，使文件长期安全。</li></ul><h2 id="设计目标"><a href="#设计目标" class="headerlink" title="设计目标"></a>设计目标</h2><p>最基本的，建立一些抽象，让系统方便使用。将其划分为<strong>小而且容易理解的部分</strong>。</p><p>提供<strong>高性能</strong>，最小化系统开销。</p><p>提供程序保护，确保恶意或偶然的不良行为不会损害其他程序和系统本身，即隔离。让进程彼此隔离是关键。</p><p>不间断运行的能力，力求可靠性。</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="操作系统做什么"><a href="#操作系统做什么" class="headerlink" title="操作系统做什么"></a>操作系统做什么</h2><ul><li>它取得并虚拟化CPU、内存或磁盘等物理资源。</li><li>处理并发问题。</li><li>持久地存储文件，使文件长期安全。</li></ul><h2 id="设计目标"><a href="#设计目标" class="headerlink" title="设计目标"></a>设计目标</h2><p>最基本的，建立一些抽象，让系统方便使用。将其划分为<strong>小而且容易理解的部分</strong>。</p><p>提供<strong>高性能</strong>，最小化系统开销。</p><p>提供程序保护，确保恶意或偶然的不良行为不会损害其他程序和系统本身，即隔离。让进程彼此隔离是关键。</p><p>不间断运行的能力，力求可靠性。</p><h2 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>运行中的程序。</p><p>程序本身没有生命周期的概念，只是存储在磁盘上的指令和静态数据，操作系统让这些字节运行起来。</p><h3 id="虚拟化"><a href="#虚拟化" class="headerlink" title="虚拟化"></a>虚拟化</h3><p>操作系统通过虚拟化CPU来提供有无数CPU可用的假象。通过让一个进程只运行一个时间片，然后切换到其他进程，操作系统提供了存在多个虚拟CPU的假象，这就是<strong>时分共享CPU技术</strong>。允许用户运行多个并发进程，潜在的开销就是性能损失，因为CPU共享，每个进程的运行速度就会变慢。（受力面积和压强的关系）。</p><h3 id="进程API"><a href="#进程API" class="headerlink" title="进程API"></a>进程API</h3><ul><li><p>创建（create）：调用系统操作来创建新进程。</p></li><li><p>销毁（destroy）：强制销毁进程，大部分程序会再结束后自动退出，但如果用户想终止，这个接口很有用。</p></li><li><p>等待（wait）：等待进程停止运行。</p></li><li><p>状态（status）：获得有关进程的状态信息，如运行时间等。</p></li><li><p>其他控制（miscellaneous control）：除了杀死和等待进程外还有其他控制，如暂停。</p></li></ul><blockquote><p>[!NOTE]<br>书签：P21 4.3</p></blockquote>]]></content>
     
     
       
@@ -879,9 +879,9 @@
     <category term="技术" scheme="http://www.yingyu5658.me/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-    <category term="Hexo" scheme="http://www.yingyu5658.me/tags/Hexo/"/>
-    
     <category term="博客" scheme="http://www.yingyu5658.me/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+    <category term="Hexo" scheme="http://www.yingyu5658.me/tags/Hexo/"/>
     
     <category term="网站运维" scheme="http://www.yingyu5658.me/tags/%E7%BD%91%E7%AB%99%E8%BF%90%E7%BB%B4/"/>
     
@@ -1037,9 +1037,9 @@
     <category term="技术" scheme="http://www.yingyu5658.me/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-    <category term="游戏" scheme="http://www.yingyu5658.me/tags/%E6%B8%B8%E6%88%8F/"/>
-    
     <category term="Nodejs" scheme="http://www.yingyu5658.me/tags/Nodejs/"/>
+    
+    <category term="游戏" scheme="http://www.yingyu5658.me/tags/%E6%B8%B8%E6%88%8F/"/>
     
     <category term="JavaScript" scheme="http://www.yingyu5658.me/tags/JavaScript/"/>
     
@@ -1270,9 +1270,9 @@
     <category term="技术" scheme="http://www.yingyu5658.me/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-    <category term="服务器" scheme="http://www.yingyu5658.me/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    
     <category term="Linux" scheme="http://www.yingyu5658.me/tags/Linux/"/>
+    
+    <category term="服务器" scheme="http://www.yingyu5658.me/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
     <category term="运维" scheme="http://www.yingyu5658.me/tags/%E8%BF%90%E7%BB%B4/"/>
     
@@ -1343,9 +1343,9 @@
     <category term="技术" scheme="http://www.yingyu5658.me/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-    <category term="Hexo" scheme="http://www.yingyu5658.me/tags/Hexo/"/>
-    
     <category term="博客" scheme="http://www.yingyu5658.me/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+    <category term="Hexo" scheme="http://www.yingyu5658.me/tags/Hexo/"/>
     
     <category term="Obsidain" scheme="http://www.yingyu5658.me/tags/Obsidain/"/>
     
@@ -1577,11 +1577,11 @@
     <category term="技术" scheme="http://www.yingyu5658.me/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
+    <category term="Java" scheme="http://www.yingyu5658.me/tags/Java/"/>
+    
     <category term="服务器" scheme="http://www.yingyu5658.me/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
     <category term="Minecraft" scheme="http://www.yingyu5658.me/tags/Minecraft/"/>
-    
-    <category term="Java" scheme="http://www.yingyu5658.me/tags/Java/"/>
     
     <category term="Geyser" scheme="http://www.yingyu5658.me/tags/Geyser/"/>
     
@@ -1610,11 +1610,11 @@
     <category term="技术" scheme="http://www.yingyu5658.me/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
+    <category term="Java" scheme="http://www.yingyu5658.me/tags/Java/"/>
+    
     <category term="服务器" scheme="http://www.yingyu5658.me/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
     <category term="Minecraft" scheme="http://www.yingyu5658.me/tags/Minecraft/"/>
-    
-    <category term="Java" scheme="http://www.yingyu5658.me/tags/Java/"/>
     
   </entry>
   
@@ -1770,9 +1770,9 @@
     <category term="ACGN" scheme="http://www.yingyu5658.me/categories/ACGN/"/>
     
     
-    <category term="教程" scheme="http://www.yingyu5658.me/tags/%E6%95%99%E7%A8%8B/"/>
-    
     <category term="服务器" scheme="http://www.yingyu5658.me/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+    <category term="教程" scheme="http://www.yingyu5658.me/tags/%E6%95%99%E7%A8%8B/"/>
     
     <category term="Terraria" scheme="http://www.yingyu5658.me/tags/Terraria/"/>
     
@@ -1819,9 +1819,9 @@
     
     <category term="服务器" scheme="http://www.yingyu5658.me/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
-    <category term="Terraria" scheme="http://www.yingyu5658.me/tags/Terraria/"/>
-    
     <category term="Minecraft" scheme="http://www.yingyu5658.me/tags/Minecraft/"/>
+    
+    <category term="Terraria" scheme="http://www.yingyu5658.me/tags/Terraria/"/>
     
   </entry>
   
@@ -1849,9 +1849,9 @@
     <category term="技术" scheme="http://www.yingyu5658.me/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-    <category term="教程" scheme="http://www.yingyu5658.me/tags/%E6%95%99%E7%A8%8B/"/>
-    
     <category term="Hexo" scheme="http://www.yingyu5658.me/tags/Hexo/"/>
+    
+    <category term="教程" scheme="http://www.yingyu5658.me/tags/%E6%95%99%E7%A8%8B/"/>
     
   </entry>
   
@@ -1876,9 +1876,9 @@
     <category term="技术" scheme="http://www.yingyu5658.me/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-    <category term="Hexo" scheme="http://www.yingyu5658.me/tags/Hexo/"/>
-    
     <category term="博客" scheme="http://www.yingyu5658.me/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+    <category term="Hexo" scheme="http://www.yingyu5658.me/tags/Hexo/"/>
     
   </entry>
   
