@@ -1,188 +1,13 @@
-<!DOCTYPE html>
-<html lang=zh>
-<head>
-    <!-- so meta -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="系统：WSL Arch 主折腾点代码编辑器：Vim(Neovim) 终端体验优化：tmux 文件管理器：yazi 代码编辑器——Neovim前言Neovim和Vim相比，在性能和易用性上有很大的提升，在异步任务表现突出；使用更加现代的lua脚本配置，可读性更高。 为什么不用Lazyvim？答：我个人用了很长一段时间Lazyvim，虽然开箱即用，简单调试就可以使用，但是我并不能清除的理解他到底给我装">
-<meta property="og:type" content="article">
-<meta property="og:title" content="从0开始搭建自己的终端开发环境">
-<meta property="og:url" content="http://www.yingyu5658.me/post/2799171278/index.html">
-<meta property="og:site_name" content="映屿">
-<meta property="og:description" content="系统：WSL Arch 主折腾点代码编辑器：Vim(Neovim) 终端体验优化：tmux 文件管理器：yazi 代码编辑器——Neovim前言Neovim和Vim相比，在性能和易用性上有很大的提升，在异步任务表现突出；使用更加现代的lua脚本配置，可读性更高。 为什么不用Lazyvim？答：我个人用了很长一段时间Lazyvim，虽然开箱即用，简单调试就可以使用，但是我并不能清除的理解他到底给我装">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-04-15T13:15:24.000Z">
-<meta property="article:modified_time" content="2025-06-02T10:14:18.414Z">
-<meta property="article:author" content="yingyu5658">
-<meta property="article:tag" content="终端">
-<meta property="article:tag" content="Neovim">
-<meta name="twitter:card" content="summary">
-    
-    
-      
-        
-          <link rel="shortcut icon" href="/images/static/avatar.png">
-        
-      
-      
-        
-          <link rel="icon" type="image/png" href="/images/static/avatar.png" sizes="192x192">
-        
-      
-      
-        
-          <link rel="apple-touch-icon" sizes="180x180" href="/images/">
-        
-      
-    
-    <!-- title -->
-    <title>从0开始搭建自己的终端开发环境</title>
-    <!-- async scripts -->
-    <!-- Google Analytics -->
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="yingyu5658的数字花园"><title>从0开始搭建自己的终端开发环境 | 映屿</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="https://unpkg.com/normalize.css"><link rel="stylesheet" type="text/css" href="https://unpkg.com/purecss/build/pure-min.css"><link rel="stylesheet" type="text/css" href="https://unpkg.com/purecss/build/grids-responsive-min.css"><link rel="stylesheet" href="https://unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="https://unpkg.com/jquery/dist/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script type="text/javascript" src="https://unpkg.com/clipboard/dist/clipboard.min.js"></script><script type="text/javascript" src="https://unpkg.com/toastr/build/toastr.min.js"></script><link rel="stylesheet" href="https://unpkg.com/toastr/build/toastr.min.css"><div class="darkmode-toggle">🌓</div><script>var prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)');
+var toggle = document.querySelector('.darkmode-toggle');
+var html = document.querySelector('html');
 
+html.dataset.dark = localStorage.dark || prefersDarkMode.matches;
 
-    <!-- Umami Analytics -->
-
-
-    <!-- styles -->
-    
-<link rel="stylesheet" href="/css/style.css">
-
-    <!-- persian styles -->
-    
-    <!-- rss -->
-    
-    
-      <link rel="alternate" href="https://www.yingyu5658.me/atom.xml" title="映屿" type="application/atom+xml" />
-    
-	<!-- mathjax -->
-	
-		<script type="text/x-mathjax-config">
-		  MathJax.Hub.Config({
-			tex2jax: {
-			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-			  inlineMath: [['$','$']]
-			}
-		  });
-		</script>
-		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
-	
-<meta name="generator" content="Hexo 7.3.0"></head>
-
-<body class="max-width mx-auto px3 ltr">
-    
-      <div id="header-post">
-  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
-  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
-  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
-  <span id="menu">
-    <span id="nav">
-      <ul>
-        <!--
-       --><li><a href="/">首页</a></li><!--
-     --><!--
-       --><li><a href="/find/">搜寻</a></li><!--
-     --><!--
-       --><li><a href="/links/">友链</a></li><!--
-     --><!--
-       --><li><a href="/archives/">归档</a></li><!--
-     --><!--
-       --><li><a href="/about/">关于</a></li><!--
-     --><!--
-       --><li><a href="https://www.yingyu5658.me/atom.xml">订阅</a></li><!--
-     -->
-      </ul>
-    </span>
-    <br/>
-    <span id="actions">
-      <ul>
-        
-        <li><a class="icon" aria-label="上一篇" href="/post/2296531966/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
-        
-        
-        <li><a class="icon" aria-label="下一篇" href="/post/2193909713/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
-        
-        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
-        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
-      </ul>
-      <span id="i-prev" class="info" style="display:none;">上一篇</span>
-      <span id="i-next" class="info" style="display:none;">下一篇</span>
-      <span id="i-top" class="info" style="display:none;">返回顶部</span>
-      <span id="i-share" class="info" style="display:none;">分享文章</span>
-    </span>
-    <br/>
-    <div id="share" style="display: none">
-      <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://www.yingyu5658.me/post/2799171278/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://www.yingyu5658.me/post/2799171278/&text=从0开始搭建自己的终端开发环境"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://www.yingyu5658.me/post/2799171278/&title=从0开始搭建自己的终端开发环境"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://www.yingyu5658.me/post/2799171278/&is_video=false&description=从0开始搭建自己的终端开发环境"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=从0开始搭建自己的终端开发环境&body=Check out this article: http://www.yingyu5658.me/post/2799171278/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://www.yingyu5658.me/post/2799171278/&title=从0开始搭建自己的终端开发环境"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://www.yingyu5658.me/post/2799171278/&title=从0开始搭建自己的终端开发环境"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://www.yingyu5658.me/post/2799171278/&title=从0开始搭建自己的终端开发环境"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://www.yingyu5658.me/post/2799171278/&title=从0开始搭建自己的终端开发环境"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://www.yingyu5658.me/post/2799171278/&name=从0开始搭建自己的终端开发环境&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://www.yingyu5658.me/post/2799171278/&t=从0开始搭建自己的终端开发环境"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
-</ul>
-
-    </div>
-    
-    
-      <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E6%8A%98%E8%85%BE%E7%82%B9"><span class="toc-number">1.</span> <span class="toc-text">主折腾点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E7%BC%96%E8%BE%91%E5%99%A8%E2%80%94%E2%80%94Neovim"><span class="toc-number"></span> <span class="toc-text">代码编辑器——Neovim</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E7%94%A8Lazyvim%EF%BC%9F"><span class="toc-number">1.1.</span> <span class="toc-text">为什么不用Lazyvim？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">2.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8"><span class="toc-number">3.</span> <span class="toc-text">安装包管理器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE"><span class="toc-number">4.</span> <span class="toc-text">基础配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6"><span class="toc-number">5.</span> <span class="toc-text">安装插件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#neo-tree"><span class="toc-number">5.1.</span> <span class="toc-text">neo-tree</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E8%A1%A5%E5%85%A8%E3%80%81%E6%A0%BC%E5%BC%8F%E5%8C%96%E3%80%81%E6%A3%80%E6%9F%A5"><span class="toc-number">5.2.</span> <span class="toc-text">代码补全、格式化、检查</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Oh-My-Zsh"><span class="toc-number"></span> <span class="toc-text">Oh-My-Zsh</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85ZSH"><span class="toc-number">1.</span> <span class="toc-text">安装ZSH</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Oh-My-Zsh"><span class="toc-number">2.</span> <span class="toc-text">安装Oh-My-Zsh</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85"><span class="toc-number">2.1.</span> <span class="toc-text">插件安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zsh-autosuggestions"><span class="toc-number">2.2.</span> <span class="toc-text">zsh -autosuggestions</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zsh-syntax-highlighting"><span class="toc-number">2.3.</span> <span class="toc-text">zsh-syntax-highlighting</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%AF%E7%94%A8%E6%8F%92%E4%BB%B6"><span class="toc-number">2.4.</span> <span class="toc-text">启用插件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%AB%E5%90%8D%E8%AE%BE%E7%BD%AE"><span class="toc-number">2.5.</span> <span class="toc-text">别名设置</span></a></li></ol></li></ol>
-      </div>
-    
-  </span>
-</div>
-
-    
-    <div class="content index py4 ">
-        
-        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
-  <header>
-    
-    <h1 class="posttitle p-name" itemprop="name headline">
-        从0开始搭建自己的终端开发环境
-    </h1>
-
-
-
-    <div class="meta">
-      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span class="p-name" itemprop="name">yingyu5658</span>
-      </span>
-      
-    <div class="postdate">
-      
-        <time datetime="2025-04-15T13:15:24.000Z" class="dt-published" itemprop="datePublished">2025-04-15</time>
-        
-      
-    </div>
-
-
-      
-    <div class="article-category">
-        <i class="fa-solid fa-archive"></i>
-        <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
-    </div>
-
-
-      
-    <div class="article-tag">
-        <i class="fa-solid fa-tag"></i>
-        <a class="p-category" href="/tags/Neovim/" rel="tag">Neovim</a>, <a class="p-category" href="/tags/%E7%BB%88%E7%AB%AF/" rel="tag">终端</a>
-    </div>
-
-
-    </div>
-  </header>
-  
-
-  <div class="content e-content" itemprop="articleBody">
-    <p><strong>系统</strong>：WSL Arch</p>
+toggle.addEventListener('click', () => {
+localStorage.dark = !(html.dataset.dark == 'true');
+html.dataset.dark = localStorage.dark;
+});</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">从0开始搭建自己的终端开发环境</h1><a id="logo" href="/.">映屿</a><p class="description">yingyu5658的数字花园</p></div><div id="nav-menu"><a href="/./"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/unwitten/"><i class="fa fa-camera"> 不成文</i></a><a href="/message/"><i class="fa fa-comments"> 留言</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">从0开始搭建自己的终端开发环境</h1><div class="post-meta">2025-04-15<span> | </span><span class="category"><a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> 阅读</span></span></div><a class="disqus-comment-count" href="/post/2799171278/#waline"><span class="waline-comment-count" id="/post/2799171278/"></span><span> 条评论</span></a><div class="post-content"><p><strong>系统</strong>：WSL Arch</p>
 <h3 id="主折腾点"><a href="#主折腾点" class="headerlink" title="主折腾点"></a>主折腾点</h3><p><strong>代码编辑器</strong>：Vim(Neovim)</p>
 <p><strong>终端体验优化</strong>：tmux</p>
 <p><strong>文件管理器</strong>：yazi</p>
@@ -262,172 +87,27 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">alias s=&quot;neofetch&quot;</span><br><span class="line">alias vim=&quot;nvim&quot;</span><br><span class="line">alias c=&quot;clear&quot;</span><br><span class="line">alias gcl = &quot;git clone&quot;</span><br></pre></td></tr></table></figure>
 
 <p>这里根据我的习惯改了几个别名。</p>
-
-  </div>
-  
-</article>
-
-
-
-    <div class="blog-post-comments">
-        <script src="https://giscus.app/client.js"
-        data-repo="yingyu5658/yingyu5658.github.io"
-        data-repo-id="R_kgDOOBetsA"
-        data-category="Announcements"
-        data-category-id="DIC_kwDOOBetsM4CoF_Z"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="bottom"
-        data-theme="dark_dimmed"
-        data-lang="zh-CN"
-        crossorigin="anonymous"
-    async>
-  </script>
-</div>
-
-
-        
-          <div id="footer-post-container">
-  <div id="footer-post">
-
-    <div id="nav-footer" style="display: none">
-      <ul>
-        
-          <li><a href="/">首页</a></li>
-        
-          <li><a href="/find/">搜寻</a></li>
-        
-          <li><a href="/links/">友链</a></li>
-        
-          <li><a href="/archives/">归档</a></li>
-        
-          <li><a href="/about/">关于</a></li>
-        
-          <li><a href="https://www.yingyu5658.me/atom.xml">订阅</a></li>
-        
-      </ul>
-    </div>
-
-    
-    
-      <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E6%8A%98%E8%85%BE%E7%82%B9"><span class="toc-number">1.</span> <span class="toc-text">主折腾点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E7%BC%96%E8%BE%91%E5%99%A8%E2%80%94%E2%80%94Neovim"><span class="toc-number"></span> <span class="toc-text">代码编辑器——Neovim</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E7%94%A8Lazyvim%EF%BC%9F"><span class="toc-number">1.1.</span> <span class="toc-text">为什么不用Lazyvim？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">2.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8"><span class="toc-number">3.</span> <span class="toc-text">安装包管理器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE"><span class="toc-number">4.</span> <span class="toc-text">基础配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6"><span class="toc-number">5.</span> <span class="toc-text">安装插件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#neo-tree"><span class="toc-number">5.1.</span> <span class="toc-text">neo-tree</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E8%A1%A5%E5%85%A8%E3%80%81%E6%A0%BC%E5%BC%8F%E5%8C%96%E3%80%81%E6%A3%80%E6%9F%A5"><span class="toc-number">5.2.</span> <span class="toc-text">代码补全、格式化、检查</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Oh-My-Zsh"><span class="toc-number"></span> <span class="toc-text">Oh-My-Zsh</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85ZSH"><span class="toc-number">1.</span> <span class="toc-text">安装ZSH</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Oh-My-Zsh"><span class="toc-number">2.</span> <span class="toc-text">安装Oh-My-Zsh</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85"><span class="toc-number">2.1.</span> <span class="toc-text">插件安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zsh-autosuggestions"><span class="toc-number">2.2.</span> <span class="toc-text">zsh -autosuggestions</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zsh-syntax-highlighting"><span class="toc-number">2.3.</span> <span class="toc-text">zsh-syntax-highlighting</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%AF%E7%94%A8%E6%8F%92%E4%BB%B6"><span class="toc-number">2.4.</span> <span class="toc-text">启用插件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%AB%E5%90%8D%E8%AE%BE%E7%BD%AE"><span class="toc-number">2.5.</span> <span class="toc-text">别名设置</span></a></li></ol></li></ol>
-      </div>
-    
-
-    <div id="share-footer" style="display: none">
-      <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://www.yingyu5658.me/post/2799171278/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://www.yingyu5658.me/post/2799171278/&text=从0开始搭建自己的终端开发环境"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://www.yingyu5658.me/post/2799171278/&title=从0开始搭建自己的终端开发环境"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://www.yingyu5658.me/post/2799171278/&is_video=false&description=从0开始搭建自己的终端开发环境"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=从0开始搭建自己的终端开发环境&body=Check out this article: http://www.yingyu5658.me/post/2799171278/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://www.yingyu5658.me/post/2799171278/&title=从0开始搭建自己的终端开发环境"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://www.yingyu5658.me/post/2799171278/&title=从0开始搭建自己的终端开发环境"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://www.yingyu5658.me/post/2799171278/&title=从0开始搭建自己的终端开发环境"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://www.yingyu5658.me/post/2799171278/&title=从0开始搭建自己的终端开发环境"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://www.yingyu5658.me/post/2799171278/&name=从0开始搭建自己的终端开发环境&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://www.yingyu5658.me/post/2799171278/&t=从0开始搭建自己的终端开发环境"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
-</ul>
-
-    </div>
-
-    <div id="actions-footer">
-        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
-        
-          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
-        
-        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
-        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
-    </div>
-
-  </div>
-</div>
-
-        
-        <footer id="footer">
-  <div class="footer-left">
-    Copyright &copy;
-    
-    
-    2024-2025
-    yingyu5658
-  </div>
-  <div class="footer-right">
-    <nav>
-      <ul>
-        <!--
-       --><li><a href="/">首页</a></li><!--
-     --><!--
-       --><li><a href="/find/">搜寻</a></li><!--
-     --><!--
-       --><li><a href="/links/">友链</a></li><!--
-     --><!--
-       --><li><a href="/archives/">归档</a></li><!--
-     --><!--
-       --><li><a href="/about/">关于</a></li><!--
-     --><!--
-       --><li><a href="https://www.yingyu5658.me/atom.xml">订阅</a></li><!--
-     -->
-      </ul>
-    </nav>
-  </div>
-</footer>
-
-    </div>
-    <!-- styles -->
-
-
-
-  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
-
-
-    <!-- jquery -->
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
-
-
-
-
-<!-- clipboard -->
-
-  
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
-  
-  <script type="text/javascript">
-  $(function() {
-    // copy-btn HTML
-    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
-    btn += '<i class="fa-regular fa-clone"></i>';
-    btn += '</span>';
-    // mount it!
-    $(".highlight table").before(btn);
-    var clip = new ClipboardJS('.btn-copy', {
-      text: function(trigger) {
-        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
-      }
-    });
-    clip.on('success', function(e) {
-      e.trigger.setAttribute('aria-label', "复制成功！");
-      e.clearSelection();
-    })
-  })
-  </script>
-
-
-<script src="/js/main.js"></script>
-
-<!-- search -->
-
-<!-- Baidu Analytics -->
-
-<!-- Cloudflare Analytics -->
-
-<!-- Disqus Comments -->
-
-<!-- utterances Comments -->
-
-</body>
-</html>
+</div><div class="tags"><ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Neovim/" rel="tag">Neovim</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BB%88%E7%AB%AF/" rel="tag">终端</a></li></ul></div><div class="post-nav"><a class="pre" href="/post/2296531966/">【黑历史】读自己以前写的代码</a><a class="next" href="/post/2193909713/">初折腾Emacs记录</a></div><div class="nofancybox" id="waline"></div><link rel="stylesheet" type="text/css" href="https://unpkg.com/@waline/client@v3/dist/waline.css"><script type="module">import {init} from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+init({
+  el: '#waline',
+  comment: true,
+  serverURL: 'https://waline.yingyu5658.me',
+  pageSize: '30',
+  wordLimit: '500',
+  requiredMeta,
+  emoji: [
+    '//unpkg.com/@waline/emojis@1.2.0/weibo',
+    '//unpkg.com/@waline/emojis@1.2.0/qq',
+    '//unpkg.com/@waline/emojis@1.2.0/tw-emoji',
+  ],
+});</script><script>let metaInfo = ['nick', 'mail', 'link']
+let requiredMeta = 'nick,mail'.split(',').filter(item => {
+  return metaInfo.indexOf(item) > -1
+})
+</script></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"/><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/post/3975852992/">好文章</a></li><li class="post-list-item"><a class="post-list-link" href="/post/1493508134/">《操作系统导论》学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/post/3824334627/">给比我岁数还大的电脑装Fedora</a></li><li class="post-list-item"><a class="post-list-link" href="/post/4155363784/">怪癖</a></li><li class="post-list-item"><a class="post-list-link" href="/post/2631380338/">网络死亡计划</a></li><li class="post-list-item"><a class="post-list-link" href="/post/3585041998/">我说过吗？</a></li><li class="post-list-item"><a class="post-list-link" href="/post/4149577284/">从浏览器设置入手，一招破解作文网站禁止复制</a></li><li class="post-list-item"><a class="post-list-link" href="/post/594023371/">4Key音游段位单曲成绩计算的程序实现</a></li><li class="post-list-item"><a class="post-list-link" href="/post/3691550015/">杂记#2025-06-06</a></li><li class="post-list-item"><a class="post-list-link" href="/post/3508058237/">C语言的头文件与OOP范式的抽象类、接口的异同点</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ACGN/">ACGN</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a><span class="category-list-count">56</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%95%E7%A8%BF/">投稿</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E5%B8%B8/">日常</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a><span class="category-list-count">14</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://www.sifangbazhu.tech/" title="MRZHU的小站" target="_blank">MRZHU的小站</a><ul></ul><a href="https://rhopaper.top/" title="RhoPaperの小站" target="_blank">RhoPaperの小站</a><ul></ul><a href="https://geneliunx.com/" title="Geneliunx" target="_blank">Geneliunx</a><ul></ul><a href="https://printempw.github.io/" title="PRIN BLOG" target="_blank">PRIN BLOG</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2025 <a href="/." rel="nofollow">映屿.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=1.0.0" async></script><script type="text/javascript" src="https://unpkg.com/@fancyapps/fancybox/dist/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=1.0.0" async></script><link rel="stylesheet" type="text/css" href="https://unpkg.com/@fancyapps/fancybox/dist/jquery.fancybox.min.css"><link rel="stylesheet" type="text/css" href="/css/search.css?v=1.0.0"><script type="text/javascript" src="/js/search.js?v=1.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+  search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="/js/copycode.js?v=1.0.0" successtext="复制成功！"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css?v=1.0.0"><script type="text/javascript" src="/js/codeblock-resizer.js?v=1.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=1.0.0"></script></div></body></html>

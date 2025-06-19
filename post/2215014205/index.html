@@ -1,189 +1,13 @@
-<!DOCTYPE html>
-<html lang=zh>
-<head>
-    <!-- so meta -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="一、日志：系统故障的「自白书」折腾Linux系统，最怕的不是报错，而是面对满屏日志时的茫然。就像侦探破案需要线索，日志就是系统留给你的自白书。  优先级锁定法 别总盯着控制台的输出发呆     通过journalctl -b -1 | grep -i &quot;error\|fail\|warning&quot;过滤关键错误，优先解决标红部分。例如，若看到nvidia-gpu i2c timeo">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Linux排错手札：从日志深渊到问题核心的修炼指南">
-<meta property="og:url" content="http://www.yingyu5658.me/post/2215014205/index.html">
-<meta property="og:site_name" content="映屿">
-<meta property="og:description" content="一、日志：系统故障的「自白书」折腾Linux系统，最怕的不是报错，而是面对满屏日志时的茫然。就像侦探破案需要线索，日志就是系统留给你的自白书。  优先级锁定法 别总盯着控制台的输出发呆     通过journalctl -b -1 | grep -i &quot;error\|fail\|warning&quot;过滤关键错误，优先解决标红部分。例如，若看到nvidia-gpu i2c timeo">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-03-09T12:18:36.000Z">
-<meta property="article:modified_time" content="2025-06-02T10:08:04.260Z">
-<meta property="article:author" content="yingyu5658">
-<meta property="article:tag" content="服务器">
-<meta property="article:tag" content="Linux">
-<meta property="article:tag" content="运维">
-<meta name="twitter:card" content="summary">
-    
-    
-      
-        
-          <link rel="shortcut icon" href="/images/static/avatar.png">
-        
-      
-      
-        
-          <link rel="icon" type="image/png" href="/images/static/avatar.png" sizes="192x192">
-        
-      
-      
-        
-          <link rel="apple-touch-icon" sizes="180x180" href="/images/">
-        
-      
-    
-    <!-- title -->
-    <title>Linux排错手札：从日志深渊到问题核心的修炼指南</title>
-    <!-- async scripts -->
-    <!-- Google Analytics -->
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="yingyu5658的数字花园"><title>Linux排错手札：从日志深渊到问题核心的修炼指南 | 映屿</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="https://unpkg.com/normalize.css"><link rel="stylesheet" type="text/css" href="https://unpkg.com/purecss/build/pure-min.css"><link rel="stylesheet" type="text/css" href="https://unpkg.com/purecss/build/grids-responsive-min.css"><link rel="stylesheet" href="https://unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="https://unpkg.com/jquery/dist/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script type="text/javascript" src="https://unpkg.com/clipboard/dist/clipboard.min.js"></script><script type="text/javascript" src="https://unpkg.com/toastr/build/toastr.min.js"></script><link rel="stylesheet" href="https://unpkg.com/toastr/build/toastr.min.css"><div class="darkmode-toggle">🌓</div><script>var prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)');
+var toggle = document.querySelector('.darkmode-toggle');
+var html = document.querySelector('html');
 
+html.dataset.dark = localStorage.dark || prefersDarkMode.matches;
 
-    <!-- Umami Analytics -->
-
-
-    <!-- styles -->
-    
-<link rel="stylesheet" href="/css/style.css">
-
-    <!-- persian styles -->
-    
-    <!-- rss -->
-    
-    
-      <link rel="alternate" href="https://www.yingyu5658.me/atom.xml" title="映屿" type="application/atom+xml" />
-    
-	<!-- mathjax -->
-	
-		<script type="text/x-mathjax-config">
-		  MathJax.Hub.Config({
-			tex2jax: {
-			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-			  inlineMath: [['$','$']]
-			}
-		  });
-		</script>
-		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
-	
-<meta name="generator" content="Hexo 7.3.0"></head>
-
-<body class="max-width mx-auto px3 ltr">
-    
-      <div id="header-post">
-  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
-  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
-  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
-  <span id="menu">
-    <span id="nav">
-      <ul>
-        <!--
-       --><li><a href="/">首页</a></li><!--
-     --><!--
-       --><li><a href="/find/">搜寻</a></li><!--
-     --><!--
-       --><li><a href="/links/">友链</a></li><!--
-     --><!--
-       --><li><a href="/archives/">归档</a></li><!--
-     --><!--
-       --><li><a href="/about/">关于</a></li><!--
-     --><!--
-       --><li><a href="https://www.yingyu5658.me/atom.xml">订阅</a></li><!--
-     -->
-      </ul>
-    </span>
-    <br/>
-    <span id="actions">
-      <ul>
-        
-        <li><a class="icon" aria-label="上一篇" href="/post/53701281/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
-        
-        
-        <li><a class="icon" aria-label="下一篇" href="/post/2218331126/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
-        
-        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
-        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
-      </ul>
-      <span id="i-prev" class="info" style="display:none;">上一篇</span>
-      <span id="i-next" class="info" style="display:none;">下一篇</span>
-      <span id="i-top" class="info" style="display:none;">返回顶部</span>
-      <span id="i-share" class="info" style="display:none;">分享文章</span>
-    </span>
-    <br/>
-    <div id="share" style="display: none">
-      <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://www.yingyu5658.me/post/2215014205/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://www.yingyu5658.me/post/2215014205/&text=Linux排错手札：从日志深渊到问题核心的修炼指南"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://www.yingyu5658.me/post/2215014205/&title=Linux排错手札：从日志深渊到问题核心的修炼指南"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://www.yingyu5658.me/post/2215014205/&is_video=false&description=Linux排错手札：从日志深渊到问题核心的修炼指南"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Linux排错手札：从日志深渊到问题核心的修炼指南&body=Check out this article: http://www.yingyu5658.me/post/2215014205/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://www.yingyu5658.me/post/2215014205/&title=Linux排错手札：从日志深渊到问题核心的修炼指南"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://www.yingyu5658.me/post/2215014205/&title=Linux排错手札：从日志深渊到问题核心的修炼指南"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://www.yingyu5658.me/post/2215014205/&title=Linux排错手札：从日志深渊到问题核心的修炼指南"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://www.yingyu5658.me/post/2215014205/&title=Linux排错手札：从日志深渊到问题核心的修炼指南"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://www.yingyu5658.me/post/2215014205/&name=Linux排错手札：从日志深渊到问题核心的修炼指南&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://www.yingyu5658.me/post/2215014205/&t=Linux排错手札：从日志深渊到问题核心的修炼指南"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
-</ul>
-
-    </div>
-    
-    
-      <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%97%A5%E5%BF%97%EF%BC%9A%E7%B3%BB%E7%BB%9F%E6%95%85%E9%9A%9C%E7%9A%84%E3%80%8C%E8%87%AA%E7%99%BD%E4%B9%A6%E3%80%8D"><span class="toc-number">1.</span> <span class="toc-text">一、日志：系统故障的「自白书」</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81AI%E5%8A%A9%E6%89%8B%EF%BC%9A%E4%B8%80%E6%8A%8A%E5%8F%8C%E5%88%83%E5%89%91"><span class="toc-number">2.</span> <span class="toc-text">二、AI助手：一把双刃剑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%BF%AB%E9%80%9F%E5%91%BD%E4%B8%ADBUG%E8%A6%81%E5%AE%B3%E7%9A%84%E4%B8%89%E5%A4%A7%E5%BF%83%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">三、快速命中BUG要害的三大心法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E4%BB%8E%E3%80%8C%E6%8E%92%E9%94%99%E3%80%8D%E5%88%B0%E3%80%8C%E9%98%B2%E5%BE%A1%E6%80%A7%E8%BF%90%E7%BB%B4%E3%80%8D"><span class="toc-number">4.</span> <span class="toc-text">四、从「排错」到「防御性运维」</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E8%AF%AD%EF%BC%9A%E6%95%85%E9%9A%9C%E6%98%AF%E8%BF%9B%E9%98%B6%E7%9A%84%E5%9E%AB%E8%84%9A%E7%9F%B3"><span class="toc-number">5.</span> <span class="toc-text">结语：故障是进阶的垫脚石</span></a></li></ol>
-      </div>
-    
-  </span>
-</div>
-
-    
-    <div class="content index py4 ">
-        
-        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
-  <header>
-    
-    <h1 class="posttitle p-name" itemprop="name headline">
-        Linux排错手札：从日志深渊到问题核心的修炼指南
-    </h1>
-
-
-
-    <div class="meta">
-      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span class="p-name" itemprop="name">yingyu5658</span>
-      </span>
-      
-    <div class="postdate">
-      
-        <time datetime="2025-03-09T12:18:36.000Z" class="dt-published" itemprop="datePublished">2025-03-09</time>
-        
-      
-    </div>
-
-
-      
-    <div class="article-category">
-        <i class="fa-solid fa-archive"></i>
-        <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
-    </div>
-
-
-      
-    <div class="article-tag">
-        <i class="fa-solid fa-tag"></i>
-        <a class="p-category" href="/tags/Linux/" rel="tag">Linux</a>, <a class="p-category" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">服务器</a>, <a class="p-category" href="/tags/%E8%BF%90%E7%BB%B4/" rel="tag">运维</a>
-    </div>
-
-
-    </div>
-  </header>
-  
-
-  <div class="content e-content" itemprop="articleBody">
-    <h3 id="一、日志：系统故障的「自白书」"><a href="#一、日志：系统故障的「自白书」" class="headerlink" title="一、日志：系统故障的「自白书」"></a>一、日志：系统故障的「自白书」</h3><p>折腾Linux系统，最怕的不是报错，而是面对满屏日志时的茫然。就像侦探破案需要线索，日志就是系统留给你的自白书。</p>
+toggle.addEventListener('click', () => {
+localStorage.dark = !(html.dataset.dark == 'true');
+html.dataset.dark = localStorage.dark;
+});</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Linux排错手札：从日志深渊到问题核心的修炼指南</h1><a id="logo" href="/.">映屿</a><p class="description">yingyu5658的数字花园</p></div><div id="nav-menu"><a href="/./"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/unwitten/"><i class="fa fa-camera"> 不成文</i></a><a href="/message/"><i class="fa fa-comments"> 留言</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">Linux排错手札：从日志深渊到问题核心的修炼指南</h1><div class="post-meta">2025-03-09<span> | </span><span class="category"><a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> 阅读</span></span></div><a class="disqus-comment-count" href="/post/2215014205/#waline"><span class="waline-comment-count" id="/post/2215014205/"></span><span> 条评论</span></a><div class="post-content"><h3 id="一、日志：系统故障的「自白书」"><a href="#一、日志：系统故障的「自白书」" class="headerlink" title="一、日志：系统故障的「自白书」"></a>一、日志：系统故障的「自白书」</h3><p>折腾Linux系统，最怕的不是报错，而是面对满屏日志时的茫然。就像侦探破案需要线索，日志就是系统留给你的自白书。</p>
 <ol>
 <li><strong>优先级锁定法</strong><blockquote>
 <p>别总盯着控制台的输出发呆</p>
@@ -299,172 +123,27 @@
 </tr>
 </tbody></table>
 <p><em>本文部分解决方案参考自Arch Wiki及Linux内核文档</em></p>
-
-  </div>
-  
-</article>
-
-
-
-    <div class="blog-post-comments">
-        <script src="https://giscus.app/client.js"
-        data-repo="yingyu5658/yingyu5658.github.io"
-        data-repo-id="R_kgDOOBetsA"
-        data-category="Announcements"
-        data-category-id="DIC_kwDOOBetsM4CoF_Z"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="bottom"
-        data-theme="dark_dimmed"
-        data-lang="zh-CN"
-        crossorigin="anonymous"
-    async>
-  </script>
-</div>
-
-
-        
-          <div id="footer-post-container">
-  <div id="footer-post">
-
-    <div id="nav-footer" style="display: none">
-      <ul>
-        
-          <li><a href="/">首页</a></li>
-        
-          <li><a href="/find/">搜寻</a></li>
-        
-          <li><a href="/links/">友链</a></li>
-        
-          <li><a href="/archives/">归档</a></li>
-        
-          <li><a href="/about/">关于</a></li>
-        
-          <li><a href="https://www.yingyu5658.me/atom.xml">订阅</a></li>
-        
-      </ul>
-    </div>
-
-    
-    
-      <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%97%A5%E5%BF%97%EF%BC%9A%E7%B3%BB%E7%BB%9F%E6%95%85%E9%9A%9C%E7%9A%84%E3%80%8C%E8%87%AA%E7%99%BD%E4%B9%A6%E3%80%8D"><span class="toc-number">1.</span> <span class="toc-text">一、日志：系统故障的「自白书」</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81AI%E5%8A%A9%E6%89%8B%EF%BC%9A%E4%B8%80%E6%8A%8A%E5%8F%8C%E5%88%83%E5%89%91"><span class="toc-number">2.</span> <span class="toc-text">二、AI助手：一把双刃剑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%BF%AB%E9%80%9F%E5%91%BD%E4%B8%ADBUG%E8%A6%81%E5%AE%B3%E7%9A%84%E4%B8%89%E5%A4%A7%E5%BF%83%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">三、快速命中BUG要害的三大心法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E4%BB%8E%E3%80%8C%E6%8E%92%E9%94%99%E3%80%8D%E5%88%B0%E3%80%8C%E9%98%B2%E5%BE%A1%E6%80%A7%E8%BF%90%E7%BB%B4%E3%80%8D"><span class="toc-number">4.</span> <span class="toc-text">四、从「排错」到「防御性运维」</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E8%AF%AD%EF%BC%9A%E6%95%85%E9%9A%9C%E6%98%AF%E8%BF%9B%E9%98%B6%E7%9A%84%E5%9E%AB%E8%84%9A%E7%9F%B3"><span class="toc-number">5.</span> <span class="toc-text">结语：故障是进阶的垫脚石</span></a></li></ol>
-      </div>
-    
-
-    <div id="share-footer" style="display: none">
-      <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://www.yingyu5658.me/post/2215014205/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://www.yingyu5658.me/post/2215014205/&text=Linux排错手札：从日志深渊到问题核心的修炼指南"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://www.yingyu5658.me/post/2215014205/&title=Linux排错手札：从日志深渊到问题核心的修炼指南"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://www.yingyu5658.me/post/2215014205/&is_video=false&description=Linux排错手札：从日志深渊到问题核心的修炼指南"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Linux排错手札：从日志深渊到问题核心的修炼指南&body=Check out this article: http://www.yingyu5658.me/post/2215014205/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://www.yingyu5658.me/post/2215014205/&title=Linux排错手札：从日志深渊到问题核心的修炼指南"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://www.yingyu5658.me/post/2215014205/&title=Linux排错手札：从日志深渊到问题核心的修炼指南"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://www.yingyu5658.me/post/2215014205/&title=Linux排错手札：从日志深渊到问题核心的修炼指南"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://www.yingyu5658.me/post/2215014205/&title=Linux排错手札：从日志深渊到问题核心的修炼指南"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://www.yingyu5658.me/post/2215014205/&name=Linux排错手札：从日志深渊到问题核心的修炼指南&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://www.yingyu5658.me/post/2215014205/&t=Linux排错手札：从日志深渊到问题核心的修炼指南"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
-</ul>
-
-    </div>
-
-    <div id="actions-footer">
-        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
-        
-          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
-        
-        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
-        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
-    </div>
-
-  </div>
-</div>
-
-        
-        <footer id="footer">
-  <div class="footer-left">
-    Copyright &copy;
-    
-    
-    2024-2025
-    yingyu5658
-  </div>
-  <div class="footer-right">
-    <nav>
-      <ul>
-        <!--
-       --><li><a href="/">首页</a></li><!--
-     --><!--
-       --><li><a href="/find/">搜寻</a></li><!--
-     --><!--
-       --><li><a href="/links/">友链</a></li><!--
-     --><!--
-       --><li><a href="/archives/">归档</a></li><!--
-     --><!--
-       --><li><a href="/about/">关于</a></li><!--
-     --><!--
-       --><li><a href="https://www.yingyu5658.me/atom.xml">订阅</a></li><!--
-     -->
-      </ul>
-    </nav>
-  </div>
-</footer>
-
-    </div>
-    <!-- styles -->
-
-
-
-  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
-
-
-    <!-- jquery -->
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
-
-
-
-
-<!-- clipboard -->
-
-  
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
-  
-  <script type="text/javascript">
-  $(function() {
-    // copy-btn HTML
-    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
-    btn += '<i class="fa-regular fa-clone"></i>';
-    btn += '</span>';
-    // mount it!
-    $(".highlight table").before(btn);
-    var clip = new ClipboardJS('.btn-copy', {
-      text: function(trigger) {
-        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
-      }
-    });
-    clip.on('success', function(e) {
-      e.trigger.setAttribute('aria-label', "复制成功！");
-      e.clearSelection();
-    })
-  })
-  </script>
-
-
-<script src="/js/main.js"></script>
-
-<!-- search -->
-
-<!-- Baidu Analytics -->
-
-<!-- Cloudflare Analytics -->
-
-<!-- Disqus Comments -->
-
-<!-- utterances Comments -->
-
-</body>
-</html>
+</div><div class="tags"><ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">服务器</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BF%90%E7%BB%B4/" rel="tag">运维</a></li></ul></div><div class="post-nav"><a class="pre" href="/post/53701281/">人话简单理解八下遗传之生物的遗传变异</a><a class="next" href="/post/2218331126/">Kitty终端美化记录</a></div><div class="nofancybox" id="waline"></div><link rel="stylesheet" type="text/css" href="https://unpkg.com/@waline/client@v3/dist/waline.css"><script type="module">import {init} from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+init({
+  el: '#waline',
+  comment: true,
+  serverURL: 'https://waline.yingyu5658.me',
+  pageSize: '30',
+  wordLimit: '500',
+  requiredMeta,
+  emoji: [
+    '//unpkg.com/@waline/emojis@1.2.0/weibo',
+    '//unpkg.com/@waline/emojis@1.2.0/qq',
+    '//unpkg.com/@waline/emojis@1.2.0/tw-emoji',
+  ],
+});</script><script>let metaInfo = ['nick', 'mail', 'link']
+let requiredMeta = 'nick,mail'.split(',').filter(item => {
+  return metaInfo.indexOf(item) > -1
+})
+</script></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"/><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/post/3975852992/">好文章</a></li><li class="post-list-item"><a class="post-list-link" href="/post/1493508134/">《操作系统导论》学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/post/3824334627/">给比我岁数还大的电脑装Fedora</a></li><li class="post-list-item"><a class="post-list-link" href="/post/4155363784/">怪癖</a></li><li class="post-list-item"><a class="post-list-link" href="/post/2631380338/">网络死亡计划</a></li><li class="post-list-item"><a class="post-list-link" href="/post/3585041998/">我说过吗？</a></li><li class="post-list-item"><a class="post-list-link" href="/post/4149577284/">从浏览器设置入手，一招破解作文网站禁止复制</a></li><li class="post-list-item"><a class="post-list-link" href="/post/594023371/">4Key音游段位单曲成绩计算的程序实现</a></li><li class="post-list-item"><a class="post-list-link" href="/post/3691550015/">杂记#2025-06-06</a></li><li class="post-list-item"><a class="post-list-link" href="/post/3508058237/">C语言的头文件与OOP范式的抽象类、接口的异同点</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ACGN/">ACGN</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a><span class="category-list-count">56</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%95%E7%A8%BF/">投稿</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E5%B8%B8/">日常</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a><span class="category-list-count">14</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://www.sifangbazhu.tech/" title="MRZHU的小站" target="_blank">MRZHU的小站</a><ul></ul><a href="https://rhopaper.top/" title="RhoPaperの小站" target="_blank">RhoPaperの小站</a><ul></ul><a href="https://geneliunx.com/" title="Geneliunx" target="_blank">Geneliunx</a><ul></ul><a href="https://printempw.github.io/" title="PRIN BLOG" target="_blank">PRIN BLOG</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2025 <a href="/." rel="nofollow">映屿.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=1.0.0" async></script><script type="text/javascript" src="https://unpkg.com/@fancyapps/fancybox/dist/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=1.0.0" async></script><link rel="stylesheet" type="text/css" href="https://unpkg.com/@fancyapps/fancybox/dist/jquery.fancybox.min.css"><link rel="stylesheet" type="text/css" href="/css/search.css?v=1.0.0"><script type="text/javascript" src="/js/search.js?v=1.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+  search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="/js/copycode.js?v=1.0.0" successtext="复制成功！"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css?v=1.0.0"><script type="text/javascript" src="/js/codeblock-resizer.js?v=1.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=1.0.0"></script></div></body></html>
