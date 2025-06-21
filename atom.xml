@@ -6,7 +6,7 @@
   <link href="http://www.yingyu5658.me/atom.xml" rel="self"/>
   
   <link href="http://www.yingyu5658.me/"/>
-  <updated>2025-06-20T12:48:31.516Z</updated>
+  <updated>2025-06-21T06:53:31.621Z</updated>
   <id>http://www.yingyu5658.me/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Tmux配置记录</title>
+    <link href="http://www.yingyu5658.me/post/1389132829/"/>
+    <id>http://www.yingyu5658.me/post/1389132829/</id>
+    <published>2025-06-21T06:19:36.000Z</published>
+    <updated>2025-06-21T06:53:31.621Z</updated>
+    
+    <content type="html"><![CDATA[<p>TMux 是终端复用神器，让你在一个终端窗口管理多个会话、窗口和窗格。</p><p>基础操作：启动Tmux</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux</span><br></pre></td></tr></table></figure><p>所以我选择在<code>~/.bashrc</code>里加上这句，每次打开终端都会自动进入tmux。</p><p><strong>需要掌握的概念</strong>：</p><ul><li>会话（Session）：长期运行的终端环境。</li><li>窗口（Window）：会话中的标签页。</li><li>窗格（Pane）：窗口中的分屏。</li></ul><p><strong>默认快捷键：</strong></p><table><thead><tr><th>操作</th><th>快捷键</th><th>说明</th></tr></thead><tbody><tr><td><strong>会话管理</strong></td><td></td><td></td></tr><tr><td>脱离会话</td><td><code>Ctrl+b d</code></td><td>后台运行会话</td></tr><tr><td>查看会话列表</td><td><code>Ctrl+b s</code></td><td>方向键选择并进入</td></tr><tr><td>重命名当前会话</td><td><code>Ctrl+b $</code></td><td></td></tr><tr><td><strong>窗口管理</strong></td><td></td><td></td></tr><tr><td>新建窗口</td><td><code>Ctrl+b c</code></td><td></td></tr><tr><td>关闭当前窗口</td><td><code>Ctrl+b &amp;</code></td><td></td></tr><tr><td>切换窗口</td><td><code>Ctrl+b 0~9</code></td><td>切换到指定编号窗口</td></tr><tr><td>窗口列表</td><td><code>Ctrl+b w</code></td><td>可视化选择窗口</td></tr><tr><td><strong>窗格管理</strong></td><td></td><td></td></tr><tr><td>水平分割窗格</td><td><code>Ctrl+b &quot;</code></td><td></td></tr><tr><td>垂直分割窗格</td><td><code>Ctrl+b %</code></td><td></td></tr><tr><td>切换窗格</td><td><code>Ctrl+b 方向键</code></td><td></td></tr><tr><td>关闭当前窗格</td><td><code>Ctrl+b x</code></td><td></td></tr><tr><td>最大化&#x2F;恢复窗格</td><td><code>Ctrl+b z</code></td><td>临时全屏当前窗格</td></tr></tbody></table><p><strong>配置自定义（~&#x2F;.tmux.conf）</strong>：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">set-option -g default-shell /bin/bash   # 强制使用 Bash</span><br><span class="line">set-option -g default-command /bin/bash # 确保新会话/Pane 也使用 Bash</span><br><span class="line"></span><br><span class="line">unbind H   # 移除 H 的绑定</span><br><span class="line">unbind L   # 移除 L 的绑定</span><br><span class="line"># 启用鼠标支持</span><br><span class="line">set -g mouse on</span><br><span class="line"></span><br><span class="line"># 键</span><br><span class="line">set -g prefix C-w</span><br><span class="line">unbind C-b</span><br><span class="line"></span><br><span class="line">bind -r Left previous-window     # 前缀键+←：左移窗口</span><br><span class="line">bind -r Right next-window        # 前缀键+→：右移窗口</span><br><span class="line"># 屏幕分割</span><br><span class="line">bind v split-window -h # 前缀键+v垂直分割</span><br><span class="line">bind -n C-Left resize-pane -L 5   # Ctrl+←：向左扩大窗格 5 单位</span><br><span class="line">bind -n C-Right resize-pane -R 5  # Ctrl+→：向右扩大窗格 5 单位</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> ________________</span><br><span class="line">&lt; fuck you tmux! &gt;</span><br><span class="line"> ----------------</span><br><span class="line">        \   ^__^</span><br><span class="line">         \  (oo)\_______</span><br><span class="line">            (__)\       )\/\</span><br><span class="line">                ||----w |</span><br><span class="line">                ||     ||</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;TMux 是终端复用神器，让你在一个终端窗口管理多个会话、窗口和窗格。&lt;/p&gt;
+&lt;p&gt;基础操作：启动Tmux&lt;/p&gt;
+&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class</summary>
+      
+    
+    
+    
+    <category term="技术" scheme="http://www.yingyu5658.me/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="Tmux" scheme="http://www.yingyu5658.me/tags/Tmux/"/>
+    
+    <category term="终端" scheme="http://www.yingyu5658.me/tags/%E7%BB%88%E7%AB%AF/"/>
+    
+    <category term="Linux" scheme="http://www.yingyu5658.me/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>被蔑视的法律</title>
@@ -386,11 +416,11 @@
     <category term="技术" scheme="http://www.yingyu5658.me/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
+    <category term="Linux" scheme="http://www.yingyu5658.me/tags/Linux/"/>
+    
     <category term="Emacs" scheme="http://www.yingyu5658.me/tags/Emacs/"/>
     
     <category term="GNU" scheme="http://www.yingyu5658.me/tags/GNU/"/>
-    
-    <category term="Linux" scheme="http://www.yingyu5658.me/tags/Linux/"/>
     
   </entry>
   
@@ -436,11 +466,11 @@
     <category term="技术" scheme="http://www.yingyu5658.me/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
+    <category term="Linux" scheme="http://www.yingyu5658.me/tags/Linux/"/>
+    
     <category term="Emacs" scheme="http://www.yingyu5658.me/tags/Emacs/"/>
     
     <category term="GNU" scheme="http://www.yingyu5658.me/tags/GNU/"/>
-    
-    <category term="Linux" scheme="http://www.yingyu5658.me/tags/Linux/"/>
     
   </entry>
   
@@ -763,9 +793,9 @@
     <category term="日常" scheme="http://www.yingyu5658.me/categories/%E6%97%A5%E5%B8%B8/"/>
     
     
-    <category term="音乐" scheme="http://www.yingyu5658.me/tags/%E9%9F%B3%E4%B9%90/"/>
-    
     <category term="贝斯" scheme="http://www.yingyu5658.me/tags/%E8%B4%9D%E6%96%AF/"/>
+    
+    <category term="音乐" scheme="http://www.yingyu5658.me/tags/%E9%9F%B3%E4%B9%90/"/>
     
   </entry>
   
@@ -869,9 +899,9 @@
     <category term="技术" scheme="http://www.yingyu5658.me/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-    <category term="Java" scheme="http://www.yingyu5658.me/tags/Java/"/>
-    
     <category term="IDEA" scheme="http://www.yingyu5658.me/tags/IDEA/"/>
+    
+    <category term="Java" scheme="http://www.yingyu5658.me/tags/Java/"/>
     
     <category term="破解" scheme="http://www.yingyu5658.me/tags/%E7%A0%B4%E8%A7%A3/"/>
     
@@ -949,9 +979,9 @@
     <category term="技术" scheme="http://www.yingyu5658.me/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-    <category term="Emacs" scheme="http://www.yingyu5658.me/tags/Emacs/"/>
-    
     <category term="Linux" scheme="http://www.yingyu5658.me/tags/Linux/"/>
+    
+    <category term="Emacs" scheme="http://www.yingyu5658.me/tags/Emacs/"/>
     
   </entry>
   
@@ -994,9 +1024,9 @@
     <category term="技术" scheme="http://www.yingyu5658.me/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-    <category term="博客" scheme="http://www.yingyu5658.me/tags/%E5%8D%9A%E5%AE%A2/"/>
-    
     <category term="Hexo" scheme="http://www.yingyu5658.me/tags/Hexo/"/>
+    
+    <category term="博客" scheme="http://www.yingyu5658.me/tags/%E5%8D%9A%E5%AE%A2/"/>
     
     <category term="网站运维" scheme="http://www.yingyu5658.me/tags/%E7%BD%91%E7%AB%99%E8%BF%90%E7%BB%B4/"/>
     
@@ -1026,11 +1056,11 @@
     <category term="日常" scheme="http://www.yingyu5658.me/categories/%E6%97%A5%E5%B8%B8/"/>
     
     
-    <category term="音乐" scheme="http://www.yingyu5658.me/tags/%E9%9F%B3%E4%B9%90/"/>
+    <category term="日常" scheme="http://www.yingyu5658.me/tags/%E6%97%A5%E5%B8%B8/"/>
     
     <category term="贝斯" scheme="http://www.yingyu5658.me/tags/%E8%B4%9D%E6%96%AF/"/>
     
-    <category term="日常" scheme="http://www.yingyu5658.me/tags/%E6%97%A5%E5%B8%B8/"/>
+    <category term="音乐" scheme="http://www.yingyu5658.me/tags/%E9%9F%B3%E4%B9%90/"/>
     
   </entry>
   
@@ -1385,9 +1415,9 @@
     <category term="技术" scheme="http://www.yingyu5658.me/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-    <category term="服务器" scheme="http://www.yingyu5658.me/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    
     <category term="Linux" scheme="http://www.yingyu5658.me/tags/Linux/"/>
+    
+    <category term="服务器" scheme="http://www.yingyu5658.me/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
     <category term="运维" scheme="http://www.yingyu5658.me/tags/%E8%BF%90%E7%BB%B4/"/>
     
@@ -1410,9 +1440,9 @@
     <category term="技术" scheme="http://www.yingyu5658.me/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-    <category term="Linux" scheme="http://www.yingyu5658.me/tags/Linux/"/>
-    
     <category term="终端" scheme="http://www.yingyu5658.me/tags/%E7%BB%88%E7%AB%AF/"/>
+    
+    <category term="Linux" scheme="http://www.yingyu5658.me/tags/Linux/"/>
     
     <category term="美化" scheme="http://www.yingyu5658.me/tags/%E7%BE%8E%E5%8C%96/"/>
     
@@ -1458,9 +1488,9 @@
     <category term="技术" scheme="http://www.yingyu5658.me/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-    <category term="博客" scheme="http://www.yingyu5658.me/tags/%E5%8D%9A%E5%AE%A2/"/>
-    
     <category term="Hexo" scheme="http://www.yingyu5658.me/tags/Hexo/"/>
+    
+    <category term="博客" scheme="http://www.yingyu5658.me/tags/%E5%8D%9A%E5%AE%A2/"/>
     
     <category term="Obsidain" scheme="http://www.yingyu5658.me/tags/Obsidain/"/>
     
@@ -1991,9 +2021,9 @@
     <category term="技术" scheme="http://www.yingyu5658.me/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-    <category term="博客" scheme="http://www.yingyu5658.me/tags/%E5%8D%9A%E5%AE%A2/"/>
-    
     <category term="Hexo" scheme="http://www.yingyu5658.me/tags/Hexo/"/>
+    
+    <category term="博客" scheme="http://www.yingyu5658.me/tags/%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="yingyu5658的数字花园"><title>“我有厌蠢症” | 映屿</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="https://unpkg.com/normalize.css"><link rel="stylesheet" type="text/css" href="https://unpkg.com/purecss/build/pure-min.css"><link rel="stylesheet" type="text/css" href="https://unpkg.com/purecss/build/grids-responsive-min.css"><link rel="stylesheet" href="https://unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="https://unpkg.com/jquery/dist/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script type="text/javascript" src="https://unpkg.com/clipboard/dist/clipboard.min.js"></script><script type="text/javascript" src="https://unpkg.com/toastr/build/toastr.min.js"></script><link rel="stylesheet" href="https://unpkg.com/toastr/build/toastr.min.css"><div class="darkmode-toggle">🌓</div><script>var prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)');
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="yingyu5658的数字花园"><title>Tmux配置记录 | 映屿</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="https://unpkg.com/normalize.css"><link rel="stylesheet" type="text/css" href="https://unpkg.com/purecss/build/pure-min.css"><link rel="stylesheet" type="text/css" href="https://unpkg.com/purecss/build/grids-responsive-min.css"><link rel="stylesheet" href="https://unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="https://unpkg.com/jquery/dist/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script type="text/javascript" src="https://unpkg.com/clipboard/dist/clipboard.min.js"></script><script type="text/javascript" src="https://unpkg.com/toastr/build/toastr.min.js"></script><link rel="stylesheet" href="https://unpkg.com/toastr/build/toastr.min.css"><div class="darkmode-toggle">🌓</div><script>var prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)');
 var toggle = document.querySelector('.darkmode-toggle');
 var html = document.querySelector('html');
 
@@ -7,21 +7,116 @@ html.dataset.dark = localStorage.dark || prefersDarkMode.matches;
 toggle.addEventListener('click', () => {
 localStorage.dark = !(html.dataset.dark == 'true');
 html.dataset.dark = localStorage.dark;
-});</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">“我有厌蠢症”</h1><a id="logo" href="/.">映屿</a><p class="description">yingyu5658的数字花园</p></div><div id="nav-menu"><a href="/./"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">“我有厌蠢症”</h1><div class="post-meta">2025-05-20<span> | </span><span class="category"><a href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></span><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> 阅读</span></span></div><a class="disqus-comment-count" href="/post/460449479/#waline"><span class="waline-comment-count" id="/post/460449479/"></span><span> 条评论</span></a><div class="post-content"><p>“厌蠢症”大概是迄今为止我听到的唯一一个能与近些年很火的一个心理测试——MBTI抗衡的。</p>
-<p>前两年MBTI这东西刚出来时，很多人争着抢着去做测试，把自己标签上的四个字母如数家珍，甚至为了维持人设，去扮演人格，倒反天罡。但不能否认，这个测试确实能在与陌生人的聊天中快速找到话题切入点，以两大种类属性人格为根，横向延伸出许多话题，建立起临时的友谊。过两天，结果就是空间互赞，再不联系。</p>
-<p>同时，这个测试也有一个点，当局者迷。即<strong>筛选</strong>。</p>
-<p>筛选出分辨能力弱，花钱去做假测试的和不清楚真实的自己，喜欢给自己贴标签，经常把MBTI挂在嘴边的人。这两种人，说难听点，<strong>蠢</strong>。</p>
-<p>用MBTI的例子来引出本文的核心观点：<strong>厌蠢症才是真的蠢</strong>。</p>
-<p>不可否认地，高傲自大的人确实蠢。</p>
-<p>上次让我这么情绪复杂的还是一群没病硬装、拿疾病当挡箭牌的“抑郁症患者”。</p>
-<p>厌蠢症这三个字，完全是送命题，也筛选出智商和情商都达到“蠢”的标准的人。首先，当你说出这句话，就意味着你把自己当做了聪明人。带着狂妄、自大、轻浮、傲慢的“聪明人”。</p>
-<p>傲慢才是原罪。</p>
-<p>带着这份傲慢，厌蠢症发作，完全暴露自己最低智的一面，自诩聪明人。实际上蠢到极点还不自知。用人类的大脑仔细思考一下，这三个字是否写出来咬手、读出来扎嘴？用人类的大脑仔细思考一下，你是否有资格讨厌你所谓的“蠢”？用人类的大脑思考一下，你对聪明的定义，以及对自己的理解是什么样的？仔细思考一下，你能否在生活中完美无缺？你是否在每一场考试都拿到满分？你是否能照顾他人情绪，读懂空气氛围？</p>
-<p>他们思考出结果了吗？没有。厌蠢症患者无法思考。不具备人类的大脑，没有思考的能力。也不愿意去思考，只是一直傲慢自大下去，这才是真的蠢。</p>
-<p>再把这句愚蠢的话大声地说出来：“我有厌蠢症。”</p>
-<p>自己作何感想？他人作何感想？</p>
-<p>如果你愿意继续做你所谓的聪明人并继续厌蠢下去，那你只有高傲自大、狂妄轻浮，你是真的蠢。</p>
-</div><div class="tags"><ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E2%80%9C%E5%8E%8C%E8%A0%A2%E7%97%87%E2%80%9D/" rel="tag">“厌蠢症”</a></li></ul></div><div class="post-nav"><a class="pre" href="/post/1421131593/">【数据结构与算法】二叉树</a><a class="next" href="/post/493132927/">这样的博客的意义是？</a></div><div class="nofancybox" id="waline"></div><link rel="stylesheet" type="text/css" href="https://unpkg.com/@waline/client@v3/dist/waline.css"><script type="module">import {init} from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+});</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Tmux配置记录</h1><a id="logo" href="/.">映屿</a><p class="description">yingyu5658的数字花园</p></div><div id="nav-menu"><a href="/./"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">Tmux配置记录</h1><div class="post-meta">2025-06-21<span> | </span><span class="category"><a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> 阅读</span></span></div><a class="disqus-comment-count" href="/post/1389132829/#waline"><span class="waline-comment-count" id="/post/1389132829/"></span><span> 条评论</span></a><div class="post-content"><p>TMux 是终端复用神器，让你在一个终端窗口管理多个会话、窗口和窗格。</p>
+<p>基础操作：启动Tmux</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux</span><br></pre></td></tr></table></figure>
+
+<p>所以我选择在<code>~/.bashrc</code>里加上这句，每次打开终端都会自动进入tmux。</p>
+<p><strong>需要掌握的概念</strong>：</p>
+<ul>
+<li>会话（Session）：长期运行的终端环境。</li>
+<li>窗口（Window）：会话中的标签页。</li>
+<li>窗格（Pane）：窗口中的分屏。</li>
+</ul>
+<p><strong>默认快捷键：</strong></p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>快捷键</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>会话管理</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>脱离会话</td>
+<td><code>Ctrl+b d</code></td>
+<td>后台运行会话</td>
+</tr>
+<tr>
+<td>查看会话列表</td>
+<td><code>Ctrl+b s</code></td>
+<td>方向键选择并进入</td>
+</tr>
+<tr>
+<td>重命名当前会话</td>
+<td><code>Ctrl+b $</code></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>窗口管理</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>新建窗口</td>
+<td><code>Ctrl+b c</code></td>
+<td></td>
+</tr>
+<tr>
+<td>关闭当前窗口</td>
+<td><code>Ctrl+b &amp;</code></td>
+<td></td>
+</tr>
+<tr>
+<td>切换窗口</td>
+<td><code>Ctrl+b 0~9</code></td>
+<td>切换到指定编号窗口</td>
+</tr>
+<tr>
+<td>窗口列表</td>
+<td><code>Ctrl+b w</code></td>
+<td>可视化选择窗口</td>
+</tr>
+<tr>
+<td><strong>窗格管理</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>水平分割窗格</td>
+<td><code>Ctrl+b &quot;</code></td>
+<td></td>
+</tr>
+<tr>
+<td>垂直分割窗格</td>
+<td><code>Ctrl+b %</code></td>
+<td></td>
+</tr>
+<tr>
+<td>切换窗格</td>
+<td><code>Ctrl+b 方向键</code></td>
+<td></td>
+</tr>
+<tr>
+<td>关闭当前窗格</td>
+<td><code>Ctrl+b x</code></td>
+<td></td>
+</tr>
+<tr>
+<td>最大化&#x2F;恢复窗格</td>
+<td><code>Ctrl+b z</code></td>
+<td>临时全屏当前窗格</td>
+</tr>
+</tbody></table>
+<p><strong>配置自定义（~&#x2F;.tmux.conf）</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">set-option -g default-shell /bin/bash   # 强制使用 Bash</span><br><span class="line">set-option -g default-command /bin/bash # 确保新会话/Pane 也使用 Bash</span><br><span class="line"></span><br><span class="line">unbind H   # 移除 H 的绑定</span><br><span class="line">unbind L   # 移除 L 的绑定</span><br><span class="line"># 启用鼠标支持</span><br><span class="line">set -g mouse on</span><br><span class="line"></span><br><span class="line"># 键</span><br><span class="line">set -g prefix C-w</span><br><span class="line">unbind C-b</span><br><span class="line"></span><br><span class="line">bind -r Left previous-window     # 前缀键+←：左移窗口</span><br><span class="line">bind -r Right next-window        # 前缀键+→：右移窗口</span><br><span class="line"># 屏幕分割</span><br><span class="line">bind v split-window -h # 前缀键+v垂直分割</span><br><span class="line">bind -n C-Left resize-pane -L 5   # Ctrl+←：向左扩大窗格 5 单位</span><br><span class="line">bind -n C-Right resize-pane -R 5  # Ctrl+→：向右扩大窗格 5 单位</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> ________________</span><br><span class="line">&lt; fuck you tmux! &gt;</span><br><span class="line"> ----------------</span><br><span class="line">        \   ^__^</span><br><span class="line">         \  (oo)\_______</span><br><span class="line">            (__)\       )\/\</span><br><span class="line">                ||----w |</span><br><span class="line">                ||     ||</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+</div><div class="tags"><ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tmux/" rel="tag">Tmux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BB%88%E7%AB%AF/" rel="tag">终端</a></li></ul></div><div class="post-nav"><a class="next" href="/post/4031192575/">被蔑视的法律</a></div><div class="nofancybox" id="waline"></div><link rel="stylesheet" type="text/css" href="https://unpkg.com/@waline/client@v3/dist/waline.css"><script type="module">import {init} from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
 init({
   el: '#waline',
   comment: true,

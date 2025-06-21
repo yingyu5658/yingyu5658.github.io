@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>Tmux配置记录</title>
+      <link href="/post/1389132829/"/>
+      <url>/post/1389132829/</url>
+      
+        <content type="html"><![CDATA[<p>TMux 是终端复用神器，让你在一个终端窗口管理多个会话、窗口和窗格。</p><p>基础操作：启动Tmux</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux</span><br></pre></td></tr></table></figure><p>所以我选择在<code>~/.bashrc</code>里加上这句，每次打开终端都会自动进入tmux。</p><p><strong>需要掌握的概念</strong>：</p><ul><li>会话（Session）：长期运行的终端环境。</li><li>窗口（Window）：会话中的标签页。</li><li>窗格（Pane）：窗口中的分屏。</li></ul><p><strong>默认快捷键：</strong></p><table><thead><tr><th>操作</th><th>快捷键</th><th>说明</th></tr></thead><tbody><tr><td><strong>会话管理</strong></td><td></td><td></td></tr><tr><td>脱离会话</td><td><code>Ctrl+b d</code></td><td>后台运行会话</td></tr><tr><td>查看会话列表</td><td><code>Ctrl+b s</code></td><td>方向键选择并进入</td></tr><tr><td>重命名当前会话</td><td><code>Ctrl+b $</code></td><td></td></tr><tr><td><strong>窗口管理</strong></td><td></td><td></td></tr><tr><td>新建窗口</td><td><code>Ctrl+b c</code></td><td></td></tr><tr><td>关闭当前窗口</td><td><code>Ctrl+b &amp;</code></td><td></td></tr><tr><td>切换窗口</td><td><code>Ctrl+b 0~9</code></td><td>切换到指定编号窗口</td></tr><tr><td>窗口列表</td><td><code>Ctrl+b w</code></td><td>可视化选择窗口</td></tr><tr><td><strong>窗格管理</strong></td><td></td><td></td></tr><tr><td>水平分割窗格</td><td><code>Ctrl+b &quot;</code></td><td></td></tr><tr><td>垂直分割窗格</td><td><code>Ctrl+b %</code></td><td></td></tr><tr><td>切换窗格</td><td><code>Ctrl+b 方向键</code></td><td></td></tr><tr><td>关闭当前窗格</td><td><code>Ctrl+b x</code></td><td></td></tr><tr><td>最大化&#x2F;恢复窗格</td><td><code>Ctrl+b z</code></td><td>临时全屏当前窗格</td></tr></tbody></table><p><strong>配置自定义（~&#x2F;.tmux.conf）</strong>：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">set-option -g default-shell /bin/bash   # 强制使用 Bash</span><br><span class="line">set-option -g default-command /bin/bash # 确保新会话/Pane 也使用 Bash</span><br><span class="line"></span><br><span class="line">unbind H   # 移除 H 的绑定</span><br><span class="line">unbind L   # 移除 L 的绑定</span><br><span class="line"># 启用鼠标支持</span><br><span class="line">set -g mouse on</span><br><span class="line"></span><br><span class="line"># 键</span><br><span class="line">set -g prefix C-w</span><br><span class="line">unbind C-b</span><br><span class="line"></span><br><span class="line">bind -r Left previous-window     # 前缀键+←：左移窗口</span><br><span class="line">bind -r Right next-window        # 前缀键+→：右移窗口</span><br><span class="line"># 屏幕分割</span><br><span class="line">bind v split-window -h # 前缀键+v垂直分割</span><br><span class="line">bind -n C-Left resize-pane -L 5   # Ctrl+←：向左扩大窗格 5 单位</span><br><span class="line">bind -n C-Right resize-pane -R 5  # Ctrl+→：向右扩大窗格 5 单位</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> ________________</span><br><span class="line">&lt; fuck you tmux! &gt;</span><br><span class="line"> ----------------</span><br><span class="line">        \   ^__^</span><br><span class="line">         \  (oo)\_______</span><br><span class="line">            (__)\       )\/\</span><br><span class="line">                ||----w |</span><br><span class="line">                ||     ||</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Tmux </tag>
+            
+            <tag> 终端 </tag>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>被蔑视的法律</title>
       <link href="/post/4031192575/"/>
       <url>/post/4031192575/</url>
@@ -349,11 +378,11 @@
       
         <tags>
             
+            <tag> Linux </tag>
+            
             <tag> Emacs </tag>
             
             <tag> GNU </tag>
-            
-            <tag> Linux </tag>
             
         </tags>
       
@@ -397,11 +426,11 @@
       
         <tags>
             
+            <tag> Linux </tag>
+            
             <tag> Emacs </tag>
             
             <tag> GNU </tag>
-            
-            <tag> Linux </tag>
             
         </tags>
       
@@ -723,9 +752,9 @@
       
         <tags>
             
-            <tag> 音乐 </tag>
-            
             <tag> 贝斯 </tag>
+            
+            <tag> 音乐 </tag>
             
         </tags>
       
@@ -827,9 +856,9 @@
       
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> IDEA </tag>
+            
+            <tag> Java </tag>
             
             <tag> 破解 </tag>
             
@@ -910,9 +939,9 @@
       
         <tags>
             
-            <tag> Emacs </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> Emacs </tag>
             
         </tags>
       
@@ -956,9 +985,9 @@
       
         <tags>
             
-            <tag> 博客 </tag>
-            
             <tag> Hexo </tag>
+            
+            <tag> 博客 </tag>
             
             <tag> 网站运维 </tag>
             
@@ -985,11 +1014,11 @@
       
         <tags>
             
-            <tag> 音乐 </tag>
+            <tag> 日常 </tag>
             
             <tag> 贝斯 </tag>
             
-            <tag> 日常 </tag>
+            <tag> 音乐 </tag>
             
         </tags>
       
@@ -1349,9 +1378,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 运维 </tag>
             
@@ -1378,9 +1407,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> 终端 </tag>
+            
+            <tag> Linux </tag>
             
             <tag> 美化 </tag>
             
@@ -1434,9 +1463,9 @@
       
         <tags>
             
-            <tag> 博客 </tag>
-            
             <tag> Hexo </tag>
+            
+            <tag> 博客 </tag>
             
             <tag> Obsidain </tag>
             
@@ -1968,9 +1997,9 @@
       
         <tags>
             
-            <tag> 博客 </tag>
-            
             <tag> Hexo </tag>
+            
+            <tag> 博客 </tag>
             
         </tags>
       
@@ -2203,11 +2232,22 @@
     
     
     <entry>
+      <title>归档</title>
+      <link href="/archives/index.html"/>
+      <url>/archives/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>关于</title>
       <link href="/about/index.html"/>
       <url>/about/index.html</url>
       
-        <content type="html"><![CDATA[<ul><li>11年生人的小孩。</li><li>有一定智商情商。</li><li>如果哪天你发现这个博客没了，那可能我也没了。</li></ul><p>我的PGP指纹是 <code>0BEAA0E01519D8311A2939E801627883DEB774D8</code><br>可以通过以下命令导入：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sL https://www.yingyu5658.me/pgp/public-key.asc | gpg --import</span><br></pre></td></tr></table></figure><p>你可以在<a href="mailto:&#x79;&#x69;&#x6e;&#x67;&#x79;&#x75;&#53;&#x36;&#53;&#x38;&#64;&#111;&#x75;&#x74;&#108;&#111;&#111;&#x6b;&#x2e;&#99;&#x6f;&#109;">yingyu5658@outlook.com</a>联系到我。</p><!-- 随时欢迎双向友链申请，**若无Github账号，无法评论，请发送邮件**。### 站点信息- 博客系统：Hexo- 部署方案：Github Page托管页面 + Vercel加速内地访问## 建站初心在互联网这摊臭味横生的化粪池外有着自己的世外桃源很酷，不是吗？## 个人趣闻### ID由来小时候玩MC，国际版。因为ID要用英文，就随便拼了个yingyu，因为重复自动生成的5658，其他游戏也不知道该叫什么，就继续沿用，到后来，各种软件、网站、社交平台都叫yingy5658了。曾用名yingyu谐音嘤鱼，后弃用。认识我比较早的朋友会称呼我为银鱼。### 逐步深入~~(坠入深渊)~~学习的经历- 对这些东西都好奇心来源于小时候上课用的一台旧电脑，玩VBS脚本（万恶之源了属于是233）- 在某机构学Scratch- 2019年左右在某个MC服务器担任管理员，了解到了更多服务器运维知识- 刷机PSP（现在想想我都不知道我怎么做到的）- 2020年左右在猿辅导学习过Python，不过现在看来完全无用- 2020-2022搭建MC、泰拉服务器- 2023用毛子的一个软件在平板上做博客，折腾内网穿透（成功）- 2023搭建出一个博客（已废弃）- 2024.11用Gmeek搭了一个博客（已废弃）  自学Java、前端  开发实用工具卢布卢  编写问卷调查页面- 2024.11.22在阿里云租服务器、域名。用Typecho搭建了一个博客- 2025.3为了省钱，把博客迁移到了Hexo。- 2025.3.15 注销备案。--><blockquote><p>最后更新：2025-6-19</p></blockquote>]]></content>
+        <content type="html"><![CDATA[<ul><li>11年生人的小孩。</li><li>有一定智商情商。</li><li>如果哪天你发现这个博客没了，那可能我也没了。</li></ul><p>我的PGP指纹是 <code>0BEAA0E01519D8311A2939E801627883DEB774D8</code><br>可以通过以下命令导入：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sL https://www.yingyu5658.me/pgp/public-key.asc | gpg --import</span><br></pre></td></tr></table></figure><p>你可以在<a href="mailto:&#x79;&#105;&#x6e;&#x67;&#x79;&#x75;&#x35;&#x36;&#x35;&#56;&#64;&#x6f;&#117;&#x74;&#x6c;&#x6f;&#111;&#x6b;&#46;&#x63;&#x6f;&#109;">yingyu5658@outlook.com</a>联系到我。</p><!-- 随时欢迎双向友链申请，**若无Github账号，无法评论，请发送邮件**。### 站点信息- 博客系统：Hexo- 部署方案：Github Page托管页面 + Vercel加速内地访问## 建站初心在互联网这摊臭味横生的化粪池外有着自己的世外桃源很酷，不是吗？## 个人趣闻### ID由来小时候玩MC，国际版。因为ID要用英文，就随便拼了个yingyu，因为重复自动生成的5658，其他游戏也不知道该叫什么，就继续沿用，到后来，各种软件、网站、社交平台都叫yingy5658了。曾用名yingyu谐音嘤鱼，后弃用。认识我比较早的朋友会称呼我为银鱼。### 逐步深入~~(坠入深渊)~~学习的经历- 对这些东西都好奇心来源于小时候上课用的一台旧电脑，玩VBS脚本（万恶之源了属于是233）- 在某机构学Scratch- 2019年左右在某个MC服务器担任管理员，了解到了更多服务器运维知识- 刷机PSP（现在想想我都不知道我怎么做到的）- 2020年左右在猿辅导学习过Python，不过现在看来完全无用- 2020-2022搭建MC、泰拉服务器- 2023用毛子的一个软件在平板上做博客，折腾内网穿透（成功）- 2023搭建出一个博客（已废弃）- 2024.11用Gmeek搭了一个博客（已废弃）  自学Java、前端  开发实用工具卢布卢  编写问卷调查页面- 2024.11.22在阿里云租服务器、域名。用Typecho搭建了一个博客- 2025.3为了省钱，把博客迁移到了Hexo。- 2025.3.15 注销备案。--><blockquote><p>最后更新：2025-6-19</p></blockquote>]]></content>
       
     </entry>
     
@@ -2219,17 +2259,6 @@
       <url>/find/index.html</url>
       
         <content type="html"><![CDATA[<p>前方有两条路：</p><ul><li><a href="https://www.yingyu5658.me/categories">分类</a></li><li><a href="https://www.yingyu5658.me/tags/">标签</a></li></ul><p><img src="/../images/Pasted%20image%2020250610142641.png"></p>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>归档</title>
-      <link href="/archives/index.html"/>
-      <url>/archives/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
