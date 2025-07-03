@@ -1,0 +1,102 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="yingyu5658的数字花园"><title>把主力机系统换成Arch Linux是我这辈子做过的最蠢的决定 | 映屿</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="https://unpkg.com/normalize.css"><link rel="stylesheet" type="text/css" href="https://unpkg.com/purecss/build/pure-min.css"><link rel="stylesheet" type="text/css" href="https://unpkg.com/purecss/build/grids-responsive-min.css"><link rel="stylesheet" href="https://unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="https://unpkg.com/jquery/dist/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script type="text/javascript" src="https://unpkg.com/clipboard/dist/clipboard.min.js"></script><script type="text/javascript" src="https://unpkg.com/toastr/build/toastr.min.js"></script><link rel="stylesheet" href="https://unpkg.com/toastr/build/toastr.min.css"><div class="darkmode-toggle">🌓</div><script>var prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)');
+var toggle = document.querySelector('.darkmode-toggle');
+var html = document.querySelector('html');
+
+html.dataset.dark = localStorage.dark || prefersDarkMode.matches;
+
+toggle.addEventListener('click', () => {
+localStorage.dark = !(html.dataset.dark == 'true');
+html.dataset.dark = localStorage.dark;
+});</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">把主力机系统换成Arch Linux是我这辈子做过的最蠢的决定</h1><a id="logo" href="/.">映屿</a><p class="description">yingyu5658的数字花园</p></div><div id="nav-menu"><a href="/./"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="https://www.yingyu5658.me/atom.xml"><i class="fa fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">把主力机系统换成Arch Linux是我这辈子做过的最蠢的决定</h1><div class="post-meta">2025-04-06<span> | </span><span class="category"><a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> 阅读</span></span></div><a class="disqus-comment-count" href="/post/4108562128/#waline"><span class="waline-comment-count" id="/post/4108562128/"></span><span> 条评论</span></a><div class="post-content"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>先说结论。</p>
+<p><strong>我是傻逼！</strong></p>
+<p><strong>我是傻逼！！</strong></p>
+<p><strong>我是傻逼！！！</strong></p>
+<p>本文将讲述</p>
+<ul>
+<li>为什么我放弃了Arch</li>
+<li>为什么我放弃了Linux。</li>
+<li>什么人适合用Linux做主力系统</li>
+</ul>
+<p>本文的所有观点仅仅代表个人观点，我纯菜。你问我为什么要选择Arch，而不是Ubuntu或者其他新手友好的发行版，我不知道，正如上文所说，我是傻逼！</p>
+<h2 id="为什么我放弃了Arch"><a href="#为什么我放弃了Arch" class="headerlink" title="为什么我放弃了Arch"></a>为什么我放弃了Arch</h2><p>说到这个问题，就要先来谈谈为什么我要把Windows换成Linux。</p>
+<p>Linux这个系统对于我来说一直是神秘而美好的，至少在当时。我痴迷于命令行、终端、Vim这种工具。小时候也看过爸爸零几年买的《鸟哥的Linux私房菜》，给我当时幼小的心灵带来的极大的震撼。</p>
+<p>我当时也对Linux的目录结构非常新鲜，不分盘的设定感觉很好玩。</p>
+<p>我网站的服务器是Linux、身边的各种设备都有Linux的影子，这更加提高了我对Linux的向往程度。</p>
+<p>还有一个原因是，我当时正在用C语言写一个小工具，Windows下的gcc无法使用通配符<code>*</code>，要想用只能去打开Git Bash或者MSYS2，这俩东西界面的丑陋程度相比就不用我多说了，我当时就是喜欢把精力浪费在不必要的地方上，Windows的那个终端被我“美化”得花里胡哨的，上面两者的界面当然入不了我的眼。</p>
+<p>为了解决这个问题，我开始使用WSL2，但仅仅停留在开始阶段。</p>
+<p>我这个系统不知道怎么回事，根本没办法用WSL2，详情见<a target="_blank" rel="noopener" href="https://www.yingyu5658.cn/post/1348465439/">https://www.yingyu5658.cn/post/1348465439/</a></p>
+<p>全网都没有遇到这个问题的，那既然如此，重装系统吧。</p>
+<p>和系统相处就像谈恋爱，总有一段热恋期，过了这个时期后就冷淡了、矛盾也就浮出水面。刚装好的前几天，我的热情前所未有的高涨，学习各种命令、各种工具，当然少不了配置我最爱的Vim。那么说到Vim，归根结底是文本编辑器对吧，打字的软件，那么就要说说我用Linux的第一大困难——<strong>输入法配置难</strong></p>
+<h3 id="输入法配置难"><a href="#输入法配置难" class="headerlink" title="输入法配置难"></a>输入法配置难</h3><p>我是双拼用户，从小学六年级就开始用小鹤双拼打字了，这么长时间的习惯很难改，我也不想改。但是Linux上对双拼友好的输入法方案几乎没几个，我尝试过两个，Fcitx5 + 搜狗, Fcitx5 + Rime。</p>
+<p>这两个方案都大差不差，只是搜狗的可能略微智能一点，下载源什么的换成国内镜像，分分钟搞定下载问题。难就难在，我使用的终端不兼容Fcitx。</p>
+<p>没错，我用的就是Kitty。</p>
+<p>那么，肯定有人就想说，KDE自带的Console不能用吗？非得额外下载一个干什么？？</p>
+<p>我的答案就是：<strong>丑</strong>。</p>
+<p>没错，就是因为Console丑。当然他也可以美化，但问题就在于，他的窗口圆角不彻底，而且把标签页显示关掉后，只能额外开一个窗口，占用屏幕空间。</p>
+<p>而Kitty就不同，窗口边框干净利落，看起来很舒服，而且配色看起来也比Konsole那高饱和度的方案舒服太多了。标签页不是类似于系统组件的那种形式，所以不会额外占窗口空间。</p>
+<p>虽然不兼容问题，在程序启动参数添加一条指定ibus接口的命令就解决了。</p>
+<p>你问我为什么非得要追求好看，闲的么？我当时可能会扣一大串字来回怼你，但是我现在觉得我错了，我认同你的观点，就是闲的。</p>
+<p>如开头所说，我是傻逼！</p>
+<p>配置各种东西就免不了使用Github下载，那么就由此引出了第二个问题，<strong>代理配置难</strong></p>
+<h3 id="代理配置难"><a href="#代理配置难" class="headerlink" title="代理配置难"></a>代理配置难</h3><p>我这边访问Github非常不稳定，有时候能丝滑裸连，有时候挂代理都难上。我先用了Steam++的Github加速服务，但是他会把Github的一些地址都重定向到localhost导致使用Git的某些功能如<code>git push</code>异常。我又换到FastGithub，这东西很好用，但也有不稳定的时候，当他作为系统服务启动的时候，发生异常，想杀死他就变得十分困难，然后导致几乎所有Git功能都瘫痪，非常麻烦，<code>git clone</code>都跑不下来。</p>
+<h3 id="显卡驱动安装难"><a href="#显卡驱动安装难" class="headerlink" title="显卡驱动安装难"></a>显卡驱动安装难</h3><p>Linux显卡驱动问题一直都是社区津津乐道的蛋疼问题，更蛋疼的是我的显卡还是英伟达的，你问我为什么用英伟达显卡还玩Linux，我不知道。正如开头所说，我是傻逼！</p>
+<p>显卡驱动的问题，我研究了一周左右，虽然最后还是成功了，但是离正常使用还有一段距离。也是有很多小问题，比如使用系统自带的截图会黑屏，用不了i3等窗口管理器等等。</p>
+<p>当初安装显卡驱动导致的问题包括但不限于：</p>
+<ul>
+<li>鼠标灵敏度异常</li>
+<li>显示比例异常</li>
+<li>画面撕裂</li>
+<li>系统炸了</li>
+<li>桌面炸了</li>
+<li>能进图形界面但是不能登录</li>
+</ul>
+<p>嗯对就是这么离谱。当然经过我一番折腾还是达到了能用但体验不好的程度。</p>
+<h3 id="安装软件难"><a href="#安装软件难" class="headerlink" title="安装软件难"></a>安装软件难</h3><p>拿QQ举例，QQ官网的Linux安装包是.deb，如果我想安装，还是要经过一大通折腾，拼凑出来一个半成品QQ，而且最难受的是，每次他都会自动推送更新，我还更不了，还不能忽略版本，让我这个强迫症非常折磨。</p>
+<h2 id="为什么我放弃了Linux"><a href="#为什么我放弃了Linux" class="headerlink" title="为什么我放弃了Linux"></a>为什么我放弃了Linux</h2><p>其实原本我是不打算放弃Linux的，因为我突然想玩星露谷物语了，就想着要不要装双系统，但是我装Arch根本没有经验，磁盘分区做的很烂，上面的一番折腾已经让我筋疲力尽，我不想再玩Arch，只想找一个开箱即用的Linux发行版。</p>
+<p>我的目光理所应当地投到了Ubuntu，这是我小时候体验的第一个Linux发行版，对我来说意义有点特殊，而且也属于开箱即用，所以Arch就光荣的升级为我的前任了。</p>
+<p>Windows系统的安装非常简单，只要一直下一步下一步下一步，然后等就行了。Ubuntu也差不多，但需要注意的一点是，有一个步骤让用户选择以怎样的方式安装Ubuntu，给了三个选项，一个是用Windows Boot Manager管理，一个是擦除磁盘，好像还有一个，没注意。</p>
+<p>我要装双系统，当然是选第一个选项，系统正常装上了，一切正常。下载软件，Neovim、VSCode、kitty。</p>
+<p>kitty……</p>
+<p>上文提到，Kitty不支持fcitx5，理论上这个问题还是可以像Arch时期那么解决，但是我当时没找到怎么给程序添加启动参数。跟着网上的教程折腾了半天系统配置文件后，我成功的又把系统玩炸了，进不去桌面。</p>
+<p>当时已经是晚上十点多了，当天上午刚出去踏青，走了一万一千步，对于我来说已经把这一个月的活动量都用完了，筋疲力尽。非常困倦的状态下，我打算重装Ubuntu，正式因为特别困，智商下降得厉害，在安装程序选择了第二个：擦除磁盘。</p>
+<p>我原本Windows系统的D盘擦干净装了个Ubuntu。</p>
+<p>……….</p>
+<p>那就这样吧，也行，我试着在Windows里把C盘装的那个坏掉的Ubuntu删掉，但是Windows访问不了那块神秘区域。。。</p>
+<p>那行吧，重装系统。我格式化了C盘，删除了所有的分区，重装了Windows。在下载软件的时候猛地一惊。</p>
+<blockquote>
+<p>我为什么现在不用WSL了呢？</p>
+</blockquote>
+<p>这是个好问题，对吧，你问我为什么到这时候才想起来用WSL，我不知道，正如开头所说，我是傻逼！</p>
+<p>于是，我不再安装Ubuntu，执行wsl的安装命令，没有像上次使用Windows那样报错，报各种偏门错，报全网都找不到解决方法的错。</p>
+<p>此时我心中一万头曹尼玛奔腾，只有一句话想说：</p>
+<p><strong>我是傻逼！！！！！！</strong></p>
+<h2 id="什么人适合用Linux做主力系统"><a href="#什么人适合用Linux做主力系统" class="headerlink" title="什么人适合用Linux做主力系统"></a>什么人适合用Linux做主力系统</h2><p>我个人认为，对Linux有刚需，如嵌入式、AI、机器学习这种领域，离开Linux干不了活的，我会推荐你用WSL，而不是主力Linux。我不建议任何人主力系统用Linux。。。。更不建议主力Linux发行版是Arch。</p>
+<p>WSL的好处太多了，最大的好处就是方便。</p>
+<p>当然，你爱折腾，对Linux有热情，有好奇心，完全可以把我这话当放屁。</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p><strong>我是傻逼！</strong></p>
+<p><strong>我是傻逼！！</strong></p>
+<p><strong>我是傻逼！！！</strong></p>
+</div><div class="tags"><ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Arch/" rel="tag">Arch</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul></div><div class="post-nav"><a class="pre" href="/post/3993050935/">思想驯化不是艺术</a><a class="next" href="/post/964047394/">上帝类是什么？该如何避免上帝类？</a></div><div class="nofancybox" id="waline"></div><link rel="stylesheet" type="text/css" href="https://unpkg.com/@waline/client@v3/dist/waline.css"><script type="module">import {init} from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+init({
+  el: '#waline',
+  comment: true,
+  serverURL: 'https://waline.yingyu5658.me',
+  pageSize: '30',
+  wordLimit: '500',
+  requiredMeta,
+  emoji: [
+    '//unpkg.com/@waline/emojis@1.2.0/weibo',
+    '//unpkg.com/@waline/emojis@1.2.0/qq',
+    '//unpkg.com/@waline/emojis@1.2.0/tw-emoji',
+  ],
+});</script><script>let metaInfo = ['nick', 'mail', 'link']
+let requiredMeta = 'nick,mail'.split(',').filter(item => {
+  return metaInfo.indexOf(item) > -1
+})
+</script></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"/><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ACGN/">ACGN</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a><span class="category-list-count">59</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%95%E7%A8%BF/">投稿</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E5%B8%B8/">日常</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a><span class="category-list-count">20</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/ACGN/" style="font-size: 15px;">ACGN</a> <a href="/tags/%E6%B8%B8%E6%88%8F/" style="font-size: 15px;">游戏</a> <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 15px;">服务器</a> <a href="/tags/Minecraft/" style="font-size: 15px;">Minecraft</a> <a href="/tags/Terraria/" style="font-size: 15px;">Terraria</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 15px;">教程</a> <a href="/tags/Malody/" style="font-size: 15px;">Malody</a> <a href="/tags/osu/" style="font-size: 15px;">osu</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" style="font-size: 15px;">数据结构与算法</a> <a href="/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 15px;">C语言</a> <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/" style="font-size: 15px;">面向对象编程</a> <a href="/tags/Emacs/" style="font-size: 15px;">Emacs</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 15px;">编程</a> <a href="/tags/Javascript/" style="font-size: 15px;">Javascript</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 15px;">前端</a> <a href="/tags/Electron/" style="font-size: 15px;">Electron</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" style="font-size: 15px;">前端开发</a> <a href="/tags/Nodejs/" style="font-size: 15px;">Nodejs</a> <a href="/tags/%E8%B8%A9%E5%9D%91/" style="font-size: 15px;">踩坑</a> <a href="/tags/GNU/" style="font-size: 15px;">GNU</a> <a href="/tags/IDEA/" style="font-size: 15px;">IDEA</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/%E7%A0%B4%E8%A7%A3/" style="font-size: 15px;">破解</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 15px;">笔记</a> <a href="/tags/%E7%BB%88%E7%AB%AF/" style="font-size: 15px;">终端</a> <a href="/tags/%E7%BE%8E%E5%8C%96/" style="font-size: 15px;">美化</a> <a href="/tags/Arch/" style="font-size: 15px;">Arch</a> <a href="/tags/%E8%BF%90%E7%BB%B4/" style="font-size: 15px;">运维</a> <a href="/tags/Javascript-%E5%BC%80%E5%8F%91-Nodejs/" style="font-size: 15px;">Javascript 开发 Nodejs</a> <a href="/tags/Tmux/" style="font-size: 15px;">Tmux</a> <a href="/tags/typecho/" style="font-size: 15px;">typecho</a> <a href="/tags/%E9%98%BF%E9%87%8C%E4%BA%91/" style="font-size: 15px;">阿里云</a> <a href="/tags/%E7%B3%BB%E7%BB%9F%E9%95%9C%E5%83%8F/" style="font-size: 15px;">系统镜像</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 15px;">博客</a> <a href="/tags/%E7%BD%91%E7%AB%99%E8%BF%90%E7%BB%B4/" style="font-size: 15px;">网站运维</a> <a href="/tags/ZSH/" style="font-size: 15px;">ZSH</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/%E6%B1%87%E7%BC%96/" style="font-size: 15px;">汇编</a> <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 15px;">二叉树</a> <a href="/tags/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/" style="font-size: 15px;">冒泡排序</a> <a href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/" style="font-size: 15px;">哈希表</a> <a href="/tags/Obsidain/" style="font-size: 15px;">Obsidain</a> <a href="/tags/Windows/" style="font-size: 15px;">Windows</a> <a href="/tags/C/" style="font-size: 15px;">C</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/" style="font-size: 15px;">软件开发</a> <a href="/tags/%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/" style="font-size: 15px;">程序开发</a> <a href="/tags/Neovim/" style="font-size: 15px;">Neovim</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 15px;">浏览器</a> <a href="/tags/%E5%AD%A6%E4%B8%9A/" style="font-size: 15px;">学业</a> <a href="/tags/%E8%80%83%E8%AF%95/" style="font-size: 15px;">考试</a> <a href="/tags/Geyser/" style="font-size: 15px;">Geyser</a> <a href="/tags/%E5%8E%86%E5%8F%B2/" style="font-size: 15px;">历史</a> <a href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/" style="font-size: 15px;">嵌入式</a> <a href="/tags/%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B%E7%BC%96%E7%A8%8B/" style="font-size: 15px;">面向过程编程</a> <a href="/tags/%E6%97%A5%E5%B8%B8/" style="font-size: 15px;">日常</a> <a href="/tags/%E8%AE%A1%E5%88%92/" style="font-size: 15px;">计划</a> <a href="/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 15px;">音乐</a> <a href="/tags/%E8%B4%9D%E6%96%AF/" style="font-size: 15px;">贝斯</a> <a href="/tags/%E7%A4%BE%E4%BA%A4/" style="font-size: 15px;">社交</a> <a href="/tags/%E6%97%A5%E8%AE%B0/" style="font-size: 15px;">日记</a> <a href="/tags/%E5%86%99%E4%BD%9C/" style="font-size: 15px;">写作</a> <a href="/tags/%E6%96%87%E7%AB%A0/" style="font-size: 15px;">文章</a> <a href="/tags/%E5%AD%A6%E6%A0%A1/" style="font-size: 15px;">学校</a> <a href="/tags/%E6%88%91/" style="font-size: 15px;">我</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 15px;">随笔</a> <a href="/tags/%E6%84%9F%E8%B0%A2%E6%81%A9%E5%B8%88%E5%A4%B8%E5%A5%96/" style="font-size: 15px;">感谢恩师夸奖</a> <a href="/tags/%E2%80%9C%E5%8E%8C%E8%A0%A2%E7%97%87%E2%80%9D/" style="font-size: 15px;">“厌蠢症”</a> <a href="/tags/%E5%B0%8F%E5%93%81/" style="font-size: 15px;">小品</a> <a href="/tags/%E6%9D%82%E8%AE%B0/" style="font-size: 15px;">杂记</a> <a href="/tags/%E7%8C%AB/" style="font-size: 15px;">猫</a> <a href="/tags/%E6%9C%8B%E5%8F%8B%E5%9C%88/" style="font-size: 15px;">朋友圈</a> <a href="/tags/%E6%97%B6%E6%94%BF/" style="font-size: 15px;">时政</a> <a href="/tags/%E8%A7%82%E5%AF%9F/" style="font-size: 15px;">观察</a> <a href="/tags/%E6%9C%AA%E6%88%90%E5%B9%B4%E4%BA%BA%E4%BF%9D%E6%8A%A4/" style="font-size: 15px;">未成年人保护</a> <a href="/tags/%E9%85%92/" style="font-size: 15px;">酒</a> <a href="/tags/%E4%BA%BA%E9%99%85%E4%BA%A4%E5%BE%80/" style="font-size: 15px;">人际交往</a> <a href="/tags/%E6%B2%9F%E9%80%9A/" style="font-size: 15px;">沟通</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E7%94%A8%E8%AF%AD/" style="font-size: 15px;">网络用语</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://www.sifangbazhu.tech/" title="MRZHU的小站" target="_blank">MRZHU的小站</a><ul></ul><a href="https://rhopaper.top/" title="RhoPaperの小站" target="_blank">RhoPaperの小站</a><ul></ul><a href="https://geneliunx.com/" title="Geneliunx" target="_blank">Geneliunx</a><ul></ul><a href="https://printempw.github.io/" title="PRIN BLOG" target="_blank">PRIN BLOG</a><ul></ul><a href="https://banzhuanriji.com/" title="搬砖日记" target="_blank">搬砖日记</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2025 <a href="/." rel="nofollow">映屿.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><script type="text/javascript" src="https://unpkg.com/@fancyapps/fancybox/dist/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=1.0.0" async></script><link rel="stylesheet" type="text/css" href="https://unpkg.com/@fancyapps/fancybox/dist/jquery.fancybox.min.css"><link rel="stylesheet" type="text/css" href="/css/search.css?v=1.0.0"><script type="text/javascript" src="/js/search.js?v=1.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+  search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="/js/copycode.js?v=1.0.0" successtext="复制成功！"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css?v=1.0.0"><script type="text/javascript" src="/js/codeblock-resizer.js?v=1.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=1.0.0"></script></div></body></html>
