@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>数据结构与算法 - 映屿</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+
+	
+
+	
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	
+	
+	<link rel="stylesheet" href="/css/style.css">
+	
+	<link rel="alternate" type="application/rss&#43;xml" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/atom.xml" title="映屿">
+
+	
+	<link rel="dns-prefetch" href="https://api.github.com">
+
+</head>
+
+<body class="term-page">
+	<div class="mail">
+	<div class="container container--outer">
+		<div class="border">
+		
+	<div class="topbar">
+		<a class="topbar__link" href="/" title="映屿" rel="sidebar">
+			<div class="topbar__item topbar__text">
+					<div class="topbar__title">映屿</div>
+					<div class="topbar__tagline">yingyu5658的数字花园</div>
+				</div>
+		</a>
+	</div>
+		<div class="wrapper flex">			
+			<div class="primary">
+			
+<main class="main list" role="main">
+	<header class="main__header">
+		<h1 class="main__title">数据结构与算法</h1>
+	</header><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E6%A0%88/" 
+			   class="post-title-link"
+			   title="【数据结构与算法】栈">
+				【数据结构与算法】栈
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-05-11T10:09:21Z">May 11, 2025</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<h2 id="基本概念">基本概念</h2>
+<p>栈（Stack）是一种后进先出（LIFO）原则的线性数据结构。核心操作包括：</p>
+<ul>
+<li>压栈（Push）：将元素添加到栈顶</li>
+<li>出栈（Pop）：移除并返回栈顶元素</li>
+<li>查看栈顶（Check）获取但移除栈顶元素</li>
+<li>判空（is_empty）检查栈是否为空</li>
+</ul>
+<h2 id="结构定义">结构定义</h2>
+<p>使用动态数组实现栈，包含三个核心属性：</p>
+<pre><code class="language-c">typedef struct Stack {
+    int* data; // 存储元素的数组
+    int top;   // 栈顶指针（当前元素位置）
+    int capacity; // 栈的最大容量
+}
+</code></pre>
+<ul>
+<li><code>data</code>：动态分配的数组指针</li>
+<li><code>top</code>：初始值为-1，表示空栈，压栈时递增，出栈时递减</li>
+<li><code>capacity</code>：栈的容量上限</li>
+</ul>
+<h2 id="功能实现">功能实现</h2>
+<h3 id="初始化">初始化</h3>
+<pre><code class="language-c">// 初始化栈
+void init_stack(Stack *s, int capacity) {
+  // 计算最大容量
+  s -&gt; data = (int*)malloc(sizeof(int) * capacity)
+  if(!s -&gt; data) {
+    printf(&quot;内存分配失败！\n&quot;);
+    exit(1);
+  }
+  // 初始化栈顶为-1，表空
+  s -&gt; top = -1;
+  // 把当前计算的最大容量赋值给传进来的栈
+  s -&gt; capacity = capacity;
+}
+</code></pre>
+<p>这个函数中进行了动态分配内存计算最大容量，初始化赋值和异常处理。</p>
+		<hr>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E6%A0%88/"></a>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/" 
+			   class="post-title-link"
+			   title="【数据结构与算法】冒泡排序">
+				【数据结构与算法】冒泡排序
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-05-10T20:06:05Z">May 10, 2025</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<h2 id="核心思想">核心思想</h2>
+<p>通过相邻元素的两两比较，将较大的元素逐步“冒泡”到数组末尾，每轮排序确定一个最大元素的最终位置。</p>
+<h2 id="代码实现">代码实现</h2>
+<pre><code class="language-c">void bubble_sort(int arr[], int n) {
+  // 最外层控制循环轮数 n-1轮
+  for (int i = 0; i &lt; n - 1; i++) {
+    // 内层循环处理相邻元素比较和交换
+    for(int j = 0; j &lt; n-i-1; j++) {
+      if (arr[j] &gt; arr[j+1]) {
+        int temp = arr[j];
+        arr[j] = arr[j+1];
+        arr[j+1] = temp;
+      }
+    }
+  }
+}
+
+// 调用
+void print_array(int arr[], int size) {
+  for (int i = 0; i &lt; size; i++) {
+    printf(&quot;%d,&quot;, arr[i]);
+  }
+  printf(&quot;\n&quot;);
+}
+
+int main() {
+  int arr[] = {23, 232, 55, 2, 7, 0, 576, 342};
+  int n = sizeof(arr) / sizeof(arr[0]);
+
+  printf(&quot;排序前：&quot;);
+  print_array(arr, n);
+  bubble_sort(arr, n);
+
+  printf(&quot;排序后&quot;);
+  print_array(arr, n);
+}
+</code></pre>
+<h2 id="原理分析">原理分析</h2>
+<h3 id="外层循环的-i--n---1">外层循环的 i &lt; n - 1</h3>
+<ul>
+<li>n个元素的数组最多需要n-1轮冒泡，如5元素数组需要4轮排序</li>
+<li><strong>数学依据</strong>：每轮将一个最大值“沉底”，当完成n-1轮时，最后一个元素必然有序</li>
+</ul>
+<p>示例验证：</p>
+		<hr>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/"></a>
+	</div>
+</article>
+</main>
+
+<div class="pagination">
+	<a class="pagination__item pagination__item--prev btn" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">«</a>
+	<span class="pagination__item pagination__item--current">2/2</span>
+</div>
+
+			</div>
+			
+
+		</div>
+		</div>
+	</div>
+</div>
+
+	<script src="/js/search.js" defer></script>
+	<script src="/js/archives.js" defer></script>
+	<script src="/js/lazyload.js" defer></script>
+	
+	
+</body>
+</html>

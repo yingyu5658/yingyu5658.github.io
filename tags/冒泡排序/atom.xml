@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>冒泡排序 on 映屿</title>
+    <link>http://localhost:1313/tags/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</link>
+    <description>Recent content in 冒泡排序 on 映屿</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 10 May 2025 20:06:05 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/atom.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【数据结构与算法】冒泡排序</title>
+      <link>http://localhost:1313/post/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Sat, 10 May 2025 20:06:05 +0000</pubDate>
+      <guid>http://localhost:1313/post/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</guid>
+      <description>&lt;h2 id=&#34;核心思想&#34;&gt;核心思想&lt;/h2&gt;&#xA;&lt;p&gt;通过相邻元素的两两比较，将较大的元素逐步“冒泡”到数组末尾，每轮排序确定一个最大元素的最终位置。&lt;/p&gt;&#xA;&lt;h2 id=&#34;代码实现&#34;&gt;代码实现&lt;/h2&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;void bubble_sort(int arr[], int n) {&#xA;  // 最外层控制循环轮数 n-1轮&#xA;  for (int i = 0; i &amp;lt; n - 1; i++) {&#xA;    // 内层循环处理相邻元素比较和交换&#xA;    for(int j = 0; j &amp;lt; n-i-1; j++) {&#xA;      if (arr[j] &amp;gt; arr[j+1]) {&#xA;        int temp = arr[j];&#xA;        arr[j] = arr[j+1];&#xA;        arr[j+1] = temp;&#xA;      }&#xA;    }&#xA;  }&#xA;}&#xA;&#xA;// 调用&#xA;void print_array(int arr[], int size) {&#xA;  for (int i = 0; i &amp;lt; size; i++) {&#xA;    printf(&amp;quot;%d,&amp;quot;, arr[i]);&#xA;  }&#xA;  printf(&amp;quot;\n&amp;quot;);&#xA;}&#xA;&#xA;int main() {&#xA;  int arr[] = {23, 232, 55, 2, 7, 0, 576, 342};&#xA;  int n = sizeof(arr) / sizeof(arr[0]);&#xA;&#xA;  printf(&amp;quot;排序前：&amp;quot;);&#xA;  print_array(arr, n);&#xA;  bubble_sort(arr, n);&#xA;&#xA;  printf(&amp;quot;排序后&amp;quot;);&#xA;  print_array(arr, n);&#xA;}&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h2 id=&#34;原理分析&#34;&gt;原理分析&lt;/h2&gt;&#xA;&lt;h3 id=&#34;外层循环的-i--n---1&#34;&gt;外层循环的 i &amp;lt; n - 1&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;n个元素的数组最多需要n-1轮冒泡，如5元素数组需要4轮排序&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;数学依据&lt;/strong&gt;：每轮将一个最大值“沉底”，当完成n-1轮时，最后一个元素必然有序&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;示例验证：&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

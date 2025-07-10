@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Malody on 映屿</title>
+    <link>http://localhost:1313/tags/malody/</link>
+    <description>Recent content in Malody on 映屿</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 07 Jun 2025 13:08:07 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/malody/atom.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>4Key音游段位单曲成绩计算的程序实现</title>
+      <link>http://localhost:1313/post/%E6%8A%80%E6%9C%AF/4key%E9%9F%B3%E6%B8%B8%E6%AE%B5%E4%BD%8D%E5%8D%95%E6%9B%B2%E6%88%90%E7%BB%A9%E8%AE%A1%E7%AE%97%E7%9A%84%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0/</link>
+      <pubDate>Sat, 07 Jun 2025 13:08:07 +0000</pubDate>
+      <guid>http://localhost:1313/post/%E6%8A%80%E6%9C%AF/4key%E9%9F%B3%E6%B8%B8%E6%AE%B5%E4%BD%8D%E5%8D%95%E6%9B%B2%E6%88%90%E7%BB%A9%E8%AE%A1%E7%AE%97%E7%9A%84%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0/</guid>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;&#xA;&lt;p&gt;其实这个坑我很早以前就想开了，在我刚开始学编程那会就一直想写一个这个东西。但苦于数学进度没达到，要用到加权平均数，这东西我前两天才学到，之前对数学也一直是懒得学的状态，要不然几乎是看不懂那个算法的。&lt;/p&gt;&#xA;&lt;p&gt;我手头有一个&lt;a href=&#34;https://github.com/Special-Week&#34;&gt;Special-Week&lt;/a&gt;写的网页版的单曲成绩计算器，就以这个为研究样本吧。以下简称原作者为sw（如有冒犯请联系修改）&lt;/p&gt;&#xA;&lt;h2 id=&#34;数据结构设计&#34;&gt;数据结构设计&lt;/h2&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;    // 基础的4k类&#xA;    class Dan4k {&#xA;        constructor(key1, key2, key3, key4, danName) {&#xA;            this.m_key1 = key1;&#xA;            this.m_key2 = key2;&#xA;            this.m_key3 = key3;&#xA;            this.m_key4 = key4;&#xA;            this.m_danName = danName;&#xA;        }&#xA;    }&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;每一个段（LN、Om），sw都单独写了一个内部类，继承Dan4k。&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt; // lnDan类&#xA;    class LnDan extends Dan4k {&#xA;        constructor(key1, lnKey1, key2, lnKey2, key3, lnKey3, key4, lnKey4, danName) {&#xA;            super(key1, key2, key3, key4, danName);&#xA;            this.m_lnKey1 = lnKey1;&#xA;            this.m_lnKey2 = lnKey2;&#xA;            this.m_lnKey3 = lnKey3;&#xA;            this.m_lnKey4 = lnKey4;&#xA;        }&#xA;    }&#xA;    // ma段&#xA;    class MaDan extends Dan4k {&#xA;        constructor(key1, key2, key3, key4, name1, name2, name3, name4, danName) {&#xA;            super(key1, key2, key3, key4, danName);&#xA;            this.m_name1 = name1;&#xA;            this.m_name2 = name2;&#xA;            this.m_name3 = name3;&#xA;            this.m_name4 = name4;&#xA;        }&#xA;    }&#xA;    // reform段&#xA;    class ReformDan extends Dan4k {&#xA;        constructor(key1, key2, key3, key4, name1, name2, name3, name4, danName) {&#xA;            super(key1, key2, key3, key4, danName);&#xA;            this.m_name1 = name1;&#xA;            this.m_name2 = name2;&#xA;            this.m_name3 = name3;&#xA;            this.m_name4 = name4;&#xA;        }&#xA;&#xA;    }&#xA;    // om段&#xA;    class OmDan extends Dan4k {&#xA;        constructor(key1, key2, key3, key4, danName) {&#xA;            super(key1, key2, key3, key4, danName);&#xA;        }&#xA;    }&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;我打算重写的程序不带LN玩了，我自己也没玩过LN，不清楚是什么机制。那就来看看剩下的几个类。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Neovim on 映屿</title>
+    <link>http://localhost:1313/tags/neovim/</link>
+    <description>Recent content in Neovim on 映屿</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 15 Apr 2025 21:15:24 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/neovim/atom.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>从0开始搭建自己的终端开发环境</title>
+      <link>http://localhost:1313/post/%E6%8A%80%E6%9C%AF/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BB%88%E7%AB%AF%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</link>
+      <pubDate>Tue, 15 Apr 2025 21:15:24 +0000</pubDate>
+      <guid>http://localhost:1313/post/%E6%8A%80%E6%9C%AF/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BB%88%E7%AB%AF%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;系统&lt;/strong&gt;：WSL Arch&lt;/p&gt;&#xA;&lt;h3 id=&#34;主折腾点&#34;&gt;主折腾点&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;代码编辑器&lt;/strong&gt;：Vim(Neovim)&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;终端体验优化&lt;/strong&gt;：tmux&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;文件管理器&lt;/strong&gt;：yazi&lt;/p&gt;&#xA;&lt;h2 id=&#34;代码编辑器neovim&#34;&gt;代码编辑器——Neovim&lt;/h2&gt;&#xA;&lt;h3 id=&#34;前言&#34;&gt;前言&lt;/h3&gt;&#xA;&lt;p&gt;Neovim和Vim相比，在性能和易用性上有很大的提升，在异步任务表现突出；使用更加现代的lua脚本配置，可读性更高。&lt;/p&gt;&#xA;&lt;h4 id=&#34;为什么不用lazyvim&#34;&gt;为什么不用Lazyvim？&lt;/h4&gt;&#xA;&lt;p&gt;答：我个人用了很长一段时间Lazyvim，虽然开箱即用，简单调试就可以使用，但是我并不能清除的理解他到底给我装了什么，我是否需要那些插件。感觉像在用别人的软件，而自己从头开始配置vim的掌控感是使用他人的配置文件无法比拟的，在配置的过程中也可以培养排错和程序调试能力，唯一的缺点就是略微耗费时间。&lt;/p&gt;&#xA;&lt;h3 id=&#34;安装&#34;&gt;安装&lt;/h3&gt;&#xA;&lt;p&gt;先滚一把系统保证软件包都是最新的&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;sudo pacman -Syyu&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;安装Neovim&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;sudo pacman -S neovim&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;这时候在终端输入&lt;code&gt;nvim&lt;/code&gt;就可以打开neovim了。![image-20250415212435171](E:/Blog/source/im&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;按&lt;code&gt;:q&lt;/code&gt;退出。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;这个初始的界面非常简陋，我们先进行核心功能配置，后续在更改主题。&lt;/p&gt;&#xA;&lt;p&gt;nvim的用户级配置文件在&lt;code&gt;~/.config/nvim&lt;/code&gt;中。&lt;/p&gt;&#xA;&lt;h3 id=&#34;安装包管理器&#34;&gt;安装包管理器&lt;/h3&gt;&#xA;&lt;p&gt;我们选择Lazy作为包管理器，他和其他的包管理器相比起来，在懒加载、UI界面等方面有显著优势，可以减小配置复杂度。&lt;/p&gt;&#xA;&lt;p&gt;访问&lt;a href=&#34;https://lazy.folke.io/installation&#34;&gt;lazy.nvim官网&lt;/a&gt;，官方文档永远都是最好的教程。这里有一段代码&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-lua&#34;&gt;-- Bootstrap lazy.nvim&#xA;local lazypath = vim.fn.stdpath(&amp;quot;data&amp;quot;) .. &amp;quot;/lazy/lazy.nvim&amp;quot;&#xA;if not (vim.uv or vim.loop).fs_stat(lazypath) then&#xA;  local lazyrepo = &amp;quot;https://github.com/folke/lazy.nvim.git&amp;quot;&#xA;  local out = vim.fn.system({ &amp;quot;git&amp;quot;, &amp;quot;clone&amp;quot;, &amp;quot;--filter=blob:none&amp;quot;, &amp;quot;--branch=stable&amp;quot;, lazyrepo, lazypath })&#xA;  if vim.v.shell_error ~= 0 then&#xA;    vim.api.nvim_echo({&#xA;      { &amp;quot;Failed to clone lazy.nvim:\n&amp;quot;, &amp;quot;ErrorMsg&amp;quot; },&#xA;      { out, &amp;quot;WarningMsg&amp;quot; },&#xA;      { &amp;quot;\nPress any key to exit...&amp;quot; },&#xA;    }, true, {})&#xA;    vim.fn.getchar()&#xA;    os.exit(1)&#xA;  end&#xA;end&#xA;vim.opt.rtp:prepend(lazypath)&#xA;&#xA;-- Make sure to setup `mapleader` and `maplocalleader` before&#xA;-- loading lazy.nvim so that mappings are correct.&#xA;-- This is also a good place to setup other settings (vim.opt)&#xA;vim.g.mapleader = &amp;quot; &amp;quot;&#xA;vim.g.maplocalleader = &amp;quot;\\&amp;quot;&#xA;&#xA;-- Setup lazy.nvim&#xA;require(&amp;quot;lazy&amp;quot;).setup({&#xA;  spec = {&#xA;    -- import your plugins&#xA;    { import = &amp;quot;plugins&amp;quot; },&#xA;  },&#xA;  -- Configure any other settings here. See the documentation for more details.&#xA;  -- colorscheme that will be used when installing plugins.&#xA;  install = { colorscheme = { &amp;quot;habamax&amp;quot; } },&#xA;  -- automatically check for plugin updates&#xA;  checker = { enabled = true },&#xA;})&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;这段代码主要在为Lazy包管理器初始化，所以按照官网的目录结构，我们在&lt;code&gt;~/.config/nvim/lua&lt;/code&gt;下新建一个config文件夹，把代码粘贴进去。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>开箱即用的neovim配置文件</title>
+      <link>http://localhost:1313/post/%E6%8A%80%E6%9C%AF/187/</link>
+      <pubDate>Wed, 22 Jan 2025 18:13:27 +0000</pubDate>
+      <guid>http://localhost:1313/post/%E6%8A%80%E6%9C%AF/187/</guid>
+      <description>&lt;h3 id=&#34;下载链接&#34;&gt;下载链接&lt;/h3&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://yingyu5658.lanzoup.com/iWfXQ2ln6jre&#34;&gt;https://yingyu5658.lanzoup.com/iWfXQ2ln6jre&lt;/a&gt;&#xA;为了兄弟们下得爽点就不用百度网盘或者夸克了&#xA;代码都有比较详细的注释&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

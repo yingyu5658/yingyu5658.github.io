@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>【数据结构与算法】二叉树 - 映屿</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+
+	
+
+	
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	
+	
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	
+	<link rel="dns-prefetch" href="https://api.github.com">
+
+</head>
+
+<body class="page-page">
+	<div class="mail">
+	<div class="container container--outer">
+		<div class="border">
+		
+	<div class="topbar">
+		<a class="topbar__link" href="/" title="映屿" rel="sidebar">
+			<div class="topbar__item topbar__text">
+					<div class="topbar__title">映屿</div>
+					<div class="topbar__tagline">yingyu5658的数字花园</div>
+				</div>
+		</a>
+	</div>
+		<div class="wrapper flex">			
+			<div class="primary">
+			
+<main class="main" role="main">
+	
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">【数据结构与算法】二叉树</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-05-25T18:46:37Z">May 25, 2025</time></div></div>
+		</header><div class="content post__content clearfix">
+			<div class="in-permalink">
+			<h2 id="定义">定义</h2>
+<p>二叉树（binary tree）是指树中节点的度不大于2的有序树，它是一种最简单且最重要的树。二叉树的递归定义为：二叉树是一棵空树，或者是一棵由一个根节点和两棵互不相交的，分别称作根的左子树和右子树组成的非空树；左子树和右子树又同样都是二叉树。</p>
+<h2 id="实现">实现</h2>
+<h3 id="结构定义">结构定义</h3>
+<p><del>尝试了一下C语言，各种指针乱指，各种bug，暂时放自己一马，跟自己和解一下用js写写吧。</del></p>
+<pre><code class="language-js">class TreeNode {
+  constructor(data) {
+    this.data = data;
+    this.left = null;  // 左节点
+    this.right = null; // 右边节点
+  }
+}
+</code></pre>
+<h3 id="创建对象并绑定节点">创建对象并绑定节点</h3>
+<pre><code class="language-js">// 手动绑定节点
+let root = new TreeNode(1)
+root.left = new TreeNode(2)
+root.right = new TreeNode(3)
+root.left.left = new TreeNode(4)
+root.right.right = new TreeNode(5)
+</code></pre>
+<p>此时树的结构：</p>
+<pre><code>      1
+     /  \
+     2   3
+   /  \   \
+  4    5   6
+</code></pre>
+<h3 id="遍历二叉树">遍历二叉树</h3>
+<h4 id="前序遍历dfs">前序遍历（DFS）</h4>
+<pre><code class="language-js">function preOrder(node) {
+  if(node) {
+    console.log(node.data)
+    preOrder(node.left)
+    preOrder(node.right)
+  }
+}
+</code></pre>
+<p>这里用递归调用，遍历到左右元素</p>
+<h4 id="层序遍历bfs">层序遍历（BFS）</h4>
+<pre><code class="language-js">function levelOrder(root) {
+  const queue = [];
+  queue.push(root);
+  while (queue.length) {
+    const node = queue.shift();
+    console.log(node.data);
+    if (node.left) queue.push(node.left);
+    if (node.right) queue.push(node.right);
+  }
+}
+</code></pre>
+
+			</div>
+		</div>
+	</article>
+</main>
+
+<div id="giscus">
+	<hr>
+</div>
+
+<script 
+	 src="https://giscus.app/client.js"
+	 data-repo="yingyu5658/yingyu5658.github.io"
+	 data-repo-id="R_kgDOOBetsA"
+	 data-category="Announcements"
+	 data-category-id="DIC_kwDOOBetsM4CoF_Z"
+	 data-mapping="pathname"
+	 data-strict="0"
+	 data-reactions-enabled="1"
+	 data-emit-metadata="0"
+	 data-input-position="bottom"
+	 data-theme="noborder_light"
+	 data-lang="zh-CN"
+	 data-loading="lazy"
+	 crossorigin="anonymous"
+	 async>
+</script>
+
+			</div>
+			
+		</div>
+		</div>
+	</div>
+</div>
+
+	<script src="/js/search.js" defer></script>
+	<script src="/js/archives.js" defer></script>
+	<script src="/js/lazyload.js" defer></script>
+	
+	
+</body>
+</html>

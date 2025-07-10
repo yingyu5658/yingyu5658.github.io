@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>哈希表 - 映屿</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+
+	
+
+	
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	
+	
+	<link rel="stylesheet" href="/css/style.css">
+	
+	<link rel="alternate" type="application/rss&#43;xml" href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/atom.xml" title="映屿">
+
+	
+	<link rel="dns-prefetch" href="https://api.github.com">
+
+</head>
+
+<body class="term-page">
+	<div class="mail">
+	<div class="container container--outer">
+		<div class="border">
+		
+	<div class="topbar">
+		<a class="topbar__link" href="/" title="映屿" rel="sidebar">
+			<div class="topbar__item topbar__text">
+					<div class="topbar__title">映屿</div>
+					<div class="topbar__tagline">yingyu5658的数字花园</div>
+				</div>
+		</a>
+	</div>
+		<div class="wrapper flex">			
+			<div class="primary">
+			
+<main class="main list" role="main">
+	<header class="main__header">
+		<h1 class="main__title">哈希表</h1>
+	</header><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%93%88%E5%B8%8C%E8%A1%A8/" 
+			   class="post-title-link"
+			   title="【数据结构与算法】哈希表">
+				【数据结构与算法】哈希表
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-05-28T21:44:28Z">May 28, 2025</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>哈希表（Hash Table）是一种基于键（Key）直接访问数据的高效数据结构，其核心思想是通过哈希函数将键映射到数组的特定位置，从而实现平均时间复杂度为 O(1)O(1) 的插入、查找和删除操作。</p>
+<h2 id="结构定义">结构定义</h2>
+<pre><code class="language-c">// 哈希表节点
+typedef struct HashNode {
+    int key;
+    int value;
+    struct Hashcode* next;
+} HashNode;
+
+// 哈希表
+typedef struct {
+    int size;
+    HashNode** buckets;
+} HashTable;
+</code></pre>
+<h2 id="初始化">初始化</h2>
+<p>创建HashTable结构体变量，进行初始化赋值，分配桶的内存。</p>
+<pre><code class="language-c">// 初始化哈希表
+HashTable *creat_hash_table(int size)
+{
+    HashTable* table = (HashTable*)malloc(sizeof(HashTable));
+    table-&gt;size = size;
+    table-&gt;buckets = (HashNode**)malloc(size * sizeof(HashNode*));
+    for(int i = 0; i &lt; size; i++)
+    {
+        table-&gt;buckets[i] = NULL;
+    }
+    return table;
+}
+</code></pre>
+<h2 id="哈希函数">哈希函数</h2>
+<pre><code class="language-c">// 哈希函数
+int hash(int key, int size)
+{
+    return key % size;
+}
+</code></pre>
+<p>通过简单取模运算获得哈希值</p>
+		<hr>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%93%88%E5%B8%8C%E8%A1%A8/"></a>
+	</div>
+</article>
+</main>
+
+
+			</div>
+			
+
+		</div>
+		</div>
+	</div>
+</div>
+
+	<script src="/js/search.js" defer></script>
+	<script src="/js/archives.js" defer></script>
+	<script src="/js/lazyload.js" defer></script>
+	
+	
+</body>
+</html>

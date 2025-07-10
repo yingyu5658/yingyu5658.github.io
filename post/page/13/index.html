@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Posts - 映屿</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+
+	
+
+	
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	
+	
+	<link rel="stylesheet" href="/css/style.css">
+	
+	<link rel="alternate" type="application/rss&#43;xml" href="/post/atom.xml" title="映屿">
+
+	
+	<link rel="dns-prefetch" href="https://api.github.com">
+
+</head>
+
+<body class="section-page">
+	<div class="mail">
+	<div class="container container--outer">
+		<div class="border">
+		
+	<div class="topbar">
+		<a class="topbar__link" href="/" title="映屿" rel="sidebar">
+			<div class="topbar__item topbar__text">
+					<div class="topbar__title">映屿</div>
+					<div class="topbar__tagline">yingyu5658的数字花园</div>
+				</div>
+		</a>
+	</div>
+		<div class="wrapper flex">			
+			<div class="primary">
+			
+<main class="main list" role="main">
+	<header class="main__header">
+		<h1 class="main__title">Posts</h1>
+	</header><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/%E9%BB%91%E5%8E%86%E5%8F%B2%E8%AF%BB%E8%87%AA%E5%B7%B1%E4%BB%A5%E5%89%8D%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81/" 
+			   class="post-title-link"
+			   title="【黑历史】读自己以前写的代码">
+				【黑历史】读自己以前写的代码
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-04-19T15:20:19Z">April 19, 2025</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>仓库地址就不放出来了，太耻辱了&hellip;&hellip;</p>
+<p>先来看看Main.java</p>
+<pre><code class="language-java">package cn.yingyu5658.lbl;
+
+/**
+ * @author yingyu5658
+ */
+
+public class Main {
+    public static void main(String[] args) {
+        LuBuLu cmd = new LuBuLu();
+        while(true) {
+            cmd.command();
+        }
+    }
+}
+</code></pre>
+<p>嗯还写了Author，生怕别人不知道这坨屎是谁拉的。</p>
+<p>Main方法里面新建了一个LuBuLu对象，在主循环里调用了他的command()方法。</p>
+<p>进入这个神秘的LuBuLu.java一探究竟。</p>
+<pre><code class="language-java">Scanner sc;
+    String one;
+    String two;
+    public int times;
+
+    public LuBuLu() {
+        this.sc = new Scanner(System.in);
+        this.times = 0;
+    }
+</code></pre>
+<p>在类的开头进行了一些初始化，有点不理解one和two是什么，为什么他们没有权限修饰符。。。</p>
+<p>好的，接下来就到了主方法调用的command()</p>
+<pre><code class="language-java">public void command() {
+        while (true) {
+            if (this.times == 0) {
+                System.out.println(&quot; __       __    __  .______    __    __   __       __    __                                                                                                                       \n|  |     |  |  |  | |   _  \\  |  |  |  | |  |     |  |  |  |                                                                                                                      \n|  |     |  |  |  | |  |_)  | |  |  |  | |  |     |  |  |  |                                                                                                                      \n|  |     |  |  |  | |   _  &lt;  |  |  |  | |  |     |  |  |  |                                                                                                                      \n|  `----.|  `--'  | |  |_)  | |  `--'  | |  `----.|  `--'  |                                                                                                                      \n|_______| \\______/  |______/   \\______/  |_______| \\______/                                                                                                                       \n                                                                                                                                                                                  \n.___  ___.      ___       _______   _______          .______   ____    ____          ____    ____  __  .__   __.   ___________    ____  __    __   _____     __    _____    ___   \n|   \\/   |     /   \\     |       \\ |   ____|         |   _  \\  \\   \\  /   /          \\   \\  /   / |  | |  \\ |  |  /  _____\\   \\  /   / |  |  |  | | ____|   / /   | ____|  / _ \\  \n|  \\  /  |    /  ^  \\    |  .--.  ||  |__            |  |_)  |  \\   \\/   /            \\   \\/   /  |  | |   \\|  | |  |  __  \\   \\/   /  |  |  |  | | |__    / /_   | |__   | (_) | \n|  |\\/|  |   /  /_\\  \\   |  |  |  ||   __|           |   _  &lt;    \\_    _/              \\_    _/   |  | |  . `  | |  | |_ |  \\_    _/   |  |  |  | |___ \\  | '_ \\  |___ \\   &gt; _ &lt;  \n|  |  |  |  /  _____  \\  |  '--'  ||  |____          |  |_)  |     |  |                  |  |     |  | |  |\\   | |  |__| |    |  |     |  `--'  |  ___) | | (_) |  ___) | | (_) | \n|__|  |__| /__/     \\__\\ |_______/ |_______|         |______/      |__|                  |__|     |__| |__| \\__|  \\______|    |__|      \\______/  |____/   \\___/  |____/   \\___/  \n                                                                                                                                                                                  &quot;);
+            }
+
+            System.out.println(&quot;卢布卢 v1.4&quot;);
+            LocalDate date = LocalDate.now();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern(&quot;yyyy-MM-dd&quot;);
+            PrintStream var10000 = System.out;
+            String var10001 = date.format(formatter);
+            var10000.println(&quot;你在&quot; + var10001 + &quot;奇了星雨并打开本软件，来看看老天让不让你卢吧！&quot;);
+            System.out.println(&quot;========================================&quot;);
+            System.out.println(&quot;输入'/help'获取帮助&quot;);
+            switch (this.sc.nextLine()) {
+                case &quot;/help&quot;:
+                    this.help();
+                    break;
+                case &quot;/lbl&quot;:
+                    this.luMa();
+                    break;
+                case &quot;/exit&quot;:
+                    System.exit(0);
+                    break;
+                case &quot;/coott&quot;:
+                    if (&quot;/coott&quot;.equals(sc.nextLine())) {
+                        Scanner sc1 = new Scanner(System.in);
+                        System.out.println(&quot;请输入您的第一个选项。&quot;);
+                        String one = sc1.nextLine();
+                        System.out.println(&quot;请输入您的第二个选项。&quot;);
+                        String two = sc1.nextLine();
+                        this.chooseOneOfTheTwo(one, two);
+                    }
+                    break;
+                case &quot;/cofm&quot;:
+                    chooseOneFromMany();
+                    break;
+                default:
+                    this.clear();
+                    System.out.println(&quot;不存在该指令！将在1000ms后回到主页面。&quot;);
+                    this.sleep();
+                    return;
+            }
+            ++times;
+            System.out.println(&quot;*调试信息* 运行轮数： &quot; + this.times);
+        }
+    }
+</code></pre>
+<p>可以看到、个方法内部代码都是在无限循环内执行的，那么为什么要在main方法里又套一层循环呢？？？</p>
+		<hr>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/%E9%BB%91%E5%8E%86%E5%8F%B2%E8%AF%BB%E8%87%AA%E5%B7%B1%E4%BB%A5%E5%89%8D%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81/"></a>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BB%88%E7%AB%AF%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" 
+			   class="post-title-link"
+			   title="从0开始搭建自己的终端开发环境">
+				从0开始搭建自己的终端开发环境
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-04-15T21:15:24Z">April 15, 2025</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p><strong>系统</strong>：WSL Arch</p>
+<h3 id="主折腾点">主折腾点</h3>
+<p><strong>代码编辑器</strong>：Vim(Neovim)</p>
+<p><strong>终端体验优化</strong>：tmux</p>
+<p><strong>文件管理器</strong>：yazi</p>
+<h2 id="代码编辑器neovim">代码编辑器——Neovim</h2>
+<h3 id="前言">前言</h3>
+<p>Neovim和Vim相比，在性能和易用性上有很大的提升，在异步任务表现突出；使用更加现代的lua脚本配置，可读性更高。</p>
+<h4 id="为什么不用lazyvim">为什么不用Lazyvim？</h4>
+<p>答：我个人用了很长一段时间Lazyvim，虽然开箱即用，简单调试就可以使用，但是我并不能清除的理解他到底给我装了什么，我是否需要那些插件。感觉像在用别人的软件，而自己从头开始配置vim的掌控感是使用他人的配置文件无法比拟的，在配置的过程中也可以培养排错和程序调试能力，唯一的缺点就是略微耗费时间。</p>
+<h3 id="安装">安装</h3>
+<p>先滚一把系统保证软件包都是最新的</p>
+<p><code>sudo pacman -Syyu</code></p>
+<p>安装Neovim</p>
+<p><code>sudo pacman -S neovim</code></p>
+<p>这时候在终端输入<code>nvim</code>就可以打开neovim了。![image-20250415212435171](E:/Blog/source/im</p>
+<p><strong>按<code>:q</code>退出。</strong></p>
+<p>这个初始的界面非常简陋，我们先进行核心功能配置，后续在更改主题。</p>
+<p>nvim的用户级配置文件在<code>~/.config/nvim</code>中。</p>
+<h3 id="安装包管理器">安装包管理器</h3>
+<p>我们选择Lazy作为包管理器，他和其他的包管理器相比起来，在懒加载、UI界面等方面有显著优势，可以减小配置复杂度。</p>
+<p>访问<a href="https://lazy.folke.io/installation">lazy.nvim官网</a>，官方文档永远都是最好的教程。这里有一段代码</p>
+<pre><code class="language-lua">-- Bootstrap lazy.nvim
+local lazypath = vim.fn.stdpath(&quot;data&quot;) .. &quot;/lazy/lazy.nvim&quot;
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  local lazyrepo = &quot;https://github.com/folke/lazy.nvim.git&quot;
+  local out = vim.fn.system({ &quot;git&quot;, &quot;clone&quot;, &quot;--filter=blob:none&quot;, &quot;--branch=stable&quot;, lazyrepo, lazypath })
+  if vim.v.shell_error ~= 0 then
+    vim.api.nvim_echo({
+      { &quot;Failed to clone lazy.nvim:\n&quot;, &quot;ErrorMsg&quot; },
+      { out, &quot;WarningMsg&quot; },
+      { &quot;\nPress any key to exit...&quot; },
+    }, true, {})
+    vim.fn.getchar()
+    os.exit(1)
+  end
+end
+vim.opt.rtp:prepend(lazypath)
+
+-- Make sure to setup `mapleader` and `maplocalleader` before
+-- loading lazy.nvim so that mappings are correct.
+-- This is also a good place to setup other settings (vim.opt)
+vim.g.mapleader = &quot; &quot;
+vim.g.maplocalleader = &quot;\\&quot;
+
+-- Setup lazy.nvim
+require(&quot;lazy&quot;).setup({
+  spec = {
+    -- import your plugins
+    { import = &quot;plugins&quot; },
+  },
+  -- Configure any other settings here. See the documentation for more details.
+  -- colorscheme that will be used when installing plugins.
+  install = { colorscheme = { &quot;habamax&quot; } },
+  -- automatically check for plugin updates
+  checker = { enabled = true },
+})
+</code></pre>
+<p>这段代码主要在为Lazy包管理器初始化，所以按照官网的目录结构，我们在<code>~/.config/nvim/lua</code>下新建一个config文件夹，把代码粘贴进去。</p>
+		<hr>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BB%88%E7%AB%AF%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/"></a>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/%E5%88%9D%E6%8A%98%E8%85%BEemacs%E8%AE%B0%E5%BD%95/" 
+			   class="post-title-link"
+			   title="初折腾Emacs记录">
+				初折腾Emacs记录
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-04-13T12:15:33Z">April 13, 2025</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<h2 id="基础配置">基础配置</h2>
+<p>Windows下需要在软件顶部Toolbar的Options中随便更改一个选项，然后再点Save Options，这样就会再<code>C:\Users\Username\appdata\Roaming\</code>下生成.emacs和.emacs.d/</p>
+<p>在emacs.d中新建一个文件<code>init.el</code>，填写如下配置</p>
+<pre><code class="language-lisp">;;; init.el --- Load the full configuration -*- lexical-binding: t -*-
+;;; Commentary:
+
+;; This file bootstraps the configuration, which is divided into
+;; a number of other files.
+
+;;; Code:
+
+(let ((minver &quot;25.1&quot;))
+ (when (version&lt; emacs-version minver)
+  (error &quot;Your Emacs is too old -- this config requires v%s or higher&quot; minver)))
+(when (version&lt; emacs-version &quot;26.1&quot;)
+ (message &quot;Your Emacs is old, and some functionality in this config will be disabled. Please upgrade if possible.&quot;))
+
+(add-to-list 'load-path (expand-file-name &quot;lisp&quot; user-emacs-directory)) ; 设定源码加载路径
+;; (require 'init-benchmarking) ;; Measure startup time
+
+(defconst *spell-check-support-enabled* nil) ;; Enable with t if you prefer
+(defconst *is-a-mac* (eq system-type 'darwin))
+
+;; Adjust garbage collection thresholds during startup, and thereafter
+
+(let ((normal-gc-cons-threshold (* 20 1024 1024))
+   (init-gc-cons-threshold (* 128 1024 1024)))
+ (setq gc-cons-threshold init-gc-cons-threshold)
+ (add-hook 'emacs-startup-hook
+      (lambda () (setq gc-cons-threshold normal-gc-cons-threshold))))
+
+
+
+
+;; ==========================================================================================================
+;; ===========================================日常使用配置===================================================
+;; ==========================================================================================================
+(setq confirm-kill-emacs #'yes-or-no-p)   ; 在关闭 Emacs 前询问是否确认关闭，防止误触
+(electric-pair-mode t)            ; 自动补全括号
+(add-hook 'prog-mode-hook #'show-paren-mode) ; 编程模式下，光标在括号上时高亮另一个括号
+(column-number-mode t)            ; 在 Mode line 上显示列号
+(global-auto-revert-mode t)         ; 当另一程序修改了文件时，让 Emacs 及时刷新 Buffer
+(delete-selection-mode t)          ; 选中文本后输入文本会替换文本（更符合我们习惯了的其它编辑器的逻辑）
+(setq inhibit-startup-message t)       ; 关闭启动 Emacs 时的欢迎界面
+(setq make-backup-files nil)         ; 关闭文件自动备份
+(add-hook 'prog-mode-hook #'hs-minor-mode)  ; 编程模式下，可以折叠代码块
+(global-display-line-numbers-mode 1)     ; 在 Window 显示行号
+(tool-bar-mode -1)              ; （熟练后可选）关闭 Tool bar
+(when (display-graphic-p) (toggle-scroll-bar -1)) ; 图形界面时关闭滚动条
+
+(savehist-mode 1)              ; （可选）打开 Buffer 历史记录保存
+(setq display-line-numbers-type 'relative)  ; （可选）显示相对行号
+(add-to-list 'default-frame-alist '(width . 90)) ; （可选）设定启动图形界面时的初始 Frame 宽度（字符数）
+(add-to-list 'default-frame-alist '(height . 55)) ; （可选）设定启动图形界面时的初始 Frame 高度（字符数）
+
+
+;; ==========================================================================================================
+;; ===========================================插件镜像配置===================================================
+;; ==========================================================================================================
+; 腾讯镜像
+(require 'package)
+(setq package-archives '((&quot;gnu&quot;  . &quot;http://mirrors.cloud.tencent.com/elpa/gnu/&quot;)
+             (&quot;melpa&quot; . &quot;http://mirrors.cloud.tencent.com/elpa/melpa/&quot;)))
+(package-initialize)
+
+
+;;; init.el ends here
+</code></pre>
+<p>基础的设置和插件镜像源就配置好了，此配置可完全复制照抄。</p>
+		<hr>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/%E5%88%9D%E6%8A%98%E8%85%BEemacs%E8%AE%B0%E5%BD%95/"></a>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/%E9%9A%8F%E7%AC%94/%E7%9B%BC%E6%9C%9B%E4%B8%8B%E9%9B%A8/" 
+			   class="post-title-link"
+			   title="盼望下雨">
+				盼望下雨
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-04-12T02:10:41Z">April 12, 2025</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>我喜欢下雨。下雨可以没有理由地发呆，看着窗外雨水倾盆洒落，听着打在窗沿上的滴答声，闻着空气里泥土和雨水混合的潮湿味，最享受的时光。下雨天适合做除了外出的任何事。读一本书，画一幅画，听一首歌，或是搬一把椅子，坐在窗前看雨。雨天阴沉的天空色调很舒服，很有安全感。
+夜行动物都是浪漫的。夜晚很安静，很短暂，能安静独处的时间不多了。
+想画画，正好今天不用上课了，画点好玩的吧。手好酸。一听夏露露这首歌就能想起好多事，好多回忆，但是记不清是什么了。回忆。淡黄氧化色和线描小花，这是回忆的一部分吗？想起一本叫秘密花园的书，是一本涂色书，上面有很多精美的线稿，小时候妈妈买过，没涂完，已经不知道扔到哪去了。
+为什么听起以前听过的歌就会难过呢？为什么谈起小时候的事就会流泪呢？现在过得不好吗？想做的事做不到啊，想要的东西得不到啊，想说的话没人听啊。
+他本应属于我的，怎么被外来者夺取了呢？</p>
+<p>真可怜，只能把情感寄托在冰冷的键盘和几寸屏幕上，被液晶分子在电场作用下改变排列方式触动。</p>
+<p>2025.4.12 凌晨2:09
+听着歌困到神志不清的我。</p>
+		<hr>
+	</div>
+</article>
+</main>
+
+<div class="pagination">
+	<a class="pagination__item pagination__item--prev btn" href="/post/page/12/">«</a>
+	<span class="pagination__item pagination__item--current">13/24</span>
+	<a class="pagination__item pagination__item--next btn" href="/post/page/14/">»</a>
+</div>
+
+			</div>
+			
+
+		</div>
+		</div>
+	</div>
+</div>
+
+	<script src="/js/search.js" defer></script>
+	<script src="/js/archives.js" defer></script>
+	<script src="/js/lazyload.js" defer></script>
+	
+	
+</body>
+</html>

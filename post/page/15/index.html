@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Posts - 映屿</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+
+	
+
+	
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	
+	
+	<link rel="stylesheet" href="/css/style.css">
+	
+	<link rel="alternate" type="application/rss&#43;xml" href="/post/atom.xml" title="映屿">
+
+	
+	<link rel="dns-prefetch" href="https://api.github.com">
+
+</head>
+
+<body class="section-page">
+	<div class="mail">
+	<div class="container container--outer">
+		<div class="border">
+		
+	<div class="topbar">
+		<a class="topbar__link" href="/" title="映屿" rel="sidebar">
+			<div class="topbar__item topbar__text">
+					<div class="topbar__title">映屿</div>
+					<div class="topbar__tagline">yingyu5658的数字花园</div>
+				</div>
+		</a>
+	</div>
+		<div class="wrapper flex">			
+			<div class="primary">
+			
+<main class="main list" role="main">
+	<header class="main__header">
+		<h1 class="main__title">Posts</h1>
+	</header><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/%E4%B8%8A%E5%B8%9D%E7%B1%BB%E6%98%AF%E4%BB%80%E4%B9%88%E8%AF%A5%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E4%B8%8A%E5%B8%9D%E7%B1%BB/" 
+			   class="post-title-link"
+			   title="上帝类是什么？该如何避免上帝类？">
+				上帝类是什么？该如何避免上帝类？
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-03-30T10:47:35Z">March 30, 2025</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<h1 id="什么是上帝类">什么是上帝类</h1>
+<p>所谓的上帝类，就是指<strong>一个类承担了过多的职能</strong>，变得过于<strong>臃肿</strong>和<strong>复杂</strong>、<strong>难以维护</strong>。没有遵守单一职责原则。像上帝一样什么都能干，每个功能高度耦合，牵一发而动全身，不利于业务的拓展。</p>
+<h1 id="上帝类是如何产生的">上帝类是如何产生的</h1>
+<p>上帝类的产生，通常是由于需要快速实现功能而做出的妥协，长期积累就变成繁重的技术债务。或是缺乏规划经验，功能不断地被加到类中。依旧长期积累，上帝类产生了。</p>
+<h1 id="上帝类的优缺点">上帝类的优缺点</h1>
+<p>上帝类虽然在上文被冠以臃肿、难维护的帽子，但并不代表他没有优点，要辨证地看待。</p>
+<ul>
+<li>优点：上帝类适用于一些较小的、逻辑简单的任务或工具类，逻辑不复杂，也不需要长时间维护，即拿即用。不用过多地考虑职责和颗粒度的划分，也能提高开发效率</li>
+<li>缺点：即上文中所提到的。臃肿、复杂、难以维护、测试麻烦、缺乏可读性、耦合度高，不可拓展同时违反SRP和OCP原则</li>
+</ul>
+<h1 id="上帝类的判定">上帝类的判定</h1>
+<ul>
+<li>代码行数判定法：代码行数很多的有可能是上帝类，注意是有可能。如果是上帝类，应当进行适当重构</li>
+<li>依赖关系判定法：通过分析类的依赖关系来判定其是否与其他类高度关联，如果是，他有可能是上帝类。</li>
+<li>职责判定法：如果一个类承担了过多的职责，他该干的也干了，不该干的也干了，那么毫无疑问，他是上帝类。</li>
+<li>测试覆盖率判定法： 如果一个类难以单元测试，或覆盖率低或总是出现奇奇怪怪的不可预测的问题，那么他有可能是上帝类。</li>
+</ul>
+<h1 id="如何避免上帝类">如何避免上帝类</h1>
+<p>所以，要如何避免上帝类，这个问题的答案已经显而易见了。和上一段相反着做即可。遵守单一职责原则。规划好代码架构。比如，要处理一个压缩包解析和数据展示功能，首先就要拆分职责为不同的类。类中再去写相对应的函数。我们可以把这个功能拆分为解压、读取、展示信息三个类，类中分别编写相应的代码，这样就能做到避免上帝类的产生，从而提高代码的可维护性和可拓展性。</p>
+<p><img src="./20250320.png" alt=""></p>
+		<hr>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AErime%E8%BE%93%E5%85%A5%E6%B3%95/" 
+			   class="post-title-link"
+			   title="安装配置Rime输入法">
+				安装配置Rime输入法
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-03-24T20:37:38Z">March 24, 2025</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<h1 id="前言">前言</h1>
+<p>其实我有能用的fcitx5+搜狗输入法的方案，但奈何kitty终端有对这个输入法的兼容性问题，无法启用中文，又奈何kitty的界面多美观舒服，和Konsole比起来简直就不是一个时代的产物。</p>
+<h1 id="安装ibus框架和rime输入法引擎">安装Ibus框架和Rime输入法引擎</h1>
+<p><strong>安装 IBus 和 Rime 组件</strong>：
+<code>sudo pacman -S ibus ibus-rime</code></p>
+<p><strong>安装 Rime 双拼方案：</strong>
+<code>sudo pacman -S rime-double-pinyin</code></p>
+<h2 id="配置-ibus-和-rime">配置 IBus 和 Rime</h2>
+<p><strong>设置环境变量</strong>
+在<code>~/.xprofile</code>添加以下内容</p>
+<pre><code class="language-bash">export GTK_IM_MODULE=ibus export QT_IM_MODULE=ibus export XMODIFIERS=@im=ibus
+</code></pre>
+<p>重启系统或执行 <code>source ~/.xprofile</code> 使配置生效</p>
+<p><strong>启动 IBus 并添加 Rime 输入源</strong></p>
+<pre><code class="language-bash">ibus-daemon -drx
+</code></pre>
+<p>右键点击系统托盘中的 IBus 图标，选择 <strong>Preferences</strong> → <strong>Input Method</strong> → <strong>Add</strong>，选择 <strong>Chinese (Rime)</strong>。</p>
+<p><strong>配置双拼方案</strong>
+编辑 Rime 的配置文件 <code>~/.config/ibus/rime/default.custom.yaml</code>：</p>
+<pre><code class="language-bash">patch:
+schema_list:
+	- schema: double_pinyin # 自然码双拼
+	- schema: luna_pinyin # 全拼备用
+</code></pre>
+<h2 id="优化-rime-的智能联想与词库">优化 Rime 的智能联想与词库</h2>
+<p><strong>启用雾凇拼音方案（推荐）</strong></p>
+		<hr>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AErime%E8%BE%93%E5%85%A5%E6%B3%95/"></a>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/nodejs%E7%8E%AF%E5%A2%83%E4%B8%8B%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%8B%BC%E6%8E%A5%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%87%BA%E6%9C%89undefind/" 
+			   class="post-title-link"
+			   title="Nodejs环境下控制台拼接字符串输出有undefind">
+				Nodejs环境下控制台拼接字符串输出有undefind
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-03-22T18:56:33Z">March 22, 2025</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>今天在Nodejs环境下搓小工具，控制台输出拼接字符串时，发现有<code>undefind</code>，代码如下：</p>
+		<hr>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/nodejs%E7%8E%AF%E5%A2%83%E4%B8%8B%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%8B%BC%E6%8E%A5%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%87%BA%E6%9C%89undefind/"></a>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/%E5%85%89%E9%80%9F%E7%A0%B4%E8%A7%A3%E4%BD%9C%E6%96%87%E7%BD%91%E7%AB%99%E7%A6%81%E6%AD%A2%E5%A4%8D%E5%88%B6/" 
+			   class="post-title-link"
+			   title="光速破解作文网站禁止复制">
+				光速破解作文网站禁止复制
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-03-21T08:17:54Z">March 21, 2025</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>今天上网搜集范文，又遇到了这个很多年前就让我非常痛恨的网站。可以看到，这个网站应该是通过JS，检测鼠标左键或者CTRL+C再弹出这个窗口达到的防止用户复制的目的，可以此为切入点，查看一下这个网站的源码。找到问题所在。</p>
+		<hr>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/%E5%85%89%E9%80%9F%E7%A0%B4%E8%A7%A3%E4%BD%9C%E6%96%87%E7%BD%91%E7%AB%99%E7%A6%81%E6%AD%A2%E5%A4%8D%E5%88%B6/"></a>
+	</div>
+</article>
+</main>
+
+<div class="pagination">
+	<a class="pagination__item pagination__item--prev btn" href="/post/page/14/">«</a>
+	<span class="pagination__item pagination__item--current">15/24</span>
+	<a class="pagination__item pagination__item--next btn" href="/post/page/16/">»</a>
+</div>
+
+			</div>
+			
+
+		</div>
+		</div>
+	</div>
+</div>
+
+	<script src="/js/search.js" defer></script>
+	<script src="/js/archives.js" defer></script>
+	<script src="/js/lazyload.js" defer></script>
+	
+	
+</body>
+</html>

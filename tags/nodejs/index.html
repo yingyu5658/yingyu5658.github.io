@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>NodeJS - 映屿</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+
+	
+
+	
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	
+	
+	<link rel="stylesheet" href="/css/style.css">
+	
+	<link rel="alternate" type="application/rss&#43;xml" href="/tags/nodejs/atom.xml" title="映屿">
+
+	
+	<link rel="dns-prefetch" href="https://api.github.com">
+
+</head>
+
+<body class="term-page">
+	<div class="mail">
+	<div class="container container--outer">
+		<div class="border">
+		
+	<div class="topbar">
+		<a class="topbar__link" href="/" title="映屿" rel="sidebar">
+			<div class="topbar__item topbar__text">
+					<div class="topbar__title">映屿</div>
+					<div class="topbar__tagline">yingyu5658的数字花园</div>
+				</div>
+		</a>
+	</div>
+		<div class="wrapper flex">			
+			<div class="primary">
+			
+<main class="main list" role="main">
+	<header class="main__header">
+		<h1 class="main__title">NodeJS</h1>
+	</header><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/osu-apiv1%E8%AF%B7%E6%B1%82%E7%A4%BA%E4%BE%8B/" 
+			   class="post-title-link"
+			   title="osu!APIv1请求示例">
+				osu!APIv1请求示例
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-04-11T22:29:23Z">April 11, 2025</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<h2 id="前言">前言</h2>
+<p>本文章使用Nodejs环境做演示。请求用户数据。代码中的APIKEY要在<a href="https://osu.ppy.sh/home/account/edit">osu官网‬</a>申请。</p>
+<pre><code class="language-js">const API_URL = &quot;osu.ppy.sh&quot;;
+const init = {
+    k: &quot;YOUR_API_KEY&quot;,
+    type: &quot;string&quot;,
+    u: &quot;kyzzz5658&quot;,
+};
+
+const https = require(&quot;https&quot;);
+
+// 将参数序列化为查询字符串
+const query = new URLSearchParams(init);
+const options = {
+    hostname: API_URL,
+    method: &quot;GET&quot;,
+    path: `/api/get_user?${query}` // 附加参数
+};
+
+const req = https.request(options, (res) =&gt; {
+    let data = '';
+    res.on('data', (chunk) =&gt; data += chunk);
+    res.on('end', () =&gt; {
+        try {
+            console.log(JSON.parse(data[0].username));
+        } catch (e) {
+            console.error('JSON 解析失败:', e);
+        }
+    });
+});
+
+// 错误处理
+req.on('error', (err) =&gt; {
+    console.error('请求失败:', err.code);
+});
+</code></pre>
+<p>输出：</p>
+		<hr>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/osu-apiv1%E8%AF%B7%E6%B1%82%E7%A4%BA%E4%BE%8B/"></a>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/nodejs%E7%8E%AF%E5%A2%83%E4%B8%8B%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%8B%BC%E6%8E%A5%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%87%BA%E6%9C%89undefind/" 
+			   class="post-title-link"
+			   title="Nodejs环境下控制台拼接字符串输出有undefind">
+				Nodejs环境下控制台拼接字符串输出有undefind
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-03-22T18:56:33Z">March 22, 2025</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>今天在Nodejs环境下搓小工具，控制台输出拼接字符串时，发现有<code>undefind</code>，代码如下：</p>
+		<hr>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/nodejs%E7%8E%AF%E5%A2%83%E4%B8%8B%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%8B%BC%E6%8E%A5%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%87%BA%E6%9C%89undefind/"></a>
+	</div>
+</article>
+</main>
+
+
+			</div>
+			
+
+		</div>
+		</div>
+	</div>
+</div>
+
+	<script src="/js/search.js" defer></script>
+	<script src="/js/archives.js" defer></script>
+	<script src="/js/lazyload.js" defer></script>
+	
+	
+</body>
+</html>

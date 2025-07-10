@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Emacs - 映屿</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+
+	
+
+	
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	
+	
+	<link rel="stylesheet" href="/css/style.css">
+	
+	<link rel="alternate" type="application/rss&#43;xml" href="/tags/emacs/atom.xml" title="映屿">
+
+	
+	<link rel="dns-prefetch" href="https://api.github.com">
+
+</head>
+
+<body class="term-page">
+	<div class="mail">
+	<div class="container container--outer">
+		<div class="border">
+		
+	<div class="topbar">
+		<a class="topbar__link" href="/" title="映屿" rel="sidebar">
+			<div class="topbar__item topbar__text">
+					<div class="topbar__title">映屿</div>
+					<div class="topbar__tagline">yingyu5658的数字花园</div>
+				</div>
+		</a>
+	</div>
+		<div class="wrapper flex">			
+			<div class="primary">
+			
+<main class="main list" role="main">
+	<header class="main__header">
+		<h1 class="main__title">Emacs</h1>
+	</header><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/emacs%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95-2c-c&#43;&#43;%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" 
+			   class="post-title-link"
+			   title="Emacs配置记录 2——C/C&#43;&#43;环境配置">
+				Emacs配置记录 2——C/C&#43;&#43;环境配置
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-06-04T18:58:37Z">June 04, 2025</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<h2 id="前言">前言</h2>
+<p>经过<a href="">上一篇</a>的简单调教，Emacs已经勉强变成了一个温顺的文本编辑器，但是离写代码这个宏大的目标还是有一段距离的，今天来解决主要问题：代码补全。由于我要写一点简单的C代码，那么重点就先放到C/CPP环境搭建中。</p>
+<p>站在巨人的肩膀上，在Emacs中的代码补全使用巨硬的LSP协议。</p>
+<h2 id="spacemacs">Spacemacs</h2>
+<p>经过考虑，我还是决定使用Spacemacs，比起原版Emacs，它更适合新手，也更能快速投入开发。避免配置陷阱，过多把时间花在刀把上。唉，也就是说，昨天大部分都白干了。算了，生命的意义就在于折腾，怕折腾我也不会玩Emacs了。来吧！</p>
+<p>先来安装一下Spacemacs。
+<code>git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d</code></p>
+<p>重启Emacs，让他下载一下自带的包。</p>
+<p>上次没清理干净Spacemacs，不知道存在哪的备份还在，算是免去了一些折腾吧。来看看现在的Emacs都配置了什么。</p>
+<pre><code class="language-lisp">   dotspacemacs-configuration-layers
+   '(yaml
+     markdown
+     javascript
+     (auto-completion :variables
+                      auto-completion-idle-delay 0.01    ; 降低补全延迟
+                      auto-completion-minimum-prefix-length 1)
+     (prettier :variables
+               prettier-always-enable t)  ; 保存时自动格式化
+     (javascript :variables
+                 javascript-backend 'lsp        ; 启用LSP后端
+                 javascript-fmt-tool 'prettier) ; 格式化工具选Prettier
+     (c-c++ :variables
+            c-c++-backend 'lsp-clangd)         ; C/C++使用Clangd后端
+     (vue :variables
+          vue-backend 'lsp)                    ; Vue使用LSP后端
+     (html)                                    ; HTML/CSS支持
+     (lsp)                                     ; 必须的LSP核心支持层
+     (auto-completion)                         ; 自动补全
+     (syntax-checking)                         ; 语法检查
+     ;; ----------------------------------------------------------------
+     ;; Example of useful layers you may want to use right away.
+     ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
+     ;; `M-m f e R' (Emacs style) to install them.
+     ;; ----------------------------------------------------------------
+     ;; auto-completion
+     ;; better-defaults
+     emacs-lisp
+     treemacs
+     ;; git
+     helm
+     lsp
+     ;; markdown
+     multiple-cursors
+     ;; org
+     ;; (shell :variables
+     ;;        shell-default-height 30
+     ;;        shell-default-position 'bottom)
+     ;; spell-checking
+     ;; syntax-checking
+     ;; version-control
+     treemacs)
+</code></pre>
+<p>emmm，还是有点有用的。比如C/C++这里，就启用了LSP。还有一些之前搞的前端配置。就是不知道为啥，JavaScript的补全不太好使。</p>
+		<hr>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/emacs%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95-2c-c&#43;&#43;%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"></a>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/%E6%88%91%E8%BF%98%E6%98%AF%E6%94%BE%E4%B8%8D%E4%B8%8Bemacs/" 
+			   class="post-title-link"
+			   title="我还是放不下Emacs！">
+				我还是放不下Emacs！
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-06-03T20:07:15Z">June 03, 2025</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<h2 id="前言">前言</h2>
+<p>难受，真难受呀。作为一个痴迷Vim的人，总是被Emacs的强大勾引，看见别人配的酷炫全能的Emacs就走不动路，脑子里想着“没事没事，我Vim轻量启动极快，Emacs这种重量级是比不上的”，自我安慰。实际上多想玩Emacs只有我自己知道&hellip;&hellip;</p>
+<p>我之前也试过<a href="https://www.yingyu5658.me/post/2193909713/">配Emacs</a>，但是Windows搞出来的不伦不类还很卡的东西太难受，用WSL尝试了一下Spacemacs，搞不明白那个层机制，也对ELisp这个语言不熟悉（说实话到现在Lua的一些东西我都不明白），而且之前的配置也一直想一口吃个大胖子，一天内就配到IDE的强大程度，经过几次失败和Vim配置经验后，我深知这是不可能的，除非在我使用Emacs后N周年的第N周目重新删干净再配，也许能做到。</p>
+<p>定个小目标吧，每天配一点点，成果起码要达到以下程度：</p>
+<ul>
+<li>能胜任前端、Nodejs的开发</li>
+<li>能胜任CPP/C的开发</li>
+<li>能使用EAF浏览网页</li>
+<li>有一点花里胡哨的小功能</li>
+</ul>
+<p>其实我也挺想把博客迁移到Emacs，完全用org-mode来写，Hexo越来越慢。其实Hugo也不是不行，就是不太熟悉也不喜欢Go。看了<a href="https://liujiacai.net/">刘家财大佬的博客</a>后感觉这个也太酷了，主题我也很喜欢，但是评论功能可能有点折腾，我对评论系统也有点不太在意。最难割舍的是现在用的这个主题&hellip;&hellip;</p>
+<p>刘家财老师是这样说的</p>
+<blockquote>
+<p>只不过遗憾的是，即使写了近 10 年的博客，有价值的评论少之又少，可能中文互联网内没多少人认真写技术评论吧。</p>
+</blockquote>
+<p>这点我确实认同，观察了一些博客的评论，真正讨论技术内容的没几个，大多都是在围观、附和。但是我的博客类型也不能算是纯技术博客，保持与读者的互动还是很有意思的。</p>
+<p>言归正传，我现在的Emacs在WSL里，装的是Spacemacs，能正常用eaf，但是写代码很难受，也没有补全，可以说现在它只能当一个浏览器用，我准备推翻重新配。</p>
+<p>那么，从现在开始，来配Emacs！！！</p>
+<p><img src="https://pavinberg.github.io/emacs-book/images/emacs-book/intro/learningCurve.jpg" alt="各个编辑器学习曲线图" title="../../images/emacs-book/intro/learningCurve.jpg"></p>
+<h2 id="与过去挥手">与过去挥手</h2>
+<p>在<code>rm -rf ~/.emacs.d</code>后，那个不伦不类、上不去下不来的Emacs彻底成为了历史。重新输入Emacs，又看到熟悉又陌生的丑陋开屏页。</p>
+<h2 id="小插曲">小插曲</h2>
+<p>WSLg间歇性抽风，打不开GUI</p>
+<pre><code>Display 10.255.255.254:0 unavailable, simulating -nw
+</code></pre>
+<p>打开管理员Powershell，运行<code>wsl --update</code>
+![[public/images/我还是放不下Emacs！/Pasted image 20250603210050.png]]
+<del>我草，怎么这么慢？？</del></p>
+<h2 id="melpa配置">MELPA配置</h2>
+<pre><code class="language-lisp">(require 'package)
+(add-to-list 'package-archives '(&quot;melpa&quot; . &quot;https://melpa.org/packages/&quot;) t)
+(package-initialize)
+</code></pre>
+<p>切换中国镜像源</p>
+<pre><code class="language-lisp">(require 'package)
+(setq package-archives '((&quot;gnu&quot;  . &quot;http://mirrors.cloud.tencent.com/elpa/gnu/&quot;)
+             (&quot;melpa&quot; . &quot;http://mirrors.cloud.tencent.com/elpa/melpa/&quot;)))
+(package-initialize)
+</code></pre>
+<p>重启Emacs，输入<code>package-list-packages</code>就可以查看所有插件。<code>package-install</code>，回车输入插件名就可以安装对应插件。
+默认情况下，插件会被安装到 <code>~/.emacs.d/elpa/</code> 目录下。</p>
+<h2 id="use-package">use-package</h2>
+<p>输入<code>package-install</code>，输入<code>use-package</code>，回车安装，然后在init.el中写</p>
+<pre><code class="language-lisp">(eval-when-compile
+ (require 'use-package))
+</code></pre>
+<h2 id="ivy">ivy</h2>
+<pre><code class="language-lisp">(use-package ivy
+ :ensure t
+ :init
+ (ivy-mode 1)
+ (counsel-mode 1)
+ :config
+ (setq ivy-use-virtual-buffers t)
+ (setq search-default-mode #'char-fold-to-regexp)
+ (setq ivy-count-format &quot;(%d/%d) &quot;)
+ :bind
+ ((&quot;C-s&quot; . 'swiper)
+  (&quot;C-x b&quot; . 'ivy-switch-buffer)
+  (&quot;C-c v&quot; . 'ivy-push-view)
+  (&quot;C-c s&quot; . 'ivy-switch-view)
+  (&quot;C-c V&quot; . 'ivy-pop-view)
+  (&quot;C-x C-@&quot; . 'counsel-mark-ring); 在某些终端上 C-x C-SPC 会被映射为 C-x C-@，比如在 macOS 上，所以要手动设置
+  (&quot;C-x C-SPC&quot; . 'counsel-mark-ring)
+  :map minibuffer-local-map
+  (&quot;C-r&quot; . counsel-minibuffer-history)))
+</code></pre>
+<h2 id="amx">amx</h2>
+<pre><code class="language-lisp">(use-package amx
+ :ensure t
+ :init (amx-mode))
+</code></pre>
+<h2 id="ace-window">ace-window</h2>
+<pre><code>(use-package ace-window
+ :ensure t
+ :bind ((&quot;C-x o&quot; . 'ace-window)))
+</code></pre>
+<h2 id="mwim">mwim</h2>
+<pre><code class="language-lisp">(use-package mwim
+ :ensure t
+ :bind
+ (&quot;C-a&quot; . mwim-beginning-of-code-or-line)
+ (&quot;C-e&quot; . mwim-end-of-code-or-line))
+</code></pre>
+<h2 id="undo-tree">undo-tree</h2>
+<pre><code class="language-lisp">(use-package undo-tree
+ :ensure t
+ :init (global-undo-tree-mode)
+ :custom
+ (undo-tree-auto-save-history nil))
+</code></pre>
+<h2 id="smart-mode-line">smart-mode-line</h2>
+<pre><code class="language-lisp">(use-package smart-mode-line
+ :ensure t
+ :init (sml/setup))
+</code></pre>
+<h2 id="good-scroll">good-scroll</h2>
+<pre><code class="language-lisp">(use-package good-scroll
+ :ensure t
+ :if window-system     ; 在图形化界面时才使用这个插件
+ :init (good-scroll-mode))
+</code></pre>
+<p>今天就先到这里吧。
+![相关图片](/images/我还是放不下Emacs！/Pasted image 20250603210050.png)</p>
+		<hr>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/%E6%88%91%E8%BF%98%E6%98%AF%E6%94%BE%E4%B8%8D%E4%B8%8Bemacs/"></a>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/emacs-eaf%E6%8F%92%E4%BB%B6%E6%89%93%E5%BC%80%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%AA%E6%98%BE%E7%A4%BAopening-http-xxx-xxx%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" 
+			   class="post-title-link"
+			   title="Emacs EAF插件打开浏览器只显示opening http://xxx.xxx的解决方法">
+				Emacs EAF插件打开浏览器只显示opening http://xxx.xxx的解决方法
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-04-29T10:02:49Z">April 29, 2025</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>检查是否安装全部依赖，如yay、pip等。我这里是由于没有安装pip导致的。</p>
+<p><code>sudo pacman -S python-pip</code></p>
+<p>安装好后，进入eaf安装目录</p>
+<p><code>cd ~/.emacs.d/site-lisp/emacs-application-framework &amp;&amp; ./install-eaf.py</code></p>
+<p>重新安装eaf。等待脚本运行完成，打开emacs，输入<code>M-x eaf-install-and-update</code>，等待执行完成。</p>
+<p>重新输入<code>M-x eaf-open-browser</code>，输入网址，即可正常访问网页。</p>
+<p><img src="/images/Emacs-EAF%E6%8F%92%E4%BB%B6%E6%89%93%E5%BC%80%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%AA%E6%98%BE%E7%A4%BAopening-http-xxx-xxx%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/image-20250429101516564.png" alt="图"></p>
+<p><img src="/images/Emacs-EAF%E6%8F%92%E4%BB%B6%E6%89%93%E5%BC%80%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%AA%E6%98%BE%E7%A4%BAopening-http-xxx-xxx%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/image-20250429101516564.png" alt="相关图片"></p>
+<p><img src="/images/Emacs-EAF%E6%8F%92%E4%BB%B6%E6%89%93%E5%BC%80%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%AA%E6%98%BE%E7%A4%BAopening-http-xxx-xxx%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/image-20250429101516564.png" alt="相关图片"></p>
+<p><img src="/images/Emacs-EAF%E6%8F%92%E4%BB%B6%E6%89%93%E5%BC%80%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%AA%E6%98%BE%E7%A4%BAopening-http-xxx-xxx%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/image-20250429101516564.png" alt="相关图片"></p>
+		<hr>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/%E5%88%9D%E6%8A%98%E8%85%BEemacs%E8%AE%B0%E5%BD%95/" 
+			   class="post-title-link"
+			   title="初折腾Emacs记录">
+				初折腾Emacs记录
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-04-13T12:15:33Z">April 13, 2025</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<h2 id="基础配置">基础配置</h2>
+<p>Windows下需要在软件顶部Toolbar的Options中随便更改一个选项，然后再点Save Options，这样就会再<code>C:\Users\Username\appdata\Roaming\</code>下生成.emacs和.emacs.d/</p>
+<p>在emacs.d中新建一个文件<code>init.el</code>，填写如下配置</p>
+<pre><code class="language-lisp">;;; init.el --- Load the full configuration -*- lexical-binding: t -*-
+;;; Commentary:
+
+;; This file bootstraps the configuration, which is divided into
+;; a number of other files.
+
+;;; Code:
+
+(let ((minver &quot;25.1&quot;))
+ (when (version&lt; emacs-version minver)
+  (error &quot;Your Emacs is too old -- this config requires v%s or higher&quot; minver)))
+(when (version&lt; emacs-version &quot;26.1&quot;)
+ (message &quot;Your Emacs is old, and some functionality in this config will be disabled. Please upgrade if possible.&quot;))
+
+(add-to-list 'load-path (expand-file-name &quot;lisp&quot; user-emacs-directory)) ; 设定源码加载路径
+;; (require 'init-benchmarking) ;; Measure startup time
+
+(defconst *spell-check-support-enabled* nil) ;; Enable with t if you prefer
+(defconst *is-a-mac* (eq system-type 'darwin))
+
+;; Adjust garbage collection thresholds during startup, and thereafter
+
+(let ((normal-gc-cons-threshold (* 20 1024 1024))
+   (init-gc-cons-threshold (* 128 1024 1024)))
+ (setq gc-cons-threshold init-gc-cons-threshold)
+ (add-hook 'emacs-startup-hook
+      (lambda () (setq gc-cons-threshold normal-gc-cons-threshold))))
+
+
+
+
+;; ==========================================================================================================
+;; ===========================================日常使用配置===================================================
+;; ==========================================================================================================
+(setq confirm-kill-emacs #'yes-or-no-p)   ; 在关闭 Emacs 前询问是否确认关闭，防止误触
+(electric-pair-mode t)            ; 自动补全括号
+(add-hook 'prog-mode-hook #'show-paren-mode) ; 编程模式下，光标在括号上时高亮另一个括号
+(column-number-mode t)            ; 在 Mode line 上显示列号
+(global-auto-revert-mode t)         ; 当另一程序修改了文件时，让 Emacs 及时刷新 Buffer
+(delete-selection-mode t)          ; 选中文本后输入文本会替换文本（更符合我们习惯了的其它编辑器的逻辑）
+(setq inhibit-startup-message t)       ; 关闭启动 Emacs 时的欢迎界面
+(setq make-backup-files nil)         ; 关闭文件自动备份
+(add-hook 'prog-mode-hook #'hs-minor-mode)  ; 编程模式下，可以折叠代码块
+(global-display-line-numbers-mode 1)     ; 在 Window 显示行号
+(tool-bar-mode -1)              ; （熟练后可选）关闭 Tool bar
+(when (display-graphic-p) (toggle-scroll-bar -1)) ; 图形界面时关闭滚动条
+
+(savehist-mode 1)              ; （可选）打开 Buffer 历史记录保存
+(setq display-line-numbers-type 'relative)  ; （可选）显示相对行号
+(add-to-list 'default-frame-alist '(width . 90)) ; （可选）设定启动图形界面时的初始 Frame 宽度（字符数）
+(add-to-list 'default-frame-alist '(height . 55)) ; （可选）设定启动图形界面时的初始 Frame 高度（字符数）
+
+
+;; ==========================================================================================================
+;; ===========================================插件镜像配置===================================================
+;; ==========================================================================================================
+; 腾讯镜像
+(require 'package)
+(setq package-archives '((&quot;gnu&quot;  . &quot;http://mirrors.cloud.tencent.com/elpa/gnu/&quot;)
+             (&quot;melpa&quot; . &quot;http://mirrors.cloud.tencent.com/elpa/melpa/&quot;)))
+(package-initialize)
+
+
+;;; init.el ends here
+</code></pre>
+<p>基础的设置和插件镜像源就配置好了，此配置可完全复制照抄。</p>
+		<hr>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/%E5%88%9D%E6%8A%98%E8%85%BEemacs%E8%AE%B0%E5%BD%95/"></a>
+	</div>
+</article>
+</main>
+
+
+			</div>
+			
+
+		</div>
+		</div>
+	</div>
+</div>
+
+	<script src="/js/search.js" defer></script>
+	<script src="/js/archives.js" defer></script>
+	<script src="/js/lazyload.js" defer></script>
+	
+	
+</body>
+</html>

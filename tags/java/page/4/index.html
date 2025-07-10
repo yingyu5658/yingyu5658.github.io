@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Java - 映屿</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+
+	
+
+	
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	
+	
+	<link rel="stylesheet" href="/css/style.css">
+	
+	<link rel="alternate" type="application/rss&#43;xml" href="/tags/java/atom.xml" title="映屿">
+
+	
+	<link rel="dns-prefetch" href="https://api.github.com">
+
+</head>
+
+<body class="term-page">
+	<div class="mail">
+	<div class="container container--outer">
+		<div class="border">
+		
+	<div class="topbar">
+		<a class="topbar__link" href="/" title="映屿" rel="sidebar">
+			<div class="topbar__item topbar__text">
+					<div class="topbar__title">映屿</div>
+					<div class="topbar__tagline">yingyu5658的数字花园</div>
+				</div>
+		</a>
+	</div>
+		<div class="wrapper flex">			
+			<div class="primary">
+			
+<main class="main list" role="main">
+	<header class="main__header">
+		<h1 class="main__title">Java</h1>
+	</header><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/90/" 
+			   class="post-title-link"
+			   title="Java小程序之两数计算器">
+				Java小程序之两数计算器
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2024-11-30T18:51:07Z">November 30, 2024</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>这个案例是我练习方法的使用时做的，应该能有更好的方式实现这个功能。
+代码如下</p>
+<pre><code class="language-java">package cn.yingyu5658.basic;
+
+import org.w3c.dom.ls.LSOutput;
+
+import java.util.Scanner;
+
+public class Basic {
+    public static void main(String[] args) {
+        for (; ; ) {
+
+
+            System.out.println(&quot;欢迎使用！&quot;);
+            System.out.println(&quot;按键1 2 3 4分别为加 减 乘 除，输入后请回车&quot;);
+            Scanner startSc = new Scanner(System.in);
+            int selectNumber = startSc.nextInt();
+            if(selectNumber &gt;4) {
+                System.out.println(&quot;请输入正确的数字以选择！&quot;);
+            }
+            //以下为加法
+            if (selectNumber == 1) {
+                System.out.println(&quot;请输入您要计算的第一个数字&quot;);
+                Scanner jiafaSc = new Scanner(System.in);
+                int jiafa1 = jiafaSc.nextInt();
+                System.out.println(&quot;请输入您要计算的第二个数字&quot;);
+                int jiafa2 = jiafaSc.nextInt();
+                jiafa(jiafa1, jiafa2);
+            }
+            //以下为减法
+            if (selectNumber == 2) {
+                System.out.println(&quot;请输入您要计算的第一个数字&quot;);
+                Scanner jianfaSc = new Scanner(System.in);
+                int jianfa1 = jianfaSc.nextInt();
+                System.out.println(&quot;请输入您要计算的第二个数字&quot;);
+                int jianfa2 = jianfaSc.nextInt();
+                jianfa(jianfa1, jianfa2);
+            }
+            //以下为乘法
+            if (selectNumber == 3) {
+                System.out.println(&quot;请输入您要计算的第一个数字&quot;);
+                Scanner chengfaSc = new Scanner(System.in);
+                int chengfa1 = chengfaSc.nextInt();
+                System.out.println(&quot;请输入您要计算的第二个数字&quot;);
+                int chengfa2 = chengfaSc.nextInt();
+                chengfa(chengfa1, chengfa2);
+            }
+            if (selectNumber == 4) {
+                System.out.println(&quot;请输入您要计算的第一个数字&quot;);
+                Scanner chufaSc = new Scanner(System.in);
+                int chufa1 = chufaSc.nextInt();
+                System.out.println(&quot;请输入您要计算的第二个数字&quot;);
+                int chufa2 = chufaSc.nextInt();
+                chufa(chufa1, chufa2);
+            }
+            System.out.println(&quot;-----------------------------------------&quot;);
+        }
+    }
+    //加减乘除各项功能的方法，上面直接调用
+    public static int jiafa(int a, int b) {
+        int jieguo = a + b;
+        System.out.println(jieguo);
+        return a + b;
+    }
+
+    public static int jianfa(int a, int b) {
+        int jieguo = a - b;
+        System.out.println(jieguo);
+        return a - b;
+    }
+
+    public static int chengfa(int a, int b) {
+        int jieguo = a * b;
+        System.out.println(jieguo);
+        return a * b;
+    }
+
+    public static int chufa(int a, int b) {
+        int jieguo = a / b;
+        System.out.println(jieguo);
+        return a / b;
+    }
+}
+
+![相关图片](/images/Java小程序之两数计算器/2743265221.jpg)
+
+![相关图片](/images/Java小程序之两数计算器/2743265221.jpg)
+
+![相关图片](/images/Java小程序之两数计算器/2743265221.jpg)
+</code></pre>
+		<hr>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/89/" 
+			   class="post-title-link"
+			   title="Java方法的基本使用">
+				Java方法的基本使用
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2024-11-29T20:45:20&#43;08:00">November 29, 2024</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<h1 id="方法是什么">方法是什么</h1>
+<p>方法是一种语法结构，它可以把代码封装成一段功能，以便重复调用。</p>
+<p>方法的完整格式：</p>
+<p>例子：数字求和</p>
+<pre><code class="language-java">    public static  int sum(int a,int b){
+        int c = a + b;
+        return c;
+    }
+</code></pre>
+<p>方法的调用：</p>
+<pre><code class="language-java">       int rs= sum(10,20);
+</code></pre>
+<h2 id="方法使用的注意点">方法使用的注意点：</h2>
+<p>方法申明了具体的返回值类型，内部必须使用return返回对应类型的数据。</p>
+<p>形参列表可以有多个，甚至可没有；如果有多个形参，必须用英文逗号隔开，且不能给初始化值</p>
+<h2 id="使用方法的好处">使用方法的好处</h2>
+<ul>
+<li>提高代码的复用性，提高了开发效率</li>
+<li>让程序逻辑性更清晰</li>
+</ul>
+<h2 id="方法的其他定义形式">方法的其他定义形式</h2>
+<pre><code class="language-java">    public static void printHelloWorld(int n) {
+        for (int i = 1; i &lt;=n; i++) {
+            System.out.println(&quot;Hello World&quot;);
+        }
+    }
+//打印三行helloworld（使用方法）
+</code></pre>
+<ul>
+<li>如果方法不需要返回数据，返回类型必须申明成<code>void</code>此时方法内部可以不使用return返回数据。</li>
+<li>方法如果不需要接收数据，则不需要定义形参，调用方法时也不可以传数据给方法了。</li>
+<li>没有参数，且没有返回类型（void）申明的方法，称为<strong>无参数、无返回值的方法</strong></li>
+</ul>
+		<hr>
+	</div>
+</article>
+</main>
+
+<div class="pagination">
+	<a class="pagination__item pagination__item--prev btn" href="/tags/java/page/3/">«</a>
+	<span class="pagination__item pagination__item--current">4/4</span>
+</div>
+
+			</div>
+			
+
+		</div>
+		</div>
+	</div>
+</div>
+
+	<script src="/js/search.js" defer></script>
+	<script src="/js/archives.js" defer></script>
+	<script src="/js/lazyload.js" defer></script>
+	
+	
+</body>
+</html>

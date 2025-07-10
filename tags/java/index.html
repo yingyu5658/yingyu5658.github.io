@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Java - 映屿</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+
+	
+
+	
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	
+	
+	<link rel="stylesheet" href="/css/style.css">
+	
+	<link rel="alternate" type="application/rss&#43;xml" href="/tags/java/atom.xml" title="映屿">
+
+	
+	<link rel="dns-prefetch" href="https://api.github.com">
+
+</head>
+
+<body class="term-page">
+	<div class="mail">
+	<div class="container container--outer">
+		<div class="border">
+		
+	<div class="topbar">
+		<a class="topbar__link" href="/" title="映屿" rel="sidebar">
+			<div class="topbar__item topbar__text">
+					<div class="topbar__title">映屿</div>
+					<div class="topbar__tagline">yingyu5658的数字花园</div>
+				</div>
+		</a>
+	</div>
+		<div class="wrapper flex">			
+			<div class="primary">
+			
+<main class="main list" role="main">
+	<header class="main__header">
+		<h1 class="main__title">Java</h1>
+	</header><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/%E9%BB%91%E5%8E%86%E5%8F%B2%E8%AF%BB%E8%87%AA%E5%B7%B1%E4%BB%A5%E5%89%8D%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81/" 
+			   class="post-title-link"
+			   title="【黑历史】读自己以前写的代码">
+				【黑历史】读自己以前写的代码
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-04-19T15:20:19Z">April 19, 2025</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>仓库地址就不放出来了，太耻辱了&hellip;&hellip;</p>
+<p>先来看看Main.java</p>
+<pre><code class="language-java">package cn.yingyu5658.lbl;
+
+/**
+ * @author yingyu5658
+ */
+
+public class Main {
+    public static void main(String[] args) {
+        LuBuLu cmd = new LuBuLu();
+        while(true) {
+            cmd.command();
+        }
+    }
+}
+</code></pre>
+<p>嗯还写了Author，生怕别人不知道这坨屎是谁拉的。</p>
+<p>Main方法里面新建了一个LuBuLu对象，在主循环里调用了他的command()方法。</p>
+<p>进入这个神秘的LuBuLu.java一探究竟。</p>
+<pre><code class="language-java">Scanner sc;
+    String one;
+    String two;
+    public int times;
+
+    public LuBuLu() {
+        this.sc = new Scanner(System.in);
+        this.times = 0;
+    }
+</code></pre>
+<p>在类的开头进行了一些初始化，有点不理解one和two是什么，为什么他们没有权限修饰符。。。</p>
+<p>好的，接下来就到了主方法调用的command()</p>
+<pre><code class="language-java">public void command() {
+        while (true) {
+            if (this.times == 0) {
+                System.out.println(&quot; __       __    __  .______    __    __   __       __    __                                                                                                                       \n|  |     |  |  |  | |   _  \\  |  |  |  | |  |     |  |  |  |                                                                                                                      \n|  |     |  |  |  | |  |_)  | |  |  |  | |  |     |  |  |  |                                                                                                                      \n|  |     |  |  |  | |   _  &lt;  |  |  |  | |  |     |  |  |  |                                                                                                                      \n|  `----.|  `--'  | |  |_)  | |  `--'  | |  `----.|  `--'  |                                                                                                                      \n|_______| \\______/  |______/   \\______/  |_______| \\______/                                                                                                                       \n                                                                                                                                                                                  \n.___  ___.      ___       _______   _______          .______   ____    ____          ____    ____  __  .__   __.   ___________    ____  __    __   _____     __    _____    ___   \n|   \\/   |     /   \\     |       \\ |   ____|         |   _  \\  \\   \\  /   /          \\   \\  /   / |  | |  \\ |  |  /  _____\\   \\  /   / |  |  |  | | ____|   / /   | ____|  / _ \\  \n|  \\  /  |    /  ^  \\    |  .--.  ||  |__            |  |_)  |  \\   \\/   /            \\   \\/   /  |  | |   \\|  | |  |  __  \\   \\/   /  |  |  |  | | |__    / /_   | |__   | (_) | \n|  |\\/|  |   /  /_\\  \\   |  |  |  ||   __|           |   _  &lt;    \\_    _/              \\_    _/   |  | |  . `  | |  | |_ |  \\_    _/   |  |  |  | |___ \\  | '_ \\  |___ \\   &gt; _ &lt;  \n|  |  |  |  /  _____  \\  |  '--'  ||  |____          |  |_)  |     |  |                  |  |     |  | |  |\\   | |  |__| |    |  |     |  `--'  |  ___) | | (_) |  ___) | | (_) | \n|__|  |__| /__/     \\__\\ |_______/ |_______|         |______/      |__|                  |__|     |__| |__| \\__|  \\______|    |__|      \\______/  |____/   \\___/  |____/   \\___/  \n                                                                                                                                                                                  &quot;);
+            }
+
+            System.out.println(&quot;卢布卢 v1.4&quot;);
+            LocalDate date = LocalDate.now();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern(&quot;yyyy-MM-dd&quot;);
+            PrintStream var10000 = System.out;
+            String var10001 = date.format(formatter);
+            var10000.println(&quot;你在&quot; + var10001 + &quot;奇了星雨并打开本软件，来看看老天让不让你卢吧！&quot;);
+            System.out.println(&quot;========================================&quot;);
+            System.out.println(&quot;输入'/help'获取帮助&quot;);
+            switch (this.sc.nextLine()) {
+                case &quot;/help&quot;:
+                    this.help();
+                    break;
+                case &quot;/lbl&quot;:
+                    this.luMa();
+                    break;
+                case &quot;/exit&quot;:
+                    System.exit(0);
+                    break;
+                case &quot;/coott&quot;:
+                    if (&quot;/coott&quot;.equals(sc.nextLine())) {
+                        Scanner sc1 = new Scanner(System.in);
+                        System.out.println(&quot;请输入您的第一个选项。&quot;);
+                        String one = sc1.nextLine();
+                        System.out.println(&quot;请输入您的第二个选项。&quot;);
+                        String two = sc1.nextLine();
+                        this.chooseOneOfTheTwo(one, two);
+                    }
+                    break;
+                case &quot;/cofm&quot;:
+                    chooseOneFromMany();
+                    break;
+                default:
+                    this.clear();
+                    System.out.println(&quot;不存在该指令！将在1000ms后回到主页面。&quot;);
+                    this.sleep();
+                    return;
+            }
+            ++times;
+            System.out.println(&quot;*调试信息* 运行轮数： &quot; + this.times);
+        }
+    }
+</code></pre>
+<p>可以看到、个方法内部代码都是在无限循环内执行的，那么为什么要在main方法里又套一层循环呢？？？</p>
+		<hr>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/%E9%BB%91%E5%8E%86%E5%8F%B2%E8%AF%BB%E8%87%AA%E5%B7%B1%E4%BB%A5%E5%89%8D%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81/"></a>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/%E4%BA%BA%E8%AF%9D%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3%E5%85%AB%E4%B8%8B%E9%81%97%E4%BC%A0%E4%B9%8B%E7%94%9F%E7%89%A9%E7%9A%84%E9%81%97%E4%BC%A0%E5%8F%98%E5%BC%82/" 
+			   class="post-title-link"
+			   title="人话简单理解八下遗传之生物的遗传变异">
+				人话简单理解八下遗传之生物的遗传变异
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-03-18T19:37:25Z">March 18, 2025</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<pre><code class="language-java">// 母亲类
+public class Mother {
+// 母亲的性格是开朗的
+public String personality = &quot;cheerful&quot;;
+// 母亲的身高是160.5
+public double height = 160.5;
+// 母亲有耳垂
+public boolean hasEarlobe = true;
+// 吃东西方法
+
+public void eating(Foods food) {
+
+System.out.println(&quot;母亲吃东西细嚼慢咽&quot;);
+
+}
+
+}
+
+
+
+// 孩子类继承母亲类
+public class Child extends Mother{
+// 变异
+
+// 孩子的性格是内向的
+public String personality = &quot;introverted&quot;;
+// 孩子无耳垂
+public boolean hasEarlobe = false;
+// 孩子身高比母亲高
+public double height = 180.5;
+@Override
+public void eating(Foods food) {
+System.out.println(&quot;孩子吃东西狼吞虎咽&quot;);
+}
+}
+</code></pre>
+<p>感觉比书上讲的一大堆狗屁废话简练多了。。（？</p>
+		<hr>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/%E4%BA%BA%E8%AF%9D%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3%E5%85%AB%E4%B8%8B%E9%81%97%E4%BC%A0%E4%B9%8B%E7%94%9F%E7%89%A9%E7%9A%84%E9%81%97%E4%BC%A0%E5%8F%98%E5%BC%82/"></a>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/186/" 
+			   class="post-title-link"
+			   title="Java面向对象编程——多态、抽象类、接口">
+				Java面向对象编程——多态、抽象类、接口
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-01-10T15:05:00Z">January 10, 2025</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<h1 id="什么是多态">什么是多态</h1>
+<ul>
+<li>在继承/实现情况下的一种现象，表现为：对象多态、行为多态。</li>
+</ul>
+<h2 id="多态的前提">多态的前提</h2>
+<ul>
+<li>有<strong>继承/实</strong>现关系；存在父类引用子类对象；<strong>存在方法重写</strong></li>
+<li>
+<h2 id="多态的注意事项">多态的注意事项</h2>
+</li>
+<li>多态是对象、行为的多态，成员变量不体现多态。</li>
+</ul>
+<h1 id="使用多态的好处">使用多态的好处</h1>
+<ul>
+<li>在多态形式下，右边的对象是解耦合的，更便于拓展和维护。</li>
+<li>定义方法时，使用父类类型的形参，可以接收一切子类对象，扩展性更强、更便利。</li>
+</ul>
+<h1 id="多态下产生的一个问题">多态下产生的一个问题</h1>
+<ul>
+<li>多态下不能使用子类的独有功能。</li>
+</ul>
+<h2 id="多态下的类型转换">多态下的类型转换</h2>
+<ul>
+<li>自动类型转换：<code>父类 变量名 = new 子类();</code></li>
+<li>强制类型转换： <code>子类 变量名 = (子类)父类变量</code></li>
+</ul>
+<h2 id="强制类型转换的注意事项">强制类型转换的注意事项</h2>
+<ul>
+<li>存在继承/实现关系就可以在编译阶段进行强制类型转换，编译阶段不会报错。</li>
+<li>运行时，如果发现对象的真实类型与强转后的类型不同，就会报类型转换异常(ClassCastException)</li>
+</ul>
+<h3 id="强转前java建议">强转前，Java建议：</h3>
+<ul>
+<li>使用instanceof关键字，判断当前对象的真是类型，再进行强制类型转换。</li>
+</ul>
+<h1 id="final">final</h1>
+<ul>
+<li>final关键字的中文是最终的意思，可以修饰类、方法、变量
+<ul>
+<li>修饰类：该类被称为最终类，特点是不能被继承了。</li>
+<li>修饰方法：该方法被称为最终方法，特点是不能被重写了。</li>
+<li>修饰变量：该变量只能被赋值一次。</li>
+</ul>
+</li>
+</ul>
+<h1 id="常量">常量</h1>
+<ul>
+<li>使用了static final 修饰的成员变量就被称为常量；</li>
+<li>作用：通常用于记录系统的配置信息。</li>
+<li><strong>注意：常量的命名规范：使用大写英文单词，多个单词使用下划线连接起来。</strong></li>
+</ul>
+<h2 id="视同常量记录系统配置信息的优势执行原理">视同常量记录系统配置信息的优势、执行原理</h2>
+<ul>
+<li>代码可读性更好、可维护性也更好。</li>
+<li>程序编译后，常量会被宏替换：出现常量的地方全部会被替换成其记住的字面量，这样可以保证使用常量和直接用字面量的性能是一样的。</li>
+</ul>
+<h1 id="抽象类">抽象类</h1>
+<h2 id="什么是抽象类">什么是抽象类</h2>
+<ul>
+<li>Java中有个关键字叫abstract，他就是抽象的意思，可以用来修饰类、成员方法</li>
+<li>abstract修饰类，这个就是抽象类，修饰成员方法同理。</li>
+</ul>
+<h2 id="抽象类的注意事项特点">抽象类的注意事项、特点</h2>
+<ul>
+<li>抽象类中不一定有抽象方法，有抽象方法的类一定是抽象类。</li>
+<li>类该有的成员（成员变量、方法、构造器）抽象类都可以有。</li>
+<li><strong>抽象类最主要的特点：</strong> 抽象类不能创建对象，仅作为一种特殊的父类，让子类继承并实现。</li>
+<li>一个类继承抽象类，必须重写完抽象类的全部抽象方法，否则这个类也必须定义成抽象类。</li>
+</ul>
+<h2 id="抽象类的使用场景和好处">抽象类的使用场景和好处</h2>
+<ul>
+<li>父类知道每个子类都要做某个行为，但每个子类做的情况不一样，父类就定义成抽象方法，交给子类去重写实现，我们设计这样的抽象类，就是为了更好的支持多态。<del>爸爸画饼儿子烙饼</del></li>
+</ul>
+<h1 id="接口">接口</h1>
+<h2 id="接口概述">接口概述</h2>
+<ul>
+<li>Java提供了一个关键字interface，用这个关键字我们可以定义出一个特殊的结构：接口。</li>
+<li>注意：接口不能创建对象；接口是用来被类实现（implements）的，实现接口的类被称为实现类。</li>
+<li>一个类可以实现多个接口，实现类实现多个接口必须重写完全部接口的全部抽象方法，否则实现类需要定义成抽象类。</li>
+</ul>
+<p><img src="https://www.yingyu5658.cn/usr/uploads/2024/12/2743265221.jpg" alt=""></p>
+		<hr>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/185/" 
+			   class="post-title-link"
+			   title="Java面向对象编程——继承">
+				Java面向对象编程——继承
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-01-10T13:19:11Z">January 10, 2025</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<h1 id="什么是继承">什么是继承</h1>
+<ul>
+<li>Java中提供了一个关键字<code>extends</code>，用这个关键字，可以让一个类和另一个类建立起父子关系。</li>
+</ul>
+<h2 id="继承的特点">继承的特点</h2>
+<ul>
+<li>子类能继承父类的非私有成员变量和成员方法。</li>
+</ul>
+<h2 id="继承后对象的创建">继承后对象的创建</h2>
+<ul>
+<li>子类的对象是由子类、父类共同完成的。</li>
+</ul>
+<h1 id="继承相关的注意事项">继承相关的注意事项</h1>
+<h2 id="权限修饰符">权限修饰符</h2>
+<h2 id="什么是权限修饰符">什么是权限修饰符？</h2>
+<ul>
+<li>用来限制类中的成员（成员变量、成员方法、构造器、代码块&hellip;）能够被访问的范围</li>
+</ul>
+<h2 id="权限修饰符有几种与各自的作用">权限修饰符有几种与各自的作用</h2>
+<table>
+  <thead>
+      <tr>
+          <th>修饰符</th>
+          <th>在本类中</th>
+          <th>同一个包下的其他类</th>
+          <th>任意包下的子类</th>
+          <th>任意包下的任意类</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>private</td>
+          <td>√</td>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>缺省</td>
+          <td>√</td>
+          <td>√</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>protected</td>
+          <td>√</td>
+          <td>√</td>
+          <td>√</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>public</td>
+          <td>√</td>
+          <td>√</td>
+          <td>√</td>
+          <td>√</td>
+      </tr>
+      <tr>
+          <td>provate &lt; 缺省 &lt; protected &lt; public</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+  </tbody>
+</table>
+<h1 id="单继承">单继承</h1>
+<p>Java是<strong>继承</strong>的，Java中的类<strong>不支持多继承</strong>，但是支持<strong>多层继承</strong>。</p>
+<h1 id="object类">Object类</h1>
+<ul>
+<li>Ojbect类是所有Java类的父类，任何类都是Object的子类。</li>
+</ul>
+<h1 id="方法重写">方法重写</h1>
+<h2 id="什么是方法重写">什么是方法重写</h2>
+<ul>
+<li>当子类发现父类中的方法无法满足自己的需求时，<strong>子类可以重写一个方法名称、参数列表一样的方法</strong>去覆盖父类的这个方法，这就是方法重写。</li>
+<li>注意：方法重写后，方法的访问遵循<strong>就近原则</strong>。</li>
+</ul>
+<h2 id="方法重写的注意事项">方法重写的注意事项</h2>
+<ul>
+<li>重写时使用<strong>Override注解</strong>，他可以指定Java编译器，检查我们方法重写的格式是否正确，代码可读性也会更好。</li>
+<li>子类重写父类方法时，访问权限必须大于或等于父类该方法的权限（<strong>public &gt; protected &gt; 缺省</strong>）。</li>
+<li>重写的方法返回值类型，必须与被重写方法的返回值类型一样，或者范围更小。</li>
+<li>私有方法、静态方法不能被重写，如果重写会报错。</li>
+</ul>
+<h2 id="方法重写在开发中的常见应用场景">方法重写在开发中的常见应用场景</h2>
+<ul>
+<li>子类重写Object类的toString()方法，以便返回对象的内容。</li>
+</ul>
+<h1 id="子类中访问其他成员的特点">子类中访问其他成员的特点</h1>
+<ol>
+<li>
+<p>在子类方法中访问其他成员是按照就近原则的。</p>
+<ul>
+<li>先子类局部范围找。</li>
+<li>然后子类成员范围找。</li>
+<li>然后父类成员找</li>
+<li>然后父类成员范围找，如果父类范围还没有找到则报错。</li>
+</ul>
+</li>
+<li>
+<p>如果子父类中，出现了重名的成员，会优先使用子类的，如果此时一定要在子类中使用父类的方法怎么办？</p>
+		<hr>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/185/"></a>
+	</div>
+</article>
+</main>
+
+<div class="pagination">
+	<span class="pagination__item pagination__item--current">1/4</span>
+	<a class="pagination__item pagination__item--next btn" href="/tags/java/page/2/">»</a>
+</div>
+
+			</div>
+			
+
+		</div>
+		</div>
+	</div>
+</div>
+
+	<script src="/js/search.js" defer></script>
+	<script src="/js/archives.js" defer></script>
+	<script src="/js/lazyload.js" defer></script>
+	
+	
+</body>
+</html>

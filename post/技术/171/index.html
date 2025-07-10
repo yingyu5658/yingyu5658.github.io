@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>String的注意事项 - 映屿</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+
+	
+
+	
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	
+	
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	
+	<link rel="dns-prefetch" href="https://api.github.com">
+
+</head>
+
+<body class="page-page">
+	<div class="mail">
+	<div class="container container--outer">
+		<div class="border">
+		
+	<div class="topbar">
+		<a class="topbar__link" href="/" title="映屿" rel="sidebar">
+			<div class="topbar__item topbar__text">
+					<div class="topbar__title">映屿</div>
+					<div class="topbar__tagline">yingyu5658的数字花园</div>
+				</div>
+		</a>
+	</div>
+		<div class="wrapper flex">			
+			<div class="primary">
+			
+<main class="main" role="main">
+	
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">String的注意事项</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2024-12-19T22:28:15Z">December 19, 2024</time></div></div>
+		</header><div class="content post__content clearfix">
+			<div class="in-permalink">
+			<h1 id="string的注意事项">String的注意事项</h1>
+<ul>
+<li>
+<ol>
+<li>String对象的内容不可改变， 被称为不可变字符串对象。</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>只要是以“&hellip;”的方式写出的字符串，都会存储到字符串常量池，且相同的字符串只存储一份；</li>
+</ol>
+</li>
+<li>但通过new方式创建字符串对象，每new一次都会产生一个新的对象放在堆内存中。</li>
+</ul>
+<h1 id="不可变字符串对象">不可变字符串对象</h1>
+<p>不可变？它肯定可变啊，比如</p>
+<pre><code class="language-java">package string;  
+  
+public class StringDemo3 {  
+    public static void main(String[] args) {  
+        String name = &quot;yingyu5658&quot;;  
+        name += &quot;.cn&quot;;  
+        name += &quot;域名&quot;;  
+        System.out.println(name);  
+  
+    }  
+}
+</code></pre>
+<p>这时候把name打印出来不就是<code>yingyu5658.cn域名</code>了吗？
+<strong>每次试图改变字符串对象实际上是新产生可字符串对象，变量每次都与指向了新的字符串对象，之前字符串对象的内容确实是没有改变的，因此说String的对象都是不可变的。</strong></p>
+<h1 id="第二点注意事项">第二点注意事项</h1>
+<p>示例代码：</p>
+<pre><code class="language-java">package string;  
+  
+public class StringDemo3 {  
+    public static void main(String[] args) {  
+        String s1 = &quot;abc&quot;;  
+        String s2 = &quot;abc&quot;;  
+        System.out.println(s1 == s2);  
+        //true  
+    }  
+}
+</code></pre>
+<p>这里使用双等来判断两个变量的地址是否相同，返回结果为<code>true</code>,也就是说，地址是相同的。
+原理：上文提到，双引号包裹住的字符串，会被保存到字符串常量池中，<strong>且相同的字符串只存储一份</strong>。这里我们声明了两个内容为abc的String类型变量。Java是很聪明的，当我们把s2声明，它要存到字符串常量池时，看到内容一样，就不再存了，而是把<strong>s2也指向abc</strong>，因此s1地址和s2地址是一样的。</p>
+<h2 id="new">new</h2>
+<p>示例代码：</p>
+<pre><code class="language-java">package string;  
+  
+public class StringDemo3 {  
+    public static void main(String[] args) {  
+        char[] chars = {'a','b','c'};  
+       String a1 =  new String(chars);  
+       String a2 =  new String(chars);  
+        System.out.println(a1 == a2);  
+        //false  
+    }  
+}
+</code></pre>
+<p>上文提到，每new一次就会创建一个新的对象，所以此时再比较两者地址，返回false，是不同的。</p>
+<p><img src="https://www.yingyu5658.cn/usr/uploads/2024/12/2743265221.jpg" alt=""></p>
+
+			</div>
+		</div>
+	</article>
+</main>
+
+<div id="giscus">
+	<hr>
+</div>
+
+<script 
+	 src="https://giscus.app/client.js"
+	 data-repo="yingyu5658/yingyu5658.github.io"
+	 data-repo-id="R_kgDOOBetsA"
+	 data-category="Announcements"
+	 data-category-id="DIC_kwDOOBetsM4CoF_Z"
+	 data-mapping="pathname"
+	 data-strict="0"
+	 data-reactions-enabled="1"
+	 data-emit-metadata="0"
+	 data-input-position="bottom"
+	 data-theme="noborder_light"
+	 data-lang="zh-CN"
+	 data-loading="lazy"
+	 crossorigin="anonymous"
+	 async>
+</script>
+
+			</div>
+			
+		</div>
+		</div>
+	</div>
+</div>
+
+	<script src="/js/search.js" defer></script>
+	<script src="/js/archives.js" defer></script>
+	<script src="/js/lazyload.js" defer></script>
+	
+	
+</body>
+</html>

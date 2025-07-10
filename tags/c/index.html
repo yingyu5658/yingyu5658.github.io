@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>C - 映屿</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+
+	
+
+	
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	
+	
+	<link rel="stylesheet" href="/css/style.css">
+	
+	<link rel="alternate" type="application/rss&#43;xml" href="/tags/c/atom.xml" title="映屿">
+
+	
+	<link rel="dns-prefetch" href="https://api.github.com">
+
+</head>
+
+<body class="term-page">
+	<div class="mail">
+	<div class="container container--outer">
+		<div class="border">
+		
+	<div class="topbar">
+		<a class="topbar__link" href="/" title="映屿" rel="sidebar">
+			<div class="topbar__item topbar__text">
+					<div class="topbar__title">映屿</div>
+					<div class="topbar__tagline">yingyu5658的数字花园</div>
+				</div>
+		</a>
+	</div>
+		<div class="wrapper flex">			
+			<div class="primary">
+			
+<main class="main list" role="main">
+	<header class="main__header">
+		<h1 class="main__title">C</h1>
+	</header><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/%E9%BB%91%E5%8E%86%E5%8F%B2%E8%AF%BB%E8%87%AA%E5%B7%B1%E4%BB%A5%E5%89%8D%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81/" 
+			   class="post-title-link"
+			   title="【黑历史】读自己以前写的代码">
+				【黑历史】读自己以前写的代码
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-04-19T15:20:19Z">April 19, 2025</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>仓库地址就不放出来了，太耻辱了&hellip;&hellip;</p>
+<p>先来看看Main.java</p>
+<pre><code class="language-java">package cn.yingyu5658.lbl;
+
+/**
+ * @author yingyu5658
+ */
+
+public class Main {
+    public static void main(String[] args) {
+        LuBuLu cmd = new LuBuLu();
+        while(true) {
+            cmd.command();
+        }
+    }
+}
+</code></pre>
+<p>嗯还写了Author，生怕别人不知道这坨屎是谁拉的。</p>
+<p>Main方法里面新建了一个LuBuLu对象，在主循环里调用了他的command()方法。</p>
+<p>进入这个神秘的LuBuLu.java一探究竟。</p>
+<pre><code class="language-java">Scanner sc;
+    String one;
+    String two;
+    public int times;
+
+    public LuBuLu() {
+        this.sc = new Scanner(System.in);
+        this.times = 0;
+    }
+</code></pre>
+<p>在类的开头进行了一些初始化，有点不理解one和two是什么，为什么他们没有权限修饰符。。。</p>
+<p>好的，接下来就到了主方法调用的command()</p>
+<pre><code class="language-java">public void command() {
+        while (true) {
+            if (this.times == 0) {
+                System.out.println(&quot; __       __    __  .______    __    __   __       __    __                                                                                                                       \n|  |     |  |  |  | |   _  \\  |  |  |  | |  |     |  |  |  |                                                                                                                      \n|  |     |  |  |  | |  |_)  | |  |  |  | |  |     |  |  |  |                                                                                                                      \n|  |     |  |  |  | |   _  &lt;  |  |  |  | |  |     |  |  |  |                                                                                                                      \n|  `----.|  `--'  | |  |_)  | |  `--'  | |  `----.|  `--'  |                                                                                                                      \n|_______| \\______/  |______/   \\______/  |_______| \\______/                                                                                                                       \n                                                                                                                                                                                  \n.___  ___.      ___       _______   _______          .______   ____    ____          ____    ____  __  .__   __.   ___________    ____  __    __   _____     __    _____    ___   \n|   \\/   |     /   \\     |       \\ |   ____|         |   _  \\  \\   \\  /   /          \\   \\  /   / |  | |  \\ |  |  /  _____\\   \\  /   / |  |  |  | | ____|   / /   | ____|  / _ \\  \n|  \\  /  |    /  ^  \\    |  .--.  ||  |__            |  |_)  |  \\   \\/   /            \\   \\/   /  |  | |   \\|  | |  |  __  \\   \\/   /  |  |  |  | | |__    / /_   | |__   | (_) | \n|  |\\/|  |   /  /_\\  \\   |  |  |  ||   __|           |   _  &lt;    \\_    _/              \\_    _/   |  | |  . `  | |  | |_ |  \\_    _/   |  |  |  | |___ \\  | '_ \\  |___ \\   &gt; _ &lt;  \n|  |  |  |  /  _____  \\  |  '--'  ||  |____          |  |_)  |     |  |                  |  |     |  | |  |\\   | |  |__| |    |  |     |  `--'  |  ___) | | (_) |  ___) | | (_) | \n|__|  |__| /__/     \\__\\ |_______/ |_______|         |______/      |__|                  |__|     |__| |__| \\__|  \\______|    |__|      \\______/  |____/   \\___/  |____/   \\___/  \n                                                                                                                                                                                  &quot;);
+            }
+
+            System.out.println(&quot;卢布卢 v1.4&quot;);
+            LocalDate date = LocalDate.now();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern(&quot;yyyy-MM-dd&quot;);
+            PrintStream var10000 = System.out;
+            String var10001 = date.format(formatter);
+            var10000.println(&quot;你在&quot; + var10001 + &quot;奇了星雨并打开本软件，来看看老天让不让你卢吧！&quot;);
+            System.out.println(&quot;========================================&quot;);
+            System.out.println(&quot;输入'/help'获取帮助&quot;);
+            switch (this.sc.nextLine()) {
+                case &quot;/help&quot;:
+                    this.help();
+                    break;
+                case &quot;/lbl&quot;:
+                    this.luMa();
+                    break;
+                case &quot;/exit&quot;:
+                    System.exit(0);
+                    break;
+                case &quot;/coott&quot;:
+                    if (&quot;/coott&quot;.equals(sc.nextLine())) {
+                        Scanner sc1 = new Scanner(System.in);
+                        System.out.println(&quot;请输入您的第一个选项。&quot;);
+                        String one = sc1.nextLine();
+                        System.out.println(&quot;请输入您的第二个选项。&quot;);
+                        String two = sc1.nextLine();
+                        this.chooseOneOfTheTwo(one, two);
+                    }
+                    break;
+                case &quot;/cofm&quot;:
+                    chooseOneFromMany();
+                    break;
+                default:
+                    this.clear();
+                    System.out.println(&quot;不存在该指令！将在1000ms后回到主页面。&quot;);
+                    this.sleep();
+                    return;
+            }
+            ++times;
+            System.out.println(&quot;*调试信息* 运行轮数： &quot; + this.times);
+        }
+    }
+</code></pre>
+<p>可以看到、个方法内部代码都是在无限循环内执行的，那么为什么要在main方法里又套一层循环呢？？？</p>
+		<hr>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/%E9%BB%91%E5%8E%86%E5%8F%B2%E8%AF%BB%E8%87%AA%E5%B7%B1%E4%BB%A5%E5%89%8D%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81/"></a>
+	</div>
+</article>
+</main>
+
+
+			</div>
+			
+
+		</div>
+		</div>
+	</div>
+</div>
+
+	<script src="/js/search.js" defer></script>
+	<script src="/js/archives.js" defer></script>
+	<script src="/js/lazyload.js" defer></script>
+	
+	
+</body>
+</html>

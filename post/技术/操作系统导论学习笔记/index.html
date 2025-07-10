@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>《操作系统导论》学习笔记 - 映屿</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+
+	
+
+	
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	
+	
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	
+	<link rel="dns-prefetch" href="https://api.github.com">
+
+</head>
+
+<body class="page-page">
+	<div class="mail">
+	<div class="container container--outer">
+		<div class="border">
+		
+	<div class="topbar">
+		<a class="topbar__link" href="/" title="映屿" rel="sidebar">
+			<div class="topbar__item topbar__text">
+					<div class="topbar__title">映屿</div>
+					<div class="topbar__tagline">yingyu5658的数字花园</div>
+				</div>
+		</a>
+	</div>
+		<div class="wrapper flex">			
+			<div class="primary">
+			
+<main class="main" role="main">
+	
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">《操作系统导论》学习笔记</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-06-15T18:36:21Z">June 15, 2025</time></div></div>
+		</header><div class="content post__content clearfix">
+			<div class="in-permalink">
+			<h2 id="操作系统做什么">操作系统做什么</h2>
+<ul>
+<li>它取得并虚拟化CPU、内存或磁盘等物理资源。</li>
+<li>处理并发问题。</li>
+<li>持久地存储文件，使文件长期安全。</li>
+</ul>
+<h2 id="设计目标">设计目标</h2>
+<p>最基本的，建立一些抽象，让系统方便使用。将其划分为<strong>小而且容易理解的部分</strong>。</p>
+<p>提供<strong>高性能</strong>，最小化系统开销。</p>
+<p>提供程序保护，确保恶意或偶然的不良行为不会损害其他程序和系统本身，即隔离。让进程彼此隔离是关键。</p>
+<p>不间断运行的能力，力求可靠性。</p>
+<h2 id="进程">进程</h2>
+<h3 id="定义">定义</h3>
+<p>运行中的程序。</p>
+<p>程序本身没有生命周期的概念，只是存储在磁盘上的指令和静态数据，操作系统让这些字节运行起来。</p>
+<h3 id="虚拟化">虚拟化</h3>
+<p>操作系统通过虚拟化CPU来提供有无数CPU可用的假象。通过让一个进程只运行一个时间片，然后切换到其他进程，操作系统提供了存在多个虚拟CPU的假象，这就是<strong>时分共享CPU技术</strong>。允许用户运行多个并发进程，潜在的开销就是性能损失，因为CPU共享，每个进程的运行速度就会变慢。（受力面积和压强的关系）。</p>
+<h3 id="进程api">进程API</h3>
+<ul>
+<li>
+<p>创建（create）：调用系统操作来创建新进程。</p>
+</li>
+<li>
+<p>销毁（destroy）：强制销毁进程，大部分程序会再结束后自动退出，但如果用户想终止，这个接口很有用。</p>
+</li>
+<li>
+<p>等待（wait）：等待进程停止运行。</p>
+</li>
+<li>
+<p>状态（status）：获得有关进程的状态信息，如运行时间等。</p>
+</li>
+<li>
+<p>其他控制（miscellaneous control）：除了杀死和等待进程外还有其他控制，如暂停。</p>
+</li>
+</ul>
+<blockquote>
+<p>[!NOTE]
+书签：P21 4.3</p>
+</blockquote>
+
+			</div>
+		</div>
+	</article>
+</main>
+
+<div id="giscus">
+	<hr>
+</div>
+
+<script 
+	 src="https://giscus.app/client.js"
+	 data-repo="yingyu5658/yingyu5658.github.io"
+	 data-repo-id="R_kgDOOBetsA"
+	 data-category="Announcements"
+	 data-category-id="DIC_kwDOOBetsM4CoF_Z"
+	 data-mapping="pathname"
+	 data-strict="0"
+	 data-reactions-enabled="1"
+	 data-emit-metadata="0"
+	 data-input-position="bottom"
+	 data-theme="noborder_light"
+	 data-lang="zh-CN"
+	 data-loading="lazy"
+	 crossorigin="anonymous"
+	 async>
+</script>
+
+			</div>
+			
+		</div>
+		</div>
+	</div>
+</div>
+
+	<script src="/js/search.js" defer></script>
+	<script src="/js/archives.js" defer></script>
+	<script src="/js/lazyload.js" defer></script>
+	
+	
+</body>
+</html>

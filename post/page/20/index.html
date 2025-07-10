@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Posts - 映屿</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+
+	
+
+	
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	
+	
+	<link rel="stylesheet" href="/css/style.css">
+	
+	<link rel="alternate" type="application/rss&#43;xml" href="/post/atom.xml" title="映屿">
+
+	
+	<link rel="dns-prefetch" href="https://api.github.com">
+
+</head>
+
+<body class="section-page">
+	<div class="mail">
+	<div class="container container--outer">
+		<div class="border">
+		
+	<div class="topbar">
+		<a class="topbar__link" href="/" title="映屿" rel="sidebar">
+			<div class="topbar__item topbar__text">
+					<div class="topbar__title">映屿</div>
+					<div class="topbar__tagline">yingyu5658的数字花园</div>
+				</div>
+		</a>
+	</div>
+		<div class="wrapper flex">			
+			<div class="primary">
+			
+<main class="main list" role="main">
+	<header class="main__header">
+		<h1 class="main__title">Posts</h1>
+	</header><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/166/" 
+			   class="post-title-link"
+			   title="面向对象编程总结">
+				面向对象编程总结
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2024-12-18T16:30:00Z">December 18, 2024</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>面向对象（oop）</p>
+<h1 id="面向对象编程的思想面向拿或者找">面向对象编程的思想：面向。拿或者找。</h1>
+<p>对象：东西
+面向对象编程：拿东西过来编程
+面向对象：把现实世界中的食物看成一个一个对象来解决问题的。（万物皆 对象）
+面向对象的好处：代码更符合人类的思维习惯。编程更简单。看程序更容易理解（？）</p>
+<h1 id="类对象">类、对象：</h1>
+<p>类（设计图）：相同事物，共同特征的描述。
+对象：对象是类的具体的实例。
+对象 = 实例
+在Java中必须先定义类，才能得到对象</p>
+<h1 id="定义类来创建对象使用">定义类来创建对象使用</h1>
+<h2 id="定义类的格式">定义类的格式</h2>
+<ol>
+<li>成员变量（代表属性，一般是名词）：数据类型 名称;</li>
+<li>成员方法（代表行为，一般是动词）</li>
+<li>构造器（前面的区域以后再来探索吧）</li>
+<li>代码块（前面的区域以后再来探索吧）</li>
+<li>内部类（前面的区域以后再来探索吧）</li>
+</ol>
+<h2 id="类中具体怎么写">类中具体怎么写：</h2>
+<p>一般名词定义成成员变量（属性）
+<code>修饰符 数据类型 变量名称 = 初始值</code>
+成员变量不建议给初始值，它存在默认值。</p>
+<h2 id="一般动词定义成方法行为">一般动词定义成方法（行为）</h2>
+<h3 id="创建对象">创建对象</h3>
+<p><code>类名 对象名 = new 构造器();</code></p>
+<h2 id="对象使用">对象使用：</h2>
+<p><code>对象名.成员变量</code>
+<code>对象名.成员方法</code></p>
+<h1 id="构造器">构造器</h1>
+<pre><code>	作用：
+		初始化一个累的对象并且返回这个类的地址。
+		详细格式：修饰符 类名(形参){...}
+		构造器的分类：
+					无参数构造器：初始化一个类的对象，里面的数据都是默认值，并返回地址。
+					有参数构造器：初始化一个类的对象，并返回地址，并且可以同时为对象赋值。
+		构造器如何调用：
+					类名 对象 = new 构造器;
+		注意：任何类写出来，自带无参数构造器
+			   但是在这个类中定义了一个有参数构造器了，那么无参数构造器就消失了，此时如果还要使用无参数构造器，必须自己写一个。
+</code></pre>
+<h2 id="this关键字">this关键字</h2>
+<p>作用：代表了当前对象的地址。可以访问当前对象的成员变量信息和成员方法</p>
+<h3 id="具体应用场景">具体应用场景</h3>
+<p>可以用在有参数构造器中
+可以用在方法中</p>
+<h1 id="封装">封装</h1>
+<p>面向对象三大特征：封装、继承、多态。
+封装的基本思想：决定属性和行为归属谁的问题。</p>
+<h2 id="如何更好的封装">如何更好的封装：</h2>
+<p>成员变量私有化，只能在本类访问。</p>
+<h4 id="合理暴露">合理暴露</h4>
+<p>提供成套的getter和setter方法暴露取值赋值。</p>
+		<hr>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/166/"></a>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/163/" 
+			   class="post-title-link"
+			   title="记录配置SSL证书">
+				记录配置SSL证书
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2024-12-17T11:46:07Z">December 17, 2024</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>首先你要有一个SSL证书，建议在阿里云购买或者<a href="https://developer.aliyun.com/article/1595201">免费申请</a>，具体过程阿里云这个页面讲的很详细，在此不过多赘述。</p>
+<h1 id="配置证书">配置证书</h1>
+<p>由于我的nginx安装了ssl模块，直接进入配置证书。</p>
+<p>解压下载好的证书，然后上传到服务器。位置自己方便找到即可
+我放到了root/card</p>
+<h1 id="配置nginxconf">配置nginx.conf</h1>
+<p>进入nginx.conf，我的文件位置在<code>/etc/nginx/nginx.conf</code>,有些可能在<code>/usr/local/nginx/conf</code>
+编辑模式，启动！</p>
+<pre><code>
+  
+
+http {
+
+    include       mime.types;  # 包含 MIME 类型定义
+
+    default_type  application/octet-stream;
+
+    sendfile        on;
+
+    keepalive_timeout  65;
+
+  
+
+    # HTTPS server block
+
+    server {
+
+        # 监听443端口（HTTPS）
+
+        listen 443 ssl;
+
+  
+
+        # 【请修改】您的域名
+
+        server_name yingyu5658.cn;
+
+  
+
+        # 启用 SSL (注意: &quot;ssl on;&quot; 已被弃用，直接使用 &quot;listen ... ssl;&quot;)
+
+        ssl on;
+
+  
+
+        # 【请修改】SSL 证书的 PEM 文件路径
+
+        ssl_certificate  /root/card/www.yingyu5658.cn.pem;
+
+  
+
+        # 【请修改】SSL 证书的 KEY 文件路径
+
+        ssl_certificate_key /root/card/www.yingyu5658.cn.key;
+
+  
+
+        location / {
+
+            # 【请修改】代理转发的目标地址和端口（例如公网IP和项目端口号）
+
+            proxy_pass  http://公网地址:项目端口号;
+
+        }
+
+    }
+
+  
+
+    # HTTP server block for redirecting to HTTPS
+
+    server {
+
+        # 监听80端口（HTTP）
+
+        listen 80;
+
+  
+
+        # 【请修改】您的域名
+
+        server_name huiblog.top;
+
+  
+
+        # 将所有 HTTP 请求永久重定向到 HTTPS
+
+        rewrite ^(.*)$ https://$host$1 permanent;
+
+    }
+
+}
+
+</code></pre>
+<h1 id="重新加载nginx">重新加载Nginx</h1>
+<p><code>sudo systemctl reload nginx</code></p>
+		<hr>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/163/"></a>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/156/" 
+			   class="post-title-link"
+			   title="Typecho不要用阿里云系统镜像">
+				Typecho不要用阿里云系统镜像
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2024-12-15T21:45:47Z">December 15, 2024</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>不要用阿里云的系统镜像，那个是1.1版本的。。。很多插件都没办法正常用。。。比如这两个插件就会这样</p>
+<p><img src="../../images/2024/12/4097191903.png" alt="图"></p>
+<p>还有很多主题和插件都犯这样的毛病，在此不多提，我会想办法升级版本的（又挖了个坑）</p>
+<p>难受
+<img src="/images/Typecho%E4%B8%8D%E8%A6%81%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91%E7%B3%BB%E7%BB%9F%E9%95%9C%E5%83%8F/4097191903.png" alt="相关图片"></p>
+<p><img src="/images/Typecho%E4%B8%8D%E8%A6%81%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91%E7%B3%BB%E7%BB%9F%E9%95%9C%E5%83%8F/4097191903.png" alt="相关图片"></p>
+<p><img src="/images/Typecho%E4%B8%8D%E8%A6%81%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91%E7%B3%BB%E7%BB%9F%E9%95%9C%E5%83%8F/4097191903.png" alt="相关图片"></p>
+		<hr>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/147/" 
+			   class="post-title-link"
+			   title="Vim基础操作快速入门">
+				Vim基础操作快速入门
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2024-12-13T16:13:36Z">December 13, 2024</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<h1 id="前言">前言</h1>
+<p>各种鼠标操作让我有点抓狂，vim或许是一个很适合我的东西，全键盘操作听起来就很方便快捷，除了上手难度有点高以外，vim看起来似乎没有任何的缺点。在下载安装好了vim后，我开始学习了快捷键。<del>然后我们就可以直接把鼠标扔了。</del></p>
+		<hr>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/147/"></a>
+	</div>
+</article>
+</main>
+
+<div class="pagination">
+	<a class="pagination__item pagination__item--prev btn" href="/post/page/19/">«</a>
+	<span class="pagination__item pagination__item--current">20/24</span>
+	<a class="pagination__item pagination__item--next btn" href="/post/page/21/">»</a>
+</div>
+
+			</div>
+			
+
+		</div>
+		</div>
+	</div>
+</div>
+
+	<script src="/js/search.js" defer></script>
+	<script src="/js/archives.js" defer></script>
+	<script src="/js/lazyload.js" defer></script>
+	
+	
+</body>
+</html>

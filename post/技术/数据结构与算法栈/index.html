@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>【数据结构与算法】栈 - 映屿</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+
+	
+
+	
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	
+	
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	
+	<link rel="dns-prefetch" href="https://api.github.com">
+
+</head>
+
+<body class="page-page">
+	<div class="mail">
+	<div class="container container--outer">
+		<div class="border">
+		
+	<div class="topbar">
+		<a class="topbar__link" href="/" title="映屿" rel="sidebar">
+			<div class="topbar__item topbar__text">
+					<div class="topbar__title">映屿</div>
+					<div class="topbar__tagline">yingyu5658的数字花园</div>
+				</div>
+		</a>
+	</div>
+		<div class="wrapper flex">			
+			<div class="primary">
+			
+<main class="main" role="main">
+	
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">【数据结构与算法】栈</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-05-11T10:09:21Z">May 11, 2025</time></div></div>
+		</header><div class="content post__content clearfix">
+			<div class="in-permalink">
+			<h2 id="基本概念">基本概念</h2>
+<p>栈（Stack）是一种后进先出（LIFO）原则的线性数据结构。核心操作包括：</p>
+<ul>
+<li>压栈（Push）：将元素添加到栈顶</li>
+<li>出栈（Pop）：移除并返回栈顶元素</li>
+<li>查看栈顶（Check）获取但移除栈顶元素</li>
+<li>判空（is_empty）检查栈是否为空</li>
+</ul>
+<h2 id="结构定义">结构定义</h2>
+<p>使用动态数组实现栈，包含三个核心属性：</p>
+<pre><code class="language-c">typedef struct Stack {
+    int* data; // 存储元素的数组
+    int top;   // 栈顶指针（当前元素位置）
+    int capacity; // 栈的最大容量
+}
+</code></pre>
+<ul>
+<li><code>data</code>：动态分配的数组指针</li>
+<li><code>top</code>：初始值为-1，表示空栈，压栈时递增，出栈时递减</li>
+<li><code>capacity</code>：栈的容量上限</li>
+</ul>
+<h2 id="功能实现">功能实现</h2>
+<h3 id="初始化">初始化</h3>
+<pre><code class="language-c">// 初始化栈
+void init_stack(Stack *s, int capacity) {
+  // 计算最大容量
+  s -&gt; data = (int*)malloc(sizeof(int) * capacity)
+  if(!s -&gt; data) {
+    printf(&quot;内存分配失败！\n&quot;);
+    exit(1);
+  }
+  // 初始化栈顶为-1，表空
+  s -&gt; top = -1;
+  // 把当前计算的最大容量赋值给传进来的栈
+  s -&gt; capacity = capacity;
+}
+</code></pre>
+<p>这个函数中进行了动态分配内存计算最大容量，初始化赋值和异常处理。</p>
+<h3 id="压栈push">压栈（Push）</h3>
+<pre><code class="language-c">// 压栈（Push）
+void push(Stack *s, int value) {
+  if (s -&gt; top = s -&gt; capacity -1) {
+    printf(&quot;栈已满！\n&quot;);
+    return;
+  }
+  s -&gt; data[++s-&gt;top] = value;
+}
+</code></pre>
+<p>检查栈是否已满，先递增指针再存入数据</p>
+<h3 id="出栈pop">出栈（Pop）</h3>
+<pre><code class="language-c">// 出栈（Pop）
+int pop(Stack *s) {
+  if(is_empty(s)) {
+    printf(&quot;栈为空！\n&quot;);
+    return -1;
+  }
+  return s-&gt;data[s-&gt;top--];
+}
+</code></pre>
+<p>检查栈是否为空，返回当前栈顶元素后移动指针</p>
+<h3 id="辅助功能">辅助功能</h3>
+<pre><code class="language-c">// 判空
+int is_empty(Stack *s) {
+  return s-&gt; top == -1
+}
+
+// 查看栈顶元素
+int peek(Stack *s) {
+  return is_empty(s) ? -1 : s-&gt;data[s-&gt;top];
+}
+
+// 销毁
+void destory_stack(Stack *S) {
+  free(s-&gt;data);
+  s -&gt; top = -1;
+  s -&gt; capacity = 0;
+}
+</code></pre>
+
+			</div>
+		</div>
+	</article>
+</main>
+
+<div id="giscus">
+	<hr>
+</div>
+
+<script 
+	 src="https://giscus.app/client.js"
+	 data-repo="yingyu5658/yingyu5658.github.io"
+	 data-repo-id="R_kgDOOBetsA"
+	 data-category="Announcements"
+	 data-category-id="DIC_kwDOOBetsM4CoF_Z"
+	 data-mapping="pathname"
+	 data-strict="0"
+	 data-reactions-enabled="1"
+	 data-emit-metadata="0"
+	 data-input-position="bottom"
+	 data-theme="noborder_light"
+	 data-lang="zh-CN"
+	 data-loading="lazy"
+	 crossorigin="anonymous"
+	 async>
+</script>
+
+			</div>
+			
+		</div>
+		</div>
+	</div>
+</div>
+
+	<script src="/js/search.js" defer></script>
+	<script src="/js/archives.js" defer></script>
+	<script src="/js/lazyload.js" defer></script>
+	
+	
+</body>
+</html>
