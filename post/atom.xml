@@ -6,8 +6,15 @@
     <description>Recent content in Posts on 映屿</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 10 Jul 2025 00:09:36 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 10 Jul 2025 21:12:51 +0800</lastBuildDate>
     <atom:link href="https://www.yingyu5658.me/post/atom.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>对博客主题的一点想法</title>
+      <link>https://www.yingyu5658.me/post/%E9%9A%8F%E7%AC%94/%E5%AF%B9%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E7%9A%84%E4%B8%80%E7%82%B9%E6%83%B3%E6%B3%95/</link>
+      <pubDate>Thu, 10 Jul 2025 21:12:51 +0800</pubDate>
+      <guid>https://www.yingyu5658.me/post/%E9%9A%8F%E7%AC%94/%E5%AF%B9%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E7%9A%84%E4%B8%80%E7%82%B9%E6%83%B3%E6%B3%95/</guid>
+      <description>&lt;p&gt;简单回顾以下建站历程，博客的内容从“我是谁”转移到了&amp;quot;我想说什么&amp;quot;。从最早开始正式写博客的&lt;strong&gt;Gmeek&lt;/strong&gt;，到后来使用&lt;strong&gt;Typecho&lt;/strong&gt;，再到&lt;strong&gt;Hexo,Hugo&lt;/strong&gt;，这几个不同的时期是我对主题看法的不同阶段。&lt;/p&gt;&#xA;&lt;p&gt;Gmeek时期，没有概念，没看过几个人的博客，后来接触得多了，看了很多主题才意识到自己博客的主题有多简陋，还到Typecho，开始折腾主题，经历了一段不堪回首的时期。经典的一些元素：左下角挡字小人、底部音乐播放器、背景特效、点击特效，总之就是各种花里胡哨。文章，没有几篇，但是你可以在网页上找到任何你想找到的东西，除了文章。当时很喜欢Butterfly主题&lt;/p&gt;&#xA;&lt;p&gt;后来换到了Hexo，也有Butterfly，继续用。发现点二十个网站，三十个都是Butterfly，很尴尬，后来经过几经波折，换到了Maupassant，输出了几篇自认为有点内容的文章，主要还是有感而发，我写东西不在乎谁看了，谁怎么看。我只是享受编辑和发送的过程。有人说心情不好，就把让你不开心的事写在纸上然后团成球扔进垃圾桶。这样还是太浪费了，毕竟是自己亲笔写下的文字，另说浪费纸张也不好。&lt;/p&gt;&#xA;&lt;p&gt;在Hexo时期，我一直在寻找让读者弱化“我是谁”，专心聚焦与内容的主题。Maupassant就很好。后来转来Hugo，是看中了云风博客的那种千禧年的风格，不花哨，也不简陋。基于&lt;a href=&#34;http://jiaoyuan.org/&#34;&gt;JiaoYuan&lt;/a&gt;的移植后简单修改了以下配色之类，就正式投入使用。&lt;/p&gt;&#xA;&lt;p&gt;我认为，博客重在内容，想表达什么观点、想记录什么事件。毕竟Blog，Web Log，Log，日志，记录。除了记录，也可以是扩大自己声音的一个渠道，独立于平台，起码不会有&lt;strong&gt;跳墙的&lt;/strong&gt;删掉你辛辛苦苦打出来的一大段字。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>C语言实现简易Shell</title>
       <link>https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/c%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E7%AE%80%E6%98%93shell/</link>
@@ -665,13 +672,6 @@
       <pubDate>Sun, 03 Mar 2024 15:40:00 +0800</pubDate>
       <guid>https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/4/</guid>
       <description>&lt;h1 id=&#34;前言&#34;&gt;前言&lt;/h1&gt;&#xA;&lt;p&gt;折腾来折腾去，最后发现归宿还是静态博客，安全性高、性能开销小，用Github直接省去服务器费用还差不多永生。每年把域名钱交了就得了，图片的问题再想想办法，总能解决的。&#xA;&lt;del&gt;突然有一种为了躲避战乱带着一家人四处奔波的悲凉感&lt;/del&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;分析&#34;&gt;分析&lt;/h1&gt;&#xA;&lt;p&gt;博客网站的内容，都可以拆分为以下几个点：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;文章&lt;/li&gt;&#xA;&lt;li&gt;评论&lt;/li&gt;&#xA;&lt;li&gt;文章插图&lt;/li&gt;&#xA;&lt;li&gt;网站贴图资源&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;先从最主要的文章开始，想想有没有什么可以用的。&#xA;gitee上有一个&lt;a href=&#34;https://gitcode.com/gh_mirrors/ty/Typecho-Plugin-Tp2MD&#34;&gt;插件&lt;/a&gt;，看起来好像有点用，折腾安装一下试试先。&lt;/p&gt;&#xA;&lt;h1 id=&#34;tp2md插件迁移文章&#34;&gt;Tp2MD插件迁移文章&lt;/h1&gt;&#xA;&lt;p&gt;远程登录服务器，把本地下号的zip传到服务器上并解压。&#xA;cd到插件目录&#xA;&lt;code&gt;/usr/share/nginx/html/usr/plugins&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;解压压缩包&#xA;&lt;code&gt;unzip Typecho-Plugin-Tp2MD-master.zip&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;重命名为插件的自述文件要求的名称&#xA;&lt;code&gt;mv Typecho-Plugin-Tp2MD-master Tp2MD&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;登录网站后台，启用插件。点击插件的设置，保存后按照教程访问。&#xA;这里提示&lt;code&gt;不能写入文件，请检查 cache 文件夹权限！&lt;/code&gt;，我们在插件目录设置一下权限&#xA;&lt;code&gt;sudo chmod -R 777 cache&lt;/code&gt;a&#xA;注意是这个插件目录下的cache！！&lt;/p&gt;&#xA;&lt;p&gt;提示导出成功，cd到这个目录，把文件压缩下载下来查看&#xA;可能是因为我有的文章点了多篇分类，导出文件夹有点问题，无所谓，后期再调，拿到了就行。至此，文章部分搞定！&lt;/p&gt;&#xA;&lt;h1 id=&#34;评论&#34;&gt;评论&lt;/h1&gt;&#xA;&lt;p&gt;评论这里，我折腾了两天，尝试尽了各种方案（Disqus Valine Waline Utterances Twikoo Atalk），最后还是选择了Giscus。我也知道这样读者没有github就没办法发评论，但是其他几种方案都会出现各种奇奇怪怪且无法解决的问题比如Cloudflare拦截、CORS出毛病、服务器被墙以及莫名其妙404、403。我真的尽力了。&lt;/p&gt;&#xA;&lt;h1 id=&#34;文章插图&#34;&gt;文章插图&lt;/h1&gt;&#xA;&lt;h2 id=&#34;转移图片文件&#34;&gt;转移图片文件&lt;/h2&gt;&#xA;&lt;p&gt;进入&lt;code&gt;/usr/uploads/&lt;/code&gt;，压缩下载图片&lt;/p&gt;&#xA;&lt;p&gt;重组Hexo图片目录：复制所有图片到Hexo的&lt;code&gt;source/images/&lt;/code&gt;目录。&lt;/p&gt;&#xA;&lt;p&gt;手动替换图片路径 ，注意，静态资源解析默认以source为根目录，所以直接写以source为根目录的绝对路径就行。&lt;/p&gt;&#xA;&lt;h1 id=&#34;部署到vercel加速访问&#34;&gt;部署到vercel加速访问&lt;/h1&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;注册vercel账号&lt;/li&gt;&#xA;&lt;li&gt;创建项目，关联仓库&lt;/li&gt;&#xA;&lt;li&gt;域名解析&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;2025.3.3，博客全部迁移完毕，粗略累计用时六天，一直没什么时间搞，耗时最长的还是在评论系统上的试错。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title></title>
-      <link>https://www.yingyu5658.me/post/%E9%9A%8F%E7%AC%94/script/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://www.yingyu5658.me/post/%E9%9A%8F%E7%AC%94/script/</guid>
-      <description>&lt;p&gt;const { log } = require(&amp;lsquo;console&amp;rsquo;);&#xA;const fs = require(&amp;lsquo;fs&amp;rsquo;)&#xA;const path = require(&amp;lsquo;path&amp;rsquo;)&#xA;fs.readdir(&amp;rsquo;./&amp;rsquo;, (err, files) =&amp;gt; {&#xA;if (err) {&#xA;return console.error(&amp;ldquo;读取目录失败：&amp;rdquo;, err)&#xA;}&#xA;files.forEach(file =&amp;gt; {&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;    const filesName = path.parse(file).name&#xD;&#xA;    console.log(filesName)&#xD;&#xA;    console.log(file)&#xD;&#xA;&#xD;&#xA;    try {&#xD;&#xA;    fs.renameSync(`./${file}`, `${filesName}/index.md`)&#xD;&#xA;    } catch (e) {&#xD;&#xA;        console.log(`错误：${e.message}`)&#xD;&#xA;    }&#xD;&#xA;&#xD;&#xA;   &#xD;&#xA;});&#xD;&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;})&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

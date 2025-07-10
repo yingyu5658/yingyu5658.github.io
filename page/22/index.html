@@ -44,6 +44,93 @@
 	<article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/130/" 
+			   class="post-title-link"
+			   title="记录Hexo搭建博客">
+				记录Hexo搭建博客
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2024-12-07T23:40:00Z">December 07, 2024</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<h1 id="前言">前言</h1>
+<p>我今天在写网页的时候突然发现我居然忘了一些标签的使用格式，只好打开搜索引擎一顿复习。我正在寻找一种更高效的复习方式。</p>
+<p>我现在的网站风格发布大量的技术文章有点突兀。</p>
+<p>于是，搭建一个专门用于整理技术的网站的想法浮现在我的脑海中。</p>
+<p>思想挣扎了一段时间，我考虑了一下他的意义：</p>
+<p>1.如果我再搭建一个网站，那我现在这个站点还有什么意义？</p>
+<p>如果不新建一个站点，那就只能把网站整个改版，换主题、改名到适合的风格，浪费时间。</p>
+<p>2.新建站点有什么实现方法？</p>
+<h1 id="实现方法">实现方法</h1>
+<p>我一下子想到了几种方法。</p>
+<ol>
+<li>再购买服务器和域名，还是使用typecho或者WordPress搭建一个网站。</li>
+<li>更换typecho主题</li>
+<li>把hexo部署到Github Page上。</li>
+<li>使用Gemeek</li>
+<li>自己编写静态站</li>
+</ol>
+<p>先说结果，由于第一种方法的资金成本和时间成本过高了，直接pass不用考虑。</p>
+<p>方法二，现在使用的handsome主题还是深得我心的，自定义程度可以很高，而且花了老夫八十八大洋，不用也亏了。再者typecho的主题，我喜欢的并不多</p>
+<p>方法四是我曾经尝试过的，但因为页面有点单调，所以换到了typecho。</p>
+<p>但是我这次的需求仅仅是整理知识点，太花哨也会搭建速度和复习效率的。所以hexo大概也要pass掉。</p>
+<p>方法五，不太现实，我的前端知识远没有那么牢固，我自己也写过几个网页，pc端很完美，可到了手机端排版很丑，还是要在学习沉淀一段时间啊。</p>
+<p>最后剩下来的方案有：</p>
+<ol start="3">
+<li>
+<p>把hexo部署到Github Page上</p>
+</li>
+<li>
+<p>使用Gmeek</p>
+</li>
+</ol>
+<p>gmeek原版的布局我不是很喜欢，但这个方案是零成本很快捷的。可以尝试自己修改css文件来达到想要的效果。</p>
+<p>虽然我自己写网页效果一般般，但是增删改查还行，于是我开始尝试：</p>
+<p>我有两个github账号，一个是本站下方挂的大号，另一个是昨天晚上刚创建的小号。</p>
+<p>大号的page我部署了一个我自己写的个人主页，但是现在来看并没有什么用处，所以我把那个仓库删除了。</p>
+<p>重新创建了一个仓库，部署好了gmeek，我把里面所有的文件都下载了下来。、</p>
+<p>看到了几百行压根没有注释的代码，头瞬间炸了，于是修改gmeek的方案也pass</p>
+<p>。。。。。</p>
+<p>好吧，看来只能用hexo了</p>
+<h1 id="搭建记录">搭建记录</h1>
+<h2 id="部署hexo">部署hexo</h2>
+<ol>
+<li>
+<p>安装git和nodejs</p>
+<p>git我已经安装好了</p>
+</li>
+</ol>
+<p>去nodejs官网（<a href="https://nodejs.org/en/">Node.js — Run JavaScript Everywhere</a>）安装了一下。</p>
+<p>这两样都准备好了就可以开始安装hexo了</p>
+<pre><code class="language-shell">npm install -g hexo-cli
+</code></pre>
+<p>然后在控制台输入</p>
+<pre><code class="language-shell">hexo init myBlog
+cd myBlog
+npm install
+</code></pre>
+<p>然后我们就可以运行<code>hexo s</code>命令，访问控制台中的网站就可以预览了</p>
+<p>可以看到hexo的默认模板还是很简约大气的。</p>
+<p>部署好后，我打算换一个主题，因为这不是主站，所以也就没必要那么花哨（有一说一hexo那么多主题还真有几个让老夫心动的）</p>
+<h2 id="更换主题">更换主题</h2>
+<p>把主题文件夹复制到安装目录下的/themes文件夹内</p>
+<p>复制好文件名，打开_config.yml</p>
+<p>找到第一百行，把文件名替换</p>
+<p>修改好后在gitbash中执行<code>hexo g</code> <code>hexo s</code></p>
+<h2 id="部署github">部署github</h2>
+<ul>
+<li>
+<p>新建名为<code>你的用户名.github.io</code>的新仓库</p>
+		<hr>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/130/"></a>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/%E6%8A%80%E6%9C%AF/132/" 
 			   class="post-title-link"
 			   title="【Hexo】配置好服务器后如何发表编辑好的文章？">
@@ -161,56 +248,6 @@
 <p><img src="http://www.yingyu5658.cn/usr/uploads/2024/12/2743265221.jpg" alt="v2-4b5c3f2b057efbc7e58cdfbd98a5e36d_720w.jpg"></p>
 		<hr>
 	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/%E6%8A%80%E6%9C%AF/95/" 
-			   class="post-title-link"
-			   title="Java方法的传参原理">
-				Java方法的传参原理
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<time class="meta__text" datetime="2024-11-30T20:14:00Z">November 30, 2024</time></div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<h1 id="java方法的参数传递机制-基本类型">Java方法的参数传递机制-基本类型</h1>
-<p>值传递</p>
-<h2 id="值传递是什么">值传递是什么</h2>
-<p>在传输实参给方法的形参的时候，<strong>传输的是实参变量中存储的副本</strong>
-说人话，把实参里面的东西赋值了一部分扔了给形参</p>
-<h1 id="值传递具体理解案例">值传递具体理解案例</h1>
-<pre><code class="language-java">public class prameter {
-    public static void main(String[] args) {
-        int a = 10; //定义一个int变量a赋值为10
-        change(a); //调用change方法
-        System.out.println(&quot;main&quot; + a); //打印mian a中的值
-    }
-
-//这里开始写方法
-    public static void change(int a){
-        System.out.println(&quot;change1&quot; + a); //打印方法中a的值
-        a = 20;
-        System.out.println(&quot;change2&quot;a); //打印赋值后a的值
-    }
-}
-</code></pre>
-<p>我们运行以后，控制台输出的结果为</p>
-<pre><code>change1 10
-change2 20
-main 10
-</code></pre>
-<h2 id="为什么main中打印的不是赋值后的20">为什么main中打印的不是赋值后的20？</h2>
-<p>这就要提到刚才的概念：<strong>值传递</strong>
-我们定义了一个变量<code>a = 10；</code>,在方法中<code>public static void change(int a)</code>
-由于<strong>值传递</strong>，也就是把值复制了一分传给方法，所以我们方法里用的值永远都是刚刚定义的<code>int a = 10;</code>，所以<code>change(a); = change(10);</code>
-我们后面再赋值，打印出来的结果还是10，除非你把变量定义的代码改了，否则方法里的值不会变。</p>
-		<hr>
-	</div>
-	<div class="list__footer clearfix">
-		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/95/"></a>
-	</div>
 </article>
 </main>
 
@@ -268,6 +305,12 @@ main 10
 
 <script>
 window.siteSearchData = [
+  
+  {
+    "title": "\"对博客主题的一点想法\"",
+    "url": "https:\/\/www.yingyu5658.me\/post\/%E9%9A%8F%E7%AC%94\/%E5%AF%B9%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E7%9A%84%E4%B8%80%E7%82%B9%E6%83%B3%E6%B3%95\/",
+    "content": "\"简单回顾以下建站历程，博客的内容从“我是谁”转移到了\\u0026quot;我想说什么\\u0026quot;。从最早开始正式写博客的Gmeek，到后来使用Typecho，再到Hexo,Hugo，这几个不同的时期是我对主题看法的不同阶段。\\nGmeek时期，没有概念，没看过几个人的博客，后来接触得多了，看了很多主题才意识到自己博客的主题有多简陋，还到Typecho，开始折腾主题，经历了一段不堪回首的时期。经典的一些元素：左下角挡字小人、底部音乐播放器、背景特效、点击特效，总之就是各种花里胡哨。文章，没有几篇，但是你可以在网页上找到任何你想找到的东西，除了文章。当时很喜欢Butterfly主题\\n后来换到了Hexo，也有Butterfly，继续用。发现点二十个网站，三十个都是Butterfly，很尴尬，后来经过几经波折，换到了Maupassant，输出了几篇自认为有点内容的文章，主要还是有感而发，我写东西不在乎谁看了，谁怎么看。我只是享受编辑和发送的过程。有人说心情不好，就把让你不开心的事写在纸上然后团成球扔进垃圾桶。这样还是太浪费了，毕竟是自己亲笔写下的文字，另说浪费纸张也不好。\\n在Hexo时期，我一直在寻找让读者弱化“我是谁”，专心聚焦与内容的主题。Maupassant就很好。后来转来Hugo，是看中了云风博客的那种千禧年的风格，不花哨，也不简陋。基于JiaoYuan的移植后简单修改了以下配色之类，就正式投入使用。\\n我认为，博客重在内容，想表达什么观点、想记录什么事件。毕竟Blog，Web Log，Log，日志，记录。除了记录，也可以是扩大自己声音的一个渠道，独立于平台，起码不会有跳墙的删掉你辛辛苦苦打出来的一大段字。\\n而把重心放到了“我是谁”的站点，应该算作“个人主页”，并非博客，用作于一些项目展示、网络名片也是很好的。\\n而ta说“我是谁”，和自己观察“ta是谁“，是两种截然不同的感受。前者能迅速建立起一个停留于表层但具体的印象，而后者多出一种视奸的快感。从字里行间里感受ta是什么人，虽然建立印象的周期长，但深入。值得。\\n所以很多人博客的关于页面，我就当看个乐呵就过去了，仔细看每一篇文章，从ta的文字、观点、立场、价值观和认知来建立起ta的形象。有些人宏伟庄严，有些人冷漠麻木，有些人用平实朴素的语言记录，有些人用各种恶心到家的语气词和括号里补充的动作描写，绞尽脑汁想怎么把自己表现得多可爱。想可爱，先从扮演人类开始吧。这么在意别人怎么看自己，我替你感到疲惫。\\n好吧，我承认我有点冒犯了，一些朋友看到标题是关于主题的点进来还躺枪，那对不起，我冒犯的就是你。\\n\""
+  },
   
   {
     "title": "\"C语言实现简易Shell\"",
@@ -833,18 +876,15 @@ window.siteSearchData = [
     "content": "\"前言 折腾来折腾去，最后发现归宿还是静态博客，安全性高、性能开销小，用Github直接省去服务器费用还差不多永生。每年把域名钱交了就得了，图片的问题再想想办法，总能解决的。 突然有一种为了躲避战乱带着一家人四处奔波的悲凉感\\n分析 博客网站的内容，都可以拆分为以下几个点：\\n文章 评论 文章插图 网站贴图资源 先从最主要的文章开始，想想有没有什么可以用的。 gitee上有一个插件，看起来好像有点用，折腾安装一下试试先。\\nTp2MD插件迁移文章 远程登录服务器，把本地下号的zip传到服务器上并解压。 cd到插件目录 /usr/share/nginx/html/usr/plugins\\n解压压缩包 unzip Typecho-Plugin-Tp2MD-master.zip\\n重命名为插件的自述文件要求的名称 mv Typecho-Plugin-Tp2MD-master Tp2MD\\n登录网站后台，启用插件。点击插件的设置，保存后按照教程访问。 这里提示不能写入文件，请检查 cache 文件夹权限！，我们在插件目录设置一下权限 sudo chmod -R 777 cachea 注意是这个插件目录下的cache！！\\n提示导出成功，cd到这个目录，把文件压缩下载下来查看 可能是因为我有的文章点了多篇分类，导出文件夹有点问题，无所谓，后期再调，拿到了就行。至此，文章部分搞定！\\n评论 评论这里，我折腾了两天，尝试尽了各种方案（Disqus Valine Waline Utterances Twikoo Atalk），最后还是选择了Giscus。我也知道这样读者没有github就没办法发评论，但是其他几种方案都会出现各种奇奇怪怪且无法解决的问题比如Cloudflare拦截、CORS出毛病、服务器被墙以及莫名其妙404、403。我真的尽力了。\\n文章插图 转移图片文件 进入/usr/uploads/，压缩下载图片\\n重组Hexo图片目录：复制所有图片到Hexo的source/images/目录。\\n手动替换图片路径 ，注意，静态资源解析默认以source为根目录，所以直接写以source为根目录的绝对路径就行。\\n部署到vercel加速访问 注册vercel账号 创建项目，关联仓库 域名解析 2025.3.3，博客全部迁移完毕，粗略累计用时六天，一直没什么时间搞，耗时最长的还是在评论系统上的试错。\\n\""
   },
   
-  {
-    "title": "\"\"",
-    "url": "https:\/\/www.yingyu5658.me\/post\/%E9%9A%8F%E7%AC%94\/script\/",
-    "content": "\"const { log } = require(\\u0026lsquo;console\\u0026rsquo;); const fs = require(\\u0026lsquo;fs\\u0026rsquo;) const path = require(\\u0026lsquo;path\\u0026rsquo;) fs.readdir(\\u0026rsquo;./\\u0026rsquo;, (err, files) =\\u0026gt; { if (err) { return console.error(\\u0026ldquo;读取目录失败：\\u0026rdquo;, err) } files.forEach(file =\\u0026gt; {\\nconst filesName = path.parse(file).name\\rconsole.log(filesName)\\rconsole.log(file)\\rtry {\\rfs.renameSync(`./${file}`, `${filesName}/index.md`)\\r} catch (e) {\\rconsole.log(`错误：${e.message}`)\\r}\\r});\\r})\\n\""
-  },
-  
 ];
 </script> 
 <div class="widget">
 	<h4 class="widget__title">RECENT POSTS</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item">
+				<a class="widget__link" href="/post/%E9%9A%8F%E7%AC%94/%E5%AF%B9%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E7%9A%84%E4%B8%80%E7%82%B9%E6%83%B3%E6%B3%95/">对博客主题的一点想法</a>
+			</li>
 			<li class="widget__item">
 				<a class="widget__link" href="/post/%E6%8A%80%E6%9C%AF/c%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E7%AE%80%E6%98%93shell/">C语言实现简易Shell</a>
 			</li>
@@ -932,9 +972,6 @@ window.siteSearchData = [
 			<li class="widget__item">
 				<a class="widget__link" href="/post/%E9%9A%8F%E7%AC%94/%E7%8C%AB/">猫</a>
 			</li>
-			<li class="widget__item">
-				<a class="widget__link" href="/post/%E6%8A%80%E6%9C%AF/electron-commonjs-require%E8%B8%A9%E5%9D%91/">Electron CommonJS require踩坑</a>
-			</li>
 		</ul>
 	</div>
 </div><div class="widget-archives widget">
@@ -942,12 +979,16 @@ window.siteSearchData = [
 	<div class="widget__content" id="archives-container">
 		
 		<div class="widget__item archive-year">
-			<span class="archive-year-text">2025 (75)</span>
+			<span class="archive-year-text">2025 (76)</span>
 			<div class="archive-months">
 				
 				<div class="archive-month">
-					<span class="archive-month-text" data-toggle="archive">July (5)</span>
+					<span class="archive-month-text" data-toggle="archive">July (6)</span>
 					<div class="archive-posts">
+						
+						<div class="archive-post">
+							<a href="/post/%E9%9A%8F%E7%AC%94/%E5%AF%B9%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E7%9A%84%E4%B8%80%E7%82%B9%E6%83%B3%E6%B3%95/" class="archive-post-link">对博客主题的一点想法</a>
+						</div>
 						
 						<div class="archive-post">
 							<a href="/post/%E6%8A%80%E6%9C%AF/c%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E7%AE%80%E6%98%93shell/" class="archive-post-link">C语言实现简易Shell</a>
@@ -1393,24 +1434,6 @@ window.siteSearchData = [
 						
 						<div class="archive-post">
 							<a href="/post/%E6%8A%80%E6%9C%AF/4/" class="archive-post-link">记录Typecho博客转移到Hexo</a>
-						</div>
-						
-					</div>
-				</div>
-				
-			</div>
-		</div>
-		
-		<div class="widget__item archive-year">
-			<span class="archive-year-text">0001 (1)</span>
-			<div class="archive-months">
-				
-				<div class="archive-month">
-					<span class="archive-month-text" data-toggle="archive">January (1)</span>
-					<div class="archive-posts">
-						
-						<div class="archive-post">
-							<a href="/post/%E9%9A%8F%E7%AC%94/script/" class="archive-post-link"></a>
 						</div>
 						
 					</div>

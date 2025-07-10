@@ -45,6 +45,124 @@
 	</header><article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/tmux%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/" 
+			   class="post-title-link"
+			   title="Tmux配置记录">
+				Tmux配置记录
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-06-21T14:19:36Z">June 21, 2025</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>TMux 是终端复用神器，让你在一个终端窗口管理多个会话、窗口和窗格。</p>
+<p>基础操作：启动Tmux</p>
+<pre><code class="language-shell">tmux
+</code></pre>
+<p>所以我选择在<code>~/.bashrc</code>里加上这句，每次打开终端都会自动进入tmux。</p>
+<p><strong>需要掌握的概念</strong>：</p>
+<ul>
+<li>会话（Session）：长期运行的终端环境。</li>
+<li>窗口（Window）：会话中的标签页。</li>
+<li>窗格（Pane）：窗口中的分屏。</li>
+</ul>
+<p><strong>默认快捷键：</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th>操作</th>
+          <th>快捷键</th>
+          <th>说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>会话管理</strong></td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>脱离会话</td>
+          <td><code>Ctrl+b d</code></td>
+          <td>后台运行会话</td>
+      </tr>
+      <tr>
+          <td>查看会话列表</td>
+          <td><code>Ctrl+b s</code></td>
+          <td>方向键选择并进入</td>
+      </tr>
+      <tr>
+          <td>重命名当前会话</td>
+          <td><code>Ctrl+b $</code></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td><strong>窗口管理</strong></td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>新建窗口</td>
+          <td><code>Ctrl+b c</code></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>关闭当前窗口</td>
+          <td><code>Ctrl+b &amp;</code></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>切换窗口</td>
+          <td><code>Ctrl+b 0~9</code></td>
+          <td>切换到指定编号窗口</td>
+      </tr>
+      <tr>
+          <td>窗口列表</td>
+          <td><code>Ctrl+b w</code></td>
+          <td>可视化选择窗口</td>
+      </tr>
+      <tr>
+          <td><strong>窗格管理</strong></td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>水平分割窗格</td>
+          <td><code>Ctrl+b &quot;</code></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>垂直分割窗格</td>
+          <td><code>Ctrl+b %</code></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>切换窗格</td>
+          <td><code>Ctrl+b 方向键</code></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>关闭当前窗格</td>
+          <td><code>Ctrl+b x</code></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>最大化/恢复窗格</td>
+          <td><code>Ctrl+b z</code></td>
+          <td>临时全屏当前窗格</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>配置自定义（~/.tmux.conf）</strong>：</p>
+		<hr>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/tmux%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"></a>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/%E9%9A%8F%E7%AC%94/%E8%A2%AB%E8%94%91%E8%A7%86%E7%9A%84%E6%B3%95%E5%BE%8B/" 
 			   class="post-title-link"
 			   title="被蔑视的法律">
@@ -109,29 +227,6 @@
 <p>“就是在那里！”</p>
 <hr>
 <p>少看点你那短视频玩那点烂梗吧。</p>
-		<hr>
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/%E9%9A%8F%E7%AC%94/%E5%A5%BD%E6%96%87%E7%AB%A0/" 
-			   class="post-title-link"
-			   title="好文章">
-				好文章
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<time class="meta__text" datetime="2025-06-18T21:53:51Z">June 18, 2025</time></div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<h2 id="心灵小语">心灵小语</h2>
-<p>我们的语文作业从初一开始就偶尔留一项叫“心灵小语“的作业，文风可以和博客比较相似。但毕竟是要给老师看的，措辞还是要严谨一点。前两天的语文课老师读了两篇文章，巧了，我最受不了这种文章————用力堆砌耀眼夺目的辞藻，如青春、奋斗、阳光、生活。这就是老师眼中的好文章，扮演一个老师喜欢的性格，讲写点能敲出回声的文字，点意林风格的俗套故事。</p>
-<p>对不起，这种耀眼的词汇会让我被燃烧成灰。</p>
-<p>我不是标榜我的文章写的多好，只是单纯厌恶这种堆辞藻、假大空。以我的水平五十步笑百步又如何，名为心灵小语，心灵敲出的回声比文字还大，老师美其名曰：”以文观人”，好好观吧，多观观吹口气就破的纸壳吧；多观观用图钉钉在脸上的真诚的笑吧；多观观炽热的可燃的木头削成的心灵吧。烧了都嫌<strong>恶臭</strong>。</p>
-<p>活了十四年，我感受到的所谓的青春就是四五十个人挤在一个小屋子里研究一个这辈子也不会用到的式子的结果是什么。明明任何一个理科都非常有趣，但总是被迫去研究最没有意义的一个环节，痛苦又无奈。所以我痛恨代数，几何多在探究“为什么“而不是”是什么”。这才是数学让人有成就感的一环。</p>
-<p>现在明白了，大家很爱说上岸这个词，原来是从苦海游上来了。</p>
-<p>真他妈恶心，我的青春啊。</p>
 		<hr>
 	</div>
 </article>

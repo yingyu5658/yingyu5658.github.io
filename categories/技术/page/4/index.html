@@ -45,6 +45,78 @@
 	</header><article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/emacs%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95-2c-c&#43;&#43;%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" 
+			   class="post-title-link"
+			   title="Emacs配置记录 2——C/C&#43;&#43;环境配置">
+				Emacs配置记录 2——C/C&#43;&#43;环境配置
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-06-04T18:58:37Z">June 04, 2025</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<h2 id="前言">前言</h2>
+<p>经过<a href="">上一篇</a>的简单调教，Emacs已经勉强变成了一个温顺的文本编辑器，但是离写代码这个宏大的目标还是有一段距离的，今天来解决主要问题：代码补全。由于我要写一点简单的C代码，那么重点就先放到C/CPP环境搭建中。</p>
+<p>站在巨人的肩膀上，在Emacs中的代码补全使用巨硬的LSP协议。</p>
+<h2 id="spacemacs">Spacemacs</h2>
+<p>经过考虑，我还是决定使用Spacemacs，比起原版Emacs，它更适合新手，也更能快速投入开发。避免配置陷阱，过多把时间花在刀把上。唉，也就是说，昨天大部分都白干了。算了，生命的意义就在于折腾，怕折腾我也不会玩Emacs了。来吧！</p>
+<p>先来安装一下Spacemacs。
+<code>git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d</code></p>
+<p>重启Emacs，让他下载一下自带的包。</p>
+<p>上次没清理干净Spacemacs，不知道存在哪的备份还在，算是免去了一些折腾吧。来看看现在的Emacs都配置了什么。</p>
+<pre><code class="language-lisp">   dotspacemacs-configuration-layers
+   '(yaml
+     markdown
+     javascript
+     (auto-completion :variables
+                      auto-completion-idle-delay 0.01    ; 降低补全延迟
+                      auto-completion-minimum-prefix-length 1)
+     (prettier :variables
+               prettier-always-enable t)  ; 保存时自动格式化
+     (javascript :variables
+                 javascript-backend 'lsp        ; 启用LSP后端
+                 javascript-fmt-tool 'prettier) ; 格式化工具选Prettier
+     (c-c++ :variables
+            c-c++-backend 'lsp-clangd)         ; C/C++使用Clangd后端
+     (vue :variables
+          vue-backend 'lsp)                    ; Vue使用LSP后端
+     (html)                                    ; HTML/CSS支持
+     (lsp)                                     ; 必须的LSP核心支持层
+     (auto-completion)                         ; 自动补全
+     (syntax-checking)                         ; 语法检查
+     ;; ----------------------------------------------------------------
+     ;; Example of useful layers you may want to use right away.
+     ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
+     ;; `M-m f e R' (Emacs style) to install them.
+     ;; ----------------------------------------------------------------
+     ;; auto-completion
+     ;; better-defaults
+     emacs-lisp
+     treemacs
+     ;; git
+     helm
+     lsp
+     ;; markdown
+     multiple-cursors
+     ;; org
+     ;; (shell :variables
+     ;;        shell-default-height 30
+     ;;        shell-default-position 'bottom)
+     ;; spell-checking
+     ;; syntax-checking
+     ;; version-control
+     treemacs)
+</code></pre>
+<p>emmm，还是有点有用的。比如C/C++这里，就启用了LSP。还有一些之前搞的前端配置。就是不知道为啥，JavaScript的补全不太好使。</p>
+		<hr>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/emacs%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95-2c-c&#43;&#43;%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"></a>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/%E6%8A%80%E6%9C%AF/%E6%88%91%E8%BF%98%E6%98%AF%E6%94%BE%E4%B8%8D%E4%B8%8Bemacs/" 
 			   class="post-title-link"
 			   title="我还是放不下Emacs！">
@@ -248,63 +320,6 @@ Require stack:
 <p>C缺乏类、继承等基础语法支持，但可以用结构体加函数指针简单模拟对象，但设计难度有所增加，调试难度更有所增加。面向过程更适合处理逻辑简单的任务或算法密集型任务，而面向对象更适合构建GUI应用等复杂系统。</p>
 <p>面向对象并非在所有情况下都是最优选择。还是需要依据开发项目的实际需求考量。</p>
 		<hr>
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%93%88%E5%B8%8C%E8%A1%A8/" 
-			   class="post-title-link"
-			   title="【数据结构与算法】哈希表">
-				【数据结构与算法】哈希表
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<time class="meta__text" datetime="2025-05-28T21:44:28Z">May 28, 2025</time></div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<p>哈希表（Hash Table）是一种基于键（Key）直接访问数据的高效数据结构，其核心思想是通过哈希函数将键映射到数组的特定位置，从而实现平均时间复杂度为 O(1)O(1) 的插入、查找和删除操作。</p>
-<h2 id="结构定义">结构定义</h2>
-<pre><code class="language-c">// 哈希表节点
-typedef struct HashNode {
-    int key;
-    int value;
-    struct Hashcode* next;
-} HashNode;
-
-// 哈希表
-typedef struct {
-    int size;
-    HashNode** buckets;
-} HashTable;
-</code></pre>
-<h2 id="初始化">初始化</h2>
-<p>创建HashTable结构体变量，进行初始化赋值，分配桶的内存。</p>
-<pre><code class="language-c">// 初始化哈希表
-HashTable *creat_hash_table(int size)
-{
-    HashTable* table = (HashTable*)malloc(sizeof(HashTable));
-    table-&gt;size = size;
-    table-&gt;buckets = (HashNode**)malloc(size * sizeof(HashNode*));
-    for(int i = 0; i &lt; size; i++)
-    {
-        table-&gt;buckets[i] = NULL;
-    }
-    return table;
-}
-</code></pre>
-<h2 id="哈希函数">哈希函数</h2>
-<pre><code class="language-c">// 哈希函数
-int hash(int key, int size)
-{
-    return key % size;
-}
-</code></pre>
-<p>通过简单取模运算获得哈希值</p>
-		<hr>
-	</div>
-	<div class="list__footer clearfix">
-		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%93%88%E5%B8%8C%E8%A1%A8/"></a>
 	</div>
 </article>
 </main>

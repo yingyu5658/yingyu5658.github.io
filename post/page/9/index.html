@@ -45,6 +45,63 @@
 	</header><article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%93%88%E5%B8%8C%E8%A1%A8/" 
+			   class="post-title-link"
+			   title="【数据结构与算法】哈希表">
+				【数据结构与算法】哈希表
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-05-28T21:44:28Z">May 28, 2025</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>哈希表（Hash Table）是一种基于键（Key）直接访问数据的高效数据结构，其核心思想是通过哈希函数将键映射到数组的特定位置，从而实现平均时间复杂度为 O(1)O(1) 的插入、查找和删除操作。</p>
+<h2 id="结构定义">结构定义</h2>
+<pre><code class="language-c">// 哈希表节点
+typedef struct HashNode {
+    int key;
+    int value;
+    struct Hashcode* next;
+} HashNode;
+
+// 哈希表
+typedef struct {
+    int size;
+    HashNode** buckets;
+} HashTable;
+</code></pre>
+<h2 id="初始化">初始化</h2>
+<p>创建HashTable结构体变量，进行初始化赋值，分配桶的内存。</p>
+<pre><code class="language-c">// 初始化哈希表
+HashTable *creat_hash_table(int size)
+{
+    HashTable* table = (HashTable*)malloc(sizeof(HashTable));
+    table-&gt;size = size;
+    table-&gt;buckets = (HashNode**)malloc(size * sizeof(HashNode*));
+    for(int i = 0; i &lt; size; i++)
+    {
+        table-&gt;buckets[i] = NULL;
+    }
+    return table;
+}
+</code></pre>
+<h2 id="哈希函数">哈希函数</h2>
+<pre><code class="language-c">// 哈希函数
+int hash(int key, int size)
+{
+    return key % size;
+}
+</code></pre>
+<p>通过简单取模运算获得哈希值</p>
+		<hr>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%93%88%E5%B8%8C%E8%A1%A8/"></a>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/%E9%9A%8F%E7%AC%94/%E6%84%9F%E8%B0%A2%E6%81%A9%E5%B8%88%E5%A4%B8%E5%A5%96/" 
 			   class="post-title-link"
 			   title="感谢恩师夸奖">
@@ -135,64 +192,6 @@
 <p>讲这个例子，我想表达的是，如果在第一句话就抛出问题：“某某某网站你还有吗？”那会得到相当迅速且准确的答复，如果发送了十五个毫无意义的图，那只能白白浪费五分钟。</p>
 <p>最后，总结一下我这篇东拉西扯的短文，如果目的是解决问题，而不是聊聊天，这种无意义的模糊的文字是在耽误大家的时间。这种沟通方式并非冷漠，而是能解决问题的最直接办法。</p>
 		<hr>
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%BA%8C%E5%8F%89%E6%A0%91/" 
-			   class="post-title-link"
-			   title="【数据结构与算法】二叉树">
-				【数据结构与算法】二叉树
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<time class="meta__text" datetime="2025-05-25T18:46:37Z">May 25, 2025</time></div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<h2 id="定义">定义</h2>
-<p>二叉树（binary tree）是指树中节点的度不大于2的有序树，它是一种最简单且最重要的树。二叉树的递归定义为：二叉树是一棵空树，或者是一棵由一个根节点和两棵互不相交的，分别称作根的左子树和右子树组成的非空树；左子树和右子树又同样都是二叉树。</p>
-<h2 id="实现">实现</h2>
-<h3 id="结构定义">结构定义</h3>
-<p><del>尝试了一下C语言，各种指针乱指，各种bug，暂时放自己一马，跟自己和解一下用js写写吧。</del></p>
-<pre><code class="language-js">class TreeNode {
-  constructor(data) {
-    this.data = data;
-    this.left = null;  // 左节点
-    this.right = null; // 右边节点
-  }
-}
-</code></pre>
-<h3 id="创建对象并绑定节点">创建对象并绑定节点</h3>
-<pre><code class="language-js">// 手动绑定节点
-let root = new TreeNode(1)
-root.left = new TreeNode(2)
-root.right = new TreeNode(3)
-root.left.left = new TreeNode(4)
-root.right.right = new TreeNode(5)
-</code></pre>
-<p>此时树的结构：</p>
-<pre><code>      1
-     /  \
-     2   3
-   /  \   \
-  4    5   6
-</code></pre>
-<h3 id="遍历二叉树">遍历二叉树</h3>
-<h4 id="前序遍历dfs">前序遍历（DFS）</h4>
-<pre><code class="language-js">function preOrder(node) {
-  if(node) {
-    console.log(node.data)
-    preOrder(node.left)
-    preOrder(node.right)
-  }
-}
-</code></pre>
-<p>这里用递归调用，遍历到左右元素</p>
-		<hr>
-	</div>
-	<div class="list__footer clearfix">
-		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%BA%8C%E5%8F%89%E6%A0%91/"></a>
 	</div>
 </article>
 </main>
