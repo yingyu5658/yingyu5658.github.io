@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -43,6 +43,63 @@
 	<header class="main__header">
 		<h1 class="main__title">Posts</h1>
 	</header><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E6%A0%88/" 
+			   class="post-title-link"
+			   title="【数据结构与算法】栈">
+				【数据结构与算法】栈
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-05-11T10:09:21Z">May 11, 2025</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<h2 id="基本概念">基本概念</h2>
+<p>栈（Stack）是一种后进先出（LIFO）原则的线性数据结构。核心操作包括：</p>
+<ul>
+<li>压栈（Push）：将元素添加到栈顶</li>
+<li>出栈（Pop）：移除并返回栈顶元素</li>
+<li>查看栈顶（Check）获取但移除栈顶元素</li>
+<li>判空（is_empty）检查栈是否为空</li>
+</ul>
+<h2 id="结构定义">结构定义</h2>
+<p>使用动态数组实现栈，包含三个核心属性：</p>
+<pre><code class="language-c">typedef struct Stack {
+    int* data; // 存储元素的数组
+    int top;   // 栈顶指针（当前元素位置）
+    int capacity; // 栈的最大容量
+}
+</code></pre>
+<ul>
+<li><code>data</code>：动态分配的数组指针</li>
+<li><code>top</code>：初始值为-1，表示空栈，压栈时递增，出栈时递减</li>
+<li><code>capacity</code>：栈的容量上限</li>
+</ul>
+<h2 id="功能实现">功能实现</h2>
+<h3 id="初始化">初始化</h3>
+<pre><code class="language-c">// 初始化栈
+void init_stack(Stack *s, int capacity) {
+  // 计算最大容量
+  s -&gt; data = (int*)malloc(sizeof(int) * capacity)
+  if(!s -&gt; data) {
+    printf(&quot;内存分配失败！\n&quot;);
+    exit(1);
+  }
+  // 初始化栈顶为-1，表空
+  s -&gt; top = -1;
+  // 把当前计算的最大容量赋值给传进来的栈
+  s -&gt; capacity = capacity;
+}
+</code></pre>
+<p>这个函数中进行了动态分配内存计算最大容量，初始化赋值和异常处理。</p>
+		<hr>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E6%A0%88/"></a>
+	</div>
+</article><article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
 			<a href="/post/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/" 
@@ -232,34 +289,6 @@ int main() {
 	</div>
 	<div class="list__footer clearfix">
 		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/x86-64%E6%B1%87%E7%BC%96%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"></a>
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/%E6%8A%80%E6%9C%AF/wsl-arch-linux-zsh%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" 
-			   class="post-title-link"
-			   title="WSL Arch Linux ZSH输入中文&lt;0xffffffff&gt;解决方法">
-				WSL Arch Linux ZSH输入中文&lt;0xffffffff&gt;解决方法
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<time class="meta__text" datetime="2025-04-29T10:31:26Z">April 29, 2025</time></div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<p>没有进行配置的情况下输入中文，一般会显示&lt;0xffffffff&gt;，这是由于没有安装字体造成的。</p>
-<pre><code class="language-bash">sudo pacman -S noto-fonts-cjk  # 安装中文字体
-sudo vi /etc/locale.gen        # 取消注释 zh_CN.UTF-8
-sudo locale-gen                # 生成语言环境
-echo &quot;export LANG=zh_CN.UTF-8&quot; &gt;&gt; ~/.zshrc  # 设置默认中文环境
-source ~/.zshrc
-</code></pre>
-<p>source后，再次尝试输入中文，无异常。</p>
-<p><img src="/images/WSL-Arch-Linux-ZSH%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/image-20250429103602223.png" alt="中文演示"></p>
-<p><img src="/images/WSL-Arch-Linux-ZSH%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/image-20250429103602223.png" alt="相关图片"></p>
-<p><img src="/images/WSL-Arch-Linux-ZSH%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/image-20250429103602223.png" alt="相关图片"></p>
-<p><img src="/images/WSL-Arch-Linux-ZSH%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/image-20250429103602223.png" alt="相关图片"></p>
-		<hr>
 	</div>
 </article>
 </main>

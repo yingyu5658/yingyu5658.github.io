@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -43,6 +43,112 @@
 	<header class="main__header">
 		<h1 class="main__title">Posts</h1>
 	</header><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/90/" 
+			   class="post-title-link"
+			   title="Java小程序之两数计算器">
+				Java小程序之两数计算器
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2024-11-30T18:51:07Z">November 30, 2024</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>这个案例是我练习方法的使用时做的，应该能有更好的方式实现这个功能。
+代码如下</p>
+<pre><code class="language-java">package cn.yingyu5658.basic;
+
+import org.w3c.dom.ls.LSOutput;
+
+import java.util.Scanner;
+
+public class Basic {
+    public static void main(String[] args) {
+        for (; ; ) {
+
+
+            System.out.println(&quot;欢迎使用！&quot;);
+            System.out.println(&quot;按键1 2 3 4分别为加 减 乘 除，输入后请回车&quot;);
+            Scanner startSc = new Scanner(System.in);
+            int selectNumber = startSc.nextInt();
+            if(selectNumber &gt;4) {
+                System.out.println(&quot;请输入正确的数字以选择！&quot;);
+            }
+            //以下为加法
+            if (selectNumber == 1) {
+                System.out.println(&quot;请输入您要计算的第一个数字&quot;);
+                Scanner jiafaSc = new Scanner(System.in);
+                int jiafa1 = jiafaSc.nextInt();
+                System.out.println(&quot;请输入您要计算的第二个数字&quot;);
+                int jiafa2 = jiafaSc.nextInt();
+                jiafa(jiafa1, jiafa2);
+            }
+            //以下为减法
+            if (selectNumber == 2) {
+                System.out.println(&quot;请输入您要计算的第一个数字&quot;);
+                Scanner jianfaSc = new Scanner(System.in);
+                int jianfa1 = jianfaSc.nextInt();
+                System.out.println(&quot;请输入您要计算的第二个数字&quot;);
+                int jianfa2 = jianfaSc.nextInt();
+                jianfa(jianfa1, jianfa2);
+            }
+            //以下为乘法
+            if (selectNumber == 3) {
+                System.out.println(&quot;请输入您要计算的第一个数字&quot;);
+                Scanner chengfaSc = new Scanner(System.in);
+                int chengfa1 = chengfaSc.nextInt();
+                System.out.println(&quot;请输入您要计算的第二个数字&quot;);
+                int chengfa2 = chengfaSc.nextInt();
+                chengfa(chengfa1, chengfa2);
+            }
+            if (selectNumber == 4) {
+                System.out.println(&quot;请输入您要计算的第一个数字&quot;);
+                Scanner chufaSc = new Scanner(System.in);
+                int chufa1 = chufaSc.nextInt();
+                System.out.println(&quot;请输入您要计算的第二个数字&quot;);
+                int chufa2 = chufaSc.nextInt();
+                chufa(chufa1, chufa2);
+            }
+            System.out.println(&quot;-----------------------------------------&quot;);
+        }
+    }
+    //加减乘除各项功能的方法，上面直接调用
+    public static int jiafa(int a, int b) {
+        int jieguo = a + b;
+        System.out.println(jieguo);
+        return a + b;
+    }
+
+    public static int jianfa(int a, int b) {
+        int jieguo = a - b;
+        System.out.println(jieguo);
+        return a - b;
+    }
+
+    public static int chengfa(int a, int b) {
+        int jieguo = a * b;
+        System.out.println(jieguo);
+        return a * b;
+    }
+
+    public static int chufa(int a, int b) {
+        int jieguo = a / b;
+        System.out.println(jieguo);
+        return a / b;
+    }
+}
+
+![相关图片](/images/Java小程序之两数计算器/2743265221.jpg)
+
+![相关图片](/images/Java小程序之两数计算器/2743265221.jpg)
+
+![相关图片](/images/Java小程序之两数计算器/2743265221.jpg)
+</code></pre>
+		<hr>
+	</div>
+</article><article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
 			<a href="/post/%E6%8A%80%E6%9C%AF/89/" 
@@ -172,23 +278,6 @@
 	</div>
 	<div class="list__footer clearfix">
 		<a class="list__footer-readmore btn" href="/post/%E9%9A%8F%E7%AC%94/4/"></a>
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/archives/" 
-			   class="post-title-link"
-			   title="Archives">
-				Archives
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<time class="meta__text" datetime="2024-11-11T03:00:00&#43;08:00">November 11, 2024</time></div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		历史文章按照年月归档.
-		<hr>
 	</div>
 </article>
 </main>

@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>NodeJS on 映屿</title>
-    <link>http://localhost:1313/tags/nodejs/</link>
+    <link>https://www.yingyu5658.me/tags/nodejs/</link>
     <description>Recent content in NodeJS on 映屿</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
     <lastBuildDate>Fri, 11 Apr 2025 22:29:23 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/nodejs/atom.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://www.yingyu5658.me/tags/nodejs/atom.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>osu!APIv1请求示例</title>
-      <link>http://localhost:1313/post/%E6%8A%80%E6%9C%AF/osu-apiv1%E8%AF%B7%E6%B1%82%E7%A4%BA%E4%BE%8B/</link>
+      <link>https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/osu-apiv1%E8%AF%B7%E6%B1%82%E7%A4%BA%E4%BE%8B/</link>
       <pubDate>Fri, 11 Apr 2025 22:29:23 +0000</pubDate>
-      <guid>http://localhost:1313/post/%E6%8A%80%E6%9C%AF/osu-apiv1%E8%AF%B7%E6%B1%82%E7%A4%BA%E4%BE%8B/</guid>
+      <guid>https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/osu-apiv1%E8%AF%B7%E6%B1%82%E7%A4%BA%E4%BE%8B/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;&#xA;&lt;p&gt;本文章使用Nodejs环境做演示。请求用户数据。代码中的APIKEY要在&lt;a href=&#34;https://osu.ppy.sh/home/account/edit&#34;&gt;osu官网‬&lt;/a&gt;申请。&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;const API_URL = &amp;quot;osu.ppy.sh&amp;quot;;&#xA;const init = {&#xA;    k: &amp;quot;YOUR_API_KEY&amp;quot;,&#xA;    type: &amp;quot;string&amp;quot;,&#xA;    u: &amp;quot;kyzzz5658&amp;quot;,&#xA;};&#xA;&#xA;const https = require(&amp;quot;https&amp;quot;);&#xA;&#xA;// 将参数序列化为查询字符串&#xA;const query = new URLSearchParams(init);&#xA;const options = {&#xA;    hostname: API_URL,&#xA;    method: &amp;quot;GET&amp;quot;,&#xA;    path: `/api/get_user?${query}` // 附加参数&#xA;};&#xA;&#xA;const req = https.request(options, (res) =&amp;gt; {&#xA;    let data = &#39;&#39;;&#xA;    res.on(&#39;data&#39;, (chunk) =&amp;gt; data += chunk);&#xA;    res.on(&#39;end&#39;, () =&amp;gt; {&#xA;        try {&#xA;            console.log(JSON.parse(data[0].username));&#xA;        } catch (e) {&#xA;            console.error(&#39;JSON 解析失败:&#39;, e);&#xA;        }&#xA;    });&#xA;});&#xA;&#xA;// 错误处理&#xA;req.on(&#39;error&#39;, (err) =&amp;gt; {&#xA;    console.error(&#39;请求失败:&#39;, err.code);&#xA;});&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;输出：&lt;/p&gt;</description>
     </item>
     <item>
       <title>Nodejs环境下控制台拼接字符串输出有undefind</title>
-      <link>http://localhost:1313/post/%E6%8A%80%E6%9C%AF/nodejs%E7%8E%AF%E5%A2%83%E4%B8%8B%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%8B%BC%E6%8E%A5%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%87%BA%E6%9C%89undefind/</link>
+      <link>https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/nodejs%E7%8E%AF%E5%A2%83%E4%B8%8B%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%8B%BC%E6%8E%A5%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%87%BA%E6%9C%89undefind/</link>
       <pubDate>Sat, 22 Mar 2025 18:56:33 +0000</pubDate>
-      <guid>http://localhost:1313/post/%E6%8A%80%E6%9C%AF/nodejs%E7%8E%AF%E5%A2%83%E4%B8%8B%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%8B%BC%E6%8E%A5%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%87%BA%E6%9C%89undefind/</guid>
+      <guid>https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/nodejs%E7%8E%AF%E5%A2%83%E4%B8%8B%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%8B%BC%E6%8E%A5%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%87%BA%E6%9C%89undefind/</guid>
       <description>&lt;p&gt;今天在Nodejs环境下搓小工具，控制台输出拼接字符串时，发现有&lt;code&gt;undefind&lt;/code&gt;，代码如下：&lt;/p&gt;</description>
     </item>
   </channel>
