@@ -44,6 +44,28 @@
 	<article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/%E9%9A%8F%E7%AC%94/%E9%9A%90%E5%B1%85/" 
+			   class="post-title-link"
+			   title="隐居">
+				隐居
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-04-26T18:42:46Z">April 26, 2025</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>此隐居非彼隐居。残酷的是，人是社会性动物，脱离了社会根本没法生存。既然无法与现实的是是非非一刀两断，那就至少让自己在网络世界耳根清净点。</p>
+<p>自从前几个月退坑音游后，基本就与游戏没了什么交际。周末空闲时间就听听歌，写写代码，画点画。五一假期也要开始认真练琴了。这么说来还颇有几分文气，琴棋书画几样都有沾点。远离音游圈子后，我的群也退得差不多，为数不多留下来的几个群都是最早进的，或者花了很大劲才进去的，虽然人还在群里，但是已经几乎和群友没什么共同话题了。那几个群里只有痴迷于段位的人们在争论某张图是g+还是d-，毫无意义。在视频平台曾经投稿的音游视频也都设置成了私密，之所以没有删掉有两点原因，一个是全删硬币大出血，另一个则是留个念想，好歹也陪伴了这么长时间，通过这类游戏交到了很多好朋友。</p>
+<p>与几乎所有人都保持着浅度的社交，非必要不再主动参与哪些圈子的活动。最极端的时候我的QQ只剩五个群，好友只有十几个，账号设置为不可搜索。现在回想起来那段时候是真清净自在。越来越趋近于隐居的状态，极力削弱自己在网络上的存在感。如果有人想接近或了解我，应该没什么途径，为数不多发表言论的地方只有博客和朋友之间的小群。化被动接受为主动寻找应该能免去不少怪人，毕竟主动寻找的在少数，林子大了什么鸟都有。</p>
+<p>自在，自在。</p>
+<p>多年之后的我再读起这些文字会有什么感想？是会感叹自己的超前还是悲哀自己的孤僻呢。</p>
+<p>文字这种古老的载体对于新现的图片、视频来说，最大的优势就是能很好地把心情亦或是观点表达出来。这也是我认为以记录为目的，Blog优于Plog和Vlog的原因。</p>
+		<hr>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/%E6%8A%80%E6%9C%AF/valine%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/" 
 			   class="post-title-link"
 			   title="Valine评论系统踩坑记录">
@@ -201,84 +223,6 @@ public class Main {
 	<div class="list__footer clearfix">
 		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/%E9%BB%91%E5%8E%86%E5%8F%B2%E8%AF%BB%E8%87%AA%E5%B7%B1%E4%BB%A5%E5%89%8D%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81/"></a>
 	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/%E6%8A%80%E6%9C%AF/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BB%88%E7%AB%AF%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" 
-			   class="post-title-link"
-			   title="从0开始搭建自己的终端开发环境">
-				从0开始搭建自己的终端开发环境
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<time class="meta__text" datetime="2025-04-15T21:15:24Z">April 15, 2025</time></div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<p><strong>系统</strong>：WSL Arch</p>
-<h3 id="主折腾点">主折腾点</h3>
-<p><strong>代码编辑器</strong>：Vim(Neovim)</p>
-<p><strong>终端体验优化</strong>：tmux</p>
-<p><strong>文件管理器</strong>：yazi</p>
-<h2 id="代码编辑器neovim">代码编辑器——Neovim</h2>
-<h3 id="前言">前言</h3>
-<p>Neovim和Vim相比，在性能和易用性上有很大的提升，在异步任务表现突出；使用更加现代的lua脚本配置，可读性更高。</p>
-<h4 id="为什么不用lazyvim">为什么不用Lazyvim？</h4>
-<p>答：我个人用了很长一段时间Lazyvim，虽然开箱即用，简单调试就可以使用，但是我并不能清除的理解他到底给我装了什么，我是否需要那些插件。感觉像在用别人的软件，而自己从头开始配置vim的掌控感是使用他人的配置文件无法比拟的，在配置的过程中也可以培养排错和程序调试能力，唯一的缺点就是略微耗费时间。</p>
-<h3 id="安装">安装</h3>
-<p>先滚一把系统保证软件包都是最新的</p>
-<p><code>sudo pacman -Syyu</code></p>
-<p>安装Neovim</p>
-<p><code>sudo pacman -S neovim</code></p>
-<p>这时候在终端输入<code>nvim</code>就可以打开neovim了。![image-20250415212435171](E:/Blog/source/im</p>
-<p><strong>按<code>:q</code>退出。</strong></p>
-<p>这个初始的界面非常简陋，我们先进行核心功能配置，后续在更改主题。</p>
-<p>nvim的用户级配置文件在<code>~/.config/nvim</code>中。</p>
-<h3 id="安装包管理器">安装包管理器</h3>
-<p>我们选择Lazy作为包管理器，他和其他的包管理器相比起来，在懒加载、UI界面等方面有显著优势，可以减小配置复杂度。</p>
-<p>访问<a href="https://lazy.folke.io/installation">lazy.nvim官网</a>，官方文档永远都是最好的教程。这里有一段代码</p>
-<pre><code class="language-lua">-- Bootstrap lazy.nvim
-local lazypath = vim.fn.stdpath(&quot;data&quot;) .. &quot;/lazy/lazy.nvim&quot;
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  local lazyrepo = &quot;https://github.com/folke/lazy.nvim.git&quot;
-  local out = vim.fn.system({ &quot;git&quot;, &quot;clone&quot;, &quot;--filter=blob:none&quot;, &quot;--branch=stable&quot;, lazyrepo, lazypath })
-  if vim.v.shell_error ~= 0 then
-    vim.api.nvim_echo({
-      { &quot;Failed to clone lazy.nvim:\n&quot;, &quot;ErrorMsg&quot; },
-      { out, &quot;WarningMsg&quot; },
-      { &quot;\nPress any key to exit...&quot; },
-    }, true, {})
-    vim.fn.getchar()
-    os.exit(1)
-  end
-end
-vim.opt.rtp:prepend(lazypath)
-
--- Make sure to setup `mapleader` and `maplocalleader` before
--- loading lazy.nvim so that mappings are correct.
--- This is also a good place to setup other settings (vim.opt)
-vim.g.mapleader = &quot; &quot;
-vim.g.maplocalleader = &quot;\\&quot;
-
--- Setup lazy.nvim
-require(&quot;lazy&quot;).setup({
-  spec = {
-    -- import your plugins
-    { import = &quot;plugins&quot; },
-  },
-  -- Configure any other settings here. See the documentation for more details.
-  -- colorscheme that will be used when installing plugins.
-  install = { colorscheme = { &quot;habamax&quot; } },
-  -- automatically check for plugin updates
-  checker = { enabled = true },
-})
-</code></pre>
-<p>这段代码主要在为Lazy包管理器初始化，所以按照官网的目录结构，我们在<code>~/.config/nvim/lua</code>下新建一个config文件夹，把代码粘贴进去。</p>
-		<hr>
-	</div>
-	<div class="list__footer clearfix">
-		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BB%88%E7%AB%AF%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/"></a>
-	</div>
 </article>
 </main>
 
@@ -338,9 +282,15 @@ require(&quot;lazy&quot;).setup({
 window.siteSearchData = [
   
   {
+    "title": "\"Vscode编辑Markdown体验非常好\"",
+    "url": "https:\/\/www.yingyu5658.me\/post\/%E6%8A%80%E6%9C%AF\/vscode-edit-markdown\/",
+    "content": "\"平常我想写Markdown，都是用typora或Ｏbsidian，这两个软件都很好。但各有优缺点，但现在让我硬挑，我还真挑不出来几个。让我真正觉得Vscode更好的是从Hexo迁移到Hugo的那次经历。\\nHexo和Hugo的Front Matter格式不同，比如Hexo的date，是yyyy-MM-dd hh:mm:ss格式，但Hugo是yyyy-MM-ddThh:mm:ss+hh:mm的ISO 8601 标准时间格式，所以就要进行替换。我尝试用让Ai写脚本，但项目的目录结构错综复杂，匹配不彻底，匹配彻底也有不周全的地方。而Vscode的查找替换功能很好地解决了这个问题，如果有正则表达式写起来太麻烦的，搜个前缀，然后选中修改所有匹配项也就差不多了。\\n而且Vscode有Vim插件，可以解决老Vimer的hjkl依赖问题，唯一不足就是不能用C-v粘贴图片，可能是我还没研究出来。Vscode中编辑主题的代码或者临时写个自动化脚本折腾一下博客也很方便，只需要开一个Vscode，内置终端足以新建文章，Git推送，如果你很闲，甚至在那个终端可以打开Vim，用Vim来编辑。\\n\""
+  },
+  
+  {
     "title": "\"对博客主题的一点想法\"",
     "url": "https:\/\/www.yingyu5658.me\/post\/%E9%9A%8F%E7%AC%94\/%E5%AF%B9%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E7%9A%84%E4%B8%80%E7%82%B9%E6%83%B3%E6%B3%95\/",
-    "content": "\"简单回顾以下建站历程，博客的内容从“我是谁”转移到了\\u0026quot;我想说什么\\u0026quot;。从最早开始正式写博客的Gmeek，到后来使用Typecho，再到Hexo,Hugo，这几个不同的时期是我对主题看法的不同阶段。\\nGmeek时期，没有概念，没看过几个人的博客，后来接触得多了，看了很多主题才意识到自己博客的主题有多简陋，还到Typecho，开始折腾主题，经历了一段不堪回首的时期。经典的一些元素：左下角挡字小人、底部音乐播放器、背景樱花飘落特效、点击特效，总之就是各种花里胡哨。文章，没有几篇，但是你可以在网页上找到任何你想找到的东西，除了文章。当时很喜欢Butterfly主题\\n后来换到了Hexo，也有Butterfly，继续用。发现点二十个网站，三十个都是Butterfly，很尴尬，后来经过几经波折，换到了Maupassant，输出了几篇自认为有点内容的文章，主要还是有感而发，我写东西不在乎谁看了，谁怎么看。我只是享受编辑和发送的过程。有人说心情不好，就把让你不开心的事写在纸上然后团成球扔进垃圾桶。这样还是太浪费了，毕竟是自己亲笔写下的文字，另说浪费纸张也不好。\\n在Hexo时期，我一直在寻找让读者弱化“我是谁”，专心聚焦与内容的主题。Maupassant就很好。后来转来Hugo，是看中了云风博客的那种千禧年的风格，不花哨，也不简陋。基于JiaoYuan的移植后简单修改了以下配色之类，就正式投入使用。\\n我认为，博客重在内容，想表达什么观点、想记录什么事件。毕竟Blog，Web Log，Log，日志，记录。除了记录，也可以是扩大自己声音的一个渠道，独立于平台，起码不会有跳墙的删掉你辛辛苦苦打出来的一大段字。\\n而把重心放到了“我是谁”的站点，应该算作“个人主页”，并非博客，用作于一些项目展示、网络名片也是很好的。\\n而ta说“我是谁”，和自己观察“ta是谁“，是两种截然不同的感受。前者能迅速建立起一个停留于表层但具体的印象，而后者多出一种视奸的快感。从字里行间里感受ta是什么人，虽然建立印象的周期长，但深入。值得。\\n所以很多人博客的关于页面，我就当看个乐呵就过去了，仔细看每一篇文章，从ta的文字、观点、立场、价值观和认知来建立起ta的形象。有些人宏伟庄严，有些人冷漠麻木，有些人用平实朴素的语言记录，有些人用各种恶心到家的语气词和括号里补充的动作描写，绞尽脑汁想怎么把自己表现得多可爱。想可爱，先从扮演人类开始吧。这么在意别人怎么看自己，我替你感到疲惫。\\n好吧，我承认我有点冒犯了，一些朋友看到标题是关于主题的点进来还躺枪，那对不起，我冒犯的就是你。\\n\""
+    "content": "\"简单回顾以下建站历程，博客的内容从“我是谁”转移到了\\u0026quot;我想说什么\\u0026quot;。从最早开始正式写博客的Gmeek，到后来使用Typecho，再到Hexo,Hugo，这几个不同的时期是我对主题看法的不同阶段。\\nGmeek时期，没有概念，没看过几个人的博客，后来接触得多了，看了很多主题才意识到自己博客的主题有多简陋，换到Typecho，开始折腾主题，经历了一段不堪回首的时期。经典的一些元素：左下角挡字小人、底部音乐播放器、背景樱花飘落特效、点击特效，总之就是各种花里胡哨。文章，没有几篇，但是你可以在网页上找到任何你想找到的东西，除了文章。当时很喜欢Butterfly主题\\n后来换到了Hexo，也有Butterfly，继续用。发现点二十个网站，三十个都是Butterfly，很尴尬，后来经过几经波折，换到了Maupassant，输出了几篇自认为有点内容的文章，主要还是有感而发，我写东西不在乎谁看了，谁怎么看。我只是享受编辑和发送的过程。有人说心情不好，就把让你不开心的事写在纸上然后团成球扔进垃圾桶。这样还是太浪费了，毕竟是自己亲笔写下的文字，另说浪费纸张也不好。\\n在Hexo时期，我一直在寻找让读者弱化“我是谁”，专心聚焦与内容的主题。Maupassant就很好。后来转来Hugo，是看中了云风博客的那种千禧年的风格，不花哨，也不简陋。基于JiaoYuan的移植后简单修改了以下配色之类，就正式投入使用。\\n我认为，博客重在内容，想表达什么观点、想记录什么事件。毕竟Blog，Web Log，Log，日志，记录。除了记录，也可以是扩大自己声音的一个渠道，独立于平台，起码不会有跳墙的删掉你辛辛苦苦打出来的一大段字。\\n而把重心放到了“我是谁”的站点，应该算作“个人主页”，并非博客，用作于一些项目展示、网络名片也是很好的。\\n而ta说“我是谁”，和自己观察“ta是谁“，是两种截然不同的感受。前者能迅速建立起一个停留于表层但具体的印象，而后者多出一种视奸的快感。从字里行间里感受ta是什么人，虽然建立印象的周期长，但深入。值得。\\n所以很多人博客的关于页面，我就当看个乐呵就过去了，仔细看每一篇文章，从ta的文字、观点、立场、价值观和认知来建立起ta的形象。有些人宏伟庄严，有些人冷漠麻木，有些人用平实朴素的语言记录，有些人用各种恶心到家的语气词和括号里补充的动作描写，绞尽脑汁想怎么把自己表现得多可爱。想可爱，先从扮演人类开始吧。这么在意别人怎么看自己，我替你感到疲惫。\\n好吧，我承认我有点冒犯了，一些朋友看到标题是关于主题的点进来还躺枪，那对不起，我冒犯的就是你。\\n\""
   },
   
   {
@@ -914,6 +864,9 @@ window.siteSearchData = [
 	<div class="widget__content">
 		<ul class="widget__list">
 			<li class="widget__item">
+				<a class="widget__link" href="/post/%E6%8A%80%E6%9C%AF/vscode-edit-markdown/">Vscode编辑Markdown体验非常好</a>
+			</li>
+			<li class="widget__item">
 				<a class="widget__link" href="/post/%E9%9A%8F%E7%AC%94/%E5%AF%B9%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E7%9A%84%E4%B8%80%E7%82%B9%E6%83%B3%E6%B3%95/">对博客主题的一点想法</a>
 			</li>
 			<li class="widget__item">
@@ -1000,9 +953,6 @@ window.siteSearchData = [
 			<li class="widget__item">
 				<a class="widget__link" href="/post/%E6%8A%80%E6%9C%AF/%E6%88%91%E8%BF%98%E6%98%AF%E6%94%BE%E4%B8%8D%E4%B8%8Bemacs/">我还是放不下Emacs！</a>
 			</li>
-			<li class="widget__item">
-				<a class="widget__link" href="/post/%E9%9A%8F%E7%AC%94/%E7%8C%AB/">猫</a>
-			</li>
 		</ul>
 	</div>
 </div><div class="widget-archives widget">
@@ -1010,12 +960,16 @@ window.siteSearchData = [
 	<div class="widget__content" id="archives-container">
 		
 		<div class="widget__item archive-year">
-			<span class="archive-year-text">2025 (76)</span>
+			<span class="archive-year-text">2025 (77)</span>
 			<div class="archive-months">
 				
 				<div class="archive-month">
-					<span class="archive-month-text" data-toggle="archive">July (6)</span>
+					<span class="archive-month-text" data-toggle="archive">July (7)</span>
 					<div class="archive-posts">
+						
+						<div class="archive-post">
+							<a href="/post/%E6%8A%80%E6%9C%AF/vscode-edit-markdown/" class="archive-post-link">Vscode编辑Markdown体验非常好</a>
+						</div>
 						
 						<div class="archive-post">
 							<a href="/post/%E9%9A%8F%E7%AC%94/%E5%AF%B9%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E7%9A%84%E4%B8%80%E7%82%B9%E6%83%B3%E6%B3%95/" class="archive-post-link">对博客主题的一点想法</a>

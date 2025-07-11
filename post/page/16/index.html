@@ -45,6 +45,51 @@
 	</header><article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AErime%E8%BE%93%E5%85%A5%E6%B3%95/" 
+			   class="post-title-link"
+			   title="安装配置Rime输入法">
+				安装配置Rime输入法
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-03-24T20:37:38Z">March 24, 2025</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<h1 id="前言">前言</h1>
+<p>其实我有能用的fcitx5+搜狗输入法的方案，但奈何kitty终端有对这个输入法的兼容性问题，无法启用中文，又奈何kitty的界面多美观舒服，和Konsole比起来简直就不是一个时代的产物。</p>
+<h1 id="安装ibus框架和rime输入法引擎">安装Ibus框架和Rime输入法引擎</h1>
+<p><strong>安装 IBus 和 Rime 组件</strong>：
+<code>sudo pacman -S ibus ibus-rime</code></p>
+<p><strong>安装 Rime 双拼方案：</strong>
+<code>sudo pacman -S rime-double-pinyin</code></p>
+<h2 id="配置-ibus-和-rime">配置 IBus 和 Rime</h2>
+<p><strong>设置环境变量</strong>
+在<code>~/.xprofile</code>添加以下内容</p>
+<pre><code class="language-bash">export GTK_IM_MODULE=ibus export QT_IM_MODULE=ibus export XMODIFIERS=@im=ibus
+</code></pre>
+<p>重启系统或执行 <code>source ~/.xprofile</code> 使配置生效</p>
+<p><strong>启动 IBus 并添加 Rime 输入源</strong></p>
+<pre><code class="language-bash">ibus-daemon -drx
+</code></pre>
+<p>右键点击系统托盘中的 IBus 图标，选择 <strong>Preferences</strong> → <strong>Input Method</strong> → <strong>Add</strong>，选择 <strong>Chinese (Rime)</strong>。</p>
+<p><strong>配置双拼方案</strong>
+编辑 Rime 的配置文件 <code>~/.config/ibus/rime/default.custom.yaml</code>：</p>
+<pre><code class="language-bash">patch:
+schema_list:
+	- schema: double_pinyin # 自然码双拼
+	- schema: luna_pinyin # 全拼备用
+</code></pre>
+<h2 id="优化-rime-的智能联想与词库">优化 Rime 的智能联想与词库</h2>
+<p><strong>启用雾凇拼音方案（推荐）</strong></p>
+		<hr>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AErime%E8%BE%93%E5%85%A5%E6%B3%95/"></a>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/%E6%8A%80%E6%9C%AF/nodejs%E7%8E%AF%E5%A2%83%E4%B8%8B%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%8B%BC%E6%8E%A5%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%87%BA%E6%9C%89undefind/" 
 			   class="post-title-link"
 			   title="Nodejs环境下控制台拼接字符串输出有undefind">
@@ -137,26 +182,6 @@ System.out.println(&quot;孩子吃东西狼吞虎咽&quot;);
 	</div>
 	<div class="list__footer clearfix">
 		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/%E4%BA%BA%E8%AF%9D%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3%E5%85%AB%E4%B8%8B%E9%81%97%E4%BC%A0%E4%B9%8B%E7%94%9F%E7%89%A9%E7%9A%84%E9%81%97%E4%BC%A0%E5%8F%98%E5%BC%82/"></a>
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/%E6%8A%80%E6%9C%AF/kitty%E7%BB%88%E7%AB%AF%E7%BE%8E%E5%8C%96%E8%AE%B0%E5%BD%95/" 
-			   class="post-title-link"
-			   title="Kitty终端美化记录">
-				Kitty终端美化记录
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<time class="meta__text" datetime="2025-03-09T12:41:10Z">March 09, 2025</time></div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<p>Kitty这个终端可谓是兼顾了性能与美观，虽然默认设置很简陋，但是经过一番折腾后也能变得很漂亮。</p>
-		<hr>
-	</div>
-	<div class="list__footer clearfix">
-		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/kitty%E7%BB%88%E7%AB%AF%E7%BE%8E%E5%8C%96%E8%AE%B0%E5%BD%95/"></a>
 	</div>
 </article>
 </main>

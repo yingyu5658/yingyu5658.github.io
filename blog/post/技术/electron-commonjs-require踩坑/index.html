@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Electron CommonJS require踩坑 - 映屿</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+
+	
+
+	
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	
+	
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	
+	<link rel="dns-prefetch" href="https://api.github.com">
+
+</head>
+
+<body class="page-page">
+	<div class="mail">
+	<div class="container container--outer">
+		<div class="border">
+		
+	<div class="topbar">
+		<a class="topbar__link" href="/" title="映屿" rel="sidebar">
+			<div class="topbar__item topbar__text">
+					<div class="topbar__title">映屿</div>
+					<div class="topbar__tagline">yingyu5658的数字花园</div>
+				</div>
+		</a>
+	</div>
+		<div class="wrapper flex">			
+			<div class="primary">
+			
+<main class="main" role="main">
+	
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Electron CommonJS require踩坑</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-05-31T09:07:36&#43;08:00">May 31, 2025</time></div></div>
+		</header><div class="content post__content clearfix">
+			<div class="in-permalink">
+			<p>最近在开发一个Electron项目，在导入类的时候有以下报错:</p>
+<pre><code>node:internal/modules/cjs/loader:1411 Uncaught Error: Cannot find module './File'
+Require stack:
+- E:\Develop\markdown-editor\src\html\index.html
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1408:15)
+    at a._resolveFilename (node:electron/js2c/renderer_init:2:2643)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1064:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1069:22)
+    at Module._load (node:internal/modules/cjs/loader:1218:37)
+    at c._load (node:electron/js2c/node_init:2:17950)
+    at s._load (node:electron/js2c/renderer_init:2:31718)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:242:24)
+    at Module.require (node:internal/modules/cjs/loader:1494:12)
+</code></pre>
+<p>提示找不到模块。</p>
+<p>Electron中，使用require语句导入，都是默认从项目跟目录开始查找，所以要拼接完整路径。使用绝对路径也是不行的，在IDE里可以跳转，但是一运行就是找不到模块
+<code>const File = require(&quot;src/js/File&quot;)</code></p>
+<pre><code>Uncaught Error: Cannot find module 'src/js/File'
+Require stack:
+- E:\Develop\markdown-editor\src\html\index.html
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1408:15)
+    at a._resolveFilename (node:electron/js2c/renderer_init:2:2643)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1064:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1069:22)
+    at Module._load (node:internal/modules/cjs/loader:1218:37)
+    at c._load (node:electron/js2c/node_init:2:17950)
+    at s._load (node:electron/js2c/renderer_init:2:31718)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:242:24)
+    at Module.require (node:internal/modules/cjs/loader:1494:12)
+</code></pre>
+<h2 id="解决方法">解决方法</h2>
+<p>使用path.join拼接完整路径</p>
+<pre><code class="language-js">const File = require(path.join(__dirname, &quot;../js/File.js&quot;));
+</code></pre>
+<p>经过测试，只能用这种方法导入，太怪了</p>
+
+			</div>
+		</div>
+	</article>
+</main>
+
+<div id="giscus">
+	<hr>
+</div>
+
+<script 
+	 src="https://giscus.app/client.js"
+	 data-repo="yingyu5658/yingyu5658.github.io"
+	 data-repo-id="R_kgDOOBetsA"
+	 data-category="Announcements"
+	 data-category-id="DIC_kwDOOBetsM4CoF_Z"
+	 data-mapping="pathname"
+	 data-strict="0"
+	 data-reactions-enabled="1"
+	 data-emit-metadata="0"
+	 data-input-position="bottom"
+	 data-theme="noborder_light"
+	 data-lang="zh-CN"
+	 data-loading="lazy"
+	 crossorigin="anonymous"
+	 async>
+</script>
+
+			</div>
+			
+		</div>
+		</div>
+	</div>
+</div>
+
+	<script src="/js/search.js" defer></script>
+	<script src="/js/archives.js" defer></script>
+	<script src="/js/lazyload.js" defer></script>
+	
+	
+</body>
+</html>

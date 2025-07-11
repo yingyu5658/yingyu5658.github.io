@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Emacs配置记录 2——C/C&#43;&#43;环境配置 - 映屿</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+
+	
+
+	
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	
+	
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	
+	<link rel="dns-prefetch" href="https://api.github.com">
+
+</head>
+
+<body class="page-page">
+	<div class="mail">
+	<div class="container container--outer">
+		<div class="border">
+		
+	<div class="topbar">
+		<a class="topbar__link" href="/" title="映屿" rel="sidebar">
+			<div class="topbar__item topbar__text">
+					<div class="topbar__title">映屿</div>
+					<div class="topbar__tagline">yingyu5658的数字花园</div>
+				</div>
+		</a>
+	</div>
+		<div class="wrapper flex">			
+			<div class="primary">
+			
+<main class="main" role="main">
+	
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Emacs配置记录 2——C/C&#43;&#43;环境配置</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-06-04T18:58:37Z">June 04, 2025</time></div></div>
+		</header><div class="content post__content clearfix">
+			<div class="in-permalink">
+			<h2 id="前言">前言</h2>
+<p>经过<a href="">上一篇</a>的简单调教，Emacs已经勉强变成了一个温顺的文本编辑器，但是离写代码这个宏大的目标还是有一段距离的，今天来解决主要问题：代码补全。由于我要写一点简单的C代码，那么重点就先放到C/CPP环境搭建中。</p>
+<p>站在巨人的肩膀上，在Emacs中的代码补全使用巨硬的LSP协议。</p>
+<h2 id="spacemacs">Spacemacs</h2>
+<p>经过考虑，我还是决定使用Spacemacs，比起原版Emacs，它更适合新手，也更能快速投入开发。避免配置陷阱，过多把时间花在刀把上。唉，也就是说，昨天大部分都白干了。算了，生命的意义就在于折腾，怕折腾我也不会玩Emacs了。来吧！</p>
+<p>先来安装一下Spacemacs。
+<code>git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d</code></p>
+<p>重启Emacs，让他下载一下自带的包。</p>
+<p>上次没清理干净Spacemacs，不知道存在哪的备份还在，算是免去了一些折腾吧。来看看现在的Emacs都配置了什么。</p>
+<pre><code class="language-lisp">   dotspacemacs-configuration-layers
+   '(yaml
+     markdown
+     javascript
+     (auto-completion :variables
+                      auto-completion-idle-delay 0.01    ; 降低补全延迟
+                      auto-completion-minimum-prefix-length 1)
+     (prettier :variables
+               prettier-always-enable t)  ; 保存时自动格式化
+     (javascript :variables
+                 javascript-backend 'lsp        ; 启用LSP后端
+                 javascript-fmt-tool 'prettier) ; 格式化工具选Prettier
+     (c-c++ :variables
+            c-c++-backend 'lsp-clangd)         ; C/C++使用Clangd后端
+     (vue :variables
+          vue-backend 'lsp)                    ; Vue使用LSP后端
+     (html)                                    ; HTML/CSS支持
+     (lsp)                                     ; 必须的LSP核心支持层
+     (auto-completion)                         ; 自动补全
+     (syntax-checking)                         ; 语法检查
+     ;; ----------------------------------------------------------------
+     ;; Example of useful layers you may want to use right away.
+     ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
+     ;; `M-m f e R' (Emacs style) to install them.
+     ;; ----------------------------------------------------------------
+     ;; auto-completion
+     ;; better-defaults
+     emacs-lisp
+     treemacs
+     ;; git
+     helm
+     lsp
+     ;; markdown
+     multiple-cursors
+     ;; org
+     ;; (shell :variables
+     ;;        shell-default-height 30
+     ;;        shell-default-position 'bottom)
+     ;; spell-checking
+     ;; syntax-checking
+     ;; version-control
+     treemacs)
+</code></pre>
+<p>emmm，还是有点有用的。比如C/C++这里，就启用了LSP。还有一些之前搞的前端配置。就是不知道为啥，JavaScript的补全不太好使。</p>
+<h2 id="语法检查">语法检查</h2>
+<p>语法检查，选择当前比较成熟的flycheck，在Spacemacs中对应<code>syntax-checking</code>，在.spacemacs中的<code>dotspacemacs-configuration-layers</code>写入<code>(configuration-layer/declare-layer 'syntax-checking)</code>
+该层会自动集成Flycheck及其常见语言的后端支持。</p>
+<p>C/C++要安装<code>clang-tidy</code>或<code>cppcheck</code>。</p>
+<h3 id="进阶配置">进阶配置</h3>
+<pre><code class="language-lisp">  (with-eval-after-load 'flycheck
+    (setq flycheck-check-syntax-automatically '(save mode-enabled) ;; 保存时检查
+          flycheck-display-errors-delay 0.5                        ;; 错误显示延迟
+          flycheck-indication-mode 'right-fringe))                 ;; 错误标记位置
+</code></pre>
+<h2 id="spacemacs-文件基本介绍httpsliuzhijun-sourcegithubiospacemacs-14-daysweek01day05day05_spacemacse79a84e8bf9be998b6e9858de7bdae_e4b88aidspacemacs-e69687e4bbb6e59fbae69cace4bb8be7bb8d"><a href="https://liuzhijun-source.github.io/spacemacs-14-days/#/Week01/Day05/day05_spacemacs%E7%9A%84%E8%BF%9B%E9%98%B6%E9%85%8D%E7%BD%AE_%E4%B8%8A?id=spacemacs-%e6%96%87%e4%bb%b6%e5%9f%ba%e6%9c%ac%e4%bb%8b%e7%bb%8d">.spacemacs 文件基本介绍</a></h2>
+<p>.spacemacs 文件一般会自动生成在主目录下，这个文件是配置 Spacemacs 的入口，有关于 Spacemacs 本身的配置基本都能在里面进行修改，用户设置同样在这个文件中修改。</p>
+<p>.spacemacs 中，内容一般被分为以下几个部分，每个部分都封装在一个函数中：</p>
+<ul>
+<li><code>dotspacemacs/layers</code></li>
+</ul>
+<p>在这里可以声明一些 layer，以及删除、增添一些包，在这里还可以调整 Spacemacs 加载时的一些行为</p>
+<ul>
+<li><code>dotspacemacs/init</code></li>
+</ul>
+<p>Spacemacs 绝大部分的配置都位于此，你可以在此修改配置中可选的选项，但绝对不能将自己的用户配置代码添加在这里</p>
+<ul>
+<li><code>dotspacemacs/user-init</code></li>
+</ul>
+<p>这里的内容会在 Emacs 启动前开始加载，一般在这里设置你需要使用的 elpa 源，你应该尽量把用户配置放在 <code>dotspacemacs/user-config</code> 中</p>
+<ul>
+<li><code>dotspacemacs/user-config</code></li>
+</ul>
+<p>在这里可以添加你的用户配置代码，你自己的定义的大部分配置一般都在这里完成</p>
+<ul>
+<li><code>dotspacemacs/emacs-custom-settings</code></li>
+</ul>
+<p>Spacemacs 自己生成的配置，同样不建议自己去修改</p>
+<blockquote>
+<p>摘自<a href="https://liuzhijun-source.github.io/spacemacs-14-days/#/Week01/Day05/day05_spacemacs%E7%9A%84%E8%BF%9B%E9%98%B6%E9%85%8D%E7%BD%AE_%E4%B8%8A">Spacemaccs 14 Days</a></p>
+</blockquote>
+
+			</div>
+		</div>
+	</article>
+</main>
+
+<div id="giscus">
+	<hr>
+</div>
+
+<script 
+	 src="https://giscus.app/client.js"
+	 data-repo="yingyu5658/yingyu5658.github.io"
+	 data-repo-id="R_kgDOOBetsA"
+	 data-category="Announcements"
+	 data-category-id="DIC_kwDOOBetsM4CoF_Z"
+	 data-mapping="pathname"
+	 data-strict="0"
+	 data-reactions-enabled="1"
+	 data-emit-metadata="0"
+	 data-input-position="bottom"
+	 data-theme="noborder_light"
+	 data-lang="zh-CN"
+	 data-loading="lazy"
+	 crossorigin="anonymous"
+	 async>
+</script>
+
+			</div>
+			
+		</div>
+		</div>
+	</div>
+</div>
+
+	<script src="/js/search.js" defer></script>
+	<script src="/js/archives.js" defer></script>
+	<script src="/js/lazyload.js" defer></script>
+	
+	
+</body>
+</html>

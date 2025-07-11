@@ -44,6 +44,34 @@
 	<article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/181/" 
+			   class="post-title-link"
+			   title="Spigot服务端控制台中文乱码解决方案">
+				Spigot服务端控制台中文乱码解决方案
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-01-04T08:35:00Z">January 04, 2025</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<ol>
+<li>把<code>-Dfile.encoding=UTF-8</code>加在开服脚本文件的<code>-jar</code>前即可。</li>
+<li>在启动脚本第一行加上<code>chcp 65001</code>
+我的启动脚本如下：</li>
+</ol>
+<pre><code class="language-bash">chcp 65001
+java -Dfile.encoding=UTF-8 -jar spigot-1.21.jar
+</code></pre>
+<p><img src="https://www.yingyu5658.cn/usr/uploads/2025/01/1203260069.jpg" alt=""></p>
+<p><img src="/images/Spigot%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%8E%A7%E5%88%B6%E5%8F%B0%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/1203260069.jpg" alt="相关图片"></p>
+<p><img src="/images/Spigot%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%8E%A7%E5%88%B6%E5%8F%B0%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/1203260069.jpg" alt="相关图片"></p>
+<p><img src="/images/Spigot%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%8E%A7%E5%88%B6%E5%8F%B0%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/1203260069.jpg" alt="相关图片"></p>
+		<hr>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/%E6%8A%80%E6%9C%AF/171/" 
 			   class="post-title-link"
 			   title="String的注意事项">
@@ -234,121 +262,6 @@ public class StringDemo {
 	<div class="list__footer clearfix">
 		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/166/"></a>
 	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/%E6%8A%80%E6%9C%AF/163/" 
-			   class="post-title-link"
-			   title="记录配置SSL证书">
-				记录配置SSL证书
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<time class="meta__text" datetime="2024-12-17T11:46:07Z">December 17, 2024</time></div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<p>首先你要有一个SSL证书，建议在阿里云购买或者<a href="https://developer.aliyun.com/article/1595201">免费申请</a>，具体过程阿里云这个页面讲的很详细，在此不过多赘述。</p>
-<h1 id="配置证书">配置证书</h1>
-<p>由于我的nginx安装了ssl模块，直接进入配置证书。</p>
-<p>解压下载好的证书，然后上传到服务器。位置自己方便找到即可
-我放到了root/card</p>
-<h1 id="配置nginxconf">配置nginx.conf</h1>
-<p>进入nginx.conf，我的文件位置在<code>/etc/nginx/nginx.conf</code>,有些可能在<code>/usr/local/nginx/conf</code>
-编辑模式，启动！</p>
-<pre><code>
-  
-
-http {
-
-    include       mime.types;  # 包含 MIME 类型定义
-
-    default_type  application/octet-stream;
-
-    sendfile        on;
-
-    keepalive_timeout  65;
-
-  
-
-    # HTTPS server block
-
-    server {
-
-        # 监听443端口（HTTPS）
-
-        listen 443 ssl;
-
-  
-
-        # 【请修改】您的域名
-
-        server_name yingyu5658.cn;
-
-  
-
-        # 启用 SSL (注意: &quot;ssl on;&quot; 已被弃用，直接使用 &quot;listen ... ssl;&quot;)
-
-        ssl on;
-
-  
-
-        # 【请修改】SSL 证书的 PEM 文件路径
-
-        ssl_certificate  /root/card/www.yingyu5658.cn.pem;
-
-  
-
-        # 【请修改】SSL 证书的 KEY 文件路径
-
-        ssl_certificate_key /root/card/www.yingyu5658.cn.key;
-
-  
-
-        location / {
-
-            # 【请修改】代理转发的目标地址和端口（例如公网IP和项目端口号）
-
-            proxy_pass  http://公网地址:项目端口号;
-
-        }
-
-    }
-
-  
-
-    # HTTP server block for redirecting to HTTPS
-
-    server {
-
-        # 监听80端口（HTTP）
-
-        listen 80;
-
-  
-
-        # 【请修改】您的域名
-
-        server_name huiblog.top;
-
-  
-
-        # 将所有 HTTP 请求永久重定向到 HTTPS
-
-        rewrite ^(.*)$ https://$host$1 permanent;
-
-    }
-
-}
-
-</code></pre>
-<h1 id="重新加载nginx">重新加载Nginx</h1>
-<p><code>sudo systemctl reload nginx</code></p>
-		<hr>
-	</div>
-	<div class="list__footer clearfix">
-		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/163/"></a>
-	</div>
 </article>
 </main>
 
@@ -408,9 +321,15 @@ http {
 window.siteSearchData = [
   
   {
+    "title": "\"Vscode编辑Markdown体验非常好\"",
+    "url": "https:\/\/www.yingyu5658.me\/post\/%E6%8A%80%E6%9C%AF\/vscode-edit-markdown\/",
+    "content": "\"平常我想写Markdown，都是用typora或Ｏbsidian，这两个软件都很好。但各有优缺点，但现在让我硬挑，我还真挑不出来几个。让我真正觉得Vscode更好的是从Hexo迁移到Hugo的那次经历。\\nHexo和Hugo的Front Matter格式不同，比如Hexo的date，是yyyy-MM-dd hh:mm:ss格式，但Hugo是yyyy-MM-ddThh:mm:ss+hh:mm的ISO 8601 标准时间格式，所以就要进行替换。我尝试用让Ai写脚本，但项目的目录结构错综复杂，匹配不彻底，匹配彻底也有不周全的地方。而Vscode的查找替换功能很好地解决了这个问题，如果有正则表达式写起来太麻烦的，搜个前缀，然后选中修改所有匹配项也就差不多了。\\n而且Vscode有Vim插件，可以解决老Vimer的hjkl依赖问题，唯一不足就是不能用C-v粘贴图片，可能是我还没研究出来。Vscode中编辑主题的代码或者临时写个自动化脚本折腾一下博客也很方便，只需要开一个Vscode，内置终端足以新建文章，Git推送，如果你很闲，甚至在那个终端可以打开Vim，用Vim来编辑。\\n\""
+  },
+  
+  {
     "title": "\"对博客主题的一点想法\"",
     "url": "https:\/\/www.yingyu5658.me\/post\/%E9%9A%8F%E7%AC%94\/%E5%AF%B9%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E7%9A%84%E4%B8%80%E7%82%B9%E6%83%B3%E6%B3%95\/",
-    "content": "\"简单回顾以下建站历程，博客的内容从“我是谁”转移到了\\u0026quot;我想说什么\\u0026quot;。从最早开始正式写博客的Gmeek，到后来使用Typecho，再到Hexo,Hugo，这几个不同的时期是我对主题看法的不同阶段。\\nGmeek时期，没有概念，没看过几个人的博客，后来接触得多了，看了很多主题才意识到自己博客的主题有多简陋，还到Typecho，开始折腾主题，经历了一段不堪回首的时期。经典的一些元素：左下角挡字小人、底部音乐播放器、背景樱花飘落特效、点击特效，总之就是各种花里胡哨。文章，没有几篇，但是你可以在网页上找到任何你想找到的东西，除了文章。当时很喜欢Butterfly主题\\n后来换到了Hexo，也有Butterfly，继续用。发现点二十个网站，三十个都是Butterfly，很尴尬，后来经过几经波折，换到了Maupassant，输出了几篇自认为有点内容的文章，主要还是有感而发，我写东西不在乎谁看了，谁怎么看。我只是享受编辑和发送的过程。有人说心情不好，就把让你不开心的事写在纸上然后团成球扔进垃圾桶。这样还是太浪费了，毕竟是自己亲笔写下的文字，另说浪费纸张也不好。\\n在Hexo时期，我一直在寻找让读者弱化“我是谁”，专心聚焦与内容的主题。Maupassant就很好。后来转来Hugo，是看中了云风博客的那种千禧年的风格，不花哨，也不简陋。基于JiaoYuan的移植后简单修改了以下配色之类，就正式投入使用。\\n我认为，博客重在内容，想表达什么观点、想记录什么事件。毕竟Blog，Web Log，Log，日志，记录。除了记录，也可以是扩大自己声音的一个渠道，独立于平台，起码不会有跳墙的删掉你辛辛苦苦打出来的一大段字。\\n而把重心放到了“我是谁”的站点，应该算作“个人主页”，并非博客，用作于一些项目展示、网络名片也是很好的。\\n而ta说“我是谁”，和自己观察“ta是谁“，是两种截然不同的感受。前者能迅速建立起一个停留于表层但具体的印象，而后者多出一种视奸的快感。从字里行间里感受ta是什么人，虽然建立印象的周期长，但深入。值得。\\n所以很多人博客的关于页面，我就当看个乐呵就过去了，仔细看每一篇文章，从ta的文字、观点、立场、价值观和认知来建立起ta的形象。有些人宏伟庄严，有些人冷漠麻木，有些人用平实朴素的语言记录，有些人用各种恶心到家的语气词和括号里补充的动作描写，绞尽脑汁想怎么把自己表现得多可爱。想可爱，先从扮演人类开始吧。这么在意别人怎么看自己，我替你感到疲惫。\\n好吧，我承认我有点冒犯了，一些朋友看到标题是关于主题的点进来还躺枪，那对不起，我冒犯的就是你。\\n\""
+    "content": "\"简单回顾以下建站历程，博客的内容从“我是谁”转移到了\\u0026quot;我想说什么\\u0026quot;。从最早开始正式写博客的Gmeek，到后来使用Typecho，再到Hexo,Hugo，这几个不同的时期是我对主题看法的不同阶段。\\nGmeek时期，没有概念，没看过几个人的博客，后来接触得多了，看了很多主题才意识到自己博客的主题有多简陋，换到Typecho，开始折腾主题，经历了一段不堪回首的时期。经典的一些元素：左下角挡字小人、底部音乐播放器、背景樱花飘落特效、点击特效，总之就是各种花里胡哨。文章，没有几篇，但是你可以在网页上找到任何你想找到的东西，除了文章。当时很喜欢Butterfly主题\\n后来换到了Hexo，也有Butterfly，继续用。发现点二十个网站，三十个都是Butterfly，很尴尬，后来经过几经波折，换到了Maupassant，输出了几篇自认为有点内容的文章，主要还是有感而发，我写东西不在乎谁看了，谁怎么看。我只是享受编辑和发送的过程。有人说心情不好，就把让你不开心的事写在纸上然后团成球扔进垃圾桶。这样还是太浪费了，毕竟是自己亲笔写下的文字，另说浪费纸张也不好。\\n在Hexo时期，我一直在寻找让读者弱化“我是谁”，专心聚焦与内容的主题。Maupassant就很好。后来转来Hugo，是看中了云风博客的那种千禧年的风格，不花哨，也不简陋。基于JiaoYuan的移植后简单修改了以下配色之类，就正式投入使用。\\n我认为，博客重在内容，想表达什么观点、想记录什么事件。毕竟Blog，Web Log，Log，日志，记录。除了记录，也可以是扩大自己声音的一个渠道，独立于平台，起码不会有跳墙的删掉你辛辛苦苦打出来的一大段字。\\n而把重心放到了“我是谁”的站点，应该算作“个人主页”，并非博客，用作于一些项目展示、网络名片也是很好的。\\n而ta说“我是谁”，和自己观察“ta是谁“，是两种截然不同的感受。前者能迅速建立起一个停留于表层但具体的印象，而后者多出一种视奸的快感。从字里行间里感受ta是什么人，虽然建立印象的周期长，但深入。值得。\\n所以很多人博客的关于页面，我就当看个乐呵就过去了，仔细看每一篇文章，从ta的文字、观点、立场、价值观和认知来建立起ta的形象。有些人宏伟庄严，有些人冷漠麻木，有些人用平实朴素的语言记录，有些人用各种恶心到家的语气词和括号里补充的动作描写，绞尽脑汁想怎么把自己表现得多可爱。想可爱，先从扮演人类开始吧。这么在意别人怎么看自己，我替你感到疲惫。\\n好吧，我承认我有点冒犯了，一些朋友看到标题是关于主题的点进来还躺枪，那对不起，我冒犯的就是你。\\n\""
   },
   
   {
@@ -984,6 +903,9 @@ window.siteSearchData = [
 	<div class="widget__content">
 		<ul class="widget__list">
 			<li class="widget__item">
+				<a class="widget__link" href="/post/%E6%8A%80%E6%9C%AF/vscode-edit-markdown/">Vscode编辑Markdown体验非常好</a>
+			</li>
+			<li class="widget__item">
 				<a class="widget__link" href="/post/%E9%9A%8F%E7%AC%94/%E5%AF%B9%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E7%9A%84%E4%B8%80%E7%82%B9%E6%83%B3%E6%B3%95/">对博客主题的一点想法</a>
 			</li>
 			<li class="widget__item">
@@ -1070,9 +992,6 @@ window.siteSearchData = [
 			<li class="widget__item">
 				<a class="widget__link" href="/post/%E6%8A%80%E6%9C%AF/%E6%88%91%E8%BF%98%E6%98%AF%E6%94%BE%E4%B8%8D%E4%B8%8Bemacs/">我还是放不下Emacs！</a>
 			</li>
-			<li class="widget__item">
-				<a class="widget__link" href="/post/%E9%9A%8F%E7%AC%94/%E7%8C%AB/">猫</a>
-			</li>
 		</ul>
 	</div>
 </div><div class="widget-archives widget">
@@ -1080,12 +999,16 @@ window.siteSearchData = [
 	<div class="widget__content" id="archives-container">
 		
 		<div class="widget__item archive-year">
-			<span class="archive-year-text">2025 (76)</span>
+			<span class="archive-year-text">2025 (77)</span>
 			<div class="archive-months">
 				
 				<div class="archive-month">
-					<span class="archive-month-text" data-toggle="archive">July (6)</span>
+					<span class="archive-month-text" data-toggle="archive">July (7)</span>
 					<div class="archive-posts">
+						
+						<div class="archive-post">
+							<a href="/post/%E6%8A%80%E6%9C%AF/vscode-edit-markdown/" class="archive-post-link">Vscode编辑Markdown体验非常好</a>
+						</div>
 						
 						<div class="archive-post">
 							<a href="/post/%E9%9A%8F%E7%AC%94/%E5%AF%B9%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E7%9A%84%E4%B8%80%E7%82%B9%E6%83%B3%E6%B3%95/" class="archive-post-link">对博客主题的一点想法</a>

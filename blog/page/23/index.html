@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Blogs - 映屿</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+
+	
+
+	
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	
+	
+	<link rel="stylesheet" href="/css/style.css">
+	
+	<link rel="alternate" type="application/rss&#43;xml" href="/blog/atom.xml" title="映屿">
+
+	
+	<link rel="dns-prefetch" href="https://api.github.com">
+
+</head>
+
+<body class="section-page">
+	<div class="mail">
+	<div class="container container--outer">
+		<div class="border">
+		
+	<div class="topbar">
+		<a class="topbar__link" href="/" title="映屿" rel="sidebar">
+			<div class="topbar__item topbar__text">
+					<div class="topbar__title">映屿</div>
+					<div class="topbar__tagline">yingyu5658的数字花园</div>
+				</div>
+		</a>
+	</div>
+		<div class="wrapper flex">			
+			<div class="primary">
+			
+<main class="main list" role="main">
+	<header class="main__header">
+		<h1 class="main__title">Blogs</h1>
+	</header><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/blog/post/%E6%8A%80%E6%9C%AF/132/" 
+			   class="post-title-link"
+			   title="【Hexo】配置好服务器后如何发表编辑好的文章？">
+				【Hexo】配置好服务器后如何发表编辑好的文章？
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2024-12-08T00:17:58&#43;08:00">December 08, 2024</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<ol>
+<li><code>hexo s</code> 先在本地预览一下文章，如果都好了就进入下一步。</li>
+<li><code>hexo clean</code> 清除缓存</li>
+<li><code>hexo g</code> 生成文件</li>
+<li><code>hexo d</code> 部署</li>
+</ol>
+<p>等待部署完成后刷新页面就好了</p>
+<p><img src="....%5Cimages%5C2024%5C12%5C1241193660.jpg" alt=""></p>
+<p><img src="/images/%E3%80%90Hexo%E3%80%91%E9%85%8D%E7%BD%AE%E5%A5%BD%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%90%8E%E5%A6%82%E4%BD%95%E5%8F%91%E8%A1%A8%E7%BC%96%E8%BE%91%E5%A5%BD%E7%9A%84%E6%96%87%E7%AB%A0%EF%BC%9F/1241193660.jpg" alt="相关图片"></p>
+		<hr>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/blog/post/%E6%8A%80%E6%9C%AF/98/" 
+			   class="post-title-link"
+			   title="Java面向对象编程快速入门">
+				Java面向对象编程快速入门
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2024-12-01T13:05:00Z">December 01, 2024</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<h1 id="什么是面向对象编程">什么是面向对象编程</h1>
+<p>通俗易懂的说，就是把一坨一坨的数据放到一起存储
+比如要存储一个学生的语文成绩和数学成绩
+新建一个类</p>
+<pre><code class="language-java">public class Student {
+    String name;//名字
+    double chinese;//语文成绩
+    double math;//数学成绩
+
+    public void printTotalScore() {
+        System.out.println(name + &quot;的总成绩是&quot; + (chinese + math));
+    }
+
+    public void printAverageScore() {
+        System.out.println(name + &quot;的平均成绩是&quot; + (chinese + math) / 2.0);
+    }
+}
+</code></pre>
+<p>这样学生的模板就创建好了，但是这个模板还没有指向学生的每一个个体。我们可以再同一个包下再新建一个类。</p>
+<pre><code class="language-java">public class Test {
+    public static void main(String[] args) {
+        //1.创建宇哥学生对象来封装学生a的数据
+        Student s1 = new Student();
+        s1.name = &quot;学生a&quot;;
+        s1.chinese = 100;
+        s1.math = 100;
+        s1.printTotalScore();
+        s1.printAverageScore();
+
+        //2.再创建一个学生对象，封装学生b的数据
+        Student s2 = new Student();
+        s2.name = &quot;学生b&quot;;
+        s2.chinese = 100;
+        s2.math = 59;
+        s2.printTotalScore();
+        s2.printAverageScore();
+    }
+}
+</code></pre>
+<p>用以上代码新建一个学生类并且调用我们之前写好的功能</p>
+		<hr>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/blog/post/%E6%8A%80%E6%9C%AF/98/"></a>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/blog/post/%E6%8A%80%E6%9C%AF/99/" 
+			   class="post-title-link"
+			   title="深刻认识面向对象">
+				深刻认识面向对象
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2024-12-01T13:31:00&#43;08:00">December 01, 2024</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>面向对象编程的好处</p>
+<blockquote>
+<p>按照<strong>詹姆斯·高斯林</strong>的看法，世间万物都是对象。好比要出去旅游，你要找到车这个对象调用他的行驶功能使用来带你出去旅游。</p>
+</blockquote>
+<p>所以面向对象编程的好处就是：<strong>符合人类思维习惯，编程更简单，更直观</strong>。</p>
+<h1 id="程序中的对象到底是什么">程序中的对象到底是什么</h1>
+<ul>
+<li>对象本质上是一种<strong>特殊的数据结构</strong>，很像数据库，但是数据库是持久存储的数据。体现出计算机各个学科的交叉。
+一开始设计的类就是一张表，后续在其他类中填入这张表的内容。</li>
+</ul>
+<h1 id="对象是怎么出来的">对象是怎么出来的</h1>
+<p>class也就是<strong>类</strong>，也称为<strong>对象的设计图</strong>（或者<strong>对象的模板</strong>）</p>
+<ul>
+<li>类里可以设计很多变量，用来说明对象可以处理什么数据。</li>
+<li>类里还可以设计很多的方法，描述对象有什么功能，也就是要对数据进行什么样的处理。
+接下来我们就可以在程序中new对象了
+<strong>也就是先用class设计对象，然后再用class new出对象。</strong></li>
+</ul>
+<p>具体使用语法见上一篇文章[post cid=&ldquo;98&rdquo; /]</p>
+<p><img src="http://www.yingyu5658.cn/usr/uploads/2024/12/2743265221.jpg" alt="v2-4b5c3f2b057efbc7e58cdfbd98a5e36d_720w.jpg"></p>
+		<hr>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/blog/post/%E6%8A%80%E6%9C%AF/95/" 
+			   class="post-title-link"
+			   title="Java方法的传参原理">
+				Java方法的传参原理
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2024-11-30T20:14:00Z">November 30, 2024</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<h1 id="java方法的参数传递机制-基本类型">Java方法的参数传递机制-基本类型</h1>
+<p>值传递</p>
+<h2 id="值传递是什么">值传递是什么</h2>
+<p>在传输实参给方法的形参的时候，<strong>传输的是实参变量中存储的副本</strong>
+说人话，把实参里面的东西赋值了一部分扔了给形参</p>
+<h1 id="值传递具体理解案例">值传递具体理解案例</h1>
+<pre><code class="language-java">public class prameter {
+    public static void main(String[] args) {
+        int a = 10; //定义一个int变量a赋值为10
+        change(a); //调用change方法
+        System.out.println(&quot;main&quot; + a); //打印mian a中的值
+    }
+
+//这里开始写方法
+    public static void change(int a){
+        System.out.println(&quot;change1&quot; + a); //打印方法中a的值
+        a = 20;
+        System.out.println(&quot;change2&quot;a); //打印赋值后a的值
+    }
+}
+</code></pre>
+<p>我们运行以后，控制台输出的结果为</p>
+<pre><code>change1 10
+change2 20
+main 10
+</code></pre>
+<h2 id="为什么main中打印的不是赋值后的20">为什么main中打印的不是赋值后的20？</h2>
+<p>这就要提到刚才的概念：<strong>值传递</strong>
+我们定义了一个变量<code>a = 10；</code>,在方法中<code>public static void change(int a)</code>
+由于<strong>值传递</strong>，也就是把值复制了一分传给方法，所以我们方法里用的值永远都是刚刚定义的<code>int a = 10;</code>，所以<code>change(a); = change(10);</code>
+我们后面再赋值，打印出来的结果还是10，除非你把变量定义的代码改了，否则方法里的值不会变。</p>
+		<hr>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/blog/post/%E6%8A%80%E6%9C%AF/95/"></a>
+	</div>
+</article>
+</main>
+
+<div class="pagination">
+	<a class="pagination__item pagination__item--prev btn" href="/blog/page/22/">«</a>
+	<span class="pagination__item pagination__item--current">23/25</span>
+	<a class="pagination__item pagination__item--next btn" href="/blog/page/24/">»</a>
+</div>
+
+			</div>
+			
+
+		</div>
+		</div>
+	</div>
+</div>
+
+	<script src="/js/search.js" defer></script>
+	<script src="/js/archives.js" defer></script>
+	<script src="/js/lazyload.js" defer></script>
+	
+	
+</body>
+</html>

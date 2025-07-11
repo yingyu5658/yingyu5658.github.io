@@ -45,6 +45,80 @@
 	</header><article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/4key%E9%9F%B3%E6%B8%B8%E6%AE%B5%E4%BD%8D%E5%8D%95%E6%9B%B2%E6%88%90%E7%BB%A9%E8%AE%A1%E7%AE%97%E7%9A%84%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0/" 
+			   class="post-title-link"
+			   title="4Key音游段位单曲成绩计算的程序实现">
+				4Key音游段位单曲成绩计算的程序实现
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-06-07T13:08:07Z">June 07, 2025</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<h2 id="前言">前言</h2>
+<p>其实这个坑我很早以前就想开了，在我刚开始学编程那会就一直想写一个这个东西。但苦于数学进度没达到，要用到加权平均数，这东西我前两天才学到，之前对数学也一直是懒得学的状态，要不然几乎是看不懂那个算法的。</p>
+<p>我手头有一个<a href="https://github.com/Special-Week">Special-Week</a>写的网页版的单曲成绩计算器，就以这个为研究样本吧。以下简称原作者为sw（如有冒犯请联系修改）</p>
+<h2 id="数据结构设计">数据结构设计</h2>
+<pre><code class="language-js">    // 基础的4k类
+    class Dan4k {
+        constructor(key1, key2, key3, key4, danName) {
+            this.m_key1 = key1;
+            this.m_key2 = key2;
+            this.m_key3 = key3;
+            this.m_key4 = key4;
+            this.m_danName = danName;
+        }
+    }
+</code></pre>
+<p>每一个段（LN、Om），sw都单独写了一个内部类，继承Dan4k。</p>
+<pre><code class="language-js"> // lnDan类
+    class LnDan extends Dan4k {
+        constructor(key1, lnKey1, key2, lnKey2, key3, lnKey3, key4, lnKey4, danName) {
+            super(key1, key2, key3, key4, danName);
+            this.m_lnKey1 = lnKey1;
+            this.m_lnKey2 = lnKey2;
+            this.m_lnKey3 = lnKey3;
+            this.m_lnKey4 = lnKey4;
+        }
+    }
+    // ma段
+    class MaDan extends Dan4k {
+        constructor(key1, key2, key3, key4, name1, name2, name3, name4, danName) {
+            super(key1, key2, key3, key4, danName);
+            this.m_name1 = name1;
+            this.m_name2 = name2;
+            this.m_name3 = name3;
+            this.m_name4 = name4;
+        }
+    }
+    // reform段
+    class ReformDan extends Dan4k {
+        constructor(key1, key2, key3, key4, name1, name2, name3, name4, danName) {
+            super(key1, key2, key3, key4, danName);
+            this.m_name1 = name1;
+            this.m_name2 = name2;
+            this.m_name3 = name3;
+            this.m_name4 = name4;
+        }
+
+    }
+    // om段
+    class OmDan extends Dan4k {
+        constructor(key1, key2, key3, key4, danName) {
+            super(key1, key2, key3, key4, danName);
+        }
+    }
+</code></pre>
+<p>我打算重写的程序不带LN玩了，我自己也没玩过LN，不清楚是什么机制。那就来看看剩下的几个类。</p>
+		<hr>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/4key%E9%9F%B3%E6%B8%B8%E6%AE%B5%E4%BD%8D%E5%8D%95%E6%9B%B2%E6%88%90%E7%BB%A9%E8%AE%A1%E7%AE%97%E7%9A%84%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0/"></a>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/%E9%9A%8F%E7%AC%94/%E6%9D%82%E8%AE%B0-2025-06-06/" 
 			   class="post-title-link"
 			   title="杂记#2025-06-06">
@@ -193,30 +267,6 @@ int add(int a, int b);  // 函数声明
 	</div>
 	<div class="list__footer clearfix">
 		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/emacs%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95-2c-c&#43;&#43;%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"></a>
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/%E9%9A%8F%E7%AC%94/%E6%98%9F%E8%90%BD%E5%85%B3%E4%BA%8E%E6%88%91%E5%AF%B9%E5%91%BD%E8%BF%90%E6%97%A2%E5%AE%9A%E7%9A%84%E6%83%B3%E6%B3%95/" 
-			   class="post-title-link"
-			   title="【投稿】关于我对命运既定的想法">
-				【投稿】关于我对命运既定的想法
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<time class="meta__text" datetime="2025-06-03T20:47:13Z">June 03, 2025</time></div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<blockquote>
-<p>本文作者：<a href="https://space.bilibili.com/1920354618">星が落ちる</a>
-本文观点仅代表作者个人观点，不代表任何除作者外的个人或组织的立场。</p>
-</blockquote>
-<p>我的观点或许和强决定论很相似，我认为人类存在本质上是一种“预置框架”下的时间性展开，所谓自由意志与命运抗争，都是框架内既定的程序脚本</p>
-		<hr>
-	</div>
-	<div class="list__footer clearfix">
-		<a class="list__footer-readmore btn" href="/post/%E9%9A%8F%E7%AC%94/%E6%98%9F%E8%90%BD%E5%85%B3%E4%BA%8E%E6%88%91%E5%AF%B9%E5%91%BD%E8%BF%90%E6%97%A2%E5%AE%9A%E7%9A%84%E6%83%B3%E6%B3%95/"></a>
 	</div>
 </article>
 </main>

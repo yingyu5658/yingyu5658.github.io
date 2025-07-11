@@ -45,6 +45,84 @@
 	</header><article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BB%88%E7%AB%AF%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" 
+			   class="post-title-link"
+			   title="从0开始搭建自己的终端开发环境">
+				从0开始搭建自己的终端开发环境
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-04-15T21:15:24Z">April 15, 2025</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p><strong>系统</strong>：WSL Arch</p>
+<h3 id="主折腾点">主折腾点</h3>
+<p><strong>代码编辑器</strong>：Vim(Neovim)</p>
+<p><strong>终端体验优化</strong>：tmux</p>
+<p><strong>文件管理器</strong>：yazi</p>
+<h2 id="代码编辑器neovim">代码编辑器——Neovim</h2>
+<h3 id="前言">前言</h3>
+<p>Neovim和Vim相比，在性能和易用性上有很大的提升，在异步任务表现突出；使用更加现代的lua脚本配置，可读性更高。</p>
+<h4 id="为什么不用lazyvim">为什么不用Lazyvim？</h4>
+<p>答：我个人用了很长一段时间Lazyvim，虽然开箱即用，简单调试就可以使用，但是我并不能清除的理解他到底给我装了什么，我是否需要那些插件。感觉像在用别人的软件，而自己从头开始配置vim的掌控感是使用他人的配置文件无法比拟的，在配置的过程中也可以培养排错和程序调试能力，唯一的缺点就是略微耗费时间。</p>
+<h3 id="安装">安装</h3>
+<p>先滚一把系统保证软件包都是最新的</p>
+<p><code>sudo pacman -Syyu</code></p>
+<p>安装Neovim</p>
+<p><code>sudo pacman -S neovim</code></p>
+<p>这时候在终端输入<code>nvim</code>就可以打开neovim了。![image-20250415212435171](E:/Blog/source/im</p>
+<p><strong>按<code>:q</code>退出。</strong></p>
+<p>这个初始的界面非常简陋，我们先进行核心功能配置，后续在更改主题。</p>
+<p>nvim的用户级配置文件在<code>~/.config/nvim</code>中。</p>
+<h3 id="安装包管理器">安装包管理器</h3>
+<p>我们选择Lazy作为包管理器，他和其他的包管理器相比起来，在懒加载、UI界面等方面有显著优势，可以减小配置复杂度。</p>
+<p>访问<a href="https://lazy.folke.io/installation">lazy.nvim官网</a>，官方文档永远都是最好的教程。这里有一段代码</p>
+<pre><code class="language-lua">-- Bootstrap lazy.nvim
+local lazypath = vim.fn.stdpath(&quot;data&quot;) .. &quot;/lazy/lazy.nvim&quot;
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  local lazyrepo = &quot;https://github.com/folke/lazy.nvim.git&quot;
+  local out = vim.fn.system({ &quot;git&quot;, &quot;clone&quot;, &quot;--filter=blob:none&quot;, &quot;--branch=stable&quot;, lazyrepo, lazypath })
+  if vim.v.shell_error ~= 0 then
+    vim.api.nvim_echo({
+      { &quot;Failed to clone lazy.nvim:\n&quot;, &quot;ErrorMsg&quot; },
+      { out, &quot;WarningMsg&quot; },
+      { &quot;\nPress any key to exit...&quot; },
+    }, true, {})
+    vim.fn.getchar()
+    os.exit(1)
+  end
+end
+vim.opt.rtp:prepend(lazypath)
+
+-- Make sure to setup `mapleader` and `maplocalleader` before
+-- loading lazy.nvim so that mappings are correct.
+-- This is also a good place to setup other settings (vim.opt)
+vim.g.mapleader = &quot; &quot;
+vim.g.maplocalleader = &quot;\\&quot;
+
+-- Setup lazy.nvim
+require(&quot;lazy&quot;).setup({
+  spec = {
+    -- import your plugins
+    { import = &quot;plugins&quot; },
+  },
+  -- Configure any other settings here. See the documentation for more details.
+  -- colorscheme that will be used when installing plugins.
+  install = { colorscheme = { &quot;habamax&quot; } },
+  -- automatically check for plugin updates
+  checker = { enabled = true },
+})
+</code></pre>
+<p>这段代码主要在为Lazy包管理器初始化，所以按照官网的目录结构，我们在<code>~/.config/nvim/lua</code>下新建一个config文件夹，把代码粘贴进去。</p>
+		<hr>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BB%88%E7%AB%AF%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/"></a>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/%E6%8A%80%E6%9C%AF/%E5%88%9D%E6%8A%98%E8%85%BEemacs%E8%AE%B0%E5%BD%95/" 
 			   class="post-title-link"
 			   title="初折腾Emacs记录">
@@ -209,47 +287,6 @@ req.on('error', (err) =&gt; {
 	</div>
 	<div class="list__footer clearfix">
 		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/osu-apiv1%E8%AF%B7%E6%B1%82%E7%A4%BA%E4%BE%8B/"></a>
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/%E9%9A%8F%E7%AC%94/%E6%88%91%E7%9A%84%E6%94%92%E9%92%B1%E8%AE%A1%E5%88%92/" 
-			   class="post-title-link"
-			   title="我的攒钱计划">
-				我的攒钱计划
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<time class="meta__text" datetime="2025-04-11T20:13:20Z">April 11, 2025</time></div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<p>一个小目标，初三前攒够两千块。</p>
-<p>实现难度是不大，已经有了八百多存款，微信里有一百多，一共900。每天早上父母会给我20元买早饭，省省，不吃了，每天稳定收入20。加上每月50 + 70的零花钱。</p>
-<p>粗略估算一下：</p>
-<ul>
-<li>现金：837.00</li>
-<li>微信：100.59</li>
-<li>支付宝：5.19</li>
-<li>共 <strong>944.78</strong> 元</li>
-</ul>
-<p>与目标差 <strong>1055.22</strong> 。</p>
-<p>截止到今天（4月11日），这个月还剩 <strong>13</strong> 个工作日。</p>
-<p>月底可获得 20 * 13 = 260。</p>
-<p>共 944.78 + 260.00 = 970.78。</p>
-<p>每月 120 零花钱</p>
-<p>共 970.78 + 120 = 1090.78</p>
-<p>与目标差 <strong>909.22</strong></p>
-<p>同理可得五月份月收入：<strong>560</strong> 元，共计 <strong>1650.78</strong></p>
-<p>与目标相差 <strong>349.22</strong></p>
-<p>每月收入280，可得出七月份大概可以完成目标。</p>
-<p>当然，这是最悲观的情况。也许有哪一天能发一笔横财呢。</p>
-<p>2000块，攒攒总会有的。</p>
-<p><img src="/images/%E6%88%91%E7%9A%84%E6%94%92%E9%92%B1%E8%AE%A1%E5%88%92/image-20250411203412036.png" alt="image-20250411203412036"></p>
-<p><img src="/images/%E6%88%91%E7%9A%84%E6%94%92%E9%92%B1%E8%AE%A1%E5%88%92/image-20250411203412036.png" alt="相关图片"></p>
-<p><img src="/images/%E6%88%91%E7%9A%84%E6%94%92%E9%92%B1%E8%AE%A1%E5%88%92/image-20250411203412036.png" alt="相关图片"></p>
-<p><img src="/images/%E6%88%91%E7%9A%84%E6%94%92%E9%92%B1%E8%AE%A1%E5%88%92/image-20250411203412036.png" alt="相关图片"></p>
-		<hr>
 	</div>
 </article>
 </main>

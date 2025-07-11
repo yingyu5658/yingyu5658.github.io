@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Java面向对象编程快速入门 - 映屿</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+
+	
+
+	
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	
+	
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	
+	<link rel="dns-prefetch" href="https://api.github.com">
+
+</head>
+
+<body class="page-page">
+	<div class="mail">
+	<div class="container container--outer">
+		<div class="border">
+		
+	<div class="topbar">
+		<a class="topbar__link" href="/" title="映屿" rel="sidebar">
+			<div class="topbar__item topbar__text">
+					<div class="topbar__title">映屿</div>
+					<div class="topbar__tagline">yingyu5658的数字花园</div>
+				</div>
+		</a>
+	</div>
+		<div class="wrapper flex">			
+			<div class="primary">
+			
+<main class="main" role="main">
+	
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Java面向对象编程快速入门</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2024-12-01T13:05:00Z">December 01, 2024</time></div></div>
+		</header><div class="content post__content clearfix">
+			<div class="in-permalink">
+			<h1 id="什么是面向对象编程">什么是面向对象编程</h1>
+<p>通俗易懂的说，就是把一坨一坨的数据放到一起存储
+比如要存储一个学生的语文成绩和数学成绩
+新建一个类</p>
+<pre><code class="language-java">public class Student {
+    String name;//名字
+    double chinese;//语文成绩
+    double math;//数学成绩
+
+    public void printTotalScore() {
+        System.out.println(name + &quot;的总成绩是&quot; + (chinese + math));
+    }
+
+    public void printAverageScore() {
+        System.out.println(name + &quot;的平均成绩是&quot; + (chinese + math) / 2.0);
+    }
+}
+</code></pre>
+<p>这样学生的模板就创建好了，但是这个模板还没有指向学生的每一个个体。我们可以再同一个包下再新建一个类。</p>
+<pre><code class="language-java">public class Test {
+    public static void main(String[] args) {
+        //1.创建宇哥学生对象来封装学生a的数据
+        Student s1 = new Student();
+        s1.name = &quot;学生a&quot;;
+        s1.chinese = 100;
+        s1.math = 100;
+        s1.printTotalScore();
+        s1.printAverageScore();
+
+        //2.再创建一个学生对象，封装学生b的数据
+        Student s2 = new Student();
+        s2.name = &quot;学生b&quot;;
+        s2.chinese = 100;
+        s2.math = 59;
+        s2.printTotalScore();
+        s2.printAverageScore();
+    }
+}
+</code></pre>
+<p>用以上代码新建一个学生类并且调用我们之前写好的功能</p>
+<ul>
+<li>开发一个一个的对象，把数据交给对象，再用调用对象的方法来完成对数据的处理，这种方法叫<strong>面向对象编程</strong>。
+<img src="http://www.yingyu5658.cn/usr/uploads/2024/12/2743265221.jpg" alt=""></li>
+</ul>
+
+			</div>
+		</div>
+	</article>
+</main>
+
+<div id="giscus">
+	<hr>
+</div>
+
+<script 
+	 src="https://giscus.app/client.js"
+	 data-repo="yingyu5658/yingyu5658.github.io"
+	 data-repo-id="R_kgDOOBetsA"
+	 data-category="Announcements"
+	 data-category-id="DIC_kwDOOBetsM4CoF_Z"
+	 data-mapping="pathname"
+	 data-strict="0"
+	 data-reactions-enabled="1"
+	 data-emit-metadata="0"
+	 data-input-position="bottom"
+	 data-theme="noborder_light"
+	 data-lang="zh-CN"
+	 data-loading="lazy"
+	 crossorigin="anonymous"
+	 async>
+</script>
+
+			</div>
+			
+		</div>
+		</div>
+	</div>
+</div>
+
+	<script src="/js/search.js" defer></script>
+	<script src="/js/archives.js" defer></script>
+	<script src="/js/lazyload.js" defer></script>
+	
+	
+</body>
+</html>
