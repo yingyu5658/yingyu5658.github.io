@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>翻译 on 映屿</title>
-    <link>https://www.yingyu5658.me/tags/%E7%BF%BB%E8%AF%91/</link>
+    <link>https://blog.yingyu5658.me/tags/%E7%BF%BB%E8%AF%91/</link>
     <description>Recent content in 翻译 on 映屿</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
     <lastBuildDate>Fri, 04 Jul 2025 10:46:53 +0000</lastBuildDate>
-    <atom:link href="https://www.yingyu5658.me/tags/%E7%BF%BB%E8%AF%91/atom.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://blog.yingyu5658.me/tags/%E7%BF%BB%E8%AF%91/atom.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>使用Javascript TSS和Highlights构建一个文本阅读器</title>
-      <link>https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/%E7%94%A8javascript-tss%E5%92%8Chighlights%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8F%A5%E7%BA%A7%E6%96%87%E6%9C%AC%E9%98%85%E8%AF%BB%E5%99%A8/</link>
+      <link>https://blog.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/%E7%94%A8javascript-tss%E5%92%8Chighlights%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8F%A5%E7%BA%A7%E6%96%87%E6%9C%AC%E9%98%85%E8%AF%BB%E5%99%A8/</link>
       <pubDate>Fri, 04 Jul 2025 10:46:53 +0000</pubDate>
-      <guid>https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/%E7%94%A8javascript-tss%E5%92%8Chighlights%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8F%A5%E7%BA%A7%E6%96%87%E6%9C%AC%E9%98%85%E8%AF%BB%E5%99%A8/</guid>
+      <guid>https://blog.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/%E7%94%A8javascript-tss%E5%92%8Chighlights%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8F%A5%E7%BA%A7%E6%96%87%E6%9C%AC%E9%98%85%E8%AF%BB%E5%99%A8/</guid>
       <description>&lt;blockquote&gt;&#xA;&lt;p&gt;原文：https://jsdev.space/tts-sentence-reader/&#xA;翻译：yingyu5658 &lt;a href=&#34;mailto:yingyu5658@outlook.com&#34;&gt;yingyu5658@outlook.com&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://jsdev.space/.netlify/images?url=_astro%2Ftts-sentence-reader.hV9whx3I.png&amp;amp;w=800&amp;amp;h=800&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;在这篇文章中，我们将构建一个简单的Web工具来探究&lt;strong&gt;Text-toSpeech(TTS)&lt;strong&gt;在JavaScript中是如何工作的。我们也将深入研究&lt;/strong&gt;句子级高亮&lt;/strong&gt;的工作逻辑。这两项功能经常结合在一起使用，以走到浏览器中打造无障碍的动态阅读体验。&lt;/p&gt;&#xA;&lt;p&gt;步骤:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;学习在浏览器中,TTS是如何工作的&lt;/li&gt;&#xA;&lt;li&gt;探究动态高亮句子的实现方法&lt;/li&gt;&#xA;&lt;li&gt;用HTML, CSS, JavaScript构建一个小工具(&lt;a href=&#34;https://codepen.io/jsdevspace/pen/YPXRRjO&#34;&gt;Demo &amp;amp; Code&lt;/a&gt;)&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;-浏览器中的tts概述&#34;&gt;📢 浏览器中的TTS概述&lt;/h2&gt;&#xA;&lt;p&gt;JavaScript提供一个内置的API：&lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis&#34;&gt;&lt;code&gt;SpeechSynthesis&lt;/code&gt;&lt;/a&gt;，它允许我们使用系统中的可用嗓音去大声朗读问文字。&lt;/p&gt;&#xA;&lt;h3 id=&#34;核心对象&#34;&gt;核心对象:&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;speechSynthesis&lt;/code&gt; — 控制播放、暂停、恢复、停止&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;SpeechSynthesisUtterance&lt;/code&gt; — 作为TTS引擎的待播报文本&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;示例&#34;&gt;✨示例:&lt;/h3&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;const msg = new SpeechSynthesisUtterance(&amp;quot;Hello, world!&amp;quot;);&#xA;window.speechSynthesis.speak(msg);&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h3 id=&#34;-添加嗓音和配置&#34;&gt;⚙️ 添加嗓音和配置&lt;/h3&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;const utter = new SpeechSynthesisUtterance(&amp;quot;This is a test&amp;quot;);&#xA;const voices = window.speechSynthesis.getVoices();&#xA;utter.voice = voices.find(v =&amp;gt; v.lang === &#39;en-US&#39;);&#xA;utter.rate = 1.2;&#xA;utter.pitch = 1;&#xA;window.speechSynthesis.speak(utter);&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;你也可以追踪朗读的开始和结束：&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;utter.onstart = () =&amp;gt; console.log(&#39;Started speaking&#39;);&#xA;utter.onend = () =&amp;gt; console.log(&#39;Finished speaking&#39;);&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h2 id=&#34;-句子高亮&#34;&gt;✍️ 句子高亮&lt;/h2&gt;&#xA;&lt;p&gt;展示给用户哪一个句子正在阅读，我们需要用CSS和JavaScript来高亮文本。&lt;/p&gt;</description>
     </item>
   </channel>
