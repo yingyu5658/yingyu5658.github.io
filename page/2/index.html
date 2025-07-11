@@ -44,6 +44,40 @@
 	<article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/c%E8%AF%AD%E8%A8%80%E7%9A%84%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0/" 
+			   class="post-title-link"
+			   title="C语言的可变参数">
+				C语言的可变参数
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-07-05T18:32:52Z">July 05, 2025</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<h2 id="介绍">介绍</h2>
+<p>C语言中，<code>printf()</code>和<code>scanf()</code>函数就是典型的变参函数，其优点是灵活处理参数。</p>
+<p>想要创建变参函数需引入头文件<code>stdarg.h</code>，它有一些宏：</p>
+<pre><code>va_list 指向整个可变参数列表的指针
+原型：typedef char* va_list;
+
+va_start 指向可变参数列表前的参数（...前的参数）
+原型：void va_start(va_list ap, paramN);
+
+va_arg 可变参数列表
+原型：typedef va_arg(va_list ap, type)
+
+va_end 结束对可变参数列表的访问，并释放资源
+原型：void va_end(va_list ap);
+</code></pre>
+		<hr>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/c%E8%AF%AD%E8%A8%80%E7%9A%84%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0/"></a>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/%E9%9A%8F%E7%AC%94/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E9%80%89%E6%8B%A9github-issues%E8%80%8C%E4%B8%8D%E6%98%AF%E6%9C%8B%E5%8F%8B%E5%9C%88/" 
 			   class="post-title-link"
 			   title="为什么我选择Github issues，而不是朋友圈">
@@ -156,30 +190,6 @@ utter.onend = () =&gt; console.log('Finished speaking');
 <p>该去整理一下博客订阅列表了，不得不说，RSS真是伟大的发明。</p>
 		<hr>
 	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/%E9%9A%8F%E7%AC%94/%E5%AE%85/" 
-			   class="post-title-link"
-			   title="宅">
-				宅
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<time class="meta__text" datetime="2025-06-30T19:47:00Z">June 30, 2025</time></div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<p>朋友上周几次约我出去打羽毛球，都被我婉拒了。那个周末刚刚考完期末，又是我最爱的阴雨天，很难不趁着大好时光不在家修养身心，而是冒着雨出去打羽毛球几个小时，大汗淋漓，虚弱疲惫地走回家，做什么事都提不起精神，睡觉也觉得浪费时间。在家里并没有什么很想干的事，我没有打游戏的习惯，很早之前就已经戒掉电子游戏。在家里的娱乐活动无非就是看书、听歌、画画、练琴，写代码折磨一下自己应该也能凑个数。我非常依赖在家里独处时的充电，只要远离人群的嘈杂即可。</p>
-<p>他们吐槽了一下我有点宅，只喜欢呆在家里，我无法反驳，确实是这样。没什么别的原因，单纯觉得家里安全，我是一个很怕死的人。今天去奶奶家拿饭，突然发现那里简直集齐了让我感到恐惧的所有元素。</p>
-<p>小区旁有一条铁轨，时常有火车呼啸而过，我对噪音极度敏感。走到楼栋前，左右两旁各两个楼道入口，正常人当然选择坐电梯，第二个让我感到恐惧的，幽闭的电梯。小时候奶奶为了保障我坐电梯的安全，会讲一些关于电梯的安全事故来吓唬我，虽然今天我已经知道了那些大部分都不是真的，而且电梯层层保护非常安全，但每次走到电梯里我都会死死盯着显示楼层的那块屏幕（虽然这并没有任何作用），生怕冲顶或坠落，命丧于电子棺材里。终于煎熬地乘完电梯，可以往家门走了。楼道前一个没有封窗的常年大开的窗户，狭窄的楼道里光是远远往下眺望就已经让人胆寒，但神奇的是有那么一两个瞬间，我竟然生出了跳下去的念头，我应该很怕死的。难以想象我童年的日子是怎么近乎每天都在这里度过的。</p>
-<p>同样地，我也抗拒旅游。也许是因为回忆起近些年旅游的滋味都不是很好。拖着个不懂事的弟弟，他总是会让所有人都不开心，大家不开心，我也没什么能开心的。冬天冷夏天热，景点人挤人，只有能量相当大的人才能感受到快乐吧。</p>
-<p>在朋友圈里看到一个亲戚发带着自家孩子出门去苏州旅游，我很佩服她。带着家人跨越小半个中国。其中有一张照片是她的孩子站在船上，身后就是一片水。这就是我恐惧的又一个元素，水。</p>
-<p>小时候泡温泉，失足滑落到大概高我两头的池子里，在水里扑腾了半分钟才出来，索性憋住一口气，当时我的身高是完全不足以控制自己的身体朝向的，最后抓住岸边的栏杆才保住小命。自那次以后，我对水的恐惧就开始伴随我到现在了，我也许一辈子都不会去苏州那种水乡或海边。</p>
-<p>每次出去旅游，甚至是上立交桥都会胡思乱想。比如车子突然失控从桥上坠落，家人走散，落水&hellip;&hellip;我无法继续写下去我的内心所想，这又会把我拉入恐惧。语文老师曾经读过我的某一篇文章后，评价道我是很典型的悲观主义者，无法反驳，确实典型。</p>
-<p>综上，我为了保命，保证精神不崩溃，会减少旅游等危险活动。</p>
-		<hr>
-	</div>
 </article>
 </main>
 
@@ -237,6 +247,12 @@ utter.onend = () =&gt; console.log('Finished speaking');
 
 <script>
 window.siteSearchData = [
+  
+  {
+    "title": "\"C语言下的二进制文件IO踩坑\"",
+    "url": "https:\/\/blog.yingyu5658.me\/post\/%E6%8A%80%E6%9C%AF\/c%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6io\/",
+    "content": "\"C语言下的二进制文件读写有个坑，就是一定要按存储的顺序读取。例：\\ntypedef struct player { int id; double XP; double MP; }player; 这里有一个玩家的数据结构，我们创建变量并初始化。\\nint b_i[32] = {1, 233, 2453, 5432, 21 ,43 ,297, 752, 643}; player yingyu5658; yingyu5658.MP = 100; yingyu5658.XP = 100; yingyu5658.id = 114514; 对文件进行存储时，按照MP=\\u0026gt;XP=\\u0026gt;ID的顺序存储\\npd = fopen(\\u0026quot;./data\\u0026quot;, \\u0026quot;wb\\u0026quot;); fwrite(\\u0026amp;yingyu5658.MP, sizeof(double), 1, pd); fwrite(\\u0026amp;yingyu5658.XP, sizeof(double), 1, pd); fwrite(\\u0026amp;yingyu5658.id, sizeof(int), 1, pd); 读取的时候一定要按照这个顺序，否则读取出来的内容是无效的。\\nint id; double XP, MP; pd = fopen(\\u0026quot;./data\\u0026quot;, \\u0026quot;rb\\u0026quot;); fread(\\u0026amp;MP, sizeof(double), 1, pd); fread(\\u0026amp;XP, sizeof(double), 1, pd); fread(\\u0026amp;id, sizeof(int), 1, pd); player new_player; new_player.id = id; new_player.XP = XP; new_player.MP = MP; printf(\\u0026quot;id: %d\\\\n\\u0026quot;, new_player.id); printf(\\u0026quot;XP: %f\\\\n\\u0026quot;, new_player.XP); printf(\\u0026quot;MP: %f\\\\n\\u0026quot;, new_player.MP); 运行结果：\\n写入了id: 114514 写入了XP: 100.000000 写入了MP: 100.000000 id: 114514 XP: 100.000000 MP: 100.000000 使用完也要关闭流，否则资源泄漏\\nfclose(pd); // 必须显式关闭 \""
+  },
   
   {
     "title": "\"Vscode编辑Markdown体验非常好\"",
@@ -821,6 +837,9 @@ window.siteSearchData = [
 	<div class="widget__content">
 		<ul class="widget__list">
 			<li class="widget__item">
+				<a class="widget__link" href="/post/%E6%8A%80%E6%9C%AF/c%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6io/">C语言下的二进制文件IO踩坑</a>
+			</li>
+			<li class="widget__item">
 				<a class="widget__link" href="/post/%E6%8A%80%E6%9C%AF/vscode-edit-markdown/">Vscode编辑Markdown体验非常好</a>
 			</li>
 			<li class="widget__item">
@@ -907,9 +926,6 @@ window.siteSearchData = [
 			<li class="widget__item">
 				<a class="widget__link" href="/post/%E9%9A%8F%E7%AC%94/%E6%98%9F%E8%90%BD%E5%85%B3%E4%BA%8E%E6%88%91%E5%AF%B9%E5%91%BD%E8%BF%90%E6%97%A2%E5%AE%9A%E7%9A%84%E6%83%B3%E6%B3%95/">【投稿】关于我对命运既定的想法</a>
 			</li>
-			<li class="widget__item">
-				<a class="widget__link" href="/post/%E6%8A%80%E6%9C%AF/%E6%88%91%E8%BF%98%E6%98%AF%E6%94%BE%E4%B8%8D%E4%B8%8Bemacs/">我还是放不下Emacs！</a>
-			</li>
 		</ul>
 	</div>
 </div><div class="widget-archives widget">
@@ -917,12 +933,16 @@ window.siteSearchData = [
 	<div class="widget__content" id="archives-container">
 		
 		<div class="widget__item archive-year">
-			<span class="archive-year-text">2025 (77)</span>
+			<span class="archive-year-text">2025 (78)</span>
 			<div class="archive-months">
 				
 				<div class="archive-month">
-					<span class="archive-month-text" data-toggle="archive">July (7)</span>
+					<span class="archive-month-text" data-toggle="archive">July (8)</span>
 					<div class="archive-posts">
+						
+						<div class="archive-post">
+							<a href="/post/%E6%8A%80%E6%9C%AF/c%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6io/" class="archive-post-link">C语言下的二进制文件IO踩坑</a>
+						</div>
 						
 						<div class="archive-post">
 							<a href="/post/%E6%8A%80%E6%9C%AF/vscode-edit-markdown/" class="archive-post-link">Vscode编辑Markdown体验非常好</a>

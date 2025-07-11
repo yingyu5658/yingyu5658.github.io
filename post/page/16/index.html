@@ -45,6 +45,42 @@
 	</header><article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/%E4%B8%8A%E5%B8%9D%E7%B1%BB%E6%98%AF%E4%BB%80%E4%B9%88%E8%AF%A5%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E4%B8%8A%E5%B8%9D%E7%B1%BB/" 
+			   class="post-title-link"
+			   title="上帝类是什么？该如何避免上帝类？">
+				上帝类是什么？该如何避免上帝类？
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-03-30T10:47:35Z">March 30, 2025</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<h1 id="什么是上帝类">什么是上帝类</h1>
+<p>所谓的上帝类，就是指<strong>一个类承担了过多的职能</strong>，变得过于<strong>臃肿</strong>和<strong>复杂</strong>、<strong>难以维护</strong>。没有遵守单一职责原则。像上帝一样什么都能干，每个功能高度耦合，牵一发而动全身，不利于业务的拓展。</p>
+<h1 id="上帝类是如何产生的">上帝类是如何产生的</h1>
+<p>上帝类的产生，通常是由于需要快速实现功能而做出的妥协，长期积累就变成繁重的技术债务。或是缺乏规划经验，功能不断地被加到类中。依旧长期积累，上帝类产生了。</p>
+<h1 id="上帝类的优缺点">上帝类的优缺点</h1>
+<p>上帝类虽然在上文被冠以臃肿、难维护的帽子，但并不代表他没有优点，要辨证地看待。</p>
+<ul>
+<li>优点：上帝类适用于一些较小的、逻辑简单的任务或工具类，逻辑不复杂，也不需要长时间维护，即拿即用。不用过多地考虑职责和颗粒度的划分，也能提高开发效率</li>
+<li>缺点：即上文中所提到的。臃肿、复杂、难以维护、测试麻烦、缺乏可读性、耦合度高，不可拓展同时违反SRP和OCP原则</li>
+</ul>
+<h1 id="上帝类的判定">上帝类的判定</h1>
+<ul>
+<li>代码行数判定法：代码行数很多的有可能是上帝类，注意是有可能。如果是上帝类，应当进行适当重构</li>
+<li>依赖关系判定法：通过分析类的依赖关系来判定其是否与其他类高度关联，如果是，他有可能是上帝类。</li>
+<li>职责判定法：如果一个类承担了过多的职责，他该干的也干了，不该干的也干了，那么毫无疑问，他是上帝类。</li>
+<li>测试覆盖率判定法： 如果一个类难以单元测试，或覆盖率低或总是出现奇奇怪怪的不可预测的问题，那么他有可能是上帝类。</li>
+</ul>
+<h1 id="如何避免上帝类">如何避免上帝类</h1>
+<p>所以，要如何避免上帝类，这个问题的答案已经显而易见了。和上一段相反着做即可。遵守单一职责原则。规划好代码架构。比如，要处理一个压缩包解析和数据展示功能，首先就要拆分职责为不同的类。类中再去写相对应的函数。我们可以把这个功能拆分为解压、读取、展示信息三个类，类中分别编写相应的代码，这样就能做到避免上帝类的产生，从而提高代码的可维护性和可拓展性。</p>
+<p><img src="./20250320.png" alt=""></p>
+		<hr>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/%E6%8A%80%E6%9C%AF/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AErime%E8%BE%93%E5%85%A5%E6%B3%95/" 
 			   class="post-title-link"
 			   title="安装配置Rime输入法">
@@ -127,68 +163,12 @@ schema_list:
 	<div class="list__footer clearfix">
 		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/%E5%85%89%E9%80%9F%E7%A0%B4%E8%A7%A3%E4%BD%9C%E6%96%87%E7%BD%91%E7%AB%99%E7%A6%81%E6%AD%A2%E5%A4%8D%E5%88%B6/"></a>
 	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/%E6%8A%80%E6%9C%AF/%E4%BA%BA%E8%AF%9D%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3%E5%85%AB%E4%B8%8B%E9%81%97%E4%BC%A0%E4%B9%8B%E7%94%9F%E7%89%A9%E7%9A%84%E9%81%97%E4%BC%A0%E5%8F%98%E5%BC%82/" 
-			   class="post-title-link"
-			   title="人话简单理解八下遗传之生物的遗传变异">
-				人话简单理解八下遗传之生物的遗传变异
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<time class="meta__text" datetime="2025-03-18T19:37:25Z">March 18, 2025</time></div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<pre><code class="language-java">// 母亲类
-public class Mother {
-// 母亲的性格是开朗的
-public String personality = &quot;cheerful&quot;;
-// 母亲的身高是160.5
-public double height = 160.5;
-// 母亲有耳垂
-public boolean hasEarlobe = true;
-// 吃东西方法
-
-public void eating(Foods food) {
-
-System.out.println(&quot;母亲吃东西细嚼慢咽&quot;);
-
-}
-
-}
-
-
-
-// 孩子类继承母亲类
-public class Child extends Mother{
-// 变异
-
-// 孩子的性格是内向的
-public String personality = &quot;introverted&quot;;
-// 孩子无耳垂
-public boolean hasEarlobe = false;
-// 孩子身高比母亲高
-public double height = 180.5;
-@Override
-public void eating(Foods food) {
-System.out.println(&quot;孩子吃东西狼吞虎咽&quot;);
-}
-}
-</code></pre>
-<p>感觉比书上讲的一大堆狗屁废话简练多了。。（？</p>
-		<hr>
-	</div>
-	<div class="list__footer clearfix">
-		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/%E4%BA%BA%E8%AF%9D%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3%E5%85%AB%E4%B8%8B%E9%81%97%E4%BC%A0%E4%B9%8B%E7%94%9F%E7%89%A9%E7%9A%84%E9%81%97%E4%BC%A0%E5%8F%98%E5%BC%82/"></a>
-	</div>
 </article>
 </main>
 
 <div class="pagination">
 	<a class="pagination__item pagination__item--prev btn" href="/post/page/15/">«</a>
-	<span class="pagination__item pagination__item--current">16/24</span>
+	<span class="pagination__item pagination__item--current">16/25</span>
 	<a class="pagination__item pagination__item--next btn" href="/post/page/17/">»</a>
 </div>
 

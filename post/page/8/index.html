@@ -45,6 +45,78 @@
 	</header><article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/emacs%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95-2c-c&#43;&#43;%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" 
+			   class="post-title-link"
+			   title="Emacs配置记录 2——C/C&#43;&#43;环境配置">
+				Emacs配置记录 2——C/C&#43;&#43;环境配置
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-06-04T18:58:37Z">June 04, 2025</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<h2 id="前言">前言</h2>
+<p>经过<a href="">上一篇</a>的简单调教，Emacs已经勉强变成了一个温顺的文本编辑器，但是离写代码这个宏大的目标还是有一段距离的，今天来解决主要问题：代码补全。由于我要写一点简单的C代码，那么重点就先放到C/CPP环境搭建中。</p>
+<p>站在巨人的肩膀上，在Emacs中的代码补全使用巨硬的LSP协议。</p>
+<h2 id="spacemacs">Spacemacs</h2>
+<p>经过考虑，我还是决定使用Spacemacs，比起原版Emacs，它更适合新手，也更能快速投入开发。避免配置陷阱，过多把时间花在刀把上。唉，也就是说，昨天大部分都白干了。算了，生命的意义就在于折腾，怕折腾我也不会玩Emacs了。来吧！</p>
+<p>先来安装一下Spacemacs。
+<code>git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d</code></p>
+<p>重启Emacs，让他下载一下自带的包。</p>
+<p>上次没清理干净Spacemacs，不知道存在哪的备份还在，算是免去了一些折腾吧。来看看现在的Emacs都配置了什么。</p>
+<pre><code class="language-lisp">   dotspacemacs-configuration-layers
+   '(yaml
+     markdown
+     javascript
+     (auto-completion :variables
+                      auto-completion-idle-delay 0.01    ; 降低补全延迟
+                      auto-completion-minimum-prefix-length 1)
+     (prettier :variables
+               prettier-always-enable t)  ; 保存时自动格式化
+     (javascript :variables
+                 javascript-backend 'lsp        ; 启用LSP后端
+                 javascript-fmt-tool 'prettier) ; 格式化工具选Prettier
+     (c-c++ :variables
+            c-c++-backend 'lsp-clangd)         ; C/C++使用Clangd后端
+     (vue :variables
+          vue-backend 'lsp)                    ; Vue使用LSP后端
+     (html)                                    ; HTML/CSS支持
+     (lsp)                                     ; 必须的LSP核心支持层
+     (auto-completion)                         ; 自动补全
+     (syntax-checking)                         ; 语法检查
+     ;; ----------------------------------------------------------------
+     ;; Example of useful layers you may want to use right away.
+     ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
+     ;; `M-m f e R' (Emacs style) to install them.
+     ;; ----------------------------------------------------------------
+     ;; auto-completion
+     ;; better-defaults
+     emacs-lisp
+     treemacs
+     ;; git
+     helm
+     lsp
+     ;; markdown
+     multiple-cursors
+     ;; org
+     ;; (shell :variables
+     ;;        shell-default-height 30
+     ;;        shell-default-position 'bottom)
+     ;; spell-checking
+     ;; syntax-checking
+     ;; version-control
+     treemacs)
+</code></pre>
+<p>emmm，还是有点有用的。比如C/C++这里，就启用了LSP。还有一些之前搞的前端配置。就是不知道为啥，JavaScript的补全不太好使。</p>
+		<hr>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/emacs%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95-2c-c&#43;&#43;%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"></a>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/%E9%9A%8F%E7%AC%94/%E6%98%9F%E8%90%BD%E5%85%B3%E4%BA%8E%E6%88%91%E5%AF%B9%E5%91%BD%E8%BF%90%E6%97%A2%E5%AE%9A%E7%9A%84%E6%83%B3%E6%B3%95/" 
 			   class="post-title-link"
 			   title="【投稿】关于我对命运既定的想法">
@@ -227,65 +299,12 @@
 <p>仔细回想，太对不起四喜了，最近两年都没怎么好好陪她。她倒是一直很想我，我不在时，爬在我的衣服上，被褥上。回来时，我走到哪跟到哪。睡觉了，爬在枕边，踹起手，睡倒了，就干脆肚皮也露出来。伏案时，趴在纸上，坐在电脑前，爬在鼠标垫上。四喜一直都沉默寡言，但当我一个月没回家，她见到我后也忍不住啼哭起来，一边用头猛蹭我的腿。一对眼眶里镶嵌着两颗晶莹剔透的琥珀，总是温柔地冲我慢慢眨眼。</p>
 		<hr>
 	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/%E6%8A%80%E6%9C%AF/electron-commonjs-require%E8%B8%A9%E5%9D%91/" 
-			   class="post-title-link"
-			   title="Electron CommonJS require踩坑">
-				Electron CommonJS require踩坑
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<time class="meta__text" datetime="2025-05-31T09:07:36&#43;08:00">May 31, 2025</time></div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<p>最近在开发一个Electron项目，在导入类的时候有以下报错:</p>
-<pre><code>node:internal/modules/cjs/loader:1411 Uncaught Error: Cannot find module './File'
-Require stack:
-- E:\Develop\markdown-editor\src\html\index.html
-    at Module._resolveFilename (node:internal/modules/cjs/loader:1408:15)
-    at a._resolveFilename (node:electron/js2c/renderer_init:2:2643)
-    at defaultResolveImpl (node:internal/modules/cjs/loader:1064:19)
-    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1069:22)
-    at Module._load (node:internal/modules/cjs/loader:1218:37)
-    at c._load (node:electron/js2c/node_init:2:17950)
-    at s._load (node:electron/js2c/renderer_init:2:31718)
-    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
-    at wrapModuleLoad (node:internal/modules/cjs/loader:242:24)
-    at Module.require (node:internal/modules/cjs/loader:1494:12)
-</code></pre>
-<p>提示找不到模块。</p>
-<p>Electron中，使用require语句导入，都是默认从项目跟目录开始查找，所以要拼接完整路径。使用绝对路径也是不行的，在IDE里可以跳转，但是一运行就是找不到模块
-<code>const File = require(&quot;src/js/File&quot;)</code></p>
-<pre><code>Uncaught Error: Cannot find module 'src/js/File'
-Require stack:
-- E:\Develop\markdown-editor\src\html\index.html
-    at Module._resolveFilename (node:internal/modules/cjs/loader:1408:15)
-    at a._resolveFilename (node:electron/js2c/renderer_init:2:2643)
-    at defaultResolveImpl (node:internal/modules/cjs/loader:1064:19)
-    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1069:22)
-    at Module._load (node:internal/modules/cjs/loader:1218:37)
-    at c._load (node:electron/js2c/node_init:2:17950)
-    at s._load (node:electron/js2c/renderer_init:2:31718)
-    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
-    at wrapModuleLoad (node:internal/modules/cjs/loader:242:24)
-    at Module.require (node:internal/modules/cjs/loader:1494:12)
-</code></pre>
-<h2 id="解决方法">解决方法</h2>
-<p>使用path.join拼接完整路径</p>
-		<hr>
-	</div>
-	<div class="list__footer clearfix">
-		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/electron-commonjs-require%E8%B8%A9%E5%9D%91/"></a>
-	</div>
 </article>
 </main>
 
 <div class="pagination">
 	<a class="pagination__item pagination__item--prev btn" href="/post/page/7/">«</a>
-	<span class="pagination__item pagination__item--current">8/24</span>
+	<span class="pagination__item pagination__item--current">8/25</span>
 	<a class="pagination__item pagination__item--next btn" href="/post/page/9/">»</a>
 </div>
 

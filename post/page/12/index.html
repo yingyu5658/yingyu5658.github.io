@@ -45,6 +45,69 @@
 	</header><article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/" 
+			   class="post-title-link"
+			   title="【数据结构与算法】冒泡排序">
+				【数据结构与算法】冒泡排序
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-05-10T20:06:05Z">May 10, 2025</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<h2 id="核心思想">核心思想</h2>
+<p>通过相邻元素的两两比较，将较大的元素逐步“冒泡”到数组末尾，每轮排序确定一个最大元素的最终位置。</p>
+<h2 id="代码实现">代码实现</h2>
+<pre><code class="language-c">void bubble_sort(int arr[], int n) {
+  // 最外层控制循环轮数 n-1轮
+  for (int i = 0; i &lt; n - 1; i++) {
+    // 内层循环处理相邻元素比较和交换
+    for(int j = 0; j &lt; n-i-1; j++) {
+      if (arr[j] &gt; arr[j+1]) {
+        int temp = arr[j];
+        arr[j] = arr[j+1];
+        arr[j+1] = temp;
+      }
+    }
+  }
+}
+
+// 调用
+void print_array(int arr[], int size) {
+  for (int i = 0; i &lt; size; i++) {
+    printf(&quot;%d,&quot;, arr[i]);
+  }
+  printf(&quot;\n&quot;);
+}
+
+int main() {
+  int arr[] = {23, 232, 55, 2, 7, 0, 576, 342};
+  int n = sizeof(arr) / sizeof(arr[0]);
+
+  printf(&quot;排序前：&quot;);
+  print_array(arr, n);
+  bubble_sort(arr, n);
+
+  printf(&quot;排序后&quot;);
+  print_array(arr, n);
+}
+</code></pre>
+<h2 id="原理分析">原理分析</h2>
+<h3 id="外层循环的-i--n---1">外层循环的 i &lt; n - 1</h3>
+<ul>
+<li>n个元素的数组最多需要n-1轮冒泡，如5元素数组需要4轮排序</li>
+<li><strong>数学依据</strong>：每轮将一个最大值“沉底”，当完成n-1轮时，最后一个元素必然有序</li>
+</ul>
+<p>示例验证：</p>
+		<hr>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/"></a>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/%E6%8A%80%E6%9C%AF/idea2025-1%E6%9C%80%E6%96%B0%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B-%E6%97%A0%E9%9C%80%E6%89%AB%E7%A0%81%E5%85%B3%E6%B3%A8%E4%BB%BB%E4%BD%95%E5%85%AC%E4%BC%97%E5%8F%B7/" 
 			   class="post-title-link"
 			   title="IDEA2025.1最新破解教程 无需扫码关注任何公众号">
@@ -198,38 +261,12 @@ source ~/.zshrc
 <p><img src="/images/WSL-Arch-Linux-ZSH%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/image-20250429103602223.png" alt="相关图片"></p>
 		<hr>
 	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/%E6%8A%80%E6%9C%AF/emacs-eaf%E6%8F%92%E4%BB%B6%E6%89%93%E5%BC%80%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%AA%E6%98%BE%E7%A4%BAopening-http-xxx-xxx%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" 
-			   class="post-title-link"
-			   title="Emacs EAF插件打开浏览器只显示opening http://xxx.xxx的解决方法">
-				Emacs EAF插件打开浏览器只显示opening http://xxx.xxx的解决方法
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<time class="meta__text" datetime="2025-04-29T10:02:49Z">April 29, 2025</time></div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<p>检查是否安装全部依赖，如yay、pip等。我这里是由于没有安装pip导致的。</p>
-<p><code>sudo pacman -S python-pip</code></p>
-<p>安装好后，进入eaf安装目录</p>
-<p><code>cd ~/.emacs.d/site-lisp/emacs-application-framework &amp;&amp; ./install-eaf.py</code></p>
-<p>重新安装eaf。等待脚本运行完成，打开emacs，输入<code>M-x eaf-install-and-update</code>，等待执行完成。</p>
-<p>重新输入<code>M-x eaf-open-browser</code>，输入网址，即可正常访问网页。</p>
-<p><img src="/images/Emacs-EAF%E6%8F%92%E4%BB%B6%E6%89%93%E5%BC%80%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%AA%E6%98%BE%E7%A4%BAopening-http-xxx-xxx%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/image-20250429101516564.png" alt="图"></p>
-<p><img src="/images/Emacs-EAF%E6%8F%92%E4%BB%B6%E6%89%93%E5%BC%80%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%AA%E6%98%BE%E7%A4%BAopening-http-xxx-xxx%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/image-20250429101516564.png" alt="相关图片"></p>
-<p><img src="/images/Emacs-EAF%E6%8F%92%E4%BB%B6%E6%89%93%E5%BC%80%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%AA%E6%98%BE%E7%A4%BAopening-http-xxx-xxx%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/image-20250429101516564.png" alt="相关图片"></p>
-<p><img src="/images/Emacs-EAF%E6%8F%92%E4%BB%B6%E6%89%93%E5%BC%80%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%AA%E6%98%BE%E7%A4%BAopening-http-xxx-xxx%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/image-20250429101516564.png" alt="相关图片"></p>
-		<hr>
-	</div>
 </article>
 </main>
 
 <div class="pagination">
 	<a class="pagination__item pagination__item--prev btn" href="/post/page/11/">«</a>
-	<span class="pagination__item pagination__item--current">12/24</span>
+	<span class="pagination__item pagination__item--current">12/25</span>
 	<a class="pagination__item pagination__item--next btn" href="/post/page/13/">»</a>
 </div>
 

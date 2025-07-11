@@ -44,6 +44,29 @@
 	<article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/187/" 
+			   class="post-title-link"
+			   title="开箱即用的neovim配置文件">
+				开箱即用的neovim配置文件
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-01-22T18:13:27Z">January 22, 2025</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<h3 id="下载链接">下载链接</h3>
+<p><a href="https://yingyu5658.lanzoup.com/iWfXQ2ln6jre">https://yingyu5658.lanzoup.com/iWfXQ2ln6jre</a>
+为了兄弟们下得爽点就不用百度网盘或者夸克了
+代码都有比较详细的注释</p>
+		<hr>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/187/"></a>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/%E6%8A%80%E6%9C%AF/186/" 
 			   class="post-title-link"
 			   title="Java面向对象编程——多态、抽象类、接口">
@@ -289,24 +312,6 @@
 </ul>
 		<hr>
 	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/%E6%8A%80%E6%9C%AF/184/" 
-			   class="post-title-link"
-			   title="修复Geyser下基岩版玩家无法在地狱基岩层放置方块">
-				修复Geyser下基岩版玩家无法在地狱基岩层放置方块
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<time class="meta__text" datetime="2025-01-08T17:26:00Z">January 08, 2025</time></div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<p>在<code>plugins\Geyser-Spigot\config.yml</code>中把第160行的<code>above-bedrock-nether-building: false</code>改为<code>true</code>，重启服务器，问题解决~
-原理：geyser把下界翻译成了末地，会导致下界天空变成末地的样式，不过可以解决基岩版玩家在地狱基岩层的问题。</p>
-		<hr>
-	</div>
 </article>
 </main>
 
@@ -364,6 +369,12 @@
 
 <script>
 window.siteSearchData = [
+  
+  {
+    "title": "\"C语言下的二进制文件IO踩坑\"",
+    "url": "https:\/\/blog.yingyu5658.me\/post\/%E6%8A%80%E6%9C%AF\/c%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6io\/",
+    "content": "\"C语言下的二进制文件读写有个坑，就是一定要按存储的顺序读取。例：\\ntypedef struct player { int id; double XP; double MP; }player; 这里有一个玩家的数据结构，我们创建变量并初始化。\\nint b_i[32] = {1, 233, 2453, 5432, 21 ,43 ,297, 752, 643}; player yingyu5658; yingyu5658.MP = 100; yingyu5658.XP = 100; yingyu5658.id = 114514; 对文件进行存储时，按照MP=\\u0026gt;XP=\\u0026gt;ID的顺序存储\\npd = fopen(\\u0026quot;./data\\u0026quot;, \\u0026quot;wb\\u0026quot;); fwrite(\\u0026amp;yingyu5658.MP, sizeof(double), 1, pd); fwrite(\\u0026amp;yingyu5658.XP, sizeof(double), 1, pd); fwrite(\\u0026amp;yingyu5658.id, sizeof(int), 1, pd); 读取的时候一定要按照这个顺序，否则读取出来的内容是无效的。\\nint id; double XP, MP; pd = fopen(\\u0026quot;./data\\u0026quot;, \\u0026quot;rb\\u0026quot;); fread(\\u0026amp;MP, sizeof(double), 1, pd); fread(\\u0026amp;XP, sizeof(double), 1, pd); fread(\\u0026amp;id, sizeof(int), 1, pd); player new_player; new_player.id = id; new_player.XP = XP; new_player.MP = MP; printf(\\u0026quot;id: %d\\\\n\\u0026quot;, new_player.id); printf(\\u0026quot;XP: %f\\\\n\\u0026quot;, new_player.XP); printf(\\u0026quot;MP: %f\\\\n\\u0026quot;, new_player.MP); 运行结果：\\n写入了id: 114514 写入了XP: 100.000000 写入了MP: 100.000000 id: 114514 XP: 100.000000 MP: 100.000000 使用完也要关闭流，否则资源泄漏\\nfclose(pd); // 必须显式关闭 \""
+  },
   
   {
     "title": "\"Vscode编辑Markdown体验非常好\"",
@@ -948,6 +959,9 @@ window.siteSearchData = [
 	<div class="widget__content">
 		<ul class="widget__list">
 			<li class="widget__item">
+				<a class="widget__link" href="/post/%E6%8A%80%E6%9C%AF/c%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6io/">C语言下的二进制文件IO踩坑</a>
+			</li>
+			<li class="widget__item">
 				<a class="widget__link" href="/post/%E6%8A%80%E6%9C%AF/vscode-edit-markdown/">Vscode编辑Markdown体验非常好</a>
 			</li>
 			<li class="widget__item">
@@ -1034,9 +1048,6 @@ window.siteSearchData = [
 			<li class="widget__item">
 				<a class="widget__link" href="/post/%E9%9A%8F%E7%AC%94/%E6%98%9F%E8%90%BD%E5%85%B3%E4%BA%8E%E6%88%91%E5%AF%B9%E5%91%BD%E8%BF%90%E6%97%A2%E5%AE%9A%E7%9A%84%E6%83%B3%E6%B3%95/">【投稿】关于我对命运既定的想法</a>
 			</li>
-			<li class="widget__item">
-				<a class="widget__link" href="/post/%E6%8A%80%E6%9C%AF/%E6%88%91%E8%BF%98%E6%98%AF%E6%94%BE%E4%B8%8D%E4%B8%8Bemacs/">我还是放不下Emacs！</a>
-			</li>
 		</ul>
 	</div>
 </div><div class="widget-archives widget">
@@ -1044,12 +1055,16 @@ window.siteSearchData = [
 	<div class="widget__content" id="archives-container">
 		
 		<div class="widget__item archive-year">
-			<span class="archive-year-text">2025 (77)</span>
+			<span class="archive-year-text">2025 (78)</span>
 			<div class="archive-months">
 				
 				<div class="archive-month">
-					<span class="archive-month-text" data-toggle="archive">July (7)</span>
+					<span class="archive-month-text" data-toggle="archive">July (8)</span>
 					<div class="archive-posts">
+						
+						<div class="archive-post">
+							<a href="/post/%E6%8A%80%E6%9C%AF/c%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6io/" class="archive-post-link">C语言下的二进制文件IO踩坑</a>
+						</div>
 						
 						<div class="archive-post">
 							<a href="/post/%E6%8A%80%E6%9C%AF/vscode-edit-markdown/" class="archive-post-link">Vscode编辑Markdown体验非常好</a>

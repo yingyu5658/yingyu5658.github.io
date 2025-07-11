@@ -44,6 +44,24 @@
 	<article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/184/" 
+			   class="post-title-link"
+			   title="修复Geyser下基岩版玩家无法在地狱基岩层放置方块">
+				修复Geyser下基岩版玩家无法在地狱基岩层放置方块
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-01-08T17:26:00Z">January 08, 2025</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>在<code>plugins\Geyser-Spigot\config.yml</code>中把第160行的<code>above-bedrock-nether-building: false</code>改为<code>true</code>，重启服务器，问题解决~
+原理：geyser把下界翻译成了末地，会导致下界天空变成末地的样式，不过可以解决基岩版玩家在地狱基岩层的问题。</p>
+		<hr>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/%E6%8A%80%E6%9C%AF/181/" 
 			   class="post-title-link"
 			   title="Spigot服务端控制台中文乱码解决方案">
@@ -189,79 +207,6 @@ public class StringDemo {
 <p><img src="https://www.yingyu5658.cn/usr/uploads/2024/12/2743265221.jpg" alt=""></p>
 		<hr>
 	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/%E6%8A%80%E6%9C%AF/166/" 
-			   class="post-title-link"
-			   title="面向对象编程总结">
-				面向对象编程总结
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<time class="meta__text" datetime="2024-12-18T16:30:00Z">December 18, 2024</time></div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<p>面向对象（oop）</p>
-<h1 id="面向对象编程的思想面向拿或者找">面向对象编程的思想：面向。拿或者找。</h1>
-<p>对象：东西
-面向对象编程：拿东西过来编程
-面向对象：把现实世界中的食物看成一个一个对象来解决问题的。（万物皆 对象）
-面向对象的好处：代码更符合人类的思维习惯。编程更简单。看程序更容易理解（？）</p>
-<h1 id="类对象">类、对象：</h1>
-<p>类（设计图）：相同事物，共同特征的描述。
-对象：对象是类的具体的实例。
-对象 = 实例
-在Java中必须先定义类，才能得到对象</p>
-<h1 id="定义类来创建对象使用">定义类来创建对象使用</h1>
-<h2 id="定义类的格式">定义类的格式</h2>
-<ol>
-<li>成员变量（代表属性，一般是名词）：数据类型 名称;</li>
-<li>成员方法（代表行为，一般是动词）</li>
-<li>构造器（前面的区域以后再来探索吧）</li>
-<li>代码块（前面的区域以后再来探索吧）</li>
-<li>内部类（前面的区域以后再来探索吧）</li>
-</ol>
-<h2 id="类中具体怎么写">类中具体怎么写：</h2>
-<p>一般名词定义成成员变量（属性）
-<code>修饰符 数据类型 变量名称 = 初始值</code>
-成员变量不建议给初始值，它存在默认值。</p>
-<h2 id="一般动词定义成方法行为">一般动词定义成方法（行为）</h2>
-<h3 id="创建对象">创建对象</h3>
-<p><code>类名 对象名 = new 构造器();</code></p>
-<h2 id="对象使用">对象使用：</h2>
-<p><code>对象名.成员变量</code>
-<code>对象名.成员方法</code></p>
-<h1 id="构造器">构造器</h1>
-<pre><code>	作用：
-		初始化一个累的对象并且返回这个类的地址。
-		详细格式：修饰符 类名(形参){...}
-		构造器的分类：
-					无参数构造器：初始化一个类的对象，里面的数据都是默认值，并返回地址。
-					有参数构造器：初始化一个类的对象，并返回地址，并且可以同时为对象赋值。
-		构造器如何调用：
-					类名 对象 = new 构造器;
-		注意：任何类写出来，自带无参数构造器
-			   但是在这个类中定义了一个有参数构造器了，那么无参数构造器就消失了，此时如果还要使用无参数构造器，必须自己写一个。
-</code></pre>
-<h2 id="this关键字">this关键字</h2>
-<p>作用：代表了当前对象的地址。可以访问当前对象的成员变量信息和成员方法</p>
-<h3 id="具体应用场景">具体应用场景</h3>
-<p>可以用在有参数构造器中
-可以用在方法中</p>
-<h1 id="封装">封装</h1>
-<p>面向对象三大特征：封装、继承、多态。
-封装的基本思想：决定属性和行为归属谁的问题。</p>
-<h2 id="如何更好的封装">如何更好的封装：</h2>
-<p>成员变量私有化，只能在本类访问。</p>
-<h4 id="合理暴露">合理暴露</h4>
-<p>提供成套的getter和setter方法暴露取值赋值。</p>
-		<hr>
-	</div>
-	<div class="list__footer clearfix">
-		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/166/"></a>
-	</div>
 </article>
 </main>
 
@@ -319,6 +264,12 @@ public class StringDemo {
 
 <script>
 window.siteSearchData = [
+  
+  {
+    "title": "\"C语言下的二进制文件IO踩坑\"",
+    "url": "https:\/\/blog.yingyu5658.me\/post\/%E6%8A%80%E6%9C%AF\/c%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6io\/",
+    "content": "\"C语言下的二进制文件读写有个坑，就是一定要按存储的顺序读取。例：\\ntypedef struct player { int id; double XP; double MP; }player; 这里有一个玩家的数据结构，我们创建变量并初始化。\\nint b_i[32] = {1, 233, 2453, 5432, 21 ,43 ,297, 752, 643}; player yingyu5658; yingyu5658.MP = 100; yingyu5658.XP = 100; yingyu5658.id = 114514; 对文件进行存储时，按照MP=\\u0026gt;XP=\\u0026gt;ID的顺序存储\\npd = fopen(\\u0026quot;./data\\u0026quot;, \\u0026quot;wb\\u0026quot;); fwrite(\\u0026amp;yingyu5658.MP, sizeof(double), 1, pd); fwrite(\\u0026amp;yingyu5658.XP, sizeof(double), 1, pd); fwrite(\\u0026amp;yingyu5658.id, sizeof(int), 1, pd); 读取的时候一定要按照这个顺序，否则读取出来的内容是无效的。\\nint id; double XP, MP; pd = fopen(\\u0026quot;./data\\u0026quot;, \\u0026quot;rb\\u0026quot;); fread(\\u0026amp;MP, sizeof(double), 1, pd); fread(\\u0026amp;XP, sizeof(double), 1, pd); fread(\\u0026amp;id, sizeof(int), 1, pd); player new_player; new_player.id = id; new_player.XP = XP; new_player.MP = MP; printf(\\u0026quot;id: %d\\\\n\\u0026quot;, new_player.id); printf(\\u0026quot;XP: %f\\\\n\\u0026quot;, new_player.XP); printf(\\u0026quot;MP: %f\\\\n\\u0026quot;, new_player.MP); 运行结果：\\n写入了id: 114514 写入了XP: 100.000000 写入了MP: 100.000000 id: 114514 XP: 100.000000 MP: 100.000000 使用完也要关闭流，否则资源泄漏\\nfclose(pd); // 必须显式关闭 \""
+  },
   
   {
     "title": "\"Vscode编辑Markdown体验非常好\"",
@@ -903,6 +854,9 @@ window.siteSearchData = [
 	<div class="widget__content">
 		<ul class="widget__list">
 			<li class="widget__item">
+				<a class="widget__link" href="/post/%E6%8A%80%E6%9C%AF/c%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6io/">C语言下的二进制文件IO踩坑</a>
+			</li>
+			<li class="widget__item">
 				<a class="widget__link" href="/post/%E6%8A%80%E6%9C%AF/vscode-edit-markdown/">Vscode编辑Markdown体验非常好</a>
 			</li>
 			<li class="widget__item">
@@ -989,9 +943,6 @@ window.siteSearchData = [
 			<li class="widget__item">
 				<a class="widget__link" href="/post/%E9%9A%8F%E7%AC%94/%E6%98%9F%E8%90%BD%E5%85%B3%E4%BA%8E%E6%88%91%E5%AF%B9%E5%91%BD%E8%BF%90%E6%97%A2%E5%AE%9A%E7%9A%84%E6%83%B3%E6%B3%95/">【投稿】关于我对命运既定的想法</a>
 			</li>
-			<li class="widget__item">
-				<a class="widget__link" href="/post/%E6%8A%80%E6%9C%AF/%E6%88%91%E8%BF%98%E6%98%AF%E6%94%BE%E4%B8%8D%E4%B8%8Bemacs/">我还是放不下Emacs！</a>
-			</li>
 		</ul>
 	</div>
 </div><div class="widget-archives widget">
@@ -999,12 +950,16 @@ window.siteSearchData = [
 	<div class="widget__content" id="archives-container">
 		
 		<div class="widget__item archive-year">
-			<span class="archive-year-text">2025 (77)</span>
+			<span class="archive-year-text">2025 (78)</span>
 			<div class="archive-months">
 				
 				<div class="archive-month">
-					<span class="archive-month-text" data-toggle="archive">July (7)</span>
+					<span class="archive-month-text" data-toggle="archive">July (8)</span>
 					<div class="archive-posts">
+						
+						<div class="archive-post">
+							<a href="/post/%E6%8A%80%E6%9C%AF/c%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6io/" class="archive-post-link">C语言下的二进制文件IO踩坑</a>
+						</div>
 						
 						<div class="archive-post">
 							<a href="/post/%E6%8A%80%E6%9C%AF/vscode-edit-markdown/" class="archive-post-link">Vscode编辑Markdown体验非常好</a>

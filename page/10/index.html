@@ -44,6 +44,44 @@
 	<article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%BC%97%E6%95%B0%E4%B8%AD%E4%BD%8D%E6%95%B0/" 
+			   class="post-title-link"
+			   title="【数据结构与算法】众数、中位数">
+				【数据结构与算法】众数、中位数
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-05-27T19:41:53Z">May 27, 2025</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>今天学这个东西的时候，看到这种线性的数据结构加上排序步骤，很难不想写个程序来跑跑。</p>
+<p>先来说说中位数，这个比较有思路。</p>
+<h2 id="中位数">中位数</h2>
+<p>具体的操作步骤应该是：<strong>排序 =&gt; 获得数据元素个数n =&gt; 是奇数 ? (n+1) / 2 : n / 2</strong></p>
+<p>那么排序就用之前学的冒泡排序，这种题目大概不会完全倒序给数据，编写sort函数：</p>
+<pre><code class="language-c">void sort(int arr[], int n)
+{
+  for (int i = 0; i &lt; n - 1; i++) {
+    for (int j = 0; j &lt; n - i - 1; j++) {
+      if (arr[j] &gt; arr[j + 1]) {
+        int temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
+      }
+    }
+  }
+}
+</code></pre>
+<p>接下来是判断奇偶，奇偶的判断非常简单，对取模运算的值比对就可以，编写is_even函数，判断奇偶性。</p>
+		<hr>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%BC%97%E6%95%B0%E4%B8%AD%E4%BD%8D%E6%95%B0/"></a>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/%E9%9A%8F%E7%AC%94/%E9%AB%98%E6%95%88%E7%8E%87%E7%9A%84%E6%B2%9F%E9%80%9A%E7%BB%9D%E4%B8%8D%E4%BC%9A%E4%BB%8E%E5%9C%A8%E5%90%97%E5%BC%80%E5%A7%8B/" 
 			   class="post-title-link"
 			   title="高效率的沟通绝不会从在吗开始">
@@ -156,39 +194,6 @@ root.right.right = new TreeNode(5)
 <p>如果你愿意继续做你所谓的聪明人并继续厌蠢下去，那你只有高傲自大、狂妄轻浮，你是真的蠢。</p>
 		<hr>
 	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/%E9%9A%8F%E7%AC%94/%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E5%8A%A0%E5%AF%86%E7%A0%81%E7%9A%84%E6%84%8F%E4%B9%89%E6%98%AF/" 
-			   class="post-title-link"
-			   title="这样的博客的意义是？">
-				这样的博客的意义是？
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<time class="meta__text" datetime="2025-05-19T21:53:10Z">May 19, 2025</time></div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<h2 id="博客文章的密码">博客文章的密码</h2>
-<p>博客文章加密码，意义何在？</p>
-<p>写博客的意义是？</p>
-<p>写博客的意义之一，不是放大自己的声音，表达自己的观点吗？</p>
-<p>这就要牵扯到你写博客的目的。如果你说，你写博客是为了取悦自己，那为什么要把文章发出来？取悦自己是真的吗？还是对自己网站没有流量的自我安慰？不允许他人看见，那我只能认为您财力精力都很强盛，有财力购买服务器、主题；有精力维护服务器、网站。为什么不写在备忘录里呢？</p>
-<p>发出来，不是为了被人看见？</p>
-<p>还是说，是在扮演什么角色、人设给什么人看？</p>
-<hr>
-<p>我个人一直十分痛恨各大平台的强制注册手段，复制代码要注册、展开文章要注册，打开评论区还要注册。所以在我一开始使用动态博客程序的时候，从来没想过有强迫读者注册才能评论。</p>
-<p>这个问题依然要归结到写博客的意义。如果你写博客，是为了变现，利用在各个博客的评论区乱尿增加的一点SEO权重带来的可怜流量，和不知道从哪里抄搬来的技术文章，连格式都不调一下就挂在网站上又或是分享一大堆所谓免费资源，引流关注微信公众号的，强迫注册，为了赚钱，不寒碜。吗？</p>
-<p>很他妈寒碜！</p>
-<p>读者吃着你搬来的别人拉的屎，又要被你骗去你自建的茅房，这钱就算拿到，也是脏的，好好掂量一下这钱里都有什么。</p>
-<p>如果是正常的博客，要强迫读者注册才可评论，查看文章，那更令人费解。技术文章下，读者遇到了问题，或想更近一步讨论；表达观点、分享日常的文章下，读者看到一个有趣的灵魂，一个，强迫注册，都无异于直接抹杀读者讨论的念头。输入邮箱或手机号，接收验证码、输入验证码，再登录。加之服务器地理位置、配置等原因导致的访问不畅，每一秒所做的每一个行为，都是在一丝丝抽离由文字与读者建立起的联系。</p>
-<p>最后，只能说上一句：</p>
-<blockquote>
-<p>我写博客只为取悦自己。</p>
-</blockquote>
-		<hr>
-	</div>
 </article>
 </main>
 
@@ -246,6 +251,12 @@ root.right.right = new TreeNode(5)
 
 <script>
 window.siteSearchData = [
+  
+  {
+    "title": "\"C语言下的二进制文件IO踩坑\"",
+    "url": "https:\/\/blog.yingyu5658.me\/post\/%E6%8A%80%E6%9C%AF\/c%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6io\/",
+    "content": "\"C语言下的二进制文件读写有个坑，就是一定要按存储的顺序读取。例：\\ntypedef struct player { int id; double XP; double MP; }player; 这里有一个玩家的数据结构，我们创建变量并初始化。\\nint b_i[32] = {1, 233, 2453, 5432, 21 ,43 ,297, 752, 643}; player yingyu5658; yingyu5658.MP = 100; yingyu5658.XP = 100; yingyu5658.id = 114514; 对文件进行存储时，按照MP=\\u0026gt;XP=\\u0026gt;ID的顺序存储\\npd = fopen(\\u0026quot;./data\\u0026quot;, \\u0026quot;wb\\u0026quot;); fwrite(\\u0026amp;yingyu5658.MP, sizeof(double), 1, pd); fwrite(\\u0026amp;yingyu5658.XP, sizeof(double), 1, pd); fwrite(\\u0026amp;yingyu5658.id, sizeof(int), 1, pd); 读取的时候一定要按照这个顺序，否则读取出来的内容是无效的。\\nint id; double XP, MP; pd = fopen(\\u0026quot;./data\\u0026quot;, \\u0026quot;rb\\u0026quot;); fread(\\u0026amp;MP, sizeof(double), 1, pd); fread(\\u0026amp;XP, sizeof(double), 1, pd); fread(\\u0026amp;id, sizeof(int), 1, pd); player new_player; new_player.id = id; new_player.XP = XP; new_player.MP = MP; printf(\\u0026quot;id: %d\\\\n\\u0026quot;, new_player.id); printf(\\u0026quot;XP: %f\\\\n\\u0026quot;, new_player.XP); printf(\\u0026quot;MP: %f\\\\n\\u0026quot;, new_player.MP); 运行结果：\\n写入了id: 114514 写入了XP: 100.000000 写入了MP: 100.000000 id: 114514 XP: 100.000000 MP: 100.000000 使用完也要关闭流，否则资源泄漏\\nfclose(pd); // 必须显式关闭 \""
+  },
   
   {
     "title": "\"Vscode编辑Markdown体验非常好\"",
@@ -830,6 +841,9 @@ window.siteSearchData = [
 	<div class="widget__content">
 		<ul class="widget__list">
 			<li class="widget__item">
+				<a class="widget__link" href="/post/%E6%8A%80%E6%9C%AF/c%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6io/">C语言下的二进制文件IO踩坑</a>
+			</li>
+			<li class="widget__item">
 				<a class="widget__link" href="/post/%E6%8A%80%E6%9C%AF/vscode-edit-markdown/">Vscode编辑Markdown体验非常好</a>
 			</li>
 			<li class="widget__item">
@@ -916,9 +930,6 @@ window.siteSearchData = [
 			<li class="widget__item">
 				<a class="widget__link" href="/post/%E9%9A%8F%E7%AC%94/%E6%98%9F%E8%90%BD%E5%85%B3%E4%BA%8E%E6%88%91%E5%AF%B9%E5%91%BD%E8%BF%90%E6%97%A2%E5%AE%9A%E7%9A%84%E6%83%B3%E6%B3%95/">【投稿】关于我对命运既定的想法</a>
 			</li>
-			<li class="widget__item">
-				<a class="widget__link" href="/post/%E6%8A%80%E6%9C%AF/%E6%88%91%E8%BF%98%E6%98%AF%E6%94%BE%E4%B8%8D%E4%B8%8Bemacs/">我还是放不下Emacs！</a>
-			</li>
 		</ul>
 	</div>
 </div><div class="widget-archives widget">
@@ -926,12 +937,16 @@ window.siteSearchData = [
 	<div class="widget__content" id="archives-container">
 		
 		<div class="widget__item archive-year">
-			<span class="archive-year-text">2025 (77)</span>
+			<span class="archive-year-text">2025 (78)</span>
 			<div class="archive-months">
 				
 				<div class="archive-month">
-					<span class="archive-month-text" data-toggle="archive">July (7)</span>
+					<span class="archive-month-text" data-toggle="archive">July (8)</span>
 					<div class="archive-posts">
+						
+						<div class="archive-post">
+							<a href="/post/%E6%8A%80%E6%9C%AF/c%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6io/" class="archive-post-link">C语言下的二进制文件IO踩坑</a>
+						</div>
 						
 						<div class="archive-post">
 							<a href="/post/%E6%8A%80%E6%9C%AF/vscode-edit-markdown/" class="archive-post-link">Vscode编辑Markdown体验非常好</a>

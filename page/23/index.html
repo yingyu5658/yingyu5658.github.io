@@ -44,6 +44,65 @@
 	<article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/98/" 
+			   class="post-title-link"
+			   title="Java面向对象编程快速入门">
+				Java面向对象编程快速入门
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2024-12-01T13:05:00Z">December 01, 2024</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<h1 id="什么是面向对象编程">什么是面向对象编程</h1>
+<p>通俗易懂的说，就是把一坨一坨的数据放到一起存储
+比如要存储一个学生的语文成绩和数学成绩
+新建一个类</p>
+<pre><code class="language-java">public class Student {
+    String name;//名字
+    double chinese;//语文成绩
+    double math;//数学成绩
+
+    public void printTotalScore() {
+        System.out.println(name + &quot;的总成绩是&quot; + (chinese + math));
+    }
+
+    public void printAverageScore() {
+        System.out.println(name + &quot;的平均成绩是&quot; + (chinese + math) / 2.0);
+    }
+}
+</code></pre>
+<p>这样学生的模板就创建好了，但是这个模板还没有指向学生的每一个个体。我们可以再同一个包下再新建一个类。</p>
+<pre><code class="language-java">public class Test {
+    public static void main(String[] args) {
+        //1.创建宇哥学生对象来封装学生a的数据
+        Student s1 = new Student();
+        s1.name = &quot;学生a&quot;;
+        s1.chinese = 100;
+        s1.math = 100;
+        s1.printTotalScore();
+        s1.printAverageScore();
+
+        //2.再创建一个学生对象，封装学生b的数据
+        Student s2 = new Student();
+        s2.name = &quot;学生b&quot;;
+        s2.chinese = 100;
+        s2.math = 59;
+        s2.printTotalScore();
+        s2.printAverageScore();
+    }
+}
+</code></pre>
+<p>用以上代码新建一个学生类并且调用我们之前写好的功能</p>
+		<hr>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/98/"></a>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/%E6%8A%80%E6%9C%AF/99/" 
 			   class="post-title-link"
 			   title="深刻认识面向对象">
@@ -233,55 +292,6 @@ public class Basic {
 </code></pre>
 		<hr>
 	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/%E6%8A%80%E6%9C%AF/89/" 
-			   class="post-title-link"
-			   title="Java方法的基本使用">
-				Java方法的基本使用
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<time class="meta__text" datetime="2024-11-29T20:45:20&#43;08:00">November 29, 2024</time></div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<h1 id="方法是什么">方法是什么</h1>
-<p>方法是一种语法结构，它可以把代码封装成一段功能，以便重复调用。</p>
-<p>方法的完整格式：</p>
-<p>例子：数字求和</p>
-<pre><code class="language-java">    public static  int sum(int a,int b){
-        int c = a + b;
-        return c;
-    }
-</code></pre>
-<p>方法的调用：</p>
-<pre><code class="language-java">       int rs= sum(10,20);
-</code></pre>
-<h2 id="方法使用的注意点">方法使用的注意点：</h2>
-<p>方法申明了具体的返回值类型，内部必须使用return返回对应类型的数据。</p>
-<p>形参列表可以有多个，甚至可没有；如果有多个形参，必须用英文逗号隔开，且不能给初始化值</p>
-<h2 id="使用方法的好处">使用方法的好处</h2>
-<ul>
-<li>提高代码的复用性，提高了开发效率</li>
-<li>让程序逻辑性更清晰</li>
-</ul>
-<h2 id="方法的其他定义形式">方法的其他定义形式</h2>
-<pre><code class="language-java">    public static void printHelloWorld(int n) {
-        for (int i = 1; i &lt;=n; i++) {
-            System.out.println(&quot;Hello World&quot;);
-        }
-    }
-//打印三行helloworld（使用方法）
-</code></pre>
-<ul>
-<li>如果方法不需要返回数据，返回类型必须申明成<code>void</code>此时方法内部可以不使用return返回数据。</li>
-<li>方法如果不需要接收数据，则不需要定义形参，调用方法时也不可以传数据给方法了。</li>
-<li>没有参数，且没有返回类型（void）申明的方法，称为<strong>无参数、无返回值的方法</strong></li>
-</ul>
-		<hr>
-	</div>
 </article>
 </main>
 
@@ -339,6 +349,12 @@ public class Basic {
 
 <script>
 window.siteSearchData = [
+  
+  {
+    "title": "\"C语言下的二进制文件IO踩坑\"",
+    "url": "https:\/\/blog.yingyu5658.me\/post\/%E6%8A%80%E6%9C%AF\/c%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6io\/",
+    "content": "\"C语言下的二进制文件读写有个坑，就是一定要按存储的顺序读取。例：\\ntypedef struct player { int id; double XP; double MP; }player; 这里有一个玩家的数据结构，我们创建变量并初始化。\\nint b_i[32] = {1, 233, 2453, 5432, 21 ,43 ,297, 752, 643}; player yingyu5658; yingyu5658.MP = 100; yingyu5658.XP = 100; yingyu5658.id = 114514; 对文件进行存储时，按照MP=\\u0026gt;XP=\\u0026gt;ID的顺序存储\\npd = fopen(\\u0026quot;./data\\u0026quot;, \\u0026quot;wb\\u0026quot;); fwrite(\\u0026amp;yingyu5658.MP, sizeof(double), 1, pd); fwrite(\\u0026amp;yingyu5658.XP, sizeof(double), 1, pd); fwrite(\\u0026amp;yingyu5658.id, sizeof(int), 1, pd); 读取的时候一定要按照这个顺序，否则读取出来的内容是无效的。\\nint id; double XP, MP; pd = fopen(\\u0026quot;./data\\u0026quot;, \\u0026quot;rb\\u0026quot;); fread(\\u0026amp;MP, sizeof(double), 1, pd); fread(\\u0026amp;XP, sizeof(double), 1, pd); fread(\\u0026amp;id, sizeof(int), 1, pd); player new_player; new_player.id = id; new_player.XP = XP; new_player.MP = MP; printf(\\u0026quot;id: %d\\\\n\\u0026quot;, new_player.id); printf(\\u0026quot;XP: %f\\\\n\\u0026quot;, new_player.XP); printf(\\u0026quot;MP: %f\\\\n\\u0026quot;, new_player.MP); 运行结果：\\n写入了id: 114514 写入了XP: 100.000000 写入了MP: 100.000000 id: 114514 XP: 100.000000 MP: 100.000000 使用完也要关闭流，否则资源泄漏\\nfclose(pd); // 必须显式关闭 \""
+  },
   
   {
     "title": "\"Vscode编辑Markdown体验非常好\"",
@@ -923,6 +939,9 @@ window.siteSearchData = [
 	<div class="widget__content">
 		<ul class="widget__list">
 			<li class="widget__item">
+				<a class="widget__link" href="/post/%E6%8A%80%E6%9C%AF/c%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6io/">C语言下的二进制文件IO踩坑</a>
+			</li>
+			<li class="widget__item">
 				<a class="widget__link" href="/post/%E6%8A%80%E6%9C%AF/vscode-edit-markdown/">Vscode编辑Markdown体验非常好</a>
 			</li>
 			<li class="widget__item">
@@ -1009,9 +1028,6 @@ window.siteSearchData = [
 			<li class="widget__item">
 				<a class="widget__link" href="/post/%E9%9A%8F%E7%AC%94/%E6%98%9F%E8%90%BD%E5%85%B3%E4%BA%8E%E6%88%91%E5%AF%B9%E5%91%BD%E8%BF%90%E6%97%A2%E5%AE%9A%E7%9A%84%E6%83%B3%E6%B3%95/">【投稿】关于我对命运既定的想法</a>
 			</li>
-			<li class="widget__item">
-				<a class="widget__link" href="/post/%E6%8A%80%E6%9C%AF/%E6%88%91%E8%BF%98%E6%98%AF%E6%94%BE%E4%B8%8D%E4%B8%8Bemacs/">我还是放不下Emacs！</a>
-			</li>
 		</ul>
 	</div>
 </div><div class="widget-archives widget">
@@ -1019,12 +1035,16 @@ window.siteSearchData = [
 	<div class="widget__content" id="archives-container">
 		
 		<div class="widget__item archive-year">
-			<span class="archive-year-text">2025 (77)</span>
+			<span class="archive-year-text">2025 (78)</span>
 			<div class="archive-months">
 				
 				<div class="archive-month">
-					<span class="archive-month-text" data-toggle="archive">July (7)</span>
+					<span class="archive-month-text" data-toggle="archive">July (8)</span>
 					<div class="archive-posts">
+						
+						<div class="archive-post">
+							<a href="/post/%E6%8A%80%E6%9C%AF/c%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6io/" class="archive-post-link">C语言下的二进制文件IO踩坑</a>
+						</div>
 						
 						<div class="archive-post">
 							<a href="/post/%E6%8A%80%E6%9C%AF/vscode-edit-markdown/" class="archive-post-link">Vscode编辑Markdown体验非常好</a>
