@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>哈希表 on 映屿</title>
-    <link>https://blog.yingyu5658.me/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/</link>
+    <link>https://www.yingyu5658.me/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/</link>
     <description>Recent content in 哈希表 on 映屿</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
     <lastBuildDate>Wed, 28 May 2025 21:44:28 +0000</lastBuildDate>
-    <atom:link href="https://blog.yingyu5658.me/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/atom.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://www.yingyu5658.me/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/atom.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>【数据结构与算法】哈希表</title>
-      <link>https://blog.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%93%88%E5%B8%8C%E8%A1%A8/</link>
+      <link>https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%93%88%E5%B8%8C%E8%A1%A8/</link>
       <pubDate>Wed, 28 May 2025 21:44:28 +0000</pubDate>
-      <guid>https://blog.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%93%88%E5%B8%8C%E8%A1%A8/</guid>
+      <guid>https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%93%88%E5%B8%8C%E8%A1%A8/</guid>
       <description>&lt;p&gt;哈希表（Hash Table）是一种基于键（Key）直接访问数据的高效数据结构，其核心思想是通过哈希函数将键映射到数组的特定位置，从而实现平均时间复杂度为 O(1)O(1) 的插入、查找和删除操作。&lt;/p&gt;&#xA;&lt;h2 id=&#34;结构定义&#34;&gt;结构定义&lt;/h2&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;// 哈希表节点&#xA;typedef struct HashNode {&#xA;    int key;&#xA;    int value;&#xA;    struct Hashcode* next;&#xA;} HashNode;&#xA;&#xA;// 哈希表&#xA;typedef struct {&#xA;    int size;&#xA;    HashNode** buckets;&#xA;} HashTable;&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h2 id=&#34;初始化&#34;&gt;初始化&lt;/h2&gt;&#xA;&lt;p&gt;创建HashTable结构体变量，进行初始化赋值，分配桶的内存。&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;// 初始化哈希表&#xA;HashTable *creat_hash_table(int size)&#xA;{&#xA;    HashTable* table = (HashTable*)malloc(sizeof(HashTable));&#xA;    table-&amp;gt;size = size;&#xA;    table-&amp;gt;buckets = (HashNode**)malloc(size * sizeof(HashNode*));&#xA;    for(int i = 0; i &amp;lt; size; i++)&#xA;    {&#xA;        table-&amp;gt;buckets[i] = NULL;&#xA;    }&#xA;    return table;&#xA;}&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h2 id=&#34;哈希函数&#34;&gt;哈希函数&lt;/h2&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;// 哈希函数&#xA;int hash(int key, int size)&#xA;{&#xA;    return key % size;&#xA;}&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;通过简单取模运算获得哈希值&lt;/p&gt;</description>
     </item>
   </channel>
