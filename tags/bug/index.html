@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Categories - 映屿</title>
+	<title>Bug - 映屿</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
 
@@ -16,14 +16,14 @@
 	
 	<link rel="stylesheet" href="/css/style.css">
 	
-	<link rel="alternate" type="application/rss&#43;xml" href="/categories/atom.xml" title="映屿">
+	<link rel="alternate" type="application/rss&#43;xml" href="/tags/bug/atom.xml" title="映屿">
 
 	
 	<link rel="dns-prefetch" href="https://api.github.com">
 
 </head>
 
-<body class="taxonomy-page">
+<body class="term-page">
 	<div class="mail">
 	<div class="container container--outer">
 		<div class="border">
@@ -41,14 +41,14 @@
 			
 <main class="main list" role="main">
 	<header class="main__header">
-		<h1 class="main__title">Categories</h1>
+		<h1 class="main__title">Bug</h1>
 	</header><article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
-			<a href="/categories/%E6%8A%80%E6%9C%AF/" 
+			<a href="/post/%E6%8A%80%E6%9C%AF/fedora-linux-cant-play-audio/" 
 			   class="post-title-link"
-			   title="技术">
-				技术
+			   title="Fedora42无法播放音频的解决方案">
+				Fedora42无法播放音频的解决方案
 			</a>
 		</h2>
 		<div class="list__meta meta">
@@ -56,24 +56,16 @@
 	<time class="meta__text" datetime="2025-07-12T13:26:57&#43;08:00">July 12, 2025</time></div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		
-		<hr>
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/categories/%E9%9A%8F%E7%AC%94/" 
-			   class="post-title-link"
-			   title="随笔">
-				随笔
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<time class="meta__text" datetime="2025-07-05T09:09:48Z">July 05, 2025</time></div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		
+		<h2 id="基本信息">基本信息</h2>
+<pre><code>OS: Fedora Linux 42 (Workstation Edition) x86_64
+Host: Z490 GAMING X (-CF)
+Kernel: Linux 6.15.4-200.fc42.x86_64
+</code></pre>
+<h2 id="问题描述">问题描述</h2>
+<p>无法播放任何音频，内核日志无报错，alsamixer中显示没有任何静音选项，系统自带音频模块无缺失，进行过一次<code>dnf update</code>。</p>
+<h2 id="解决方案">解决方案</h2>
+<p>找一个耳机插到电脑上后，音频输出设备选择<code>**线缆输出-内置音频**</code>即可正常播放音频。</p>
+<p>出现原因未知，间歇性发作。</p>
 		<hr>
 	</div>
 </article>

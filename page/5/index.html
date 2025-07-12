@@ -44,6 +44,26 @@
 	<article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/%E9%9A%8F%E7%AC%94/%E8%A2%AB%E8%94%91%E8%A7%86%E7%9A%84%E6%B3%95%E5%BE%8B/" 
+			   class="post-title-link"
+			   title="被蔑视的法律">
+				被蔑视的法律
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-06-20T20:24:57Z">June 20, 2025</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>今天中考布置考场，只上半天课。下周一就是地生会考了，看完考场回来，已经接近一点，早点没吃，去便利店买点面包垫肚子，看到了两个其他学校的学生一人拿着一瓶酒，在台前结账。</p>
+<p>一开始我并不确定那是不是酒，但当机器冰冷的女声提示工作人员确认顾客是否成年，禁止向未成年人出售烟酒，再加之她们两个鬼鬼祟祟的表情，可以断定就是酒了。那两个人面容有些憔悴，脸上圈着黑眼圈，快三十度的天，依然穿着校服外套，敞开怀，驼着背。看起来跟我同龄。其中一个人尽力用只能让对方听到的声音说出：“吓死我了。”很显然，她失败了。但买酒成功了，别的失败对她讲都不重要了。事发时，我就在她们身后排队结账，这一切都被我完整地看在眼里。</p>
+<p>结账的小哥麻木地接过瓶子扫码，提醒付款，他好像已经习以为常了。《未成年人保护法》、《酒类流通管理办法》都明确规定禁止向未成年人出售烟酒，所谓上有政策，下有对策。这对策妙，无视法律和政策。</p>
+<p>我个人对烟酒一直没什么好印象，抽烟的学生都是不良；喝酒的大人耍酒疯很麻烦，不耍也很烦人；旁边有人抽烟难免被二手烟呛到，完全无法呼吸。消遣排解的方式有很多，偏偏选择伤害自己身心又对别人无益的那一个。</p>
+		<hr>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/%E9%9A%8F%E7%AC%94/%E7%AC%AC%E4%B8%89%E6%AC%A1%E4%B8%96%E7%95%8C%E5%A4%A7%E6%88%98/" 
 			   class="post-title-link"
 			   title="第三次世界大战">
@@ -113,67 +133,12 @@
 <p>真他妈恶心，我的青春啊。</p>
 		<hr>
 	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/%E6%8A%80%E6%9C%AF/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AF%BC%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" 
-			   class="post-title-link"
-			   title="《操作系统导论》学习笔记">
-				《操作系统导论》学习笔记
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<time class="meta__text" datetime="2025-06-15T18:36:21Z">June 15, 2025</time></div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<h2 id="操作系统做什么">操作系统做什么</h2>
-<ul>
-<li>它取得并虚拟化CPU、内存或磁盘等物理资源。</li>
-<li>处理并发问题。</li>
-<li>持久地存储文件，使文件长期安全。</li>
-</ul>
-<h2 id="设计目标">设计目标</h2>
-<p>最基本的，建立一些抽象，让系统方便使用。将其划分为<strong>小而且容易理解的部分</strong>。</p>
-<p>提供<strong>高性能</strong>，最小化系统开销。</p>
-<p>提供程序保护，确保恶意或偶然的不良行为不会损害其他程序和系统本身，即隔离。让进程彼此隔离是关键。</p>
-<p>不间断运行的能力，力求可靠性。</p>
-<h2 id="进程">进程</h2>
-<h3 id="定义">定义</h3>
-<p>运行中的程序。</p>
-<p>程序本身没有生命周期的概念，只是存储在磁盘上的指令和静态数据，操作系统让这些字节运行起来。</p>
-<h3 id="虚拟化">虚拟化</h3>
-<p>操作系统通过虚拟化CPU来提供有无数CPU可用的假象。通过让一个进程只运行一个时间片，然后切换到其他进程，操作系统提供了存在多个虚拟CPU的假象，这就是<strong>时分共享CPU技术</strong>。允许用户运行多个并发进程，潜在的开销就是性能损失，因为CPU共享，每个进程的运行速度就会变慢。（受力面积和压强的关系）。</p>
-<h3 id="进程api">进程API</h3>
-<ul>
-<li>
-<p>创建（create）：调用系统操作来创建新进程。</p>
-</li>
-<li>
-<p>销毁（destroy）：强制销毁进程，大部分程序会再结束后自动退出，但如果用户想终止，这个接口很有用。</p>
-</li>
-<li>
-<p>等待（wait）：等待进程停止运行。</p>
-</li>
-<li>
-<p>状态（status）：获得有关进程的状态信息，如运行时间等。</p>
-</li>
-<li>
-<p>其他控制（miscellaneous control）：除了杀死和等待进程外还有其他控制，如暂停。</p>
-</li>
-</ul>
-<blockquote>
-<p>[!NOTE]
-书签：P21 4.3</p>
-</blockquote>
-		<hr>
-	</div>
 </article>
 </main>
 
 <div class="pagination">
 	<a class="pagination__item pagination__item--prev btn" href="/page/4/">«</a>
-	<span class="pagination__item pagination__item--current">5/24</span>
+	<span class="pagination__item pagination__item--current">5/25</span>
 	<a class="pagination__item pagination__item--next btn" href="/page/6/">»</a>
 </div>
 <br><hr>
@@ -225,6 +190,12 @@
 
 <script>
 window.siteSearchData = [
+  
+  {
+    "title": "\"Fedora42无法播放音频的解决方案\"",
+    "url": "https:\/\/blog.yingyu5658.me\/post\/%E6%8A%80%E6%9C%AF\/fedora-linux-cant-play-audio\/",
+    "content": "\"基本信息 OS: Fedora Linux 42 (Workstation Edition) x86_64 Host: Z490 GAMING X (-CF) Kernel: Linux 6.15.4-200.fc42.x86_64 问题描述 无法播放任何音频，内核日志无报错，alsamixer中显示没有任何静音选项，系统自带音频模块无缺失，进行过一次dnf update。\\n解决方案 找一个耳机插到电脑上后，音频输出设备选择**线缆输出-内置音频**即可正常播放音频。\\n出现原因未知，间歇性发作。\\n\""
+  },
   
   {
     "title": "\"C语言下的二进制文件IO踩坑\"",
@@ -815,6 +786,9 @@ window.siteSearchData = [
 	<div class="widget__content">
 		<ul class="widget__list">
 			<li class="widget__item">
+				<a class="widget__link" href="/post/%E6%8A%80%E6%9C%AF/fedora-linux-cant-play-audio/">Fedora42无法播放音频的解决方案</a>
+			</li>
+			<li class="widget__item">
 				<a class="widget__link" href="/post/%E6%8A%80%E6%9C%AF/c%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6io/">C语言下的二进制文件IO踩坑</a>
 			</li>
 			<li class="widget__item">
@@ -901,9 +875,6 @@ window.siteSearchData = [
 			<li class="widget__item">
 				<a class="widget__link" href="/post/%E6%8A%80%E6%9C%AF/emacs%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95-2c-c&#43;&#43;%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">Emacs配置记录 2——C/C&#43;&#43;环境配置</a>
 			</li>
-			<li class="widget__item">
-				<a class="widget__link" href="/post/%E9%9A%8F%E7%AC%94/%E6%98%9F%E8%90%BD%E5%85%B3%E4%BA%8E%E6%88%91%E5%AF%B9%E5%91%BD%E8%BF%90%E6%97%A2%E5%AE%9A%E7%9A%84%E6%83%B3%E6%B3%95/">【投稿】关于我对命运既定的想法</a>
-			</li>
 		</ul>
 	</div>
 </div><div class="widget-archives widget">
@@ -911,12 +882,16 @@ window.siteSearchData = [
 	<div class="widget__content" id="archives-container">
 		
 		<div class="widget__item archive-year">
-			<span class="archive-year-text">2025 (78)</span>
+			<span class="archive-year-text">2025 (79)</span>
 			<div class="archive-months">
 				
 				<div class="archive-month">
-					<span class="archive-month-text" data-toggle="archive">July (8)</span>
+					<span class="archive-month-text" data-toggle="archive">July (9)</span>
 					<div class="archive-posts">
+						
+						<div class="archive-post">
+							<a href="/post/%E6%8A%80%E6%9C%AF/fedora-linux-cant-play-audio/" class="archive-post-link">Fedora42无法播放音频的解决方案</a>
+						</div>
 						
 						<div class="archive-post">
 							<a href="/post/%E6%8A%80%E6%9C%AF/c%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6io/" class="archive-post-link">C语言下的二进制文件IO踩坑</a>

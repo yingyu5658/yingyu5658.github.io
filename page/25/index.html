@@ -44,172 +44,66 @@
 	<article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
-			<a href="/post/%E9%9A%8F%E7%AC%94/%E7%9B%BC%E6%9C%9B%E4%B8%8B%E9%9B%A8/" 
+			<a href="/post/%E6%8A%80%E6%9C%AF/4/" 
 			   class="post-title-link"
-			   title="盼望下雨">
-				盼望下雨
+			   title="记录Typecho博客转移到Hexo">
+				记录Typecho博客转移到Hexo
 			</a>
 		</h2>
 		<div class="list__meta meta">
 <div class="meta__item-datetime meta__item">
-	<time class="meta__text" datetime="2025-04-12T02:10:41Z">April 12, 2025</time></div></div>
+	<time class="meta__text" datetime="2024-03-03T15:40:00&#43;08:00">March 03, 2024</time></div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		<p>我喜欢下雨。下雨可以没有理由地发呆，看着窗外雨水倾盆洒落，听着打在窗沿上的滴答声，闻着空气里泥土和雨水混合的潮湿味，最享受的时光。下雨天适合做除了外出的任何事。读一本书，画一幅画，听一首歌，或是搬一把椅子，坐在窗前看雨。雨天阴沉的天空色调很舒服，很有安全感。
-夜行动物都是浪漫的。夜晚很安静，很短暂，能安静独处的时间不多了。
-想画画，正好今天不用上课了，画点好玩的吧。手好酸。一听夏露露这首歌就能想起好多事，好多回忆，但是记不清是什么了。回忆。淡黄氧化色和线描小花，这是回忆的一部分吗？想起一本叫秘密花园的书，是一本涂色书，上面有很多精美的线稿，小时候妈妈买过，没涂完，已经不知道扔到哪去了。
-为什么听起以前听过的歌就会难过呢？为什么谈起小时候的事就会流泪呢？现在过得不好吗？想做的事做不到啊，想要的东西得不到啊，想说的话没人听啊。
-他本应属于我的，怎么被外来者夺取了呢？</p>
-<p>真可怜，只能把情感寄托在冰冷的键盘和几寸屏幕上，被液晶分子在电场作用下改变排列方式触动。</p>
-<p>2025.4.12 凌晨2:09
-听着歌困到神志不清的我。</p>
-		<hr>
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/%E6%8A%80%E6%9C%AF/osu-apiv1%E8%AF%B7%E6%B1%82%E7%A4%BA%E4%BE%8B/" 
-			   class="post-title-link"
-			   title="osu!APIv1请求示例">
-				osu!APIv1请求示例
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<time class="meta__text" datetime="2025-04-11T22:29:23Z">April 11, 2025</time></div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<h2 id="前言">前言</h2>
-<p>本文章使用Nodejs环境做演示。请求用户数据。代码中的APIKEY要在<a href="https://osu.ppy.sh/home/account/edit">osu官网‬</a>申请。</p>
-<pre><code class="language-js">const API_URL = &quot;osu.ppy.sh&quot;;
-const init = {
-    k: &quot;YOUR_API_KEY&quot;,
-    type: &quot;string&quot;,
-    u: &quot;kyzzz5658&quot;,
-};
-
-const https = require(&quot;https&quot;);
-
-// 将参数序列化为查询字符串
-const query = new URLSearchParams(init);
-const options = {
-    hostname: API_URL,
-    method: &quot;GET&quot;,
-    path: `/api/get_user?${query}` // 附加参数
-};
-
-const req = https.request(options, (res) =&gt; {
-    let data = '';
-    res.on('data', (chunk) =&gt; data += chunk);
-    res.on('end', () =&gt; {
-        try {
-            console.log(JSON.parse(data[0].username));
-        } catch (e) {
-            console.error('JSON 解析失败:', e);
-        }
-    });
-});
-
-// 错误处理
-req.on('error', (err) =&gt; {
-    console.error('请求失败:', err.code);
-});
-</code></pre>
-<p>输出：</p>
-		<hr>
-	</div>
-	<div class="list__footer clearfix">
-		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/osu-apiv1%E8%AF%B7%E6%B1%82%E7%A4%BA%E4%BE%8B/"></a>
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/%E9%9A%8F%E7%AC%94/%E6%88%91%E7%9A%84%E6%94%92%E9%92%B1%E8%AE%A1%E5%88%92/" 
-			   class="post-title-link"
-			   title="我的攒钱计划">
-				我的攒钱计划
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<time class="meta__text" datetime="2025-04-11T20:13:20Z">April 11, 2025</time></div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<p>一个小目标，初三前攒够两千块。</p>
-<p>实现难度是不大，已经有了八百多存款，微信里有一百多，一共900。每天早上父母会给我20元买早饭，省省，不吃了，每天稳定收入20。加上每月50 + 70的零花钱。</p>
-<p>粗略估算一下：</p>
+		<h1 id="前言">前言</h1>
+<p>折腾来折腾去，最后发现归宿还是静态博客，安全性高、性能开销小，用Github直接省去服务器费用还差不多永生。每年把域名钱交了就得了，图片的问题再想想办法，总能解决的。
+<del>突然有一种为了躲避战乱带着一家人四处奔波的悲凉感</del></p>
+<h1 id="分析">分析</h1>
+<p>博客网站的内容，都可以拆分为以下几个点：</p>
 <ul>
-<li>现金：837.00</li>
-<li>微信：100.59</li>
-<li>支付宝：5.19</li>
-<li>共 <strong>944.78</strong> 元</li>
+<li>文章</li>
+<li>评论</li>
+<li>文章插图</li>
+<li>网站贴图资源</li>
 </ul>
-<p>与目标差 <strong>1055.22</strong> 。</p>
-<p>截止到今天（4月11日），这个月还剩 <strong>13</strong> 个工作日。</p>
-<p>月底可获得 20 * 13 = 260。</p>
-<p>共 944.78 + 260.00 = 970.78。</p>
-<p>每月 120 零花钱</p>
-<p>共 970.78 + 120 = 1090.78</p>
-<p>与目标差 <strong>909.22</strong></p>
-<p>同理可得五月份月收入：<strong>560</strong> 元，共计 <strong>1650.78</strong></p>
-<p>与目标相差 <strong>349.22</strong></p>
-<p>每月收入280，可得出七月份大概可以完成目标。</p>
-<p>当然，这是最悲观的情况。也许有哪一天能发一笔横财呢。</p>
-<p>2000块，攒攒总会有的。</p>
-<p><img src="/images/%E6%88%91%E7%9A%84%E6%94%92%E9%92%B1%E8%AE%A1%E5%88%92/image-20250411203412036.png" alt="image-20250411203412036"></p>
-<p><img src="/images/%E6%88%91%E7%9A%84%E6%94%92%E9%92%B1%E8%AE%A1%E5%88%92/image-20250411203412036.png" alt="相关图片"></p>
-<p><img src="/images/%E6%88%91%E7%9A%84%E6%94%92%E9%92%B1%E8%AE%A1%E5%88%92/image-20250411203412036.png" alt="相关图片"></p>
-<p><img src="/images/%E6%88%91%E7%9A%84%E6%94%92%E9%92%B1%E8%AE%A1%E5%88%92/image-20250411203412036.png" alt="相关图片"></p>
-		<hr>
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/%E9%9A%8F%E7%AC%94/%E6%80%9D%E6%83%B3%E9%A9%AF%E5%8C%96%E4%B8%8D%E6%98%AF%E8%89%BA%E6%9C%AF/" 
-			   class="post-title-link"
-			   title="思想驯化不是艺术">
-				思想驯化不是艺术
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<time class="meta__text" datetime="2025-04-08T20:18:36Z">April 08, 2025</time></div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<blockquote>
-<p>“有什么可笑的？没见过艺术吗？”</p>
-</blockquote>
-<p>一个老师带着即将喷薄出来的优越感怒吼道。</p>
-<hr>
-<p>什么是艺术？艺术，至少是应该是美的。几十个人挤在方寸压抑的教室里，身体像被枷锁锁住，只有上肢能挣扎的“舞蹈”应该是艺术？畸形的审美！</p>
-<p>班主任非常重视这件事，甚至不惜浪费午休时间来练习这荒唐的动作。</p>
-<p><strong>课桌舞</strong>这种畸形的产物与应遭人唾弃遗臭万古的形式主义，与艺术相提并论，完全就是在侮辱艺术！配乐是毫无编曲技术含量的土嗨DJ Remix版本，更是在侮辱原唱歌手和作词，更是在侮辱艺术！课桌舞，不配！</p>
-<p>不巧的是，领导们就独爱这种形式主义，学生们笑得多开心，即使被囚禁在课桌上也能这么活泼！</p>
-<p><img src="/images/%E6%80%9D%E6%83%B3%E9%A9%AF%E5%8C%96%E4%B8%8D%E6%98%AF%E8%89%BA%E6%9C%AF/ke-zhuo-wu-1.png" alt="”艺术“"></p>
-<p>整幅画面，除了压抑，能想到的形容词只有可笑、可憎、可恶、可怜、可悲！</p>
-<p>学生穿着整齐划一的服装，喊着空洞的口号，和工厂批量生产的，没有灵魂的产品有什么区别！青春应该是这样的吗？什么人对青春的定义是这样的？</p>
-<p>学生们的性格被杀死、尊严被践踏、思想被驯化、才华被埋没。何等的惨案，每天都在上演。青春绝不该是这般肮脏丑陋病态癫狂！</p>
-<p>这种活动既增加负担，又没有任何锻炼作用，纯粹的服从性测试。不服从，就是工厂的残次品，必定被淘汰。</p>
-<p>驯化人的思想到一定程度，就没有人反抗；把棱角磨平，就没有人敢于质疑。有思想就是残次品，必定被淘汰。不顺从就是残次品，必定被淘汰。</p>
-<p>三座工厂日夜不停地生产加工，流水线批量生产的零件按质量给不同的场景使用。有的材料本来适合被雕刻成真正的艺术品，却被当成助燃的废木；有的外表精美华丽，实则内部已经千疮百孔！</p>
-<p>![alt text](/images/思想驯化不是艺术/image copy.png&gt;)</p>
-<p>穷凶极恶的罪犯们要好好改造。他们笑得多开心啊。一定没有为自己正在做这么可悲的事而难过！</p>
-<p>可笑就是可笑，笑他们，笑制度，笑风气。笑身陷泥潭无法自救的自己。要放肆的笑，大胆的笑。本身可笑的事被训斥不准笑，才是最可笑的。
-![相关图片](/images/思想驯化不是艺术/image copy.png)</p>
-<p><img src="/images/%E6%80%9D%E6%83%B3%E9%A9%AF%E5%8C%96%E4%B8%8D%E6%98%AF%E8%89%BA%E6%9C%AF/ke-zhuo-wu-1.png" alt="相关图片"></p>
-<p>![相关图片](/images/思想驯化不是艺术/image copy.png)</p>
-<p><img src="/images/%E6%80%9D%E6%83%B3%E9%A9%AF%E5%8C%96%E4%B8%8D%E6%98%AF%E8%89%BA%E6%9C%AF/ke-zhuo-wu-1.png" alt="相关图片"></p>
-<p>![相关图片](/images/思想驯化不是艺术/image copy.png)</p>
-<p><img src="/images/%E6%80%9D%E6%83%B3%E9%A9%AF%E5%8C%96%E4%B8%8D%E6%98%AF%E8%89%BA%E6%9C%AF/ke-zhuo-wu-1.png" alt="相关图片"></p>
+<p>先从最主要的文章开始，想想有没有什么可以用的。
+gitee上有一个<a href="https://gitcode.com/gh_mirrors/ty/Typecho-Plugin-Tp2MD">插件</a>，看起来好像有点用，折腾安装一下试试先。</p>
+<h1 id="tp2md插件迁移文章">Tp2MD插件迁移文章</h1>
+<p>远程登录服务器，把本地下号的zip传到服务器上并解压。
+cd到插件目录
+<code>/usr/share/nginx/html/usr/plugins</code></p>
+<p>解压压缩包
+<code>unzip Typecho-Plugin-Tp2MD-master.zip</code></p>
+<p>重命名为插件的自述文件要求的名称
+<code>mv Typecho-Plugin-Tp2MD-master Tp2MD</code></p>
+<p>登录网站后台，启用插件。点击插件的设置，保存后按照教程访问。
+这里提示<code>不能写入文件，请检查 cache 文件夹权限！</code>，我们在插件目录设置一下权限
+<code>sudo chmod -R 777 cache</code>a
+注意是这个插件目录下的cache！！</p>
+<p>提示导出成功，cd到这个目录，把文件压缩下载下来查看
+可能是因为我有的文章点了多篇分类，导出文件夹有点问题，无所谓，后期再调，拿到了就行。至此，文章部分搞定！</p>
+<h1 id="评论">评论</h1>
+<p>评论这里，我折腾了两天，尝试尽了各种方案（Disqus Valine Waline Utterances Twikoo Atalk），最后还是选择了Giscus。我也知道这样读者没有github就没办法发评论，但是其他几种方案都会出现各种奇奇怪怪且无法解决的问题比如Cloudflare拦截、CORS出毛病、服务器被墙以及莫名其妙404、403。我真的尽力了。</p>
+<h1 id="文章插图">文章插图</h1>
+<h2 id="转移图片文件">转移图片文件</h2>
+<p>进入<code>/usr/uploads/</code>，压缩下载图片</p>
+<p>重组Hexo图片目录：复制所有图片到Hexo的<code>source/images/</code>目录。</p>
+<p>手动替换图片路径 ，注意，静态资源解析默认以source为根目录，所以直接写以source为根目录的绝对路径就行。</p>
+<h1 id="部署到vercel加速访问">部署到vercel加速访问</h1>
+<ol>
+<li>注册vercel账号</li>
+<li>创建项目，关联仓库</li>
+<li>域名解析</li>
+</ol>
+<p>2025.3.3，博客全部迁移完毕，粗略累计用时六天，一直没什么时间搞，耗时最长的还是在评论系统上的试错。</p>
 		<hr>
 	</div>
 </article>
 </main>
 
 <div class="pagination">
-	<a class="pagination__item pagination__item--prev btn" href="/page/14/">«</a>
-	<span class="pagination__item pagination__item--current">15/25</span>
-	<a class="pagination__item pagination__item--next btn" href="/page/16/">»</a>
+	<a class="pagination__item pagination__item--prev btn" href="/page/24/">«</a>
+	<span class="pagination__item pagination__item--current">25/25</span>
 </div>
 <br><hr>
 <footer>

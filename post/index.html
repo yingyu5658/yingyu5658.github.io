@@ -45,6 +45,32 @@
 	</header><article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/fedora-linux-cant-play-audio/" 
+			   class="post-title-link"
+			   title="Fedora42无法播放音频的解决方案">
+				Fedora42无法播放音频的解决方案
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-07-12T13:26:57&#43;08:00">July 12, 2025</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<h2 id="基本信息">基本信息</h2>
+<pre><code>OS: Fedora Linux 42 (Workstation Edition) x86_64
+Host: Z490 GAMING X (-CF)
+Kernel: Linux 6.15.4-200.fc42.x86_64
+</code></pre>
+<h2 id="问题描述">问题描述</h2>
+<p>无法播放任何音频，内核日志无报错，alsamixer中显示没有任何静音选项，系统自带音频模块无缺失，进行过一次<code>dnf update</code>。</p>
+<h2 id="解决方案">解决方案</h2>
+<p>找一个耳机插到电脑上后，音频输出设备选择<code>**线缆输出-内置音频**</code>即可正常播放音频。</p>
+<p>出现原因未知，间歇性发作。</p>
+		<hr>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/%E6%8A%80%E6%9C%AF/c%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6io/" 
 			   class="post-title-link"
 			   title="C语言下的二进制文件IO踩坑">
@@ -138,91 +164,6 @@ printf(&quot;MP: %f\n&quot;, new_player.MP);
 	</div>
 	<div class="list__footer clearfix">
 		<a class="list__footer-readmore btn" href="/post/%E9%9A%8F%E7%AC%94/%E5%AF%B9%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E7%9A%84%E4%B8%80%E7%82%B9%E6%83%B3%E6%B3%95/"></a>
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/%E6%8A%80%E6%9C%AF/c%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E7%AE%80%E6%98%93shell/" 
-			   class="post-title-link"
-			   title="C语言实现简易Shell">
-				C语言实现简易Shell
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<time class="meta__text" datetime="2025-07-10T00:09:36&#43;08:00">July 10, 2025</time></div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<p>实现一个Shell，需要的功能有：</p>
-<ul>
-<li>循环读取用户输入</li>
-<li>输出提示符</li>
-<li>创建子进程执行命令</li>
-<li>等待回收子进程</li>
-</ul>
-<p>shell中的大多数命令都是通过创建子进程来执行的，可以使用<code>fork()</code>创建子进程，然后替换主进程执行命令。
-创建
-常用函数原型</p>
-<pre><code class="language-c">pid_t fork(void); // pid_t是int类型
-pid_t get_pid(); // 获取当前进程pid
-pid_ getppid(); // 获取当前进程的父进程值
-</code></pre>
-<p><code>fork()</code>用于创建创建一个进程，所阐明的进程复制父进程的代码段/数据段/BSS段/等所有用户空间信息，在内和中操作系统重新为其申请了一个PCB，并使用父进程的PCB初始化。</p>
-<p>实现fork()子进程替换为命令子进程, 最佳的进程替换的接口是<code>exevp()</code></p>
-<p>在创建子进程前，我们需要解析传递给shell的参数</p>
-<p>使用<code>strtok()</code>对command以空格进行分割，所以显而易见地，得到的结果数组中，第0位是命令名称，后面全部都是选项。</p>
-<p>使用<code>waitpid()</code>等待子进程，<code>fork()</code>获取的子进程id可以用于制定回收子进程。</p>
-<pre><code class="language-c">#include &lt;pwd.h&gt;
-#include &lt;sys/wait.h&gt;
-#include &lt;stdio.h&gt;
-#include &lt;string.h&gt;
-#include &lt;sys/types.h&gt;
-#include &lt;unistd.h&gt;
-
-#define MAX_COMMAND_SIZE 256
-
-int main()
-{
-	char *command_argv[MAX_COMMAND_SIZE];
-	char command[MAX_COMMAND_SIZE];
-	memset(command, '\n', MAX_COMMAND_SIZE);
-	const char* user_name = getlogin();
-	while(1)
-	{
-		printf(&quot;[%s@EazyShell]$ &quot;, user_name);
-		fgets(command, MAX_COMMAND_SIZE, stdin);
-		   command[strcspn(command, &quot;\n&quot;)] = '\0'; // 去掉末尾的换行符
-		// 分割命令行，一个空格为一项子命令或参数
-		command_argv[0] = strtok(command,&quot; &quot;);
-		int index = 1;
-		while(command_argv[index++] = strtok(NULL, &quot; &quot;));
-
-		// 创建子进程，并进程替换
-		pid_t id = fork();
-		if(id == 0)
-		{
-			// 进程替换
-			execvp(command_argv[0], command_argv);
-			return  -1; // 失败则退出-1
-		}
-
-		// 父进程回收子进程
-		int status = 0;
-		pid_t ret = waitpid(id, &amp;status, 0);
-		if (ret = 0)
-		{
-			printf(&quot;父进程成功回收子进程, exit_code: %d, exit_sig: %d\n&quot;, WEXITSTATUS(status), WTERMSIG(status));
-		}
-	}
-
-	return 0;
-}
-</code></pre>
-<p>这个程序的健壮性和内存布局还有待优化，但只是一个简易的shell，用于理解它的工作原理，这就够了。</p>
-		<hr>
-	</div>
-	<div class="list__footer clearfix">
-		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/c%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E7%AE%80%E6%98%93shell/"></a>
 	</div>
 </article>
 </main>

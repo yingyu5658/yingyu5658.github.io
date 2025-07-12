@@ -45,6 +45,103 @@
 	</header><article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/186/" 
+			   class="post-title-link"
+			   title="Java面向对象编程——多态、抽象类、接口">
+				Java面向对象编程——多态、抽象类、接口
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-01-10T15:05:00Z">January 10, 2025</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<h1 id="什么是多态">什么是多态</h1>
+<ul>
+<li>在继承/实现情况下的一种现象，表现为：对象多态、行为多态。</li>
+</ul>
+<h2 id="多态的前提">多态的前提</h2>
+<ul>
+<li>有<strong>继承/实</strong>现关系；存在父类引用子类对象；<strong>存在方法重写</strong></li>
+<li>
+<h2 id="多态的注意事项">多态的注意事项</h2>
+</li>
+<li>多态是对象、行为的多态，成员变量不体现多态。</li>
+</ul>
+<h1 id="使用多态的好处">使用多态的好处</h1>
+<ul>
+<li>在多态形式下，右边的对象是解耦合的，更便于拓展和维护。</li>
+<li>定义方法时，使用父类类型的形参，可以接收一切子类对象，扩展性更强、更便利。</li>
+</ul>
+<h1 id="多态下产生的一个问题">多态下产生的一个问题</h1>
+<ul>
+<li>多态下不能使用子类的独有功能。</li>
+</ul>
+<h2 id="多态下的类型转换">多态下的类型转换</h2>
+<ul>
+<li>自动类型转换：<code>父类 变量名 = new 子类();</code></li>
+<li>强制类型转换： <code>子类 变量名 = (子类)父类变量</code></li>
+</ul>
+<h2 id="强制类型转换的注意事项">强制类型转换的注意事项</h2>
+<ul>
+<li>存在继承/实现关系就可以在编译阶段进行强制类型转换，编译阶段不会报错。</li>
+<li>运行时，如果发现对象的真实类型与强转后的类型不同，就会报类型转换异常(ClassCastException)</li>
+</ul>
+<h3 id="强转前java建议">强转前，Java建议：</h3>
+<ul>
+<li>使用instanceof关键字，判断当前对象的真是类型，再进行强制类型转换。</li>
+</ul>
+<h1 id="final">final</h1>
+<ul>
+<li>final关键字的中文是最终的意思，可以修饰类、方法、变量
+<ul>
+<li>修饰类：该类被称为最终类，特点是不能被继承了。</li>
+<li>修饰方法：该方法被称为最终方法，特点是不能被重写了。</li>
+<li>修饰变量：该变量只能被赋值一次。</li>
+</ul>
+</li>
+</ul>
+<h1 id="常量">常量</h1>
+<ul>
+<li>使用了static final 修饰的成员变量就被称为常量；</li>
+<li>作用：通常用于记录系统的配置信息。</li>
+<li><strong>注意：常量的命名规范：使用大写英文单词，多个单词使用下划线连接起来。</strong></li>
+</ul>
+<h2 id="视同常量记录系统配置信息的优势执行原理">视同常量记录系统配置信息的优势、执行原理</h2>
+<ul>
+<li>代码可读性更好、可维护性也更好。</li>
+<li>程序编译后，常量会被宏替换：出现常量的地方全部会被替换成其记住的字面量，这样可以保证使用常量和直接用字面量的性能是一样的。</li>
+</ul>
+<h1 id="抽象类">抽象类</h1>
+<h2 id="什么是抽象类">什么是抽象类</h2>
+<ul>
+<li>Java中有个关键字叫abstract，他就是抽象的意思，可以用来修饰类、成员方法</li>
+<li>abstract修饰类，这个就是抽象类，修饰成员方法同理。</li>
+</ul>
+<h2 id="抽象类的注意事项特点">抽象类的注意事项、特点</h2>
+<ul>
+<li>抽象类中不一定有抽象方法，有抽象方法的类一定是抽象类。</li>
+<li>类该有的成员（成员变量、方法、构造器）抽象类都可以有。</li>
+<li><strong>抽象类最主要的特点：</strong> 抽象类不能创建对象，仅作为一种特殊的父类，让子类继承并实现。</li>
+<li>一个类继承抽象类，必须重写完抽象类的全部抽象方法，否则这个类也必须定义成抽象类。</li>
+</ul>
+<h2 id="抽象类的使用场景和好处">抽象类的使用场景和好处</h2>
+<ul>
+<li>父类知道每个子类都要做某个行为，但每个子类做的情况不一样，父类就定义成抽象方法，交给子类去重写实现，我们设计这样的抽象类，就是为了更好的支持多态。<del>爸爸画饼儿子烙饼</del></li>
+</ul>
+<h1 id="接口">接口</h1>
+<h2 id="接口概述">接口概述</h2>
+<ul>
+<li>Java提供了一个关键字interface，用这个关键字我们可以定义出一个特殊的结构：接口。</li>
+<li>注意：接口不能创建对象；接口是用来被类实现（implements）的，实现接口的类被称为实现类。</li>
+<li>一个类可以实现多个接口，实现类实现多个接口必须重写完全部接口的全部抽象方法，否则实现类需要定义成抽象类。</li>
+</ul>
+<p><img src="https://www.yingyu5658.cn/usr/uploads/2024/12/2743265221.jpg" alt=""></p>
+		<hr>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/%E6%8A%80%E6%9C%AF/185/" 
 			   class="post-title-link"
 			   title="Java面向对象编程——继承">
@@ -209,85 +306,6 @@ java -Dfile.encoding=UTF-8 -jar spigot-1.21.jar
 <p><img src="/images/Spigot%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%8E%A7%E5%88%B6%E5%8F%B0%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/1203260069.jpg" alt="相关图片"></p>
 <p><img src="/images/Spigot%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%8E%A7%E5%88%B6%E5%8F%B0%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/1203260069.jpg" alt="相关图片"></p>
 		<hr>
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/%E6%8A%80%E6%9C%AF/171/" 
-			   class="post-title-link"
-			   title="String的注意事项">
-				String的注意事项
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<time class="meta__text" datetime="2024-12-19T22:28:15Z">December 19, 2024</time></div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<h1 id="string的注意事项">String的注意事项</h1>
-<ul>
-<li>
-<ol>
-<li>String对象的内容不可改变， 被称为不可变字符串对象。</li>
-</ol>
-</li>
-<li>
-<ol start="2">
-<li>只要是以“&hellip;”的方式写出的字符串，都会存储到字符串常量池，且相同的字符串只存储一份；</li>
-</ol>
-</li>
-<li>但通过new方式创建字符串对象，每new一次都会产生一个新的对象放在堆内存中。</li>
-</ul>
-<h1 id="不可变字符串对象">不可变字符串对象</h1>
-<p>不可变？它肯定可变啊，比如</p>
-<pre><code class="language-java">package string;  
-  
-public class StringDemo3 {  
-    public static void main(String[] args) {  
-        String name = &quot;yingyu5658&quot;;  
-        name += &quot;.cn&quot;;  
-        name += &quot;域名&quot;;  
-        System.out.println(name);  
-  
-    }  
-}
-</code></pre>
-<p>这时候把name打印出来不就是<code>yingyu5658.cn域名</code>了吗？
-<strong>每次试图改变字符串对象实际上是新产生可字符串对象，变量每次都与指向了新的字符串对象，之前字符串对象的内容确实是没有改变的，因此说String的对象都是不可变的。</strong></p>
-<h1 id="第二点注意事项">第二点注意事项</h1>
-<p>示例代码：</p>
-<pre><code class="language-java">package string;  
-  
-public class StringDemo3 {  
-    public static void main(String[] args) {  
-        String s1 = &quot;abc&quot;;  
-        String s2 = &quot;abc&quot;;  
-        System.out.println(s1 == s2);  
-        //true  
-    }  
-}
-</code></pre>
-<p>这里使用双等来判断两个变量的地址是否相同，返回结果为<code>true</code>,也就是说，地址是相同的。
-原理：上文提到，双引号包裹住的字符串，会被保存到字符串常量池中，<strong>且相同的字符串只存储一份</strong>。这里我们声明了两个内容为abc的String类型变量。Java是很聪明的，当我们把s2声明，它要存到字符串常量池时，看到内容一样，就不再存了，而是把<strong>s2也指向abc</strong>，因此s1地址和s2地址是一样的。</p>
-<h2 id="new">new</h2>
-<p>示例代码：</p>
-<pre><code class="language-java">package string;  
-  
-public class StringDemo3 {  
-    public static void main(String[] args) {  
-        char[] chars = {'a','b','c'};  
-       String a1 =  new String(chars);  
-       String a2 =  new String(chars);  
-        System.out.println(a1 == a2);  
-        //false  
-    }  
-}
-</code></pre>
-<p>上文提到，每new一次就会创建一个新的对象，所以此时再比较两者地址，返回false，是不同的。</p>
-		<hr>
-	</div>
-	<div class="list__footer clearfix">
-		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/171/"></a>
 	</div>
 </article>
 </main>

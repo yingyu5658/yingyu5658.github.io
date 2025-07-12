@@ -45,6 +45,55 @@
 	</header><article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/89/" 
+			   class="post-title-link"
+			   title="Java方法的基本使用">
+				Java方法的基本使用
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2024-11-29T20:45:20&#43;08:00">November 29, 2024</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<h1 id="方法是什么">方法是什么</h1>
+<p>方法是一种语法结构，它可以把代码封装成一段功能，以便重复调用。</p>
+<p>方法的完整格式：</p>
+<p>例子：数字求和</p>
+<pre><code class="language-java">    public static  int sum(int a,int b){
+        int c = a + b;
+        return c;
+    }
+</code></pre>
+<p>方法的调用：</p>
+<pre><code class="language-java">       int rs= sum(10,20);
+</code></pre>
+<h2 id="方法使用的注意点">方法使用的注意点：</h2>
+<p>方法申明了具体的返回值类型，内部必须使用return返回对应类型的数据。</p>
+<p>形参列表可以有多个，甚至可没有；如果有多个形参，必须用英文逗号隔开，且不能给初始化值</p>
+<h2 id="使用方法的好处">使用方法的好处</h2>
+<ul>
+<li>提高代码的复用性，提高了开发效率</li>
+<li>让程序逻辑性更清晰</li>
+</ul>
+<h2 id="方法的其他定义形式">方法的其他定义形式</h2>
+<pre><code class="language-java">    public static void printHelloWorld(int n) {
+        for (int i = 1; i &lt;=n; i++) {
+            System.out.println(&quot;Hello World&quot;);
+        }
+    }
+//打印三行helloworld（使用方法）
+</code></pre>
+<ul>
+<li>如果方法不需要返回数据，返回类型必须申明成<code>void</code>此时方法内部可以不使用return返回数据。</li>
+<li>方法如果不需要接收数据，则不需要定义形参，调用方法时也不可以传数据给方法了。</li>
+<li>没有参数，且没有返回类型（void）申明的方法，称为<strong>无参数、无返回值的方法</strong></li>
+</ul>
+		<hr>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/%E6%8A%80%E6%9C%AF/6/" 
 			   class="post-title-link"
 			   title="网站迁移">

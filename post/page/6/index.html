@@ -45,6 +45,61 @@
 	</header><article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AF%BC%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" 
+			   class="post-title-link"
+			   title="《操作系统导论》学习笔记">
+				《操作系统导论》学习笔记
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-06-15T18:36:21Z">June 15, 2025</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<h2 id="操作系统做什么">操作系统做什么</h2>
+<ul>
+<li>它取得并虚拟化CPU、内存或磁盘等物理资源。</li>
+<li>处理并发问题。</li>
+<li>持久地存储文件，使文件长期安全。</li>
+</ul>
+<h2 id="设计目标">设计目标</h2>
+<p>最基本的，建立一些抽象，让系统方便使用。将其划分为<strong>小而且容易理解的部分</strong>。</p>
+<p>提供<strong>高性能</strong>，最小化系统开销。</p>
+<p>提供程序保护，确保恶意或偶然的不良行为不会损害其他程序和系统本身，即隔离。让进程彼此隔离是关键。</p>
+<p>不间断运行的能力，力求可靠性。</p>
+<h2 id="进程">进程</h2>
+<h3 id="定义">定义</h3>
+<p>运行中的程序。</p>
+<p>程序本身没有生命周期的概念，只是存储在磁盘上的指令和静态数据，操作系统让这些字节运行起来。</p>
+<h3 id="虚拟化">虚拟化</h3>
+<p>操作系统通过虚拟化CPU来提供有无数CPU可用的假象。通过让一个进程只运行一个时间片，然后切换到其他进程，操作系统提供了存在多个虚拟CPU的假象，这就是<strong>时分共享CPU技术</strong>。允许用户运行多个并发进程，潜在的开销就是性能损失，因为CPU共享，每个进程的运行速度就会变慢。（受力面积和压强的关系）。</p>
+<h3 id="进程api">进程API</h3>
+<ul>
+<li>
+<p>创建（create）：调用系统操作来创建新进程。</p>
+</li>
+<li>
+<p>销毁（destroy）：强制销毁进程，大部分程序会再结束后自动退出，但如果用户想终止，这个接口很有用。</p>
+</li>
+<li>
+<p>等待（wait）：等待进程停止运行。</p>
+</li>
+<li>
+<p>状态（status）：获得有关进程的状态信息，如运行时间等。</p>
+</li>
+<li>
+<p>其他控制（miscellaneous control）：除了杀死和等待进程外还有其他控制，如暂停。</p>
+</li>
+</ul>
+<blockquote>
+<p>[!NOTE]
+书签：P21 4.3</p>
+</blockquote>
+		<hr>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/%E6%8A%80%E6%9C%AF/%E7%BB%99%E6%AF%94%E6%88%91%E5%B2%81%E6%95%B0%E8%BF%98%E5%A4%A7%E7%9A%84%E7%94%B5%E8%84%91%E8%A3%85fedora/" 
 			   class="post-title-link"
 			   title="给比我岁数还大的电脑装Fedora">
@@ -161,33 +216,6 @@
 </ul>
 <p>如果这样过得很舒服，那可能会一直延续下去。我一直在寻找真正有意义的社交圈和社交方式，但至今为止，觉得最有效的能让自己没那么累的方式就是减少社交。</p>
 <p>今后会把大部分生活琐事记录和观点表达转移到博客而非朋友圈和QQ空间。后者总是被动接受信息，不一定能找到共鸣，而前者是主动选择文章阅读，而且博客的性质能让人组织起完整的语言，客观地记录和表达；在QQ空间和微信发表出来总是有一种为了给某人看或为了给某些人看的味道，有些不舒服，也影响言语措辞。我这人变得越来越怪。</p>
-		<hr>
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/%E9%9A%8F%E7%AC%94/%E6%88%91%E8%AF%B4%E8%BF%87%E5%90%97/" 
-			   class="post-title-link"
-			   title="我说过吗？">
-				我说过吗？
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<time class="meta__text" datetime="2025-06-11T23:11:50Z">June 11, 2025</time></div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<p>我见到了一个口齿不清又爱自言自语的人。</p>
-<p>“我说过这个吗？”</p>
-<p>“没说过啊？”</p>
-<p>“哦哦对的对的哦不对不对哦对的对的。”</p>
-<p>“我说过那个吗？”</p>
-<p>“没说过啊？”</p>
-<p>“这个不说了。”</p>
-<p>“那个也不说了！”</p>
-<p>“不对，哦哦对的对的，不对不对。”</p>
-<p>我真说了，我真没说，我真说了！！！</p>
-<p>对，对吗？</p>
 		<hr>
 	</div>
 </article>
