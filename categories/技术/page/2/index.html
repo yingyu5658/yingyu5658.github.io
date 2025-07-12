@@ -45,6 +45,78 @@
 	</header><article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/%E8%BF%99%E5%8F%AF%E8%83%BD%E6%98%AF%E6%9C%80%E5%A5%BD%E7%9A%84hexo%E5%9B%BE%E7%89%87%E7%AE%A1%E7%90%86%E6%96%B9%E6%A1%88/" 
+			   class="post-title-link"
+			   title="这可能是最好的Hexo图片管理方案">
+				这可能是最好的Hexo图片管理方案
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-06-29T10:52:05Z">June 29, 2025</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<h2 id="前言">前言</h2>
+<p>通常在Hexo博客中，我们管理图片资源都有以下两种方案：</p>
+<ol>
+<li>在<code>_post</code>目录下新建文章同名文件夹</li>
+<li>在<code>source</code>目录下新建images文件夹，存放所有图片</li>
+</ol>
+<p>两种方法各有优劣，前者方便查找但污染目录，后者集中管理但维护成本高。所以就诞生出本文要介绍的方法——<code>images</code>目录下新建文章同名目录</p>
+<p>这是一个折中的办法，既保留方法1的查找方便，又保留方法2的集中性。</p>
+<h2 id="实现方法">实现方法</h2>
+<p><strong>创建脚本文件</strong></p>
+<p>在Hexo根目录的<code>scripts</code>文件夹（若不存在则新建）下创建一个javascript脚本，我这里就命名为<code>auto-image-folder.js</code></p>
+<pre><code class="language-js">const fs = require(&quot;fs&quot;)
+const path = require(&quot;path&quot;)
+
+hexo.on(&quot;new&quot;, function(data) {
+        const postName = path.basename(data.path, &quot;.md&quot;)
+        const imageDir = path.join(hexo.source_dir, &quot;images&quot;, postName)
+
+        if(!fs.existsSync(imageDir)){
+                fs.mkdirSync(imageDir, {recusive: true})
+        }
+})
+</code></pre>
+<p><strong>效果测试</strong></p>
+<pre><code class="language-bash">hexo new &quot;新文章&quot;
+</code></pre>
+<p>这时候就在images目录下新建了一个与文章同名的文件夹。</p>
+<h2 id="编辑器设置优化">编辑器设置优化</h2>
+<h3 id="typora">Typora</h3>
+<p>打开Typora → 偏好设置 → 图像</p>
+<p>设置：</p>
+<ul>
+<li>
+<p>插入图片时：复制到指定路径</p>
+</li>
+<li>
+<p>自定义路径：../source/images/${filename}/</p>
+</li>
+<li>
+<p>勾选：优先使用相对路径</p>
+</li>
+</ul>
+<pre><code>PS E:\blog&gt; ls .\source\images\测试\
+
+
+    目录: E:\blog\source\images\测试
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----         2025/6/29     11:14            229 image-20250629111411456.png
+</code></pre>
+<p>完成！</p>
+		<hr>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/%E8%BF%99%E5%8F%AF%E8%83%BD%E6%98%AF%E6%9C%80%E5%A5%BD%E7%9A%84hexo%E5%9B%BE%E7%89%87%E7%AE%A1%E7%90%86%E6%96%B9%E6%A1%88/"></a>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/%E6%8A%80%E6%9C%AF/%E5%85%AB%E4%B8%8B%E5%8E%86%E5%8F%B2%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/" 
 			   class="post-title-link"
 			   title="八下历史复习笔记">
@@ -342,61 +414,6 @@
 	</div>
 	<div class="list__footer clearfix">
 		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/tmux%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"></a>
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/%E6%8A%80%E6%9C%AF/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AF%BC%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" 
-			   class="post-title-link"
-			   title="《操作系统导论》学习笔记">
-				《操作系统导论》学习笔记
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<time class="meta__text" datetime="2025-06-15T18:36:21Z">June 15, 2025</time></div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<h2 id="操作系统做什么">操作系统做什么</h2>
-<ul>
-<li>它取得并虚拟化CPU、内存或磁盘等物理资源。</li>
-<li>处理并发问题。</li>
-<li>持久地存储文件，使文件长期安全。</li>
-</ul>
-<h2 id="设计目标">设计目标</h2>
-<p>最基本的，建立一些抽象，让系统方便使用。将其划分为<strong>小而且容易理解的部分</strong>。</p>
-<p>提供<strong>高性能</strong>，最小化系统开销。</p>
-<p>提供程序保护，确保恶意或偶然的不良行为不会损害其他程序和系统本身，即隔离。让进程彼此隔离是关键。</p>
-<p>不间断运行的能力，力求可靠性。</p>
-<h2 id="进程">进程</h2>
-<h3 id="定义">定义</h3>
-<p>运行中的程序。</p>
-<p>程序本身没有生命周期的概念，只是存储在磁盘上的指令和静态数据，操作系统让这些字节运行起来。</p>
-<h3 id="虚拟化">虚拟化</h3>
-<p>操作系统通过虚拟化CPU来提供有无数CPU可用的假象。通过让一个进程只运行一个时间片，然后切换到其他进程，操作系统提供了存在多个虚拟CPU的假象，这就是<strong>时分共享CPU技术</strong>。允许用户运行多个并发进程，潜在的开销就是性能损失，因为CPU共享，每个进程的运行速度就会变慢。（受力面积和压强的关系）。</p>
-<h3 id="进程api">进程API</h3>
-<ul>
-<li>
-<p>创建（create）：调用系统操作来创建新进程。</p>
-</li>
-<li>
-<p>销毁（destroy）：强制销毁进程，大部分程序会再结束后自动退出，但如果用户想终止，这个接口很有用。</p>
-</li>
-<li>
-<p>等待（wait）：等待进程停止运行。</p>
-</li>
-<li>
-<p>状态（status）：获得有关进程的状态信息，如运行时间等。</p>
-</li>
-<li>
-<p>其他控制（miscellaneous control）：除了杀死和等待进程外还有其他控制，如暂停。</p>
-</li>
-</ul>
-<blockquote>
-<p>[!NOTE]
-书签：P21 4.3</p>
-</blockquote>
-		<hr>
 	</div>
 </article>
 </main>

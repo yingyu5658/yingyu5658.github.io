@@ -45,6 +45,27 @@
 	</header><article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/links/" 
+			   class="post-title-link"
+			   title="关于">
+				关于
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-06-07T13:08:07&#43;08:00">June 07, 2025</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p><a href="https://www.sifangbazhu.tech/">MRZHU的小站 ——— 向着计算物理出发吧！</a></p>
+<p><a href="https://rhopaper.top/">RhoPaperの小站 ——— 纸至执</a></p>
+<p><a href="https://geneliunx.com/">Geneliunx ——— 行胜于言</a></p>
+<p><a href="https://printempw.github.io/">PRIN BLOG ——— 半吊子全栈开发者的日常</a></p>
+<p><a href="https://banzhuanriji.com/">搬砖日记 ——— 我的生活记录</a></p>
+		<hr>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/%E6%8A%80%E6%9C%AF/c%E8%AF%AD%E8%A8%80%E7%9A%84%E5%A4%B4%E6%96%87%E4%BB%B6%E4%B8%8Eoop%E8%8C%83%E5%BC%8F%E7%9A%84%E6%8A%BD%E8%B1%A1%E7%B1%BB%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%BC%82%E5%90%8C%E7%82%B9/" 
 			   class="post-title-link"
 			   title="C语言的头文件与OOP范式的抽象类、接口的异同点">
@@ -281,59 +302,6 @@ int add(int a, int b);  // 函数声明
 	</div>
 	<div class="list__footer clearfix">
 		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/%E6%88%91%E8%BF%98%E6%98%AF%E6%94%BE%E4%B8%8D%E4%B8%8Bemacs/"></a>
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/%E6%8A%80%E6%9C%AF/electron-commonjs-require%E8%B8%A9%E5%9D%91/" 
-			   class="post-title-link"
-			   title="Electron CommonJS require踩坑">
-				Electron CommonJS require踩坑
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<time class="meta__text" datetime="2025-05-31T09:07:36&#43;08:00">May 31, 2025</time></div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<p>最近在开发一个Electron项目，在导入类的时候有以下报错:</p>
-<pre><code>node:internal/modules/cjs/loader:1411 Uncaught Error: Cannot find module './File'
-Require stack:
-- E:\Develop\markdown-editor\src\html\index.html
-    at Module._resolveFilename (node:internal/modules/cjs/loader:1408:15)
-    at a._resolveFilename (node:electron/js2c/renderer_init:2:2643)
-    at defaultResolveImpl (node:internal/modules/cjs/loader:1064:19)
-    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1069:22)
-    at Module._load (node:internal/modules/cjs/loader:1218:37)
-    at c._load (node:electron/js2c/node_init:2:17950)
-    at s._load (node:electron/js2c/renderer_init:2:31718)
-    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
-    at wrapModuleLoad (node:internal/modules/cjs/loader:242:24)
-    at Module.require (node:internal/modules/cjs/loader:1494:12)
-</code></pre>
-<p>提示找不到模块。</p>
-<p>Electron中，使用require语句导入，都是默认从项目跟目录开始查找，所以要拼接完整路径。使用绝对路径也是不行的，在IDE里可以跳转，但是一运行就是找不到模块
-<code>const File = require(&quot;src/js/File&quot;)</code></p>
-<pre><code>Uncaught Error: Cannot find module 'src/js/File'
-Require stack:
-- E:\Develop\markdown-editor\src\html\index.html
-    at Module._resolveFilename (node:internal/modules/cjs/loader:1408:15)
-    at a._resolveFilename (node:electron/js2c/renderer_init:2:2643)
-    at defaultResolveImpl (node:internal/modules/cjs/loader:1064:19)
-    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1069:22)
-    at Module._load (node:internal/modules/cjs/loader:1218:37)
-    at c._load (node:electron/js2c/node_init:2:17950)
-    at s._load (node:electron/js2c/renderer_init:2:31718)
-    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
-    at wrapModuleLoad (node:internal/modules/cjs/loader:242:24)
-    at Module.require (node:internal/modules/cjs/loader:1494:12)
-</code></pre>
-<h2 id="解决方法">解决方法</h2>
-<p>使用path.join拼接完整路径</p>
-		<hr>
-	</div>
-	<div class="list__footer clearfix">
-		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/electron-commonjs-require%E8%B8%A9%E5%9D%91/"></a>
 	</div>
 </article>
 </main>

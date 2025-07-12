@@ -45,6 +45,59 @@
 	</header><article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/electron-commonjs-require%E8%B8%A9%E5%9D%91/" 
+			   class="post-title-link"
+			   title="Electron CommonJS require踩坑">
+				Electron CommonJS require踩坑
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-05-31T09:07:36&#43;08:00">May 31, 2025</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>最近在开发一个Electron项目，在导入类的时候有以下报错:</p>
+<pre><code>node:internal/modules/cjs/loader:1411 Uncaught Error: Cannot find module './File'
+Require stack:
+- E:\Develop\markdown-editor\src\html\index.html
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1408:15)
+    at a._resolveFilename (node:electron/js2c/renderer_init:2:2643)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1064:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1069:22)
+    at Module._load (node:internal/modules/cjs/loader:1218:37)
+    at c._load (node:electron/js2c/node_init:2:17950)
+    at s._load (node:electron/js2c/renderer_init:2:31718)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:242:24)
+    at Module.require (node:internal/modules/cjs/loader:1494:12)
+</code></pre>
+<p>提示找不到模块。</p>
+<p>Electron中，使用require语句导入，都是默认从项目跟目录开始查找，所以要拼接完整路径。使用绝对路径也是不行的，在IDE里可以跳转，但是一运行就是找不到模块
+<code>const File = require(&quot;src/js/File&quot;)</code></p>
+<pre><code>Uncaught Error: Cannot find module 'src/js/File'
+Require stack:
+- E:\Develop\markdown-editor\src\html\index.html
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1408:15)
+    at a._resolveFilename (node:electron/js2c/renderer_init:2:2643)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1064:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1069:22)
+    at Module._load (node:internal/modules/cjs/loader:1218:37)
+    at c._load (node:electron/js2c/node_init:2:17950)
+    at s._load (node:electron/js2c/renderer_init:2:31718)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:242:24)
+    at Module.require (node:internal/modules/cjs/loader:1494:12)
+</code></pre>
+<h2 id="解决方法">解决方法</h2>
+<p>使用path.join拼接完整路径</p>
+		<hr>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/electron-commonjs-require%E8%B8%A9%E5%9D%91/"></a>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/%E6%8A%80%E6%9C%AF/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E4%B8%8E%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B%E7%BC%96%E7%A8%8B%E7%9A%84%E6%9C%AC%E8%B4%A8%E5%8C%BA%E5%88%AB/" 
 			   class="post-title-link"
 			   title="面向对象与面向过程的本质区别">
@@ -167,64 +220,6 @@ int hash(int key, int size)
 	</div>
 	<div class="list__footer clearfix">
 		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%BC%97%E6%95%B0%E4%B8%AD%E4%BD%8D%E6%95%B0/"></a>
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%BA%8C%E5%8F%89%E6%A0%91/" 
-			   class="post-title-link"
-			   title="【数据结构与算法】二叉树">
-				【数据结构与算法】二叉树
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<time class="meta__text" datetime="2025-05-25T18:46:37Z">May 25, 2025</time></div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<h2 id="定义">定义</h2>
-<p>二叉树（binary tree）是指树中节点的度不大于2的有序树，它是一种最简单且最重要的树。二叉树的递归定义为：二叉树是一棵空树，或者是一棵由一个根节点和两棵互不相交的，分别称作根的左子树和右子树组成的非空树；左子树和右子树又同样都是二叉树。</p>
-<h2 id="实现">实现</h2>
-<h3 id="结构定义">结构定义</h3>
-<p><del>尝试了一下C语言，各种指针乱指，各种bug，暂时放自己一马，跟自己和解一下用js写写吧。</del></p>
-<pre><code class="language-js">class TreeNode {
-  constructor(data) {
-    this.data = data;
-    this.left = null;  // 左节点
-    this.right = null; // 右边节点
-  }
-}
-</code></pre>
-<h3 id="创建对象并绑定节点">创建对象并绑定节点</h3>
-<pre><code class="language-js">// 手动绑定节点
-let root = new TreeNode(1)
-root.left = new TreeNode(2)
-root.right = new TreeNode(3)
-root.left.left = new TreeNode(4)
-root.right.right = new TreeNode(5)
-</code></pre>
-<p>此时树的结构：</p>
-<pre><code>      1
-     /  \
-     2   3
-   /  \   \
-  4    5   6
-</code></pre>
-<h3 id="遍历二叉树">遍历二叉树</h3>
-<h4 id="前序遍历dfs">前序遍历（DFS）</h4>
-<pre><code class="language-js">function preOrder(node) {
-  if(node) {
-    console.log(node.data)
-    preOrder(node.left)
-    preOrder(node.right)
-  }
-}
-</code></pre>
-<p>这里用递归调用，遍历到左右元素</p>
-		<hr>
-	</div>
-	<div class="list__footer clearfix">
-		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%BA%8C%E5%8F%89%E6%A0%91/"></a>
 	</div>
 </article>
 </main>

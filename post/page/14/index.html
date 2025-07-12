@@ -45,6 +45,36 @@
 	</header><article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/valine%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/" 
+			   class="post-title-link"
+			   title="Valine评论系统踩坑记录">
+				Valine评论系统踩坑记录
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-04-23T21:54:03Z">April 23, 2025</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>我个人很早以前就惦记着换上这个评论系统，曾经使用Butterfly主题的时候就有折腾过Valine，当时是浏览器缓存策略和CORS跨域拦截的问题。网上能找到的教程都比较老，几年以前的情况不再适用于现在了，所以现在去折腾的话，大概率要踩非常多的坑。本文主要讲述我个人踩到的坑和解决方法。</p>
+<p>本文内容是我自己试错出来的，不要问为什么要这么做，我也不清楚，但是这么做可以正常使用！</p>
+<p>首先你要有一个自己的域名，不要用.github.io。LeanCloud中设置-域名绑定-API访问域名要绑定你自己的二级域。</p>
+<p><img src="./image-20250423220150404.png" alt=""></p>
+<p>这里一定一定要做DNS解析，非常重要。</p>
+<p>然后就是安全中心里面的Web安全域名，LeanCloud默认放行localhost，但是127.0.0.1我这边测试是不行的，如果有需求要自己填写。Web安全域名要填写https、http两种协议保险。</p>
+<p>主题配置文件中，以我这个主题为例，serverURLs要填写自己的二级域名</p>
+<pre><code class="language-yaml"> serverURLs: https://comment.yingyu5658.me
+</code></pre>
+<p>一定要加协议头，否则将会在你的博客域名下构建请求，比如我的<code>www.yingyu5658.me/comment.yingyu5658.me/</code>，这将导致报错。即使你使用国际版也要填写这一项！Leancloud请求不到。</p>
+<p>现在Valine的教程都有过时，遇到问题还需结合具体情况分析。我看LeanCloud的各种API结构变更还挺多的，太久远的教程就不建议看了。</p>
+<p><img src="./image-20250423220150404.png" alt="相关图片"></p>
+<p><img src="./image-20250423220150404.png" alt="相关图片"></p>
+<p><img src="./image-20250423220150404.png" alt="相关图片"></p>
+		<hr>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/%E9%9A%8F%E7%AC%94/%E6%94%92%E9%92%B1%E7%9B%AE%E6%A0%87%E8%BE%BE%E6%88%90/" 
 			   class="post-title-link"
 			   title="攒钱目标达成？！">
@@ -249,94 +279,6 @@ require(&quot;lazy&quot;).setup({
 	</div>
 	<div class="list__footer clearfix">
 		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BB%88%E7%AB%AF%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/"></a>
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/%E6%8A%80%E6%9C%AF/%E5%88%9D%E6%8A%98%E8%85%BEemacs%E8%AE%B0%E5%BD%95/" 
-			   class="post-title-link"
-			   title="初折腾Emacs记录">
-				初折腾Emacs记录
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<time class="meta__text" datetime="2025-04-13T12:15:33Z">April 13, 2025</time></div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<h2 id="基础配置">基础配置</h2>
-<p>Windows下需要在软件顶部Toolbar的Options中随便更改一个选项，然后再点Save Options，这样就会再<code>C:\Users\Username\appdata\Roaming\</code>下生成.emacs和.emacs.d/</p>
-<p>在emacs.d中新建一个文件<code>init.el</code>，填写如下配置</p>
-<pre><code class="language-lisp">;;; init.el --- Load the full configuration -*- lexical-binding: t -*-
-;;; Commentary:
-
-;; This file bootstraps the configuration, which is divided into
-;; a number of other files.
-
-;;; Code:
-
-(let ((minver &quot;25.1&quot;))
- (when (version&lt; emacs-version minver)
-  (error &quot;Your Emacs is too old -- this config requires v%s or higher&quot; minver)))
-(when (version&lt; emacs-version &quot;26.1&quot;)
- (message &quot;Your Emacs is old, and some functionality in this config will be disabled. Please upgrade if possible.&quot;))
-
-(add-to-list 'load-path (expand-file-name &quot;lisp&quot; user-emacs-directory)) ; 设定源码加载路径
-;; (require 'init-benchmarking) ;; Measure startup time
-
-(defconst *spell-check-support-enabled* nil) ;; Enable with t if you prefer
-(defconst *is-a-mac* (eq system-type 'darwin))
-
-;; Adjust garbage collection thresholds during startup, and thereafter
-
-(let ((normal-gc-cons-threshold (* 20 1024 1024))
-   (init-gc-cons-threshold (* 128 1024 1024)))
- (setq gc-cons-threshold init-gc-cons-threshold)
- (add-hook 'emacs-startup-hook
-      (lambda () (setq gc-cons-threshold normal-gc-cons-threshold))))
-
-
-
-
-;; ==========================================================================================================
-;; ===========================================日常使用配置===================================================
-;; ==========================================================================================================
-(setq confirm-kill-emacs #'yes-or-no-p)   ; 在关闭 Emacs 前询问是否确认关闭，防止误触
-(electric-pair-mode t)            ; 自动补全括号
-(add-hook 'prog-mode-hook #'show-paren-mode) ; 编程模式下，光标在括号上时高亮另一个括号
-(column-number-mode t)            ; 在 Mode line 上显示列号
-(global-auto-revert-mode t)         ; 当另一程序修改了文件时，让 Emacs 及时刷新 Buffer
-(delete-selection-mode t)          ; 选中文本后输入文本会替换文本（更符合我们习惯了的其它编辑器的逻辑）
-(setq inhibit-startup-message t)       ; 关闭启动 Emacs 时的欢迎界面
-(setq make-backup-files nil)         ; 关闭文件自动备份
-(add-hook 'prog-mode-hook #'hs-minor-mode)  ; 编程模式下，可以折叠代码块
-(global-display-line-numbers-mode 1)     ; 在 Window 显示行号
-(tool-bar-mode -1)              ; （熟练后可选）关闭 Tool bar
-(when (display-graphic-p) (toggle-scroll-bar -1)) ; 图形界面时关闭滚动条
-
-(savehist-mode 1)              ; （可选）打开 Buffer 历史记录保存
-(setq display-line-numbers-type 'relative)  ; （可选）显示相对行号
-(add-to-list 'default-frame-alist '(width . 90)) ; （可选）设定启动图形界面时的初始 Frame 宽度（字符数）
-(add-to-list 'default-frame-alist '(height . 55)) ; （可选）设定启动图形界面时的初始 Frame 高度（字符数）
-
-
-;; ==========================================================================================================
-;; ===========================================插件镜像配置===================================================
-;; ==========================================================================================================
-; 腾讯镜像
-(require 'package)
-(setq package-archives '((&quot;gnu&quot;  . &quot;http://mirrors.cloud.tencent.com/elpa/gnu/&quot;)
-             (&quot;melpa&quot; . &quot;http://mirrors.cloud.tencent.com/elpa/melpa/&quot;)))
-(package-initialize)
-
-
-;;; init.el ends here
-</code></pre>
-<p>基础的设置和插件镜像源就配置好了，此配置可完全复制照抄。</p>
-		<hr>
-	</div>
-	<div class="list__footer clearfix">
-		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/%E5%88%9D%E6%8A%98%E8%85%BEemacs%E8%AE%B0%E5%BD%95/"></a>
 	</div>
 </article>
 </main>

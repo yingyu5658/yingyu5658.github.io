@@ -45,6 +45,78 @@
 	</header><article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/%E8%BF%99%E5%8F%AF%E8%83%BD%E6%98%AF%E6%9C%80%E5%A5%BD%E7%9A%84hexo%E5%9B%BE%E7%89%87%E7%AE%A1%E7%90%86%E6%96%B9%E6%A1%88/" 
+			   class="post-title-link"
+			   title="这可能是最好的Hexo图片管理方案">
+				这可能是最好的Hexo图片管理方案
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-06-29T10:52:05Z">June 29, 2025</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<h2 id="前言">前言</h2>
+<p>通常在Hexo博客中，我们管理图片资源都有以下两种方案：</p>
+<ol>
+<li>在<code>_post</code>目录下新建文章同名文件夹</li>
+<li>在<code>source</code>目录下新建images文件夹，存放所有图片</li>
+</ol>
+<p>两种方法各有优劣，前者方便查找但污染目录，后者集中管理但维护成本高。所以就诞生出本文要介绍的方法——<code>images</code>目录下新建文章同名目录</p>
+<p>这是一个折中的办法，既保留方法1的查找方便，又保留方法2的集中性。</p>
+<h2 id="实现方法">实现方法</h2>
+<p><strong>创建脚本文件</strong></p>
+<p>在Hexo根目录的<code>scripts</code>文件夹（若不存在则新建）下创建一个javascript脚本，我这里就命名为<code>auto-image-folder.js</code></p>
+<pre><code class="language-js">const fs = require(&quot;fs&quot;)
+const path = require(&quot;path&quot;)
+
+hexo.on(&quot;new&quot;, function(data) {
+        const postName = path.basename(data.path, &quot;.md&quot;)
+        const imageDir = path.join(hexo.source_dir, &quot;images&quot;, postName)
+
+        if(!fs.existsSync(imageDir)){
+                fs.mkdirSync(imageDir, {recusive: true})
+        }
+})
+</code></pre>
+<p><strong>效果测试</strong></p>
+<pre><code class="language-bash">hexo new &quot;新文章&quot;
+</code></pre>
+<p>这时候就在images目录下新建了一个与文章同名的文件夹。</p>
+<h2 id="编辑器设置优化">编辑器设置优化</h2>
+<h3 id="typora">Typora</h3>
+<p>打开Typora → 偏好设置 → 图像</p>
+<p>设置：</p>
+<ul>
+<li>
+<p>插入图片时：复制到指定路径</p>
+</li>
+<li>
+<p>自定义路径：../source/images/${filename}/</p>
+</li>
+<li>
+<p>勾选：优先使用相对路径</p>
+</li>
+</ul>
+<pre><code>PS E:\blog&gt; ls .\source\images\测试\
+
+
+    目录: E:\blog\source\images\测试
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----         2025/6/29     11:14            229 image-20250629111411456.png
+</code></pre>
+<p>完成！</p>
+		<hr>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/%E8%BF%99%E5%8F%AF%E8%83%BD%E6%98%AF%E6%9C%80%E5%A5%BD%E7%9A%84hexo%E5%9B%BE%E7%89%87%E7%AE%A1%E7%90%86%E6%96%B9%E6%A1%88/"></a>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/%E6%8A%80%E6%9C%AF/%E5%85%AB%E4%B8%8B%E5%8E%86%E5%8F%B2%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/" 
 			   class="post-title-link"
 			   title="八下历史复习笔记">
@@ -250,124 +322,6 @@
 <img src="./Pasted%20image%2020250622091407.png" alt=""></li>
 </ol>
 		<hr>
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/%E6%8A%80%E6%9C%AF/tmux%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/" 
-			   class="post-title-link"
-			   title="Tmux配置记录">
-				Tmux配置记录
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<time class="meta__text" datetime="2025-06-21T14:19:36Z">June 21, 2025</time></div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<p>TMux 是终端复用神器，让你在一个终端窗口管理多个会话、窗口和窗格。</p>
-<p>基础操作：启动Tmux</p>
-<pre><code class="language-shell">tmux
-</code></pre>
-<p>所以我选择在<code>~/.bashrc</code>里加上这句，每次打开终端都会自动进入tmux。</p>
-<p><strong>需要掌握的概念</strong>：</p>
-<ul>
-<li>会话（Session）：长期运行的终端环境。</li>
-<li>窗口（Window）：会话中的标签页。</li>
-<li>窗格（Pane）：窗口中的分屏。</li>
-</ul>
-<p><strong>默认快捷键：</strong></p>
-<table>
-  <thead>
-      <tr>
-          <th>操作</th>
-          <th>快捷键</th>
-          <th>说明</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>会话管理</strong></td>
-          <td></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>脱离会话</td>
-          <td><code>Ctrl+b d</code></td>
-          <td>后台运行会话</td>
-      </tr>
-      <tr>
-          <td>查看会话列表</td>
-          <td><code>Ctrl+b s</code></td>
-          <td>方向键选择并进入</td>
-      </tr>
-      <tr>
-          <td>重命名当前会话</td>
-          <td><code>Ctrl+b $</code></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td><strong>窗口管理</strong></td>
-          <td></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>新建窗口</td>
-          <td><code>Ctrl+b c</code></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>关闭当前窗口</td>
-          <td><code>Ctrl+b &amp;</code></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>切换窗口</td>
-          <td><code>Ctrl+b 0~9</code></td>
-          <td>切换到指定编号窗口</td>
-      </tr>
-      <tr>
-          <td>窗口列表</td>
-          <td><code>Ctrl+b w</code></td>
-          <td>可视化选择窗口</td>
-      </tr>
-      <tr>
-          <td><strong>窗格管理</strong></td>
-          <td></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>水平分割窗格</td>
-          <td><code>Ctrl+b &quot;</code></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>垂直分割窗格</td>
-          <td><code>Ctrl+b %</code></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>切换窗格</td>
-          <td><code>Ctrl+b 方向键</code></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>关闭当前窗格</td>
-          <td><code>Ctrl+b x</code></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>最大化/恢复窗格</td>
-          <td><code>Ctrl+b z</code></td>
-          <td>临时全屏当前窗格</td>
-      </tr>
-  </tbody>
-</table>
-<p><strong>配置自定义（~/.tmux.conf）</strong>：</p>
-		<hr>
-	</div>
-	<div class="list__footer clearfix">
-		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/tmux%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"></a>
 	</div>
 </article>
 </main>

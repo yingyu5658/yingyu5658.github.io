@@ -45,6 +45,64 @@
 	</header><article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%BA%8C%E5%8F%89%E6%A0%91/" 
+			   class="post-title-link"
+			   title="【数据结构与算法】二叉树">
+				【数据结构与算法】二叉树
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-05-25T18:46:37Z">May 25, 2025</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<h2 id="定义">定义</h2>
+<p>二叉树（binary tree）是指树中节点的度不大于2的有序树，它是一种最简单且最重要的树。二叉树的递归定义为：二叉树是一棵空树，或者是一棵由一个根节点和两棵互不相交的，分别称作根的左子树和右子树组成的非空树；左子树和右子树又同样都是二叉树。</p>
+<h2 id="实现">实现</h2>
+<h3 id="结构定义">结构定义</h3>
+<p><del>尝试了一下C语言，各种指针乱指，各种bug，暂时放自己一马，跟自己和解一下用js写写吧。</del></p>
+<pre><code class="language-js">class TreeNode {
+  constructor(data) {
+    this.data = data;
+    this.left = null;  // 左节点
+    this.right = null; // 右边节点
+  }
+}
+</code></pre>
+<h3 id="创建对象并绑定节点">创建对象并绑定节点</h3>
+<pre><code class="language-js">// 手动绑定节点
+let root = new TreeNode(1)
+root.left = new TreeNode(2)
+root.right = new TreeNode(3)
+root.left.left = new TreeNode(4)
+root.right.right = new TreeNode(5)
+</code></pre>
+<p>此时树的结构：</p>
+<pre><code>      1
+     /  \
+     2   3
+   /  \   \
+  4    5   6
+</code></pre>
+<h3 id="遍历二叉树">遍历二叉树</h3>
+<h4 id="前序遍历dfs">前序遍历（DFS）</h4>
+<pre><code class="language-js">function preOrder(node) {
+  if(node) {
+    console.log(node.data)
+    preOrder(node.left)
+    preOrder(node.right)
+  }
+}
+</code></pre>
+<p>这里用递归调用，遍历到左右元素</p>
+		<hr>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%BA%8C%E5%8F%89%E6%A0%91/"></a>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/%E6%8A%80%E6%9C%AF/%E5%9C%A8vscode%E4%B8%8A%E6%90%AD%E5%BB%BAc51%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" 
 			   class="post-title-link"
 			   title="在VSCode上搭建C51单片机开发环境">
@@ -193,42 +251,6 @@ int main() {
 	</div>
 	<div class="list__footer clearfix">
 		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/"></a>
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/%E6%8A%80%E6%9C%AF/idea2025-1%E6%9C%80%E6%96%B0%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B-%E6%97%A0%E9%9C%80%E6%89%AB%E7%A0%81%E5%85%B3%E6%B3%A8%E4%BB%BB%E4%BD%95%E5%85%AC%E4%BC%97%E5%8F%B7/" 
-			   class="post-title-link"
-			   title="IDEA2025.1最新破解教程 无需扫码关注任何公众号">
-				IDEA2025.1最新破解教程 无需扫码关注任何公众号
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<time class="meta__text" datetime="2025-05-09T19:51:18&#43;08:00">May 09, 2025</time></div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<h2 id="前言">前言</h2>
-<p>看了几篇废话连篇狗屁不通还要关注公众号的文章以后给我气急了。这篇文章会用最简单的方法花最短的时间搞定IDEA</p>
-<p><strong>从2025.1以前的低版本升级上来的或曾经装过老版本的注意</strong>：</p>
-<p>清空 IDEA 2025 以前使用过的激活方式和配置文件</p>
-<p>C/:Users【系统用户名】AppData/RoamingJetBrains</p>
-<p>C/:Users/用户名/Library/Application Support/JetBrains</p>
-<blockquote>
-<p>这里是看网上的文章写的，我刚刚重装完系统很干净，如果这里有误请补充。</p>
-</blockquote>
-<p><a href="https://github.com/yingyu5658/script/releases">破解脚本下载</a></p>
-<p>注意，存放路径不能有中文。</p>
-<p>我是Windows系统，运行<code>install-current-user.vbs</code></p>
-<p><img src="/images/IDEA2025-1%E6%9C%80%E6%96%B0%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B-%E6%97%A0%E9%9C%80%E6%89%AB%E7%A0%81%E5%85%B3%E6%B3%A8%E4%BB%BB%E4%BD%95%E5%85%AC%E4%BC%97%E5%8F%B7/image-20250509200550411.png" alt="脚本运行"></p>
-<p><img src="/images/IDEA2025-1%E6%9C%80%E6%96%B0%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B-%E6%97%A0%E9%9C%80%E6%89%AB%E7%A0%81%E5%85%B3%E6%B3%A8%E4%BB%BB%E4%BD%95%E5%85%AC%E4%BC%97%E5%8F%B7/image-20250509200608425.png" alt="脚本运行"></p>
-<p><img src="/images/IDEA2025-1%E6%9C%80%E6%96%B0%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B-%E6%97%A0%E9%9C%80%E6%89%AB%E7%A0%81%E5%85%B3%E6%B3%A8%E4%BB%BB%E4%BD%95%E5%85%AC%E4%BC%97%E5%8F%B7/image-20250509200550411.png" alt="相关图片"></p>
-<p><img src="/images/IDEA2025-1%E6%9C%80%E6%96%B0%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B-%E6%97%A0%E9%9C%80%E6%89%AB%E7%A0%81%E5%85%B3%E6%B3%A8%E4%BB%BB%E4%BD%95%E5%85%AC%E4%BC%97%E5%8F%B7/image-20250509200608425.png" alt="相关图片"></p>
-<p><img src="/images/IDEA2025-1%E6%9C%80%E6%96%B0%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B-%E6%97%A0%E9%9C%80%E6%89%AB%E7%A0%81%E5%85%B3%E6%B3%A8%E4%BB%BB%E4%BD%95%E5%85%AC%E4%BC%97%E5%8F%B7/image-20250509200550411.png" alt="相关图片"></p>
-<p><img src="/images/IDEA2025-1%E6%9C%80%E6%96%B0%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B-%E6%97%A0%E9%9C%80%E6%89%AB%E7%A0%81%E5%85%B3%E6%B3%A8%E4%BB%BB%E4%BD%95%E5%85%AC%E4%BC%97%E5%8F%B7/image-20250509200608425.png" alt="相关图片"></p>
-<p><img src="/images/IDEA2025-1%E6%9C%80%E6%96%B0%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B-%E6%97%A0%E9%9C%80%E6%89%AB%E7%A0%81%E5%85%B3%E6%B3%A8%E4%BB%BB%E4%BD%95%E5%85%AC%E4%BC%97%E5%8F%B7/image-20250509200550411.png" alt="相关图片"></p>
-<p><img src="/images/IDEA2025-1%E6%9C%80%E6%96%B0%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B-%E6%97%A0%E9%9C%80%E6%89%AB%E7%A0%81%E5%85%B3%E6%B3%A8%E4%BB%BB%E4%BD%95%E5%85%AC%E4%BC%97%E5%8F%B7/image-20250509200608425.png" alt="相关图片"></p>
-		<hr>
 	</div>
 </article>
 </main>

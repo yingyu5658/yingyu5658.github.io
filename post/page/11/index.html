@@ -45,6 +45,64 @@
 	</header><article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%BA%8C%E5%8F%89%E6%A0%91/" 
+			   class="post-title-link"
+			   title="【数据结构与算法】二叉树">
+				【数据结构与算法】二叉树
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-05-25T18:46:37Z">May 25, 2025</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<h2 id="定义">定义</h2>
+<p>二叉树（binary tree）是指树中节点的度不大于2的有序树，它是一种最简单且最重要的树。二叉树的递归定义为：二叉树是一棵空树，或者是一棵由一个根节点和两棵互不相交的，分别称作根的左子树和右子树组成的非空树；左子树和右子树又同样都是二叉树。</p>
+<h2 id="实现">实现</h2>
+<h3 id="结构定义">结构定义</h3>
+<p><del>尝试了一下C语言，各种指针乱指，各种bug，暂时放自己一马，跟自己和解一下用js写写吧。</del></p>
+<pre><code class="language-js">class TreeNode {
+  constructor(data) {
+    this.data = data;
+    this.left = null;  // 左节点
+    this.right = null; // 右边节点
+  }
+}
+</code></pre>
+<h3 id="创建对象并绑定节点">创建对象并绑定节点</h3>
+<pre><code class="language-js">// 手动绑定节点
+let root = new TreeNode(1)
+root.left = new TreeNode(2)
+root.right = new TreeNode(3)
+root.left.left = new TreeNode(4)
+root.right.right = new TreeNode(5)
+</code></pre>
+<p>此时树的结构：</p>
+<pre><code>      1
+     /  \
+     2   3
+   /  \   \
+  4    5   6
+</code></pre>
+<h3 id="遍历二叉树">遍历二叉树</h3>
+<h4 id="前序遍历dfs">前序遍历（DFS）</h4>
+<pre><code class="language-js">function preOrder(node) {
+  if(node) {
+    console.log(node.data)
+    preOrder(node.left)
+    preOrder(node.right)
+  }
+}
+</code></pre>
+<p>这里用递归调用，遍历到左右元素</p>
+		<hr>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%BA%8C%E5%8F%89%E6%A0%91/"></a>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/%E9%9A%8F%E7%AC%94/%E6%88%91%E6%9C%89%E5%8E%8C%E8%A0%A2%E7%97%87/" 
 			   class="post-title-link"
 			   title="“我有厌蠢症”">
@@ -164,38 +222,6 @@
 <p><img src="./O1CN01RF2xXV1VTa4ynFimE_!!2200824672654.jpg" alt="相关图片"></p>
 <p><img src="./O1CN01ZnKo1j1VTa2K937V8_!!2200824672654.jpg" alt="相关图片"></p>
 <p><img src="./_cgi-bin_mmwebwx-bin_webwxgetmsgimg__&amp;MsgID=4903267174385833460&amp;skey=@crypt_aca24027_4538e0f48f168cee12f073e8b8308f22&amp;mmweb_appid=wx_webfilehelper.jpg" alt="相关图片"></p>
-		<hr>
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/%E6%8A%80%E6%9C%AF/%E5%9C%A8vscode%E4%B8%8A%E6%90%AD%E5%BB%BAc51%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" 
-			   class="post-title-link"
-			   title="在VSCode上搭建C51单片机开发环境">
-				在VSCode上搭建C51单片机开发环境
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<time class="meta__text" datetime="2025-05-12T18:56:36Z">May 12, 2025</time></div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<p>安装插件<code>Embedded IDE</code></p>
-<p><img src="/images/%E5%9C%A8VSCode%E4%B8%8A%E6%90%AD%E5%BB%BAC51%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/image-20250512190017524.png" alt="Embedded IDE"></p>
-<p>安装好后，左边一栏会多出一个芯片图标</p>
-<p><img src="/images/%E5%9C%A8VSCode%E4%B8%8A%E6%90%AD%E5%BB%BAC51%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/image-20250512190113812.png" alt="image-20250512190113812"></p>
-<p>点击，选择Create Project</p>
-<p><img src="/images/%E5%9C%A8VSCode%E4%B8%8A%E6%90%AD%E5%BB%BAC51%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/image-20250512190345994.png" alt="image-20250512190345994"></p>
-<p>选择第二个内置项目模板，然后找到8051。</p>
-<p><img src="/images/%E5%9C%A8VSCode%E4%B8%8A%E6%90%AD%E5%BB%BAC51%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/image-20250512190017524.png" alt="相关图片"></p>
-<p><img src="/images/%E5%9C%A8VSCode%E4%B8%8A%E6%90%AD%E5%BB%BAC51%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/image-20250512190113812.png" alt="相关图片"></p>
-<p><img src="/images/%E5%9C%A8VSCode%E4%B8%8A%E6%90%AD%E5%BB%BAC51%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/image-20250512190345994.png" alt="相关图片"></p>
-<p><img src="/images/%E5%9C%A8VSCode%E4%B8%8A%E6%90%AD%E5%BB%BAC51%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/image-20250512190017524.png" alt="相关图片"></p>
-<p><img src="/images/%E5%9C%A8VSCode%E4%B8%8A%E6%90%AD%E5%BB%BAC51%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/image-20250512190113812.png" alt="相关图片"></p>
-<p><img src="/images/%E5%9C%A8VSCode%E4%B8%8A%E6%90%AD%E5%BB%BAC51%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/image-20250512190345994.png" alt="相关图片"></p>
-<p><img src="/images/%E5%9C%A8VSCode%E4%B8%8A%E6%90%AD%E5%BB%BAC51%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/image-20250512190017524.png" alt="相关图片"></p>
-<p><img src="/images/%E5%9C%A8VSCode%E4%B8%8A%E6%90%AD%E5%BB%BAC51%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/image-20250512190113812.png" alt="相关图片"></p>
-<p><img src="/images/%E5%9C%A8VSCode%E4%B8%8A%E6%90%AD%E5%BB%BAC51%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/image-20250512190345994.png" alt="相关图片"></p>
 		<hr>
 	</div>
 </article>

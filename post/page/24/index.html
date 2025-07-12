@@ -45,6 +45,56 @@
 	</header><article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/95/" 
+			   class="post-title-link"
+			   title="Java方法的传参原理">
+				Java方法的传参原理
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2024-11-30T20:14:00Z">November 30, 2024</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<h1 id="java方法的参数传递机制-基本类型">Java方法的参数传递机制-基本类型</h1>
+<p>值传递</p>
+<h2 id="值传递是什么">值传递是什么</h2>
+<p>在传输实参给方法的形参的时候，<strong>传输的是实参变量中存储的副本</strong>
+说人话，把实参里面的东西赋值了一部分扔了给形参</p>
+<h1 id="值传递具体理解案例">值传递具体理解案例</h1>
+<pre><code class="language-java">public class prameter {
+    public static void main(String[] args) {
+        int a = 10; //定义一个int变量a赋值为10
+        change(a); //调用change方法
+        System.out.println(&quot;main&quot; + a); //打印mian a中的值
+    }
+
+//这里开始写方法
+    public static void change(int a){
+        System.out.println(&quot;change1&quot; + a); //打印方法中a的值
+        a = 20;
+        System.out.println(&quot;change2&quot;a); //打印赋值后a的值
+    }
+}
+</code></pre>
+<p>我们运行以后，控制台输出的结果为</p>
+<pre><code>change1 10
+change2 20
+main 10
+</code></pre>
+<h2 id="为什么main中打印的不是赋值后的20">为什么main中打印的不是赋值后的20？</h2>
+<p>这就要提到刚才的概念：<strong>值传递</strong>
+我们定义了一个变量<code>a = 10；</code>,在方法中<code>public static void change(int a)</code>
+由于<strong>值传递</strong>，也就是把值复制了一分传给方法，所以我们方法里用的值永远都是刚刚定义的<code>int a = 10;</code>，所以<code>change(a); = change(10);</code>
+我们后面再赋值，打印出来的结果还是10，除非你把变量定义的代码改了，否则方法里的值不会变。</p>
+		<hr>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/post/%E6%8A%80%E6%9C%AF/95/"></a>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/%E6%8A%80%E6%9C%AF/90/" 
 			   class="post-title-link"
 			   title="Java小程序之两数计算器">
@@ -220,64 +270,6 @@ public class Basic {
 不得不说，Linux绝对是世界上最麻烦的玩意，解压下载文件都费劲。要不是Windows资源占用多我绝对不会去用这玩意。
 这次可是孤军奋战，背后没有github服务器的靠山了。要是忘了续费服务器我会丢失所有的文章，又是一个负担和一个纠结的点</p>
 		<hr>
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/%E9%9A%8F%E7%AC%94/4/" 
-			   class="post-title-link"
-			   title="我的4k进步史">
-				我的4k进步史
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<time class="meta__text" datetime="2024-11-13T03:41:00&#43;08:00">November 13, 2024</time></div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<p>截止到目前玩4k也有一年多了，整理一下我的进步历程，给迷茫中的各位一点参考</p>
-<h1 id="常规段">常规段</h1>
-<ul>
-<li>2023.5.20 一个别人在和女人亲亲抱抱的日子，我孤身一人在玩4k并且pass掉0dan，开启了漫长的4k之路&hellip;&hellip;</li>
-<li>2023.6.4 Regular 1 pass</li>
-<li>2023.6.22 Regular 2 pass</li>
-<li>2023.6.25 Regular 3 pass</li>
-<li>2023.7.26 Regular 4 pass</li>
-<li>2023.8.22 Regular 5 pass</li>
-<li>2023.11.24 Regular 6 pass</li>
-<li>2023.11.24 Regular 7 pass</li>
-<li>2023.11.27 Regular 8 pass</li>
-<li>2023.11.28 Regular 9 pass</li>
-<li>2023.11.28 Regular 10pass 常规段毕业！！！</li>
-</ul>
-<h1 id="extra与字母段">Extra与字母段</h1>
-<ul>
-<li>2023.12.02 Extra-2 Jack pass（神秘4k常数9638）</li>
-</ul>
-<blockquote>
-<p>貌似淡坑了一段时间&hellip;&hellip;..</p>
-</blockquote>
-<ul>
-<li>2024.9.15 α Jack 96.21</li>
-</ul>
-<blockquote>
-<p>（Ma侧c判与om的od9天差地别，故不写pass，成绩仅供参考。后文中不予注释）</p>
-</blockquote>
-<ul>
-<li>2024.9.22 Extra-4 Jack pass (v2)</li>
-<li>2024.9.22 Extra-5 Jack pass (Sample)</li>
-<li>2024.9.28 Extra-3 Jack pass</li>
-<li>2024.9.30 β Jack 96.29</li>
-<li>2024.10.7 Extra-2 pass</li>
-<li>2024.10.14 Extra-3 Stream pass(v2)</li>
-<li>2024.10.19 Extra-4 Technical pass(v2)</li>
-</ul>
-<blockquote>
-<p>这玩意其实就是叠，要不我也过不掉</p>
-		<hr>
-	</div>
-	<div class="list__footer clearfix">
-		<a class="list__footer-readmore btn" href="/post/%E9%9A%8F%E7%AC%94/4/"></a>
 	</div>
 </article>
 </main>
