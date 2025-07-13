@@ -1,0 +1,34 @@
+<!DOCTYPE html> <html lang="zh-CN" dir="ltr"> <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width"> <title>Nodejs环境下控制台拼接字符串输出有undefind | 映屿</title>  <link rel="stylesheet" href="/css/main.min.7f708edba92415e461aa65b8f871753d02590d23621cbc4c01840000b766fa9b.css" integrity="sha256-f3CO26kkFeRhqmW4&#43;HF1PQJZDSNiHLxMAYQAALdm&#43;ps=" crossorigin="anonymous">  <script src="/js/main.a7956529a5290cbd80aa9c64ee52ceefa89957b568d8a14c217a91d7f4d6aa38.js" integrity="sha256-p5VlKaUpDL2Aqpxk7lLO76iZV7Vo2KFMIXqR1/TWqjg=" crossorigin="anonymous"></script> </head> <body> <header> <a><h1 class="title">映屿</h1></a> <p class="subtitle">yingyu5658的数字花园</p>  <nav> <div class="menu-item"> <a href="/">Home</a> </div> <div class="menu-item"> <a href="/links">Links</a> </div> <div class="menu-item"> <a href="/atom.xml">Feed</a> </div> <div class="menu-item"> <a href="https://github.com/yingyu5658/Moments/blob/main/README.md">Moments</a> </div> <div class="menu-item"> <a href="/about">About</a> </div> </nav> <hr> </header> <main>    <time datetime="2025-03-22T18:56:33&#43;00:00">March 22, 2025</time> <h2>Nodejs环境下控制台拼接字符串输出有undefind</h2> <p>今天在Nodejs环境下搓小工具，控制台输出拼接字符串时，发现有<code>undefind</code>，代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">const</span> date <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> <span style="color:#a2f">Date</span>();
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">const</span> year <span style="color:#666">=</span> date.getFullYear();
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">const</span> month <span style="color:#666">=</span> date.getMonth();
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">const</span> day <span style="color:#666">=</span> date.getDate();
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">const</span> hour <span style="color:#666">=</span> date.getHours();
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">const</span> minute <span style="color:#666">=</span> date.getMinutes();
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">const</span> second <span style="color:#666">=</span> date.getSeconds();
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">const</span> logTime <span style="color:#666">=</span> <span style="color:#b44">`[</span><span style="color:#b68;font-weight:bold">${</span>year<span style="color:#b68;font-weight:bold">}</span><span style="color:#b44">-</span><span style="color:#b68;font-weight:bold">${</span>month<span style="color:#b68;font-weight:bold">}</span><span style="color:#b44">-</span><span style="color:#b68;font-weight:bold">${</span>day<span style="color:#b68;font-weight:bold">}</span><span style="color:#b44"> </span><span style="color:#b68;font-weight:bold">${</span>hour<span style="color:#b68;font-weight:bold">}</span><span style="color:#b44">:</span><span style="color:#b68;font-weight:bold">${</span>minute<span style="color:#b68;font-weight:bold">}</span><span style="color:#b44">:</span><span style="color:#b68;font-weight:bold">${</span>second<span style="color:#b68;font-weight:bold">}</span><span style="color:#b44">] `</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">class</span> GenerateLog {
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">static</span> log() {
+</span></span><span style="display:flex;"><span>    process.stdout.write(logTime);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>console.log(GenerateLog.log() <span style="color:#666">+</span> <span style="color:#b44">&#34;log output on the console&#34;</span>);
+</span></span></code></pre></div><p>输出确是这样：</p>
+<pre tabindex="0"><code>[2025-3-22 18:56:33] undefindlog output on the console
+</code></pre><p>原因
+：<code>GenerateLog.log()</code>方法没有返回值，所以输出<code>undefind</code>，解决方法如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#080;font-style:italic">// 让log方法返回logTime
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">class</span> GenerateLog {
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">static</span> log() {
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">return</span> logTime; <span style="color:#080;font-style:italic">// 返回字符串
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>console.log(GenerateLog.log() <span style="color:#666">+</span> <span style="color:#b44">&#34;log output on the console&#34;</span>);
+</span></span></code></pre></div><p>关键总结：
+Javascript中，如果方法没有返回值，那么输出的就是<code>undefind</code></p>
+<h4 id="扩展">扩展</h4>
+<p>为什么 console.log() 本身会返回 undefined？
+在 REPL 环境（如 Node.js 命令行或浏览器控制台）中，每条语句的执行结果会被隐式打印。由于 console.log() 函数本身没有返回值（即返回 undefined），因此会显示 undefined。但在脚本执行时，这一行为不会发生，因为脚本模式不自动打印返回值</p> <hr>  <div> <div>Tags:</div> <ul> <li><a href="/tags/javascript/">JavaScript</a></li> <li><a href="/tags/nodejs/">NodeJS</a></li> </ul> </div> <div id="waline"></div> <link rel="stylesheet" href="/css/main.css" /> <div id="waline"></div> <script type="module"> import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js'; init({ el: '#waline', serverURL: 'waline.yingyu5658.me', }); </script>  </main> <footer> <p class="copyright">Copyright 2025. All rights reserved.</p> <img src="/notbyai.png" class="not-by-ai"> </footer> </body> </html>

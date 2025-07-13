@@ -1,0 +1,40 @@
+<!DOCTYPE html> <html lang="zh-CN" dir="ltr"> <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width"> <title>《操作系统导论》学习笔记 | 映屿</title>  <link rel="stylesheet" href="/css/main.min.7f708edba92415e461aa65b8f871753d02590d23621cbc4c01840000b766fa9b.css" integrity="sha256-f3CO26kkFeRhqmW4&#43;HF1PQJZDSNiHLxMAYQAALdm&#43;ps=" crossorigin="anonymous">  <script src="/js/main.a7956529a5290cbd80aa9c64ee52ceefa89957b568d8a14c217a91d7f4d6aa38.js" integrity="sha256-p5VlKaUpDL2Aqpxk7lLO76iZV7Vo2KFMIXqR1/TWqjg=" crossorigin="anonymous"></script> </head> <body> <header> <a><h1 class="title">映屿</h1></a> <p class="subtitle">yingyu5658的数字花园</p>  <nav> <div class="menu-item"> <a href="/">Home</a> </div> <div class="menu-item"> <a href="/links">Links</a> </div> <div class="menu-item"> <a href="/atom.xml">Feed</a> </div> <div class="menu-item"> <a href="https://github.com/yingyu5658/Moments/blob/main/README.md">Moments</a> </div> <div class="menu-item"> <a href="/about">About</a> </div> </nav> <hr> </header> <main>    <time datetime="2025-06-15T18:36:21&#43;00:00">June 15, 2025</time> <h2>《操作系统导论》学习笔记</h2> <h2 id="操作系统做什么">操作系统做什么</h2>
+<ul>
+<li>它取得并虚拟化CPU、内存或磁盘等物理资源。</li>
+<li>处理并发问题。</li>
+<li>持久地存储文件，使文件长期安全。</li>
+</ul>
+<h2 id="设计目标">设计目标</h2>
+<p>最基本的，建立一些抽象，让系统方便使用。将其划分为<strong>小而且容易理解的部分</strong>。</p>
+<p>提供<strong>高性能</strong>，最小化系统开销。</p>
+<p>提供程序保护，确保恶意或偶然的不良行为不会损害其他程序和系统本身，即隔离。让进程彼此隔离是关键。</p>
+<p>不间断运行的能力，力求可靠性。</p>
+<h2 id="进程">进程</h2>
+<h3 id="定义">定义</h3>
+<p>运行中的程序。</p>
+<p>程序本身没有生命周期的概念，只是存储在磁盘上的指令和静态数据，操作系统让这些字节运行起来。</p>
+<h3 id="虚拟化">虚拟化</h3>
+<p>操作系统通过虚拟化CPU来提供有无数CPU可用的假象。通过让一个进程只运行一个时间片，然后切换到其他进程，操作系统提供了存在多个虚拟CPU的假象，这就是<strong>时分共享CPU技术</strong>。允许用户运行多个并发进程，潜在的开销就是性能损失，因为CPU共享，每个进程的运行速度就会变慢。（受力面积和压强的关系）。</p>
+<h3 id="进程api">进程API</h3>
+<ul>
+<li>
+<p>创建（create）：调用系统操作来创建新进程。</p>
+</li>
+<li>
+<p>销毁（destroy）：强制销毁进程，大部分程序会再结束后自动退出，但如果用户想终止，这个接口很有用。</p>
+</li>
+<li>
+<p>等待（wait）：等待进程停止运行。</p>
+</li>
+<li>
+<p>状态（status）：获得有关进程的状态信息，如运行时间等。</p>
+</li>
+<li>
+<p>其他控制（miscellaneous control）：除了杀死和等待进程外还有其他控制，如暂停。</p>
+</li>
+</ul>
+<blockquote>
+<p>[!NOTE]
+书签：P21 4.3</p>
+</blockquote>
+ <hr>  <div> <div>Tags:</div> <ul> <li><a href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a></li> </ul> </div> <div id="waline"></div> <link rel="stylesheet" href="/css/main.css" /> <div id="waline"></div> <script type="module"> import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js'; init({ el: '#waline', serverURL: 'waline.yingyu5658.me', }); </script>  </main> <footer> <p class="copyright">Copyright 2025. All rights reserved.</p> <img src="/notbyai.png" class="not-by-ai"> </footer> </body> </html>

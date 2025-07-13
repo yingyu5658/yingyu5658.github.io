@@ -1,0 +1,59 @@
+<!DOCTYPE html> <html lang="zh-CN" dir="ltr"> <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width"> <title>面向对象编程总结 | 映屿</title>  <link rel="stylesheet" href="/css/main.min.7f708edba92415e461aa65b8f871753d02590d23621cbc4c01840000b766fa9b.css" integrity="sha256-f3CO26kkFeRhqmW4&#43;HF1PQJZDSNiHLxMAYQAALdm&#43;ps=" crossorigin="anonymous">  <script src="/js/main.a7956529a5290cbd80aa9c64ee52ceefa89957b568d8a14c217a91d7f4d6aa38.js" integrity="sha256-p5VlKaUpDL2Aqpxk7lLO76iZV7Vo2KFMIXqR1/TWqjg=" crossorigin="anonymous"></script> </head> <body> <header> <a><h1 class="title">映屿</h1></a> <p class="subtitle">yingyu5658的数字花园</p>  <nav> <div class="menu-item"> <a href="/">Home</a> </div> <div class="menu-item"> <a href="/links">Links</a> </div> <div class="menu-item"> <a href="/atom.xml">Feed</a> </div> <div class="menu-item"> <a href="https://github.com/yingyu5658/Moments/blob/main/README.md">Moments</a> </div> <div class="menu-item"> <a href="/about">About</a> </div> </nav> <hr> </header> <main>    <time datetime="2024-12-18T16:30:00&#43;00:00">December 18, 2024</time> <h2>面向对象编程总结</h2> <p>面向对象（oop）</p>
+<h1 id="面向对象编程的思想面向拿或者找">面向对象编程的思想：面向。拿或者找。</h1>
+<p>对象：东西
+面向对象编程：拿东西过来编程
+面向对象：把现实世界中的食物看成一个一个对象来解决问题的。（万物皆 对象）
+面向对象的好处：代码更符合人类的思维习惯。编程更简单。看程序更容易理解（？）</p>
+<h1 id="类对象">类、对象：</h1>
+<p>类（设计图）：相同事物，共同特征的描述。
+对象：对象是类的具体的实例。
+对象 = 实例
+在Java中必须先定义类，才能得到对象</p>
+<h1 id="定义类来创建对象使用">定义类来创建对象使用</h1>
+<h2 id="定义类的格式">定义类的格式</h2>
+<ol>
+<li>成员变量（代表属性，一般是名词）：数据类型 名称;</li>
+<li>成员方法（代表行为，一般是动词）</li>
+<li>构造器（前面的区域以后再来探索吧）</li>
+<li>代码块（前面的区域以后再来探索吧）</li>
+<li>内部类（前面的区域以后再来探索吧）</li>
+</ol>
+<h2 id="类中具体怎么写">类中具体怎么写：</h2>
+<p>一般名词定义成成员变量（属性）
+<code>修饰符 数据类型 变量名称 = 初始值</code>
+成员变量不建议给初始值，它存在默认值。</p>
+<h2 id="一般动词定义成方法行为">一般动词定义成方法（行为）</h2>
+<h3 id="创建对象">创建对象</h3>
+<p><code>类名 对象名 = new 构造器();</code></p>
+<h2 id="对象使用">对象使用：</h2>
+<p><code>对象名.成员变量</code>
+<code>对象名.成员方法</code></p>
+<h1 id="构造器">构造器</h1>
+<pre><code>	作用：
+		初始化一个累的对象并且返回这个类的地址。
+		详细格式：修饰符 类名(形参){...}
+		构造器的分类：
+					无参数构造器：初始化一个类的对象，里面的数据都是默认值，并返回地址。
+					有参数构造器：初始化一个类的对象，并返回地址，并且可以同时为对象赋值。
+		构造器如何调用：
+					类名 对象 = new 构造器;
+		注意：任何类写出来，自带无参数构造器
+			   但是在这个类中定义了一个有参数构造器了，那么无参数构造器就消失了，此时如果还要使用无参数构造器，必须自己写一个。
+</code></pre>
+<h2 id="this关键字">this关键字</h2>
+<p>作用：代表了当前对象的地址。可以访问当前对象的成员变量信息和成员方法</p>
+<h3 id="具体应用场景">具体应用场景</h3>
+<p>可以用在有参数构造器中
+可以用在方法中</p>
+<h1 id="封装">封装</h1>
+<p>面向对象三大特征：封装、继承、多态。
+封装的基本思想：决定属性和行为归属谁的问题。</p>
+<h2 id="如何更好的封装">如何更好的封装：</h2>
+<p>成员变量私有化，只能在本类访问。</p>
+<h4 id="合理暴露">合理暴露</h4>
+<p>提供成套的getter和setter方法暴露取值赋值。</p>
+<h1 id="标准javabean">标准JavaBean</h1>
+<p>JavaBean是什么：是实体类。
+作用：创建对象，封装数据。</p>
+<p><img src="https://www.yingyu5658.cn/usr/uploads/2024/12/2743265221.jpg" alt=""></p>
+ <hr>  <div> <div>Tags:</div> <ul> <li><a href="/tags/java/">Java</a></li> <li><a href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a></li> </ul> </div> <div id="waline"></div> <link rel="stylesheet" href="/css/main.css" /> <div id="waline"></div> <script type="module"> import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js'; init({ el: '#waline', serverURL: 'waline.yingyu5658.me', }); </script>  </main> <footer> <p class="copyright">Copyright 2025. All rights reserved.</p> <img src="/notbyai.png" class="not-by-ai"> </footer> </body> </html>

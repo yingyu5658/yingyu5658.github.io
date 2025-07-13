@@ -1,0 +1,118 @@
+<!DOCTYPE html> <html lang="zh-CN" dir="ltr"> <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width"> <title>JavaScript | 映屿</title>  <link rel="stylesheet" href="/css/main.min.7f708edba92415e461aa65b8f871753d02590d23621cbc4c01840000b766fa9b.css" integrity="sha256-f3CO26kkFeRhqmW4&#43;HF1PQJZDSNiHLxMAYQAALdm&#43;ps=" crossorigin="anonymous">  <script src="/js/main.a7956529a5290cbd80aa9c64ee52ceefa89957b568d8a14c217a91d7f4d6aa38.js" integrity="sha256-p5VlKaUpDL2Aqpxk7lLO76iZV7Vo2KFMIXqR1/TWqjg=" crossorigin="anonymous"></script> </head> <body> <header> <a><h1 class="title">映屿</h1></a> <p class="subtitle">yingyu5658的数字花园</p>  <nav> <div class="menu-item"> <a href="/">Home</a> </div> <div class="menu-item"> <a href="/links">Links</a> </div> <div class="menu-item"> <a href="/atom.xml">Feed</a> </div> <div class="menu-item"> <a href="https://github.com/yingyu5658/Moments/blob/main/README.md">Moments</a> </div> <div class="menu-item"> <a href="/about">About</a> </div> </nav> <hr> </header> <main>  <h1>JavaScript</h1>   <h2><a href="/post/%E6%8A%80%E6%9C%AF/%E7%94%A8javascript-tss%E5%92%8Chighlights%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8F%A5%E7%BA%A7%E6%96%87%E6%9C%AC%E9%98%85%E8%AF%BB%E5%99%A8/">使用Javascript TSS和Highlights构建一个文本阅读器</a></h2> <blockquote>
+<p>原文：https://jsdev.space/tts-sentence-reader/
+翻译：yingyu5658 <a href="mailto:yingyu5658@outlook.com">yingyu5658@outlook.com</a></p>
+</blockquote>
+<p><img src="https://jsdev.space/.netlify/images?url=_astro%2Ftts-sentence-reader.hV9whx3I.png&amp;w=800&amp;h=800" alt=""></p>
+<p>在这篇文章中，我们将构建一个简单的Web工具来探究<strong>Text-toSpeech(TTS)<strong>在JavaScript中是如何工作的。我们也将深入研究</strong>句子级高亮</strong>的工作逻辑。这两项功能经常结合在一起使用，以走到浏览器中打造无障碍的动态阅读体验。</p>
+<p>步骤:</p>
+<ol>
+<li>学习在浏览器中,TTS是如何工作的</li>
+<li>探究动态高亮句子的实现方法</li>
+<li>用HTML, CSS, JavaScript构建一个小工具(<a href="https://codepen.io/jsdevspace/pen/YPXRRjO">Demo &amp; Code</a>)</li>
+</ol>
+<h2 id="-浏览器中的tts概述">📢 浏览器中的TTS概述</h2>
+<p>JavaScript提供一个内置的API：<a href="https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis"><code>SpeechSynthesis</code></a>，它允许我们使用系统中的可用嗓音去大声朗读问文字。</p>
+<h3 id="核心对象">核心对象:</h3>
+<ul>
+<li><code>speechSynthesis</code> — 控制播放、暂停、恢复、停止</li>
+<li><code>SpeechSynthesisUtterance</code> — 作为TTS引擎的待播报文本</li>
+</ul>
+<h3 id="示例">✨示例:</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">const</span> msg <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> SpeechSynthesisUtterance(<span style="color:#b44">&#34;Hello, world!&#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a2f">window</span>.speechSynthesis.speak(msg);
+</span></span></code></pre></div><h3 id="-添加嗓音和配置">⚙️ 添加嗓音和配置</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">const</span> utter <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> SpeechSynthesisUtterance(<span style="color:#b44">&#34;This is a test&#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">const</span> voices <span style="color:#666">=</span> <span style="color:#a2f">window</span>.speechSynthesis.getVoices();
+</span></span><span style="display:flex;"><span>utter.voice <span style="color:#666">=</span> voices.find(v =&gt; v.lang <span style="color:#666">===</span> <span style="color:#b44">&#39;en-US&#39;</span>);
+</span></span><span style="display:flex;"><span>utter.rate <span style="color:#666">=</span> <span style="color:#666">1.2</span>;
+</span></span><span style="display:flex;"><span>utter.pitch <span style="color:#666">=</span> <span style="color:#666">1</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a2f">window</span>.speechSynthesis.speak(utter);
+</span></span></code></pre></div><p>你也可以追踪朗读的开始和结束：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>utter.onstart <span style="color:#666">=</span> () =&gt; console.log(<span style="color:#b44">&#39;Started speaking&#39;</span>);
+</span></span><span style="display:flex;"><span>utter.onend <span style="color:#666">=</span> () =&gt; console.log(<span style="color:#b44">&#39;Finished speaking&#39;</span>);
+</span></span></code></pre></div><h2 id="-句子高亮">✍️ 句子高亮</h2>
+<p>展示给用户哪一个句子正在阅读，我们需要用CSS和JavaScript来高亮文本。</p>
+<h3 id="示例-html">示例 HTML:</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#008000;font-weight:bold">p</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#008000;font-weight:bold">span</span> <span style="color:#b44">class</span><span style="color:#666">=</span><span style="color:#b44">&#34;sentence&#34;</span>&gt;First sentence.&lt;/<span style="color:#008000;font-weight:bold">span</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#008000;font-weight:bold">span</span> <span style="color:#b44">class</span><span style="color:#666">=</span><span style="color:#b44">&#34;sentence&#34;</span>&gt;Second sentence.&lt;/<span style="color:#008000;font-weight:bold">span</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#008000;font-weight:bold">p</span>&gt;
+</span></span></code></pre></div><h3 id="处理高亮的css">处理高亮的CSS:</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span>.<span style="color:#00f">sentence</span>.<span style="color:#00f">active</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">background-color</span>: <span style="color:#a2f;font-weight:bold">yellow</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">font-weight</span>: <span style="color:#a2f;font-weight:bold">bold</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="javascript高亮逻辑">JavaScript高亮逻辑：</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">function</span> highlight(index) {
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f">document</span>.querySelectorAll(<span style="color:#b44">&#39;.sentence&#39;</span>).forEach((el, i) =&gt; {
+</span></span><span style="display:flex;"><span>    el.classList.toggle(<span style="color:#b44">&#39;active&#39;</span>, i <span style="color:#666">===</span> index);
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h1 id="项目-使用tss和高亮的阅读器">🚀项目: 使用TSS和高亮的阅读器</h1>
+<p>我们的程序将要：</p>  <h2><a href="/post/%E6%8A%80%E6%9C%AF/%E4%BB%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AE%BE%E7%BD%AE%E5%85%A5%E6%89%8B%E4%B8%80%E6%8B%9B%E7%A0%B4%E8%A7%A3%E4%BD%9C%E6%96%87%E7%BD%91%E7%AB%99%E7%A6%81%E6%AD%A2%E5%A4%8D%E5%88%B6/">从浏览器设置入手，一招破解作文网站禁止复制</a></h2> <h2 id="引言">引言</h2>
+<p>在上网搜集范文的时候，经常遇到这样的情况：
+<img src="./202506102124.gif" alt=""></p>
+<p>非常恶心。付费？不知道从哪偷来的文章还想让用户付费？不可能！以前我做过一篇<a href="%5B%E5%85%89%E9%80%9F%E7%A0%B4%E8%A7%A3%E4%BD%9C%E6%96%87%E7%BD%91%E7%AB%99%E7%A6%81%E6%AD%A2%E5%A4%8D%E5%88%B6%5D(https://www.yingyu5658.me/post/3995609697/)">通过修改DOM结构达到破解效果</a>的介绍，但那种方法实在不够快捷，今天偶然发现一个方法，一劳永逸。</p>
+<h2 id="电脑">电脑</h2>
+<p>以edge浏览器为例。</p>
+<p><img src="./Pasted%20image%2020250610212733.png" alt=""></p>
+<p>搜索JavaScript
+<img src="./Pasted%20image%2020250610212751.png" alt=""></p>
+<p>网站权限
+<img src="./Pasted%20image%2020250610212809.png" alt=""></p>
+<p>JavaScript
+<img src="./Pasted%20image%2020250610212817.png" alt=""></p>
+<p>添加你的目标站点。
+<img src="./Pasted%20image%2020250610212831.png" alt=""></p>
+<p>重新刷新页面，可以看到网页非常干净，底部的横幅没了，侧边栏无用的东西没了。
+<img src="./Pasted%20image%2020250610213010.png" alt=""></p>
+<p>这样就可以正常复制了。</p>
+<h2 id="手机">手机</h2>
+<p>还是以edge浏览器为例，和电脑一个道理，打开设置。</p>
+<p><img src="./05c47c62165fa21772992e9ee927c5a0.jpg" alt=""></p>
+<p><img src="./8f7f6c2fcb05cda7acb0aae875030e31.jpg" alt=""></p>
+<p>站点设置
+<img src="./e3ca7bbfd5de152d328ae8939a176f0c.jpg" alt=""></p>
+<p>站点权限
+<img src="./d11299a6a2d4fb3927e9eff30fa672fd.jpg" alt=""></p>
+<p>在JavaScript中添加你的目标站点
+<img src="./8aeaafd6e284cdb81745cd078cf68a95.jpg" alt=""></p>
+<h2 id="原理">原理</h2>
+<p>JavaScript是一个网页脚本语言，用于给网页添加一些交互效果。如作文网站的禁止复制，其<strong>原理就是使用JavaScript在文字区域内监听鼠标右键，弹出窗口盒子达到阻挡复制的效果</strong>。直接连根拔出JavaScript，让他不起作用。如果有其他类似的情况，也可以禁用JavaScript。但页面上有些JavaScript控制的控件可能就会消失。</p>
+<p>多亏了JavaScript，各种网页恶心的满屏乱飞的小广告才能存在啊！</p>
+<p><img src="./js-meme_1.webp" alt=""><img src="./5af0708f37f0d4132edefba6d16d4c05a65649f90ab3995d20aeb1d69c0dca21_1.webp" alt=""></p>  <h2><a href="/post/%E6%8A%80%E6%9C%AF/osu-apiv1%E8%AF%B7%E6%B1%82%E7%A4%BA%E4%BE%8B/">osu!APIv1请求示例</a></h2> <h2 id="前言">前言</h2>
+<p>本文章使用Nodejs环境做演示。请求用户数据。代码中的APIKEY要在<a href="https://osu.ppy.sh/home/account/edit">osu官网‬</a>申请。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">const</span> API_URL <span style="color:#666">=</span> <span style="color:#b44">&#34;osu.ppy.sh&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">const</span> init <span style="color:#666">=</span> {
+</span></span><span style="display:flex;"><span>    k<span style="color:#666">:</span> <span style="color:#b44">&#34;YOUR_API_KEY&#34;</span>,
+</span></span><span style="display:flex;"><span>    type<span style="color:#666">:</span> <span style="color:#b44">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>    u<span style="color:#666">:</span> <span style="color:#b44">&#34;kyzzz5658&#34;</span>,
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">const</span> https <span style="color:#666">=</span> require(<span style="color:#b44">&#34;https&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// 将参数序列化为查询字符串
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">const</span> query <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> URLSearchParams(init);
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">const</span> options <span style="color:#666">=</span> {
+</span></span><span style="display:flex;"><span>    hostname<span style="color:#666">:</span> API_URL,
+</span></span><span style="display:flex;"><span>    method<span style="color:#666">:</span> <span style="color:#b44">&#34;GET&#34;</span>,
+</span></span><span style="display:flex;"><span>    path<span style="color:#666">:</span> <span style="color:#b44">`/api/get_user?</span><span style="color:#b68;font-weight:bold">${</span>query<span style="color:#b68;font-weight:bold">}</span><span style="color:#b44">`</span> <span style="color:#080;font-style:italic">// 附加参数
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">const</span> req <span style="color:#666">=</span> https.request(options, (res) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">let</span> data <span style="color:#666">=</span> <span style="color:#b44">&#39;&#39;</span>;
+</span></span><span style="display:flex;"><span>    res.on(<span style="color:#b44">&#39;data&#39;</span>, (chunk) =&gt; data <span style="color:#666">+=</span> chunk);
+</span></span><span style="display:flex;"><span>    res.on(<span style="color:#b44">&#39;end&#39;</span>, () =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">try</span> {
+</span></span><span style="display:flex;"><span>            console.log(JSON.parse(data[<span style="color:#666">0</span>].username));
+</span></span><span style="display:flex;"><span>        } <span style="color:#a2f;font-weight:bold">catch</span> (e) {
+</span></span><span style="display:flex;"><span>            console.error(<span style="color:#b44">&#39;JSON 解析失败:&#39;</span>, e);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// 错误处理
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>req.on(<span style="color:#b44">&#39;error&#39;</span>, (err) =&gt; {
+</span></span><span style="display:flex;"><span>    console.error(<span style="color:#b44">&#39;请求失败:&#39;</span>, err.code);
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><p>输出：</p>  <h2><a href="/post/%E6%8A%80%E6%9C%AF/nodejs%E7%8E%AF%E5%A2%83%E4%B8%8B%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%8B%BC%E6%8E%A5%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%87%BA%E6%9C%89undefind/">Nodejs环境下控制台拼接字符串输出有undefind</a></h2> <p>今天在Nodejs环境下搓小工具，控制台输出拼接字符串时，发现有<code>undefind</code>，代码如下：</p>   </main> <footer> <p class="copyright">Copyright 2025. All rights reserved.</p> <img src="/notbyai.png" class="not-by-ai"> </footer> </body> </html>

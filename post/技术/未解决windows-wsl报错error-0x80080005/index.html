@@ -1,0 +1,164 @@
+<!DOCTYPE html> <html lang="zh-CN" dir="ltr"> <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width"> <title>【未解决】Windows WSL报错：Error: 0x80080005 ??????? | 映屿</title>  <link rel="stylesheet" href="/css/main.min.7f708edba92415e461aa65b8f871753d02590d23621cbc4c01840000b766fa9b.css" integrity="sha256-f3CO26kkFeRhqmW4&#43;HF1PQJZDSNiHLxMAYQAALdm&#43;ps=" crossorigin="anonymous">  <script src="/js/main.a7956529a5290cbd80aa9c64ee52ceefa89957b568d8a14c217a91d7f4d6aa38.js" integrity="sha256-p5VlKaUpDL2Aqpxk7lLO76iZV7Vo2KFMIXqR1/TWqjg=" crossorigin="anonymous"></script> </head> <body> <header> <a><h1 class="title">映屿</h1></a> <p class="subtitle">yingyu5658的数字花园</p>  <nav> <div class="menu-item"> <a href="/">Home</a> </div> <div class="menu-item"> <a href="/links">Links</a> </div> <div class="menu-item"> <a href="/atom.xml">Feed</a> </div> <div class="menu-item"> <a href="https://github.com/yingyu5658/Moments/blob/main/README.md">Moments</a> </div> <div class="menu-item"> <a href="/about">About</a> </div> </nav> <hr> </header> <main>    <time datetime="2025-03-04T20:58:30&#43;00:00">March 4, 2025</time> <h2>【未解决】Windows WSL报错：Error: 0x80080005 ???????</h2> <p>设备环境：</p>
+<pre tabindex="0"><code>操作系统：Windows 10
+安装系统：Arch Linux
+错误日志：
+Installing, this may take a few minutes...
+WslRegisterDistribution failed with error: 0x80080005
+Error: 0x80080005 ???????
+
+Press any key to continue...
+</code></pre><p>网上有一篇<a href="https://ask.csdn.net/questions/7625716">文章</a>提到这个错误，下面的评论回复以管理员权限运行命令提示符并执行<code>sc stop LxssManager</code>和<code>sc start LxssManager</code>
+出现如下报错：</p>
+<pre tabindex="0"><code>C:\Windows\system32&gt;sc stop LxssManager
+[SC] OpenService 失败 1060:
+
+指定的服务未安装。
+</code></pre><p>顺藤摸瓜，在网上寻找<code>LxssManager</code>这个服务要如何安装。
+网上暂时还没有找到相关文章能够解决这个问题，但是CSDN的一篇文章引起了我的注意
+<a href="https://blog.csdn.net/renwudao24/article/details/52061906">[SC] OpenService 失败：1060指定的服务未安装_[sc] openservice 失败 1060: 指定的服务未安装。-CSDN博客</a>
+文章中提到了“服务”，在开始菜单中搜索服务，进入应用找到了一个名为WSL Service的服务。点左上角启动。
+提取关键信息：<strong>1058、被禁用、关联的设备没有启动</strong>。
+检查功能是否开启：按下 <code>Win+S</code> 搜索 <strong>启用或关闭Windows功能</strong>
+勾选<code>适用于Linux的Windows子系统</code>和<code>虚拟机平台</code>这两项，点击确定
+重启电脑。
+回来以后，用管理员身份运行powershell，强制重置WSL服务，依次执行：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wsl --shutdown
+</span></span><span style="display:flex;"><span>wsl --unregister Arch <span style="color:#080;font-style:italic"># 替换为你的发行版名称</span>
+</span></span><span style="display:flex;"><span>wsl --install -d Arch <span style="color:#080;font-style:italic"># 重新注册发行版</span>
+</span></span></code></pre></div><p>如果提示内核缺失，在这里下<a href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi">https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi</a></p>
+<p>如果有以下输出：</p>
+<pre tabindex="0"><code>zcz  system32  ♥ 21:32  wsl --shutdown
+此应用程序需要适用于 Linux 的 Windows 子系统可选组件。
+通过运行安装它： wsl.exe --install --no-distribution
+可能需要重新启动系统才能使更改生效。
+错误代码: Wsl/WSL_E_WSL_OPTIONAL_COMPONENT_REQUIRED
+</code></pre><p>两种可能：</p>
+<ol>
+<li>没有安装WSL服务</li>
+<li><strong>服务被禁用</strong>
+后者比较棘手，我们先做第一种尝试
+<strong>强制安装WSL组件</strong>
+<strong>以管理员身份运行 PowerShell</strong>，执行以下命令：</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#080;font-style:italic"># 安装WSL核心组件（会自动启用虚拟化功能）</span>
+</span></span><span style="display:flex;"><span>wsl --install
+</span></span></code></pre></div><p>输出：</p>
+<pre tabindex="0"><code>zcz  system32  ♥ 21:34  wsl --install
+正在安装 Windows 可选组件: Microsoft-Windows-Subsystem-Linux
+
+Deployment Image Servicing and Management tool
+Version: 10.0.19041.3636
+
+Image Version: 10.0.19045.5487
+
+启用一个或多个功能
+[==========================100.0%==========================]
+The operation completed successfully.
+正在安装 Windows 可选组件: VirtualMachinePlatform
+
+Deployment Image Servicing and Management tool
+Version: 10.0.19041.3636
+
+Image Version: 10.0.19045.5487
+
+启用一个或多个功能
+[==========================100.0%==========================]
+The operation completed successfully.
+请求的操作成功。直到重新启动系统前更改将不会生效。
+</code></pre><p>再次进行重启。
+<code>Restart-Computer</code>
+开机加载界面显示：我们无法完成更新，正在撤销更改。。
+尝试过的方法：进入安全模式，尝试重启更新，失败。
+安全模式仍然失败，选择临时禁用WSL服务
+管理员cmd执行</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#a2f">sc </span>config LxssManager start= disabled
+</span></span><span style="display:flex;"><span>shutdown /<span style="color:#a2f">r </span>/t <span style="color:#666">0</span>
+</span></span></code></pre></div><p>输出：</p>
+<pre tabindex="0"><code>C:\Windows\system32&gt;sc config LxssManager start= disabled&amp;&amp; shutdown /r /t 0
+[SC] OpenService 失败 1060:
+
+指定的服务未安装。
+</code></pre><p>唉，老朋友，又见面了。只能祭出来我的终极大杀器。</p>
+<h3 id="彻底重装wsl"><strong>彻底重装WSL</strong></h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#080;font-style:italic"># 卸载所有发行版</span>
+</span></span><span style="display:flex;"><span>wsl --unregister *
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"># 删除残留配置</span>
+</span></span><span style="display:flex;"><span><span style="color:#a2f">Remove-Item</span> -Path <span style="color:#b44">&#34;</span><span style="color:#b8860b">$env:USERPROFILE</span><span style="color:#b44">\AppData\Local\Packages\*Linux*&#34;</span> -Recurse -Force
+</span></span></code></pre></div><p>输出：</p>
+<pre tabindex="0"><code>zcz  system32  ♥ 22:04  # 卸载所有发行版
+&gt; wsl --unregister *
+&gt; # 删除残留配置
+&gt; Remove-Item -Path &#34;$env:USERPROFILE\AppData\Local\Packages\*Linux*&#34; -Recurse -Force
+正在注销。
+此应用程序需要适用于 Linux 的 Windows 子系统可选组件。
+通过运行安装它： wsl.exe --install --no-distribution
+可能需要重新启动系统才能使更改生效。
+错误代码: Wsl/WSL_E_WSL_OPTIONAL_COMPONENT_REQUIRED
+</code></pre><p>输入<code>wsl.exe --install --no-distribution</code>
+输出：</p>
+<pre tabindex="0"><code>zcz  system32  ♥ 22:09  wsl.exe --install --no-distribution
+正在安装 Windows 可选组件: Microsoft-Windows-Subsystem-Linux
+
+Deployment Image Servicing and Management tool
+Version: 10.0.19041.3636
+
+Image Version: 10.0.19045.5487
+
+启用一个或多个功能
+[==========================100.0%==========================]
+The operation completed successfully.
+正在安装 Windows 可选组件: VirtualMachinePlatform
+
+Deployment Image Servicing and Management tool
+Version: 10.0.19041.3636
+
+Image Version: 10.0.19045.5487
+
+启用一个或多个功能
+[==========================100.0%==========================]
+The operation completed successfully.
+请求的操作成功。直到重新启动系统前更改将不会生效。
+</code></pre><p>继续重启，显示“我们无法完成更新，正在撤销更改。”</p>
+<p><strong>以管理员身份打开CMD</strong>：
+按下 <code>Win+S</code> → 输入 <code>cmd</code> → 右键选择 <strong>“以管理员身份运行”</strong>  <strong>执行以下命令（注意语法）</strong>：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span>sc config LxssManager start= auto
+</span></span><span style="display:flex;"><span>sc config vmcompute start= auto
+</span></span><span style="display:flex;"><span>net start LxssManager
+</span></span><span style="display:flex;"><span>net start vmcompute
+</span></span></code></pre></div><p>仍然1085，管理员cmd执行</p>
+<pre tabindex="0"><code>dism /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+
+dism /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+</code></pre><p>尝试重装WSL，出现
+![[_posts\Windows-WSL报错：Error-0x80080005\Pasted image 20250304222548.png]]</p>
+<p>研究了一阵子，<strong><code>vmcompute</code></strong>（虚拟机核心服务）和 <strong><code>LxssManager</code></strong>（WSL管理服务）均未注册，导致WSL安装向导崩溃。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Powershell" data-lang="Powershell"><span style="display:flex;"><span><span style="color:#080;font-style:italic"># 以管理员身份运行</span>
+</span></span><span style="display:flex;"><span>dism.exe /online /<span style="color:#a2f">enable-feature</span> /featurename<span style="">:</span><span style="color:#a2f">Microsoft-Windows</span>-Subsystem-Linux /all /norestart
+</span></span><span style="display:flex;"><span>dism.exe /online /<span style="color:#a2f">enable-feature</span> /featurename<span style="">:</span>VirtualMachinePlatform /all /norestart
+</span></span><span style="display:flex;"><span>dism.exe /online /<span style="color:#a2f">enable-feature</span> /featurename<span style="">:</span>HypervisorPlatform /all /norestart
+</span></span></code></pre></div><p>重启，“我们无法完成更新，正在撤销更改。”
+。。。。。、、、、
+尽力了。现在看来，是系统层面的硬伤了。可能行得通的有重装系统和保留文件重置系统两个选择。不过我还是会和这个问题死磕一下，我就不信我干不成这个事。明天还要苦逼上学，先睡了。
+2025.3.4 22:57</p>
+<p>————————————————————————————</p>
+<p>2025.3.5</p>
+<p>尝试<strong>强制修复系统核心组件</strong></p>
+<pre tabindex="0"><code># 以管理员身份运行 PowerShell
+sfc /scannow
+DISM /Online /Cleanup-Image /RestoreHealth
+</code></pre><p><strong>重置 Windows Update 组件</strong></p>
+<pre tabindex="0"><code># 管理员cmd执行 net stop wuauserv
+net stop cryptSvc
+net stop bits
+net stop msiserver
+rmdir C:\Windows\SoftwareDistribution /S /Q
+net start wuauserv
+net start cryptSvc
+net start bits
+net start msiserver
+# 强制重建WSL核心服务
+sc create vmcompute binPath= &#34;C:\Windows\System32\vmcompute.exe&#34; start= auto type= kernel
+sc create LxssManager binPath= &#34;C:\Windows\System32\lxss\LxssManager.dll&#34; start= auto type= own
+net start vmcompute
+net start LxssManager
+</code></pre><p>仍然无法启动。使用wsl偶遇神秘怪异bug拼尽全力无法战胜。我都已经浪费这么长时间来研究这个问题，为什么我不直接装个Linux系统呢。周末就把这傻卵系统换成Arch！</p> <hr>  <div> <div>Tags:</div> <ul> <li><a href="/tags/windows/">Windows</a></li> <li><a href="/tags/linux/">Linux</a></li> </ul> </div> <div id="waline"></div> <link rel="stylesheet" href="/css/main.css" /> <div id="waline"></div> <script type="module"> import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js'; init({ el: '#waline', serverURL: 'waline.yingyu5658.me', }); </script>  </main> <footer> <p class="copyright">Copyright 2025. All rights reserved.</p> <img src="/notbyai.png" class="not-by-ai"> </footer> </body> </html>

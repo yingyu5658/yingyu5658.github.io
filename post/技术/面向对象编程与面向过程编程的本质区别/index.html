@@ -1,0 +1,16 @@
+<!DOCTYPE html> <html lang="zh-CN" dir="ltr"> <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width"> <title>面向对象与面向过程的本质区别 | 映屿</title>  <link rel="stylesheet" href="/css/main.min.7f708edba92415e461aa65b8f871753d02590d23621cbc4c01840000b766fa9b.css" integrity="sha256-f3CO26kkFeRhqmW4&#43;HF1PQJZDSNiHLxMAYQAALdm&#43;ps=" crossorigin="anonymous">  <script src="/js/main.a7956529a5290cbd80aa9c64ee52ceefa89957b568d8a14c217a91d7f4d6aa38.js" integrity="sha256-p5VlKaUpDL2Aqpxk7lLO76iZV7Vo2KFMIXqR1/TWqjg=" crossorigin="anonymous"></script> </head> <body> <header> <a><h1 class="title">映屿</h1></a> <p class="subtitle">yingyu5658的数字花园</p>  <nav> <div class="menu-item"> <a href="/">Home</a> </div> <div class="menu-item"> <a href="/links">Links</a> </div> <div class="menu-item"> <a href="/atom.xml">Feed</a> </div> <div class="menu-item"> <a href="https://github.com/yingyu5658/Moments/blob/main/README.md">Moments</a> </div> <div class="menu-item"> <a href="/about">About</a> </div> </nav> <hr> </header> <main>    <time datetime="2025-05-29T21:21:36&#43;00:00">May 29, 2025</time> <h2>面向对象与面向过程的本质区别</h2> <p>面向对象与面向过程这两种编程思想主要体现在一件事上：面向对象关心<strong>谁来做</strong>，而面向过程关心<strong>做什么</strong>。</p>
+<p>举个例子，如果我现在要开发一个五子棋小游戏，在面向对象的思想中，实现步骤应该是这样的。</p>
+<ul>
+<li>有一个窗口对象，可以让我的游戏内容展示在里面</li>
+<li>创建棋盘对象</li>
+<li>初始化棋盘</li>
+<li>创建计分板对象</li>
+<li>初始化计分板</li>
+<li>玩家开始下棋，棋盘对象创建棋子对象，绘制出来</li>
+</ul>
+<p>不难看出，面向对象就是在关心<strong>谁来做</strong>，先关心哪个对象去做，再去研究这个对象要去<strong>怎么做</strong>。抽象层级更高，但是符合人类的思维。从代码结构上来看，写面向对象更偏向在画一个树状图，一级一级划分谁要做什么事情，而面向过程更像一个线性的流程图，全程都在关心需要做什么事情。</p>
+<p>更官方地说，面向对象以算法和流程为核心，强调步骤拆解。而面向对象以与对象交互为核心，强调责任分配</p>
+<p>当然，写法在语言上就有所限定。C更适合面向过程，头文件的引用使用函数做事就意味着C很难实现面向对象的设计模式，当然有一些比较邪门的技巧，容易开枪把自己脚指头崩掉，比如<code>void*</code>模拟泛型这种不在本文讨论范围。</p>
+<p>C缺乏类、继承等基础语法支持，但可以用结构体加函数指针简单模拟对象，但设计难度有所增加，调试难度更有所增加。面向过程更适合处理逻辑简单的任务或算法密集型任务，而面向对象更适合构建GUI应用等复杂系统。</p>
+<p>面向对象并非在所有情况下都是最优选择。还是需要依据开发项目的实际需求考量。</p>
+ <hr>  <div> <div>Tags:</div> <ul> <li><a href="/tags/%E7%BC%96%E7%A8%8B/">编程</a></li> </ul> </div> <div id="waline"></div> <link rel="stylesheet" href="/css/main.css" /> <div id="waline"></div> <script type="module"> import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js'; init({ el: '#waline', serverURL: 'waline.yingyu5658.me', }); </script>  </main> <footer> <p class="copyright">Copyright 2025. All rights reserved.</p> <img src="/notbyai.png" class="not-by-ai"> </footer> </body> </html>

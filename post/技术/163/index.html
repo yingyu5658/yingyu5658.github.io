@@ -1,0 +1,95 @@
+<!DOCTYPE html> <html lang="zh-CN" dir="ltr"> <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width"> <title>记录配置SSL证书 | 映屿</title>  <link rel="stylesheet" href="/css/main.min.7f708edba92415e461aa65b8f871753d02590d23621cbc4c01840000b766fa9b.css" integrity="sha256-f3CO26kkFeRhqmW4&#43;HF1PQJZDSNiHLxMAYQAALdm&#43;ps=" crossorigin="anonymous">  <script src="/js/main.a7956529a5290cbd80aa9c64ee52ceefa89957b568d8a14c217a91d7f4d6aa38.js" integrity="sha256-p5VlKaUpDL2Aqpxk7lLO76iZV7Vo2KFMIXqR1/TWqjg=" crossorigin="anonymous"></script> </head> <body> <header> <a><h1 class="title">映屿</h1></a> <p class="subtitle">yingyu5658的数字花园</p>  <nav> <div class="menu-item"> <a href="/">Home</a> </div> <div class="menu-item"> <a href="/links">Links</a> </div> <div class="menu-item"> <a href="/atom.xml">Feed</a> </div> <div class="menu-item"> <a href="https://github.com/yingyu5658/Moments/blob/main/README.md">Moments</a> </div> <div class="menu-item"> <a href="/about">About</a> </div> </nav> <hr> </header> <main>    <time datetime="2024-12-17T11:46:07&#43;00:00">December 17, 2024</time> <h2>记录配置SSL证书</h2> <p>首先你要有一个SSL证书，建议在阿里云购买或者<a href="https://developer.aliyun.com/article/1595201">免费申请</a>，具体过程阿里云这个页面讲的很详细，在此不过多赘述。</p>
+<h1 id="配置证书">配置证书</h1>
+<p>由于我的nginx安装了ssl模块，直接进入配置证书。</p>
+<p>解压下载好的证书，然后上传到服务器。位置自己方便找到即可
+我放到了root/card</p>
+<h1 id="配置nginxconf">配置nginx.conf</h1>
+<p>进入nginx.conf，我的文件位置在<code>/etc/nginx/nginx.conf</code>,有些可能在<code>/usr/local/nginx/conf</code>
+编辑模式，启动！</p>
+<pre tabindex="0"><code>
+  
+
+http {
+
+    include       mime.types;  # 包含 MIME 类型定义
+
+    default_type  application/octet-stream;
+
+    sendfile        on;
+
+    keepalive_timeout  65;
+
+  
+
+    # HTTPS server block
+
+    server {
+
+        # 监听443端口（HTTPS）
+
+        listen 443 ssl;
+
+  
+
+        # 【请修改】您的域名
+
+        server_name yingyu5658.cn;
+
+  
+
+        # 启用 SSL (注意: &#34;ssl on;&#34; 已被弃用，直接使用 &#34;listen ... ssl;&#34;)
+
+        ssl on;
+
+  
+
+        # 【请修改】SSL 证书的 PEM 文件路径
+
+        ssl_certificate  /root/card/www.yingyu5658.cn.pem;
+
+  
+
+        # 【请修改】SSL 证书的 KEY 文件路径
+
+        ssl_certificate_key /root/card/www.yingyu5658.cn.key;
+
+  
+
+        location / {
+
+            # 【请修改】代理转发的目标地址和端口（例如公网IP和项目端口号）
+
+            proxy_pass  http://公网地址:项目端口号;
+
+        }
+
+    }
+
+  
+
+    # HTTP server block for redirecting to HTTPS
+
+    server {
+
+        # 监听80端口（HTTP）
+
+        listen 80;
+
+  
+
+        # 【请修改】您的域名
+
+        server_name huiblog.top;
+
+  
+
+        # 将所有 HTTP 请求永久重定向到 HTTPS
+
+        rewrite ^(.*)$ https://$host$1 permanent;
+
+    }
+
+}
+</code></pre><h1 id="重新加载nginx">重新加载Nginx</h1>
+<p><code>sudo systemctl reload nginx</code></p>
+ <hr>  <div> <div>Tags:</div> <ul> <li><a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a></li> </ul> </div> <div id="waline"></div> <link rel="stylesheet" href="/css/main.css" /> <div id="waline"></div> <script type="module"> import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js'; init({ el: '#waline', serverURL: 'waline.yingyu5658.me', }); </script>  </main> <footer> <p class="copyright">Copyright 2025. All rights reserved.</p> <img src="/notbyai.png" class="not-by-ai"> </footer> </body> </html>

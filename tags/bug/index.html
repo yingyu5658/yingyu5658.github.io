@@ -1,0 +1,9 @@
+<!DOCTYPE html> <html lang="zh-CN" dir="ltr"> <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width"> <title>Bug | 映屿</title>  <link rel="stylesheet" href="/css/main.min.7f708edba92415e461aa65b8f871753d02590d23621cbc4c01840000b766fa9b.css" integrity="sha256-f3CO26kkFeRhqmW4&#43;HF1PQJZDSNiHLxMAYQAALdm&#43;ps=" crossorigin="anonymous">  <script src="/js/main.a7956529a5290cbd80aa9c64ee52ceefa89957b568d8a14c217a91d7f4d6aa38.js" integrity="sha256-p5VlKaUpDL2Aqpxk7lLO76iZV7Vo2KFMIXqR1/TWqjg=" crossorigin="anonymous"></script> </head> <body> <header> <a><h1 class="title">映屿</h1></a> <p class="subtitle">yingyu5658的数字花园</p>  <nav> <div class="menu-item"> <a href="/">Home</a> </div> <div class="menu-item"> <a href="/links">Links</a> </div> <div class="menu-item"> <a href="/atom.xml">Feed</a> </div> <div class="menu-item"> <a href="https://github.com/yingyu5658/Moments/blob/main/README.md">Moments</a> </div> <div class="menu-item"> <a href="/about">About</a> </div> </nav> <hr> </header> <main>  <h1>Bug</h1>   <h2><a href="/post/%E6%8A%80%E6%9C%AF/fedora42%E6%97%A0%E6%B3%95%E6%92%AD%E6%94%BE%E9%9F%B3%E9%A2%91%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/fedora-linux-cant-play-audio/">Fedora42无法播放音频的解决方案</a></h2> <h2 id="基本信息">基本信息</h2>
+<pre tabindex="0"><code>OS: Fedora Linux 42 (Workstation Edition) x86_64
+Host: Z490 GAMING X (-CF)
+Kernel: Linux 6.15.4-200.fc42.x86_64
+</code></pre><h2 id="问题描述">问题描述</h2>
+<p>无法播放任何音频，内核日志无报错，alsamixer中显示没有任何静音选项，系统自带音频模块无缺失，进行过一次<code>dnf update</code>。</p>
+<h2 id="解决方案">解决方案</h2>
+<p>找一个耳机插到电脑上后，音频输出设备选择<code>**线缆输出-内置音频**</code>即可正常播放音频。</p>
+<p>出现原因未知，间歇性发作。</p>   </main> <footer> <p class="copyright">Copyright 2025. All rights reserved.</p> <img src="/notbyai.png" class="not-by-ai"> </footer> </body> </html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html> <html lang="zh-CN" dir="ltr"> <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width"> <title>Java方法的基本使用 | 映屿</title>  <link rel="stylesheet" href="/css/main.min.7f708edba92415e461aa65b8f871753d02590d23621cbc4c01840000b766fa9b.css" integrity="sha256-f3CO26kkFeRhqmW4&#43;HF1PQJZDSNiHLxMAYQAALdm&#43;ps=" crossorigin="anonymous">  <script src="/js/main.a7956529a5290cbd80aa9c64ee52ceefa89957b568d8a14c217a91d7f4d6aa38.js" integrity="sha256-p5VlKaUpDL2Aqpxk7lLO76iZV7Vo2KFMIXqR1/TWqjg=" crossorigin="anonymous"></script> </head> <body> <header> <a><h1 class="title">映屿</h1></a> <p class="subtitle">yingyu5658的数字花园</p>  <nav> <div class="menu-item"> <a href="/">Home</a> </div> <div class="menu-item"> <a href="/links">Links</a> </div> <div class="menu-item"> <a href="/atom.xml">Feed</a> </div> <div class="menu-item"> <a href="https://github.com/yingyu5658/Moments/blob/main/README.md">Moments</a> </div> <div class="menu-item"> <a href="/about">About</a> </div> </nav> <hr> </header> <main>    <time datetime="2024-11-29T20:45:20&#43;08:00">November 29, 2024</time> <h2>Java方法的基本使用</h2> <h1 id="方法是什么">方法是什么</h1>
+<p>方法是一种语法结构，它可以把代码封装成一段功能，以便重复调用。</p>
+<p>方法的完整格式：</p>
+<p>例子：数字求和</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">static</span><span style="color:#bbb">  </span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#bbb"> </span><span style="color:#00a000">sum</span>(<span style="color:#0b0;font-weight:bold">int</span><span style="color:#bbb"> </span>a,<span style="color:#0b0;font-weight:bold">int</span><span style="color:#bbb"> </span>b){<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#bbb"> </span>c<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>a<span style="color:#bbb"> </span><span style="color:#666">+</span><span style="color:#bbb"> </span>b;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#a2f;font-weight:bold">return</span><span style="color:#bbb"> </span>c;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>方法的调用：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#bbb">       </span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#bbb"> </span>rs<span style="color:#666">=</span><span style="color:#bbb"> </span>sum(10,20);<span style="color:#bbb">
+</span></span></span></code></pre></div><h2 id="方法使用的注意点">方法使用的注意点：</h2>
+<p>方法申明了具体的返回值类型，内部必须使用return返回对应类型的数据。</p>
+<p>形参列表可以有多个，甚至可没有；如果有多个形参，必须用英文逗号隔开，且不能给初始化值</p>
+<h2 id="使用方法的好处">使用方法的好处</h2>
+<ul>
+<li>提高代码的复用性，提高了开发效率</li>
+<li>让程序逻辑性更清晰</li>
+</ul>
+<h2 id="方法的其他定义形式">方法的其他定义形式</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">static</span><span style="color:#bbb"> </span><span style="color:#0b0;font-weight:bold">void</span><span style="color:#bbb"> </span><span style="color:#00a000">printHelloWorld</span>(<span style="color:#0b0;font-weight:bold">int</span><span style="color:#bbb"> </span>n)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#a2f;font-weight:bold">for</span><span style="color:#bbb"> </span>(<span style="color:#0b0;font-weight:bold">int</span><span style="color:#bbb"> </span>i<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>1;<span style="color:#bbb"> </span>i<span style="color:#bbb"> </span><span style="color:#666">&lt;=</span>n;<span style="color:#bbb"> </span>i<span style="color:#666">++</span>)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>System.<span style="color:#b44">out</span>.<span style="color:#b44">println</span>(<span style="color:#b44">&#34;Hello World&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#080;font-style:italic">//打印三行helloworld（使用方法）</span><span style="color:#bbb">
+</span></span></span></code></pre></div><ul>
+<li>如果方法不需要返回数据，返回类型必须申明成<code>void</code>此时方法内部可以不使用return返回数据。</li>
+<li>方法如果不需要接收数据，则不需要定义形参，调用方法时也不可以传数据给方法了。</li>
+<li>没有参数，且没有返回类型（void）申明的方法，称为<strong>无参数、无返回值的方法</strong></li>
+</ul>
+ <hr>  <div> <div>Tags:</div> <ul> <li><a href="/tags/java/">Java</a></li> </ul> </div> <div id="waline"></div> <link rel="stylesheet" href="/css/main.css" /> <div id="waline"></div> <script type="module"> import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js'; init({ el: '#waline', serverURL: 'waline.yingyu5658.me', }); </script>  </main> <footer> <p class="copyright">Copyright 2025. All rights reserved.</p> <img src="/notbyai.png" class="not-by-ai"> </footer> </body> </html>

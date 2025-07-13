@@ -1,0 +1,300 @@
+<!DOCTYPE html> <html lang="zh-CN" dir="ltr"> <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width"> <title>使用Javascript TSS和Highlights构建一个文本阅读器 | 映屿</title>  <link rel="stylesheet" href="/css/main.min.7f708edba92415e461aa65b8f871753d02590d23621cbc4c01840000b766fa9b.css" integrity="sha256-f3CO26kkFeRhqmW4&#43;HF1PQJZDSNiHLxMAYQAALdm&#43;ps=" crossorigin="anonymous">  <script src="/js/main.a7956529a5290cbd80aa9c64ee52ceefa89957b568d8a14c217a91d7f4d6aa38.js" integrity="sha256-p5VlKaUpDL2Aqpxk7lLO76iZV7Vo2KFMIXqR1/TWqjg=" crossorigin="anonymous"></script> </head> <body> <header> <a><h1 class="title">映屿</h1></a> <p class="subtitle">yingyu5658的数字花园</p>  <nav> <div class="menu-item"> <a href="/">Home</a> </div> <div class="menu-item"> <a href="/links">Links</a> </div> <div class="menu-item"> <a href="/atom.xml">Feed</a> </div> <div class="menu-item"> <a href="https://github.com/yingyu5658/Moments/blob/main/README.md">Moments</a> </div> <div class="menu-item"> <a href="/about">About</a> </div> </nav> <hr> </header> <main>    <time datetime="2025-07-04T10:46:53&#43;00:00">July 4, 2025</time> <h2>使用Javascript TSS和Highlights构建一个文本阅读器</h2> <blockquote>
+<p>原文：https://jsdev.space/tts-sentence-reader/
+翻译：yingyu5658 <a href="mailto:yingyu5658@outlook.com">yingyu5658@outlook.com</a></p>
+</blockquote>
+<p><img src="https://jsdev.space/.netlify/images?url=_astro%2Ftts-sentence-reader.hV9whx3I.png&amp;w=800&amp;h=800" alt=""></p>
+<p>在这篇文章中，我们将构建一个简单的Web工具来探究<strong>Text-toSpeech(TTS)<strong>在JavaScript中是如何工作的。我们也将深入研究</strong>句子级高亮</strong>的工作逻辑。这两项功能经常结合在一起使用，以走到浏览器中打造无障碍的动态阅读体验。</p>
+<p>步骤:</p>
+<ol>
+<li>学习在浏览器中,TTS是如何工作的</li>
+<li>探究动态高亮句子的实现方法</li>
+<li>用HTML, CSS, JavaScript构建一个小工具(<a href="https://codepen.io/jsdevspace/pen/YPXRRjO">Demo &amp; Code</a>)</li>
+</ol>
+<h2 id="-浏览器中的tts概述">📢 浏览器中的TTS概述</h2>
+<p>JavaScript提供一个内置的API：<a href="https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis"><code>SpeechSynthesis</code></a>，它允许我们使用系统中的可用嗓音去大声朗读问文字。</p>
+<h3 id="核心对象">核心对象:</h3>
+<ul>
+<li><code>speechSynthesis</code> — 控制播放、暂停、恢复、停止</li>
+<li><code>SpeechSynthesisUtterance</code> — 作为TTS引擎的待播报文本</li>
+</ul>
+<h3 id="示例">✨示例:</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">const</span> msg <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> SpeechSynthesisUtterance(<span style="color:#b44">&#34;Hello, world!&#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a2f">window</span>.speechSynthesis.speak(msg);
+</span></span></code></pre></div><h3 id="-添加嗓音和配置">⚙️ 添加嗓音和配置</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">const</span> utter <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> SpeechSynthesisUtterance(<span style="color:#b44">&#34;This is a test&#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">const</span> voices <span style="color:#666">=</span> <span style="color:#a2f">window</span>.speechSynthesis.getVoices();
+</span></span><span style="display:flex;"><span>utter.voice <span style="color:#666">=</span> voices.find(v =&gt; v.lang <span style="color:#666">===</span> <span style="color:#b44">&#39;en-US&#39;</span>);
+</span></span><span style="display:flex;"><span>utter.rate <span style="color:#666">=</span> <span style="color:#666">1.2</span>;
+</span></span><span style="display:flex;"><span>utter.pitch <span style="color:#666">=</span> <span style="color:#666">1</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a2f">window</span>.speechSynthesis.speak(utter);
+</span></span></code></pre></div><p>你也可以追踪朗读的开始和结束：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>utter.onstart <span style="color:#666">=</span> () =&gt; console.log(<span style="color:#b44">&#39;Started speaking&#39;</span>);
+</span></span><span style="display:flex;"><span>utter.onend <span style="color:#666">=</span> () =&gt; console.log(<span style="color:#b44">&#39;Finished speaking&#39;</span>);
+</span></span></code></pre></div><h2 id="-句子高亮">✍️ 句子高亮</h2>
+<p>展示给用户哪一个句子正在阅读，我们需要用CSS和JavaScript来高亮文本。</p>
+<h3 id="示例-html">示例 HTML:</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#008000;font-weight:bold">p</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#008000;font-weight:bold">span</span> <span style="color:#b44">class</span><span style="color:#666">=</span><span style="color:#b44">&#34;sentence&#34;</span>&gt;First sentence.&lt;/<span style="color:#008000;font-weight:bold">span</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#008000;font-weight:bold">span</span> <span style="color:#b44">class</span><span style="color:#666">=</span><span style="color:#b44">&#34;sentence&#34;</span>&gt;Second sentence.&lt;/<span style="color:#008000;font-weight:bold">span</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#008000;font-weight:bold">p</span>&gt;
+</span></span></code></pre></div><h3 id="处理高亮的css">处理高亮的CSS:</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span>.<span style="color:#00f">sentence</span>.<span style="color:#00f">active</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">background-color</span>: <span style="color:#a2f;font-weight:bold">yellow</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">font-weight</span>: <span style="color:#a2f;font-weight:bold">bold</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="javascript高亮逻辑">JavaScript高亮逻辑：</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">function</span> highlight(index) {
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f">document</span>.querySelectorAll(<span style="color:#b44">&#39;.sentence&#39;</span>).forEach((el, i) =&gt; {
+</span></span><span style="display:flex;"><span>    el.classList.toggle(<span style="color:#b44">&#39;active&#39;</span>, i <span style="color:#666">===</span> index);
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h1 id="项目-使用tss和高亮的阅读器">🚀项目: 使用TSS和高亮的阅读器</h1>
+<p>我们的程序将要：</p>
+<ul>
+<li>逐句朗读文本</li>
+<li>高亮朗读中的文本</li>
+<li>提供播放、暂停、恢复、停止</li>
+<li>让用户能选择嗓音</li>
+</ul>
+<h2 id="-html结构">📄 HTML结构</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#080">&lt;!DOCTYPE html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#008000;font-weight:bold">html</span> <span style="color:#b44">lang</span><span style="color:#666">=</span><span style="color:#b44">&#34;en&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#008000;font-weight:bold">head</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#008000;font-weight:bold">meta</span> <span style="color:#b44">charset</span><span style="color:#666">=</span><span style="color:#b44">&#34;UTF-8&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#008000;font-weight:bold">meta</span> <span style="color:#b44">name</span><span style="color:#666">=</span><span style="color:#b44">&#34;viewport&#34;</span> <span style="color:#b44">content</span><span style="color:#666">=</span><span style="color:#b44">&#34;width=device-width, initial-scale=1.0&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#008000;font-weight:bold">meta</span> <span style="color:#b44">name</span><span style="color:#666">=</span><span style="color:#b44">&#34;description&#34;</span> <span style="color:#b44">content</span><span style="color:#666">=</span><span style="color:#b44">&#34;Build an interactive sentence-level text-to-speech reader with highlight, playback controls, and local progress tracking using HTML and JavaScript.&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#008000;font-weight:bold">title</span>&gt;Interactive TTS Article Reader&lt;/<span style="color:#008000;font-weight:bold">title</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#008000;font-weight:bold">head</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#008000;font-weight:bold">body</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#008000;font-weight:bold">h1</span>&gt;Read Along TTS Demo&lt;/<span style="color:#008000;font-weight:bold">h1</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#008000;font-weight:bold">div</span> <span style="color:#b44">class</span><span style="color:#666">=</span><span style="color:#b44">&#34;toolbar&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#008000;font-weight:bold">button</span> <span style="color:#b44">id</span><span style="color:#666">=</span><span style="color:#b44">&#34;start&#34;</span>&gt;Play&lt;/<span style="color:#008000;font-weight:bold">button</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#008000;font-weight:bold">button</span> <span style="color:#b44">id</span><span style="color:#666">=</span><span style="color:#b44">&#34;pause&#34;</span> <span style="color:#b44">disabled</span>&gt;Pause&lt;/<span style="color:#008000;font-weight:bold">button</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#008000;font-weight:bold">button</span> <span style="color:#b44">id</span><span style="color:#666">=</span><span style="color:#b44">&#34;resume&#34;</span> <span style="color:#b44">disabled</span>&gt;Resume&lt;/<span style="color:#008000;font-weight:bold">button</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#008000;font-weight:bold">button</span> <span style="color:#b44">id</span><span style="color:#666">=</span><span style="color:#b44">&#34;stop&#34;</span> <span style="color:#b44">disabled</span>&gt;Stop&lt;/<span style="color:#008000;font-weight:bold">button</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#008000;font-weight:bold">button</span> <span style="color:#b44">id</span><span style="color:#666">=</span><span style="color:#b44">&#34;reset&#34;</span>&gt;Reset&lt;/<span style="color:#008000;font-weight:bold">button</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#008000;font-weight:bold">select</span> <span style="color:#b44">id</span><span style="color:#666">=</span><span style="color:#b44">&#34;voices&#34;</span>&gt;&lt;/<span style="color:#008000;font-weight:bold">select</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#008000;font-weight:bold">div</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#008000;font-weight:bold">div</span> <span style="color:#b44">class</span><span style="color:#666">=</span><span style="color:#b44">&#34;text-block&#34;</span> <span style="color:#b44">id</span><span style="color:#666">=</span><span style="color:#b44">&#34;reader&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#008000;font-weight:bold">span</span> <span style="color:#b44">class</span><span style="color:#666">=</span><span style="color:#b44">&#34;line&#34;</span>&gt;Learning to code is a never-ending journey.&lt;/<span style="color:#008000;font-weight:bold">span</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#008000;font-weight:bold">span</span> <span style="color:#b44">class</span><span style="color:#666">=</span><span style="color:#b44">&#34;line&#34;</span>&gt;Technologies evolve rapidly, requiring constant adaptation.&lt;/<span style="color:#008000;font-weight:bold">span</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#008000;font-weight:bold">span</span> <span style="color:#b44">class</span><span style="color:#666">=</span><span style="color:#b44">&#34;line&#34;</span>&gt;JavaScript, HTML, and CSS are essential tools for web development.&lt;/<span style="color:#008000;font-weight:bold">span</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#008000;font-weight:bold">span</span> <span style="color:#b44">class</span><span style="color:#666">=</span><span style="color:#b44">&#34;line&#34;</span>&gt;Frameworks like React and Vue enhance front-end capabilities.&lt;/<span style="color:#008000;font-weight:bold">span</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#008000;font-weight:bold">span</span> <span style="color:#b44">class</span><span style="color:#666">=</span><span style="color:#b44">&#34;line&#34;</span>&gt;Back-end skills with Node.js extend JavaScript to the server.&lt;/<span style="color:#008000;font-weight:bold">span</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#008000;font-weight:bold">div</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#008000;font-weight:bold">div</span> <span style="color:#b44">class</span><span style="color:#666">=</span><span style="color:#b44">&#34;progress&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#008000;font-weight:bold">span</span> <span style="color:#b44">id</span><span style="color:#666">=</span><span style="color:#b44">&#34;progressText&#34;</span>&gt;0/0&lt;/<span style="color:#008000;font-weight:bold">span</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#008000;font-weight:bold">div</span> <span style="color:#b44">class</span><span style="color:#666">=</span><span style="color:#b44">&#34;bar&#34;</span>&gt;&lt;<span style="color:#008000;font-weight:bold">div</span> <span style="color:#b44">class</span><span style="color:#666">=</span><span style="color:#b44">&#34;bar-fill&#34;</span> <span style="color:#b44">id</span><span style="color:#666">=</span><span style="color:#b44">&#34;bar&#34;</span>&gt;&lt;/<span style="color:#008000;font-weight:bold">div</span>&gt;&lt;/<span style="color:#008000;font-weight:bold">div</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#008000;font-weight:bold">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#008000;font-weight:bold">body</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#008000;font-weight:bold">html</span>&gt;
+</span></span></code></pre></div><h2 id="-css-样式">🎨 CSS 样式</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">body</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">font-family</span>: <span style="color:#a2f;font-weight:bold">sans-serif</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">margin</span>: <span style="color:#666">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">padding</span>: <span style="color:#666">2</span><span style="color:#0b0;font-weight:bold">rem</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">background</span>: <span style="color:#666">#f0f4f8</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">color</span>: <span style="color:#666">#333</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">h1</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">text-align</span>: <span style="color:#a2f;font-weight:bold">center</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">margin-bottom</span>: <span style="color:#666">2</span><span style="color:#0b0;font-weight:bold">rem</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>.<span style="color:#00f">toolbar</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">display</span>: <span style="color:#a2f;font-weight:bold">flex</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">justify-content</span>: <span style="color:#a2f;font-weight:bold">center</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">flex-wrap</span>: <span style="color:#a2f;font-weight:bold">wrap</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">gap</span>: <span style="color:#666">1</span><span style="color:#0b0;font-weight:bold">rem</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">margin-bottom</span>: <span style="color:#666">2</span><span style="color:#0b0;font-weight:bold">rem</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>.<span style="color:#00f">toolbar</span> <span style="color:#008000;font-weight:bold">button</span><span style="color:#666">,</span>
+</span></span><span style="display:flex;"><span>.<span style="color:#00f">toolbar</span> <span style="color:#008000;font-weight:bold">select</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">padding</span>: <span style="color:#666">0.6</span><span style="color:#0b0;font-weight:bold">rem</span> <span style="color:#666">1.2</span><span style="color:#0b0;font-weight:bold">rem</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">border-radius</span>: <span style="color:#666">4</span><span style="color:#0b0;font-weight:bold">px</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">border</span>: <span style="color:#a2f;font-weight:bold">none</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">font-size</span>: <span style="color:#666">1</span><span style="color:#0b0;font-weight:bold">rem</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>.<span style="color:#00f">toolbar</span> <span style="color:#008000;font-weight:bold">button</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">background</span>: <span style="color:#666">#0077cc</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">color</span>: <span style="color:#a2f;font-weight:bold">white</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">cursor</span>: <span style="color:#a2f;font-weight:bold">pointer</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>.<span style="color:#00f">toolbar</span> <span style="color:#008000;font-weight:bold">button</span>:<span style="color:#a2f">disabled</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">background</span>: <span style="color:#666">#ccc</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">cursor</span>: <span style="color:#a2f;font-weight:bold">not-allowed</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>.<span style="color:#00f">text-block</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">background</span>: <span style="color:#a2f;font-weight:bold">white</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">padding</span>: <span style="color:#666">1.5</span><span style="color:#0b0;font-weight:bold">rem</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">border-radius</span>: <span style="color:#666">6</span><span style="color:#0b0;font-weight:bold">px</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">box-shadow</span>: <span style="color:#666">0</span> <span style="color:#666">2</span><span style="color:#0b0;font-weight:bold">px</span> <span style="color:#666">6</span><span style="color:#0b0;font-weight:bold">px</span> <span style="color:#a2f">rgba</span>(<span style="color:#666">0</span>, <span style="color:#666">0</span>, <span style="color:#666">0</span>, <span style="color:#666">0.1</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>.<span style="color:#00f">line</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">display</span>: <span style="color:#a2f;font-weight:bold">block</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">margin-bottom</span>: <span style="color:#666">1</span><span style="color:#0b0;font-weight:bold">rem</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">cursor</span>: <span style="color:#a2f;font-weight:bold">pointer</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">transition</span>: <span style="color:#a2f;font-weight:bold">background</span> <span style="color:#666">0.3</span><span style="color:#0b0;font-weight:bold">s</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>.<span style="color:#00f">line</span>:<span style="color:#a2f">hover</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">background</span>: <span style="color:#666">#f9f9f9</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>.<span style="color:#00f">line</span>.<span style="color:#00f">active</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">background</span>: <span style="color:#666">#fff3cd</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">font-weight</span>: <span style="color:#a2f;font-weight:bold">bold</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>.<span style="color:#00f">progress</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">text-align</span>: <span style="color:#a2f;font-weight:bold">center</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">margin-top</span>: <span style="color:#666">1</span><span style="color:#0b0;font-weight:bold">rem</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>.<span style="color:#00f">bar</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">height</span>: <span style="color:#666">8</span><span style="color:#0b0;font-weight:bold">px</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">width</span>: <span style="color:#666">100</span><span style="color:#0b0;font-weight:bold">%</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">background</span>: <span style="color:#666">#eee</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">border-radius</span>: <span style="color:#666">4</span><span style="color:#0b0;font-weight:bold">px</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">overflow</span>: <span style="color:#a2f;font-weight:bold">hidden</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>.<span style="color:#00f">bar-fill</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">height</span>: <span style="color:#666">100</span><span style="color:#0b0;font-weight:bold">%</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">width</span>: <span style="color:#666">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">background</span>: <span style="color:#a2f">linear-gradient</span>(<span style="color:#a2f;font-weight:bold">to</span> <span style="color:#a2f;font-weight:bold">right</span>, <span style="color:#666">#0077cc</span>, <span style="color:#666">#005fa3</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">transition</span>: <span style="color:#a2f;font-weight:bold">width</span> <span style="color:#666">0.3</span><span style="color:#0b0;font-weight:bold">s</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="-javascript逻辑">💡 JavaScript逻辑</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">const</span> lines <span style="color:#666">=</span> <span style="color:#a2f">document</span>.querySelectorAll(<span style="color:#b44">&#39;.line&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">const</span> playBtn <span style="color:#666">=</span> <span style="color:#a2f">document</span>.getElementById(<span style="color:#b44">&#39;start&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">const</span> pauseBtn <span style="color:#666">=</span> <span style="color:#a2f">document</span>.getElementById(<span style="color:#b44">&#39;pause&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">const</span> resumeBtn <span style="color:#666">=</span> <span style="color:#a2f">document</span>.getElementById(<span style="color:#b44">&#39;resume&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">const</span> stopBtn <span style="color:#666">=</span> <span style="color:#a2f">document</span>.getElementById(<span style="color:#b44">&#39;stop&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">const</span> resetBtn <span style="color:#666">=</span> <span style="color:#a2f">document</span>.getElementById(<span style="color:#b44">&#39;reset&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">const</span> voiceSelect <span style="color:#666">=</span> <span style="color:#a2f">document</span>.getElementById(<span style="color:#b44">&#39;voices&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">const</span> progressText <span style="color:#666">=</span> <span style="color:#a2f">document</span>.getElementById(<span style="color:#b44">&#39;progressText&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">const</span> progressBar <span style="color:#666">=</span> <span style="color:#a2f">document</span>.getElementById(<span style="color:#b44">&#39;bar&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">const</span> synth <span style="color:#666">=</span> <span style="color:#a2f">window</span>.speechSynthesis;
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">let</span> voices <span style="color:#666">=</span> [];
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">let</span> currentIndex <span style="color:#666">=</span> <span style="color:#666">0</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">let</span> currentUtterance <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">null</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">let</span> isPaused <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">false</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">function</span> populateVoices() {
+</span></span><span style="display:flex;"><span>  voices <span style="color:#666">=</span> synth.getVoices();
+</span></span><span style="display:flex;"><span>  voiceSelect.innerHTML <span style="color:#666">=</span> <span style="color:#b44">&#39;&#39;</span>;
+</span></span><span style="display:flex;"><span>  voices.forEach((voice, index) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">const</span> opt <span style="color:#666">=</span> <span style="color:#a2f">document</span>.createElement(<span style="color:#b44">&#39;option&#39;</span>);
+</span></span><span style="display:flex;"><span>    opt.value <span style="color:#666">=</span> index;
+</span></span><span style="display:flex;"><span>    opt.textContent <span style="color:#666">=</span> <span style="color:#b44">`</span><span style="color:#b68;font-weight:bold">${</span>voice.name<span style="color:#b68;font-weight:bold">}</span><span style="color:#b44"> (</span><span style="color:#b68;font-weight:bold">${</span>voice.lang<span style="color:#b68;font-weight:bold">}</span><span style="color:#b44">)`</span>;
+</span></span><span style="display:flex;"><span>    voiceSelect.appendChild(opt);
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>synth.onvoiceschanged <span style="color:#666">=</span> populateVoices;
+</span></span><span style="display:flex;"><span>populateVoices();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">function</span> updateUI() {
+</span></span><span style="display:flex;"><span>  progressText.textContent <span style="color:#666">=</span> <span style="color:#b44">`</span><span style="color:#b68;font-weight:bold">${</span>currentIndex <span style="color:#666">+</span> <span style="color:#666">1</span><span style="color:#b68;font-weight:bold">}</span><span style="color:#b44">/</span><span style="color:#b68;font-weight:bold">${</span>lines.length<span style="color:#b68;font-weight:bold">}</span><span style="color:#b44">`</span>;
+</span></span><span style="display:flex;"><span>  progressBar.style.width <span style="color:#666">=</span> <span style="color:#b44">`</span><span style="color:#b68;font-weight:bold">${</span>((currentIndex <span style="color:#666">+</span> <span style="color:#666">1</span>) <span style="color:#666">/</span> lines.length) <span style="color:#666">*</span> <span style="color:#666">100</span><span style="color:#b68;font-weight:bold">}</span><span style="color:#b44">%`</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">function</span> highlightLine(index) {
+</span></span><span style="display:flex;"><span>  lines.forEach((line, i) =&gt; {
+</span></span><span style="display:flex;"><span>    line.classList.toggle(<span style="color:#b44">&#39;active&#39;</span>, i <span style="color:#666">===</span> index);
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>  lines[index]<span style="color:#666">?</span>.scrollIntoView({ behavior<span style="color:#666">:</span> <span style="color:#b44">&#39;smooth&#39;</span>, block<span style="color:#666">:</span> <span style="color:#b44">&#39;center&#39;</span> });
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">function</span> speakLine(index) {
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">if</span> (index <span style="color:#666">&gt;=</span> lines.length) <span style="color:#a2f;font-weight:bold">return</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">const</span> text <span style="color:#666">=</span> lines[index].textContent;
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">const</span> utter <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> SpeechSynthesisUtterance(text);
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">const</span> selected <span style="color:#666">=</span> voiceSelect.value;
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">if</span> (voices[selected]) utter.voice <span style="color:#666">=</span> voices[selected];
+</span></span><span style="display:flex;"><span>  utter.rate <span style="color:#666">=</span> <span style="color:#666">1</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  utter.onstart <span style="color:#666">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>    highlightLine(index);
+</span></span><span style="display:flex;"><span>    playBtn.disabled <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">true</span>;
+</span></span><span style="display:flex;"><span>    pauseBtn.disabled <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">false</span>;
+</span></span><span style="display:flex;"><span>    resumeBtn.disabled <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">true</span>;
+</span></span><span style="display:flex;"><span>    stopBtn.disabled <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">false</span>;
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  utter.onend <span style="color:#666">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">if</span> (<span style="color:#666">!</span>isPaused) {
+</span></span><span style="display:flex;"><span>      currentIndex<span style="color:#666">++</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#a2f;font-weight:bold">if</span> (currentIndex <span style="color:#666">&lt;</span> lines.length) {
+</span></span><span style="display:flex;"><span>        speakLine(currentIndex);
+</span></span><span style="display:flex;"><span>      } <span style="color:#a2f;font-weight:bold">else</span> {
+</span></span><span style="display:flex;"><span>        resetControls();
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  currentUtterance <span style="color:#666">=</span> utter;
+</span></span><span style="display:flex;"><span>  synth.speak(utter);
+</span></span><span style="display:flex;"><span>  updateUI();
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">function</span> resetControls() {
+</span></span><span style="display:flex;"><span>  playBtn.disabled <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">false</span>;
+</span></span><span style="display:flex;"><span>  pauseBtn.disabled <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">true</span>;
+</span></span><span style="display:flex;"><span>  resumeBtn.disabled <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">true</span>;
+</span></span><span style="display:flex;"><span>  stopBtn.disabled <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">true</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>playBtn.onclick <span style="color:#666">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>  currentIndex <span style="color:#666">=</span> <span style="color:#666">0</span>;
+</span></span><span style="display:flex;"><span>  speakLine(currentIndex);
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>pauseBtn.onclick <span style="color:#666">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>  synth.pause();
+</span></span><span style="display:flex;"><span>  isPaused <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">true</span>;
+</span></span><span style="display:flex;"><span>  pauseBtn.disabled <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">true</span>;
+</span></span><span style="display:flex;"><span>  resumeBtn.disabled <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">false</span>;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>resumeBtn.onclick <span style="color:#666">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>  synth.resume();
+</span></span><span style="display:flex;"><span>  isPaused <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">false</span>;
+</span></span><span style="display:flex;"><span>  pauseBtn.disabled <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">false</span>;
+</span></span><span style="display:flex;"><span>  resumeBtn.disabled <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">true</span>;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>stopBtn.onclick <span style="color:#666">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>  synth.cancel();
+</span></span><span style="display:flex;"><span>  resetControls();
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>resetBtn.onclick <span style="color:#666">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>  synth.cancel();
+</span></span><span style="display:flex;"><span>  currentIndex <span style="color:#666">=</span> <span style="color:#666">0</span>;
+</span></span><span style="display:flex;"><span>  highlightLine(currentIndex);
+</span></span><span style="display:flex;"><span>  updateUI();
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>lines.forEach((line, index) =&gt; {
+</span></span><span style="display:flex;"><span>  line.addEventListener(<span style="color:#b44">&#39;click&#39;</span>, () =&gt; {
+</span></span><span style="display:flex;"><span>    synth.cancel();
+</span></span><span style="display:flex;"><span>    currentIndex <span style="color:#666">=</span> index;
+</span></span><span style="display:flex;"><span>    speakLine(currentIndex);
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>updateUI();
+</span></span></code></pre></div><h2 id="-它们如何工作">✅ 它们如何工作</h2>
+<ul>
+<li>每一个句子都是<code>&lt;span class=&quot;sentence&quot;&gt;</code></li>
+<li>我们迭代句子并使用<code>SpeechSynthesisUtterance</code>大声朗读</li>
+<li>在朗读过程中，高亮正确的文本并滚动</li>
+<li>一个句子结束后，自动朗读下一个句子</li>
+</ul>
+<h2 id="-尾声">🔚 尾声</h2>
+<p>阅读了本文，你理解了：</p>
+<ul>
+<li>浏览器TTS的运行原理</li>
+<li>如何实现动态高亮文本</li>
+<li>如何从零构建一个功能齐全的阅读界面</li>
+</ul>
+<p>你可以扩展项目功能：</p>
+<ul>
+<li>在<code>localStorage</code>保存阅读进度</li>
+<li>添加进度条</li>
+<li>加载外部文章或用户输入</li>
+</ul>
+ <hr>  <div> <div>Tags:</div> <ul> <li><a href="/tags/%E7%BF%BB%E8%AF%91/">翻译</a></li> <li><a href="/tags/javascript/">JavaScript</a></li> </ul> </div> <div id="waline"></div> <link rel="stylesheet" href="/css/main.css" /> <div id="waline"></div> <script type="module"> import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js'; init({ el: '#waline', serverURL: 'waline.yingyu5658.me', }); </script>  </main> <footer> <p class="copyright">Copyright 2025. All rights reserved.</p> <img src="/notbyai.png" class="not-by-ai"> </footer> </body> </html>

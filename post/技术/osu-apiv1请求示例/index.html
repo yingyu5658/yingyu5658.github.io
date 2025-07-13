@@ -1,0 +1,64 @@
+<!DOCTYPE html> <html lang="zh-CN" dir="ltr"> <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width"> <title>osu!APIv1请求示例 | 映屿</title>  <link rel="stylesheet" href="/css/main.min.7f708edba92415e461aa65b8f871753d02590d23621cbc4c01840000b766fa9b.css" integrity="sha256-f3CO26kkFeRhqmW4&#43;HF1PQJZDSNiHLxMAYQAALdm&#43;ps=" crossorigin="anonymous">  <script src="/js/main.a7956529a5290cbd80aa9c64ee52ceefa89957b568d8a14c217a91d7f4d6aa38.js" integrity="sha256-p5VlKaUpDL2Aqpxk7lLO76iZV7Vo2KFMIXqR1/TWqjg=" crossorigin="anonymous"></script> </head> <body> <header> <a><h1 class="title">映屿</h1></a> <p class="subtitle">yingyu5658的数字花园</p>  <nav> <div class="menu-item"> <a href="/">Home</a> </div> <div class="menu-item"> <a href="/links">Links</a> </div> <div class="menu-item"> <a href="/atom.xml">Feed</a> </div> <div class="menu-item"> <a href="https://github.com/yingyu5658/Moments/blob/main/README.md">Moments</a> </div> <div class="menu-item"> <a href="/about">About</a> </div> </nav> <hr> </header> <main>    <time datetime="2025-04-11T22:29:23&#43;00:00">April 11, 2025</time> <h2>osu!APIv1请求示例</h2> <h2 id="前言">前言</h2>
+<p>本文章使用Nodejs环境做演示。请求用户数据。代码中的APIKEY要在<a href="https://osu.ppy.sh/home/account/edit">osu官网‬</a>申请。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">const</span> API_URL <span style="color:#666">=</span> <span style="color:#b44">&#34;osu.ppy.sh&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">const</span> init <span style="color:#666">=</span> {
+</span></span><span style="display:flex;"><span>    k<span style="color:#666">:</span> <span style="color:#b44">&#34;YOUR_API_KEY&#34;</span>,
+</span></span><span style="display:flex;"><span>    type<span style="color:#666">:</span> <span style="color:#b44">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>    u<span style="color:#666">:</span> <span style="color:#b44">&#34;kyzzz5658&#34;</span>,
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">const</span> https <span style="color:#666">=</span> require(<span style="color:#b44">&#34;https&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// 将参数序列化为查询字符串
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">const</span> query <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> URLSearchParams(init);
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">const</span> options <span style="color:#666">=</span> {
+</span></span><span style="display:flex;"><span>    hostname<span style="color:#666">:</span> API_URL,
+</span></span><span style="display:flex;"><span>    method<span style="color:#666">:</span> <span style="color:#b44">&#34;GET&#34;</span>,
+</span></span><span style="display:flex;"><span>    path<span style="color:#666">:</span> <span style="color:#b44">`/api/get_user?</span><span style="color:#b68;font-weight:bold">${</span>query<span style="color:#b68;font-weight:bold">}</span><span style="color:#b44">`</span> <span style="color:#080;font-style:italic">// 附加参数
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">const</span> req <span style="color:#666">=</span> https.request(options, (res) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">let</span> data <span style="color:#666">=</span> <span style="color:#b44">&#39;&#39;</span>;
+</span></span><span style="display:flex;"><span>    res.on(<span style="color:#b44">&#39;data&#39;</span>, (chunk) =&gt; data <span style="color:#666">+=</span> chunk);
+</span></span><span style="display:flex;"><span>    res.on(<span style="color:#b44">&#39;end&#39;</span>, () =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">try</span> {
+</span></span><span style="display:flex;"><span>            console.log(JSON.parse(data[<span style="color:#666">0</span>].username));
+</span></span><span style="display:flex;"><span>        } <span style="color:#a2f;font-weight:bold">catch</span> (e) {
+</span></span><span style="display:flex;"><span>            console.error(<span style="color:#b44">&#39;JSON 解析失败:&#39;</span>, e);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// 错误处理
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>req.on(<span style="color:#b44">&#39;error&#39;</span>, (err) =&gt; {
+</span></span><span style="display:flex;"><span>    console.error(<span style="color:#b44">&#39;请求失败:&#39;</span>, err.code);
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><p>输出：</p>
+<pre tabindex="0"><code>[
+  {
+    user_id: &#39;33932276&#39;,
+    username: &#39;Kyzzz5658&#39;,
+    join_date: &#39;2023-06-24 08:48:13&#39;,
+    count300: &#39;2139&#39;,
+    count100: &#39;609&#39;,
+    count50: &#39;194&#39;,
+    playcount: &#39;44&#39;,
+    ranked_score: &#39;1917044&#39;,
+    total_score: &#39;3095639&#39;,
+    pp_rank: &#39;1968010&#39;,
+    level: &#39;8.0115&#39;,
+    pp_raw: &#39;43.5449&#39;,
+    accuracy: &#39;81.70417785644531&#39;,
+    count_rank_ss: &#39;0&#39;,
+    count_rank_ssh: &#39;0&#39;,
+    count_rank_s: &#39;0&#39;,
+    count_rank_sh: &#39;0&#39;,
+    count_rank_a: &#39;1&#39;,
+    country: &#39;CN&#39;,
+    total_seconds_played: &#39;2259&#39;,
+    pp_country_rank: &#39;38721&#39;,
+    events: []
+  }
+]
+</code></pre><p>​	<a href="https://github.com/ppy/osu-api/wiki">首页 ·ppy/osu-api 维基</a></p>
+ <hr>  <div> <div>Tags:</div> <ul> <li><a href="/tags/javascript/">JavaScript</a></li> <li><a href="/tags/nodejs/">NodeJS</a></li> </ul> </div> <div id="waline"></div> <link rel="stylesheet" href="/css/main.css" /> <div id="waline"></div> <script type="module"> import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js'; init({ el: '#waline', serverURL: 'waline.yingyu5658.me', }); </script>  </main> <footer> <p class="copyright">Copyright 2025. All rights reserved.</p> <img src="/notbyai.png" class="not-by-ai"> </footer> </body> </html>

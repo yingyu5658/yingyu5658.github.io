@@ -1,0 +1,125 @@
+<!DOCTYPE html> <html lang="zh-CN" dir="ltr"> <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width"> <title>Tmux配置记录 | 映屿</title>  <link rel="stylesheet" href="/css/main.min.7f708edba92415e461aa65b8f871753d02590d23621cbc4c01840000b766fa9b.css" integrity="sha256-f3CO26kkFeRhqmW4&#43;HF1PQJZDSNiHLxMAYQAALdm&#43;ps=" crossorigin="anonymous">  <script src="/js/main.a7956529a5290cbd80aa9c64ee52ceefa89957b568d8a14c217a91d7f4d6aa38.js" integrity="sha256-p5VlKaUpDL2Aqpxk7lLO76iZV7Vo2KFMIXqR1/TWqjg=" crossorigin="anonymous"></script> </head> <body> <header> <a><h1 class="title">映屿</h1></a> <p class="subtitle">yingyu5658的数字花园</p>  <nav> <div class="menu-item"> <a href="/">Home</a> </div> <div class="menu-item"> <a href="/links">Links</a> </div> <div class="menu-item"> <a href="/atom.xml">Feed</a> </div> <div class="menu-item"> <a href="https://github.com/yingyu5658/Moments/blob/main/README.md">Moments</a> </div> <div class="menu-item"> <a href="/about">About</a> </div> </nav> <hr> </header> <main>    <time datetime="2025-06-21T14:19:36&#43;00:00">June 21, 2025</time> <h2>Tmux配置记录</h2> <p>TMux 是终端复用神器，让你在一个终端窗口管理多个会话、窗口和窗格。</p>
+<p>基础操作：启动Tmux</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>tmux
+</span></span></code></pre></div><p>所以我选择在<code>~/.bashrc</code>里加上这句，每次打开终端都会自动进入tmux。</p>
+<p><strong>需要掌握的概念</strong>：</p>
+<ul>
+<li>会话（Session）：长期运行的终端环境。</li>
+<li>窗口（Window）：会话中的标签页。</li>
+<li>窗格（Pane）：窗口中的分屏。</li>
+</ul>
+<p><strong>默认快捷键：</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th>操作</th>
+          <th>快捷键</th>
+          <th>说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>会话管理</strong></td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>脱离会话</td>
+          <td><code>Ctrl+b d</code></td>
+          <td>后台运行会话</td>
+      </tr>
+      <tr>
+          <td>查看会话列表</td>
+          <td><code>Ctrl+b s</code></td>
+          <td>方向键选择并进入</td>
+      </tr>
+      <tr>
+          <td>重命名当前会话</td>
+          <td><code>Ctrl+b $</code></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td><strong>窗口管理</strong></td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>新建窗口</td>
+          <td><code>Ctrl+b c</code></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>关闭当前窗口</td>
+          <td><code>Ctrl+b &amp;</code></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>切换窗口</td>
+          <td><code>Ctrl+b 0~9</code></td>
+          <td>切换到指定编号窗口</td>
+      </tr>
+      <tr>
+          <td>窗口列表</td>
+          <td><code>Ctrl+b w</code></td>
+          <td>可视化选择窗口</td>
+      </tr>
+      <tr>
+          <td><strong>窗格管理</strong></td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>水平分割窗格</td>
+          <td><code>Ctrl+b &quot;</code></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>垂直分割窗格</td>
+          <td><code>Ctrl+b %</code></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>切换窗格</td>
+          <td><code>Ctrl+b 方向键</code></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>关闭当前窗格</td>
+          <td><code>Ctrl+b x</code></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>最大化/恢复窗格</td>
+          <td><code>Ctrl+b z</code></td>
+          <td>临时全屏当前窗格</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>配置自定义（~/.tmux.conf）</strong>：</p>
+<pre tabindex="0"><code class="language-conf" data-lang="conf">set-option -g default-shell /bin/bash   # 强制使用 Bash
+set-option -g default-command /bin/bash # 确保新会话/Pane 也使用 Bash
+
+unbind H   # 移除 H 的绑定
+unbind L   # 移除 L 的绑定
+# 启用鼠标支持
+set -g mouse on
+
+# 键
+set -g prefix C-w
+unbind C-b
+
+bind -r Left previous-window     # 前缀键+←：左移窗口
+bind -r Right next-window        # 前缀键+→：右移窗口
+# 屏幕分割
+bind v split-window -h # 前缀键+v垂直分割
+bind -n C-Left resize-pane -L 5   # Ctrl+←：向左扩大窗格 5 单位
+bind -n C-Right resize-pane -R 5  # Ctrl+→：向右扩大窗格 5 单位
+</code></pre><pre tabindex="0"><code> ________________
+&lt; fuck you tmux! &gt;
+ ----------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+</code></pre> <hr>  <div> <div>Tags:</div> <ul> <li><a href="/tags/linux/">Linux</a></li> </ul> </div> <div id="waline"></div> <link rel="stylesheet" href="/css/main.css" /> <div id="waline"></div> <script type="module"> import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js'; init({ el: '#waline', serverURL: 'waline.yingyu5658.me', }); </script>  </main> <footer> <p class="copyright">Copyright 2025. All rights reserved.</p> <img src="/notbyai.png" class="not-by-ai"> </footer> </body> </html>

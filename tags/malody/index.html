@@ -1,0 +1,53 @@
+<!DOCTYPE html> <html lang="zh-CN" dir="ltr"> <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width"> <title>Malody | 映屿</title>  <link rel="stylesheet" href="/css/main.min.7f708edba92415e461aa65b8f871753d02590d23621cbc4c01840000b766fa9b.css" integrity="sha256-f3CO26kkFeRhqmW4&#43;HF1PQJZDSNiHLxMAYQAALdm&#43;ps=" crossorigin="anonymous">  <script src="/js/main.a7956529a5290cbd80aa9c64ee52ceefa89957b568d8a14c217a91d7f4d6aa38.js" integrity="sha256-p5VlKaUpDL2Aqpxk7lLO76iZV7Vo2KFMIXqR1/TWqjg=" crossorigin="anonymous"></script> </head> <body> <header> <a><h1 class="title">映屿</h1></a> <p class="subtitle">yingyu5658的数字花园</p>  <nav> <div class="menu-item"> <a href="/">Home</a> </div> <div class="menu-item"> <a href="/links">Links</a> </div> <div class="menu-item"> <a href="/atom.xml">Feed</a> </div> <div class="menu-item"> <a href="https://github.com/yingyu5658/Moments/blob/main/README.md">Moments</a> </div> <div class="menu-item"> <a href="/about">About</a> </div> </nav> <hr> </header> <main>  <h1>Malody</h1>   <h2><a href="/post/%E6%8A%80%E6%9C%AF/4key%E9%9F%B3%E6%B8%B8%E6%AE%B5%E4%BD%8D%E5%8D%95%E6%9B%B2%E6%88%90%E7%BB%A9%E8%AE%A1%E7%AE%97%E7%9A%84%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0/">4Key音游段位单曲成绩计算的程序实现</a></h2> <h2 id="前言">前言</h2>
+<p>其实这个坑我很早以前就想开了，在我刚开始学编程那会就一直想写一个这个东西。但苦于数学进度没达到，要用到加权平均数，这东西我前两天才学到，之前对数学也一直是懒得学的状态，要不然几乎是看不懂那个算法的。</p>
+<p>我手头有一个<a href="https://github.com/Special-Week">Special-Week</a>写的网页版的单曲成绩计算器，就以这个为研究样本吧。以下简称原作者为sw（如有冒犯请联系修改）</p>
+<h2 id="数据结构设计">数据结构设计</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>    <span style="color:#080;font-style:italic">// 基础的4k类
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">class</span> Dan4k {
+</span></span><span style="display:flex;"><span>        constructor(key1, key2, key3, key4, danName) {
+</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">this</span>.m_key1 <span style="color:#666">=</span> key1;
+</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">this</span>.m_key2 <span style="color:#666">=</span> key2;
+</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">this</span>.m_key3 <span style="color:#666">=</span> key3;
+</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">this</span>.m_key4 <span style="color:#666">=</span> key4;
+</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">this</span>.m_danName <span style="color:#666">=</span> danName;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>每一个段（LN、Om），sw都单独写了一个内部类，继承Dan4k。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span> <span style="color:#080;font-style:italic">// lnDan类
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">class</span> LnDan <span style="color:#a2f;font-weight:bold">extends</span> Dan4k {
+</span></span><span style="display:flex;"><span>        constructor(key1, lnKey1, key2, lnKey2, key3, lnKey3, key4, lnKey4, danName) {
+</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">super</span>(key1, key2, key3, key4, danName);
+</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">this</span>.m_lnKey1 <span style="color:#666">=</span> lnKey1;
+</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">this</span>.m_lnKey2 <span style="color:#666">=</span> lnKey2;
+</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">this</span>.m_lnKey3 <span style="color:#666">=</span> lnKey3;
+</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">this</span>.m_lnKey4 <span style="color:#666">=</span> lnKey4;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic">// ma段
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">class</span> MaDan <span style="color:#a2f;font-weight:bold">extends</span> Dan4k {
+</span></span><span style="display:flex;"><span>        constructor(key1, key2, key3, key4, name1, name2, name3, name4, danName) {
+</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">super</span>(key1, key2, key3, key4, danName);
+</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">this</span>.m_name1 <span style="color:#666">=</span> name1;
+</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">this</span>.m_name2 <span style="color:#666">=</span> name2;
+</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">this</span>.m_name3 <span style="color:#666">=</span> name3;
+</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">this</span>.m_name4 <span style="color:#666">=</span> name4;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic">// reform段
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">class</span> ReformDan <span style="color:#a2f;font-weight:bold">extends</span> Dan4k {
+</span></span><span style="display:flex;"><span>        constructor(key1, key2, key3, key4, name1, name2, name3, name4, danName) {
+</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">super</span>(key1, key2, key3, key4, danName);
+</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">this</span>.m_name1 <span style="color:#666">=</span> name1;
+</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">this</span>.m_name2 <span style="color:#666">=</span> name2;
+</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">this</span>.m_name3 <span style="color:#666">=</span> name3;
+</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">this</span>.m_name4 <span style="color:#666">=</span> name4;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic">// om段
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">class</span> OmDan <span style="color:#a2f;font-weight:bold">extends</span> Dan4k {
+</span></span><span style="display:flex;"><span>        constructor(key1, key2, key3, key4, danName) {
+</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">super</span>(key1, key2, key3, key4, danName);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>我打算重写的程序不带LN玩了，我自己也没玩过LN，不清楚是什么机制。那就来看看剩下的几个类。</p>   </main> <footer> <p class="copyright">Copyright 2025. All rights reserved.</p> <img src="/notbyai.png" class="not-by-ai"> </footer> </body> </html>
