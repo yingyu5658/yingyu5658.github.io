@@ -1,4 +1,23 @@
-<!DOCTYPE html> <html lang="zh-CN" dir="ltr"> <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width"> <title>Vscode编辑Markdown体验非常好 | 映屿</title>  <link rel="stylesheet" href="/css/main.min.7f708edba92415e461aa65b8f871753d02590d23621cbc4c01840000b766fa9b.css" integrity="sha256-f3CO26kkFeRhqmW4&#43;HF1PQJZDSNiHLxMAYQAALdm&#43;ps=" crossorigin="anonymous">  <script src="/js/main.a7956529a5290cbd80aa9c64ee52ceefa89957b568d8a14c217a91d7f4d6aa38.js" integrity="sha256-p5VlKaUpDL2Aqpxk7lLO76iZV7Vo2KFMIXqR1/TWqjg=" crossorigin="anonymous"></script> </head> <body> <header> <a><h1 class="title">映屿</h1></a> <p class="subtitle">yingyu5658的数字花园</p>  <nav> <div class="menu-item"> <a href="/">Home</a> </div> <div class="menu-item"> <a href="/links">Links</a> </div> <div class="menu-item"> <a href="/atom.xml">Feed</a> </div> <div class="menu-item"> <a href="https://github.com/yingyu5658/Moments/blob/main/README.md">Moments</a> </div> <div class="menu-item"> <a href="/about">About</a> </div> </nav> <hr> </header> <main>    <time datetime="2025-07-11T00:33:24&#43;08:00">July 11, 2025</time> <h2>Vscode编辑Markdown体验非常好</h2> <p>平常我想写Markdown，都是用typora或Ｏbsidian，这两个软件都很好。但各有优缺点，但现在让我硬挑，我还真挑不出来几个。让我真正觉得Vscode更好的是从Hexo迁移到Hugo的那次经历。</p>
+<!doctype html>
+<html
+  lang="zh-CN"
+  dir="ltr"
+>
+  <head>
+    <meta charset="utf-8"> <meta name="viewport" content="width=device-width"> <title>Vscode编辑Markdown体验非常好 | 映屿</title>  <link rel="stylesheet" href="/css/main.min.9b15d1bf1e42cbb303a2b65656c0610824cc39a48fbfbeed0fdc786dcb94b3c3.css" integrity="sha256-mxXRvx5Cy7MDorZWVsBhCCTMOaSPv77tD9x4bcuUs8M=" crossorigin="anonymous">  <script src="/js/main.a7956529a5290cbd80aa9c64ee52ceefa89957b568d8a14c217a91d7f4d6aa38.js" integrity="sha256-p5VlKaUpDL2Aqpxk7lLO76iZV7Vo2KFMIXqR1/TWqjg=" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <header><h1 class="title">映屿</h1> <p class="subtitle">yingyu5658的数字花园</p>  <nav> <div class="menu-item"> <a href="/">Home</a> </div> <div class="menu-item"> <a href="/links">Links</a> </div> <div class="menu-item"> <a href="/about">About</a> </div> </nav> 
+</header>
+    <main>   <time datetime="2025-07-11T00:33:24&#43;08:00">July 11, 2025</time> <h2>Vscode编辑Markdown体验非常好</h2> <p>平常我想写Markdown，都是用typora或Ｏbsidian，这两个软件都很好。但各有优缺点，但现在让我硬挑，我还真挑不出来几个。让我真正觉得Vscode更好的是从Hexo迁移到Hugo的那次经历。</p>
 <p>Hexo和Hugo的Front Matter格式不同，比如Hexo的date，是<code>yyyy-MM-dd hh:mm:ss</code>格式，但Hugo是<code>yyyy-MM-ddThh:mm:ss+hh:mm</code>的ISO 8601 标准时间格式，所以就要进行替换。我尝试用让Ai写脚本，但项目的目录结构错综复杂，匹配不彻底，匹配彻底也有不周全的地方。而Vscode的查找替换功能很好地解决了这个问题，如果有正则表达式写起来太麻烦的，搜个前缀，然后选中修改所有匹配项也就差不多了。</p>
 <p>而且Vscode有Vim插件，可以解决老Vimer的hjkl依赖问题，唯一不足就是不能用C-v粘贴图片，可能是我还没研究出来。Vscode中编辑主题的代码或者临时写个自动化脚本折腾一下博客也很方便，只需要开一个Vscode，内置终端足以新建文章，Git推送，如果你很闲，甚至在那个终端可以打开Vim，用Vim来编辑。</p>
- <hr>  <div id="waline"></div> <link rel="stylesheet" href="/css/main.css" /> <div id="waline"></div> <script type="module"> import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js'; init({ el: '#waline', serverURL: 'waline.yingyu5658.me', }); </script>  </main> <footer> <p class="copyright">Copyright 2025. All rights reserved.</p> <img src="/notbyai.png" class="not-by-ai"> </footer> </body> </html>
+ <hr>  <div id="waline"></div> <link rel="stylesheet" href="/css/main.css" /> <div id="waline"></div> <script type="module"> import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js'; init({ el: '#waline', serverURL: 'waline.yingyu5658.me', }); </script> </main>
+    <footer>
+      <a class="footer-a-link" href="./atom.xml">RSS</a> | <a class="footer-a-link" href="https://www.github.com/yingyu5658/Moments">Moments</a>
+<p class="copyright">Copyright 2025. All rights reserved.</p>
+ <img src="/notbyai.png" class="not-by-ai" />
+    </footer>
+  </body>
+</html>
+

@@ -1,4 +1,15 @@
-<!DOCTYPE html> <html lang="zh-CN" dir="ltr"> <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width"> <title>Valine评论系统踩坑记录 | 映屿</title>  <link rel="stylesheet" href="/css/main.min.7f708edba92415e461aa65b8f871753d02590d23621cbc4c01840000b766fa9b.css" integrity="sha256-f3CO26kkFeRhqmW4&#43;HF1PQJZDSNiHLxMAYQAALdm&#43;ps=" crossorigin="anonymous">  <script src="/js/main.a7956529a5290cbd80aa9c64ee52ceefa89957b568d8a14c217a91d7f4d6aa38.js" integrity="sha256-p5VlKaUpDL2Aqpxk7lLO76iZV7Vo2KFMIXqR1/TWqjg=" crossorigin="anonymous"></script> </head> <body> <header> <a><h1 class="title">映屿</h1></a> <p class="subtitle">yingyu5658的数字花园</p>  <nav> <div class="menu-item"> <a href="/">Home</a> </div> <div class="menu-item"> <a href="/links">Links</a> </div> <div class="menu-item"> <a href="/atom.xml">Feed</a> </div> <div class="menu-item"> <a href="https://github.com/yingyu5658/Moments/blob/main/README.md">Moments</a> </div> <div class="menu-item"> <a href="/about">About</a> </div> </nav> <hr> </header> <main>    <time datetime="2025-04-23T21:54:03&#43;00:00">April 23, 2025</time> <h2>Valine评论系统踩坑记录</h2> <p>我个人很早以前就惦记着换上这个评论系统，曾经使用Butterfly主题的时候就有折腾过Valine，当时是浏览器缓存策略和CORS跨域拦截的问题。网上能找到的教程都比较老，几年以前的情况不再适用于现在了，所以现在去折腾的话，大概率要踩非常多的坑。本文主要讲述我个人踩到的坑和解决方法。</p>
+<!doctype html>
+<html
+  lang="zh-CN"
+  dir="ltr"
+>
+  <head>
+    <meta charset="utf-8"> <meta name="viewport" content="width=device-width"> <title>Valine评论系统踩坑记录 | 映屿</title>  <link rel="stylesheet" href="/css/main.min.9b15d1bf1e42cbb303a2b65656c0610824cc39a48fbfbeed0fdc786dcb94b3c3.css" integrity="sha256-mxXRvx5Cy7MDorZWVsBhCCTMOaSPv77tD9x4bcuUs8M=" crossorigin="anonymous">  <script src="/js/main.a7956529a5290cbd80aa9c64ee52ceefa89957b568d8a14c217a91d7f4d6aa38.js" integrity="sha256-p5VlKaUpDL2Aqpxk7lLO76iZV7Vo2KFMIXqR1/TWqjg=" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <header><h1 class="title">映屿</h1> <p class="subtitle">yingyu5658的数字花园</p>  <nav> <div class="menu-item"> <a href="/">Home</a> </div> <div class="menu-item"> <a href="/links">Links</a> </div> <div class="menu-item"> <a href="/about">About</a> </div> </nav> 
+</header>
+    <main>   <time datetime="2025-04-23T21:54:03&#43;00:00">April 23, 2025</time> <h2>Valine评论系统踩坑记录</h2> <p>我个人很早以前就惦记着换上这个评论系统，曾经使用Butterfly主题的时候就有折腾过Valine，当时是浏览器缓存策略和CORS跨域拦截的问题。网上能找到的教程都比较老，几年以前的情况不再适用于现在了，所以现在去折腾的话，大概率要踩非常多的坑。本文主要讲述我个人踩到的坑和解决方法。</p>
 <p>本文内容是我自己试错出来的，不要问为什么要这么做，我也不清楚，但是这么做可以正常使用！</p>
 <p>首先你要有一个自己的域名，不要用.github.io。LeanCloud中设置-域名绑定-API访问域名要绑定你自己的二级域。</p>
 <p><img src="./image-20250423220150404.png" alt=""></p>
@@ -8,4 +19,12 @@
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">serverURLs</span>:<span style="color:#bbb"> </span>https://comment.yingyu5658.me<span style="color:#bbb">
 </span></span></span></code></pre></div><p>一定要加协议头，否则将会在你的博客域名下构建请求，比如我的<code>www.yingyu5658.me/comment.yingyu5658.me/</code>，这将导致报错。即使你使用国际版也要填写这一项！Leancloud请求不到。</p>
 <p>现在Valine的教程都有过时，遇到问题还需结合具体情况分析。我看LeanCloud的各种API结构变更还挺多的，太久远的教程就不建议看了。</p>
- <hr>  <div> <div>Tags:</div> <ul> <li><a href="/tags/%E5%8D%9A%E5%AE%A2/">博客</a></li> </ul> </div> <div id="waline"></div> <link rel="stylesheet" href="/css/main.css" /> <div id="waline"></div> <script type="module"> import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js'; init({ el: '#waline', serverURL: 'waline.yingyu5658.me', }); </script>  </main> <footer> <p class="copyright">Copyright 2025. All rights reserved.</p> <img src="/notbyai.png" class="not-by-ai"> </footer> </body> </html>
+ <hr>  <div> <div>Tags:</div> <ul> <li><a href="/tags/%E5%8D%9A%E5%AE%A2/">博客</a></li> </ul> </div> <div id="waline"></div> <link rel="stylesheet" href="/css/main.css" /> <div id="waline"></div> <script type="module"> import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js'; init({ el: '#waline', serverURL: 'waline.yingyu5658.me', }); </script> </main>
+    <footer>
+      <a class="footer-a-link" href="./atom.xml">RSS</a> | <a class="footer-a-link" href="https://www.github.com/yingyu5658/Moments">Moments</a>
+<p class="copyright">Copyright 2025. All rights reserved.</p>
+ <img src="/notbyai.png" class="not-by-ai" />
+    </footer>
+  </body>
+</html>
+

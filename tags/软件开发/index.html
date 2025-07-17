@@ -1,4 +1,15 @@
-<!DOCTYPE html> <html lang="zh-CN" dir="ltr"> <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width"> <title>软件开发 | 映屿</title>  <link rel="stylesheet" href="/css/main.min.7f708edba92415e461aa65b8f871753d02590d23621cbc4c01840000b766fa9b.css" integrity="sha256-f3CO26kkFeRhqmW4&#43;HF1PQJZDSNiHLxMAYQAALdm&#43;ps=" crossorigin="anonymous">  <script src="/js/main.a7956529a5290cbd80aa9c64ee52ceefa89957b568d8a14c217a91d7f4d6aa38.js" integrity="sha256-p5VlKaUpDL2Aqpxk7lLO76iZV7Vo2KFMIXqR1/TWqjg=" crossorigin="anonymous"></script> </head> <body> <header> <a><h1 class="title">映屿</h1></a> <p class="subtitle">yingyu5658的数字花园</p>  <nav> <div class="menu-item"> <a href="/">Home</a> </div> <div class="menu-item"> <a href="/links">Links</a> </div> <div class="menu-item"> <a href="/atom.xml">Feed</a> </div> <div class="menu-item"> <a href="https://github.com/yingyu5658/Moments/blob/main/README.md">Moments</a> </div> <div class="menu-item"> <a href="/about">About</a> </div> </nav> <hr> </header> <main>  <h1>软件开发</h1>   <h2><a href="/post/%E6%8A%80%E6%9C%AF/%E4%B8%8A%E5%B8%9D%E7%B1%BB%E6%98%AF%E4%BB%80%E4%B9%88%E8%AF%A5%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E4%B8%8A%E5%B8%9D%E7%B1%BB/">上帝类是什么？该如何避免上帝类？</a></h2> <h1 id="什么是上帝类">什么是上帝类</h1>
+<!doctype html>
+<html
+  lang="zh-CN"
+  dir="ltr"
+>
+  <head>
+    <meta charset="utf-8"> <meta name="viewport" content="width=device-width"> <title>软件开发 | 映屿</title>  <link rel="stylesheet" href="/css/main.min.9b15d1bf1e42cbb303a2b65656c0610824cc39a48fbfbeed0fdc786dcb94b3c3.css" integrity="sha256-mxXRvx5Cy7MDorZWVsBhCCTMOaSPv77tD9x4bcuUs8M=" crossorigin="anonymous">  <script src="/js/main.a7956529a5290cbd80aa9c64ee52ceefa89957b568d8a14c217a91d7f4d6aa38.js" integrity="sha256-p5VlKaUpDL2Aqpxk7lLO76iZV7Vo2KFMIXqR1/TWqjg=" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <header><h1 class="title">映屿</h1> <p class="subtitle">yingyu5658的数字花园</p>  <nav> <div class="menu-item"> <a href="/">Home</a> </div> <div class="menu-item"> <a href="/links">Links</a> </div> <div class="menu-item"> <a href="/about">About</a> </div> </nav> 
+</header>
+    <main> <h1>软件开发</h1>   <h2><a href="/post/%E6%8A%80%E6%9C%AF/%E4%B8%8A%E5%B8%9D%E7%B1%BB%E6%98%AF%E4%BB%80%E4%B9%88%E8%AF%A5%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E4%B8%8A%E5%B8%9D%E7%B1%BB/">上帝类是什么？该如何避免上帝类？</a></h2> <h1 id="什么是上帝类">什么是上帝类</h1>
 <p>所谓的上帝类，就是指<strong>一个类承担了过多的职能</strong>，变得过于<strong>臃肿</strong>和<strong>复杂</strong>、<strong>难以维护</strong>。没有遵守单一职责原则。像上帝一样什么都能干，每个功能高度耦合，牵一发而动全身，不利于业务的拓展。</p>
 <h1 id="上帝类是如何产生的">上帝类是如何产生的</h1>
 <p>上帝类的产生，通常是由于需要快速实现功能而做出的妥协，长期积累就变成繁重的技术债务。或是缺乏规划经验，功能不断地被加到类中。依旧长期积累，上帝类产生了。</p>
@@ -17,4 +28,12 @@
 </ul>
 <h1 id="如何避免上帝类">如何避免上帝类</h1>
 <p>所以，要如何避免上帝类，这个问题的答案已经显而易见了。和上一段相反着做即可。遵守单一职责原则。规划好代码架构。比如，要处理一个压缩包解析和数据展示功能，首先就要拆分职责为不同的类。类中再去写相对应的函数。我们可以把这个功能拆分为解压、读取、展示信息三个类，类中分别编写相应的代码，这样就能做到避免上帝类的产生，从而提高代码的可维护性和可拓展性。</p>
-<p><img src="./20250320.png" alt=""></p>   </main> <footer> <p class="copyright">Copyright 2025. All rights reserved.</p> <img src="/notbyai.png" class="not-by-ai"> </footer> </body> </html>
+<p><img src="./20250320.png" alt=""></p>  </main>
+    <footer>
+      <a class="footer-a-link" href="./atom.xml">RSS</a> | <a class="footer-a-link" href="https://www.github.com/yingyu5658/Moments">Moments</a>
+<p class="copyright">Copyright 2025. All rights reserved.</p>
+ <img src="/notbyai.png" class="not-by-ai" />
+    </footer>
+  </body>
+</html>
+
