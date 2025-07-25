@@ -4,587 +4,141 @@
   dir="ltr"
 >
   <head>
-    <meta charset="utf-8"> <meta name="viewport" content="width=device-width"> <title>Java | 映屿</title>  <link rel="stylesheet" href="/css/main.min.285850d1e24e898f7b1f74d41ebb260192f7b2b58602acc9401c1d6aadab23a2.css" integrity="sha256-KFhQ0eJOiY97H3TUHrsmAZL3srWGAqzJQBwdaq2rI6I=" crossorigin="anonymous">  <script src="/js/main.a7956529a5290cbd80aa9c64ee52ceefa89957b568d8a14c217a91d7f4d6aa38.js" integrity="sha256-p5VlKaUpDL2Aqpxk7lLO76iZV7Vo2KFMIXqR1/TWqjg=" crossorigin="anonymous"></script>
+    <meta charset="utf-8"> <meta name="viewport" content="width=device-width"> <title>Java | 映屿</title>  <link rel="stylesheet" href="/css/main.min.dedb3cb6a122787f34e63619fa068c5216f47b80f48863e29b68e48f5e152876.css" integrity="sha256-3ts8tqEieH805jYZ&#43;gaMUhb0e4D0iGPim2jkj14VKHY=" crossorigin="anonymous">  <script src="/js/main.a7956529a5290cbd80aa9c64ee52ceefa89957b568d8a14c217a91d7f4d6aa38.js" integrity="sha256-p5VlKaUpDL2Aqpxk7lLO76iZV7Vo2KFMIXqR1/TWqjg=" crossorigin="anonymous"></script>
   </head>
   <body>
-    <header><h1 class="title">映屿</h1> <p class="subtitle">yingyu5658的数字花园</p>  <nav> <div class="menu-item"> <a href="/">Home</a> </div> <div class="menu-item"> <a href="/links">Links</a> </div> <div class="menu-item"> <a href="/about">About</a> </div> </nav> 
+		<main>
+    <header><h1 class="title">映屿</h1> <p class="subtitle">yingyu5658的数字花园</p>  
 </header>
-    <main> <h1>Java</h1>   <h2><a href="/post/%E6%8A%80%E6%9C%AF/%E9%BB%91%E5%8E%86%E5%8F%B2%E8%AF%BB%E8%87%AA%E5%B7%B1%E4%BB%A5%E5%89%8D%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81/">【黑历史】读自己以前写的代码</a></h2> <p>仓库地址就不放出来了，太耻辱了&hellip;&hellip;</p>
-<p>先来看看Main.java</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">package</span><span style="color:#bbb"> </span><span style="color:#00f;font-weight:bold">cn.yingyu5658.lbl</span>;<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#080;font-style:italic">/**
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"> * @author yingyu5658
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"> */</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Main</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">static</span><span style="color:#bbb"> </span><span style="color:#0b0;font-weight:bold">void</span><span style="color:#bbb"> </span><span style="color:#00a000">main</span>(String<span style="color:#666">[]</span><span style="color:#bbb"> </span>args)<span style="color:#bbb"> </span>{<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>LuBuLu<span style="color:#bbb"> </span>cmd<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">new</span><span style="color:#bbb"> </span>LuBuLu();<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#a2f;font-weight:bold">while</span>(<span style="color:#a2f;font-weight:bold">true</span>)<span style="color:#bbb"> </span>{<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>cmd.<span style="color:#b44">command</span>();<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>}<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
-</span></span></span></code></pre></div><p>嗯还写了Author，生怕别人不知道这坨屎是谁拉的。</p>
-<p>Main方法里面新建了一个LuBuLu对象，在主循环里调用了他的command()方法。</p>
-<p>进入这个神秘的LuBuLu.java一探究竟。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Scanner<span style="color:#bbb"> </span>sc;<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>String<span style="color:#bbb"> </span>one;<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>String<span style="color:#bbb"> </span>two;<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#bbb"> </span>times;<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#00a000">LuBuLu</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#a2f;font-weight:bold">this</span>.<span style="color:#b44">sc</span><span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">new</span><span style="color:#bbb"> </span>Scanner(System.<span style="color:#b44">in</span>);<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#a2f;font-weight:bold">this</span>.<span style="color:#b44">times</span><span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>0;<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
-</span></span></span></code></pre></div><p>在类的开头进行了一些初始化，有点不理解one和two是什么，为什么他们没有权限修饰符。。。</p>  <h2><a href="/post/%E6%8A%80%E6%9C%AF/%E4%BA%BA%E8%AF%9D%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3%E5%85%AB%E4%B8%8B%E9%81%97%E4%BC%A0%E4%B9%8B%E7%94%9F%E7%89%A9%E7%9A%84%E9%81%97%E4%BC%A0%E5%8F%98%E5%BC%82/">人话简单理解八下遗传之生物的遗传变异</a></h2> <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#080;font-style:italic">// 母亲类</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Mother</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#080;font-style:italic">// 母亲的性格是开朗的</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#bbb"> </span>String<span style="color:#bbb"> </span>personality<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#b44">&#34;cheerful&#34;</span>;<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#080;font-style:italic">// 母亲的身高是160.5</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#0b0;font-weight:bold">double</span><span style="color:#bbb"> </span>height<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>160.<span style="color:#b44">5</span>;<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#080;font-style:italic">// 母亲有耳垂</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#0b0;font-weight:bold">boolean</span><span style="color:#bbb"> </span>hasEarlobe<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">true</span>;<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#080;font-style:italic">// 吃东西方法</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#0b0;font-weight:bold">void</span><span style="color:#bbb"> </span><span style="color:#00a000">eating</span>(Foods<span style="color:#bbb"> </span>food)<span style="color:#bbb"> </span>{<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>System.<span style="color:#b44">out</span>.<span style="color:#b44">println</span>(<span style="color:#b44">&#34;母亲吃东西细嚼慢咽&#34;</span>);<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#080;font-style:italic">// 孩子类继承母亲类</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Child</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">extends</span><span style="color:#bbb"> </span>Mother{<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#080;font-style:italic">// 变异</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#080;font-style:italic">// 孩子的性格是内向的</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#bbb"> </span>String<span style="color:#bbb"> </span>personality<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#b44">&#34;introverted&#34;</span>;<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#080;font-style:italic">// 孩子无耳垂</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#0b0;font-weight:bold">boolean</span><span style="color:#bbb"> </span>hasEarlobe<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">false</span>;<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#080;font-style:italic">// 孩子身高比母亲高</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#0b0;font-weight:bold">double</span><span style="color:#bbb"> </span>height<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>180.<span style="color:#b44">5</span>;<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#a2f">@Override</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#0b0;font-weight:bold">void</span><span style="color:#bbb"> </span><span style="color:#00a000">eating</span>(Foods<span style="color:#bbb"> </span>food)<span style="color:#bbb"> </span>{<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>System.<span style="color:#b44">out</span>.<span style="color:#b44">println</span>(<span style="color:#b44">&#34;孩子吃东西狼吞虎咽&#34;</span>);<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
-</span></span></span></code></pre></div><p>感觉比书上讲的一大堆狗屁废话简练多了。。（？</p>  <h2><a href="/post/%E6%8A%80%E6%9C%AF/186/">Java面向对象编程——多态、抽象类、接口</a></h2> <h1 id="什么是多态">什么是多态</h1>
-<ul>
-<li>在继承/实现情况下的一种现象，表现为：对象多态、行为多态。</li>
-</ul>
-<h2 id="多态的前提">多态的前提</h2>
-<ul>
-<li>有<strong>继承/实</strong>现关系；存在父类引用子类对象；<strong>存在方法重写</strong></li>
-<li>
-<h2 id="多态的注意事项">多态的注意事项</h2>
-</li>
-<li>多态是对象、行为的多态，成员变量不体现多态。</li>
-</ul>
-<h1 id="使用多态的好处">使用多态的好处</h1>
-<ul>
-<li>在多态形式下，右边的对象是解耦合的，更便于拓展和维护。</li>
-<li>定义方法时，使用父类类型的形参，可以接收一切子类对象，扩展性更强、更便利。</li>
-</ul>
-<h1 id="多态下产生的一个问题">多态下产生的一个问题</h1>
-<ul>
-<li>多态下不能使用子类的独有功能。</li>
-</ul>
-<h2 id="多态下的类型转换">多态下的类型转换</h2>
-<ul>
-<li>自动类型转换：<code>父类 变量名 = new 子类();</code></li>
-<li>强制类型转换： <code>子类 变量名 = (子类)父类变量</code></li>
-</ul>
-<h2 id="强制类型转换的注意事项">强制类型转换的注意事项</h2>
-<ul>
-<li>存在继承/实现关系就可以在编译阶段进行强制类型转换，编译阶段不会报错。</li>
-<li>运行时，如果发现对象的真实类型与强转后的类型不同，就会报类型转换异常(ClassCastException)</li>
-</ul>
-<h3 id="强转前java建议">强转前，Java建议：</h3>
-<ul>
-<li>使用instanceof关键字，判断当前对象的真是类型，再进行强制类型转换。</li>
-</ul>
-<h1 id="final">final</h1>
-<ul>
-<li>final关键字的中文是最终的意思，可以修饰类、方法、变量
-<ul>
-<li>修饰类：该类被称为最终类，特点是不能被继承了。</li>
-<li>修饰方法：该方法被称为最终方法，特点是不能被重写了。</li>
-<li>修饰变量：该变量只能被赋值一次。</li>
-</ul>
-</li>
-</ul>
-<h1 id="常量">常量</h1>
-<ul>
-<li>使用了static final 修饰的成员变量就被称为常量；</li>
-<li>作用：通常用于记录系统的配置信息。</li>
-<li><strong>注意：常量的命名规范：使用大写英文单词，多个单词使用下划线连接起来。</strong></li>
-</ul>
-<h2 id="视同常量记录系统配置信息的优势执行原理">视同常量记录系统配置信息的优势、执行原理</h2>
-<ul>
-<li>代码可读性更好、可维护性也更好。</li>
-<li>程序编译后，常量会被宏替换：出现常量的地方全部会被替换成其记住的字面量，这样可以保证使用常量和直接用字面量的性能是一样的。</li>
-</ul>
-<h1 id="抽象类">抽象类</h1>
-<h2 id="什么是抽象类">什么是抽象类</h2>
-<ul>
-<li>Java中有个关键字叫abstract，他就是抽象的意思，可以用来修饰类、成员方法</li>
-<li>abstract修饰类，这个就是抽象类，修饰成员方法同理。</li>
-</ul>
-<h2 id="抽象类的注意事项特点">抽象类的注意事项、特点</h2>
-<ul>
-<li>抽象类中不一定有抽象方法，有抽象方法的类一定是抽象类。</li>
-<li>类该有的成员（成员变量、方法、构造器）抽象类都可以有。</li>
-<li><strong>抽象类最主要的特点：</strong> 抽象类不能创建对象，仅作为一种特殊的父类，让子类继承并实现。</li>
-<li>一个类继承抽象类，必须重写完抽象类的全部抽象方法，否则这个类也必须定义成抽象类。</li>
-</ul>
-<h2 id="抽象类的使用场景和好处">抽象类的使用场景和好处</h2>
-<ul>
-<li>父类知道每个子类都要做某个行为，但每个子类做的情况不一样，父类就定义成抽象方法，交给子类去重写实现，我们设计这样的抽象类，就是为了更好的支持多态。<del>爸爸画饼儿子烙饼</del></li>
-</ul>
-<h1 id="接口">接口</h1>
-<h2 id="接口概述">接口概述</h2>
-<ul>
-<li>Java提供了一个关键字interface，用这个关键字我们可以定义出一个特殊的结构：接口。</li>
-<li>注意：接口不能创建对象；接口是用来被类实现（implements）的，实现接口的类被称为实现类。</li>
-<li>一个类可以实现多个接口，实现类实现多个接口必须重写完全部接口的全部抽象方法，否则实现类需要定义成抽象类。</li>
-</ul>
-<p><img src="https://www.yingyu5658.cn/usr/uploads/2024/12/2743265221.jpg" alt=""></p>  <h2><a href="/post/%E6%8A%80%E6%9C%AF/185/">Java面向对象编程——继承</a></h2> <h1 id="什么是继承">什么是继承</h1>
-<ul>
-<li>Java中提供了一个关键字<code>extends</code>，用这个关键字，可以让一个类和另一个类建立起父子关系。</li>
-</ul>
-<h2 id="继承的特点">继承的特点</h2>
-<ul>
-<li>子类能继承父类的非私有成员变量和成员方法。</li>
-</ul>
-<h2 id="继承后对象的创建">继承后对象的创建</h2>
-<ul>
-<li>子类的对象是由子类、父类共同完成的。</li>
-</ul>
-<h1 id="继承相关的注意事项">继承相关的注意事项</h1>
-<h2 id="权限修饰符">权限修饰符</h2>
-<h2 id="什么是权限修饰符">什么是权限修饰符？</h2>
-<ul>
-<li>用来限制类中的成员（成员变量、成员方法、构造器、代码块&hellip;）能够被访问的范围</li>
-</ul>
-<h2 id="权限修饰符有几种与各自的作用">权限修饰符有几种与各自的作用</h2>
-<table>
-  <thead>
-      <tr>
-          <th>修饰符</th>
-          <th>在本类中</th>
-          <th>同一个包下的其他类</th>
-          <th>任意包下的子类</th>
-          <th>任意包下的任意类</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>private</td>
-          <td>√</td>
-          <td></td>
-          <td></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>缺省</td>
-          <td>√</td>
-          <td>√</td>
-          <td></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>protected</td>
-          <td>√</td>
-          <td>√</td>
-          <td>√</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>public</td>
-          <td>√</td>
-          <td>√</td>
-          <td>√</td>
-          <td>√</td>
-      </tr>
-      <tr>
-          <td>provate &lt; 缺省 &lt; protected &lt; public</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-      </tr>
-  </tbody>
-</table>
-<h1 id="单继承">单继承</h1>
-<p>Java是<strong>继承</strong>的，Java中的类<strong>不支持多继承</strong>，但是支持<strong>多层继承</strong>。</p>
-<h1 id="object类">Object类</h1>
-<ul>
-<li>Ojbect类是所有Java类的父类，任何类都是Object的子类。</li>
-</ul>
-<h1 id="方法重写">方法重写</h1>
-<h2 id="什么是方法重写">什么是方法重写</h2>
-<ul>
-<li>当子类发现父类中的方法无法满足自己的需求时，<strong>子类可以重写一个方法名称、参数列表一样的方法</strong>去覆盖父类的这个方法，这就是方法重写。</li>
-<li>注意：方法重写后，方法的访问遵循<strong>就近原则</strong>。</li>
-</ul>
-<h2 id="方法重写的注意事项">方法重写的注意事项</h2>
-<ul>
-<li>重写时使用<strong>Override注解</strong>，他可以指定Java编译器，检查我们方法重写的格式是否正确，代码可读性也会更好。</li>
-<li>子类重写父类方法时，访问权限必须大于或等于父类该方法的权限（<strong>public &gt; protected &gt; 缺省</strong>）。</li>
-<li>重写的方法返回值类型，必须与被重写方法的返回值类型一样，或者范围更小。</li>
-<li>私有方法、静态方法不能被重写，如果重写会报错。</li>
-</ul>
-<h2 id="方法重写在开发中的常见应用场景">方法重写在开发中的常见应用场景</h2>
-<ul>
-<li>子类重写Object类的toString()方法，以便返回对象的内容。</li>
-</ul>
-<h1 id="子类中访问其他成员的特点">子类中访问其他成员的特点</h1>
-<ol>
-<li>
-<p>在子类方法中访问其他成员是按照就近原则的。</p>
-<ul>
-<li>先子类局部范围找。</li>
-<li>然后子类成员范围找。</li>
-<li>然后父类成员找</li>
-<li>然后父类成员范围找，如果父类范围还没有找到则报错。</li>
-</ul>
-</li>
-<li>
-<p>如果子父类中，出现了重名的成员，会优先使用子类的，如果此时一定要在子类中使用父类的方法怎么办？</p>  <h2><a href="/post/%E6%8A%80%E6%9C%AF/184/">修复Geyser下基岩版玩家无法在地狱基岩层放置方块</a></h2> <p>在<code>plugins\Geyser-Spigot\config.yml</code>中把第160行的<code>above-bedrock-nether-building: false</code>改为<code>true</code>，重启服务器，问题解决~
-原理：geyser把下界翻译成了末地，会导致下界天空变成末地的样式，不过可以解决基岩版玩家在地狱基岩层的问题。</p>  <h2><a href="/post/%E6%8A%80%E6%9C%AF/181/">Spigot服务端控制台中文乱码解决方案</a></h2> <ol>
-<li>把<code>-Dfile.encoding=UTF-8</code>加在开服脚本文件的<code>-jar</code>前即可。</li>
-<li>在启动脚本第一行加上<code>chcp 65001</code>
-我的启动脚本如下：</li>
-</ol>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>chcp <span style="color:#666">65001</span>
-</span></span><span style="display:flex;"><span>java -Dfile.encoding<span style="color:#666">=</span>UTF-8 -jar spigot-1.21.jar
-</span></span></code></pre></div><p><img src="https://www.yingyu5658.cn/usr/uploads/2025/01/1203260069.jpg" alt=""></p>
-<p><img src="/images/Spigot%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%8E%A7%E5%88%B6%E5%8F%B0%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/1203260069.jpg" alt=""></p>
-<p><img src="/images/Spigot%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%8E%A7%E5%88%B6%E5%8F%B0%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/1203260069.jpg" alt=""></p>
-<p><img src="/images/Spigot%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%8E%A7%E5%88%B6%E5%8F%B0%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/1203260069.jpg" alt=""></p>  <h2><a href="/post/%E6%8A%80%E6%9C%AF/171/">String的注意事项</a></h2> <h1 id="string的注意事项">String的注意事项</h1>
-<ul>
-<li>
-<ol>
-<li>String对象的内容不可改变， 被称为不可变字符串对象。</li>
-</ol>
-</li>
-<li>
-<ol start="2">
-<li>只要是以“&hellip;”的方式写出的字符串，都会存储到字符串常量池，且相同的字符串只存储一份；</li>
-</ol>
-</li>
-<li>但通过new方式创建字符串对象，每new一次都会产生一个新的对象放在堆内存中。</li>
-</ul>
-<h1 id="不可变字符串对象">不可变字符串对象</h1>
-<p>不可变？它肯定可变啊，比如</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">package</span><span style="color:#bbb"> </span><span style="color:#00f;font-weight:bold">string</span>;<span style="color:#bbb">  
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">StringDemo3</span><span style="color:#bbb"> </span>{<span style="color:#bbb">  
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">static</span><span style="color:#bbb"> </span><span style="color:#0b0;font-weight:bold">void</span><span style="color:#bbb"> </span><span style="color:#00a000">main</span>(String<span style="color:#666">[]</span><span style="color:#bbb"> </span>args)<span style="color:#bbb"> </span>{<span style="color:#bbb">  
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>String<span style="color:#bbb"> </span>name<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#b44">&#34;yingyu5658&#34;</span>;<span style="color:#bbb">  
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>name<span style="color:#bbb"> </span><span style="color:#666">+=</span><span style="color:#bbb"> </span><span style="color:#b44">&#34;.cn&#34;</span>;<span style="color:#bbb">  
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>name<span style="color:#bbb"> </span><span style="color:#666">+=</span><span style="color:#bbb"> </span><span style="color:#b44">&#34;域名&#34;</span>;<span style="color:#bbb">  
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>System.<span style="color:#b44">out</span>.<span style="color:#b44">println</span>(name);<span style="color:#bbb">  
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">  
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
-</span></span></span></code></pre></div><p>这时候把name打印出来不就是<code>yingyu5658.cn域名</code>了吗？
-<strong>每次试图改变字符串对象实际上是新产生可字符串对象，变量每次都与指向了新的字符串对象，之前字符串对象的内容确实是没有改变的，因此说String的对象都是不可变的。</strong></p>
-<h1 id="第二点注意事项">第二点注意事项</h1>
-<p>示例代码：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">package</span><span style="color:#bbb"> </span><span style="color:#00f;font-weight:bold">string</span>;<span style="color:#bbb">  
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">StringDemo3</span><span style="color:#bbb"> </span>{<span style="color:#bbb">  
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">static</span><span style="color:#bbb"> </span><span style="color:#0b0;font-weight:bold">void</span><span style="color:#bbb"> </span><span style="color:#00a000">main</span>(String<span style="color:#666">[]</span><span style="color:#bbb"> </span>args)<span style="color:#bbb"> </span>{<span style="color:#bbb">  
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>String<span style="color:#bbb"> </span>s1<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#b44">&#34;abc&#34;</span>;<span style="color:#bbb">  
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>String<span style="color:#bbb"> </span>s2<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#b44">&#34;abc&#34;</span>;<span style="color:#bbb">  
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>System.<span style="color:#b44">out</span>.<span style="color:#b44">println</span>(s1<span style="color:#bbb"> </span><span style="color:#666">==</span><span style="color:#bbb"> </span>s2);<span style="color:#bbb">  
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#080;font-style:italic">//true  </span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">  
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
-</span></span></span></code></pre></div><p>这里使用双等来判断两个变量的地址是否相同，返回结果为<code>true</code>,也就是说，地址是相同的。
-原理：上文提到，双引号包裹住的字符串，会被保存到字符串常量池中，<strong>且相同的字符串只存储一份</strong>。这里我们声明了两个内容为abc的String类型变量。Java是很聪明的，当我们把s2声明，它要存到字符串常量池时，看到内容一样，就不再存了，而是把<strong>s2也指向abc</strong>，因此s1地址和s2地址是一样的。</p>  <h2><a href="/post/%E6%8A%80%E6%9C%AF/170/">Java遍历字符串</a></h2> <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">package</span><span style="color:#bbb"> </span><span style="color:#00f;font-weight:bold">string</span>;<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">StringDemo</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">static</span><span style="color:#bbb"> </span><span style="color:#0b0;font-weight:bold">void</span><span style="color:#bbb"> </span><span style="color:#00a000">main</span>(String<span style="color:#666">[]</span><span style="color:#bbb"> </span>args)<span style="color:#bbb"> </span>{<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>String<span style="color:#bbb"> </span>str<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#b44">&#34;hello&#34;</span>;<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#a2f;font-weight:bold">for</span><span style="color:#bbb"> </span>(<span style="color:#0b0;font-weight:bold">int</span><span style="color:#bbb"> </span>i<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>0;<span style="color:#bbb"> </span>i<span style="color:#bbb"> </span><span style="color:#666">&lt;</span><span style="color:#bbb"> </span>str.<span style="color:#b44">length</span>();<span style="color:#bbb"> </span>i<span style="color:#666">++</span>)<span style="color:#bbb"> </span>{<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#080;font-style:italic">/*
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">                h e l l o
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">            i = 0 1 2 3 4
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">             */</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#0b0;font-weight:bold">char</span><span style="color:#bbb"> </span>ch<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>str.<span style="color:#b44">charAt</span>(i);<span style="color:#080;font-style:italic">// charAt:提取字符串中某个索引位置处的字符</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>System.<span style="color:#b44">out</span>.<span style="color:#b44">println</span>(ch);<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#080;font-style:italic">/*
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">            * 控制台输出：
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">            * h
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">            * e
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">            * l
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">            * l
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">            * o
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">            */</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>}<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
-</span></span></span></code></pre></div><p><img src="https://www.yingyu5658.cn/usr/uploads/2024/12/2743265221.jpg" alt=""></p>  <h2><a href="/post/%E6%8A%80%E6%9C%AF/166/">面向对象编程总结</a></h2> <p>面向对象（oop）</p>
-<h1 id="面向对象编程的思想面向拿或者找">面向对象编程的思想：面向。拿或者找。</h1>
-<p>对象：东西
-面向对象编程：拿东西过来编程
-面向对象：把现实世界中的食物看成一个一个对象来解决问题的。（万物皆 对象）
-面向对象的好处：代码更符合人类的思维习惯。编程更简单。看程序更容易理解（？）</p>
-<h1 id="类对象">类、对象：</h1>
-<p>类（设计图）：相同事物，共同特征的描述。
-对象：对象是类的具体的实例。
-对象 = 实例
-在Java中必须先定义类，才能得到对象</p>
-<h1 id="定义类来创建对象使用">定义类来创建对象使用</h1>
-<h2 id="定义类的格式">定义类的格式</h2>
-<ol>
-<li>成员变量（代表属性，一般是名词）：数据类型 名称;</li>
-<li>成员方法（代表行为，一般是动词）</li>
-<li>构造器（前面的区域以后再来探索吧）</li>
-<li>代码块（前面的区域以后再来探索吧）</li>
-<li>内部类（前面的区域以后再来探索吧）</li>
-</ol>
-<h2 id="类中具体怎么写">类中具体怎么写：</h2>
-<p>一般名词定义成成员变量（属性）
-<code>修饰符 数据类型 变量名称 = 初始值</code>
-成员变量不建议给初始值，它存在默认值。</p>
-<h2 id="一般动词定义成方法行为">一般动词定义成方法（行为）</h2>
-<h3 id="创建对象">创建对象</h3>
-<p><code>类名 对象名 = new 构造器();</code></p>
-<h2 id="对象使用">对象使用：</h2>
-<p><code>对象名.成员变量</code>
-<code>对象名.成员方法</code></p>
-<h1 id="构造器">构造器</h1>
-<pre><code>	作用：
-		初始化一个累的对象并且返回这个类的地址。
-		详细格式：修饰符 类名(形参){...}
-		构造器的分类：
-					无参数构造器：初始化一个类的对象，里面的数据都是默认值，并返回地址。
-					有参数构造器：初始化一个类的对象，并返回地址，并且可以同时为对象赋值。
-		构造器如何调用：
-					类名 对象 = new 构造器;
-		注意：任何类写出来，自带无参数构造器
-			   但是在这个类中定义了一个有参数构造器了，那么无参数构造器就消失了，此时如果还要使用无参数构造器，必须自己写一个。
-</code></pre>
-<h2 id="this关键字">this关键字</h2>
-<p>作用：代表了当前对象的地址。可以访问当前对象的成员变量信息和成员方法</p>
-<h3 id="具体应用场景">具体应用场景</h3>
-<p>可以用在有参数构造器中
-可以用在方法中</p>
-<h1 id="封装">封装</h1>
-<p>面向对象三大特征：封装、继承、多态。
-封装的基本思想：决定属性和行为归属谁的问题。</p>
-<h2 id="如何更好的封装">如何更好的封装：</h2>
-<p>成员变量私有化，只能在本类访问。</p>
-<h4 id="合理暴露">合理暴露</h4>
-<p>提供成套的getter和setter方法暴露取值赋值。</p>  <h2><a href="/post/%E6%8A%80%E6%9C%AF/98/">Java面向对象编程快速入门</a></h2> <h1 id="什么是面向对象编程">什么是面向对象编程</h1>
-<p>通俗易懂的说，就是把一坨一坨的数据放到一起存储
-比如要存储一个学生的语文成绩和数学成绩
-新建一个类</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Student</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>String<span style="color:#bbb"> </span>name;<span style="color:#080;font-style:italic">//名字</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#0b0;font-weight:bold">double</span><span style="color:#bbb"> </span>chinese;<span style="color:#080;font-style:italic">//语文成绩</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#0b0;font-weight:bold">double</span><span style="color:#bbb"> </span>math;<span style="color:#080;font-style:italic">//数学成绩</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#0b0;font-weight:bold">void</span><span style="color:#bbb"> </span><span style="color:#00a000">printTotalScore</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>System.<span style="color:#b44">out</span>.<span style="color:#b44">println</span>(name<span style="color:#bbb"> </span><span style="color:#666">+</span><span style="color:#bbb"> </span><span style="color:#b44">&#34;的总成绩是&#34;</span><span style="color:#bbb"> </span><span style="color:#666">+</span><span style="color:#bbb"> </span>(chinese<span style="color:#bbb"> </span><span style="color:#666">+</span><span style="color:#bbb"> </span>math));<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#0b0;font-weight:bold">void</span><span style="color:#bbb"> </span><span style="color:#00a000">printAverageScore</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>System.<span style="color:#b44">out</span>.<span style="color:#b44">println</span>(name<span style="color:#bbb"> </span><span style="color:#666">+</span><span style="color:#bbb"> </span><span style="color:#b44">&#34;的平均成绩是&#34;</span><span style="color:#bbb"> </span><span style="color:#666">+</span><span style="color:#bbb"> </span>(chinese<span style="color:#bbb"> </span><span style="color:#666">+</span><span style="color:#bbb"> </span>math)<span style="color:#bbb"> </span><span style="color:#666">/</span><span style="color:#bbb"> </span>2.<span style="color:#b44">0</span>);<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
-</span></span></span></code></pre></div><p>这样学生的模板就创建好了，但是这个模板还没有指向学生的每一个个体。我们可以再同一个包下再新建一个类。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Test</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">static</span><span style="color:#bbb"> </span><span style="color:#0b0;font-weight:bold">void</span><span style="color:#bbb"> </span><span style="color:#00a000">main</span>(String<span style="color:#666">[]</span><span style="color:#bbb"> </span>args)<span style="color:#bbb"> </span>{<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#080;font-style:italic">//1.创建宇哥学生对象来封装学生a的数据</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>Student<span style="color:#bbb"> </span>s1<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">new</span><span style="color:#bbb"> </span>Student();<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>s1.<span style="color:#b44">name</span><span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#b44">&#34;学生a&#34;</span>;<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>s1.<span style="color:#b44">chinese</span><span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>100;<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>s1.<span style="color:#b44">math</span><span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>100;<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>s1.<span style="color:#b44">printTotalScore</span>();<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>s1.<span style="color:#b44">printAverageScore</span>();<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#080;font-style:italic">//2.再创建一个学生对象，封装学生b的数据</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>Student<span style="color:#bbb"> </span>s2<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">new</span><span style="color:#bbb"> </span>Student();<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>s2.<span style="color:#b44">name</span><span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#b44">&#34;学生b&#34;</span>;<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>s2.<span style="color:#b44">chinese</span><span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>100;<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>s2.<span style="color:#b44">math</span><span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>59;<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>s2.<span style="color:#b44">printTotalScore</span>();<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>s2.<span style="color:#b44">printAverageScore</span>();<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
-</span></span></span></code></pre></div><p>用以上代码新建一个学生类并且调用我们之前写好的功能</p>  <h2><a href="/post/%E6%8A%80%E6%9C%AF/99/">深刻认识面向对象</a></h2> <p>面向对象编程的好处</p>
-<blockquote>
-<p>按照<strong>詹姆斯·高斯林</strong>的看法，世间万物都是对象。好比要出去旅游，你要找到车这个对象调用他的行驶功能使用来带你出去旅游。</p>
-</blockquote>
-<p>所以面向对象编程的好处就是：<strong>符合人类思维习惯，编程更简单，更直观</strong>。</p>
-<h1 id="程序中的对象到底是什么">程序中的对象到底是什么</h1>
-<ul>
-<li>对象本质上是一种<strong>特殊的数据结构</strong>，很像数据库，但是数据库是持久存储的数据。体现出计算机各个学科的交叉。
-一开始设计的类就是一张表，后续在其他类中填入这张表的内容。</li>
-</ul>
-<h1 id="对象是怎么出来的">对象是怎么出来的</h1>
-<p>class也就是<strong>类</strong>，也称为<strong>对象的设计图</strong>（或者<strong>对象的模板</strong>）</p>
-<ul>
-<li>类里可以设计很多变量，用来说明对象可以处理什么数据。</li>
-<li>类里还可以设计很多的方法，描述对象有什么功能，也就是要对数据进行什么样的处理。
-接下来我们就可以在程序中new对象了
-<strong>也就是先用class设计对象，然后再用class new出对象。</strong></li>
-</ul>
-<p>具体使用语法见上一篇文章[post cid=&ldquo;98&rdquo; /]</p>
-<p><img src="http://www.yingyu5658.cn/usr/uploads/2024/12/2743265221.jpg" alt="v2-4b5c3f2b057efbc7e58cdfbd98a5e36d_720w.jpg"></p>  <h2><a href="/post/%E6%8A%80%E6%9C%AF/95/">Java方法的传参原理</a></h2> <h1 id="java方法的参数传递机制-基本类型">Java方法的参数传递机制-基本类型</h1>
-<p>值传递</p>
-<h2 id="值传递是什么">值传递是什么</h2>
-<p>在传输实参给方法的形参的时候，<strong>传输的是实参变量中存储的副本</strong>
-说人话，把实参里面的东西赋值了一部分扔了给形参</p>
-<h1 id="值传递具体理解案例">值传递具体理解案例</h1>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">prameter</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">static</span><span style="color:#bbb"> </span><span style="color:#0b0;font-weight:bold">void</span><span style="color:#bbb"> </span><span style="color:#00a000">main</span>(String<span style="color:#666">[]</span><span style="color:#bbb"> </span>args)<span style="color:#bbb"> </span>{<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#bbb"> </span>a<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>10;<span style="color:#bbb"> </span><span style="color:#080;font-style:italic">//定义一个int变量a赋值为10</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>change(a);<span style="color:#bbb"> </span><span style="color:#080;font-style:italic">//调用change方法</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>System.<span style="color:#b44">out</span>.<span style="color:#b44">println</span>(<span style="color:#b44">&#34;main&#34;</span><span style="color:#bbb"> </span><span style="color:#666">+</span><span style="color:#bbb"> </span>a);<span style="color:#bbb"> </span><span style="color:#080;font-style:italic">//打印mian a中的值</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#080;font-style:italic">//这里开始写方法</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">static</span><span style="color:#bbb"> </span><span style="color:#0b0;font-weight:bold">void</span><span style="color:#bbb"> </span><span style="color:#00a000">change</span>(<span style="color:#0b0;font-weight:bold">int</span><span style="color:#bbb"> </span>a){<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>System.<span style="color:#b44">out</span>.<span style="color:#b44">println</span>(<span style="color:#b44">&#34;change1&#34;</span><span style="color:#bbb"> </span><span style="color:#666">+</span><span style="color:#bbb"> </span>a);<span style="color:#bbb"> </span><span style="color:#080;font-style:italic">//打印方法中a的值</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>a<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>20;<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>System.<span style="color:#b44">out</span>.<span style="color:#b44">println</span>(<span style="color:#b44">&#34;change2&#34;</span>a);<span style="color:#bbb"> </span><span style="color:#080;font-style:italic">//打印赋值后a的值</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
-</span></span></span></code></pre></div><p>我们运行以后，控制台输出的结果为</p>
-<pre tabindex="0"><code>change1 10
-change2 20
-main 10
-</code></pre><h2 id="为什么main中打印的不是赋值后的20">为什么main中打印的不是赋值后的20？</h2>
-<p>这就要提到刚才的概念：<strong>值传递</strong>
-我们定义了一个变量<code>a = 10；</code>,在方法中<code>public static void change(int a)</code>
-由于<strong>值传递</strong>，也就是把值复制了一分传给方法，所以我们方法里用的值永远都是刚刚定义的<code>int a = 10;</code>，所以<code>change(a); = change(10);</code>
-我们后面再赋值，打印出来的结果还是10，除非你把变量定义的代码改了，否则方法里的值不会变。</p>  <h2><a href="/post/%E6%8A%80%E6%9C%AF/90/">Java小程序之两数计算器</a></h2> <p>这个案例是我练习方法的使用时做的，应该能有更好的方式实现这个功能。
-代码如下</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">package</span><span style="color:#bbb"> </span><span style="color:#00f;font-weight:bold">cn.yingyu5658.basic</span>;<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#a2f;font-weight:bold">import</span><span style="color:#bbb"> </span><span style="color:#00f;font-weight:bold">org.w3c.dom.ls.LSOutput</span>;<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#a2f;font-weight:bold">import</span><span style="color:#bbb"> </span><span style="color:#00f;font-weight:bold">java.util.Scanner</span>;<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Basic</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">static</span><span style="color:#bbb"> </span><span style="color:#0b0;font-weight:bold">void</span><span style="color:#bbb"> </span><span style="color:#00a000">main</span>(String<span style="color:#666">[]</span><span style="color:#bbb"> </span>args)<span style="color:#bbb"> </span>{<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#a2f;font-weight:bold">for</span><span style="color:#bbb"> </span>(;<span style="color:#bbb"> </span>;<span style="color:#bbb"> </span>)<span style="color:#bbb"> </span>{<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>System.<span style="color:#b44">out</span>.<span style="color:#b44">println</span>(<span style="color:#b44">&#34;欢迎使用！&#34;</span>);<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>System.<span style="color:#b44">out</span>.<span style="color:#b44">println</span>(<span style="color:#b44">&#34;按键1 2 3 4分别为加 减 乘 除，输入后请回车&#34;</span>);<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>Scanner<span style="color:#bbb"> </span>startSc<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">new</span><span style="color:#bbb"> </span>Scanner(System.<span style="color:#b44">in</span>);<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#bbb"> </span>selectNumber<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>startSc.<span style="color:#b44">nextInt</span>();<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#a2f;font-weight:bold">if</span>(selectNumber<span style="color:#bbb"> </span><span style="color:#666">&gt;</span>4)<span style="color:#bbb"> </span>{<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span>System.<span style="color:#b44">out</span>.<span style="color:#b44">println</span>(<span style="color:#b44">&#34;请输入正确的数字以选择！&#34;</span>);<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>}<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#080;font-style:italic">//以下为加法</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#a2f;font-weight:bold">if</span><span style="color:#bbb"> </span>(selectNumber<span style="color:#bbb"> </span><span style="color:#666">==</span><span style="color:#bbb"> </span>1)<span style="color:#bbb"> </span>{<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span>System.<span style="color:#b44">out</span>.<span style="color:#b44">println</span>(<span style="color:#b44">&#34;请输入您要计算的第一个数字&#34;</span>);<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span>Scanner<span style="color:#bbb"> </span>jiafaSc<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">new</span><span style="color:#bbb"> </span>Scanner(System.<span style="color:#b44">in</span>);<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#bbb"> </span>jiafa1<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>jiafaSc.<span style="color:#b44">nextInt</span>();<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span>System.<span style="color:#b44">out</span>.<span style="color:#b44">println</span>(<span style="color:#b44">&#34;请输入您要计算的第二个数字&#34;</span>);<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#bbb"> </span>jiafa2<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>jiafaSc.<span style="color:#b44">nextInt</span>();<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span>jiafa(jiafa1,<span style="color:#bbb"> </span>jiafa2);<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>}<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#080;font-style:italic">//以下为减法</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#a2f;font-weight:bold">if</span><span style="color:#bbb"> </span>(selectNumber<span style="color:#bbb"> </span><span style="color:#666">==</span><span style="color:#bbb"> </span>2)<span style="color:#bbb"> </span>{<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span>System.<span style="color:#b44">out</span>.<span style="color:#b44">println</span>(<span style="color:#b44">&#34;请输入您要计算的第一个数字&#34;</span>);<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span>Scanner<span style="color:#bbb"> </span>jianfaSc<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">new</span><span style="color:#bbb"> </span>Scanner(System.<span style="color:#b44">in</span>);<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#bbb"> </span>jianfa1<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>jianfaSc.<span style="color:#b44">nextInt</span>();<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span>System.<span style="color:#b44">out</span>.<span style="color:#b44">println</span>(<span style="color:#b44">&#34;请输入您要计算的第二个数字&#34;</span>);<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#bbb"> </span>jianfa2<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>jianfaSc.<span style="color:#b44">nextInt</span>();<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span>jianfa(jianfa1,<span style="color:#bbb"> </span>jianfa2);<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>}<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#080;font-style:italic">//以下为乘法</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#a2f;font-weight:bold">if</span><span style="color:#bbb"> </span>(selectNumber<span style="color:#bbb"> </span><span style="color:#666">==</span><span style="color:#bbb"> </span>3)<span style="color:#bbb"> </span>{<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span>System.<span style="color:#b44">out</span>.<span style="color:#b44">println</span>(<span style="color:#b44">&#34;请输入您要计算的第一个数字&#34;</span>);<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span>Scanner<span style="color:#bbb"> </span>chengfaSc<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">new</span><span style="color:#bbb"> </span>Scanner(System.<span style="color:#b44">in</span>);<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#bbb"> </span>chengfa1<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>chengfaSc.<span style="color:#b44">nextInt</span>();<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span>System.<span style="color:#b44">out</span>.<span style="color:#b44">println</span>(<span style="color:#b44">&#34;请输入您要计算的第二个数字&#34;</span>);<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#bbb"> </span>chengfa2<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>chengfaSc.<span style="color:#b44">nextInt</span>();<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span>chengfa(chengfa1,<span style="color:#bbb"> </span>chengfa2);<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>}<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#a2f;font-weight:bold">if</span><span style="color:#bbb"> </span>(selectNumber<span style="color:#bbb"> </span><span style="color:#666">==</span><span style="color:#bbb"> </span>4)<span style="color:#bbb"> </span>{<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span>System.<span style="color:#b44">out</span>.<span style="color:#b44">println</span>(<span style="color:#b44">&#34;请输入您要计算的第一个数字&#34;</span>);<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span>Scanner<span style="color:#bbb"> </span>chufaSc<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">new</span><span style="color:#bbb"> </span>Scanner(System.<span style="color:#b44">in</span>);<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#bbb"> </span>chufa1<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>chufaSc.<span style="color:#b44">nextInt</span>();<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span>System.<span style="color:#b44">out</span>.<span style="color:#b44">println</span>(<span style="color:#b44">&#34;请输入您要计算的第二个数字&#34;</span>);<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#bbb"> </span>chufa2<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>chufaSc.<span style="color:#b44">nextInt</span>();<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span>chufa(chufa1,<span style="color:#bbb"> </span>chufa2);<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>}<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>System.<span style="color:#b44">out</span>.<span style="color:#b44">println</span>(<span style="color:#b44">&#34;-----------------------------------------&#34;</span>);<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>}<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#080;font-style:italic">//加减乘除各项功能的方法，上面直接调用</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">static</span><span style="color:#bbb"> </span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#bbb"> </span><span style="color:#00a000">jiafa</span>(<span style="color:#0b0;font-weight:bold">int</span><span style="color:#bbb"> </span>a,<span style="color:#bbb"> </span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#bbb"> </span>b)<span style="color:#bbb"> </span>{<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#bbb"> </span>jieguo<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>a<span style="color:#bbb"> </span><span style="color:#666">+</span><span style="color:#bbb"> </span>b;<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>System.<span style="color:#b44">out</span>.<span style="color:#b44">println</span>(jieguo);<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#a2f;font-weight:bold">return</span><span style="color:#bbb"> </span>a<span style="color:#bbb"> </span><span style="color:#666">+</span><span style="color:#bbb"> </span>b;<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">static</span><span style="color:#bbb"> </span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#bbb"> </span><span style="color:#00a000">jianfa</span>(<span style="color:#0b0;font-weight:bold">int</span><span style="color:#bbb"> </span>a,<span style="color:#bbb"> </span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#bbb"> </span>b)<span style="color:#bbb"> </span>{<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#bbb"> </span>jieguo<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>a<span style="color:#bbb"> </span><span style="color:#666">-</span><span style="color:#bbb"> </span>b;<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>System.<span style="color:#b44">out</span>.<span style="color:#b44">println</span>(jieguo);<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#a2f;font-weight:bold">return</span><span style="color:#bbb"> </span>a<span style="color:#bbb"> </span><span style="color:#666">-</span><span style="color:#bbb"> </span>b;<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">static</span><span style="color:#bbb"> </span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#bbb"> </span><span style="color:#00a000">chengfa</span>(<span style="color:#0b0;font-weight:bold">int</span><span style="color:#bbb"> </span>a,<span style="color:#bbb"> </span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#bbb"> </span>b)<span style="color:#bbb"> </span>{<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#bbb"> </span>jieguo<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>a<span style="color:#bbb"> </span><span style="color:#666">*</span><span style="color:#bbb"> </span>b;<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>System.<span style="color:#b44">out</span>.<span style="color:#b44">println</span>(jieguo);<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#a2f;font-weight:bold">return</span><span style="color:#bbb"> </span>a<span style="color:#bbb"> </span><span style="color:#666">*</span><span style="color:#bbb"> </span>b;<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">static</span><span style="color:#bbb"> </span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#bbb"> </span><span style="color:#00a000">chufa</span>(<span style="color:#0b0;font-weight:bold">int</span><span style="color:#bbb"> </span>a,<span style="color:#bbb"> </span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#bbb"> </span>b)<span style="color:#bbb"> </span>{<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#bbb"> </span>jieguo<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>a<span style="color:#bbb"> </span><span style="color:#666">/</span><span style="color:#bbb"> </span>b;<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>System.<span style="color:#b44">out</span>.<span style="color:#b44">println</span>(jieguo);<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#a2f;font-weight:bold">return</span><span style="color:#bbb"> </span>a<span style="color:#bbb"> </span><span style="color:#666">/</span><span style="color:#bbb"> </span>b;<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
-</span></span></span></code></pre></div>  <h2><a href="/post/%E6%8A%80%E6%9C%AF/89/">Java方法的基本使用</a></h2> <h1 id="方法是什么">方法是什么</h1>
-<p>方法是一种语法结构，它可以把代码封装成一段功能，以便重复调用。</p>
-<p>方法的完整格式：</p>
-<p>例子：数字求和</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">static</span><span style="color:#bbb">  </span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#bbb"> </span><span style="color:#00a000">sum</span>(<span style="color:#0b0;font-weight:bold">int</span><span style="color:#bbb"> </span>a,<span style="color:#0b0;font-weight:bold">int</span><span style="color:#bbb"> </span>b){<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#bbb"> </span>c<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>a<span style="color:#bbb"> </span><span style="color:#666">+</span><span style="color:#bbb"> </span>b;<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#a2f;font-weight:bold">return</span><span style="color:#bbb"> </span>c;<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
-</span></span></span></code></pre></div><p>方法的调用：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#bbb">       </span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#bbb"> </span>rs<span style="color:#666">=</span><span style="color:#bbb"> </span>sum(10,20);<span style="color:#bbb">
-</span></span></span></code></pre></div><h2 id="方法使用的注意点">方法使用的注意点：</h2>
-<p>方法申明了具体的返回值类型，内部必须使用return返回对应类型的数据。</p>
-<p>形参列表可以有多个，甚至可没有；如果有多个形参，必须用英文逗号隔开，且不能给初始化值</p>
-<h2 id="使用方法的好处">使用方法的好处</h2>
-<ul>
-<li>提高代码的复用性，提高了开发效率</li>
-<li>让程序逻辑性更清晰</li>
-</ul>
-<h2 id="方法的其他定义形式">方法的其他定义形式</h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">static</span><span style="color:#bbb"> </span><span style="color:#0b0;font-weight:bold">void</span><span style="color:#bbb"> </span><span style="color:#00a000">printHelloWorld</span>(<span style="color:#0b0;font-weight:bold">int</span><span style="color:#bbb"> </span>n)<span style="color:#bbb"> </span>{<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#a2f;font-weight:bold">for</span><span style="color:#bbb"> </span>(<span style="color:#0b0;font-weight:bold">int</span><span style="color:#bbb"> </span>i<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>1;<span style="color:#bbb"> </span>i<span style="color:#bbb"> </span><span style="color:#666">&lt;=</span>n;<span style="color:#bbb"> </span>i<span style="color:#666">++</span>)<span style="color:#bbb"> </span>{<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>System.<span style="color:#b44">out</span>.<span style="color:#b44">println</span>(<span style="color:#b44">&#34;Hello World&#34;</span>);<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>}<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#080;font-style:italic">//打印三行helloworld（使用方法）</span><span style="color:#bbb">
-</span></span></span></code></pre></div><ul>
-<li>如果方法不需要返回数据，返回类型必须申明成<code>void</code>此时方法内部可以不使用return返回数据。</li>
-<li>方法如果不需要接收数据，则不需要定义形参，调用方法时也不可以传数据给方法了。</li>
-<li>没有参数，且没有返回类型（void）申明的方法，称为<strong>无参数、无返回值的方法</strong></li>
-</ul>  </main>
-    <footer>
-      <a class="footer-a-link" href="./atom.xml">RSS</a> | <a class="footer-a-link" href="https://www.github.com/yingyu5658/Moments">Moments</a>
-<p class="copyright">Copyright 2025. All rights reserved.</p>
- <img src="/notbyai.png" class="not-by-ai" />
+    
+    
+    
+    
+    
+        <div class="post-title">
+            <a class="rel-permalink" href="/post/%E6%8A%80%E6%9C%AF/%E9%BB%91%E5%8E%86%E5%8F%B2%E8%AF%BB%E8%87%AA%E5%B7%B1%E4%BB%A5%E5%89%8D%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81/">
+                <div class="post-date">2025-04-19</div>
+                【黑历史】读自己以前写的代码
+            </a>
+            <br />
+        </div>
+    
+        <div class="post-title">
+            <a class="rel-permalink" href="/post/%E6%8A%80%E6%9C%AF/%E4%BA%BA%E8%AF%9D%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3%E5%85%AB%E4%B8%8B%E9%81%97%E4%BC%A0%E4%B9%8B%E7%94%9F%E7%89%A9%E7%9A%84%E9%81%97%E4%BC%A0%E5%8F%98%E5%BC%82/">
+                <div class="post-date">2025-03-18</div>
+                人话简单理解八下遗传之生物的遗传变异
+            </a>
+            <br />
+        </div>
+    
+        <div class="post-title">
+            <a class="rel-permalink" href="/post/%E6%8A%80%E6%9C%AF/186/">
+                <div class="post-date">2025-01-10</div>
+                Java面向对象编程——多态、抽象类、接口
+            </a>
+            <br />
+        </div>
+    
+        <div class="post-title">
+            <a class="rel-permalink" href="/post/%E6%8A%80%E6%9C%AF/185/">
+                <div class="post-date">2025-01-10</div>
+                Java面向对象编程——继承
+            </a>
+            <br />
+        </div>
+    
+        <div class="post-title">
+            <a class="rel-permalink" href="/post/%E6%8A%80%E6%9C%AF/184/">
+                <div class="post-date">2025-01-08</div>
+                修复Geyser下基岩版玩家无法在地狱基岩层放置方块
+            </a>
+            <br />
+        </div>
+    
+        <div class="post-title">
+            <a class="rel-permalink" href="/post/%E6%8A%80%E6%9C%AF/181/">
+                <div class="post-date">2025-01-04</div>
+                Spigot服务端控制台中文乱码解决方案
+            </a>
+            <br />
+        </div>
+    
+        <div class="post-title">
+            <a class="rel-permalink" href="/post/%E6%8A%80%E6%9C%AF/171/">
+                <div class="post-date">2024-12-19</div>
+                String的注意事项
+            </a>
+            <br />
+        </div>
+    
+        <div class="post-title">
+            <a class="rel-permalink" href="/post/%E6%8A%80%E6%9C%AF/170/">
+                <div class="post-date">2024-12-19</div>
+                Java遍历字符串
+            </a>
+            <br />
+        </div>
+    
+        <div class="post-title">
+            <a class="rel-permalink" href="/post/%E6%8A%80%E6%9C%AF/166/">
+                <div class="post-date">2024-12-18</div>
+                面向对象编程总结
+            </a>
+            <br />
+        </div>
+    
+        <div class="post-title">
+            <a class="rel-permalink" href="/post/%E6%8A%80%E6%9C%AF/98/">
+                <div class="post-date">2024-12-01</div>
+                Java面向对象编程快速入门
+            </a>
+            <br />
+        </div>
+    
+        <div class="post-title">
+            <a class="rel-permalink" href="/post/%E6%8A%80%E6%9C%AF/99/">
+                <div class="post-date">2024-12-01</div>
+                深刻认识面向对象
+            </a>
+            <br />
+        </div>
+    
+        <div class="post-title">
+            <a class="rel-permalink" href="/post/%E6%8A%80%E6%9C%AF/95/">
+                <div class="post-date">2024-11-30</div>
+                Java方法的传参原理
+            </a>
+            <br />
+        </div>
+    
+        <div class="post-title">
+            <a class="rel-permalink" href="/post/%E6%8A%80%E6%9C%AF/90/">
+                <div class="post-date">2024-11-30</div>
+                Java小程序之两数计算器
+            </a>
+            <br />
+        </div>
+    
+        <div class="post-title">
+            <a class="rel-permalink" href="/post/%E6%8A%80%E6%9C%AF/89/">
+                <div class="post-date">2024-11-29</div>
+                Java方法的基本使用
+            </a>
+            <br />
+        </div>
+    
+
+    
+    
+	<footer>
+		<p>-------------------------------------------</p>
+<p>Email: me (at) yingyu5658 (dot) com</p>
+<img src="/notbyai.png" class="not-by-ai" /> <br>
+ 
     </footer>
-  </body>
+
+
+</main>
+      </body>
 </html>
 

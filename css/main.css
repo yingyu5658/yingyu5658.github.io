@@ -1,5 +1,6 @@
 body {
-  font-family: 
+  font-family:
+    "Consolas",
     "SimSun",             /* Windows */
     "STSongti-SC",        /* macOS */
     "Songti SC",          /* macOS新版本 */
@@ -11,20 +12,63 @@ body {
     margin: auto;
     padding: auto;
     max-width: 750px;
-	background-color: #f5f5d5;
 }
 
-.label {
-    color: #222;
+time {
+    margin: 0;
+    line-height: 1px;
 }
 
-.pagination {
-	line-height: 30px;
+
+
+/* 简洁分页样式 */
+.simplified-pagination nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-.pagination a {
-	color: #333;
+.simplified-pagination a, 
+.simplified-pagination span {
+    display: block;
+    text-decoration: none;
+    min-width: 40px;
+    text-align: center;
 }
+
+.simplified-pagination .current-page span {
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 header {
     border-bottom: #d3d3d3 1px solid;
@@ -62,6 +106,7 @@ img {
 }
 
 .not-by-ai {
+    margin-top: 5px;
     width: 15%;
 }
 
@@ -71,12 +116,6 @@ img {
 
 .footer-a-link:hover {
 	color: #0732a5;
-}
-
-.copyright {
-	line-height: 5px;
-	margin-top: 8px;
-    margin-bottom: 15px;
 }
 
 .title {
@@ -113,6 +152,7 @@ pre, code {
 
 .post-title {
     font-size: 17px;
+    margin-bottom: 3px;
 }
 
 .rel-permalink {
@@ -123,6 +163,11 @@ pre, code {
 	margin-right: 3px;
 }
 
+._ {
+    margin: 0;
+    padding: 0;
+}
+
 .post-title strong {
     font-weight: 410;
 }
@@ -131,9 +176,9 @@ header {
     margin-bottom: 1rem;
 }
 
-footer {
-    border-top: 1px solid #222;
-    margin-top: 5px;
+footer p{
+    margin: 0;
+    line-height: 20px;
 }
 
 a {

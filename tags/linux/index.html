@@ -4,401 +4,125 @@
   dir="ltr"
 >
   <head>
-    <meta charset="utf-8"> <meta name="viewport" content="width=device-width"> <title>Linux | 映屿</title>  <link rel="stylesheet" href="/css/main.min.285850d1e24e898f7b1f74d41ebb260192f7b2b58602acc9401c1d6aadab23a2.css" integrity="sha256-KFhQ0eJOiY97H3TUHrsmAZL3srWGAqzJQBwdaq2rI6I=" crossorigin="anonymous">  <script src="/js/main.a7956529a5290cbd80aa9c64ee52ceefa89957b568d8a14c217a91d7f4d6aa38.js" integrity="sha256-p5VlKaUpDL2Aqpxk7lLO76iZV7Vo2KFMIXqR1/TWqjg=" crossorigin="anonymous"></script>
+    <meta charset="utf-8"> <meta name="viewport" content="width=device-width"> <title>Linux | 映屿</title>  <link rel="stylesheet" href="/css/main.min.dedb3cb6a122787f34e63619fa068c5216f47b80f48863e29b68e48f5e152876.css" integrity="sha256-3ts8tqEieH805jYZ&#43;gaMUhb0e4D0iGPim2jkj14VKHY=" crossorigin="anonymous">  <script src="/js/main.a7956529a5290cbd80aa9c64ee52ceefa89957b568d8a14c217a91d7f4d6aa38.js" integrity="sha256-p5VlKaUpDL2Aqpxk7lLO76iZV7Vo2KFMIXqR1/TWqjg=" crossorigin="anonymous"></script>
   </head>
   <body>
-    <header><h1 class="title">映屿</h1> <p class="subtitle">yingyu5658的数字花园</p>  <nav> <div class="menu-item"> <a href="/">Home</a> </div> <div class="menu-item"> <a href="/links">Links</a> </div> <div class="menu-item"> <a href="/about">About</a> </div> </nav> 
+		<main>
+    <header><h1 class="title">映屿</h1> <p class="subtitle">yingyu5658的数字花园</p>  
 </header>
-    <main> <h1>Linux</h1>   <h2><a href="/post/%E6%8A%80%E6%9C%AF/fedora42%E6%97%A0%E6%B3%95%E6%92%AD%E6%94%BE%E9%9F%B3%E9%A2%91%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/fedora-linux-cant-play-audio/">Fedora42无法播放音频的解决方案</a></h2> <h2 id="基本信息">基本信息</h2>
-<pre tabindex="0"><code>OS: Fedora Linux 42 (Workstation Edition) x86_64
-Host: Z490 GAMING X (-CF)
-Kernel: Linux 6.15.4-200.fc42.x86_64
-</code></pre><h2 id="问题描述">问题描述</h2>
-<p>无法播放任何音频，内核日志无报错，alsamixer中显示没有任何静音选项，系统自带音频模块无缺失，进行过一次<code>dnf update</code>。</p>
-<h2 id="解决方案">解决方案</h2>
-<p>找一个耳机插到电脑上后，音频输出设备选择<code>**线缆输出-内置音频**</code>即可正常播放音频。</p>
-<p>出现原因未知，间歇性发作。</p>  <h2><a href="/post/%E6%8A%80%E6%9C%AF/tmux%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/">Tmux配置记录</a></h2> <p>TMux 是终端复用神器，让你在一个终端窗口管理多个会话、窗口和窗格。</p>
-<p>基础操作：启动Tmux</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>tmux
-</span></span></code></pre></div><p>所以我选择在<code>~/.bashrc</code>里加上这句，每次打开终端都会自动进入tmux。</p>
-<p><strong>需要掌握的概念</strong>：</p>
-<ul>
-<li>会话（Session）：长期运行的终端环境。</li>
-<li>窗口（Window）：会话中的标签页。</li>
-<li>窗格（Pane）：窗口中的分屏。</li>
-</ul>
-<p><strong>默认快捷键：</strong></p>
-<table>
-  <thead>
-      <tr>
-          <th>操作</th>
-          <th>快捷键</th>
-          <th>说明</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>会话管理</strong></td>
-          <td></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>脱离会话</td>
-          <td><code>Ctrl+b d</code></td>
-          <td>后台运行会话</td>
-      </tr>
-      <tr>
-          <td>查看会话列表</td>
-          <td><code>Ctrl+b s</code></td>
-          <td>方向键选择并进入</td>
-      </tr>
-      <tr>
-          <td>重命名当前会话</td>
-          <td><code>Ctrl+b $</code></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td><strong>窗口管理</strong></td>
-          <td></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>新建窗口</td>
-          <td><code>Ctrl+b c</code></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>关闭当前窗口</td>
-          <td><code>Ctrl+b &amp;</code></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>切换窗口</td>
-          <td><code>Ctrl+b 0~9</code></td>
-          <td>切换到指定编号窗口</td>
-      </tr>
-      <tr>
-          <td>窗口列表</td>
-          <td><code>Ctrl+b w</code></td>
-          <td>可视化选择窗口</td>
-      </tr>
-      <tr>
-          <td><strong>窗格管理</strong></td>
-          <td></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>水平分割窗格</td>
-          <td><code>Ctrl+b &quot;</code></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>垂直分割窗格</td>
-          <td><code>Ctrl+b %</code></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>切换窗格</td>
-          <td><code>Ctrl+b 方向键</code></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>关闭当前窗格</td>
-          <td><code>Ctrl+b x</code></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>最大化/恢复窗格</td>
-          <td><code>Ctrl+b z</code></td>
-          <td>临时全屏当前窗格</td>
-      </tr>
-  </tbody>
-</table>
-<p><strong>配置自定义（~/.tmux.conf）</strong>：</p>  <h2><a href="/post/%E6%8A%80%E6%9C%AF/%E7%BB%99%E6%AF%94%E6%88%91%E5%B2%81%E6%95%B0%E8%BF%98%E5%A4%A7%E7%9A%84%E7%94%B5%E8%84%91%E8%A3%85fedora/">给比我岁数还大的电脑装Fedora</a></h2> <h2 id="前言">前言</h2>
-<p><img src="./ccb6ab92150b3314a3cb09eee8102a56.jpg" alt=""></p>
-<p>印象中，这台电脑在我很小的时候就存在了，我爸的网盘里至今还有我当时用这台电脑播放江南Style，我在床上跳舞的视频。</p>
-<p>这台机子开Powershell都卡，更不用说日常使用。</p>
-<p><img src="./de5fce2eac7705b9df0d9a6e76ebf799.jpg" alt="">
-我甚至都不想在这台电脑上截图，当拍屏大师吧。</p>
-<p>听说Linux用户有个刻板印象就是，用着十几年前的笔记本，从来不用最新设备，那这不刚好吻合上了吗。</p>
-<p>诶&hellip;&hellip;等等，我<a href="https://www.yingyu5658.me/post/3691550015/">之前</a>好像说过不折腾了？算了，反正Fedora没有Arch那么折腾（吧）。</p>
-<h2 id="正文">正文</h2>
-<p><img src="./Pasted%20image%2020250613202911.png" alt=""></p>
-<p>镜像下好后，用Rufus拷到U盘。</p>
-<p>插到电脑上，额，先让我研究一下BIOS怎么进&hellip;&hellip;</p>
-<p><img src="./25890eb0322bbe6620bd4edc0b9b9e9e.jpg" alt="">
-把#1改成刚刚做的启动盘。保存后重启。</p>
-<p><img src="./092ae6cfdd02bb72a2f02674392afdd6.jpg" alt="">
-哎，没想到第一难在这等着我呢。引导进不去。难道是我打开方式有问题？重新进BIOS，#1设置成UEFI巴拉巴拉试试。</p>
-<p><img src="./3c968f8512852e157f43355f88d53ed8.jpg" alt="">
-诶！成了，等一阵黑屏过后就弹Fedora Logo了。</p>
-<p><img src="./b6cec1104a907293109eb1f94eb175c8.jpg" alt="">
-直接端上来吧！不管三七二十八直接Install！</p>
-<p>整个安装过程还是很傻瓜式的，只要有小学英文基础点点点就好了。</p>
-<p><img src="./01b262c2846e87f4dcaa8726cbf2a347.jpg" alt="">
-虽然但是，这个简体中文怎么标的是新加坡。</p>
-<p>一顿等待后，进入系统让选择一下语言，连接个WIFI就算大功告成了。</p>
-<p><del>本来以为能有什么好玩的，还真这么傻瓜啊。。。</del></p>
-<p>最后再来个经典的neofetch
-<img src="./34996156f7df6e00bd8f4a6139f9f3fb.jpg" alt=""></p>
-<p>系统也装完了，文章也写完了，电影也下完了，爽！
-<img src="./Pasted%20image%2020250613211830.png" alt=""></p>  <h2><a href="/post/%E6%8A%80%E6%9C%AF/emacs%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95-2c-c&#43;&#43;%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">Emacs配置记录 2——C/C&#43;&#43;环境配置</a></h2> <h2 id="前言">前言</h2>
-<p>经过<a href="">上一篇</a>的简单调教，Emacs已经勉强变成了一个温顺的文本编辑器，但是离写代码这个宏大的目标还是有一段距离的，今天来解决主要问题：代码补全。由于我要写一点简单的C代码，那么重点就先放到C/CPP环境搭建中。</p>
-<p>站在巨人的肩膀上，在Emacs中的代码补全使用巨硬的LSP协议。</p>
-<h2 id="spacemacs">Spacemacs</h2>
-<p>经过考虑，我还是决定使用Spacemacs，比起原版Emacs，它更适合新手，也更能快速投入开发。避免配置陷阱，过多把时间花在刀把上。唉，也就是说，昨天大部分都白干了。算了，生命的意义就在于折腾，怕折腾我也不会玩Emacs了。来吧！</p>
-<p>先来安装一下Spacemacs。
-<code>git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d</code></p>
-<p>重启Emacs，让他下载一下自带的包。</p>
-<p>上次没清理干净Spacemacs，不知道存在哪的备份还在，算是免去了一些折腾吧。来看看现在的Emacs都配置了什么。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span>   <span style="color:#b8860b">dotspacemacs-configuration-layers</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#666">&#39;</span>(<span style="color:#b8860b">yaml</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#b8860b">markdown</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#b8860b">javascript</span>
-</span></span><span style="display:flex;"><span>     (<span style="color:#b8860b">auto-completion</span> <span style="color:#b8860b">:variables</span>
-</span></span><span style="display:flex;"><span>                      <span style="color:#b8860b">auto-completion-idle-delay</span> <span style="color:#666">0.01</span>    <span style="color:#080;font-style:italic">; 降低补全延迟</span>
-</span></span><span style="display:flex;"><span>                      <span style="color:#b8860b">auto-completion-minimum-prefix-length</span> <span style="color:#666">1</span>)
-</span></span><span style="display:flex;"><span>     (<span style="color:#b8860b">prettier</span> <span style="color:#b8860b">:variables</span>
-</span></span><span style="display:flex;"><span>               <span style="color:#b8860b">prettier-always-enable</span> <span style="color:#800">t</span>)  <span style="color:#080;font-style:italic">; 保存时自动格式化</span>
-</span></span><span style="display:flex;"><span>     (<span style="color:#b8860b">javascript</span> <span style="color:#b8860b">:variables</span>
-</span></span><span style="display:flex;"><span>                 <span style="color:#b8860b">javascript-backend</span> <span style="color:#b8860b">&#39;lsp</span>        <span style="color:#080;font-style:italic">; 启用LSP后端</span>
-</span></span><span style="display:flex;"><span>                 <span style="color:#b8860b">javascript-fmt-tool</span> <span style="color:#b8860b">&#39;prettier</span>) <span style="color:#080;font-style:italic">; 格式化工具选Prettier</span>
-</span></span><span style="display:flex;"><span>     (<span style="color:#b8860b">c-c++</span> <span style="color:#b8860b">:variables</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#b8860b">c-c++-backend</span> <span style="color:#b8860b">&#39;lsp-clangd</span>)         <span style="color:#080;font-style:italic">; C/C++使用Clangd后端</span>
-</span></span><span style="display:flex;"><span>     (<span style="color:#b8860b">vue</span> <span style="color:#b8860b">:variables</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#b8860b">vue-backend</span> <span style="color:#b8860b">&#39;lsp</span>)                    <span style="color:#080;font-style:italic">; Vue使用LSP后端</span>
-</span></span><span style="display:flex;"><span>     (<span style="color:#b8860b">html</span>)                                    <span style="color:#080;font-style:italic">; HTML/CSS支持</span>
-</span></span><span style="display:flex;"><span>     (<span style="color:#b8860b">lsp</span>)                                     <span style="color:#080;font-style:italic">; 必须的LSP核心支持层</span>
-</span></span><span style="display:flex;"><span>     (<span style="color:#b8860b">auto-completion</span>)                         <span style="color:#080;font-style:italic">; 自动补全</span>
-</span></span><span style="display:flex;"><span>     (<span style="color:#b8860b">syntax-checking</span>)                         <span style="color:#080;font-style:italic">; 语法检查</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#080;font-style:italic">;; ----------------------------------------------------------------</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#080;font-style:italic">;; Example of useful layers you may want to use right away.</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#080;font-style:italic">;; Uncomment some layer names and press `SPC f e R&#39; (Vim style) or</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#080;font-style:italic">;; `M-m f e R&#39; (Emacs style) to install them.</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#080;font-style:italic">;; ----------------------------------------------------------------</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#080;font-style:italic">;; auto-completion</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#080;font-style:italic">;; better-defaults</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#b8860b">emacs-lisp</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#b8860b">treemacs</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#080;font-style:italic">;; git</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#b8860b">helm</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#b8860b">lsp</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#080;font-style:italic">;; markdown</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#b8860b">multiple-cursors</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#080;font-style:italic">;; org</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#080;font-style:italic">;; (shell :variables</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#080;font-style:italic">;;        shell-default-height 30</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#080;font-style:italic">;;        shell-default-position &#39;bottom)</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#080;font-style:italic">;; spell-checking</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#080;font-style:italic">;; syntax-checking</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#080;font-style:italic">;; version-control</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#b8860b">treemacs</span>)
-</span></span></code></pre></div><p>emmm，还是有点有用的。比如C/C++这里，就启用了LSP。还有一些之前搞的前端配置。就是不知道为啥，JavaScript的补全不太好使。</p>  <h2><a href="/post/%E6%8A%80%E6%9C%AF/%E6%88%91%E8%BF%98%E6%98%AF%E6%94%BE%E4%B8%8D%E4%B8%8Bemacs/">我还是放不下Emacs！</a></h2> <h2 id="前言">前言</h2>
-<p>难受，真难受呀。作为一个痴迷Vim的人，总是被Emacs的强大勾引，看见别人配的酷炫全能的Emacs就走不动路，脑子里想着“没事没事，我Vim轻量启动极快，Emacs这种重量级是比不上的”，自我安慰。实际上多想玩Emacs只有我自己知道&hellip;&hellip;</p>
-<p>我之前也试过<a href="https://www.yingyu5658.me/post/2193909713/">配Emacs</a>，但是Windows搞出来的不伦不类还很卡的东西太难受，用WSL尝试了一下Spacemacs，搞不明白那个层机制，也对ELisp这个语言不熟悉（说实话到现在Lua的一些东西我都不明白），而且之前的配置也一直想一口吃个大胖子，一天内就配到IDE的强大程度，经过几次失败和Vim配置经验后，我深知这是不可能的，除非在我使用Emacs后N周年的第N周目重新删干净再配，也许能做到。</p>
-<p>定个小目标吧，每天配一点点，成果起码要达到以下程度：</p>
-<ul>
-<li>能胜任前端、Nodejs的开发</li>
-<li>能胜任CPP/C的开发</li>
-<li>能使用EAF浏览网页</li>
-<li>有一点花里胡哨的小功能</li>
-</ul>
-<p>其实我也挺想把博客迁移到Emacs，完全用org-mode来写，Hexo越来越慢。其实Hugo也不是不行，就是不太熟悉也不喜欢Go。看了<a href="https://liujiacai.net/">刘家财大佬的博客</a>后感觉这个也太酷了，主题我也很喜欢，但是评论功能可能有点折腾，我对评论系统也有点不太在意。最难割舍的是现在用的这个主题&hellip;&hellip;</p>
-<p>刘家财老师是这样说的</p>
-<blockquote>
-<p>只不过遗憾的是，即使写了近 10 年的博客，有价值的评论少之又少，可能中文互联网内没多少人认真写技术评论吧。</p>
-</blockquote>
-<p>这点我确实认同，观察了一些博客的评论，真正讨论技术内容的没几个，大多都是在围观、附和。但是我的博客类型也不能算是纯技术博客，保持与读者的互动还是很有意思的。</p>
-<p>言归正传，我现在的Emacs在WSL里，装的是Spacemacs，能正常用eaf，但是写代码很难受，也没有补全，可以说现在它只能当一个浏览器用，我准备推翻重新配。</p>
-<p>那么，从现在开始，来配Emacs！！！</p>
-<p><img src="https://pavinberg.github.io/emacs-book/images/emacs-book/intro/learningCurve.jpg" alt="各个编辑器学习曲线图" title="../../images/emacs-book/intro/learningCurve.jpg"></p>
-<h2 id="与过去挥手">与过去挥手</h2>
-<p>在<code>rm -rf ~/.emacs.d</code>后，那个不伦不类、上不去下不来的Emacs彻底成为了历史。重新输入Emacs，又看到熟悉又陌生的丑陋开屏页。</p>
-<h2 id="小插曲">小插曲</h2>
-<p>WSLg间歇性抽风，打不开GUI</p>
-<pre tabindex="0"><code>Display 10.255.255.254:0 unavailable, simulating -nw
-</code></pre><p>打开管理员Powershell，运行<code>wsl --update</code>
-![[public/images/我还是放不下Emacs！/Pasted image 20250603210050.png]]
-<del>我草，怎么这么慢？？</del></p>
-<h2 id="melpa配置">MELPA配置</h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span>(<span style="color:#00a000">require</span> <span style="color:#b8860b">&#39;package</span>)
-</span></span><span style="display:flex;"><span>(<span style="color:#b8860b">add-to-list</span> <span style="color:#b8860b">&#39;package-archives</span> <span style="color:#666">&#39;</span>(<span style="color:#b44">&#34;melpa&#34;</span> <span style="color:#666">.</span> <span style="color:#b44">&#34;https://melpa.org/packages/&#34;</span>) <span style="color:#800">t</span>)
-</span></span><span style="display:flex;"><span>(<span style="color:#b8860b">package-initialize</span>)
-</span></span></code></pre></div><p>切换中国镜像源</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span>(<span style="color:#00a000">require</span> <span style="color:#b8860b">&#39;package</span>)
-</span></span><span style="display:flex;"><span>(<span style="color:#a2f;font-weight:bold">setq</span> <span style="color:#b8860b">package-archives</span> <span style="color:#666">&#39;</span>((<span style="color:#b44">&#34;gnu&#34;</span>  <span style="color:#666">.</span> <span style="color:#b44">&#34;http://mirrors.cloud.tencent.com/elpa/gnu/&#34;</span>)
-</span></span><span style="display:flex;"><span>             (<span style="color:#b44">&#34;melpa&#34;</span> <span style="color:#666">.</span> <span style="color:#b44">&#34;http://mirrors.cloud.tencent.com/elpa/melpa/&#34;</span>)))
-</span></span><span style="display:flex;"><span>(<span style="color:#b8860b">package-initialize</span>)
-</span></span></code></pre></div><p>重启Emacs，输入<code>package-list-packages</code>就可以查看所有插件。<code>package-install</code>，回车输入插件名就可以安装对应插件。
-默认情况下，插件会被安装到 <code>~/.emacs.d/elpa/</code> 目录下。</p>
-<h2 id="use-package">use-package</h2>
-<p>输入<code>package-install</code>，输入<code>use-package</code>，回车安装，然后在init.el中写</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span>(<span style="color:#b8860b">eval-when-compile</span>
-</span></span><span style="display:flex;"><span> (<span style="color:#00a000">require</span> <span style="color:#b8860b">&#39;use-package</span>))
-</span></span></code></pre></div><h2 id="ivy">ivy</h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span>(<span style="color:#00a000">use-package</span> <span style="color:#b8860b">ivy</span>
-</span></span><span style="display:flex;"><span> <span style="color:#b8860b">:ensure</span> <span style="color:#800">t</span>
-</span></span><span style="display:flex;"><span> <span style="color:#b8860b">:init</span>
-</span></span><span style="display:flex;"><span> (<span style="color:#b8860b">ivy-mode</span> <span style="color:#666">1</span>)
-</span></span><span style="display:flex;"><span> (<span style="color:#b8860b">counsel-mode</span> <span style="color:#666">1</span>)
-</span></span><span style="display:flex;"><span> <span style="color:#b8860b">:config</span>
-</span></span><span style="display:flex;"><span> (<span style="color:#a2f;font-weight:bold">setq</span> <span style="color:#b8860b">ivy-use-virtual-buffers</span> <span style="color:#800">t</span>)
-</span></span><span style="display:flex;"><span> (<span style="color:#a2f;font-weight:bold">setq</span> <span style="color:#b8860b">search-default-mode</span> <span style="color:#00a000">#&#39;</span><span style="color:#b8860b">char-fold-to-regexp</span>)
-</span></span><span style="display:flex;"><span> (<span style="color:#a2f;font-weight:bold">setq</span> <span style="color:#b8860b">ivy-count-format</span> <span style="color:#b44">&#34;(%d/%d) &#34;</span>)
-</span></span><span style="display:flex;"><span> <span style="color:#b8860b">:bind</span>
-</span></span><span style="display:flex;"><span> ((<span style="color:#b44">&#34;C-s&#34;</span> <span style="color:#666">.</span> <span style="color:#b8860b">&#39;swiper</span>)
-</span></span><span style="display:flex;"><span>  (<span style="color:#b44">&#34;C-x b&#34;</span> <span style="color:#666">.</span> <span style="color:#b8860b">&#39;ivy-switch-buffer</span>)
-</span></span><span style="display:flex;"><span>  (<span style="color:#b44">&#34;C-c v&#34;</span> <span style="color:#666">.</span> <span style="color:#b8860b">&#39;ivy-push-view</span>)
-</span></span><span style="display:flex;"><span>  (<span style="color:#b44">&#34;C-c s&#34;</span> <span style="color:#666">.</span> <span style="color:#b8860b">&#39;ivy-switch-view</span>)
-</span></span><span style="display:flex;"><span>  (<span style="color:#b44">&#34;C-c V&#34;</span> <span style="color:#666">.</span> <span style="color:#b8860b">&#39;ivy-pop-view</span>)
-</span></span><span style="display:flex;"><span>  (<span style="color:#b44">&#34;C-x C-@&#34;</span> <span style="color:#666">.</span> <span style="color:#b8860b">&#39;counsel-mark-ring</span>)<span style="color:#080;font-style:italic">; 在某些终端上 C-x C-SPC 会被映射为 C-x C-@，比如在 macOS 上，所以要手动设置</span>
-</span></span><span style="display:flex;"><span>  (<span style="color:#b44">&#34;C-x C-SPC&#34;</span> <span style="color:#666">.</span> <span style="color:#b8860b">&#39;counsel-mark-ring</span>)
-</span></span><span style="display:flex;"><span>  <span style="color:#b8860b">:map</span> <span style="color:#b8860b">minibuffer-local-map</span>
-</span></span><span style="display:flex;"><span>  (<span style="color:#b44">&#34;C-r&#34;</span> <span style="color:#666">.</span> <span style="color:#b8860b">counsel-minibuffer-history</span>)))
-</span></span></code></pre></div><h2 id="amx">amx</h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span>(<span style="color:#00a000">use-package</span> <span style="color:#b8860b">amx</span>
-</span></span><span style="display:flex;"><span> <span style="color:#b8860b">:ensure</span> <span style="color:#800">t</span>
-</span></span><span style="display:flex;"><span> <span style="color:#b8860b">:init</span> (<span style="color:#b8860b">amx-mode</span>))
-</span></span></code></pre></div><h2 id="ace-window">ace-window</h2>
-<pre tabindex="0"><code>(use-package ace-window
- :ensure t
- :bind ((&#34;C-x o&#34; . &#39;ace-window)))
-</code></pre><h2 id="mwim">mwim</h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span>(<span style="color:#00a000">use-package</span> <span style="color:#b8860b">mwim</span>
-</span></span><span style="display:flex;"><span> <span style="color:#b8860b">:ensure</span> <span style="color:#800">t</span>
-</span></span><span style="display:flex;"><span> <span style="color:#b8860b">:bind</span>
-</span></span><span style="display:flex;"><span> (<span style="color:#b44">&#34;C-a&#34;</span> <span style="color:#666">.</span> <span style="color:#b8860b">mwim-beginning-of-code-or-line</span>)
-</span></span><span style="display:flex;"><span> (<span style="color:#b44">&#34;C-e&#34;</span> <span style="color:#666">.</span> <span style="color:#b8860b">mwim-end-of-code-or-line</span>))
-</span></span></code></pre></div><h2 id="undo-tree">undo-tree</h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span>(<span style="color:#00a000">use-package</span> <span style="color:#b8860b">undo-tree</span>
-</span></span><span style="display:flex;"><span> <span style="color:#b8860b">:ensure</span> <span style="color:#800">t</span>
-</span></span><span style="display:flex;"><span> <span style="color:#b8860b">:init</span> (<span style="color:#b8860b">global-undo-tree-mode</span>)
-</span></span><span style="display:flex;"><span> <span style="color:#b8860b">:custom</span>
-</span></span><span style="display:flex;"><span> (<span style="color:#b8860b">undo-tree-auto-save-history</span> <span style="color:#800">nil</span>))
-</span></span></code></pre></div><h2 id="smart-mode-line">smart-mode-line</h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span>(<span style="color:#00a000">use-package</span> <span style="color:#b8860b">smart-mode-line</span>
-</span></span><span style="display:flex;"><span> <span style="color:#b8860b">:ensure</span> <span style="color:#800">t</span>
-</span></span><span style="display:flex;"><span> <span style="color:#b8860b">:init</span> (<span style="color:#b8860b">sml/setup</span>))
-</span></span></code></pre></div><h2 id="good-scroll">good-scroll</h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span>(<span style="color:#00a000">use-package</span> <span style="color:#b8860b">good-scroll</span>
-</span></span><span style="display:flex;"><span> <span style="color:#b8860b">:ensure</span> <span style="color:#800">t</span>
-</span></span><span style="display:flex;"><span> <span style="color:#b8860b">:if</span> <span style="color:#b8860b">window-system</span>     <span style="color:#080;font-style:italic">; 在图形化界面时才使用这个插件</span>
-</span></span><span style="display:flex;"><span> <span style="color:#b8860b">:init</span> (<span style="color:#b8860b">good-scroll-mode</span>))
-</span></span></code></pre></div><p>今天就先到这里吧。</p>  <h2><a href="/post/%E6%8A%80%E6%9C%AF/wsl-arch-linux-zsh%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">WSL Arch Linux ZSH输入中文&lt;0xffffffff&gt;解决方法</a></h2> <p>没有进行配置的情况下输入中文，一般会显示&lt;0xffffffff&gt;，这是由于没有安装字体造成的。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo pacman -S noto-fonts-cjk  <span style="color:#080;font-style:italic"># 安装中文字体</span>
-</span></span><span style="display:flex;"><span>sudo vi /etc/locale.gen        <span style="color:#080;font-style:italic"># 取消注释 zh_CN.UTF-8</span>
-</span></span><span style="display:flex;"><span>sudo locale-gen                <span style="color:#080;font-style:italic"># 生成语言环境</span>
-</span></span><span style="display:flex;"><span><span style="color:#a2f">echo</span> <span style="color:#b44">&#34;export LANG=zh_CN.UTF-8&#34;</span> &gt;&gt; ~/.zshrc  <span style="color:#080;font-style:italic"># 设置默认中文环境</span>
-</span></span><span style="display:flex;"><span><span style="color:#a2f">source</span> ~/.zshrc
-</span></span></code></pre></div><p>source后，再次尝试输入中文，无异常。</p>
-<p><img src="./image-20250429103602223.png" alt=""></p>  <h2><a href="/post/%E6%8A%80%E6%9C%AF/emacs-eaf%E6%8F%92%E4%BB%B6%E6%89%93%E5%BC%80%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%AA%E6%98%BE%E7%A4%BAopening-http-xxx-xxx%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">Emacs EAF插件打开浏览器只显示opening http://xxx.xxx的解决方法</a></h2> <p>检查是否安装全部依赖，如yay、pip等。我这里是由于没有安装pip导致的。</p>
-<p><code>sudo pacman -S python-pip</code></p>
-<p>安装好后，进入eaf安装目录</p>
-<p><code>cd ~/.emacs.d/site-lisp/emacs-application-framework &amp;&amp; ./install-eaf.py</code></p>
-<p>重新安装eaf。等待脚本运行完成，打开emacs，输入<code>M-x eaf-install-and-update</code>，等待执行完成。</p>
-<p>重新输入<code>M-x eaf-open-browser</code>，输入网址，即可正常访问网页。</p>  <h2><a href="/post/%E6%8A%80%E6%9C%AF/%E6%8A%8A%E4%B8%BB%E5%8A%9B%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%8D%A2%E6%88%90arch-linux%E6%98%AF%E6%88%91%E8%BF%99%E8%BE%88%E5%AD%90%E5%81%9A%E8%BF%87%E7%9A%84%E6%9C%80%E8%A0%A2%E7%9A%84%E5%86%B3%E5%AE%9A/">把主力机系统换成Arch Linux是我这辈子做过的最蠢的决定</a></h2> <h1 id="前言">前言</h1>
-<p>先说结论。</p>
-<p><strong>我是傻逼！</strong></p>
-<p><strong>我是傻逼！！</strong></p>
-<p><strong>我是傻逼！！！</strong></p>
-<p>本文将讲述</p>
-<ul>
-<li>为什么我放弃了Arch</li>
-<li>为什么我放弃了Linux。</li>
-<li>什么人适合用Linux做主力系统</li>
-</ul>
-<p>本文的所有观点仅仅代表个人观点，我纯菜。你问我为什么要选择Arch，而不是Ubuntu或者其他新手友好的发行版，我不知道，正如上文所说，我是傻逼！</p>
-<h2 id="为什么我放弃了arch">为什么我放弃了Arch</h2>
-<p>说到这个问题，就要先来谈谈为什么我要把Windows换成Linux。</p>
-<p>Linux这个系统对于我来说一直是神秘而美好的，至少在当时。我痴迷于命令行、终端、Vim这种工具。小时候也看过爸爸零几年买的《鸟哥的Linux私房菜》，给我当时幼小的心灵带来的极大的震撼。</p>
-<p>我当时也对Linux的目录结构非常新鲜，不分盘的设定感觉很好玩。</p>
-<p>我网站的服务器是Linux、身边的各种设备都有Linux的影子，这更加提高了我对Linux的向往程度。</p>
-<p>还有一个原因是，我当时正在用C语言写一个小工具，Windows下的gcc无法使用通配符<code>*</code>，要想用只能去打开Git Bash或者MSYS2，这俩东西界面的丑陋程度相比就不用我多说了，我当时就是喜欢把精力浪费在不必要的地方上，Windows的那个终端被我“美化”得花里胡哨的，上面两者的界面当然入不了我的眼。</p>
-<p>为了解决这个问题，我开始使用WSL2，但仅仅停留在开始阶段。</p>
-<p>我这个系统不知道怎么回事，根本没办法用WSL2，详情见https://www.yingyu5658.cn/post/1348465439/</p>
-<p>全网都没有遇到这个问题的，那既然如此，重装系统吧。</p>
-<p>和系统相处就像谈恋爱，总有一段热恋期，过了这个时期后就冷淡了、矛盾也就浮出水面。刚装好的前几天，我的热情前所未有的高涨，学习各种命令、各种工具，当然少不了配置我最爱的Vim。那么说到Vim，归根结底是文本编辑器对吧，打字的软件，那么就要说说我用Linux的第一大困难——<strong>输入法配置难</strong></p>
-<h3 id="输入法配置难">输入法配置难</h3>
-<p>我是双拼用户，从小学六年级就开始用小鹤双拼打字了，这么长时间的习惯很难改，我也不想改。但是Linux上对双拼友好的输入法方案几乎没几个，我尝试过两个，Fcitx5 + 搜狗, Fcitx5 + Rime。</p>
-<p>这两个方案都大差不差，只是搜狗的可能略微智能一点，下载源什么的换成国内镜像，分分钟搞定下载问题。难就难在，我使用的终端不兼容Fcitx。</p>
-<p>没错，我用的就是Kitty。</p>
-<p>那么，肯定有人就想说，KDE自带的Console不能用吗？非得额外下载一个干什么？？</p>
-<p>我的答案就是：<strong>丑</strong>。</p>
-<p>没错，就是因为Console丑。当然他也可以美化，但问题就在于，他的窗口圆角不彻底，而且把标签页显示关掉后，只能额外开一个窗口，占用屏幕空间。</p>
-<p>而Kitty就不同，窗口边框干净利落，看起来很舒服，而且配色看起来也比Konsole那高饱和度的方案舒服太多了。标签页不是类似于系统组件的那种形式，所以不会额外占窗口空间。</p>
-<p>虽然不兼容问题，在程序启动参数添加一条指定ibus接口的命令就解决了。</p>
-<p>你问我为什么非得要追求好看，闲的么？我当时可能会扣一大串字来回怼你，但是我现在觉得我错了，我认同你的观点，就是闲的。</p>
-<p>如开头所说，我是傻逼！</p>
-<p>配置各种东西就免不了使用Github下载，那么就由此引出了第二个问题，<strong>代理配置难</strong></p>
-<h3 id="代理配置难">代理配置难</h3>
-<p>我这边访问Github非常不稳定，有时候能丝滑裸连，有时候挂代理都难上。我先用了Steam++的Github加速服务，但是他会把Github的一些地址都重定向到localhost导致使用Git的某些功能如<code>git push</code>异常。我又换到FastGithub，这东西很好用，但也有不稳定的时候，当他作为系统服务启动的时候，发生异常，想杀死他就变得十分困难，然后导致几乎所有Git功能都瘫痪，非常麻烦，<code>git clone</code>都跑不下来。</p>
-<h3 id="显卡驱动安装难">显卡驱动安装难</h3>
-<p>Linux显卡驱动问题一直都是社区津津乐道的蛋疼问题，更蛋疼的是我的显卡还是英伟达的，你问我为什么用英伟达显卡还玩Linux，我不知道。正如开头所说，我是傻逼！</p>
-<p>显卡驱动的问题，我研究了一周左右，虽然最后还是成功了，但是离正常使用还有一段距离。也是有很多小问题，比如使用系统自带的截图会黑屏，用不了i3等窗口管理器等等。</p>
-<p>当初安装显卡驱动导致的问题包括但不限于：</p>
-<ul>
-<li>鼠标灵敏度异常</li>
-<li>显示比例异常</li>
-<li>画面撕裂</li>
-<li>系统炸了</li>
-<li>桌面炸了</li>
-<li>能进图形界面但是不能登录</li>
-</ul>
-<p>嗯对就是这么离谱。当然经过我一番折腾还是达到了能用但体验不好的程度。</p>
-<h3 id="安装软件难">安装软件难</h3>
-<p>拿QQ举例，QQ官网的Linux安装包是.deb，如果我想安装，还是要经过一大通折腾，拼凑出来一个半成品QQ，而且最难受的是，每次他都会自动推送更新，我还更不了，还不能忽略版本，让我这个强迫症非常折磨。</p>
-<h2 id="为什么我放弃了linux">为什么我放弃了Linux</h2>
-<p>其实原本我是不打算放弃Linux的，因为我突然想玩星露谷物语了，就想着要不要装双系统，但是我装Arch根本没有经验，磁盘分区做的很烂，上面的一番折腾已经让我筋疲力尽，我不想再玩Arch，只想找一个开箱即用的Linux发行版。</p>
-<p>我的目光理所应当地投到了Ubuntu，这是我小时候体验的第一个Linux发行版，对我来说意义有点特殊，而且也属于开箱即用，所以Arch就光荣的升级为我的前任了。</p>
-<p>Windows系统的安装非常简单，只要一直下一步下一步下一步，然后等就行了。Ubuntu也差不多，但需要注意的一点是，有一个步骤让用户选择以怎样的方式安装Ubuntu，给了三个选项，一个是用Windows Boot Manager管理，一个是擦除磁盘，好像还有一个，没注意。</p>
-<p>我要装双系统，当然是选第一个选项，系统正常装上了，一切正常。下载软件，Neovim、VSCode、kitty。</p>
-<p>kitty&hellip;&hellip;</p>
-<p>上文提到，Kitty不支持fcitx5，理论上这个问题还是可以像Arch时期那么解决，但是我当时没找到怎么给程序添加启动参数。跟着网上的教程折腾了半天系统配置文件后，我成功的又把系统玩炸了，进不去桌面。</p>
-<p>当时已经是晚上十点多了，当天上午刚出去踏青，走了一万一千步，对于我来说已经把这一个月的活动量都用完了，筋疲力尽。非常困倦的状态下，我打算重装Ubuntu，正式因为特别困，智商下降得厉害，在安装程序选择了第二个：擦除磁盘。</p>
-<p>我原本Windows系统的D盘擦干净装了个Ubuntu。</p>
-<p>&hellip;&hellip;&hellip;.</p>
-<p>那就这样吧，也行，我试着在Windows里把C盘装的那个坏掉的Ubuntu删掉，但是Windows访问不了那块神秘区域。。。</p>
-<p>那行吧，重装系统。我格式化了C盘，删除了所有的分区，重装了Windows。在下载软件的时候猛地一惊。</p>
-<blockquote>
-<p>我为什么现在不用WSL了呢？</p>  <h2><a href="/post/%E6%8A%80%E6%9C%AF/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AErime%E8%BE%93%E5%85%A5%E6%B3%95/">安装配置Rime输入法</a></h2> <h1 id="前言">前言</h1>
-<p>其实我有能用的fcitx5+搜狗输入法的方案，但奈何kitty终端有对这个输入法的兼容性问题，无法启用中文，又奈何kitty的界面多美观舒服，和Konsole比起来简直就不是一个时代的产物。</p>
-<h1 id="安装ibus框架和rime输入法引擎">安装Ibus框架和Rime输入法引擎</h1>
-<p><strong>安装 IBus 和 Rime 组件</strong>：
-<code>sudo pacman -S ibus ibus-rime</code></p>
-<p><strong>安装 Rime 双拼方案：</strong>
-<code>sudo pacman -S rime-double-pinyin</code></p>
-<h2 id="配置-ibus-和-rime">配置 IBus 和 Rime</h2>
-<p><strong>设置环境变量</strong>
-在<code>~/.xprofile</code>添加以下内容</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#a2f">export</span> <span style="color:#b8860b">GTK_IM_MODULE</span><span style="color:#666">=</span>ibus <span style="color:#a2f">export</span> <span style="color:#b8860b">QT_IM_MODULE</span><span style="color:#666">=</span>ibus <span style="color:#a2f">export</span> <span style="color:#b8860b">XMODIFIERS</span><span style="color:#666">=</span>@im<span style="color:#666">=</span>ibus
-</span></span></code></pre></div><p>重启系统或执行 <code>source ~/.xprofile</code> 使配置生效</p>
-<p><strong>启动 IBus 并添加 Rime 输入源</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ibus-daemon -drx
-</span></span></code></pre></div><p>右键点击系统托盘中的 IBus 图标，选择 <strong>Preferences</strong> → <strong>Input Method</strong> → <strong>Add</strong>，选择 <strong>Chinese (Rime)</strong>。</p>
-<p><strong>配置双拼方案</strong>
-编辑 Rime 的配置文件 <code>~/.config/ibus/rime/default.custom.yaml</code>：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>patch:
-</span></span><span style="display:flex;"><span>schema_list:
-</span></span><span style="display:flex;"><span>	- schema: double_pinyin <span style="color:#080;font-style:italic"># 自然码双拼</span>
-</span></span><span style="display:flex;"><span>	- schema: luna_pinyin <span style="color:#080;font-style:italic"># 全拼备用</span>
-</span></span></code></pre></div><h2 id="优化-rime-的智能联想与词库">优化 Rime 的智能联想与词库</h2>
-<p><strong>启用雾凇拼音方案（推荐）</strong></p>  <h2><a href="/post/%E6%8A%80%E6%9C%AF/kitty%E7%BB%88%E7%AB%AF%E7%BE%8E%E5%8C%96%E8%AE%B0%E5%BD%95/">Kitty终端美化记录</a></h2> <p>Kitty这个终端可谓是兼顾了性能与美观，虽然默认设置很简陋，但是经过一番折腾后也能变得很漂亮。</p>  <h2><a href="/post/%E6%8A%80%E6%9C%AF/kde%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E6%97%A0%E6%B3%95%E5%9C%A8konsole%E5%88%87%E6%8D%A2%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">KDE桌面环境无法在Konsole切换中文输入法的解决方案</a></h2> <h3 id="原因">原因</h3>
-<p>KDE默认使用Wayland会话，而fcitx4不支持Wayland，需升级到fcitx5。若无法升级到fcitx5或升级后仍然无法切换中文输入法，<strong>安装fcitx-qt6</strong></p>  <h2><a href="/post/%E6%8A%80%E6%9C%AF/%E6%9C%AA%E8%A7%A3%E5%86%B3windows-wsl%E6%8A%A5%E9%94%99error-0x80080005/">【未解决】Windows WSL报错：Error: 0x80080005 ???????</a></h2> <p>设备环境：</p>
-<pre tabindex="0"><code>操作系统：Windows 10
-安装系统：Arch Linux
-错误日志：
-Installing, this may take a few minutes...
-WslRegisterDistribution failed with error: 0x80080005
-Error: 0x80080005 ???????
+    
+    
+    
+    
+    
+        <div class="post-title">
+            <a class="rel-permalink" href="/post/%E6%8A%80%E6%9C%AF/fedora42%E6%97%A0%E6%B3%95%E6%92%AD%E6%94%BE%E9%9F%B3%E9%A2%91%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/fedora-linux-cant-play-audio/">
+                <div class="post-date">2025-07-12</div>
+                Fedora42无法播放音频的解决方案
+            </a>
+            <br />
+        </div>
+    
+        <div class="post-title">
+            <a class="rel-permalink" href="/post/%E6%8A%80%E6%9C%AF/tmux%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/">
+                <div class="post-date">2025-06-21</div>
+                Tmux配置记录
+            </a>
+            <br />
+        </div>
+    
+        <div class="post-title">
+            <a class="rel-permalink" href="/post/%E6%8A%80%E6%9C%AF/%E7%BB%99%E6%AF%94%E6%88%91%E5%B2%81%E6%95%B0%E8%BF%98%E5%A4%A7%E7%9A%84%E7%94%B5%E8%84%91%E8%A3%85fedora/">
+                <div class="post-date">2025-06-13</div>
+                给比我岁数还大的电脑装Fedora
+            </a>
+            <br />
+        </div>
+    
+        <div class="post-title">
+            <a class="rel-permalink" href="/post/%E6%8A%80%E6%9C%AF/emacs%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95-2c-c&#43;&#43;%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">
+                <div class="post-date">2025-06-04</div>
+                Emacs配置记录 2——C/C&#43;&#43;环境配置
+            </a>
+            <br />
+        </div>
+    
+        <div class="post-title">
+            <a class="rel-permalink" href="/post/%E6%8A%80%E6%9C%AF/%E6%88%91%E8%BF%98%E6%98%AF%E6%94%BE%E4%B8%8D%E4%B8%8Bemacs/">
+                <div class="post-date">2025-06-03</div>
+                我还是放不下Emacs！
+            </a>
+            <br />
+        </div>
+    
+        <div class="post-title">
+            <a class="rel-permalink" href="/post/%E6%8A%80%E6%9C%AF/wsl-arch-linux-zsh%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
+                <div class="post-date">2025-04-29</div>
+                WSL Arch Linux ZSH输入中文&lt;0xffffffff&gt;解决方法
+            </a>
+            <br />
+        </div>
+    
+        <div class="post-title">
+            <a class="rel-permalink" href="/post/%E6%8A%80%E6%9C%AF/emacs-eaf%E6%8F%92%E4%BB%B6%E6%89%93%E5%BC%80%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%AA%E6%98%BE%E7%A4%BAopening-http-xxx-xxx%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
+                <div class="post-date">2025-04-29</div>
+                Emacs EAF插件打开浏览器只显示opening http://xxx.xxx的解决方法
+            </a>
+            <br />
+        </div>
+    
+        <div class="post-title">
+            <a class="rel-permalink" href="/post/%E6%8A%80%E6%9C%AF/%E6%8A%8A%E4%B8%BB%E5%8A%9B%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%8D%A2%E6%88%90arch-linux%E6%98%AF%E6%88%91%E8%BF%99%E8%BE%88%E5%AD%90%E5%81%9A%E8%BF%87%E7%9A%84%E6%9C%80%E8%A0%A2%E7%9A%84%E5%86%B3%E5%AE%9A/">
+                <div class="post-date">2025-04-06</div>
+                把主力机系统换成Arch Linux是我这辈子做过的最蠢的决定
+            </a>
+            <br />
+        </div>
+    
+        <div class="post-title">
+            <a class="rel-permalink" href="/post/%E6%8A%80%E6%9C%AF/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AErime%E8%BE%93%E5%85%A5%E6%B3%95/">
+                <div class="post-date">2025-03-24</div>
+                安装配置Rime输入法
+            </a>
+            <br />
+        </div>
+    
+        <div class="post-title">
+            <a class="rel-permalink" href="/post/%E6%8A%80%E6%9C%AF/kitty%E7%BB%88%E7%AB%AF%E7%BE%8E%E5%8C%96%E8%AE%B0%E5%BD%95/">
+                <div class="post-date">2025-03-09</div>
+                Kitty终端美化记录
+            </a>
+            <br />
+        </div>
+    
+        <div class="post-title">
+            <a class="rel-permalink" href="/post/%E6%8A%80%E6%9C%AF/kde%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E6%97%A0%E6%B3%95%E5%9C%A8konsole%E5%88%87%E6%8D%A2%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
+                <div class="post-date">2025-03-08</div>
+                KDE桌面环境无法在Konsole切换中文输入法的解决方案
+            </a>
+            <br />
+        </div>
+    
+        <div class="post-title">
+            <a class="rel-permalink" href="/post/%E6%8A%80%E6%9C%AF/%E6%9C%AA%E8%A7%A3%E5%86%B3windows-wsl%E6%8A%A5%E9%94%99error-0x80080005/">
+                <div class="post-date">2025-03-04</div>
+                【未解决】Windows WSL报错：Error: 0x80080005 ???????
+            </a>
+            <br />
+        </div>
+    
 
-Press any key to continue...
-</code></pre><p>网上有一篇<a href="https://ask.csdn.net/questions/7625716">文章</a>提到这个错误，下面的评论回复以管理员权限运行命令提示符并执行<code>sc stop LxssManager</code>和<code>sc start LxssManager</code>
-出现如下报错：</p>  </main>
-    <footer>
-      <a class="footer-a-link" href="./atom.xml">RSS</a> | <a class="footer-a-link" href="https://www.github.com/yingyu5658/Moments">Moments</a>
-<p class="copyright">Copyright 2025. All rights reserved.</p>
- <img src="/notbyai.png" class="not-by-ai" />
+    
+    
+	<footer>
+		<p>-------------------------------------------</p>
+<p>Email: me (at) yingyu5658 (dot) com</p>
+<img src="/notbyai.png" class="not-by-ai" /> <br>
+ 
     </footer>
-  </body>
+
+
+</main>
+      </body>
 </html>
 

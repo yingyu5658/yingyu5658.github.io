@@ -4,58 +4,45 @@
   dir="ltr"
 >
   <head>
-    <meta charset="utf-8"> <meta name="viewport" content="width=device-width"> <title>C语言 | 映屿</title>  <link rel="stylesheet" href="/css/main.min.285850d1e24e898f7b1f74d41ebb260192f7b2b58602acc9401c1d6aadab23a2.css" integrity="sha256-KFhQ0eJOiY97H3TUHrsmAZL3srWGAqzJQBwdaq2rI6I=" crossorigin="anonymous">  <script src="/js/main.a7956529a5290cbd80aa9c64ee52ceefa89957b568d8a14c217a91d7f4d6aa38.js" integrity="sha256-p5VlKaUpDL2Aqpxk7lLO76iZV7Vo2KFMIXqR1/TWqjg=" crossorigin="anonymous"></script>
+    <meta charset="utf-8"> <meta name="viewport" content="width=device-width"> <title>C语言 | 映屿</title>  <link rel="stylesheet" href="/css/main.min.dedb3cb6a122787f34e63619fa068c5216f47b80f48863e29b68e48f5e152876.css" integrity="sha256-3ts8tqEieH805jYZ&#43;gaMUhb0e4D0iGPim2jkj14VKHY=" crossorigin="anonymous">  <script src="/js/main.a7956529a5290cbd80aa9c64ee52ceefa89957b568d8a14c217a91d7f4d6aa38.js" integrity="sha256-p5VlKaUpDL2Aqpxk7lLO76iZV7Vo2KFMIXqR1/TWqjg=" crossorigin="anonymous"></script>
   </head>
   <body>
-    <header><h1 class="title">映屿</h1> <p class="subtitle">yingyu5658的数字花园</p>  <nav> <div class="menu-item"> <a href="/">Home</a> </div> <div class="menu-item"> <a href="/links">Links</a> </div> <div class="menu-item"> <a href="/about">About</a> </div> </nav> 
+		<main>
+    <header><h1 class="title">映屿</h1> <p class="subtitle">yingyu5658的数字花园</p>  
 </header>
-    <main> <h1>C语言</h1>   <h2><a href="/post/%E6%8A%80%E6%9C%AF/c%E8%AF%AD%E8%A8%80%E7%9A%84%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0/">C语言的可变参数</a></h2> <h2 id="介绍">介绍</h2>
-<p>C语言中，<code>printf()</code>和<code>scanf()</code>函数就是典型的变参函数，其优点是灵活处理参数。</p>
-<p>想要创建变参函数需引入头文件<code>stdarg.h</code>，它有一些宏：</p>
-<pre tabindex="0"><code>va_list 指向整个可变参数列表的指针
-原型：typedef char* va_list;
+    
+    
+    
+    
+    
+        <div class="post-title">
+            <a class="rel-permalink" href="/post/%E6%8A%80%E6%9C%AF/c%E8%AF%AD%E8%A8%80%E7%9A%84%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0/">
+                <div class="post-date">2025-07-05</div>
+                C语言的可变参数
+            </a>
+            <br />
+        </div>
+    
+        <div class="post-title">
+            <a class="rel-permalink" href="/post/%E6%8A%80%E6%9C%AF/c%E8%AF%AD%E8%A8%80%E7%9A%84%E5%A4%B4%E6%96%87%E4%BB%B6%E4%B8%8Eoop%E8%8C%83%E5%BC%8F%E7%9A%84%E6%8A%BD%E8%B1%A1%E7%B1%BB%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%BC%82%E5%90%8C%E7%82%B9/">
+                <div class="post-date">2025-06-06</div>
+                C语言的头文件与OOP范式的抽象类、接口的异同点
+            </a>
+            <br />
+        </div>
+    
 
-va_start 指向可变参数列表前的参数（...前的参数）
-原型：void va_start(va_list ap, paramN);
-
-va_arg 可变参数列表
-原型：typedef va_arg(va_list ap, type)
-
-va_end 结束对可变参数列表的访问，并释放资源
-原型：void va_end(va_list ap);
-</code></pre>  <h2><a href="/post/%E6%8A%80%E6%9C%AF/c%E8%AF%AD%E8%A8%80%E7%9A%84%E5%A4%B4%E6%96%87%E4%BB%B6%E4%B8%8Eoop%E8%8C%83%E5%BC%8F%E7%9A%84%E6%8A%BD%E8%B1%A1%E7%B1%BB%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%BC%82%E5%90%8C%E7%82%B9/">C语言的头文件与OOP范式的抽象类、接口的异同点</a></h2> <h2 id="引言">引言</h2>
-<p>说真的，从去年十一月份开始接触编程，到现在也好几个月了，自认为进步速度较快，但速度快也就导致了深度浅，走马观花式的学习，现在还是有很多理解不深刻的点，今天来仔细研究一下这个问题。我也是先入为主，第一门编程语言学的是Java，所以再接触C，一些概念就混淆了。</p>
-<h2 id="c语言模块化设计的核心">C语言模块化设计的核心</h2>
-<p>头文件本质是对外提供的接口<strong>契约</strong>，包含函数声明、宏定义、结构体类型声明。例如：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#080;font-style:italic">// math_utils.h
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#080">#ifndef MATH_UTILS_H
-</span></span></span><span style="display:flex;"><span><span style="color:#080">#define MATH_UTILS_H
-</span></span></span><span style="display:flex;"><span><span style="color:#080"></span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">add</span>(<span style="color:#0b0;font-weight:bold">int</span> a, <span style="color:#0b0;font-weight:bold">int</span> b);  <span style="color:#080;font-style:italic">// 函数声明
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#080">#endif
-</span></span></span></code></pre></div><ul>
-<li>编译隔离：通过头文件守卫(#ifndef)实现模块之间的编译隔离。</li>
-<li>虽然头文件可以实现函数，但这会破坏模块化。</li>
-</ul>
-<h3 id="模块化实现规范">模块化实现规范</h3>
-<ul>
-<li>源文件承载具体实现，通过包含对应头文件实现联系</li>
-<li>模块间通过<code>extern</code>关键字声明共享全局变量（谨慎使用）</li>
-</ul>
-<h2 id="面向对象中的抽象机制">面向对象中的抽象机制</h2>
-<p>抽象类可以包含部分实现，它的目的是：<strong>描述一个公共基类，有共同的特征，有部分方法实现，但另一部分依赖子类自行实现</strong>。</p>
-<p>接口是一系列方法的声明，一个接口就是在描述一种能力。</p>
-<p>设计目标上，抽象类为了代码复用+多台，而接口是行为契约。</p>
-<h2 id="设计范式对比">设计范式对比</h2>
-<h3 id="c模块化-vs-oop抽象">C模块化 vs OOP抽象</h3>
-<ul>
-<li>抽象粒度：C模块关注功能单元（做什么），而OOP抽象关注对象行为契约（是谁做什么）</li>
-<li>扩展方式：C通过函数指针传递上下文，OOP通过继承、实现扩展。</li>
-</ul>  </main>
-    <footer>
-      <a class="footer-a-link" href="./atom.xml">RSS</a> | <a class="footer-a-link" href="https://www.github.com/yingyu5658/Moments">Moments</a>
-<p class="copyright">Copyright 2025. All rights reserved.</p>
- <img src="/notbyai.png" class="not-by-ai" />
+    
+    
+	<footer>
+		<p>-------------------------------------------</p>
+<p>Email: me (at) yingyu5658 (dot) com</p>
+<img src="/notbyai.png" class="not-by-ai" /> <br>
+ 
     </footer>
-  </body>
+
+
+</main>
+      </body>
 </html>
 

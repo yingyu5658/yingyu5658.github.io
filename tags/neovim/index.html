@@ -4,77 +4,45 @@
   dir="ltr"
 >
   <head>
-    <meta charset="utf-8"> <meta name="viewport" content="width=device-width"> <title>Neovim | 映屿</title>  <link rel="stylesheet" href="/css/main.min.285850d1e24e898f7b1f74d41ebb260192f7b2b58602acc9401c1d6aadab23a2.css" integrity="sha256-KFhQ0eJOiY97H3TUHrsmAZL3srWGAqzJQBwdaq2rI6I=" crossorigin="anonymous">  <script src="/js/main.a7956529a5290cbd80aa9c64ee52ceefa89957b568d8a14c217a91d7f4d6aa38.js" integrity="sha256-p5VlKaUpDL2Aqpxk7lLO76iZV7Vo2KFMIXqR1/TWqjg=" crossorigin="anonymous"></script>
+    <meta charset="utf-8"> <meta name="viewport" content="width=device-width"> <title>Neovim | 映屿</title>  <link rel="stylesheet" href="/css/main.min.dedb3cb6a122787f34e63619fa068c5216f47b80f48863e29b68e48f5e152876.css" integrity="sha256-3ts8tqEieH805jYZ&#43;gaMUhb0e4D0iGPim2jkj14VKHY=" crossorigin="anonymous">  <script src="/js/main.a7956529a5290cbd80aa9c64ee52ceefa89957b568d8a14c217a91d7f4d6aa38.js" integrity="sha256-p5VlKaUpDL2Aqpxk7lLO76iZV7Vo2KFMIXqR1/TWqjg=" crossorigin="anonymous"></script>
   </head>
   <body>
-    <header><h1 class="title">映屿</h1> <p class="subtitle">yingyu5658的数字花园</p>  <nav> <div class="menu-item"> <a href="/">Home</a> </div> <div class="menu-item"> <a href="/links">Links</a> </div> <div class="menu-item"> <a href="/about">About</a> </div> </nav> 
+		<main>
+    <header><h1 class="title">映屿</h1> <p class="subtitle">yingyu5658的数字花园</p>  
 </header>
-    <main> <h1>Neovim</h1>   <h2><a href="/post/%E6%8A%80%E6%9C%AF/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BB%88%E7%AB%AF%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">从0开始搭建自己的终端开发环境</a></h2> <p><strong>系统</strong>：WSL Arch</p>
-<h3 id="主折腾点">主折腾点</h3>
-<p><strong>代码编辑器</strong>：Vim(Neovim)</p>
-<p><strong>终端体验优化</strong>：tmux</p>
-<p><strong>文件管理器</strong>：yazi</p>
-<h2 id="代码编辑器neovim">代码编辑器——Neovim</h2>
-<h3 id="前言">前言</h3>
-<p>Neovim和Vim相比，在性能和易用性上有很大的提升，在异步任务表现突出；使用更加现代的lua脚本配置，可读性更高。</p>
-<h4 id="为什么不用lazyvim">为什么不用Lazyvim？</h4>
-<p>答：我个人用了很长一段时间Lazyvim，虽然开箱即用，简单调试就可以使用，但是我并不能清除的理解他到底给我装了什么，我是否需要那些插件。感觉像在用别人的软件，而自己从头开始配置vim的掌控感是使用他人的配置文件无法比拟的，在配置的过程中也可以培养排错和程序调试能力，唯一的缺点就是略微耗费时间。</p>
-<h3 id="安装">安装</h3>
-<p>先滚一把系统保证软件包都是最新的</p>
-<p><code>sudo pacman -Syyu</code></p>
-<p>安装Neovim</p>
-<p><code>sudo pacman -S neovim</code></p>
-<p>这时候在终端输入<code>nvim</code>就可以打开neovim了。![image-20250415212435171](E:/Blog/source/im</p>
-<p><strong>按<code>:q</code>退出。</strong></p>
-<p>这个初始的界面非常简陋，我们先进行核心功能配置，后续在更改主题。</p>
-<p>nvim的用户级配置文件在<code>~/.config/nvim</code>中。</p>
-<h3 id="安装包管理器">安装包管理器</h3>
-<p>我们选择Lazy作为包管理器，他和其他的包管理器相比起来，在懒加载、UI界面等方面有显著优势，可以减小配置复杂度。</p>
-<p>访问<a href="https://lazy.folke.io/installation">lazy.nvim官网</a>，官方文档永远都是最好的教程。这里有一段代码</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#080;font-style:italic">-- Bootstrap lazy.nvim</span>
-</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">local</span> lazypath <span style="color:#666">=</span> vim.fn.stdpath(<span style="color:#b44">&#34;data&#34;</span>) <span style="color:#666">..</span> <span style="color:#b44">&#34;/lazy/lazy.nvim&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">if</span> <span style="color:#a2f;font-weight:bold">not</span> (vim.uv <span style="color:#a2f;font-weight:bold">or</span> vim.loop).fs_stat(lazypath) <span style="color:#a2f;font-weight:bold">then</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">local</span> lazyrepo <span style="color:#666">=</span> <span style="color:#b44">&#34;https://github.com/folke/lazy.nvim.git&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">local</span> out <span style="color:#666">=</span> vim.fn.system({ <span style="color:#b44">&#34;git&#34;</span>, <span style="color:#b44">&#34;clone&#34;</span>, <span style="color:#b44">&#34;--filter=blob:none&#34;</span>, <span style="color:#b44">&#34;--branch=stable&#34;</span>, lazyrepo, lazypath })
-</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">if</span> vim.v.shell_error <span style="color:#666">~=</span> <span style="color:#666">0</span> <span style="color:#a2f;font-weight:bold">then</span>
-</span></span><span style="display:flex;"><span>    vim.api.nvim_echo({
-</span></span><span style="display:flex;"><span>      { <span style="color:#b44">&#34;Failed to clone lazy.nvim:</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>, <span style="color:#b44">&#34;ErrorMsg&#34;</span> },
-</span></span><span style="display:flex;"><span>      { out, <span style="color:#b44">&#34;WarningMsg&#34;</span> },
-</span></span><span style="display:flex;"><span>      { <span style="color:#b44">&#34;</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">Press any key to exit...&#34;</span> },
-</span></span><span style="display:flex;"><span>    }, <span style="color:#a2f;font-weight:bold">true</span>, {})
-</span></span><span style="display:flex;"><span>    vim.fn.getchar()
-</span></span><span style="display:flex;"><span>    os.exit(<span style="color:#666">1</span>)
-</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">end</span>
-</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">end</span>
-</span></span><span style="display:flex;"><span>vim.opt.rtp:prepend(lazypath)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">-- Make sure to setup `mapleader` and `maplocalleader` before</span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">-- loading lazy.nvim so that mappings are correct.</span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">-- This is also a good place to setup other settings (vim.opt)</span>
-</span></span><span style="display:flex;"><span>vim.g.mapleader <span style="color:#666">=</span> <span style="color:#b44">&#34; &#34;</span>
-</span></span><span style="display:flex;"><span>vim.g.maplocalleader <span style="color:#666">=</span> <span style="color:#b44">&#34;</span><span style="color:#b62;font-weight:bold">\\</span><span style="color:#b44">&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">-- Setup lazy.nvim</span>
-</span></span><span style="display:flex;"><span>require(<span style="color:#b44">&#34;lazy&#34;</span>).setup({
-</span></span><span style="display:flex;"><span>  spec <span style="color:#666">=</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic">-- import your plugins</span>
-</span></span><span style="display:flex;"><span>    { import <span style="color:#666">=</span> <span style="color:#b44">&#34;plugins&#34;</span> },
-</span></span><span style="display:flex;"><span>  },
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-style:italic">-- Configure any other settings here. See the documentation for more details.</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-style:italic">-- colorscheme that will be used when installing plugins.</span>
-</span></span><span style="display:flex;"><span>  install <span style="color:#666">=</span> { colorscheme <span style="color:#666">=</span> { <span style="color:#b44">&#34;habamax&#34;</span> } },
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-style:italic">-- automatically check for plugin updates</span>
-</span></span><span style="display:flex;"><span>  checker <span style="color:#666">=</span> { enabled <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">true</span> },
-</span></span><span style="display:flex;"><span>})
-</span></span></code></pre></div><p>这段代码主要在为Lazy包管理器初始化，所以按照官网的目录结构，我们在<code>~/.config/nvim/lua</code>下新建一个config文件夹，把代码粘贴进去。</p>  <h2><a href="/post/%E6%8A%80%E6%9C%AF/187/">开箱即用的neovim配置文件</a></h2> <h3 id="下载链接">下载链接</h3>
-<p><a href="https://yingyu5658.lanzoup.com/iWfXQ2ln6jre">https://yingyu5658.lanzoup.com/iWfXQ2ln6jre</a>
-为了兄弟们下得爽点就不用百度网盘或者夸克了
-代码都有比较详细的注释</p>  </main>
-    <footer>
-      <a class="footer-a-link" href="./atom.xml">RSS</a> | <a class="footer-a-link" href="https://www.github.com/yingyu5658/Moments">Moments</a>
-<p class="copyright">Copyright 2025. All rights reserved.</p>
- <img src="/notbyai.png" class="not-by-ai" />
+    
+    
+    
+    
+    
+        <div class="post-title">
+            <a class="rel-permalink" href="/post/%E6%8A%80%E6%9C%AF/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BB%88%E7%AB%AF%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">
+                <div class="post-date">2025-04-15</div>
+                从0开始搭建自己的终端开发环境
+            </a>
+            <br />
+        </div>
+    
+        <div class="post-title">
+            <a class="rel-permalink" href="/post/%E6%8A%80%E6%9C%AF/187/">
+                <div class="post-date">2025-01-22</div>
+                开箱即用的neovim配置文件
+            </a>
+            <br />
+        </div>
+    
+
+    
+    
+	<footer>
+		<p>-------------------------------------------</p>
+<p>Email: me (at) yingyu5658 (dot) com</p>
+<img src="/notbyai.png" class="not-by-ai" /> <br>
+ 
     </footer>
-  </body>
+
+
+</main>
+      </body>
 </html>
 

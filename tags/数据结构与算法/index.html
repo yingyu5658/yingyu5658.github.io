@@ -4,262 +4,77 @@
   dir="ltr"
 >
   <head>
-    <meta charset="utf-8"> <meta name="viewport" content="width=device-width"> <title>数据结构与算法 | 映屿</title>  <link rel="stylesheet" href="/css/main.min.285850d1e24e898f7b1f74d41ebb260192f7b2b58602acc9401c1d6aadab23a2.css" integrity="sha256-KFhQ0eJOiY97H3TUHrsmAZL3srWGAqzJQBwdaq2rI6I=" crossorigin="anonymous">  <script src="/js/main.a7956529a5290cbd80aa9c64ee52ceefa89957b568d8a14c217a91d7f4d6aa38.js" integrity="sha256-p5VlKaUpDL2Aqpxk7lLO76iZV7Vo2KFMIXqR1/TWqjg=" crossorigin="anonymous"></script>
+    <meta charset="utf-8"> <meta name="viewport" content="width=device-width"> <title>数据结构与算法 | 映屿</title>  <link rel="stylesheet" href="/css/main.min.dedb3cb6a122787f34e63619fa068c5216f47b80f48863e29b68e48f5e152876.css" integrity="sha256-3ts8tqEieH805jYZ&#43;gaMUhb0e4D0iGPim2jkj14VKHY=" crossorigin="anonymous">  <script src="/js/main.a7956529a5290cbd80aa9c64ee52ceefa89957b568d8a14c217a91d7f4d6aa38.js" integrity="sha256-p5VlKaUpDL2Aqpxk7lLO76iZV7Vo2KFMIXqR1/TWqjg=" crossorigin="anonymous"></script>
   </head>
   <body>
-    <header><h1 class="title">映屿</h1> <p class="subtitle">yingyu5658的数字花园</p>  <nav> <div class="menu-item"> <a href="/">Home</a> </div> <div class="menu-item"> <a href="/links">Links</a> </div> <div class="menu-item"> <a href="/about">About</a> </div> </nav> 
+		<main>
+    <header><h1 class="title">映屿</h1> <p class="subtitle">yingyu5658的数字花园</p>  
 </header>
-    <main> <h1>数据结构与算法</h1>   <h2><a href="/post/%E6%8A%80%E6%9C%AF/4key%E9%9F%B3%E6%B8%B8%E6%AE%B5%E4%BD%8D%E5%8D%95%E6%9B%B2%E6%88%90%E7%BB%A9%E8%AE%A1%E7%AE%97%E7%9A%84%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0/">4Key音游段位单曲成绩计算的程序实现</a></h2> <h2 id="前言">前言</h2>
-<p>其实这个坑我很早以前就想开了，在我刚开始学编程那会就一直想写一个这个东西。但苦于数学进度没达到，要用到加权平均数，这东西我前两天才学到，之前对数学也一直是懒得学的状态，要不然几乎是看不懂那个算法的。</p>
-<p>我手头有一个<a href="https://github.com/Special-Week">Special-Week</a>写的网页版的单曲成绩计算器，就以这个为研究样本吧。以下简称原作者为sw（如有冒犯请联系修改）</p>
-<h2 id="数据结构设计">数据结构设计</h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>    <span style="color:#080;font-style:italic">// 基础的4k类
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">class</span> Dan4k {
-</span></span><span style="display:flex;"><span>        constructor(key1, key2, key3, key4, danName) {
-</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">this</span>.m_key1 <span style="color:#666">=</span> key1;
-</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">this</span>.m_key2 <span style="color:#666">=</span> key2;
-</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">this</span>.m_key3 <span style="color:#666">=</span> key3;
-</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">this</span>.m_key4 <span style="color:#666">=</span> key4;
-</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">this</span>.m_danName <span style="color:#666">=</span> danName;
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    }
-</span></span></code></pre></div><p>每一个段（LN、Om），sw都单独写了一个内部类，继承Dan4k。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span> <span style="color:#080;font-style:italic">// lnDan类
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">class</span> LnDan <span style="color:#a2f;font-weight:bold">extends</span> Dan4k {
-</span></span><span style="display:flex;"><span>        constructor(key1, lnKey1, key2, lnKey2, key3, lnKey3, key4, lnKey4, danName) {
-</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">super</span>(key1, key2, key3, key4, danName);
-</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">this</span>.m_lnKey1 <span style="color:#666">=</span> lnKey1;
-</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">this</span>.m_lnKey2 <span style="color:#666">=</span> lnKey2;
-</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">this</span>.m_lnKey3 <span style="color:#666">=</span> lnKey3;
-</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">this</span>.m_lnKey4 <span style="color:#666">=</span> lnKey4;
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic">// ma段
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">class</span> MaDan <span style="color:#a2f;font-weight:bold">extends</span> Dan4k {
-</span></span><span style="display:flex;"><span>        constructor(key1, key2, key3, key4, name1, name2, name3, name4, danName) {
-</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">super</span>(key1, key2, key3, key4, danName);
-</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">this</span>.m_name1 <span style="color:#666">=</span> name1;
-</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">this</span>.m_name2 <span style="color:#666">=</span> name2;
-</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">this</span>.m_name3 <span style="color:#666">=</span> name3;
-</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">this</span>.m_name4 <span style="color:#666">=</span> name4;
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic">// reform段
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">class</span> ReformDan <span style="color:#a2f;font-weight:bold">extends</span> Dan4k {
-</span></span><span style="display:flex;"><span>        constructor(key1, key2, key3, key4, name1, name2, name3, name4, danName) {
-</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">super</span>(key1, key2, key3, key4, danName);
-</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">this</span>.m_name1 <span style="color:#666">=</span> name1;
-</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">this</span>.m_name2 <span style="color:#666">=</span> name2;
-</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">this</span>.m_name3 <span style="color:#666">=</span> name3;
-</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">this</span>.m_name4 <span style="color:#666">=</span> name4;
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic">// om段
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">class</span> OmDan <span style="color:#a2f;font-weight:bold">extends</span> Dan4k {
-</span></span><span style="display:flex;"><span>        constructor(key1, key2, key3, key4, danName) {
-</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">super</span>(key1, key2, key3, key4, danName);
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    }
-</span></span></code></pre></div><p>我打算重写的程序不带LN玩了，我自己也没玩过LN，不清楚是什么机制。那就来看看剩下的几个类。</p>  <h2><a href="/post/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%93%88%E5%B8%8C%E8%A1%A8/">【数据结构与算法】哈希表</a></h2> <p>哈希表（Hash Table）是一种基于键（Key）直接访问数据的高效数据结构，其核心思想是通过哈希函数将键映射到数组的特定位置，从而实现平均时间复杂度为 O(1)O(1) 的插入、查找和删除操作。</p>
-<h2 id="结构定义">结构定义</h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#080;font-style:italic">// 哈希表节点
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">struct</span> HashNode {
-</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">int</span> key;
-</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">int</span> value;
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">struct</span> Hashcode<span style="color:#666">*</span> next;
-</span></span><span style="display:flex;"><span>} HashNode;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// 哈希表
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">struct</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">int</span> size;
-</span></span><span style="display:flex;"><span>    HashNode<span style="color:#666">**</span> buckets;
-</span></span><span style="display:flex;"><span>} HashTable;
-</span></span></code></pre></div><h2 id="初始化">初始化</h2>
-<p>创建HashTable结构体变量，进行初始化赋值，分配桶的内存。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#080;font-style:italic">// 初始化哈希表
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>HashTable <span style="color:#666">*</span><span style="color:#00a000">creat_hash_table</span>(<span style="color:#0b0;font-weight:bold">int</span> size)
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    HashTable<span style="color:#666">*</span> table <span style="color:#666">=</span> (HashTable<span style="color:#666">*</span>)<span style="color:#00a000">malloc</span>(<span style="color:#a2f;font-weight:bold">sizeof</span>(HashTable));
-</span></span><span style="display:flex;"><span>    table<span style="color:#666">-&gt;</span>size <span style="color:#666">=</span> size;
-</span></span><span style="display:flex;"><span>    table<span style="color:#666">-&gt;</span>buckets <span style="color:#666">=</span> (HashNode<span style="color:#666">**</span>)<span style="color:#00a000">malloc</span>(size <span style="color:#666">*</span> <span style="color:#a2f;font-weight:bold">sizeof</span>(HashNode<span style="color:#666">*</span>));
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> i <span style="color:#666">=</span> <span style="color:#666">0</span>; i <span style="color:#666">&lt;</span> size; i<span style="color:#666">++</span>)
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        table<span style="color:#666">-&gt;</span>buckets[i] <span style="color:#666">=</span> <span style="color:#a2f">NULL</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">return</span> table;
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h2 id="哈希函数">哈希函数</h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#080;font-style:italic">// 哈希函数
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">hash</span>(<span style="color:#0b0;font-weight:bold">int</span> key, <span style="color:#0b0;font-weight:bold">int</span> size)
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">return</span> key <span style="color:#666">%</span> size;
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>通过简单取模运算获得哈希值</p>  <h2><a href="/post/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%BC%97%E6%95%B0%E4%B8%AD%E4%BD%8D%E6%95%B0/">【数据结构与算法】众数、中位数</a></h2> <p>今天学这个东西的时候，看到这种线性的数据结构加上排序步骤，很难不想写个程序来跑跑。</p>
-<p>先来说说中位数，这个比较有思路。</p>
-<h2 id="中位数">中位数</h2>
-<p>具体的操作步骤应该是：<strong>排序 =&gt; 获得数据元素个数n =&gt; 是奇数 ? (n+1) / 2 : n / 2</strong></p>
-<p>那么排序就用之前学的冒泡排序，这种题目大概不会完全倒序给数据，编写sort函数：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">sort</span>(<span style="color:#0b0;font-weight:bold">int</span> arr[], <span style="color:#0b0;font-weight:bold">int</span> n)
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">for</span> (<span style="color:#0b0;font-weight:bold">int</span> i <span style="color:#666">=</span> <span style="color:#666">0</span>; i <span style="color:#666">&lt;</span> n <span style="color:#666">-</span> <span style="color:#666">1</span>; i<span style="color:#666">++</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">for</span> (<span style="color:#0b0;font-weight:bold">int</span> j <span style="color:#666">=</span> <span style="color:#666">0</span>; j <span style="color:#666">&lt;</span> n <span style="color:#666">-</span> i <span style="color:#666">-</span> <span style="color:#666">1</span>; j<span style="color:#666">++</span>) {
-</span></span><span style="display:flex;"><span>      <span style="color:#a2f;font-weight:bold">if</span> (arr[j] <span style="color:#666">&gt;</span> arr[j <span style="color:#666">+</span> <span style="color:#666">1</span>]) {
-</span></span><span style="display:flex;"><span>        <span style="color:#0b0;font-weight:bold">int</span> temp <span style="color:#666">=</span> arr[j];
-</span></span><span style="display:flex;"><span>        arr[j] <span style="color:#666">=</span> arr[j <span style="color:#666">+</span> <span style="color:#666">1</span>];
-</span></span><span style="display:flex;"><span>        arr[j <span style="color:#666">+</span> <span style="color:#666">1</span>] <span style="color:#666">=</span> temp;
-</span></span><span style="display:flex;"><span>      }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>接下来是判断奇偶，奇偶的判断非常简单，对取模运算的值比对就可以，编写is_even函数，判断奇偶性。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">is_even</span>(<span style="color:#0b0;font-weight:bold">int</span> data)
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">if</span> (data <span style="color:#666">%</span> <span style="color:#666">2</span> <span style="color:#666">==</span> <span style="color:#666">0</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">return</span> <span style="color:#a2f">true</span>;
-</span></span><span style="display:flex;"><span>  } <span style="color:#a2f;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">return</span> <span style="color:#a2f">false</span>;
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>完成了奇偶判断，下一步就可以正式进行中位数的运算，编写get_median函数。</p>  <h2><a href="/post/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%BA%8C%E5%8F%89%E6%A0%91/">【数据结构与算法】二叉树</a></h2> <h2 id="定义">定义</h2>
-<p>二叉树（binary tree）是指树中节点的度不大于2的有序树，它是一种最简单且最重要的树。二叉树的递归定义为：二叉树是一棵空树，或者是一棵由一个根节点和两棵互不相交的，分别称作根的左子树和右子树组成的非空树；左子树和右子树又同样都是二叉树。</p>
-<h2 id="实现">实现</h2>
-<h3 id="结构定义">结构定义</h3>
-<p><del>尝试了一下C语言，各种指针乱指，各种bug，暂时放自己一马，跟自己和解一下用js写写吧。</del></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">class</span> TreeNode {
-</span></span><span style="display:flex;"><span>  constructor(data) {
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">this</span>.data <span style="color:#666">=</span> data;
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">this</span>.left <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">null</span>;  <span style="color:#080;font-style:italic">// 左节点
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">this</span>.right <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">null</span>; <span style="color:#080;font-style:italic">// 右边节点
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="创建对象并绑定节点">创建对象并绑定节点</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#080;font-style:italic">// 手动绑定节点
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">let</span> root <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> TreeNode(<span style="color:#666">1</span>)
-</span></span><span style="display:flex;"><span>root.left <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> TreeNode(<span style="color:#666">2</span>)
-</span></span><span style="display:flex;"><span>root.right <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> TreeNode(<span style="color:#666">3</span>)
-</span></span><span style="display:flex;"><span>root.left.left <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> TreeNode(<span style="color:#666">4</span>)
-</span></span><span style="display:flex;"><span>root.right.right <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> TreeNode(<span style="color:#666">5</span>)
-</span></span></code></pre></div><p>此时树的结构：</p>
-<pre tabindex="0"><code>      1
-     /  \
-     2   3
-   /  \   \
-  4    5   6
-</code></pre><h3 id="遍历二叉树">遍历二叉树</h3>
-<h4 id="前序遍历dfs">前序遍历（DFS）</h4>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">function</span> preOrder(node) {
-</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">if</span>(node) {
-</span></span><span style="display:flex;"><span>    console.log(node.data)
-</span></span><span style="display:flex;"><span>    preOrder(node.left)
-</span></span><span style="display:flex;"><span>    preOrder(node.right)
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>这里用递归调用，遍历到左右元素</p>
-<h4 id="层序遍历bfs">层序遍历（BFS）</h4>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">function</span> levelOrder(root) {
-</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">const</span> queue <span style="color:#666">=</span> [];
-</span></span><span style="display:flex;"><span>  queue.push(root);
-</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">while</span> (queue.length) {
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">const</span> node <span style="color:#666">=</span> queue.shift();
-</span></span><span style="display:flex;"><span>    console.log(node.data);
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">if</span> (node.left) queue.push(node.left);
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">if</span> (node.right) queue.push(node.right);
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div>  <h2><a href="/post/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E6%A0%88/">【数据结构与算法】栈</a></h2> <h2 id="基本概念">基本概念</h2>
-<p>栈（Stack）是一种后进先出（LIFO）原则的线性数据结构。核心操作包括：</p>
-<ul>
-<li>压栈（Push）：将元素添加到栈顶</li>
-<li>出栈（Pop）：移除并返回栈顶元素</li>
-<li>查看栈顶（Check）获取但移除栈顶元素</li>
-<li>判空（is_empty）检查栈是否为空</li>
-</ul>
-<h2 id="结构定义">结构定义</h2>
-<p>使用动态数组实现栈，包含三个核心属性：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">struct</span> Stack {
-</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">int</span><span style="color:#666">*</span> data; <span style="color:#080;font-style:italic">// 存储元素的数组
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#0b0;font-weight:bold">int</span> top;   <span style="color:#080;font-style:italic">// 栈顶指针（当前元素位置）
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#0b0;font-weight:bold">int</span> capacity; <span style="color:#080;font-style:italic">// 栈的最大容量
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>}
-</span></span></code></pre></div><ul>
-<li><code>data</code>：动态分配的数组指针</li>
-<li><code>top</code>：初始值为-1，表示空栈，压栈时递增，出栈时递减</li>
-<li><code>capacity</code>：栈的容量上限</li>
-</ul>
-<h2 id="功能实现">功能实现</h2>
-<h3 id="初始化">初始化</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#080;font-style:italic">// 初始化栈
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">init_stack</span>(Stack <span style="color:#666">*</span>s, <span style="color:#0b0;font-weight:bold">int</span> capacity) {
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-style:italic">// 计算最大容量
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>  s <span style="color:#666">-&gt;</span> data <span style="color:#666">=</span> (<span style="color:#0b0;font-weight:bold">int</span><span style="color:#666">*</span>)<span style="color:#00a000">malloc</span>(<span style="color:#a2f;font-weight:bold">sizeof</span>(<span style="color:#0b0;font-weight:bold">int</span>) <span style="color:#666">*</span> capacity)
-</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">if</span>(<span style="color:#666">!</span>s <span style="color:#666">-&gt;</span> data) {
-</span></span><span style="display:flex;"><span>    <span style="color:#00a000">printf</span>(<span style="color:#b44">&#34;内存分配失败！</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>);
-</span></span><span style="display:flex;"><span>    <span style="color:#00a000">exit</span>(<span style="color:#666">1</span>);
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-style:italic">// 初始化栈顶为-1，表空
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>  s <span style="color:#666">-&gt;</span> top <span style="color:#666">=</span> <span style="color:#666">-</span><span style="color:#666">1</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-style:italic">// 把当前计算的最大容量赋值给传进来的栈
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>  s <span style="color:#666">-&gt;</span> capacity <span style="color:#666">=</span> capacity;
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>这个函数中进行了动态分配内存计算最大容量，初始化赋值和异常处理。</p>
-<h3 id="压栈push">压栈（Push）</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#080;font-style:italic">// 压栈（Push）
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">push</span>(Stack <span style="color:#666">*</span>s, <span style="color:#0b0;font-weight:bold">int</span> value) {
-</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">if</span> (s <span style="color:#666">-&gt;</span> top <span style="color:#666">=</span> s <span style="color:#666">-&gt;</span> capacity <span style="color:#666">-</span><span style="color:#666">1</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#00a000">printf</span>(<span style="color:#b44">&#34;栈已满！</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>);
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">return</span>;
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>  s <span style="color:#666">-&gt;</span> data[<span style="color:#666">++</span>s<span style="color:#666">-&gt;</span>top] <span style="color:#666">=</span> value;
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>检查栈是否已满，先递增指针再存入数据</p>  <h2><a href="/post/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/">【数据结构与算法】冒泡排序</a></h2> <h2 id="核心思想">核心思想</h2>
-<p>通过相邻元素的两两比较，将较大的元素逐步“冒泡”到数组末尾，每轮排序确定一个最大元素的最终位置。</p>
-<h2 id="代码实现">代码实现</h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">bubble_sort</span>(<span style="color:#0b0;font-weight:bold">int</span> arr[], <span style="color:#0b0;font-weight:bold">int</span> n) {
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-style:italic">// 最外层控制循环轮数 n-1轮
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>  <span style="color:#a2f;font-weight:bold">for</span> (<span style="color:#0b0;font-weight:bold">int</span> i <span style="color:#666">=</span> <span style="color:#666">0</span>; i <span style="color:#666">&lt;</span> n <span style="color:#666">-</span> <span style="color:#666">1</span>; i<span style="color:#666">++</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic">// 内层循环处理相邻元素比较和交换
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> j <span style="color:#666">=</span> <span style="color:#666">0</span>; j <span style="color:#666">&lt;</span> n<span style="color:#666">-</span>i<span style="color:#666">-</span><span style="color:#666">1</span>; j<span style="color:#666">++</span>) {
-</span></span><span style="display:flex;"><span>      <span style="color:#a2f;font-weight:bold">if</span> (arr[j] <span style="color:#666">&gt;</span> arr[j<span style="color:#666">+</span><span style="color:#666">1</span>]) {
-</span></span><span style="display:flex;"><span>        <span style="color:#0b0;font-weight:bold">int</span> temp <span style="color:#666">=</span> arr[j];
-</span></span><span style="display:flex;"><span>        arr[j] <span style="color:#666">=</span> arr[j<span style="color:#666">+</span><span style="color:#666">1</span>];
-</span></span><span style="display:flex;"><span>        arr[j<span style="color:#666">+</span><span style="color:#666">1</span>] <span style="color:#666">=</span> temp;
-</span></span><span style="display:flex;"><span>      }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// 调用
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">print_array</span>(<span style="color:#0b0;font-weight:bold">int</span> arr[], <span style="color:#0b0;font-weight:bold">int</span> size) {
-</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">for</span> (<span style="color:#0b0;font-weight:bold">int</span> i <span style="color:#666">=</span> <span style="color:#666">0</span>; i <span style="color:#666">&lt;</span> size; i<span style="color:#666">++</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#00a000">printf</span>(<span style="color:#b44">&#34;%d,&#34;</span>, arr[i]);
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>  <span style="color:#00a000">printf</span>(<span style="color:#b44">&#34;</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>);
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>() {
-</span></span><span style="display:flex;"><span>  <span style="color:#0b0;font-weight:bold">int</span> arr[] <span style="color:#666">=</span> {<span style="color:#666">23</span>, <span style="color:#666">232</span>, <span style="color:#666">55</span>, <span style="color:#666">2</span>, <span style="color:#666">7</span>, <span style="color:#666">0</span>, <span style="color:#666">576</span>, <span style="color:#666">342</span>};
-</span></span><span style="display:flex;"><span>  <span style="color:#0b0;font-weight:bold">int</span> n <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">sizeof</span>(arr) <span style="color:#666">/</span> <span style="color:#a2f;font-weight:bold">sizeof</span>(arr[<span style="color:#666">0</span>]);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#00a000">printf</span>(<span style="color:#b44">&#34;排序前：&#34;</span>);
-</span></span><span style="display:flex;"><span>  <span style="color:#00a000">print_array</span>(arr, n);
-</span></span><span style="display:flex;"><span>  <span style="color:#00a000">bubble_sort</span>(arr, n);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#00a000">printf</span>(<span style="color:#b44">&#34;排序后&#34;</span>);
-</span></span><span style="display:flex;"><span>  <span style="color:#00a000">print_array</span>(arr, n);
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h2 id="原理分析">原理分析</h2>
-<h3 id="外层循环的-i--n---1">外层循环的 i &lt; n - 1</h3>
-<ul>
-<li>n个元素的数组最多需要n-1轮冒泡，如5元素数组需要4轮排序</li>
-<li><strong>数学依据</strong>：每轮将一个最大值“沉底”，当完成n-1轮时，最后一个元素必然有序</li>
-</ul>
-<p>示例验证：</p>  </main>
-    <footer>
-      <a class="footer-a-link" href="./atom.xml">RSS</a> | <a class="footer-a-link" href="https://www.github.com/yingyu5658/Moments">Moments</a>
-<p class="copyright">Copyright 2025. All rights reserved.</p>
- <img src="/notbyai.png" class="not-by-ai" />
+    
+    
+    
+    
+    
+        <div class="post-title">
+            <a class="rel-permalink" href="/post/%E6%8A%80%E6%9C%AF/4key%E9%9F%B3%E6%B8%B8%E6%AE%B5%E4%BD%8D%E5%8D%95%E6%9B%B2%E6%88%90%E7%BB%A9%E8%AE%A1%E7%AE%97%E7%9A%84%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0/">
+                <div class="post-date">2025-06-07</div>
+                4Key音游段位单曲成绩计算的程序实现
+            </a>
+            <br />
+        </div>
+    
+        <div class="post-title">
+            <a class="rel-permalink" href="/post/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%93%88%E5%B8%8C%E8%A1%A8/">
+                <div class="post-date">2025-05-28</div>
+                【数据结构与算法】哈希表
+            </a>
+            <br />
+        </div>
+    
+        <div class="post-title">
+            <a class="rel-permalink" href="/post/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%BC%97%E6%95%B0%E4%B8%AD%E4%BD%8D%E6%95%B0/">
+                <div class="post-date">2025-05-27</div>
+                【数据结构与算法】众数、中位数
+            </a>
+            <br />
+        </div>
+    
+        <div class="post-title">
+            <a class="rel-permalink" href="/post/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%BA%8C%E5%8F%89%E6%A0%91/">
+                <div class="post-date">2025-05-25</div>
+                【数据结构与算法】二叉树
+            </a>
+            <br />
+        </div>
+    
+        <div class="post-title">
+            <a class="rel-permalink" href="/post/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E6%A0%88/">
+                <div class="post-date">2025-05-11</div>
+                【数据结构与算法】栈
+            </a>
+            <br />
+        </div>
+    
+        <div class="post-title">
+            <a class="rel-permalink" href="/post/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/">
+                <div class="post-date">2025-05-10</div>
+                【数据结构与算法】冒泡排序
+            </a>
+            <br />
+        </div>
+    
+
+    
+    
+	<footer>
+		<p>-------------------------------------------</p>
+<p>Email: me (at) yingyu5658 (dot) com</p>
+<img src="/notbyai.png" class="not-by-ai" /> <br>
+ 
     </footer>
-  </body>
+
+
+</main>
+      </body>
 </html>
 

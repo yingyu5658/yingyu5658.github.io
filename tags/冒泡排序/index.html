@@ -4,59 +4,37 @@
   dir="ltr"
 >
   <head>
-    <meta charset="utf-8"> <meta name="viewport" content="width=device-width"> <title>冒泡排序 | 映屿</title>  <link rel="stylesheet" href="/css/main.min.285850d1e24e898f7b1f74d41ebb260192f7b2b58602acc9401c1d6aadab23a2.css" integrity="sha256-KFhQ0eJOiY97H3TUHrsmAZL3srWGAqzJQBwdaq2rI6I=" crossorigin="anonymous">  <script src="/js/main.a7956529a5290cbd80aa9c64ee52ceefa89957b568d8a14c217a91d7f4d6aa38.js" integrity="sha256-p5VlKaUpDL2Aqpxk7lLO76iZV7Vo2KFMIXqR1/TWqjg=" crossorigin="anonymous"></script>
+    <meta charset="utf-8"> <meta name="viewport" content="width=device-width"> <title>冒泡排序 | 映屿</title>  <link rel="stylesheet" href="/css/main.min.dedb3cb6a122787f34e63619fa068c5216f47b80f48863e29b68e48f5e152876.css" integrity="sha256-3ts8tqEieH805jYZ&#43;gaMUhb0e4D0iGPim2jkj14VKHY=" crossorigin="anonymous">  <script src="/js/main.a7956529a5290cbd80aa9c64ee52ceefa89957b568d8a14c217a91d7f4d6aa38.js" integrity="sha256-p5VlKaUpDL2Aqpxk7lLO76iZV7Vo2KFMIXqR1/TWqjg=" crossorigin="anonymous"></script>
   </head>
   <body>
-    <header><h1 class="title">映屿</h1> <p class="subtitle">yingyu5658的数字花园</p>  <nav> <div class="menu-item"> <a href="/">Home</a> </div> <div class="menu-item"> <a href="/links">Links</a> </div> <div class="menu-item"> <a href="/about">About</a> </div> </nav> 
+		<main>
+    <header><h1 class="title">映屿</h1> <p class="subtitle">yingyu5658的数字花园</p>  
 </header>
-    <main> <h1>冒泡排序</h1>   <h2><a href="/post/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/">【数据结构与算法】冒泡排序</a></h2> <h2 id="核心思想">核心思想</h2>
-<p>通过相邻元素的两两比较，将较大的元素逐步“冒泡”到数组末尾，每轮排序确定一个最大元素的最终位置。</p>
-<h2 id="代码实现">代码实现</h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">bubble_sort</span>(<span style="color:#0b0;font-weight:bold">int</span> arr[], <span style="color:#0b0;font-weight:bold">int</span> n) {
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-style:italic">// 最外层控制循环轮数 n-1轮
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>  <span style="color:#a2f;font-weight:bold">for</span> (<span style="color:#0b0;font-weight:bold">int</span> i <span style="color:#666">=</span> <span style="color:#666">0</span>; i <span style="color:#666">&lt;</span> n <span style="color:#666">-</span> <span style="color:#666">1</span>; i<span style="color:#666">++</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic">// 内层循环处理相邻元素比较和交换
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> j <span style="color:#666">=</span> <span style="color:#666">0</span>; j <span style="color:#666">&lt;</span> n<span style="color:#666">-</span>i<span style="color:#666">-</span><span style="color:#666">1</span>; j<span style="color:#666">++</span>) {
-</span></span><span style="display:flex;"><span>      <span style="color:#a2f;font-weight:bold">if</span> (arr[j] <span style="color:#666">&gt;</span> arr[j<span style="color:#666">+</span><span style="color:#666">1</span>]) {
-</span></span><span style="display:flex;"><span>        <span style="color:#0b0;font-weight:bold">int</span> temp <span style="color:#666">=</span> arr[j];
-</span></span><span style="display:flex;"><span>        arr[j] <span style="color:#666">=</span> arr[j<span style="color:#666">+</span><span style="color:#666">1</span>];
-</span></span><span style="display:flex;"><span>        arr[j<span style="color:#666">+</span><span style="color:#666">1</span>] <span style="color:#666">=</span> temp;
-</span></span><span style="display:flex;"><span>      }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// 调用
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">print_array</span>(<span style="color:#0b0;font-weight:bold">int</span> arr[], <span style="color:#0b0;font-weight:bold">int</span> size) {
-</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">for</span> (<span style="color:#0b0;font-weight:bold">int</span> i <span style="color:#666">=</span> <span style="color:#666">0</span>; i <span style="color:#666">&lt;</span> size; i<span style="color:#666">++</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#00a000">printf</span>(<span style="color:#b44">&#34;%d,&#34;</span>, arr[i]);
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>  <span style="color:#00a000">printf</span>(<span style="color:#b44">&#34;</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>);
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>() {
-</span></span><span style="display:flex;"><span>  <span style="color:#0b0;font-weight:bold">int</span> arr[] <span style="color:#666">=</span> {<span style="color:#666">23</span>, <span style="color:#666">232</span>, <span style="color:#666">55</span>, <span style="color:#666">2</span>, <span style="color:#666">7</span>, <span style="color:#666">0</span>, <span style="color:#666">576</span>, <span style="color:#666">342</span>};
-</span></span><span style="display:flex;"><span>  <span style="color:#0b0;font-weight:bold">int</span> n <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">sizeof</span>(arr) <span style="color:#666">/</span> <span style="color:#a2f;font-weight:bold">sizeof</span>(arr[<span style="color:#666">0</span>]);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#00a000">printf</span>(<span style="color:#b44">&#34;排序前：&#34;</span>);
-</span></span><span style="display:flex;"><span>  <span style="color:#00a000">print_array</span>(arr, n);
-</span></span><span style="display:flex;"><span>  <span style="color:#00a000">bubble_sort</span>(arr, n);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#00a000">printf</span>(<span style="color:#b44">&#34;排序后&#34;</span>);
-</span></span><span style="display:flex;"><span>  <span style="color:#00a000">print_array</span>(arr, n);
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h2 id="原理分析">原理分析</h2>
-<h3 id="外层循环的-i--n---1">外层循环的 i &lt; n - 1</h3>
-<ul>
-<li>n个元素的数组最多需要n-1轮冒泡，如5元素数组需要4轮排序</li>
-<li><strong>数学依据</strong>：每轮将一个最大值“沉底”，当完成n-1轮时，最后一个元素必然有序</li>
-</ul>
-<p>示例验证：</p>  </main>
-    <footer>
-      <a class="footer-a-link" href="./atom.xml">RSS</a> | <a class="footer-a-link" href="https://www.github.com/yingyu5658/Moments">Moments</a>
-<p class="copyright">Copyright 2025. All rights reserved.</p>
- <img src="/notbyai.png" class="not-by-ai" />
+    
+    
+    
+    
+    
+        <div class="post-title">
+            <a class="rel-permalink" href="/post/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/">
+                <div class="post-date">2025-05-10</div>
+                【数据结构与算法】冒泡排序
+            </a>
+            <br />
+        </div>
+    
+
+    
+    
+	<footer>
+		<p>-------------------------------------------</p>
+<p>Email: me (at) yingyu5658 (dot) com</p>
+<img src="/notbyai.png" class="not-by-ai" /> <br>
+ 
     </footer>
-  </body>
+
+
+</main>
+      </body>
 </html>
 
