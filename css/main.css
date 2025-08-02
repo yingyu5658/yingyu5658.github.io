@@ -10,21 +10,18 @@ body {
     color: #222;
     line-height: 1.5;
     margin: auto;
-    padding: auto;
     max-width: 750px;
+	height: 100%;
+}
+
+.inner-post-title {
+	margin-bottom: 10px;
 }
 
 time {
-    margin: 0;
     line-height: 1px;
+	font-size: 18px;
 }
-
-.post-content h1::before { content: "# "; }
-.post-content h2::before { content: "## "; }
-.post-content h3::before { content: "### "; }
-.post-content h4::before { content: "#### "; }
-.post-content h5::before { content: "##### "; }
-.post-content h6::before { content: "###### "; }
 
 .simplified-pagination nav ul {
     display: flex;
@@ -44,35 +41,6 @@ time {
 .simplified-pagination .current-page span {
     font-weight: bold;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 header {
     border-bottom: #d3d3d3 1px solid;
@@ -123,8 +91,12 @@ img {
 }
 
 .title {
-    margin-top: 30px;
+	margin-top: 0;
     line-height: 20px;
+}
+
+h1.title {
+	padding-top: 30px;
 }
 
 .subtitle {
@@ -146,13 +118,19 @@ hr {
 }
 
 pre {
-    padding: 5px 10px 15px 15px;
+    padding: 5px 10px 5px 15px;
 }
+
+code {
+    background-color: #f8f8f8;
+}
+
 
 pre, code {
 	font-family: "Consolas", "SF Mono", "DejaVu Sans Mono", "Liberation Mono";
     overflow-y: auto;           /* 垂直溢出时显示滚动条 */
 }
+
 
 .post-title {
     font-size: 17px;
