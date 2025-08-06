@@ -4,12 +4,12 @@
   dir="ltr"
 >
   <head>
-<meta charset="utf-8"> <meta name="viewport" content="width=device-width"> <title>x86-64汇编学习笔记 | 映屿</title>  <link rel="stylesheet" href="/css/main.min.b932c7edf36ba79007b8f0c4287ef50ae2938f0374a5433f827b0018d496cfaa.css" integrity="sha256-uTLH7fNrp5AHuPDEKH71CuKTjwN0pUM/gnsAGNSWz6o=" crossorigin="anonymous">  <script src="/js/main.a7956529a5290cbd80aa9c64ee52ceefa89957b568d8a14c217a91d7f4d6aa38.js" integrity="sha256-p5VlKaUpDL2Aqpxk7lLO76iZV7Vo2KFMIXqR1/TWqjg=" crossorigin="anonymous"></script>
+<meta charset="utf-8"> <meta name="viewport" content="width=device-width"> <title>x86-64汇编学习笔记 | 映屿</title>  <link rel="stylesheet" href="/css/main.min.b3c2b1719da459be773323892668daea201afd0e70c30ce64aaeb8bdeb9ef5fa.css" integrity="sha256-s8KxcZ2kWb53MyOJJmja6iAa/Q5wwwzmSq64veue9fo=" crossorigin="anonymous">  <script src="/js/main.a7956529a5290cbd80aa9c64ee52ceefa89957b568d8a14c217a91d7f4d6aa38.js" integrity="sha256-p5VlKaUpDL2Aqpxk7lLO76iZV7Vo2KFMIXqR1/TWqjg=" crossorigin="anonymous"></script>
   </head>
   <body>
 		<main> 
 	<header>
-		<meta charset="utf-8"> <meta name="viewport" content="width=device-width"> <title>x86-64汇编学习笔记 | 映屿</title>  <link rel="stylesheet" href="/css/main.min.b932c7edf36ba79007b8f0c4287ef50ae2938f0374a5433f827b0018d496cfaa.css" integrity="sha256-uTLH7fNrp5AHuPDEKH71CuKTjwN0pUM/gnsAGNSWz6o=" crossorigin="anonymous">  <script src="/js/main.a7956529a5290cbd80aa9c64ee52ceefa89957b568d8a14c217a91d7f4d6aa38.js" integrity="sha256-p5VlKaUpDL2Aqpxk7lLO76iZV7Vo2KFMIXqR1/TWqjg=" crossorigin="anonymous"></script>
+		<meta charset="utf-8"> <meta name="viewport" content="width=device-width"> <title>x86-64汇编学习笔记 | 映屿</title>  <link rel="stylesheet" href="/css/main.min.b3c2b1719da459be773323892668daea201afd0e70c30ce64aaeb8bdeb9ef5fa.css" integrity="sha256-s8KxcZ2kWb53MyOJJmja6iAa/Q5wwwzmSq64veue9fo=" crossorigin="anonymous">  <script src="/js/main.a7956529a5290cbd80aa9c64ee52ceefa89957b568d8a14c217a91d7f4d6aa38.js" integrity="sha256-p5VlKaUpDL2Aqpxk7lLO76iZV7Vo2KFMIXqR1/TWqjg=" crossorigin="anonymous"></script>
 	</header>
 
 	   <h1 class="inner-post-title">x86-64汇编学习笔记</h1> 
@@ -101,8 +101,7 @@
 <p>内存变成平坦模型，即无分段式内存。所有对内存的访问都在同一个地址空间内进行。</p>
 <p>此外，对于段的保护也被弱化，64位更强调对页的保护。</p>
 <blockquote>
-<p>看来段寄存器没什么用了啊</p>
-</blockquote>
+<p>看来段寄存器没什么用了啊</p></blockquote>
 <p>段寄存器最初的存在目的是辅助寻址，在32位下基本不再用于寻址，而是用于保护，而64位中其保护作用进一步被削弱。</p>
 <h2 id="标志寄存器">标志寄存器</h2>
 <p>标准寄存器存储了机组标志，分别是状态标志、控制标志、系统标志。</p>

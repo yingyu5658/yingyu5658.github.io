@@ -4,12 +4,12 @@
   dir="ltr"
 >
   <head>
-<meta charset="utf-8"> <meta name="viewport" content="width=device-width"> <title>Emacs配置记录 2——C/C&#43;&#43;环境配置 | 映屿</title>  <link rel="stylesheet" href="/css/main.min.b932c7edf36ba79007b8f0c4287ef50ae2938f0374a5433f827b0018d496cfaa.css" integrity="sha256-uTLH7fNrp5AHuPDEKH71CuKTjwN0pUM/gnsAGNSWz6o=" crossorigin="anonymous">  <script src="/js/main.a7956529a5290cbd80aa9c64ee52ceefa89957b568d8a14c217a91d7f4d6aa38.js" integrity="sha256-p5VlKaUpDL2Aqpxk7lLO76iZV7Vo2KFMIXqR1/TWqjg=" crossorigin="anonymous"></script>
+<meta charset="utf-8"> <meta name="viewport" content="width=device-width"> <title>Emacs配置记录 2——C/C&#43;&#43;环境配置 | 映屿</title>  <link rel="stylesheet" href="/css/main.min.b3c2b1719da459be773323892668daea201afd0e70c30ce64aaeb8bdeb9ef5fa.css" integrity="sha256-s8KxcZ2kWb53MyOJJmja6iAa/Q5wwwzmSq64veue9fo=" crossorigin="anonymous">  <script src="/js/main.a7956529a5290cbd80aa9c64ee52ceefa89957b568d8a14c217a91d7f4d6aa38.js" integrity="sha256-p5VlKaUpDL2Aqpxk7lLO76iZV7Vo2KFMIXqR1/TWqjg=" crossorigin="anonymous"></script>
   </head>
   <body>
 		<main> 
 	<header>
-		<meta charset="utf-8"> <meta name="viewport" content="width=device-width"> <title>Emacs配置记录 2——C/C&#43;&#43;环境配置 | 映屿</title>  <link rel="stylesheet" href="/css/main.min.b932c7edf36ba79007b8f0c4287ef50ae2938f0374a5433f827b0018d496cfaa.css" integrity="sha256-uTLH7fNrp5AHuPDEKH71CuKTjwN0pUM/gnsAGNSWz6o=" crossorigin="anonymous">  <script src="/js/main.a7956529a5290cbd80aa9c64ee52ceefa89957b568d8a14c217a91d7f4d6aa38.js" integrity="sha256-p5VlKaUpDL2Aqpxk7lLO76iZV7Vo2KFMIXqR1/TWqjg=" crossorigin="anonymous"></script>
+		<meta charset="utf-8"> <meta name="viewport" content="width=device-width"> <title>Emacs配置记录 2——C/C&#43;&#43;环境配置 | 映屿</title>  <link rel="stylesheet" href="/css/main.min.b3c2b1719da459be773323892668daea201afd0e70c30ce64aaeb8bdeb9ef5fa.css" integrity="sha256-s8KxcZ2kWb53MyOJJmja6iAa/Q5wwwzmSq64veue9fo=" crossorigin="anonymous">  <script src="/js/main.a7956529a5290cbd80aa9c64ee52ceefa89957b568d8a14c217a91d7f4d6aa38.js" integrity="sha256-p5VlKaUpDL2Aqpxk7lLO76iZV7Vo2KFMIXqR1/TWqjg=" crossorigin="anonymous"></script>
 	</header>
 
 	   <h1 class="inner-post-title">Emacs配置记录 2——C/C&#43;&#43;环境配置</h1> 
@@ -79,7 +79,7 @@
 </span></span><span style="display:flex;"><span>    (<span style="color:#a2f;font-weight:bold">setq</span> <span style="color:#b8860b">flycheck-check-syntax-automatically</span> <span style="color:#666">&#39;</span>(<span style="color:#b8860b">save</span> <span style="color:#b8860b">mode-enabled</span>) <span style="color:#080;font-style:italic">;; 保存时检查</span>
 </span></span><span style="display:flex;"><span>          <span style="color:#b8860b">flycheck-display-errors-delay</span> <span style="color:#666">0.5</span>                        <span style="color:#080;font-style:italic">;; 错误显示延迟</span>
 </span></span><span style="display:flex;"><span>          <span style="color:#b8860b">flycheck-indication-mode</span> <span style="color:#b8860b">&#39;right-fringe</span>))                 <span style="color:#080;font-style:italic">;; 错误标记位置</span>
-</span></span></code></pre></div><h2 id="spacemacs-文件基本介绍httpsliuzhijun-sourcegithubiospacemacs-14-daysweek01day05day05_spacemacse79a84e8bf9be998b6e9858de7bdae_e4b88aidspacemacs-e69687e4bbb6e59fbae69cace4bb8be7bb8d"><a href="https://liuzhijun-source.github.io/spacemacs-14-days/#/Week01/Day05/day05_spacemacs%E7%9A%84%E8%BF%9B%E9%98%B6%E9%85%8D%E7%BD%AE_%E4%B8%8A?id=spacemacs-%e6%96%87%e4%bb%b6%e5%9f%ba%e6%9c%ac%e4%bb%8b%e7%bb%8d">.spacemacs 文件基本介绍</a></h2>
+</span></span></code></pre></div><h2 id="spacemacs-文件基本介绍"><a href="https://liuzhijun-source.github.io/spacemacs-14-days/#/Week01/Day05/day05_spacemacs%E7%9A%84%E8%BF%9B%E9%98%B6%E9%85%8D%E7%BD%AE_%E4%B8%8A?id=spacemacs-%e6%96%87%e4%bb%b6%e5%9f%ba%e6%9c%ac%e4%bb%8b%e7%bb%8d">.spacemacs 文件基本介绍</a></h2>
 <p>.spacemacs 文件一般会自动生成在主目录下，这个文件是配置 Spacemacs 的入口，有关于 Spacemacs 本身的配置基本都能在里面进行修改，用户设置同样在这个文件中修改。</p>
 <p>.spacemacs 中，内容一般被分为以下几个部分，每个部分都封装在一个函数中：</p>
 <ul>
@@ -103,8 +103,7 @@
 </ul>
 <p>Spacemacs 自己生成的配置，同样不建议自己去修改</p>
 <blockquote>
-<p>摘自<a href="https://liuzhijun-source.github.io/spacemacs-14-days/#/Week01/Day05/day05_spacemacs%E7%9A%84%E8%BF%9B%E9%98%B6%E9%85%8D%E7%BD%AE_%E4%B8%8A">Spacemaccs 14 Days</a></p>
-</blockquote>
+<p>摘自<a href="https://liuzhijun-source.github.io/spacemacs-14-days/#/Week01/Day05/day05_spacemacs%E7%9A%84%E8%BF%9B%E9%98%B6%E9%85%8D%E7%BD%AE_%E4%B8%8A">Spacemaccs 14 Days</a></p></blockquote>
 
 </div>
  
