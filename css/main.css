@@ -63,8 +63,20 @@ body {
     /* Android备选 */ serif !important; /* 强制覆盖 */
   line-height: 1.5;
   margin: auto;
-  max-width: 750px;
+  max-width: 800px;
   height: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+main {
+  background-color: white;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.borderdiv {
+  margin-bottom: 20px;
 }
 
 .btn {
@@ -74,11 +86,22 @@ body {
   background-color: #e9e9eb;
 }
 
+.post-content p {
+  line-height: 25px;
+}
+
 .inner-post-title {
-  margin-bottom: 10px;
+  margin-bottom: 0;
+  font-size: 29px;
+  color: #333333;
+}
+
+.post-header {
+  border-bottom: #d3d3d3 1px solid;
 }
 
 time {
+  color: #333333;
   line-height: 1px;
   font-size: 18px;
 }
@@ -153,6 +176,11 @@ img {
 .title {
   margin-top: 0;
   line-height: 20px;
+  color: #333;
+}
+
+p {
+  color: #444;
 }
 
 h1.title {
@@ -192,7 +220,7 @@ code {
 
 .post-title {
   font-size: 17px;
-  margin-bottom: 3px;
+  margin-bottom: 6px;
 }
 
 .rel-permalink {
@@ -221,8 +249,13 @@ footer p {
   line-height: 20px;
 }
 
+a:hover,
+a:active {
+  color: #444;
+}
+
 a {
-  color: #2c2cff;
+  color: #3354aa;
   text-decoration: none;
 }
 

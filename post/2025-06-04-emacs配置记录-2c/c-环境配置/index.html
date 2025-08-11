@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+
+  
+      <link href="/css/fonts.css" rel="stylesheet" type="text/css">
+    
+  <title>Emacs配置记录 2——C/C&#43;&#43;环境配置</title><link rel="stylesheet" href="/css/hugo-octopress.css">
+
+  
+    <link rel="stylesheet" href="/css/fork-awesome.min.css">
+  
+    <link href="http://localhost:1313/favicon.png" rel="icon">
+  
+
+  <meta name="description" content="" />
+  <meta name="keywords" content="">
+  <meta name="author" content="yingyu5658"><meta name="generator" content="Hugo 0.148.2">
+
+</head>
+<body><header role="banner"><hgroup><h1><a href="http://localhost:1313/">映屿</a></h1>
+    <h2>yingyu5658的数字花园</h2>
+</hgroup></header><nav role="navigation"><fieldset class="mobile-nav"><select onchange="location = this.value;">
+    <option value="">Navigate…</option>
+      
+        <option value="http://localhost:1313/">» Home</option>
+      
+        <option value="http://localhost:1313/about">» About</option>
+      
+        <option value="http://localhost:1313/post">» Archive</option>
+      
+        <option value="http://localhost:1313/links">» Links</option>
+      
+        <option value="http://localhost:1313/newsgroup">» Newsgroup</option>
+      
+  </select>
+</fieldset><ul class="main-navigation">
+    
+      <li><a href="http://localhost:1313/" title="Home">Home</a></li>
+    
+  
+    
+      <li><a href="http://localhost:1313/about" title="About"  target="_blank"  rel="noopener noreferrer">About</a></li>
+    
+  
+    
+      <li><a href="http://localhost:1313/post" title="Archive"  target="_blank"  rel="noopener noreferrer">Archive</a></li>
+    
+  
+    
+      <li><a href="http://localhost:1313/links" title="Links"  target="_blank"  rel="noopener noreferrer">Links</a></li>
+    
+  
+    
+      <li><a href="http://localhost:1313/newsgroup" title="Newsgroup"  target="_blank"  rel="noopener noreferrer">Newsgroup</a></li>
+    
+  
+</ul>
+
+<ul class="subscription">
+  
+    
+        <a href="http://localhost:1313/atom.xml" target="_blank" type="application/rss+xml" title="RSS" rel="noopener noreferrer"><i class="fa fa-rss-square fa-lg"></i></a>
+    
+  
+</ul>
+
+
+  <form action="https://www.google.com/search" method="get" target="_blank" rel="noopener noreferrer">
+    <fieldset role="search">
+      <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+      <input type="hidden" name="q" value="site:http://localhost:1313/" />
+    </fieldset>
+  </form>
+
+</nav>
+
+
+<div id="main">
+  <div id="content">
+    <div>
+      <article class="hentry" role="article">
+
+        
+        <header>
+  <p class="meta">Jun 4, 2025
+     - 1 minute read - <a class="label" href="http://localhost:1313/categories/%e6%8a%80%e6%9c%af/">技术 </a>
+    
+  </p>
+  <h1 class="entry-title">
+     Emacs配置记录 2——C/C&#43;&#43;环境配置 
+  </h1>
+</header>
+
+
+        <div class="entry-content">
+          
+          <h2 id="前言">前言</h2>
+<p>经过
+<a href="">上一篇</a>的简单调教，Emacs已经勉强变成了一个温顺的文本编辑器，但是离写代码这个宏大的目标还是有一段距离的，今天来解决主要问题：代码补全。由于我要写一点简单的C代码，那么重点就先放到C/CPP环境搭建中。</p>
+<p>站在巨人的肩膀上，在Emacs中的代码补全使用巨硬的LSP协议。</p>
+<h2 id="spacemacs">Spacemacs</h2>
+<p>经过考虑，我还是决定使用Spacemacs，比起原版Emacs，它更适合新手，也更能快速投入开发。避免配置陷阱，过多把时间花在刀把上。唉，也就是说，昨天大部分都白干了。算了，生命的意义就在于折腾，怕折腾我也不会玩Emacs了。来吧！</p>
+<p>先来安装一下Spacemacs。
+<code>git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d</code></p>
+<p>重启Emacs，让他下载一下自带的包。</p>
+<p>上次没清理干净Spacemacs，不知道存在哪的备份还在，算是免去了一些折腾吧。来看看现在的Emacs都配置了什么。</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span>   <span style="color:#268bd2">dotspacemacs-configuration-layers</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#719e07">&#39;</span>(<span style="color:#268bd2">yaml</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#268bd2">markdown</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#268bd2">javascript</span>
+</span></span><span style="display:flex;"><span>     (<span style="color:#268bd2">auto-completion</span> <span style="color:#2aa198">:variables</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#268bd2">auto-completion-idle-delay</span> <span style="color:#2aa198">0.01</span>    <span style="color:#586e75">; 降低补全延迟</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#268bd2">auto-completion-minimum-prefix-length</span> <span style="color:#2aa198">1</span>)
+</span></span><span style="display:flex;"><span>     (<span style="color:#268bd2">prettier</span> <span style="color:#2aa198">:variables</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#268bd2">prettier-always-enable</span> <span style="color:#cb4b16">t</span>)  <span style="color:#586e75">; 保存时自动格式化</span>
+</span></span><span style="display:flex;"><span>     (<span style="color:#268bd2">javascript</span> <span style="color:#2aa198">:variables</span>
+</span></span><span style="display:flex;"><span>                 <span style="color:#268bd2">javascript-backend</span> <span style="color:#2aa198">&#39;lsp</span>        <span style="color:#586e75">; 启用LSP后端</span>
+</span></span><span style="display:flex;"><span>                 <span style="color:#268bd2">javascript-fmt-tool</span> <span style="color:#2aa198">&#39;prettier</span>) <span style="color:#586e75">; 格式化工具选Prettier</span>
+</span></span><span style="display:flex;"><span>     (<span style="color:#268bd2">c-c++</span> <span style="color:#2aa198">:variables</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#268bd2">c-c++-backend</span> <span style="color:#2aa198">&#39;lsp-clangd</span>)         <span style="color:#586e75">; C/C++使用Clangd后端</span>
+</span></span><span style="display:flex;"><span>     (<span style="color:#268bd2">vue</span> <span style="color:#2aa198">:variables</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#268bd2">vue-backend</span> <span style="color:#2aa198">&#39;lsp</span>)                    <span style="color:#586e75">; Vue使用LSP后端</span>
+</span></span><span style="display:flex;"><span>     (<span style="color:#268bd2">html</span>)                                    <span style="color:#586e75">; HTML/CSS支持</span>
+</span></span><span style="display:flex;"><span>     (<span style="color:#268bd2">lsp</span>)                                     <span style="color:#586e75">; 必须的LSP核心支持层</span>
+</span></span><span style="display:flex;"><span>     (<span style="color:#268bd2">auto-completion</span>)                         <span style="color:#586e75">; 自动补全</span>
+</span></span><span style="display:flex;"><span>     (<span style="color:#268bd2">syntax-checking</span>)                         <span style="color:#586e75">; 语法检查</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#586e75">;; ----------------------------------------------------------------</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#586e75">;; Example of useful layers you may want to use right away.</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#586e75">;; Uncomment some layer names and press `SPC f e R&#39; (Vim style) or</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#586e75">;; `M-m f e R&#39; (Emacs style) to install them.</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#586e75">;; ----------------------------------------------------------------</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#586e75">;; auto-completion</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#586e75">;; better-defaults</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#268bd2">emacs-lisp</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#268bd2">treemacs</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#586e75">;; git</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#268bd2">helm</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#268bd2">lsp</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#586e75">;; markdown</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#268bd2">multiple-cursors</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#586e75">;; org</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#586e75">;; (shell :variables</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#586e75">;;        shell-default-height 30</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#586e75">;;        shell-default-position &#39;bottom)</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#586e75">;; spell-checking</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#586e75">;; syntax-checking</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#586e75">;; version-control</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#268bd2">treemacs</span>)
+</span></span></code></pre></div><p>emmm，还是有点有用的。比如C/C++这里，就启用了LSP。还有一些之前搞的前端配置。就是不知道为啥，JavaScript的补全不太好使。</p>
+<h2 id="语法检查">语法检查</h2>
+<p>语法检查，选择当前比较成熟的flycheck，在Spacemacs中对应<code>syntax-checking</code>，在.spacemacs中的<code>dotspacemacs-configuration-layers</code>写入<code>(configuration-layer/declare-layer 'syntax-checking)</code>
+该层会自动集成Flycheck及其常见语言的后端支持。</p>
+<p>C/C++要安装<code>clang-tidy</code>或<code>cppcheck</code>。</p>
+<h3 id="进阶配置">进阶配置</h3>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span>  (<span style="color:#268bd2">with-eval-after-load</span> <span style="color:#2aa198">&#39;flycheck</span>
+</span></span><span style="display:flex;"><span>    (<span style="color:#719e07">setq</span> <span style="color:#268bd2">flycheck-check-syntax-automatically</span> <span style="color:#719e07">&#39;</span>(<span style="color:#268bd2">save</span> <span style="color:#268bd2">mode-enabled</span>) <span style="color:#586e75">;; 保存时检查</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#268bd2">flycheck-display-errors-delay</span> <span style="color:#2aa198">0.5</span>                        <span style="color:#586e75">;; 错误显示延迟</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#268bd2">flycheck-indication-mode</span> <span style="color:#2aa198">&#39;right-fringe</span>))                 <span style="color:#586e75">;; 错误标记位置</span>
+</span></span></code></pre></div><h2 id="spacemacs-文件基本介绍">
+<a href="https://liuzhijun-source.github.io/spacemacs-14-days/#/Week01/Day05/day05_spacemacs%E7%9A%84%E8%BF%9B%E9%98%B6%E9%85%8D%E7%BD%AE_%E4%B8%8A?id=spacemacs-%e6%96%87%e4%bb%b6%e5%9f%ba%e6%9c%ac%e4%bb%8b%e7%bb%8d" target="_blank" rel="noopener">.spacemacs 文件基本介绍</a></h2>
+<p>.spacemacs 文件一般会自动生成在主目录下，这个文件是配置 Spacemacs 的入口，有关于 Spacemacs 本身的配置基本都能在里面进行修改，用户设置同样在这个文件中修改。</p>
+<p>.spacemacs 中，内容一般被分为以下几个部分，每个部分都封装在一个函数中：</p>
+<ul>
+<li><code>dotspacemacs/layers</code></li>
+</ul>
+<p>在这里可以声明一些 layer，以及删除、增添一些包，在这里还可以调整 Spacemacs 加载时的一些行为</p>
+<ul>
+<li><code>dotspacemacs/init</code></li>
+</ul>
+<p>Spacemacs 绝大部分的配置都位于此，你可以在此修改配置中可选的选项，但绝对不能将自己的用户配置代码添加在这里</p>
+<ul>
+<li><code>dotspacemacs/user-init</code></li>
+</ul>
+<p>这里的内容会在 Emacs 启动前开始加载，一般在这里设置你需要使用的 elpa 源，你应该尽量把用户配置放在 <code>dotspacemacs/user-config</code> 中</p>
+<ul>
+<li><code>dotspacemacs/user-config</code></li>
+</ul>
+<p>在这里可以添加你的用户配置代码，你自己的定义的大部分配置一般都在这里完成</p>
+<ul>
+<li><code>dotspacemacs/emacs-custom-settings</code></li>
+</ul>
+<p>Spacemacs 自己生成的配置，同样不建议自己去修改</p>
+<blockquote>
+<p>摘自
+<a href="https://liuzhijun-source.github.io/spacemacs-14-days/#/Week01/Day05/day05_spacemacs%E7%9A%84%E8%BF%9B%E9%98%B6%E9%85%8D%E7%BD%AE_%E4%B8%8A" target="_blank" rel="noopener">Spacemaccs 14 Days</a></p></blockquote>
+
+        </div>
+        <footer>
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">yingyu5658</span></span><time>Jun 4, 2025</time>
+    
+      <span class="categories">
+        Tags:<a class="category" href="http://localhost:1313/tags/emacs">Emacs</a>  <a class="category" href="http://localhost:1313/tags/linux">Linux</a>  
+    
+    </span>
+  </p><p class="meta">
+    
+        <a class="basic-alignment left" href="http://localhost:1313/post/2025-06-03-%E6%8A%95%E7%A8%BF%E5%85%B3%E4%BA%8E%E6%88%91%E5%AF%B9%E5%91%BD%E8%BF%90%E6%97%A2%E5%AE%9A%E7%9A%84%E6%83%B3%E6%B3%95/" title="【投稿】关于我对命运既定的想法">【投稿】关于我对命运既定的想法</a>
+    
+
+    
+      <a class="basic-alignment right" href="http://localhost:1313/post/2025-06-06-c%E8%AF%AD%E8%A8%80%E7%9A%84%E5%A4%B4%E6%96%87%E4%BB%B6%E4%B8%8Eoop%E8%8C%83%E5%BC%8F%E7%9A%84%E6%8A%BD%E8%B1%A1%E7%B1%BB%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%BC%82%E5%90%8C%E7%82%B9/" title="C语言的头文件与OOP范式的抽象类、接口的异同点">C语言的头文件与OOP范式的抽象类、接口的异同点</a>
+    
+  </p>
+  
+  
+</footer>
+
+
+      </article>
+    </div>
+    <aside class="sidebar thirds">
+  <section class="first odd">
+
+    
+      <h1>Misc</h1>
+    
+
+    <p>
+      
+        <p>E-mail: 
+<a href="mailto:i@yingyu5658.me">i@yingyu5658.me</a></p>
+<p>Newsgroup: news.yingyu5658.me</p>
+<p>Github: 
+<a href="https://www.github.com/yingyu5658" target="_blank" rel="noopener">https://www.github.com/yingyu5658</a></p>
+<p><img src="/unamed.jpg" alt=""></p>
+
+      
+    </p>
+  </section><ul class="sidebar-nav">
+  <li class="sidebar-nav-item">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </li>
+</ul>
+
+    
+      <section class="even">
+        <h1>Recent Posts</h1>
+        <ul id="recent_posts">
+          
+          
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-08-08-%E6%9C%AA%E5%91%BD%E5%90%8D/">未命名</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-08-07-%E5%A6%82%E4%BD%95%E8%AE%A2%E9%98%85%E6%96%B0%E9%97%BB%E7%BB%84/">如何订阅新闻组</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-08-06-%E6%9C%80%E8%86%88%E5%BA%94%E4%B8%8D%E7%88%B1%E6%83%9C%E4%B9%A6%E7%9A%84%E4%BA%BA/">最膈应不爱惜书的人</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-08-06-%E5%88%AB%E9%97%B2%E7%9D%80%E6%B2%A1%E4%BA%8B%E8%87%AA%E6%90%9C%E9%BB%91%E5%8E%86%E5%8F%B2%E5%95%8A/">别闲着没事自搜，黑历史啊</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-08-04-%E6%97%A9%E7%9D%A1%E6%97%A9%E8%B5%B7%E7%9A%84%E4%BC%98%E7%82%B9/">早睡早起的优点</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-07-29-%E4%BB%8E%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%88%B0%E7%89%A9%E7%90%86%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90%E7%A8%8B%E5%BA%8F%E7%9A%84%E7%BC%96%E8%AF%91%E4%B8%8E%E6%89%A7%E8%A1%8C/">从编译原理到物理原理剖析程序的编译与执行</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-07-26-%E5%9C%A82025%E5%B9%B4%E6%90%AD%E5%BB%BA%E6%96%B0%E9%97%BB%E7%BB%84/">在2025年，搭建新闻组</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-07-22-%E6%97%A0%E8%9D%89%E9%B8%A3%E5%A4%8F/">无蝉鸣夏</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-07-21-%E4%B8%87%E8%83%BD%E5%BF%85%E8%83%9C%E6%B2%9F%E9%80%9A%E6%B3%95/">万能必胜沟通法</a>
+              </li>
+            
+          
+        </ul>
+      </section>
+    
+  
+</aside>
+
+  </div>
+</div>
+<div id="waline"></div>
+<script type="module">
+	import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+	init({
+		el: '#waline',
+		serverURL: 'waline.yingyu5658.me'
+	});
+</script>
+
+
+
+
+
+    <footer role="contentinfo">
+      <p>Copyright &copy; 2025 yingyu5658 - <a href="http://localhost:1313/license/">License</a> -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io" rel="noopener noreferrer">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/" rel="noopener noreferrer">Hugo-Octopress</a> theme.
+      </p>
+    </footer>
+  </body>
+</html>
+

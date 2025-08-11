@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+
+  
+      <link href="/css/fonts.css" rel="stylesheet" type="text/css">
+    
+  <title>面向对象编程总结</title><link rel="stylesheet" href="/css/hugo-octopress.css">
+
+  
+    <link rel="stylesheet" href="/css/fork-awesome.min.css">
+  
+    <link href="http://localhost:1313/favicon.png" rel="icon">
+  
+
+  <meta name="description" content="" />
+  <meta name="keywords" content="面向对象编程">
+  <meta name="author" content="yingyu5658"><meta name="generator" content="Hugo 0.148.2">
+
+</head>
+<body><header role="banner"><hgroup><h1><a href="http://localhost:1313/">映屿</a></h1>
+    <h2>yingyu5658的数字花园</h2>
+</hgroup></header><nav role="navigation"><fieldset class="mobile-nav"><select onchange="location = this.value;">
+    <option value="">Navigate…</option>
+      
+        <option value="http://localhost:1313/">» Home</option>
+      
+        <option value="http://localhost:1313/about">» About</option>
+      
+        <option value="http://localhost:1313/post">» Archive</option>
+      
+        <option value="http://localhost:1313/links">» Links</option>
+      
+        <option value="http://localhost:1313/newsgroup">» Newsgroup</option>
+      
+  </select>
+</fieldset><ul class="main-navigation">
+    
+      <li><a href="http://localhost:1313/" title="Home">Home</a></li>
+    
+  
+    
+      <li><a href="http://localhost:1313/about" title="About"  target="_blank"  rel="noopener noreferrer">About</a></li>
+    
+  
+    
+      <li><a href="http://localhost:1313/post" title="Archive"  target="_blank"  rel="noopener noreferrer">Archive</a></li>
+    
+  
+    
+      <li><a href="http://localhost:1313/links" title="Links"  target="_blank"  rel="noopener noreferrer">Links</a></li>
+    
+  
+    
+      <li><a href="http://localhost:1313/newsgroup" title="Newsgroup"  target="_blank"  rel="noopener noreferrer">Newsgroup</a></li>
+    
+  
+</ul>
+
+<ul class="subscription">
+  
+    
+        <a href="http://localhost:1313/atom.xml" target="_blank" type="application/rss+xml" title="RSS" rel="noopener noreferrer"><i class="fa fa-rss-square fa-lg"></i></a>
+    
+  
+</ul>
+
+
+  <form action="https://www.google.com/search" method="get" target="_blank" rel="noopener noreferrer">
+    <fieldset role="search">
+      <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+      <input type="hidden" name="q" value="site:http://localhost:1313/" />
+    </fieldset>
+  </form>
+
+</nav>
+
+
+<div id="main">
+  <div id="content">
+    <div>
+      <article class="hentry" role="article">
+
+        
+        <header>
+  <p class="meta">Dec 18, 2024
+     - 1 minute read - <a class="label" href="http://localhost:1313/categories/%e6%8a%80%e6%9c%af/">技术 </a>
+    
+  </p>
+  <h1 class="entry-title">
+     面向对象编程总结 
+  </h1>
+</header>
+
+
+        <div class="entry-content">
+          
+          <p>面向对象（oop）</p>
+<h1 id="面向对象编程的思想面向拿或者找">面向对象编程的思想：面向。拿或者找。</h1>
+<p>对象：东西
+面向对象编程：拿东西过来编程
+面向对象：把现实世界中的食物看成一个一个对象来解决问题的。（万物皆 对象）
+面向对象的好处：代码更符合人类的思维习惯。编程更简单。看程序更容易理解（？）</p>
+<h1 id="类对象">类、对象：</h1>
+<p>类（设计图）：相同事物，共同特征的描述。
+对象：对象是类的具体的实例。
+对象 = 实例
+在Java中必须先定义类，才能得到对象</p>
+<h1 id="定义类来创建对象使用">定义类来创建对象使用</h1>
+<h2 id="定义类的格式">定义类的格式</h2>
+<ol>
+<li>成员变量（代表属性，一般是名词）：数据类型 名称;</li>
+<li>成员方法（代表行为，一般是动词）</li>
+<li>构造器（前面的区域以后再来探索吧）</li>
+<li>代码块（前面的区域以后再来探索吧）</li>
+<li>内部类（前面的区域以后再来探索吧）</li>
+</ol>
+<h2 id="类中具体怎么写">类中具体怎么写：</h2>
+<p>一般名词定义成成员变量（属性）
+<code>修饰符 数据类型 变量名称 = 初始值</code>
+成员变量不建议给初始值，它存在默认值。</p>
+<h2 id="一般动词定义成方法行为">一般动词定义成方法（行为）</h2>
+<h3 id="创建对象">创建对象</h3>
+<p><code>类名 对象名 = new 构造器();</code></p>
+<h2 id="对象使用">对象使用：</h2>
+<p><code>对象名.成员变量</code>
+<code>对象名.成员方法</code></p>
+<h1 id="构造器">构造器</h1>
+<pre><code>	作用：
+		初始化一个累的对象并且返回这个类的地址。
+		详细格式：修饰符 类名(形参){...}
+		构造器的分类：
+					无参数构造器：初始化一个类的对象，里面的数据都是默认值，并返回地址。
+					有参数构造器：初始化一个类的对象，并返回地址，并且可以同时为对象赋值。
+		构造器如何调用：
+					类名 对象 = new 构造器;
+		注意：任何类写出来，自带无参数构造器
+			   但是在这个类中定义了一个有参数构造器了，那么无参数构造器就消失了，此时如果还要使用无参数构造器，必须自己写一个。
+</code></pre>
+<h2 id="this关键字">this关键字</h2>
+<p>作用：代表了当前对象的地址。可以访问当前对象的成员变量信息和成员方法</p>
+<h3 id="具体应用场景">具体应用场景</h3>
+<p>可以用在有参数构造器中
+可以用在方法中</p>
+<h1 id="封装">封装</h1>
+<p>面向对象三大特征：封装、继承、多态。
+封装的基本思想：决定属性和行为归属谁的问题。</p>
+<h2 id="如何更好的封装">如何更好的封装：</h2>
+<p>成员变量私有化，只能在本类访问。</p>
+<h4 id="合理暴露">合理暴露</h4>
+<p>提供成套的getter和setter方法暴露取值赋值。</p>
+<h1 id="标准javabean">标准JavaBean</h1>
+<p>JavaBean是什么：是实体类。
+作用：创建对象，封装数据。</p>
+<p><img src="https://www.yingyu5658.cn/usr/uploads/2024/12/2743265221.jpg" alt=""></p>
+
+        </div>
+        <footer>
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">yingyu5658</span></span><time>Dec 18, 2024</time>
+    
+      <span class="categories">
+        Tags:<a class="category" href="http://localhost:1313/tags/java">Java</a>  <a class="category" href="http://localhost:1313/tags/%e7%ac%94%e8%ae%b0">笔记</a>  
+    
+    </span>
+  </p><p class="meta">
+    
+        <a class="basic-alignment left" href="http://localhost:1313/blog/2024-12-17-%E8%AE%B0%E5%BD%95%E9%85%8D%E7%BD%AEssl%E8%AF%81%E4%B9%A6/" title="记录配置SSL证书">记录配置SSL证书</a>
+    
+
+    
+      <a class="basic-alignment right" href="http://localhost:1313/blog/2024-12-19-java%E9%81%8D%E5%8E%86%E5%AD%97%E7%AC%A6%E4%B8%B2/" title="Java遍历字符串">Java遍历字符串</a>
+    
+  </p>
+  
+  
+</footer>
+
+
+      </article>
+    </div>
+    <aside class="sidebar thirds">
+  <section class="first odd">
+
+    
+      <h1>Sidebar Header</h1>
+    
+
+    <p>
+      
+        <p>New paragraph</p>
+<p>Another paragraph which has two spaces in the end to create a new line using markdown<br>
+New line but not a new paragraph</p>
+
+      
+    </p>
+  </section><ul class="sidebar-nav">
+  <li class="sidebar-nav-item">
+    <a target="_blank" rel="noopener noreferrer" href="https://github.com/yingyu5658" title="https://github.com/yingyu5658"><i class="fa fa-github fa-3x"></i></a>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </li>
+</ul>
+
+    
+      <section class="odd">
+        
+          <h1>Sidebar Links</h1>
+        
+        
+          <li>
+            <a href="http://localhost:1313/categories/golang/" title="Hugo category" >Hugo category</a>
+          </li>
+        
+          <li>
+            <a href="http://localhost:1313/about" title="About page" >About page</a>
+          </li>
+        
+          <li>
+            <a href="https://www.google.com" title="Google" >Google</a>
+          </li>
+        
+      </section>
+    
+  
+    
+      <section class="even">
+        <h1>Recent Posts</h1>
+        <ul id="recent_posts">
+          
+          
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2025-08-08-%E6%9C%AA%E5%91%BD%E5%90%8D/">未命名</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2025-08-07-%E5%A6%82%E4%BD%95%E8%AE%A2%E9%98%85%E6%96%B0%E9%97%BB%E7%BB%84/">如何订阅新闻组</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2025-08-06-%E6%9C%80%E8%86%88%E5%BA%94%E4%B8%8D%E7%88%B1%E6%83%9C%E4%B9%A6%E7%9A%84%E4%BA%BA/">最膈应不爱惜书的人</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2025-08-06-%E5%88%AB%E9%97%B2%E7%9D%80%E6%B2%A1%E4%BA%8B%E8%87%AA%E6%90%9C%E9%BB%91%E5%8E%86%E5%8F%B2%E5%95%8A/">别闲着没事自搜，黑历史啊</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2025-08-04-%E6%97%A9%E7%9D%A1%E6%97%A9%E8%B5%B7%E7%9A%84%E4%BC%98%E7%82%B9/">早睡早起的优点</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2025-07-29-%E4%BB%8E%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%88%B0%E7%89%A9%E7%90%86%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90%E7%A8%8B%E5%BA%8F%E7%9A%84%E7%BC%96%E8%AF%91%E4%B8%8E%E6%89%A7%E8%A1%8C/">从编译原理到物理原理剖析程序的编译与执行</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2025-07-26-%E5%9C%A82025%E5%B9%B4%E6%90%AD%E5%BB%BA%E6%96%B0%E9%97%BB%E7%BB%84/">在2025年，搭建新闻组</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2025-07-22-%E6%97%A0%E8%9D%89%E9%B8%A3%E5%A4%8F/">无蝉鸣夏</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2025-07-21-%E4%B8%87%E8%83%BD%E5%BF%85%E8%83%9C%E6%B2%9F%E9%80%9A%E6%B3%95/">万能必胜沟通法</a>
+              </li>
+            
+          
+        </ul>
+      </section>
+    
+  
+</aside>
+
+  </div>
+</div>
+
+    <footer role="contentinfo">
+      <p>Copyright &copy; 2025 yingyu5658 - <a href="http://localhost:1313/license/">License</a> -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io" rel="noopener noreferrer">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/" rel="noopener noreferrer">Hugo-Octopress</a> theme.
+      </p>
+    </footer>
+  </body>
+</html>
+

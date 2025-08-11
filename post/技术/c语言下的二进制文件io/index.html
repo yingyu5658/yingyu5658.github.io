@@ -1,54 +1,131 @@
-<!doctype html>
-<html
-  lang="zh-CN"
-  dir="ltr"
->
-  <head>
-<meta charset="utf-8"> <meta name="viewport" content="width=device-width"> <title>C语言下的二进制文件IO踩坑 | 映屿</title>  <link rel="stylesheet" href="/css/main.min.b3c2b1719da459be773323892668daea201afd0e70c30ce64aaeb8bdeb9ef5fa.css" integrity="sha256-s8KxcZ2kWb53MyOJJmja6iAa/Q5wwwzmSq64veue9fo=" crossorigin="anonymous">  <script src="/js/main.a7956529a5290cbd80aa9c64ee52ceefa89957b568d8a14c217a91d7f4d6aa38.js" integrity="sha256-p5VlKaUpDL2Aqpxk7lLO76iZV7Vo2KFMIXqR1/TWqjg=" crossorigin="anonymous"></script>
-  </head>
-  <body>
-		<main> 
-	<header>
-		<meta charset="utf-8"> <meta name="viewport" content="width=device-width"> <title>C语言下的二进制文件IO踩坑 | 映屿</title>  <link rel="stylesheet" href="/css/main.min.b3c2b1719da459be773323892668daea201afd0e70c30ce64aaeb8bdeb9ef5fa.css" integrity="sha256-s8KxcZ2kWb53MyOJJmja6iAa/Q5wwwzmSq64veue9fo=" crossorigin="anonymous">  <script src="/js/main.a7956529a5290cbd80aa9c64ee52ceefa89957b568d8a14c217a91d7f4d6aa38.js" integrity="sha256-p5VlKaUpDL2Aqpxk7lLO76iZV7Vo2KFMIXqR1/TWqjg=" crossorigin="anonymous"></script>
-	</header>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
 
-	   <h1 class="inner-post-title">C语言下的二进制文件IO踩坑</h1> 
-<time datetime="2025-07-12">
-  Jul. 12, 2025
-</time> 
-   <hr>
-<div class="post-content">
-<p>C语言下的二进制文件读写有个坑，就是一定要按存储的顺序读取。例：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">struct</span> player {
-</span></span><span style="display:flex;"><span>	<span style="color:#0b0;font-weight:bold">int</span> id;
-</span></span><span style="display:flex;"><span>	<span style="color:#0b0;font-weight:bold">double</span> XP;
-</span></span><span style="display:flex;"><span>	<span style="color:#0b0;font-weight:bold">double</span> MP;
+  
+      <link href="/css/fonts.css" rel="stylesheet" type="text/css">
+    
+  <title>C语言下的二进制文件IO踩坑</title><link rel="stylesheet" href="/css/hugo-octopress.css">
+
+  
+    <link rel="stylesheet" href="/css/fork-awesome.min.css">
+  
+    <link href="https://www.yingyu5658.me/favicon.png" rel="icon">
+  
+
+  <meta name="description" content="" />
+  <meta name="keywords" content="">
+  <meta name="author" content="yingyu5658"><meta name="generator" content="Hugo 0.148.2">
+
+</head>
+<body><header role="banner"><hgroup><h1><a href="https://www.yingyu5658.me/">映屿</a></h1>
+    <h2>yingyu5658的数字花园</h2>
+</hgroup></header><nav role="navigation"><fieldset class="mobile-nav"><select onchange="location = this.value;">
+    <option value="">Navigate…</option>
+      
+        <option value="https://www.yingyu5658.me/">» Home</option>
+      
+        <option value="https://www.yingyu5658.me/about">» About</option>
+      
+        <option value="https://www.yingyu5658.me/post">» Archive</option>
+      
+        <option value="https://www.yingyu5658.me/links">» Links</option>
+      
+        <option value="https://www.yingyu5658.me/newsgroup">» Newsgroup</option>
+      
+  </select>
+</fieldset><ul class="main-navigation">
+    
+      <li><a href="https://www.yingyu5658.me/" title="Home">Home</a></li>
+    
+  
+    
+      <li><a href="https://www.yingyu5658.me/about" title="About"  target="_blank"  rel="noopener noreferrer">About</a></li>
+    
+  
+    
+      <li><a href="https://www.yingyu5658.me/post" title="Archive"  target="_blank"  rel="noopener noreferrer">Archive</a></li>
+    
+  
+    
+      <li><a href="https://www.yingyu5658.me/links" title="Links"  target="_blank"  rel="noopener noreferrer">Links</a></li>
+    
+  
+    
+      <li><a href="https://www.yingyu5658.me/newsgroup" title="Newsgroup"  target="_blank"  rel="noopener noreferrer">Newsgroup</a></li>
+    
+  
+</ul>
+
+<ul class="subscription">
+  
+    
+        <a href="https://www.yingyu5658.me/atom.xml" target="_blank" type="application/rss+xml" title="RSS" rel="noopener noreferrer"><i class="fa fa-rss-square fa-lg"></i></a>
+    
+  
+</ul>
+
+
+  <form action="https://www.google.com/search" method="get" target="_blank" rel="noopener noreferrer">
+    <fieldset role="search">
+      <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+      <input type="hidden" name="q" value="site:https://www.yingyu5658.me/" />
+    </fieldset>
+  </form>
+
+</nav>
+
+
+<div id="main">
+  <div id="content">
+    <div>
+      <article class="hentry" role="article">
+
+        
+        <header>
+  <p class="meta">Jul 12, 2025
+     - 1 minute read 
+  </p>
+  <h1 class="entry-title">
+     C语言下的二进制文件IO踩坑 
+  </h1>
+</header>
+
+
+        <div class="entry-content">
+          
+          <p>C语言下的二进制文件读写有个坑，就是一定要按存储的顺序读取。例：</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#719e07">typedef</span> <span style="color:#719e07">struct</span> player {
+</span></span><span style="display:flex;"><span>	<span style="color:#dc322f">int</span> id;
+</span></span><span style="display:flex;"><span>	<span style="color:#dc322f">double</span> XP;
+</span></span><span style="display:flex;"><span>	<span style="color:#dc322f">double</span> MP;
 </span></span><span style="display:flex;"><span>}player;
 </span></span></code></pre></div><p>这里有一个玩家的数据结构，我们创建变量并初始化。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> b_i[<span style="color:#666">32</span>] <span style="color:#666">=</span> {<span style="color:#666">1</span>, <span style="color:#666">233</span>, <span style="color:#666">2453</span>, <span style="color:#666">5432</span>, <span style="color:#666">21</span> ,<span style="color:#666">43</span> ,<span style="color:#666">297</span>, <span style="color:#666">752</span>, <span style="color:#666">643</span>};
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#dc322f">int</span> b_i[<span style="color:#2aa198">32</span>] <span style="color:#719e07">=</span> {<span style="color:#2aa198">1</span>, <span style="color:#2aa198">233</span>, <span style="color:#2aa198">2453</span>, <span style="color:#2aa198">5432</span>, <span style="color:#2aa198">21</span> ,<span style="color:#2aa198">43</span> ,<span style="color:#2aa198">297</span>, <span style="color:#2aa198">752</span>, <span style="color:#2aa198">643</span>};
 </span></span><span style="display:flex;"><span>player yingyu5658;
-</span></span><span style="display:flex;"><span>yingyu5658.MP <span style="color:#666">=</span> <span style="color:#666">100</span>;
-</span></span><span style="display:flex;"><span>yingyu5658.XP <span style="color:#666">=</span> <span style="color:#666">100</span>;
-</span></span><span style="display:flex;"><span>yingyu5658.id <span style="color:#666">=</span> <span style="color:#666">114514</span>;
+</span></span><span style="display:flex;"><span>yingyu5658.MP <span style="color:#719e07">=</span> <span style="color:#2aa198">100</span>;
+</span></span><span style="display:flex;"><span>yingyu5658.XP <span style="color:#719e07">=</span> <span style="color:#2aa198">100</span>;
+</span></span><span style="display:flex;"><span>yingyu5658.id <span style="color:#719e07">=</span> <span style="color:#2aa198">114514</span>;
 </span></span></code></pre></div><p>对文件进行存储时，按照MP=&gt;XP=&gt;ID的顺序存储</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>pd <span style="color:#666">=</span> <span style="color:#00a000">fopen</span>(<span style="color:#b44">&#34;./data&#34;</span>, <span style="color:#b44">&#34;wb&#34;</span>);
-</span></span><span style="display:flex;"><span><span style="color:#00a000">fwrite</span>(<span style="color:#666">&amp;</span>yingyu5658.MP, <span style="color:#a2f;font-weight:bold">sizeof</span>(<span style="color:#0b0;font-weight:bold">double</span>), <span style="color:#666">1</span>, pd);
-</span></span><span style="display:flex;"><span><span style="color:#00a000">fwrite</span>(<span style="color:#666">&amp;</span>yingyu5658.XP, <span style="color:#a2f;font-weight:bold">sizeof</span>(<span style="color:#0b0;font-weight:bold">double</span>), <span style="color:#666">1</span>, pd);
-</span></span><span style="display:flex;"><span><span style="color:#00a000">fwrite</span>(<span style="color:#666">&amp;</span>yingyu5658.id, <span style="color:#a2f;font-weight:bold">sizeof</span>(<span style="color:#0b0;font-weight:bold">int</span>), <span style="color:#666">1</span>, pd);
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>pd <span style="color:#719e07">=</span> <span style="color:#268bd2">fopen</span>(<span style="color:#2aa198">&#34;./data&#34;</span>, <span style="color:#2aa198">&#34;wb&#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">fwrite</span>(<span style="color:#719e07">&amp;</span>yingyu5658.MP, <span style="color:#719e07">sizeof</span>(<span style="color:#dc322f">double</span>), <span style="color:#2aa198">1</span>, pd);
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">fwrite</span>(<span style="color:#719e07">&amp;</span>yingyu5658.XP, <span style="color:#719e07">sizeof</span>(<span style="color:#dc322f">double</span>), <span style="color:#2aa198">1</span>, pd);
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">fwrite</span>(<span style="color:#719e07">&amp;</span>yingyu5658.id, <span style="color:#719e07">sizeof</span>(<span style="color:#dc322f">int</span>), <span style="color:#2aa198">1</span>, pd);
 </span></span></code></pre></div><p>读取的时候一定要按照这个顺序，否则读取出来的内容是无效的。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> id;
-</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">double</span> XP, MP;
-</span></span><span style="display:flex;"><span>pd <span style="color:#666">=</span> <span style="color:#00a000">fopen</span>(<span style="color:#b44">&#34;./data&#34;</span>, <span style="color:#b44">&#34;rb&#34;</span>);
-</span></span><span style="display:flex;"><span><span style="color:#00a000">fread</span>(<span style="color:#666">&amp;</span>MP, <span style="color:#a2f;font-weight:bold">sizeof</span>(<span style="color:#0b0;font-weight:bold">double</span>), <span style="color:#666">1</span>, pd);
-</span></span><span style="display:flex;"><span><span style="color:#00a000">fread</span>(<span style="color:#666">&amp;</span>XP, <span style="color:#a2f;font-weight:bold">sizeof</span>(<span style="color:#0b0;font-weight:bold">double</span>), <span style="color:#666">1</span>, pd);
-</span></span><span style="display:flex;"><span><span style="color:#00a000">fread</span>(<span style="color:#666">&amp;</span>id, <span style="color:#a2f;font-weight:bold">sizeof</span>(<span style="color:#0b0;font-weight:bold">int</span>), <span style="color:#666">1</span>, pd);
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#dc322f">int</span> id;
+</span></span><span style="display:flex;"><span><span style="color:#dc322f">double</span> XP, MP;
+</span></span><span style="display:flex;"><span>pd <span style="color:#719e07">=</span> <span style="color:#268bd2">fopen</span>(<span style="color:#2aa198">&#34;./data&#34;</span>, <span style="color:#2aa198">&#34;rb&#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">fread</span>(<span style="color:#719e07">&amp;</span>MP, <span style="color:#719e07">sizeof</span>(<span style="color:#dc322f">double</span>), <span style="color:#2aa198">1</span>, pd);
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">fread</span>(<span style="color:#719e07">&amp;</span>XP, <span style="color:#719e07">sizeof</span>(<span style="color:#dc322f">double</span>), <span style="color:#2aa198">1</span>, pd);
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">fread</span>(<span style="color:#719e07">&amp;</span>id, <span style="color:#719e07">sizeof</span>(<span style="color:#dc322f">int</span>), <span style="color:#2aa198">1</span>, pd);
 </span></span><span style="display:flex;"><span>player new_player;
-</span></span><span style="display:flex;"><span>new_player.id <span style="color:#666">=</span> id;
-</span></span><span style="display:flex;"><span>new_player.XP <span style="color:#666">=</span> XP;
-</span></span><span style="display:flex;"><span>new_player.MP <span style="color:#666">=</span> MP;
-</span></span><span style="display:flex;"><span><span style="color:#00a000">printf</span>(<span style="color:#b44">&#34;id: %d</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>, new_player.id);
-</span></span><span style="display:flex;"><span><span style="color:#00a000">printf</span>(<span style="color:#b44">&#34;XP: %f</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>, new_player.XP);
-</span></span><span style="display:flex;"><span><span style="color:#00a000">printf</span>(<span style="color:#b44">&#34;MP: %f</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>, new_player.MP);
+</span></span><span style="display:flex;"><span>new_player.id <span style="color:#719e07">=</span> id;
+</span></span><span style="display:flex;"><span>new_player.XP <span style="color:#719e07">=</span> XP;
+</span></span><span style="display:flex;"><span>new_player.MP <span style="color:#719e07">=</span> MP;
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">printf</span>(<span style="color:#2aa198">&#34;id: %d</span><span style="color:#cb4b16">\n</span><span style="color:#2aa198">&#34;</span>, new_player.id);
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">printf</span>(<span style="color:#2aa198">&#34;XP: %f</span><span style="color:#cb4b16">\n</span><span style="color:#2aa198">&#34;</span>, new_player.XP);
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">printf</span>(<span style="color:#2aa198">&#34;MP: %f</span><span style="color:#cb4b16">\n</span><span style="color:#2aa198">&#34;</span>, new_player.MP);
 </span></span></code></pre></div><p>运行结果：</p>
 <pre tabindex="0"><code>写入了id: 114514
 写入了XP: 100.000000
@@ -58,13 +135,29 @@ id: 114514
 XP: 100.000000
 MP: 100.000000
 </code></pre><p>使用完也要关闭流，否则资源泄漏</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#00a000">fclose</span>(pd);  <span style="color:#080;font-style:italic">// 必须显式关闭
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#268bd2">fclose</span>(pd);  <span style="color:#586e75">// 必须显式关闭
 </span></span></span></code></pre></div>
-</div>
- 
+        </div>
+        <footer>
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">yingyu5658</span></span><time>Jul 12, 2025</time>
+    
+    </span>
+  </p><p class="meta">
+    
+        <a class="basic-alignment left" href="https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/vscode-edit-markdown/" title="Vscode编辑Markdown体验非常好">Vscode编辑Markdown体验非常好</a>
+    
 
-<link rel="stylesheet" href="/css/main.css" />
-<div id="waline"></div>
+    
+      <a class="basic-alignment right" href="https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/fedora42%E6%97%A0%E6%B3%95%E6%92%AD%E6%94%BE%E9%9F%B3%E9%A2%91%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/fedora-linux-cant-play-audio/" title="Fedora42无法播放音频的解决方案">Fedora42无法播放音频的解决方案</a>
+    
+  </p>
+  
+  
+</footer>
+
+
+		<div id="waline"></div>
 <script type="module">
 	import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
 	init({
@@ -73,16 +166,122 @@ MP: 100.000000
 	});
 </script>
 
-	<footer>
-		<p>-----------------------------------</p>
 
-<p>Email: i (at) yingyu5658 (dot) com</p>
 
-<img src="/notbyai.png" class="not-by-ai" /> <br>
- 
+      </article>
+    </div>
+    <aside class="sidebar thirds">
+  <section class="first odd">
+
+    
+      <h1>Misc</h1>
+    
+
+    <p>
+      
+        <p>E-mail: 
+<a href="mailto:i@yingyu5658.me">i@yingyu5658.me</a></p>
+<p>Newsgroup: news.yingyu5658.me</p>
+<p>Github: 
+<a href="https://www.github.com/yingyu5658" target="_blank" rel="noopener">https://www.github.com/yingyu5658</a></p>
+<p><img src="/unamed.jpg" alt=""></p>
+
+      
+    </p>
+  </section><ul class="sidebar-nav">
+  <li class="sidebar-nav-item">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </li>
+</ul>
+
+    
+      <section class="even">
+        <h1>Recent Posts</h1>
+        <ul id="recent_posts">
+          
+          
+            
+          
+            
+              <li class="post">
+                <a href="/post/%E9%9A%8F%E7%AC%94/%E7%A7%8B%E5%A4%A9%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A3%B0%E7%8B%97%E5%8F%AB/">秋天的第一声狗叫</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/%E9%9A%8F%E7%AC%94/%E6%9C%AA%E5%91%BD%E5%90%8D/">未命名</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/%E6%8A%80%E6%9C%AF/how-to-subscribe-newsgroup/">如何订阅新闻组</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/%E9%9A%8F%E7%AC%94/%E6%9C%80%E8%86%88%E5%BA%94%E4%B8%8D%E7%88%B1%E6%83%9C%E4%B9%A6%E7%9A%84%E4%BA%BA/">最膈应不爱惜书的人</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/%E9%9A%8F%E7%AC%94/%E5%88%AB%E9%97%B2%E7%9D%80%E6%B2%A1%E4%BA%8B%E8%87%AA%E6%90%9C%E9%BB%91%E5%8E%86%E5%8F%B2%E5%95%8A/">别闲着没事自搜，黑历史啊</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/%E9%9A%8F%E7%AC%94/%E6%97%A9%E7%9D%A1%E6%97%A9%E8%B5%B7%E7%9A%84%E4%BC%98%E7%82%B9/">早睡早起的优点</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/%E6%8A%80%E6%9C%AF/%E4%BB%8E%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%88%B0%E7%89%A9%E7%90%86%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90%E7%A8%8B%E5%BA%8F%E7%9A%84%E7%BC%96%E8%AF%91%E4%B8%8E%E6%89%A7%E8%A1%8C/">从编译原理到物理原理剖析程序的编译与执行</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/%E6%8A%80%E6%9C%AF/set-up-newsgroup/">在2025年，搭建新闻组</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/%E9%9A%8F%E7%AC%94/%E6%97%A0%E8%9D%89%E9%B8%A3%E5%A4%8F/">无蝉鸣夏</a>
+              </li>
+            
+          
+        </ul>
+      </section>
+    
+  
+</aside>
+
+  </div>
+</div>
+
+
+
+    <footer role="contentinfo">
+      <p>Copyright &copy; 2025 yingyu5658 - <a href="https://www.yingyu5658.me/license/">License</a> -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io" rel="noopener noreferrer">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/" rel="noopener noreferrer">Hugo-Octopress</a> theme.
+      </p>
     </footer>
-
-</main>
-      </body>
+  </body>
 </html>
 

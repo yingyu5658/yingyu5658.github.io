@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+
+  
+      <link href="/css/fonts.css" rel="stylesheet" type="text/css">
+    
+  <title>x86-64汇编学习笔记</title><link rel="stylesheet" href="/css/hugo-octopress.css">
+
+  
+    <link rel="stylesheet" href="/css/fork-awesome.min.css">
+  
+    <link href="http://localhost:1313/favicon.png" rel="icon">
+  
+
+  <meta name="description" content="" />
+  <meta name="keywords" content="">
+  <meta name="author" content="yingyu5658"><meta name="generator" content="Hugo 0.148.2">
+
+</head>
+<body><header role="banner"><hgroup><h1><a href="http://localhost:1313/">映屿</a></h1>
+    <h2>yingyu5658的数字花园</h2>
+</hgroup></header><nav role="navigation"><fieldset class="mobile-nav"><select onchange="location = this.value;">
+    <option value="">Navigate…</option>
+      
+        <option value="http://localhost:1313/">» Home</option>
+      
+        <option value="http://localhost:1313/about">» About</option>
+      
+        <option value="http://localhost:1313/post">» Archive</option>
+      
+        <option value="http://localhost:1313/links">» Links</option>
+      
+        <option value="http://localhost:1313/newsgroup">» Newsgroup</option>
+      
+  </select>
+</fieldset><ul class="main-navigation">
+    
+      <li><a href="http://localhost:1313/" title="Home">Home</a></li>
+    
+  
+    
+      <li><a href="http://localhost:1313/about" title="About"  target="_blank"  rel="noopener noreferrer">About</a></li>
+    
+  
+    
+      <li><a href="http://localhost:1313/post" title="Archive"  target="_blank"  rel="noopener noreferrer">Archive</a></li>
+    
+  
+    
+      <li><a href="http://localhost:1313/links" title="Links"  target="_blank"  rel="noopener noreferrer">Links</a></li>
+    
+  
+    
+      <li><a href="http://localhost:1313/newsgroup" title="Newsgroup"  target="_blank"  rel="noopener noreferrer">Newsgroup</a></li>
+    
+  
+</ul>
+
+<ul class="subscription">
+  
+    
+        <a href="http://localhost:1313/atom.xml" target="_blank" type="application/rss+xml" title="RSS" rel="noopener noreferrer"><i class="fa fa-rss-square fa-lg"></i></a>
+    
+  
+</ul>
+
+
+  <form action="https://www.google.com/search" method="get" target="_blank" rel="noopener noreferrer">
+    <fieldset role="search">
+      <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+      <input type="hidden" name="q" value="site:http://localhost:1313/" />
+    </fieldset>
+  </form>
+
+</nav>
+
+
+<div id="main">
+  <div id="content">
+    <div>
+      <article class="hentry" role="article">
+
+        
+        <header>
+  <p class="meta">Apr 29, 2025
+     - 1 minute read - <a class="label" href="http://localhost:1313/categories/%e6%8a%80%e6%9c%af/">技术 </a>
+    
+  </p>
+  <h1 class="entry-title">
+     x86-64汇编学习笔记 
+  </h1>
+</header>
+
+
+        <div class="entry-content">
+          
+          <h2 id="机器指令和机器语言">机器指令和机器语言</h2>
+<p>机器指令，二进制数字，机器语言全局机器指令的集合，CPU通过执行一系列的机器指令完成计算工作。</p>
+<p>汇编语言就是为了代替机器指令，使人类能够更加简单地编写程序而诞生的。汇编语言就是机器码的助记符。</p>
+<p>编译器将汇编代码再编译为真正的机器码。</p>
+<h2 id="内存与硬盘">内存与硬盘</h2>
+<p>内存指内存条，即RAM，临时存储，读写快容量小。</p>
+<p>硬盘长期存储，读写慢但容量大。</p>
+<p><strong>ROM并非硬盘</strong>，ROM<strong>只读存储器</strong>（Read Only Memory），其内容在写入后就不能更改。</p>
+<h2 id="存储单元">存储单元</h2>
+<p>物理内存被划分为很多个存储单元，一个存储单元能存储8bit内容，也就是1字节。</p>
+<p><strong>内存的最小单元是字节，不是位。</strong></p>
+<ul>
+<li>
+<p>1B = 8bit</p>
+</li>
+<li>
+<p>1KB = 1024B</p>
+</li>
+<li>
+<p>1MB = 1024KB</p>
+<p>&hellip;&hellip;</p>
+</li>
+</ul>
+<p>每一个存储单元都有相应的编号，也就是内存地址。运行程序时，操作系统会把程序载入内存中，随后CPU读取和写入程序中的某些数据并执行代码。</p>
+<p>无论是读取还是写入、执行，这些都是需要通过CPU总线进行的。</p>
+<p>总线分为数据线、地址总线、控制总线</p>
+<p>简而言之，地址总线负责寻址，控制总线负责发出控制指令，如读写，数据总线负责各个组件之间的数据传输。</p>
+<h2 id="cpu的寻址能力">CPU的寻址能力</h2>
+<p>CPU的寻址能力是由地址总线的位数决定的。</p>
+<p>通常认为32位系统有32位的寻址能力，64位同理，但不绝对。</p>
+<h2 id="虚拟内存">虚拟内存</h2>
+<p>物理内存即真实存在的内存，虚拟内存是建立在页表的基础上，由操作系统实现的。</p>
+<h2 id="寄存器">寄存器</h2>
+<p>基本的程序执行寄存器分为以下四类</p>
+<ol>
+<li>通用目的寄存器</li>
+<li>段寄存器</li>
+<li>标志寄存器</li>
+<li>指令指针寄存器</li>
+</ol>
+<h3 id="16位通用寄存器中的高位和低位">16位通用寄存器中的高位和低位</h3>
+<p>16位通用寄存器中，ax,bx,cx,dx可以只使用其高8位或低8位。</p>
+<p>高8位用字符<code>h</code>表示，低8位用字母<code>l</code>表示。</p>
+<h3 id="32位通用目的寄存器">32位通用目的寄存器</h3>
+<p>将16位通用寄存器扩展到32位，就得到了以下寄存器。</p>
+<ul>
+<li>EAX</li>
+<li>EBX</li>
+<li>EDX</li>
+<li>ESI</li>
+<li>EDI</li>
+<li>ESP</li>
+<li>EBP</li>
+</ul>
+<h3 id="64位通用目的寄存器">64位通用目的寄存器</h3>
+<p>将32扩展到64位，就得到了以下寄存器</p>
+<ul>
+<li>RAX</li>
+<li>RBX</li>
+<li>RCX</li>
+<li>RDX</li>
+<li>RSI</li>
+<li>RDI</li>
+<li>RSP</li>
+<li>RDP</li>
+</ul>
+<p>R是通用前缀，取自单词Register。</p>
+<p>此外还有R8-R15。</p>
+<h3 id="同名寄存器之间的关系">同名寄存器之间的关系</h3>
+<p>同名寄存器之间并不是许多个相互独立的寄存器，而是共同属于一个寄存器。</p>
+<p>以RAX为例：</p>
+<p>RAX是整个64位寄存器，EAX指的是RAX的低32位，AX指的是RAX的0-15位。AH指的是RAX的8-15位，AL指的是RAX的0-7位。</p>
+<p>1 word = 2 byte</p>
+<p>1 double word = 4 byte</p>
+<h2 id="段寄存器">段寄存器</h2>
+<p>段寄存器CS、DS、SS、ES、FS、GS都保存着16位段选择子。用于标识内存中特定的段。</p>
+<p>CS指向代码段，SS指向栈段，DS、ES、FS、GS指向数据段。</p>
+<p>内存可以被分为不同的段，访问内存时通过段基址+偏移的方式来访问。</p>
+<p>注意：物理内存本身是连续的，并没有被分隔开，分段是CPU的寻址方式。</p>
+<p>到了64位，段的概念被进一步弱化。</p>
+<p>内存变成平坦模型，即无分段式内存。所有对内存的访问都在同一个地址空间内进行。</p>
+<p>此外，对于段的保护也被弱化，64位更强调对页的保护。</p>
+<blockquote>
+<p>看来段寄存器没什么用了啊</p></blockquote>
+<p>段寄存器最初的存在目的是辅助寻址，在32位下基本不再用于寻址，而是用于保护，而64位中其保护作用进一步被削弱。</p>
+<h2 id="标志寄存器">标志寄存器</h2>
+<p>标准寄存器存储了机组标志，分别是状态标志、控制标志、系统标志。</p>
+<p><img src="./image-20250429142959416.png" alt="标志寄存器结构示意图"></p>
+<p>简单地来说，系统中的某些状态与指令的执行结果会存在这个寄存器当中。</p>
+<p>标志寄存器在32位和64位中分别叫<strong>EFLAGS</strong>和<strong>RFLAGS</strong></p>
+<p>RFLAGS的高32位是保留为，低32位与EFLAGS相同。</p>
+<h2 id="指令指针寄存器">指令指针寄存器</h2>
+<p>简而言之，他存储的是CPU即将执行的下一条指令的地址，通常用ip/eip/rip替代  （16，32，64位）</p>
+<h2 id="进制">进制</h2>
+<p>简单来说，n进制就是逢n进一。计算机当中，除了10进制，还有2进制和6进制。</p>
+<h2 id="小端序和大端序">小端序和大端序</h2>
+<p>小端序是指低字节在低地址，高字节在高地址。</p>
+<p>优点：字节高低位与地址高低位序列相同。</p>
+<p>缺点：不符合人类阅读顺序。</p>
+<p>如：64 00 00 00</p>
+<p>大端序与之相反。</p>
+<p>如 00 00 00 64</p>
+<h2 id="mov指令">MOV指令</h2>
+<p>MOV取自英文单词move，移动。</p>
+<p>例：</p>
+<pre tabindex="0"><code>MOV RAX, RCX
+</code></pre><p>意思是，把RCX寄存器的值赋值给RAX</p>
+
+        </div>
+        <footer>
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">yingyu5658</span></span><time>Apr 29, 2025</time>
+    
+      <span class="categories">
+        Tags:<a class="category" href="http://localhost:1313/tags/%e6%b1%87%e7%bc%96">汇编</a>  
+    
+    </span>
+  </p><p class="meta">
+    
+        <a class="basic-alignment left" href="http://localhost:1313/post/2025-04-29-wsl-arch-linux-zsh%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%870xffffffff%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" title="WSL Arch Linux ZSH输入中文&lt;0xffffffff&gt;解决方法">WSL Arch Linux ZSH输入中文&lt;0xffffffff&gt;解决方法</a>
+    
+
+    
+      <a class="basic-alignment right" href="http://localhost:1313/post/2025-05-09-idea2025.1%E6%9C%80%E6%96%B0%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B-%E6%97%A0%E9%9C%80%E6%89%AB%E7%A0%81%E5%85%B3%E6%B3%A8%E4%BB%BB%E4%BD%95%E5%85%AC%E4%BC%97%E5%8F%B7/" title="IDEA2025.1最新破解教程 无需扫码关注任何公众号">IDEA2025.1最新破解教程 无需扫码关注任何公众号</a>
+    
+  </p>
+  
+  
+</footer>
+
+
+      </article>
+    </div>
+    <aside class="sidebar thirds">
+  <section class="first odd">
+
+    
+      <h1>Misc</h1>
+    
+
+    <p>
+      
+        <p>E-mail: 
+<a href="mailto:i@yingyu5658.me">i@yingyu5658.me</a></p>
+<p>Newsgroup: news.yingyu5658.me</p>
+<p>Github: 
+<a href="https://www.github.com/yingyu5658" target="_blank" rel="noopener">https://www.github.com/yingyu5658</a></p>
+<p><img src="/unamed.jpg" alt=""></p>
+
+      
+    </p>
+  </section><ul class="sidebar-nav">
+  <li class="sidebar-nav-item">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </li>
+</ul>
+
+    
+      <section class="even">
+        <h1>Recent Posts</h1>
+        <ul id="recent_posts">
+          
+          
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-08-08-%E6%9C%AA%E5%91%BD%E5%90%8D/">未命名</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-08-07-%E5%A6%82%E4%BD%95%E8%AE%A2%E9%98%85%E6%96%B0%E9%97%BB%E7%BB%84/">如何订阅新闻组</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-08-06-%E6%9C%80%E8%86%88%E5%BA%94%E4%B8%8D%E7%88%B1%E6%83%9C%E4%B9%A6%E7%9A%84%E4%BA%BA/">最膈应不爱惜书的人</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-08-06-%E5%88%AB%E9%97%B2%E7%9D%80%E6%B2%A1%E4%BA%8B%E8%87%AA%E6%90%9C%E9%BB%91%E5%8E%86%E5%8F%B2%E5%95%8A/">别闲着没事自搜，黑历史啊</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-08-04-%E6%97%A9%E7%9D%A1%E6%97%A9%E8%B5%B7%E7%9A%84%E4%BC%98%E7%82%B9/">早睡早起的优点</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-07-29-%E4%BB%8E%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%88%B0%E7%89%A9%E7%90%86%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90%E7%A8%8B%E5%BA%8F%E7%9A%84%E7%BC%96%E8%AF%91%E4%B8%8E%E6%89%A7%E8%A1%8C/">从编译原理到物理原理剖析程序的编译与执行</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-07-26-%E5%9C%A82025%E5%B9%B4%E6%90%AD%E5%BB%BA%E6%96%B0%E9%97%BB%E7%BB%84/">在2025年，搭建新闻组</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-07-22-%E6%97%A0%E8%9D%89%E9%B8%A3%E5%A4%8F/">无蝉鸣夏</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-07-21-%E4%B8%87%E8%83%BD%E5%BF%85%E8%83%9C%E6%B2%9F%E9%80%9A%E6%B3%95/">万能必胜沟通法</a>
+              </li>
+            
+          
+        </ul>
+      </section>
+    
+  
+</aside>
+
+  </div>
+</div>
+<div id="waline"></div>
+<script type="module">
+	import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+	init({
+		el: '#waline',
+		serverURL: 'waline.yingyu5658.me'
+	});
+</script>
+
+
+
+
+
+    <footer role="contentinfo">
+      <p>Copyright &copy; 2025 yingyu5658 - <a href="http://localhost:1313/license/">License</a> -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io" rel="noopener noreferrer">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/" rel="noopener noreferrer">Hugo-Octopress</a> theme.
+      </p>
+    </footer>
+  </body>
+</html>
+

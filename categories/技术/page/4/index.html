@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>技术 - 映屿</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+	<link rel="alternate" type="application/rss+xml" href="/categories/%E6%8A%80%E6%9C%AF/index.xml" title="映屿">
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo logo--mixed">
+		<a class="logo__link" href="/" title="映屿" rel="home">
+			<div class="logo__item logo__imagebox">
+					<img class="logo__img" src="/avatar.png">
+				</div><div class="logo__item logo__text">
+					<div class="logo__title">映屿</div>
+					<div class="logo__tagline">yingyu5658的数字花园</div>
+				</div>
+		</a>
+	</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main list" role="main">
+	<header class="main__header">
+		<h1 class="main__title">技术</h1>
+	</header><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/x86-64%E6%B1%87%E7%BC%96%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="bookmark">
+			x86-64汇编学习笔记
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<h2 id="机器指令和机器语言">机器指令和机器语言</h2>
+<p>机器指令，二进制数字，机器语言全局机器指令的集合，CPU通过执行一系列的机器指令完成计算工作。</p>
+<p>汇编语言就是为了代替机器指令，使人类能够更加简单地编写程序而诞生的。汇编语言就是机器码的助记符。</p>
+<p>编译器将汇编代码再编译为真正的机器码。</p>
+<h2 id="内存与硬盘">内存与硬盘</h2>
+<p>内存指内存条，即RAM，临时存储，读写快容量小。</p>
+<p>硬盘长期存储，读写慢但容量大。</p>
+<p><strong>ROM并非硬盘</strong>，ROM<strong>只读存储器</strong>（Read Only Memory），其内容在写入后就不能更改。</p>
+<h2 id="存储单元">存储单元</h2>
+<p>物理内存被划分为很多个存储单元，一个存储单元能存储8bit内容，也就是1字节。</p>
+<p><strong>内存的最小单元是字节，不是位。</strong></p>
+<ul>
+<li>
+<p>1B = 8bit</p>
+</li>
+<li>
+<p>1KB = 1024B</p>
+</li>
+<li>
+<p>1MB = 1024KB</p>
+<p>&hellip;&hellip;</p>
+</li>
+</ul>
+<p>每一个存储单元都有相应的编号，也就是内存地址。运行程序时，操作系统会把程序载入内存中，随后CPU读取和写入程序中的某些数据并执行代码。</p>
+<p>无论是读取还是写入、执行，这些都是需要通过CPU总线进行的。</p>
+<p>总线分为数据线、地址总线、控制总线</p>
+<p>简而言之，地址总线负责寻址，控制总线负责发出控制指令，如读写，数据总线负责各个组件之间的数据传输。</p>
+<h2 id="cpu的寻址能力">CPU的寻址能力</h2>
+<p>CPU的寻址能力是由地址总线的位数决定的。</p>
+<p>通常认为32位系统有32位的寻址能力，64位同理，但不绝对。</p>
+<h2 id="虚拟内存">虚拟内存</h2>
+<p>物理内存即真实存在的内存，虚拟内存是建立在页表的基础上，由操作系统实现的。</p>
+<h2 id="寄存器">寄存器</h2>
+<p>基本的程序执行寄存器分为以下四类</p>
+<ol>
+<li>通用目的寄存器</li>
+<li>段寄存器</li>
+<li>标志寄存器</li>
+<li>指令指针寄存器</li>
+</ol>
+<h3 id="16位通用寄存器中的高位和低位">16位通用寄存器中的高位和低位</h3>
+<p>16位通用寄存器中，ax,bx,cx,dx可以只使用其高8位或低8位。</p>
+<p>高8位用字符<code>h</code>表示，低8位用字母<code>l</code>表示。</p>
+<h3 id="32位通用目的寄存器">32位通用目的寄存器</h3>
+<p>将16位通用寄存器扩展到32位，就得到了以下寄存器。</p>
+<ul>
+<li>EAX</li>
+<li>EBX</li>
+<li>EDX</li>
+<li>ESI</li>
+<li>EDI</li>
+<li>ESP</li>
+<li>EBP</li>
+</ul>
+<h3 id="64位通用目的寄存器">64位通用目的寄存器</h3>
+<p>将32扩展到64位，就得到了以下寄存器</p>
+<ul>
+<li>RAX</li>
+<li>RBX</li>
+<li>RCX</li>
+<li>RDX</li>
+<li>RSI</li>
+<li>RDI</li>
+<li>RSP</li>
+<li>RDP</li>
+</ul>
+<p>R是通用前缀，取自单词Register。</p>
+<p>此外还有R8-R15。</p>
+<h3 id="同名寄存器之间的关系">同名寄存器之间的关系</h3>
+<p>同名寄存器之间并不是许多个相互独立的寄存器，而是共同属于一个寄存器。</p>
+<p>以RAX为例：</p>
+<p>RAX是整个64位寄存器，EAX指的是RAX的低32位，AX指的是RAX的0-15位。AH指的是RAX的8-15位，AL指的是RAX的0-7位。</p>
+<p>1 word = 2 byte</p>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/wsl-arch-linux-zsh%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" rel="bookmark">
+			WSL Arch Linux ZSH输入中文&lt;0xffffffff&gt;解决方法
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>没有进行配置的情况下输入中文，一般会显示&lt;0xffffffff&gt;，这是由于没有安装字体造成的。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo pacman -S noto-fonts-cjk  <span style="color:#75715e"># 安装中文字体</span>
+</span></span><span style="display:flex;"><span>sudo vi /etc/locale.gen        <span style="color:#75715e"># 取消注释 zh_CN.UTF-8</span>
+</span></span><span style="display:flex;"><span>sudo locale-gen                <span style="color:#75715e"># 生成语言环境</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;export LANG=zh_CN.UTF-8&#34;</span> &gt;&gt; ~/.zshrc  <span style="color:#75715e"># 设置默认中文环境</span>
+</span></span><span style="display:flex;"><span>source ~/.zshrc
+</span></span></code></pre></div><p>source后，再次尝试输入中文，无异常。</p>
+<p><img src="./image-20250429103602223.png" alt=""></p>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/emacs-eaf%E6%8F%92%E4%BB%B6%E6%89%93%E5%BC%80%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%AA%E6%98%BE%E7%A4%BAopening-http-xxx-xxx%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" rel="bookmark">
+			Emacs EAF插件打开浏览器只显示opening http://xxx.xxx的解决方法
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>检查是否安装全部依赖，如yay、pip等。我这里是由于没有安装pip导致的。</p>
+<p><code>sudo pacman -S python-pip</code></p>
+<p>安装好后，进入eaf安装目录</p>
+<p><code>cd ~/.emacs.d/site-lisp/emacs-application-framework &amp;&amp; ./install-eaf.py</code></p>
+<p>重新安装eaf。等待脚本运行完成，打开emacs，输入<code>M-x eaf-install-and-update</code>，等待执行完成。</p>
+<p>重新输入<code>M-x eaf-open-browser</code>，输入网址，即可正常访问网页。</p>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/valine%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/" rel="bookmark">
+			Valine评论系统踩坑记录
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>我个人很早以前就惦记着换上这个评论系统，曾经使用Butterfly主题的时候就有折腾过Valine，当时是浏览器缓存策略和CORS跨域拦截的问题。网上能找到的教程都比较老，几年以前的情况不再适用于现在了，所以现在去折腾的话，大概率要踩非常多的坑。本文主要讲述我个人踩到的坑和解决方法。</p>
+<p>本文内容是我自己试错出来的，不要问为什么要这么做，我也不清楚，但是这么做可以正常使用！</p>
+<p>首先你要有一个自己的域名，不要用.github.io。LeanCloud中设置-域名绑定-API访问域名要绑定你自己的二级域。</p>
+<p><img src="./image-20250423220150404.png" alt=""></p>
+<p>这里一定一定要做DNS解析，非常重要。</p>
+<p>然后就是安全中心里面的Web安全域名，LeanCloud默认放行localhost，但是127.0.0.1我这边测试是不行的，如果有需求要自己填写。Web安全域名要填写https、http两种协议保险。</p>
+<p>主题配置文件中，以我这个主题为例，serverURLs要填写自己的二级域名</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span> <span style="color:#f92672">serverURLs</span>: <span style="color:#ae81ff">https://comment.yingyu5658.me</span>
+</span></span></code></pre></div><p>一定要加协议头，否则将会在你的博客域名下构建请求，比如我的<code>www.yingyu5658.me/comment.yingyu5658.me/</code>，这将导致报错。即使你使用国际版也要填写这一项！Leancloud请求不到。</p>
+<p>现在Valine的教程都有过时，遇到问题还需结合具体情况分析。我看LeanCloud的各种API结构变更还挺多的，太久远的教程就不建议看了。</p>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/%E9%BB%91%E5%8E%86%E5%8F%B2%E8%AF%BB%E8%87%AA%E5%B7%B1%E4%BB%A5%E5%89%8D%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81/" rel="bookmark">
+			【黑历史】读自己以前写的代码
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>仓库地址就不放出来了，太耻辱了&hellip;&hellip;</p>
+<p>先来看看Main.java</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> cn.yingyu5658.lbl;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @author yingyu5658
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Main</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        LuBuLu cmd <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LuBuLu();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span>(<span style="color:#66d9ef">true</span>) {
+</span></span><span style="display:flex;"><span>            cmd.<span style="color:#a6e22e">command</span>();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>嗯还写了Author，生怕别人不知道这坨屎是谁拉的。</p>
+<p>Main方法里面新建了一个LuBuLu对象，在主循环里调用了他的command()方法。</p>
+<p>进入这个神秘的LuBuLu.java一探究竟。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Scanner sc;
+</span></span><span style="display:flex;"><span>    String one;
+</span></span><span style="display:flex;"><span>    String two;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> times;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">LuBuLu</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">sc</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Scanner(System.<span style="color:#a6e22e">in</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">times</span> <span style="color:#f92672">=</span> 0;
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>在类的开头进行了一些初始化，有点不理解one和two是什么，为什么他们没有权限修饰符。。。</p>
+<p>好的，接下来就到了主方法调用的command()</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">command</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> (<span style="color:#66d9ef">true</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">times</span> <span style="color:#f92672">==</span> 0) {
+</span></span><span style="display:flex;"><span>                System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34; __       __    __  .______    __    __   __       __    __                                                                                                                       \n|  |     |  |  |  | |   _  \\  |  |  |  | |  |     |  |  |  |                                                                                                                      \n|  |     |  |  |  | |  |_)  | |  |  |  | |  |     |  |  |  |                                                                                                                      \n|  |     |  |  |  | |   _  &lt;  |  |  |  | |  |     |  |  |  |                                                                                                                      \n|  `----.|  `--&#39;  | |  |_)  | |  `--&#39;  | |  `----.|  `--&#39;  |                                                                                                                      \n|_______| \\______/  |______/   \\______/  |_______| \\______/                                                                                                                       \n                                                                                                                                                                                  \n.___  ___.      ___       _______   _______          .______   ____    ____          ____    ____  __  .__   __.   ___________    ____  __    __   _____     __    _____    ___   \n|   \\/   |     /   \\     |       \\ |   ____|         |   _  \\  \\   \\  /   /          \\   \\  /   / |  | |  \\ |  |  /  _____\\   \\  /   / |  |  |  | | ____|   / /   | ____|  / _ \\  \n|  \\  /  |    /  ^  \\    |  .--.  ||  |__            |  |_)  |  \\   \\/   /            \\   \\/   /  |  | |   \\|  | |  |  __  \\   \\/   /  |  |  |  | | |__    / /_   | |__   | (_) | \n|  |\\/|  |   /  /_\\  \\   |  |  |  ||   __|           |   _  &lt;    \\_    _/              \\_    _/   |  | |  . `  | |  | |_ |  \\_    _/   |  |  |  | |___ \\  | &#39;_ \\  |___ \\   &gt; _ &lt;  \n|  |  |  |  /  _____  \\  |  &#39;--&#39;  ||  |____          |  |_)  |     |  |                  |  |     |  | |  |\\   | |  |__| |    |  |     |  `--&#39;  |  ___) | | (_) |  ___) | | (_) | \n|__|  |__| /__/     \\__\\ |_______/ |_______|         |______/      |__|                  |__|     |__| |__| \\__|  \\______|    |__|      \\______/  |____/   \\___/  |____/   \\___/  \n                                                                                                                                                                                  &#34;</span>);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;卢布卢 v1.4&#34;</span>);
+</span></span><span style="display:flex;"><span>            LocalDate date <span style="color:#f92672">=</span> LocalDate.<span style="color:#a6e22e">now</span>();
+</span></span><span style="display:flex;"><span>            DateTimeFormatter formatter <span style="color:#f92672">=</span> DateTimeFormatter.<span style="color:#a6e22e">ofPattern</span>(<span style="color:#e6db74">&#34;yyyy-MM-dd&#34;</span>);
+</span></span><span style="display:flex;"><span>            PrintStream var10000 <span style="color:#f92672">=</span> System.<span style="color:#a6e22e">out</span>;
+</span></span><span style="display:flex;"><span>            String var10001 <span style="color:#f92672">=</span> date.<span style="color:#a6e22e">format</span>(formatter);
+</span></span><span style="display:flex;"><span>            var10000.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;你在&#34;</span> <span style="color:#f92672">+</span> var10001 <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;奇了星雨并打开本软件，来看看老天让不让你卢吧！&#34;</span>);
+</span></span><span style="display:flex;"><span>            System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;========================================&#34;</span>);
+</span></span><span style="display:flex;"><span>            System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;输入&#39;/help&#39;获取帮助&#34;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">switch</span> (<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">sc</span>.<span style="color:#a6e22e">nextLine</span>()) {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;/help&#34;</span>:
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">help</span>();
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;/lbl&#34;</span>:
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">luMa</span>();
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;/exit&#34;</span>:
+</span></span><span style="display:flex;"><span>                    System.<span style="color:#a6e22e">exit</span>(0);
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;/coott&#34;</span>:
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">if</span> (<span style="color:#e6db74">&#34;/coott&#34;</span>.<span style="color:#a6e22e">equals</span>(sc.<span style="color:#a6e22e">nextLine</span>())) {
+</span></span><span style="display:flex;"><span>                        Scanner sc1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Scanner(System.<span style="color:#a6e22e">in</span>);
+</span></span><span style="display:flex;"><span>                        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;请输入您的第一个选项。&#34;</span>);
+</span></span><span style="display:flex;"><span>                        String one <span style="color:#f92672">=</span> sc1.<span style="color:#a6e22e">nextLine</span>();
+</span></span><span style="display:flex;"><span>                        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;请输入您的第二个选项。&#34;</span>);
+</span></span><span style="display:flex;"><span>                        String two <span style="color:#f92672">=</span> sc1.<span style="color:#a6e22e">nextLine</span>();
+</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">chooseOneOfTheTwo</span>(one, two);
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;/cofm&#34;</span>:
+</span></span><span style="display:flex;"><span>                    chooseOneFromMany();
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">default</span>:
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">clear</span>();
+</span></span><span style="display:flex;"><span>                    System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;不存在该指令！将在1000ms后回到主页面。&#34;</span>);
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">sleep</span>();
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">++</span>times;
+</span></span><span style="display:flex;"><span>            System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;*调试信息* 运行轮数： &#34;</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">times</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>可以看到、个方法内部代码都是在无限循环内执行的，那么为什么要在main方法里又套一层循环呢？？？</p>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BB%88%E7%AB%AF%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" rel="bookmark">
+			从0开始搭建自己的终端开发环境
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p><strong>系统</strong>：WSL Arch</p>
+<h3 id="主折腾点">主折腾点</h3>
+<p><strong>代码编辑器</strong>：Vim(Neovim)</p>
+<p><strong>终端体验优化</strong>：tmux</p>
+<p><strong>文件管理器</strong>：yazi</p>
+<h2 id="代码编辑器neovim">代码编辑器——Neovim</h2>
+<h3 id="前言">前言</h3>
+<p>Neovim和Vim相比，在性能和易用性上有很大的提升，在异步任务表现突出；使用更加现代的lua脚本配置，可读性更高。</p>
+<h4 id="为什么不用lazyvim">为什么不用Lazyvim？</h4>
+<p>答：我个人用了很长一段时间Lazyvim，虽然开箱即用，简单调试就可以使用，但是我并不能清除的理解他到底给我装了什么，我是否需要那些插件。感觉像在用别人的软件，而自己从头开始配置vim的掌控感是使用他人的配置文件无法比拟的，在配置的过程中也可以培养排错和程序调试能力，唯一的缺点就是略微耗费时间。</p>
+<h3 id="安装">安装</h3>
+<p>先滚一把系统保证软件包都是最新的</p>
+<p><code>sudo pacman -Syyu</code></p>
+<p>安装Neovim</p>
+<p><code>sudo pacman -S neovim</code></p>
+<p>这时候在终端输入<code>nvim</code>就可以打开neovim了。![image-20250415212435171](E:/Blog/source/im</p>
+<p><strong>按<code>:q</code>退出。</strong></p>
+<p>这个初始的界面非常简陋，我们先进行核心功能配置，后续在更改主题。</p>
+<p>nvim的用户级配置文件在<code>~/.config/nvim</code>中。</p>
+<h3 id="安装包管理器">安装包管理器</h3>
+<p>我们选择Lazy作为包管理器，他和其他的包管理器相比起来，在懒加载、UI界面等方面有显著优势，可以减小配置复杂度。</p>
+<p>访问<a href="https://lazy.folke.io/installation">lazy.nvim官网</a>，官方文档永远都是最好的教程。这里有一段代码</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#75715e">-- Bootstrap lazy.nvim</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">local</span> lazypath <span style="color:#f92672">=</span> vim.fn.stdpath(<span style="color:#e6db74">&#34;data&#34;</span>) <span style="color:#f92672">..</span> <span style="color:#e6db74">&#34;/lazy/lazy.nvim&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> (vim.uv <span style="color:#f92672">or</span> vim.loop).fs_stat(lazypath) <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">local</span> lazyrepo <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://github.com/folke/lazy.nvim.git&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">local</span> out <span style="color:#f92672">=</span> vim.fn.system({ <span style="color:#e6db74">&#34;git&#34;</span>, <span style="color:#e6db74">&#34;clone&#34;</span>, <span style="color:#e6db74">&#34;--filter=blob:none&#34;</span>, <span style="color:#e6db74">&#34;--branch=stable&#34;</span>, lazyrepo, lazypath })
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> vim.v.shell_error <span style="color:#f92672">~=</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    vim.api.nvim_echo({
+</span></span><span style="display:flex;"><span>      { <span style="color:#e6db74">&#34;Failed to clone lazy.nvim:</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;ErrorMsg&#34;</span> },
+</span></span><span style="display:flex;"><span>      { out, <span style="color:#e6db74">&#34;WarningMsg&#34;</span> },
+</span></span><span style="display:flex;"><span>      { <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Press any key to exit...&#34;</span> },
+</span></span><span style="display:flex;"><span>    }, <span style="color:#66d9ef">true</span>, {})
+</span></span><span style="display:flex;"><span>    vim.fn.getchar()
+</span></span><span style="display:flex;"><span>    os.exit(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>vim.opt.rtp:prepend(lazypath)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Make sure to setup `mapleader` and `maplocalleader` before</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- loading lazy.nvim so that mappings are correct.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- This is also a good place to setup other settings (vim.opt)</span>
+</span></span><span style="display:flex;"><span>vim.g.mapleader <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34; &#34;</span>
+</span></span><span style="display:flex;"><span>vim.g.maplocalleader <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Setup lazy.nvim</span>
+</span></span><span style="display:flex;"><span>require(<span style="color:#e6db74">&#34;lazy&#34;</span>).setup({
+</span></span><span style="display:flex;"><span>  spec <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">-- import your plugins</span>
+</span></span><span style="display:flex;"><span>    { import <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;plugins&#34;</span> },
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">-- Configure any other settings here. See the documentation for more details.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">-- colorscheme that will be used when installing plugins.</span>
+</span></span><span style="display:flex;"><span>  install <span style="color:#f92672">=</span> { colorscheme <span style="color:#f92672">=</span> { <span style="color:#e6db74">&#34;habamax&#34;</span> } },
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">-- automatically check for plugin updates</span>
+</span></span><span style="display:flex;"><span>  checker <span style="color:#f92672">=</span> { enabled <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span> },
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><p>这段代码主要在为Lazy包管理器初始化，所以按照官网的目录结构，我们在<code>~/.config/nvim/lua</code>下新建一个config文件夹，把代码粘贴进去。</p>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/%E5%88%9D%E6%8A%98%E8%85%BEemacs%E8%AE%B0%E5%BD%95/" rel="bookmark">
+			初折腾Emacs记录
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<h2 id="基础配置">基础配置</h2>
+<p>Windows下需要在软件顶部Toolbar的Options中随便更改一个选项，然后再点Save Options，这样就会再<code>C:\Users\Username\appdata\Roaming\</code>下生成.emacs和.emacs.d/</p>
+<p>在emacs.d中新建一个文件<code>init.el</code>，填写如下配置</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span><span style="color:#75715e">;;; init.el --- Load the full configuration -*- lexical-binding: t -*-</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;;; Commentary:</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; This file bootstraps the configuration, which is divided into</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; a number of other files.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;;; Code:</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(<span style="color:#66d9ef">let</span> ((minver <span style="color:#e6db74">&#34;25.1&#34;</span>))
+</span></span><span style="display:flex;"><span> (when (version&lt; emacs-version minver)
+</span></span><span style="display:flex;"><span>  (<span style="color:#66d9ef">error</span> <span style="color:#e6db74">&#34;Your Emacs is too old -- this config requires v%s or higher&#34;</span> minver)))
+</span></span><span style="display:flex;"><span>(when (version&lt; emacs-version <span style="color:#e6db74">&#34;26.1&#34;</span>)
+</span></span><span style="display:flex;"><span> (message <span style="color:#e6db74">&#34;Your Emacs is old, and some functionality in this config will be disabled. Please upgrade if possible.&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(add-to-list <span style="color:#e6db74">&#39;load-path</span> (expand-file-name <span style="color:#e6db74">&#34;lisp&#34;</span> user-emacs-directory)) <span style="color:#75715e">; 设定源码加载路径</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; (require &#39;init-benchmarking) ;; Measure startup time</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(defconst *spell-check-support-enabled* <span style="color:#66d9ef">nil</span>) <span style="color:#75715e">;; Enable with t if you prefer</span>
+</span></span><span style="display:flex;"><span>(defconst *is-a-mac* (<span style="color:#a6e22e">eq</span> system-type <span style="color:#e6db74">&#39;darwin</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; Adjust garbage collection thresholds during startup, and thereafter</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(<span style="color:#66d9ef">let</span> ((normal-gc-cons-threshold (<span style="color:#a6e22e">*</span> <span style="color:#ae81ff">20</span> <span style="color:#ae81ff">1024</span> <span style="color:#ae81ff">1024</span>))
+</span></span><span style="display:flex;"><span>   (init-gc-cons-threshold (<span style="color:#a6e22e">*</span> <span style="color:#ae81ff">128</span> <span style="color:#ae81ff">1024</span> <span style="color:#ae81ff">1024</span>)))
+</span></span><span style="display:flex;"><span> (<span style="color:#66d9ef">setq</span> gc-cons-threshold init-gc-cons-threshold)
+</span></span><span style="display:flex;"><span> (add-hook <span style="color:#e6db74">&#39;emacs-startup-hook</span>
+</span></span><span style="display:flex;"><span>      (lambda () (<span style="color:#66d9ef">setq</span> gc-cons-threshold normal-gc-cons-threshold))))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; ==========================================================================================================</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; ===========================================日常使用配置===================================================</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; ==========================================================================================================</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#66d9ef">setq</span> confirm-kill-emacs <span style="color:#a6e22e">#&#39;yes-or-no-p</span>)   <span style="color:#75715e">; 在关闭 Emacs 前询问是否确认关闭，防止误触</span>
+</span></span><span style="display:flex;"><span>(electric-pair-mode <span style="color:#66d9ef">t</span>)            <span style="color:#75715e">; 自动补全括号</span>
+</span></span><span style="display:flex;"><span>(add-hook <span style="color:#e6db74">&#39;prog-mode-hook</span> <span style="color:#a6e22e">#&#39;</span>show-paren-mode) <span style="color:#75715e">; 编程模式下，光标在括号上时高亮另一个括号</span>
+</span></span><span style="display:flex;"><span>(column-number-mode <span style="color:#66d9ef">t</span>)            <span style="color:#75715e">; 在 Mode line 上显示列号</span>
+</span></span><span style="display:flex;"><span>(global-auto-revert-mode <span style="color:#66d9ef">t</span>)         <span style="color:#75715e">; 当另一程序修改了文件时，让 Emacs 及时刷新 Buffer</span>
+</span></span><span style="display:flex;"><span>(delete-selection-mode <span style="color:#66d9ef">t</span>)          <span style="color:#75715e">; 选中文本后输入文本会替换文本（更符合我们习惯了的其它编辑器的逻辑）</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#66d9ef">setq</span> inhibit-startup-message <span style="color:#66d9ef">t</span>)       <span style="color:#75715e">; 关闭启动 Emacs 时的欢迎界面</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#66d9ef">setq</span> make-backup-files <span style="color:#66d9ef">nil</span>)         <span style="color:#75715e">; 关闭文件自动备份</span>
+</span></span><span style="display:flex;"><span>(add-hook <span style="color:#e6db74">&#39;prog-mode-hook</span> <span style="color:#a6e22e">#&#39;</span>hs-minor-mode)  <span style="color:#75715e">; 编程模式下，可以折叠代码块</span>
+</span></span><span style="display:flex;"><span>(global-display-line-numbers-mode <span style="color:#ae81ff">1</span>)     <span style="color:#75715e">; 在 Window 显示行号</span>
+</span></span><span style="display:flex;"><span>(tool-bar-mode <span style="color:#ae81ff">-1</span>)              <span style="color:#75715e">; （熟练后可选）关闭 Tool bar</span>
+</span></span><span style="display:flex;"><span>(when (display-graphic-p) (toggle-scroll-bar <span style="color:#ae81ff">-1</span>)) <span style="color:#75715e">; 图形界面时关闭滚动条</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(savehist-mode <span style="color:#ae81ff">1</span>)              <span style="color:#75715e">; （可选）打开 Buffer 历史记录保存</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#66d9ef">setq</span> display-line-numbers-type <span style="color:#e6db74">&#39;relative</span>)  <span style="color:#75715e">; （可选）显示相对行号</span>
+</span></span><span style="display:flex;"><span>(add-to-list <span style="color:#e6db74">&#39;default-frame-alist</span> <span style="color:#f92672">&#39;</span>(width <span style="color:#f92672">.</span> <span style="color:#ae81ff">90</span>)) <span style="color:#75715e">; （可选）设定启动图形界面时的初始 Frame 宽度（字符数）</span>
+</span></span><span style="display:flex;"><span>(add-to-list <span style="color:#e6db74">&#39;default-frame-alist</span> <span style="color:#f92672">&#39;</span>(height <span style="color:#f92672">.</span> <span style="color:#ae81ff">55</span>)) <span style="color:#75715e">; （可选）设定启动图形界面时的初始 Frame 高度（字符数）</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; ==========================================================================================================</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; ===========================================插件镜像配置===================================================</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; ==========================================================================================================</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">; 腾讯镜像</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#a6e22e">require</span> <span style="color:#e6db74">&#39;package</span>)
+</span></span><span style="display:flex;"><span>(<span style="color:#66d9ef">setq</span> package-archives <span style="color:#f92672">&#39;</span>((<span style="color:#e6db74">&#34;gnu&#34;</span>  <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;http://mirrors.cloud.tencent.com/elpa/gnu/&#34;</span>)
+</span></span><span style="display:flex;"><span>             (<span style="color:#e6db74">&#34;melpa&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;http://mirrors.cloud.tencent.com/elpa/melpa/&#34;</span>)))
+</span></span><span style="display:flex;"><span>(package-initialize)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;;; init.el ends here</span>
+</span></span></code></pre></div><p>基础的设置和插件镜像源就配置好了，此配置可完全复制照抄。</p>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/osu-apiv1%E8%AF%B7%E6%B1%82%E7%A4%BA%E4%BE%8B/" rel="bookmark">
+			osu!APIv1请求示例
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<h2 id="前言">前言</h2>
+<p>本文章使用Nodejs环境做演示。请求用户数据。代码中的APIKEY要在<a href="https://osu.ppy.sh/home/account/edit">osu官网‬</a>申请。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">API_URL</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;osu.ppy.sh&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">init</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">k</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;YOUR_API_KEY&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">u</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;kyzzz5658&#34;</span>,
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">https</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;https&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 将参数序列化为查询字符串
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">query</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">URLSearchParams</span>(<span style="color:#a6e22e">init</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">options</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">hostname</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">API_URL</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">method</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;GET&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`/api/get_user?</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">query</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span> <span style="color:#75715e">// 附加参数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">req</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">https</span>.<span style="color:#a6e22e">request</span>(<span style="color:#a6e22e">options</span>, (<span style="color:#a6e22e">res</span>) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;data&#39;</span>, (<span style="color:#a6e22e">chunk</span>) =&gt; <span style="color:#a6e22e">data</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">chunk</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;end&#39;</span>, () =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">data</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">username</span>));
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">e</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#39;JSON 解析失败:&#39;</span>, <span style="color:#a6e22e">e</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 错误处理
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;error&#39;</span>, (<span style="color:#a6e22e">err</span>) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#39;请求失败:&#39;</span>, <span style="color:#a6e22e">err</span>.<span style="color:#a6e22e">code</span>);
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><p>输出：</p>
+<pre tabindex="0"><code>[
+  {
+    user_id: &#39;33932276&#39;,
+    username: &#39;Kyzzz5658&#39;,
+    join_date: &#39;2023-06-24 08:48:13&#39;,
+    count300: &#39;2139&#39;,
+    count100: &#39;609&#39;,
+    count50: &#39;194&#39;,
+    playcount: &#39;44&#39;,
+    ranked_score: &#39;1917044&#39;,
+    total_score: &#39;3095639&#39;,
+    pp_rank: &#39;1968010&#39;,
+    level: &#39;8.0115&#39;,
+    pp_raw: &#39;43.5449&#39;,
+    accuracy: &#39;81.70417785644531&#39;,
+    count_rank_ss: &#39;0&#39;,
+    count_rank_ssh: &#39;0&#39;,
+    count_rank_s: &#39;0&#39;,
+    count_rank_sh: &#39;0&#39;,
+    count_rank_a: &#39;1&#39;,
+    country: &#39;CN&#39;,
+    total_seconds_played: &#39;2259&#39;,
+    pp_country_rank: &#39;38721&#39;,
+    events: []
+  }
+]
+</code></pre><p>​	<a href="https://github.com/ppy/osu-api/wiki">首页 ·ppy/osu-api 维基</a></p>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/%E6%8A%8A%E4%B8%BB%E5%8A%9B%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%8D%A2%E6%88%90arch-linux%E6%98%AF%E6%88%91%E8%BF%99%E8%BE%88%E5%AD%90%E5%81%9A%E8%BF%87%E7%9A%84%E6%9C%80%E8%A0%A2%E7%9A%84%E5%86%B3%E5%AE%9A/" rel="bookmark">
+			把主力机系统换成Arch Linux是我这辈子做过的最蠢的决定
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<h1 id="前言">前言</h1>
+<p>先说结论。</p>
+<p><strong>我是傻逼！</strong></p>
+<p><strong>我是傻逼！！</strong></p>
+<p><strong>我是傻逼！！！</strong></p>
+<p>本文将讲述</p>
+<ul>
+<li>为什么我放弃了Arch</li>
+<li>为什么我放弃了Linux。</li>
+<li>什么人适合用Linux做主力系统</li>
+</ul>
+<p>本文的所有观点仅仅代表个人观点，我纯菜。你问我为什么要选择Arch，而不是Ubuntu或者其他新手友好的发行版，我不知道，正如上文所说，我是傻逼！</p>
+<h2 id="为什么我放弃了arch">为什么我放弃了Arch</h2>
+<p>说到这个问题，就要先来谈谈为什么我要把Windows换成Linux。</p>
+<p>Linux这个系统对于我来说一直是神秘而美好的，至少在当时。我痴迷于命令行、终端、Vim这种工具。小时候也看过爸爸零几年买的《鸟哥的Linux私房菜》，给我当时幼小的心灵带来的极大的震撼。</p>
+<p>我当时也对Linux的目录结构非常新鲜，不分盘的设定感觉很好玩。</p>
+<p>我网站的服务器是Linux、身边的各种设备都有Linux的影子，这更加提高了我对Linux的向往程度。</p>
+<p>还有一个原因是，我当时正在用C语言写一个小工具，Windows下的gcc无法使用通配符<code>*</code>，要想用只能去打开Git Bash或者MSYS2，这俩东西界面的丑陋程度相比就不用我多说了，我当时就是喜欢把精力浪费在不必要的地方上，Windows的那个终端被我“美化”得花里胡哨的，上面两者的界面当然入不了我的眼。</p>
+<p>为了解决这个问题，我开始使用WSL2，但仅仅停留在开始阶段。</p>
+<p>我这个系统不知道怎么回事，根本没办法用WSL2，详情见https://www.yingyu5658.cn/post/1348465439/</p>
+<p>全网都没有遇到这个问题的，那既然如此，重装系统吧。</p>
+<p>和系统相处就像谈恋爱，总有一段热恋期，过了这个时期后就冷淡了、矛盾也就浮出水面。刚装好的前几天，我的热情前所未有的高涨，学习各种命令、各种工具，当然少不了配置我最爱的Vim。那么说到Vim，归根结底是文本编辑器对吧，打字的软件，那么就要说说我用Linux的第一大困难——<strong>输入法配置难</strong></p>
+<h3 id="输入法配置难">输入法配置难</h3>
+<p>我是双拼用户，从小学六年级就开始用小鹤双拼打字了，这么长时间的习惯很难改，我也不想改。但是Linux上对双拼友好的输入法方案几乎没几个，我尝试过两个，Fcitx5 + 搜狗, Fcitx5 + Rime。</p>
+<p>这两个方案都大差不差，只是搜狗的可能略微智能一点，下载源什么的换成国内镜像，分分钟搞定下载问题。难就难在，我使用的终端不兼容Fcitx。</p>
+<p>没错，我用的就是Kitty。</p>
+<p>那么，肯定有人就想说，KDE自带的Console不能用吗？非得额外下载一个干什么？？</p>
+<p>我的答案就是：<strong>丑</strong>。</p>
+<p>没错，就是因为Console丑。当然他也可以美化，但问题就在于，他的窗口圆角不彻底，而且把标签页显示关掉后，只能额外开一个窗口，占用屏幕空间。</p>
+<p>而Kitty就不同，窗口边框干净利落，看起来很舒服，而且配色看起来也比Konsole那高饱和度的方案舒服太多了。标签页不是类似于系统组件的那种形式，所以不会额外占窗口空间。</p>
+<p>虽然不兼容问题，在程序启动参数添加一条指定ibus接口的命令就解决了。</p>
+<p>你问我为什么非得要追求好看，闲的么？我当时可能会扣一大串字来回怼你，但是我现在觉得我错了，我认同你的观点，就是闲的。</p>
+<p>如开头所说，我是傻逼！</p>
+<p>配置各种东西就免不了使用Github下载，那么就由此引出了第二个问题，<strong>代理配置难</strong></p>
+<h3 id="代理配置难">代理配置难</h3>
+<p>我这边访问Github非常不稳定，有时候能丝滑裸连，有时候挂代理都难上。我先用了Steam++的Github加速服务，但是他会把Github的一些地址都重定向到localhost导致使用Git的某些功能如<code>git push</code>异常。我又换到FastGithub，这东西很好用，但也有不稳定的时候，当他作为系统服务启动的时候，发生异常，想杀死他就变得十分困难，然后导致几乎所有Git功能都瘫痪，非常麻烦，<code>git clone</code>都跑不下来。</p>
+<h3 id="显卡驱动安装难">显卡驱动安装难</h3>
+<p>Linux显卡驱动问题一直都是社区津津乐道的蛋疼问题，更蛋疼的是我的显卡还是英伟达的，你问我为什么用英伟达显卡还玩Linux，我不知道。正如开头所说，我是傻逼！</p>
+<p>显卡驱动的问题，我研究了一周左右，虽然最后还是成功了，但是离正常使用还有一段距离。也是有很多小问题，比如使用系统自带的截图会黑屏，用不了i3等窗口管理器等等。</p>
+<p>当初安装显卡驱动导致的问题包括但不限于：</p>
+<ul>
+<li>鼠标灵敏度异常</li>
+<li>显示比例异常</li>
+<li>画面撕裂</li>
+<li>系统炸了</li>
+<li>桌面炸了</li>
+<li>能进图形界面但是不能登录</li>
+</ul>
+<p>嗯对就是这么离谱。当然经过我一番折腾还是达到了能用但体验不好的程度。</p>
+<h3 id="安装软件难">安装软件难</h3>
+<p>拿QQ举例，QQ官网的Linux安装包是.deb，如果我想安装，还是要经过一大通折腾，拼凑出来一个半成品QQ，而且最难受的是，每次他都会自动推送更新，我还更不了，还不能忽略版本，让我这个强迫症非常折磨。</p>
+<h2 id="为什么我放弃了linux">为什么我放弃了Linux</h2>
+<p>其实原本我是不打算放弃Linux的，因为我突然想玩星露谷物语了，就想着要不要装双系统，但是我装Arch根本没有经验，磁盘分区做的很烂，上面的一番折腾已经让我筋疲力尽，我不想再玩Arch，只想找一个开箱即用的Linux发行版。</p>
+<p>我的目光理所应当地投到了Ubuntu，这是我小时候体验的第一个Linux发行版，对我来说意义有点特殊，而且也属于开箱即用，所以Arch就光荣的升级为我的前任了。</p>
+<p>Windows系统的安装非常简单，只要一直下一步下一步下一步，然后等就行了。Ubuntu也差不多，但需要注意的一点是，有一个步骤让用户选择以怎样的方式安装Ubuntu，给了三个选项，一个是用Windows Boot Manager管理，一个是擦除磁盘，好像还有一个，没注意。</p>
+<p>我要装双系统，当然是选第一个选项，系统正常装上了，一切正常。下载软件，Neovim、VSCode、kitty。</p>
+<p>kitty&hellip;&hellip;</p>
+<p>上文提到，Kitty不支持fcitx5，理论上这个问题还是可以像Arch时期那么解决，但是我当时没找到怎么给程序添加启动参数。跟着网上的教程折腾了半天系统配置文件后，我成功的又把系统玩炸了，进不去桌面。</p>
+<p>当时已经是晚上十点多了，当天上午刚出去踏青，走了一万一千步，对于我来说已经把这一个月的活动量都用完了，筋疲力尽。非常困倦的状态下，我打算重装Ubuntu，正式因为特别困，智商下降得厉害，在安装程序选择了第二个：擦除磁盘。</p>
+<p>我原本Windows系统的D盘擦干净装了个Ubuntu。</p>
+<p>&hellip;&hellip;&hellip;.</p>
+<p>那就这样吧，也行，我试着在Windows里把C盘装的那个坏掉的Ubuntu删掉，但是Windows访问不了那块神秘区域。。。</p>
+<p>那行吧，重装系统。我格式化了C盘，删除了所有的分区，重装了Windows。在下载软件的时候猛地一惊。</p>
+<blockquote>
+<p>我为什么现在不用WSL了呢？</p>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/%E4%B8%8A%E5%B8%9D%E7%B1%BB%E6%98%AF%E4%BB%80%E4%B9%88%E8%AF%A5%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E4%B8%8A%E5%B8%9D%E7%B1%BB/" rel="bookmark">
+			上帝类是什么？该如何避免上帝类？
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<h1 id="什么是上帝类">什么是上帝类</h1>
+<p>所谓的上帝类，就是指<strong>一个类承担了过多的职能</strong>，变得过于<strong>臃肿</strong>和<strong>复杂</strong>、<strong>难以维护</strong>。没有遵守单一职责原则。像上帝一样什么都能干，每个功能高度耦合，牵一发而动全身，不利于业务的拓展。</p>
+<h1 id="上帝类是如何产生的">上帝类是如何产生的</h1>
+<p>上帝类的产生，通常是由于需要快速实现功能而做出的妥协，长期积累就变成繁重的技术债务。或是缺乏规划经验，功能不断地被加到类中。依旧长期积累，上帝类产生了。</p>
+<h1 id="上帝类的优缺点">上帝类的优缺点</h1>
+<p>上帝类虽然在上文被冠以臃肿、难维护的帽子，但并不代表他没有优点，要辨证地看待。</p>
+<ul>
+<li>优点：上帝类适用于一些较小的、逻辑简单的任务或工具类，逻辑不复杂，也不需要长时间维护，即拿即用。不用过多地考虑职责和颗粒度的划分，也能提高开发效率</li>
+<li>缺点：即上文中所提到的。臃肿、复杂、难以维护、测试麻烦、缺乏可读性、耦合度高，不可拓展同时违反SRP和OCP原则</li>
+</ul>
+<h1 id="上帝类的判定">上帝类的判定</h1>
+<ul>
+<li>代码行数判定法：代码行数很多的有可能是上帝类，注意是有可能。如果是上帝类，应当进行适当重构</li>
+<li>依赖关系判定法：通过分析类的依赖关系来判定其是否与其他类高度关联，如果是，他有可能是上帝类。</li>
+<li>职责判定法：如果一个类承担了过多的职责，他该干的也干了，不该干的也干了，那么毫无疑问，他是上帝类。</li>
+<li>测试覆盖率判定法： 如果一个类难以单元测试，或覆盖率低或总是出现奇奇怪怪的不可预测的问题，那么他有可能是上帝类。</li>
+</ul>
+<h1 id="如何避免上帝类">如何避免上帝类</h1>
+<p>所以，要如何避免上帝类，这个问题的答案已经显而易见了。和上一段相反着做即可。遵守单一职责原则。规划好代码架构。比如，要处理一个压缩包解析和数据展示功能，首先就要拆分职责为不同的类。类中再去写相对应的函数。我们可以把这个功能拆分为解压、读取、展示信息三个类，类中分别编写相应的代码，这样就能做到避免上帝类的产生，从而提高代码的可维护性和可拓展性。</p>
+<p><img src="./20250320.png" alt=""></p>
+	</div>
+</article>
+</main>
+
+<div class="pagination">
+	<a class="pagination__item pagination__item--prev btn" href="/categories/%E6%8A%80%E6%9C%AF/page/3/">«</a>
+	<span class="pagination__item pagination__item--current">4/7</span>
+	<a class="pagination__item pagination__item--next btn" href="/categories/%E6%8A%80%E6%9C%AF/page/5/">»</a>
+</div>
+
+			</div>
+			
+<aside class="sidebar sidebar--left"><div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
+		<input class="widget-search__field" type="search" placeholder="Search…" value="" name="q" aria-label="Search…">
+		<input class="widget-search__submit" type="submit" value="Search">
+		<input type="hidden" name="sitesearch" value="http://localhost:1313/">
+	</form>
+</div>
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/post/%E9%9A%8F%E7%AC%94/%E6%9C%AA%E5%91%BD%E5%90%8D/">未命名</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/%E6%8A%80%E6%9C%AF/how-to-subscribe-newsgroup/">如何订阅新闻组</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/%E9%9A%8F%E7%AC%94/%E6%9C%80%E8%86%88%E5%BA%94%E4%B8%8D%E7%88%B1%E6%83%9C%E4%B9%A6%E7%9A%84%E4%BA%BA/">最膈应不爱惜书的人</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/%E9%9A%8F%E7%AC%94/%E5%88%AB%E9%97%B2%E7%9D%80%E6%B2%A1%E4%BA%8B%E8%87%AA%E6%90%9C%E9%BB%91%E5%8E%86%E5%8F%B2%E5%95%8A/">别闲着没事自搜，黑历史啊</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/%E9%9A%8F%E7%AC%94/%E6%97%A9%E7%9D%A1%E6%97%A9%E8%B5%B7%E7%9A%84%E4%BC%98%E7%82%B9/">早睡早起的优点</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-categories widget">
+	<h4 class="widget__title">Categories</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>&nbsp;
+				<span class="widget__counter widget__counter--bubble">69</span>
+				</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>&nbsp;
+				<span class="widget__counter widget__counter--bubble">36</span>
+				</li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/tags/acgn/" title="ACGN">ACGN (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/arch/" title="Arch">Arch (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/bug/" title="Bug">Bug (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/c/" title="C">C (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/css/" title="CSS">CSS (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/c%E8%AF%AD%E8%A8%80/" title="C语言">C语言 (2)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/electron/" title="Electron">Electron (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/emacs/" title="Emacs">Emacs (4)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/fedora/" title="Fedora">Fedora (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/geyser/" title="Geyser">Geyser (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/gnu/" title="GNU">GNU (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/hexo/" title="Hexo">Hexo (4)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/java/" title="Java">Java (14)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/javascript/" title="JavaScript">JavaScript (4)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/linux/" title="Linux">Linux (12)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/malody/" title="Malody">Malody (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/minecraft/" title="Minecraft">Minecraft (2)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/neovim/" title="Neovim">Neovim (2)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/nodejs/" title="NodeJS">NodeJS (2)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/obsidain/" title="Obsidain">Obsidain (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/osu/" title="Osu">Osu (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/seo/" title="SEO">SEO (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/terrira/" title="Terrira">Terrira (2)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/thunderbird/" title="Thunderbird">Thunderbird (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/typecho/" title="Typecho">Typecho (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/vim/" title="Vim">Vim (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/windows/" title="Windows">Windows (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E5%8E%8C%E8%A0%A2%E7%97%87/" title="“厌蠢症”">“厌蠢症” (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" title="二叉树">二叉树 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E4%BA%BA%E9%99%85%E4%BA%A4%E5%BE%80/" title="人际交往">人际交往 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E4%BF%A1%E6%81%AF%E8%8A%82%E9%A3%9F/" title="信息节食">信息节食 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/" title="冒泡排序">冒泡排序 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E5%86%99%E4%BD%9C/" title="写作">写作 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E5%89%8D%E7%AB%AF/" title="前端">前端 (3)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E5%8D%9A%E5%AE%A2/" title="博客">博客 (7)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E5%8E%86%E5%8F%B2/" title="历史">历史 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/" title="哈希表">哈希表 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E5%93%B2%E5%AD%A6/" title="哲学">哲学 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E5%9B%BE%E4%B9%A6/" title="图书">图书 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E5%A4%8F/" title="夏">夏 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E5%AD%A6%E4%B8%9A/" title="学业">学业 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E5%AD%A6%E6%A0%A1/" title="学校">学校 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E5%B0%8F%E5%93%81/" title="小品">小品 (3)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/" title="嵌入式">嵌入式 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E5%BA%95%E5%B1%82%E6%8A%80%E6%9C%AF/" title="底层技术">底层技术 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E5%BD%A2%E8%80%8C%E4%B8%8A%E5%AD%A6/" title="形而上学">形而上学 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E6%80%80%E6%97%A7/" title="怀旧">怀旧 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E6%84%9F%E8%B0%A2%E6%81%A9%E5%B8%88%E5%A4%B8%E5%A5%96/" title="感谢恩师夸奖">感谢恩师夸奖 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E6%88%91/" title="我">我 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E6%89%A9%E5%88%97/" title="扩列">扩列 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/" title="搜索引擎">搜索引擎 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E6%95%99%E7%A8%8B/" title="教程">教程 (3)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" title="数据结构与算法">数据结构与算法 (6)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E6%96%87%E7%AB%A0/" title="文章">文章 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E6%96%B0%E9%97%BB%E7%BB%84/" title="新闻组">新闻组 (2)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E6%97%A5%E5%B8%B8/" title="日常">日常 (2)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E6%97%A9%E7%9D%A1%E6%97%A9%E8%B5%B7/" title="早睡早起">早睡早起 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E6%97%B6%E6%94%BF/" title="时政">时政 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E6%9C%8B%E5%8F%8B%E5%9C%88/" title="朋友圈">朋友圈 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="服务器">服务器 (5)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E6%9C%AA%E6%88%90%E5%B9%B4%E4%BA%BA%E4%BF%9D%E6%8A%A4/" title="未成年人保护">未成年人保护 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E6%9D%82%E8%AE%B0/" title="杂记">杂记 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E6%B1%87%E7%BC%96/" title="汇编">汇编 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E6%B2%9F%E9%80%9A/" title="沟通">沟通 (2)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" title="浏览器">浏览器 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E6%B8%B8%E6%88%8F/" title="游戏">游戏 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E7%8C%AB/" title="猫">猫 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E7%A0%B4%E8%A7%A3/" title="破解">破解 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E7%A4%BE%E4%BA%A4/" title="社交">社交 (3)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E7%AC%94%E8%AE%B0/" title="笔记">笔记 (4)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E7%BB%88%E7%AB%AF/" title="终端">终端 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E7%BC%96%E7%A8%8B/" title="编程">编程 (2)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" title="编译原理">编译原理 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E7%BC%96%E8%AF%91%E5%99%A8/" title="编译器">编译器 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E7%BF%BB%E8%AF%91/" title="翻译">翻译 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E8%80%83%E8%AF%95/" title="考试">考试 (2)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E8%87%AA%E6%90%9C/" title="自搜">自搜 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E8%A7%82%E5%AF%9F/" title="观察">观察 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E8%B4%9D%E6%96%AF/" title="贝斯">贝斯 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E8%B4%AD%E7%89%A9/" title="购物">购物 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/" title="软件开发">软件开发 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E8%BE%A8%E8%AF%81%E6%B3%95/" title="辨证法">辨证法 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E9%85%92/" title="酒">酒 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E9%98%85%E8%AF%BB/" title="阅读">阅读 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" title="阅读笔记">阅读笔记 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E9%98%BF%E9%87%8C%E4%BA%91/" title="阿里云">阿里云 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E9%9A%8F%E7%AC%94/" title="随笔">随笔 (3)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E9%9F%B3%E4%B9%90/" title="音乐">音乐 (1)</a>
+	</div>
+</div>
+</aside>
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2025 映屿.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>

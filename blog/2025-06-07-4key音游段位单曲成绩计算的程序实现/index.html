@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+
+  
+      <link href="/css/fonts.css" rel="stylesheet" type="text/css">
+    
+  <title>4Key音游段位单曲成绩计算的程序实现</title><link rel="stylesheet" href="/css/hugo-octopress.css">
+
+  
+    <link rel="stylesheet" href="/css/fork-awesome.min.css">
+  
+    <link href="http://localhost:1313/favicon.png" rel="icon">
+  
+
+  <meta name="description" content="" />
+  <meta name="keywords" content="">
+  <meta name="author" content="yingyu5658"><meta name="generator" content="Hugo 0.148.2">
+
+</head>
+<body><header role="banner"><hgroup><h1><a href="http://localhost:1313/">映屿</a></h1>
+    <h2>yingyu5658的数字花园</h2>
+</hgroup></header><nav role="navigation"><fieldset class="mobile-nav"><select onchange="location = this.value;">
+    <option value="">Navigate…</option>
+      
+        <option value="http://localhost:1313/">» Home</option>
+      
+        <option value="http://localhost:1313/about">» About</option>
+      
+        <option value="http://localhost:1313/post">» Archive</option>
+      
+        <option value="http://localhost:1313/links">» Links</option>
+      
+        <option value="http://localhost:1313/newsgroup">» Newsgroup</option>
+      
+  </select>
+</fieldset><ul class="main-navigation">
+    
+      <li><a href="http://localhost:1313/" title="Home">Home</a></li>
+    
+  
+    
+      <li><a href="http://localhost:1313/about" title="About"  target="_blank"  rel="noopener noreferrer">About</a></li>
+    
+  
+    
+      <li><a href="http://localhost:1313/post" title="Archive"  target="_blank"  rel="noopener noreferrer">Archive</a></li>
+    
+  
+    
+      <li><a href="http://localhost:1313/links" title="Links"  target="_blank"  rel="noopener noreferrer">Links</a></li>
+    
+  
+    
+      <li><a href="http://localhost:1313/newsgroup" title="Newsgroup"  target="_blank"  rel="noopener noreferrer">Newsgroup</a></li>
+    
+  
+</ul>
+
+<ul class="subscription">
+  
+    
+        <a href="http://localhost:1313/atom.xml" target="_blank" type="application/rss+xml" title="RSS" rel="noopener noreferrer"><i class="fa fa-rss-square fa-lg"></i></a>
+    
+  
+</ul>
+
+
+  <form action="https://www.google.com/search" method="get" target="_blank" rel="noopener noreferrer">
+    <fieldset role="search">
+      <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+      <input type="hidden" name="q" value="site:http://localhost:1313/" />
+    </fieldset>
+  </form>
+
+</nav>
+
+
+<div id="main">
+  <div id="content">
+    <div>
+      <article class="hentry" role="article">
+
+        
+        <header>
+  <p class="meta">Jun 7, 2025
+     - 6 minute read - <a class="label" href="http://localhost:1313/categories/%e6%8a%80%e6%9c%af/">技术 </a>
+    
+  </p>
+  <h1 class="entry-title">
+     4Key音游段位单曲成绩计算的程序实现 
+  </h1>
+</header>
+
+
+        <div class="entry-content">
+          
+          <h2 id="前言">前言</h2>
+<p>其实这个坑我很早以前就想开了，在我刚开始学编程那会就一直想写一个这个东西。但苦于数学进度没达到，要用到加权平均数，这东西我前两天才学到，之前对数学也一直是懒得学的状态，要不然几乎是看不懂那个算法的。</p>
+<p>我手头有一个
+<a href="https://github.com/Special-Week" target="_blank" rel="noopener">Special-Week</a>写的网页版的单曲成绩计算器，就以这个为研究样本吧。以下简称原作者为sw（如有冒犯请联系修改）</p>
+<h2 id="数据结构设计">数据结构设计</h2>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>    <span style="color:#586e75">// 基础的4k类
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>    <span style="color:#268bd2">class</span> Dan4k {
+</span></span><span style="display:flex;"><span>        constructor(key1, key2, key3, key4, danName) {
+</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_key1 <span style="color:#719e07">=</span> key1;
+</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_key2 <span style="color:#719e07">=</span> key2;
+</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_key3 <span style="color:#719e07">=</span> key3;
+</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_key4 <span style="color:#719e07">=</span> key4;
+</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_danName <span style="color:#719e07">=</span> danName;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>每一个段（LN、Om），sw都单独写了一个内部类，继承Dan4k。</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span> <span style="color:#586e75">// lnDan类
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>    <span style="color:#268bd2">class</span> LnDan <span style="color:#268bd2">extends</span> Dan4k {
+</span></span><span style="display:flex;"><span>        constructor(key1, lnKey1, key2, lnKey2, key3, lnKey3, key4, lnKey4, danName) {
+</span></span><span style="display:flex;"><span>            <span style="color:#268bd2">super</span>(key1, key2, key3, key4, danName);
+</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_lnKey1 <span style="color:#719e07">=</span> lnKey1;
+</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_lnKey2 <span style="color:#719e07">=</span> lnKey2;
+</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_lnKey3 <span style="color:#719e07">=</span> lnKey3;
+</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_lnKey4 <span style="color:#719e07">=</span> lnKey4;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#586e75">// ma段
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>    <span style="color:#268bd2">class</span> MaDan <span style="color:#268bd2">extends</span> Dan4k {
+</span></span><span style="display:flex;"><span>        constructor(key1, key2, key3, key4, name1, name2, name3, name4, danName) {
+</span></span><span style="display:flex;"><span>            <span style="color:#268bd2">super</span>(key1, key2, key3, key4, danName);
+</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_name1 <span style="color:#719e07">=</span> name1;
+</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_name2 <span style="color:#719e07">=</span> name2;
+</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_name3 <span style="color:#719e07">=</span> name3;
+</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_name4 <span style="color:#719e07">=</span> name4;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#586e75">// reform段
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>    <span style="color:#268bd2">class</span> ReformDan <span style="color:#268bd2">extends</span> Dan4k {
+</span></span><span style="display:flex;"><span>        constructor(key1, key2, key3, key4, name1, name2, name3, name4, danName) {
+</span></span><span style="display:flex;"><span>            <span style="color:#268bd2">super</span>(key1, key2, key3, key4, danName);
+</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_name1 <span style="color:#719e07">=</span> name1;
+</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_name2 <span style="color:#719e07">=</span> name2;
+</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_name3 <span style="color:#719e07">=</span> name3;
+</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_name4 <span style="color:#719e07">=</span> name4;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#586e75">// om段
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>    <span style="color:#268bd2">class</span> OmDan <span style="color:#268bd2">extends</span> Dan4k {
+</span></span><span style="display:flex;"><span>        constructor(key1, key2, key3, key4, danName) {
+</span></span><span style="display:flex;"><span>            <span style="color:#268bd2">super</span>(key1, key2, key3, key4, danName);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>我打算重写的程序不带LN玩了，我自己也没玩过LN，不清楚是什么机制。那就来看看剩下的几个类。</p>
+<p><code>Dan4k</code>类定义了一个段位的基础属性，但是这个参数key1-4是用来做什么在当前上下文暂且不清楚，是第n首歌的物量吧。</p>
+<p>那么由此可以推断，这些类都描述了一个谱面的基本属性：</p>
+<ul>
+<li>物量</li>
+<li>歌曲名称</li>
+<li>段位名称
+然后分支匹配数据并计算。我也用C语言实现一个。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#586e75">// 整个段位信息
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span><span style="color:#719e07">typedef</span> <span style="color:#719e07">struct</span> Dan {
+</span></span><span style="display:flex;"><span>    <span style="color:#586e75">// 段位名字
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>    <span style="color:#dc322f">char</span><span style="color:#719e07">*</span> dan_name; 
+</span></span><span style="display:flex;"><span>    <span style="color:#586e75">// 四首歌的名字，用于匹配数据
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>    <span style="color:#dc322f">char</span><span style="color:#719e07">*</span> song1_name;
+</span></span><span style="display:flex;"><span>    <span style="color:#dc322f">char</span><span style="color:#719e07">*</span> song2_name;
+</span></span><span style="display:flex;"><span>    <span style="color:#dc322f">char</span><span style="color:#719e07">*</span> song3_name;
+</span></span><span style="display:flex;"><span>    <span style="color:#dc322f">char</span><span style="color:#719e07">*</span> song4_name;
+</span></span><span style="display:flex;"><span>    <span style="color:#586e75">// 四首歌的物量
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>    <span style="color:#dc322f">int</span> song1_key;
+</span></span><span style="display:flex;"><span>    <span style="color:#dc322f">int</span> song2_key;
+</span></span><span style="display:flex;"><span>    <span style="color:#dc322f">int</span> song3_key;
+</span></span><span style="display:flex;"><span>    <span style="color:#dc322f">int</span> song4_key;
+</span></span><span style="display:flex;"><span>}Dan;
+</span></span></code></pre></div><p>来看看网页版中数据是如何存储的</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>    <span style="color:#586e75">// MaDan数据
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>    <span style="color:#268bd2">let</span> MaArr <span style="color:#719e07">=</span> [
+</span></span><span style="display:flex;"><span>        <span style="color:#719e07">new</span> MaDan(<span style="color:#2aa198">813</span>, <span style="color:#2aa198">955</span>, <span style="color:#2aa198">907</span>, <span style="color:#2aa198">654</span>, <span style="color:#2aa198">&#34;Glitch Nerds&#34;</span>, <span style="color:#2aa198">&#34;Borealis&#34;</span>, <span style="color:#2aa198">&#34;Niflheim&#34;</span>, <span style="color:#2aa198">&#34;Moon&#34;</span>, <span style="color:#2aa198">&#34;1dan&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#719e07">new</span> MaDan(<span style="color:#2aa198">1152</span>, <span style="color:#2aa198">850</span>, <span style="color:#2aa198">950</span>, <span style="color:#2aa198">969</span>, <span style="color:#2aa198">&#34;Follow Tomorrow&#34;</span>, <span style="color:#2aa198">&#34;Bronze Coffin&#34;</span>, <span style="color:#2aa198">&#34;Keigan no Zettaireido&#34;</span>, <span style="color:#2aa198">&#34;SakuraMirage&#34;</span>, <span style="color:#2aa198">&#34;2dan&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#719e07">new</span> MaDan(<span style="color:#2aa198">1169</span>, <span style="color:#2aa198">1143</span>, <span style="color:#2aa198">974</span>, <span style="color:#2aa198">1347</span>, <span style="color:#2aa198">&#34;Quon&#34;</span>, <span style="color:#2aa198">&#34;Genkyoku o Kirikizamu&#34;</span>, <span style="color:#2aa198">&#34;Gin no Kaze&#34;</span>, <span style="color:#2aa198">&#34;Adjudicatorz-Danzai-&#34;</span>, <span style="color:#2aa198">&#34;3dan&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#719e07">new</span> MaDan(<span style="color:#2aa198">1400</span>, <span style="color:#2aa198">1402</span>, <span style="color:#2aa198">1685</span>, <span style="color:#2aa198">1599</span>, <span style="color:#2aa198">&#34;Tenkuu no Yoake&#34;</span>, <span style="color:#2aa198">&#34;VALLISTA&#34;</span>, <span style="color:#2aa198">&#34;Crystal World ~Fracture~&#34;</span>, <span style="color:#2aa198">&#34;Zenithalize&#34;</span>, <span style="color:#2aa198">&#34;4dan&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#719e07">new</span> MaDan(<span style="color:#2aa198">1953</span>, <span style="color:#2aa198">2250</span>, <span style="color:#2aa198">2166</span>, <span style="color:#2aa198">1667</span>, <span style="color:#2aa198">&#34;Ten Thousand Tons of Anonymous Letters&#34;</span>, <span style="color:#2aa198">&#34;Chips of Notes&#34;</span>, <span style="color:#2aa198">&#34;Despair of Elferia&#34;</span>, <span style="color:#2aa198">&#34;Kamigami no Asobi&#34;</span>, <span style="color:#2aa198">&#34;5dan&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#719e07">new</span> MaDan(<span style="color:#2aa198">1487</span>, <span style="color:#2aa198">1424</span>, <span style="color:#2aa198">1381</span>, <span style="color:#2aa198">1587</span>, <span style="color:#2aa198">&#34;Sweet Cherry X&#34;</span>, <span style="color:#2aa198">&#34;Akasagarbha&#34;</span>, <span style="color:#2aa198">&#34;HELLO EveryOne&#34;</span>, <span style="color:#2aa198">&#34;DataErr0r&#34;</span>, <span style="color:#2aa198">&#34;6dan&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#719e07">new</span> MaDan(<span style="color:#2aa198">1909</span>, <span style="color:#2aa198">1814</span>, <span style="color:#2aa198">1777</span>, <span style="color:#2aa198">2681</span>, <span style="color:#2aa198">&#34;Fairy Stage&#34;</span>, <span style="color:#2aa198">&#34;Xross Infection&#34;</span>, <span style="color:#2aa198">&#34;Wave&#34;</span>, <span style="color:#2aa198">&#34;Blue Zenith&#34;</span>, <span style="color:#2aa198">&#34;7dan&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#719e07">new</span> MaDan(<span style="color:#2aa198">1962</span>, <span style="color:#2aa198">1067</span>, <span style="color:#2aa198">2388</span>, <span style="color:#2aa198">1772</span>, <span style="color:#2aa198">&#34;The Lost Dedicated&#34;</span>, <span style="color:#2aa198">&#34;The Party We Have Never Seen&#34;</span>, <span style="color:#2aa198">&#34;Finixe&#34;</span>, <span style="color:#2aa198">&#34;Ultimate Dream&#34;</span>, <span style="color:#2aa198">&#34;8dan&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#719e07">new</span> MaDan(<span style="color:#2aa198">1799</span>, <span style="color:#2aa198">2023</span>, <span style="color:#2aa198">2283</span>, <span style="color:#2aa198">1787</span>, <span style="color:#2aa198">&#34;Dusk&#34;</span>, <span style="color:#2aa198">&#34;Panic Popn Picnic&#34;</span>, <span style="color:#2aa198">&#34;Kick-ass Kung-Fu Carnival&#34;</span>, <span style="color:#2aa198">&#34;Yakusoku no kimi&#34;</span>, <span style="color:#2aa198">&#34;9dan&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#719e07">new</span> MaDan(<span style="color:#2aa198">2606</span>, <span style="color:#2aa198">2188</span>, <span style="color:#2aa198">2194</span>, <span style="color:#2aa198">2187</span>, <span style="color:#2aa198">&#34;Chaser&#34;</span>, <span style="color:#2aa198">&#34;Loli Fantasy&#34;</span>, <span style="color:#2aa198">&#34;Daydream&#34;</span>, <span style="color:#2aa198">&#34;Moon Gate&#34;</span>, <span style="color:#2aa198">&#34;10dan&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#719e07">new</span> MaDan(<span style="color:#2aa198">2160</span>, <span style="color:#2aa198">1952</span>, <span style="color:#2aa198">1821</span>, <span style="color:#2aa198">3249</span>, <span style="color:#2aa198">&#34;Border of Life&#34;</span>, <span style="color:#2aa198">&#34;Scorpion Dance&#34;</span>, <span style="color:#2aa198">&#34;The Island of Albatross&#34;</span>, <span style="color:#2aa198">&#34;beautiful loli thing&#34;</span>, <span style="color:#2aa198">&#34;ex1&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#719e07">new</span> MaDan(<span style="color:#2aa198">2871</span>, <span style="color:#2aa198">2024</span>, <span style="color:#2aa198">1871</span>, <span style="color:#2aa198">2452</span>, <span style="color:#2aa198">&#34;Hitsune no youmeiri&#34;</span>, <span style="color:#2aa198">&#34;紫阳花-AZISAI-&#34;</span>, <span style="color:#2aa198">&#34;love&amp;justice&#34;</span>, <span style="color:#2aa198">&#34;message&#34;</span>, <span style="color:#2aa198">&#34;ex2&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#719e07">new</span> MaDan(<span style="color:#2aa198">2327</span>, <span style="color:#2aa198">1593</span>, <span style="color:#2aa198">2166</span>, <span style="color:#2aa198">2200</span>, <span style="color:#2aa198">&#34;Jumble Rumble&#34;</span>, <span style="color:#2aa198">&#34;End Time&#34;</span>, <span style="color:#2aa198">&#34;++&#34;</span>, <span style="color:#2aa198">&#34;Crow Solace&#34;</span>, <span style="color:#2aa198">&#34;ex3&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#719e07">new</span> MaDan(<span style="color:#2aa198">2731</span>, <span style="color:#2aa198">2653</span>, <span style="color:#2aa198">2033</span>, <span style="color:#2aa198">2761</span>, <span style="color:#2aa198">&#34;EDM Jumpers&#34;</span>, <span style="color:#2aa198">&#34;line-epsilon&#34;</span>, <span style="color:#2aa198">&#34;Contrapasso -paradiso-&#34;</span>, <span style="color:#2aa198">&#34;YELL!&#34;</span>, <span style="color:#2aa198">&#34;ex4&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#719e07">new</span> MaDan(<span style="color:#2aa198">3229</span>, <span style="color:#2aa198">2731</span>, <span style="color:#2aa198">2561</span>, <span style="color:#2aa198">2109</span>, <span style="color:#2aa198">&#34;Satori de Pon!&#34;</span>, <span style="color:#2aa198">&#34;Legend of Seeker&#34;</span>, <span style="color:#2aa198">&#34;Crystal World -Fracture-&#34;</span>, <span style="color:#2aa198">&#34;Wizdomiot&#34;</span>, <span style="color:#2aa198">&#34;ex5&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#719e07">new</span> MaDan(<span style="color:#2aa198">1766</span>, <span style="color:#2aa198">1861</span>, <span style="color:#2aa198">3171</span>, <span style="color:#2aa198">1680</span>, <span style="color:#2aa198">&#34;Sepia&#34;</span>, <span style="color:#2aa198">&#34;Nopea&#34;</span>, <span style="color:#2aa198">&#34;Satori Trisis&#34;</span>, <span style="color:#2aa198">&#34;Death&#34;</span>, <span style="color:#2aa198">&#34;ex6&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#719e07">new</span> MaDan(<span style="color:#2aa198">2339</span>, <span style="color:#2aa198">2461</span>, <span style="color:#2aa198">2511</span>, <span style="color:#2aa198">2177</span>, <span style="color:#2aa198">&#34;Paranoia&#34;</span>, <span style="color:#2aa198">&#34;Boulafacet&#34;</span>, <span style="color:#2aa198">&#34;Paraclete -Miracle-&#34;</span>, <span style="color:#2aa198">&#34;Yumemi no Shonen&#34;</span>, <span style="color:#2aa198">&#34;ex7&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#719e07">new</span> MaDan(<span style="color:#2aa198">1929</span>, <span style="color:#2aa198">2380</span>, <span style="color:#2aa198">2710</span>, <span style="color:#2aa198">4675</span>, <span style="color:#2aa198">&#34;Martail Arts&#34;</span>, <span style="color:#2aa198">&#34;Gene Disruption&#34;</span>, <span style="color:#2aa198">&#34;Paradigm Shift&#34;</span>, <span style="color:#2aa198">&#34;Death Melody&#34;</span>, <span style="color:#2aa198">&#34;ex8&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#719e07">new</span> MaDan(<span style="color:#2aa198">3468</span>, <span style="color:#2aa198">3335</span>, <span style="color:#2aa198">3698</span>, <span style="color:#2aa198">5061</span>, <span style="color:#2aa198">&#34;Only my railgun&#34;</span>, <span style="color:#2aa198">&#34;-Purgatorium-&#34;</span>, <span style="color:#2aa198">&#34;Blue Zenith&#34;</span>, <span style="color:#2aa198">&#34;Inner Universe&#34;</span>, <span style="color:#2aa198">&#34;exfin&#34;</span>),
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#719e07">new</span> MaDan(<span style="color:#2aa198">492</span>, <span style="color:#2aa198">529</span>, <span style="color:#2aa198">595</span>, <span style="color:#2aa198">681</span>, <span style="color:#2aa198">&#34;Ikitoshi Ikerumono&#34;</span>, <span style="color:#2aa198">&#34;Rambling Pleat&#34;</span>, <span style="color:#2aa198">&#34;Yi Meng Qian Xiao&#34;</span>, <span style="color:#2aa198">&#34;White Eternity&#34;</span>, <span style="color:#2aa198">&#34;0danv3&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#719e07">new</span> MaDan(<span style="color:#2aa198">695</span>, <span style="color:#2aa198">621</span>, <span style="color:#2aa198">718</span>, <span style="color:#2aa198">1279</span>, <span style="color:#2aa198">&#34;Rex Incoqnito&#34;</span>, <span style="color:#2aa198">&#34;Koiseyo Otome!&#34;</span>, <span style="color:#2aa198">&#34;Break&#34;</span>, <span style="color:#2aa198">&#34;KING&#34;</span>, <span style="color:#2aa198">&#34;1danv3&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#719e07">new</span> MaDan(<span style="color:#2aa198">1397</span>, <span style="color:#2aa198">1090</span>, <span style="color:#2aa198">805</span>, <span style="color:#2aa198">1212</span>, <span style="color:#2aa198">&#34;Stargazer&#34;</span>, <span style="color:#2aa198">&#34;Seyana&#34;</span>, <span style="color:#2aa198">&#34;Love Emotion&#34;</span>, <span style="color:#2aa198">&#34;Mermaid Girl&#34;</span>, <span style="color:#2aa198">&#34;2danv3&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#719e07">new</span> MaDan(<span style="color:#2aa198">1055</span>, <span style="color:#2aa198">1489</span>, <span style="color:#2aa198">1288</span>, <span style="color:#2aa198">1789</span>, <span style="color:#2aa198">&#34;Koi Kou Enishi&#34;</span>, <span style="color:#2aa198">&#34;Onegai!Kon Kon Oinari-sama&#34;</span>, <span style="color:#2aa198">&#34;The Last page&#34;</span>, <span style="color:#2aa198">&#34;Hoshi ga Furanai Machi&#34;</span>, <span style="color:#2aa198">&#34;3danv3&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#719e07">new</span> MaDan(<span style="color:#2aa198">1865</span>, <span style="color:#2aa198">1434</span>, <span style="color:#2aa198">1284</span>, <span style="color:#2aa198">1839</span>, <span style="color:#2aa198">&#34;Umiyuri Kaiteitan&#34;</span>, <span style="color:#2aa198">&#34;Fire in the sky&#34;</span>, <span style="color:#2aa198">&#34;Icyxis&#34;</span>, <span style="color:#2aa198">&#34;The Crimson Empire&#34;</span>, <span style="color:#2aa198">&#34;4danv3&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#719e07">new</span> MaDan(<span style="color:#2aa198">1282</span>, <span style="color:#2aa198">1706</span>, <span style="color:#2aa198">1473</span>, <span style="color:#2aa198">1939</span>, <span style="color:#2aa198">&#34;Platinum Disco&#34;</span>, <span style="color:#2aa198">&#34;Cute na Kanojo&#34;</span>, <span style="color:#2aa198">&#34;Reimei Sketchbook&#34;</span>, <span style="color:#2aa198">&#34;Joker&#34;</span>, <span style="color:#2aa198">&#34;5danv3&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#719e07">new</span> MaDan(<span style="color:#2aa198">1694</span>, <span style="color:#2aa198">1636</span>, <span style="color:#2aa198">1803</span>, <span style="color:#2aa198">2115</span>, <span style="color:#2aa198">&#34;Chocolate Disco&#34;</span>, <span style="color:#2aa198">&#34;Call Me, Beep Me (If You Wanna Reap Me)&#34;</span>, <span style="color:#2aa198">&#34;DIE IN THE SEA&#34;</span>, <span style="color:#2aa198">&#34;unhappy century&#34;</span>, <span style="color:#2aa198">&#34;6danv3&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#719e07">new</span> MaDan(<span style="color:#2aa198">1701</span>, <span style="color:#2aa198">1799</span>, <span style="color:#2aa198">2132</span>, <span style="color:#2aa198">1899</span>, <span style="color:#2aa198">&#34;Don&#39;t Stop The Music&#34;</span>, <span style="color:#2aa198">&#34;Six Acid Strings&#34;</span>, <span style="color:#2aa198">&#34;Arkadia [Illusion]&#34;</span>, <span style="color:#2aa198">&#34;Valkyrie Revolutia&#34;</span>, <span style="color:#2aa198">&#34;7danv3&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#719e07">new</span> MaDan(<span style="color:#2aa198">2237</span>, <span style="color:#2aa198">2081</span>, <span style="color:#2aa198">2280</span>, <span style="color:#2aa198">2000</span>, <span style="color:#2aa198">&#34;Don&#39;t let you down&#34;</span>, <span style="color:#2aa198">&#34;Yoru ni Kakeru&#34;</span>, <span style="color:#2aa198">&#34;Snow Veil -Shoujo to Kemono no Mori-&#34;</span>, <span style="color:#2aa198">&#34;Positive Dance Time&#34;</span>, <span style="color:#2aa198">&#34;8danv3&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#719e07">new</span> MaDan(<span style="color:#2aa198">2374</span>, <span style="color:#2aa198">1899</span>, <span style="color:#2aa198">2142</span>, <span style="color:#2aa198">1810</span>, <span style="color:#2aa198">&#34;Kikai Shoujo Gensou&#34;</span>, <span style="color:#2aa198">&#34;Cold Planet&#34;</span>, <span style="color:#2aa198">&#34;Stray Star&#34;</span>, <span style="color:#2aa198">&#34;Unleashed World&#34;</span>, <span style="color:#2aa198">&#34;9danv3&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#719e07">new</span> MaDan(<span style="color:#2aa198">2034</span>, <span style="color:#2aa198">1740</span>, <span style="color:#2aa198">2270</span>, <span style="color:#2aa198">2166</span>, <span style="color:#2aa198">&#34;Hiensou&#34;</span>, <span style="color:#2aa198">&#34;Rocky Buinne&#34;</span>, <span style="color:#2aa198">&#34;Yue Ai Yue Ye&#34;</span>, <span style="color:#2aa198">&#34;Spin Eternally&#34;</span>, <span style="color:#2aa198">&#34;10danv3&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#719e07">new</span> MaDan(<span style="color:#2aa198">1952</span>, <span style="color:#2aa198">2013</span>, <span style="color:#2aa198">1953</span>, <span style="color:#2aa198">2111</span>, <span style="color:#2aa198">&#34;Scorpion Dance&#34;</span>, <span style="color:#2aa198">&#34;Tailin no Soul&#34;</span>, <span style="color:#2aa198">&#34;Eiya no Parade&#34;</span>, <span style="color:#2aa198">&#34;Onsoku Uchuu Ryokou&#34;</span>, <span style="color:#2aa198">&#34;ex1v3&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#719e07">new</span> MaDan(<span style="color:#2aa198">2107</span>, <span style="color:#2aa198">1953</span>, <span style="color:#2aa198">2386</span>, <span style="color:#2aa198">2674</span>, <span style="color:#2aa198">&#34;Moments&#34;</span>, <span style="color:#2aa198">&#34;Towards the Horizon&#34;</span>, <span style="color:#2aa198">&#34;Torikago&#34;</span>, <span style="color:#2aa198">&#34;Frontier Explorer&#34;</span>, <span style="color:#2aa198">&#34;ex2v3&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#719e07">new</span> MaDan(<span style="color:#2aa198">2518</span>, <span style="color:#2aa198">2636</span>, <span style="color:#2aa198">2326</span>, <span style="color:#2aa198">2511</span>, <span style="color:#2aa198">&#34;Edison&#34;</span>, <span style="color:#2aa198">&#34;INTERNET OVERDOSE&#34;</span>, <span style="color:#2aa198">&#34;Euthanasia&#34;</span>, <span style="color:#2aa198">&#34;Fin.ArcDeaR&#34;</span>, <span style="color:#2aa198">&#34;ex3v3&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#719e07">new</span> MaDan(<span style="color:#2aa198">2634</span>, <span style="color:#2aa198">2212</span>, <span style="color:#2aa198">2336</span>, <span style="color:#2aa198">2602</span>, <span style="color:#2aa198">&#34;ZENITHALIZE&#34;</span>, <span style="color:#2aa198">&#34;Asymmetrical Grooves&#34;</span>, <span style="color:#2aa198">&#34;Pure Ruby&#34;</span>, <span style="color:#2aa198">&#34;EVERLASTING HAPPiNESS&#34;</span>, <span style="color:#2aa198">&#34;ex4v3&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#719e07">new</span> MaDan(<span style="color:#2aa198">2734</span>, <span style="color:#2aa198">2417</span>, <span style="color:#2aa198">3089</span>, <span style="color:#2aa198">2974</span>, <span style="color:#2aa198">&#34;Bring Our Ignition Back&#34;</span>, <span style="color:#2aa198">&#34;Unsan-musho&#34;</span>, <span style="color:#2aa198">&#34;Electric Angel&#34;</span>, <span style="color:#2aa198">&#34;Kegare Naki Bara Juuji&#34;</span>, <span style="color:#2aa198">&#34;ex5v3&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#719e07">new</span> MaDan(<span style="color:#2aa198">2483</span>, <span style="color:#2aa198">2276</span>, <span style="color:#2aa198">2921</span>, <span style="color:#2aa198">3194</span>, <span style="color:#2aa198">&#34;Defeat awaken battle ship&#34;</span>, <span style="color:#2aa198">&#34;Extraction&#34;</span>, <span style="color:#2aa198">&#34;Pastel Subliminal&#34;</span>, <span style="color:#2aa198">&#34;Synthesized Fortress&#34;</span>, <span style="color:#2aa198">&#34;ex6v3&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#719e07">new</span> MaDan(<span style="color:#2aa198">2846</span>, <span style="color:#2aa198">2260</span>, <span style="color:#2aa198">2333</span>, <span style="color:#2aa198">3347</span>, <span style="color:#2aa198">&#34;LiFE Garden&#34;</span>, <span style="color:#2aa198">&#34;Alpha&#34;</span>, <span style="color:#2aa198">&#34;Stay Alive&#34;</span>, <span style="color:#2aa198">&#34;Heaven&#39;s Fall&#34;</span>, <span style="color:#2aa198">&#34;ex7v3&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#719e07">new</span> MaDan(<span style="color:#2aa198">3789</span>, <span style="color:#2aa198">3663</span>, <span style="color:#2aa198">2424</span>, <span style="color:#2aa198">3255</span>, <span style="color:#2aa198">&#34;Hayabusa&#34;</span>, <span style="color:#2aa198">&#34;Shuu no hazama&#34;</span>, <span style="color:#2aa198">&#34;Amatsukami&#34;</span>, <span style="color:#2aa198">&#34;CRIMSON FIGHTER&#34;</span>, <span style="color:#2aa198">&#34;ex8v3&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#719e07">new</span> MaDan(<span style="color:#2aa198">3888</span>, <span style="color:#2aa198">3030</span>, <span style="color:#2aa198">3581</span>, <span style="color:#2aa198">3700</span>, <span style="color:#2aa198">&#34;crazy_tek (DJ Noriken Remix)&#34;</span>, <span style="color:#2aa198">&#34;Nhelv&#34;</span>, <span style="color:#2aa198">&#34;Shuuten&#34;</span>, <span style="color:#2aa198">&#34;Deadly force - Put an end&#34;</span>, <span style="color:#2aa198">&#34;ex9v3&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#719e07">new</span> MaDan(<span style="color:#2aa198">2828</span>, <span style="color:#2aa198">3362</span>, <span style="color:#2aa198">3393</span>, <span style="color:#2aa198">5100</span>, <span style="color:#2aa198">&#34;Infinity Heaven&#34;</span>, <span style="color:#2aa198">&#34;NEURO-CLOUD-9&#34;</span>, <span style="color:#2aa198">&#34;Kizuato&#34;</span>, <span style="color:#2aa198">&#34;Runengon&#34;</span>, <span style="color:#2aa198">&#34;exfinv3&#34;</span>),
+</span></span><span style="display:flex;"><span>    ]
+</span></span></code></pre></div><p>可以看到，简单地调用构造函数新建对象。继续实现：
+我们可以写一个<code>init</code>函数，根据需要创建结构体变量。</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>Dan<span style="color:#719e07">*</span> <span style="color:#268bd2">dan_data_init</span>(Dan<span style="color:#719e07">*</span>, <span style="color:#dc322f">int</span><span style="color:#719e07">*</span> songs_key);
+</span></span></code></pre></div><p>第二个参数是存放物量的数组，这样就实现了代码复用，减少重复代码的编写，定义一次所有物量即可。</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#586e75">// 常规段
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span><span style="color:#dc322f">int</span> mld_1dan_total_keys[] <span style="color:#719e07">=</span> {<span style="color:#2aa198">813</span>, <span style="color:#2aa198">955</span>, <span style="color:#2aa198">907</span>, <span style="color:#2aa198">654</span>};
+</span></span><span style="display:flex;"><span><span style="color:#dc322f">int</span> mld_2dan_total_keys[] <span style="color:#719e07">=</span> {<span style="color:#2aa198">1152</span>, <span style="color:#2aa198">850</span>, <span style="color:#2aa198">950</span>, <span style="color:#2aa198">969</span>};
+</span></span><span style="display:flex;"><span><span style="color:#dc322f">int</span> mld_3dan_total_keys[] <span style="color:#719e07">=</span> {<span style="color:#2aa198">1169</span>, <span style="color:#2aa198">1143</span>, <span style="color:#2aa198">974</span>, <span style="color:#2aa198">1347</span>};
+</span></span><span style="display:flex;"><span><span style="color:#dc322f">int</span> mld_4dan_total_keys[] <span style="color:#719e07">=</span> {<span style="color:#2aa198">1400</span>, <span style="color:#2aa198">1402</span>, <span style="color:#2aa198">1685</span>, <span style="color:#2aa198">1599</span>};
+</span></span><span style="display:flex;"><span><span style="color:#dc322f">int</span> mld_5dan_total_keys[] <span style="color:#719e07">=</span> {<span style="color:#2aa198">1953</span>, <span style="color:#2aa198">2250</span>, <span style="color:#2aa198">2166</span>, <span style="color:#2aa198">1667</span>};
+</span></span><span style="display:flex;"><span><span style="color:#dc322f">int</span> mld_6dan_total_keys[] <span style="color:#719e07">=</span> {<span style="color:#2aa198">1487</span>, <span style="color:#2aa198">1424</span>, <span style="color:#2aa198">1381</span>, <span style="color:#2aa198">1587</span>};
+</span></span><span style="display:flex;"><span><span style="color:#dc322f">int</span> mld_7dan_total_keys[] <span style="color:#719e07">=</span> {<span style="color:#2aa198">1909</span>, <span style="color:#2aa198">1814</span>, <span style="color:#2aa198">1777</span>, <span style="color:#2aa198">2681</span>};
+</span></span><span style="display:flex;"><span><span style="color:#dc322f">int</span> mld_8dan_total_keys[] <span style="color:#719e07">=</span> {<span style="color:#2aa198">1962</span>, <span style="color:#2aa198">1067</span>, <span style="color:#2aa198">2388</span>, <span style="color:#2aa198">1772</span>};
+</span></span><span style="display:flex;"><span><span style="color:#dc322f">int</span> mld_9dan_total_keys[] <span style="color:#719e07">=</span> {<span style="color:#2aa198">1799</span>, <span style="color:#2aa198">2023</span>, <span style="color:#2aa198">2283</span>, <span style="color:#2aa198">1787</span>};
+</span></span><span style="display:flex;"><span><span style="color:#dc322f">int</span> mld_10dan_total_keys[] <span style="color:#719e07">=</span> {<span style="color:#2aa198">2606</span>, <span style="color:#2aa198">2188</span>, <span style="color:#2aa198">2194</span>, <span style="color:#2aa198">2187</span>};
+</span></span></code></pre></div><p>这里目前把常规段都录入了，那要怎么按需匹配创建结构体变量呢？可以通过一个指针数组保存这些数据数组的地址，然后根据用户输入的数字直接作为索引，创建结构体变量并进行初始化赋值。</p>
+<p>优点：避免if/switch分支判断逐个比较，时间复杂度为常数阶。</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#dc322f">int</span><span style="color:#719e07">*</span> dan_total_keys_index[] <span style="color:#719e07">=</span> {mld_1dan_total_keys, mld_2dan_total_keys, mld_3dan_total_keys, mld_4dan_total_keys, mld_5dan_total_keys, mld_6dan_total_keys, mld_7dan_total_keys, mld_8dan_total_keys, mld_9dan_total_keys, mld_10dan_total_keys};
+</span></span></code></pre></div><p>后续接着往这个数组里面装指针即可。</p>
+<p>基本的数据结构实现了，就可以开始研究一下算法，后续再录入数据吧。</p>
+<h2 id="算法实现">算法实现</h2>
+<p>曾经听群友讲过这个东西核心理念是加权平均数，最近才学到，那就来看看怎么做这个平均数吧。</p>
+<p>直接看原作者是怎么实现的</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span> <span style="color:#268bd2">function</span> normal_calculation(accArr, noteArr) {
+</span></span><span style="display:flex;"><span>            <span style="color:#268bd2">let</span> score1 <span style="color:#719e07">=</span> accArr[<span style="color:#2aa198">0</span>]
+</span></span><span style="display:flex;"><span>            <span style="color:#268bd2">let</span> temp1 <span style="color:#719e07">=</span> (noteArr[<span style="color:#2aa198">0</span>] <span style="color:#719e07">+</span> noteArr[<span style="color:#2aa198">1</span>]) <span style="color:#719e07">*</span> accArr[<span style="color:#2aa198">1</span>] <span style="color:#719e07">-</span> noteArr[<span style="color:#2aa198">0</span>] <span style="color:#719e07">*</span> accArr[<span style="color:#2aa198">0</span>]
+</span></span><span style="display:flex;"><span>            <span style="color:#268bd2">let</span> score2 <span style="color:#719e07">=</span> temp1 <span style="color:#719e07">/</span> (noteArr[<span style="color:#2aa198">1</span>])
+</span></span><span style="display:flex;"><span>            <span style="color:#268bd2">let</span> temp2 <span style="color:#719e07">=</span> (noteArr[<span style="color:#2aa198">0</span>] <span style="color:#719e07">+</span> noteArr[<span style="color:#2aa198">1</span>] <span style="color:#719e07">+</span> noteArr[<span style="color:#2aa198">2</span>]) <span style="color:#719e07">*</span> accArr[<span style="color:#2aa198">2</span>] <span style="color:#719e07">-</span> (noteArr[<span style="color:#2aa198">0</span>] <span style="color:#719e07">+</span> noteArr[<span style="color:#2aa198">1</span>]) <span style="color:#719e07">*</span> accArr[<span style="color:#2aa198">1</span>]
+</span></span><span style="display:flex;"><span>            <span style="color:#268bd2">let</span> score3 <span style="color:#719e07">=</span> temp2 <span style="color:#719e07">/</span> (noteArr[<span style="color:#2aa198">2</span>])
+</span></span><span style="display:flex;"><span>            <span style="color:#268bd2">let</span> temp3 <span style="color:#719e07">=</span> (noteArr[<span style="color:#2aa198">0</span>] <span style="color:#719e07">+</span> noteArr[<span style="color:#2aa198">1</span>] <span style="color:#719e07">+</span> noteArr[<span style="color:#2aa198">2</span>] <span style="color:#719e07">+</span> noteArr[<span style="color:#2aa198">3</span>]) <span style="color:#719e07">*</span> accArr[<span style="color:#2aa198">3</span>] <span style="color:#719e07">-</span> (noteArr[<span style="color:#2aa198">0</span>] <span style="color:#719e07">+</span> noteArr[<span style="color:#2aa198">1</span>] <span style="color:#719e07">+</span> noteArr[<span style="color:#2aa198">2</span>]) <span style="color:#719e07">*</span> accArr[<span style="color:#2aa198">2</span>]
+</span></span><span style="display:flex;"><span>            <span style="color:#268bd2">let</span> score4 <span style="color:#719e07">=</span> temp3 <span style="color:#719e07">/</span> (noteArr[<span style="color:#2aa198">3</span>])
+</span></span><span style="display:flex;"><span>            <span style="color:#719e07">return</span> [score1, score2, score3, score4]
+</span></span><span style="display:flex;"><span>        }
+</span></span></code></pre></div><p>第一首的ACC不变，这个不说了。</p>
+<p>这个temp算的是什么？？？</p>
+<p>刚刚去看了一下引用，accArr存放着四首的玩家成绩Acc，noteArr存着这四首歌的Note总数量。</p>
+<p>还是没搞明白这个temp在干什么，看这段代码是真想骂街啊。</p>
+<p>用1dan举例子，Note和ACC：</p>
+<pre tabindex="0"><code>813, 955, 907, 654
+99   98   96   94
+</code></pre><p><del>叠批来了</del></p>
+<p>Malody的每一个判定都有不同的权重，都有对应不同的Acc衰减，所以每一首歌曲结束后都是一个加权平均数。程序要做的事情就是逆推出原本的Acc。</p>
+<p>所以<code>accArr</code>是一个累计加权平均值数组。
+<code>noteArr</code>是每批数据的权重。
+目标：计算每批数据的<strong>独立加权平均值</strong>。</p>
+<h3 id="数学逻辑">数学逻辑</h3>
+<p><strong>第一批数据：</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#268bd2">let</span> score1 <span style="color:#719e07">=</span> accArr[<span style="color:#2aa198">0</span>]
+</span></span></code></pre></div><p>直接使用第一个累计平均值a1，此时只有第一批数据。</p>
+<p><strong>第二批数据：</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#268bd2">let</span> temp1 <span style="color:#719e07">=</span> (noteArr[<span style="color:#2aa198">0</span>] <span style="color:#719e07">+</span> noteArr[<span style="color:#2aa198">1</span>]) <span style="color:#719e07">*</span> accArr[<span style="color:#2aa198">1</span>] <span style="color:#719e07">-</span> noteArr[<span style="color:#2aa198">0</span>] <span style="color:#719e07">*</span> accArr[<span style="color:#2aa198">0</span>] 
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">let</span> score2 <span style="color:#719e07">=</span> temp1 <span style="color:#719e07">/</span> noteArr[<span style="color:#2aa198">1</span>]
+</span></span></code></pre></div><ul>
+<li>累计平均值<code>a2 = (n1s1 +n2s2) / (n1 + n2)</code></li>
+<li>解得<code>s2</code>:<code>(n1 +n2)a2 - n1s1 / n2</code>
+&hellip;&hellip;</li>
+</ul>
+<p>额&hellip;这一顿推导，给我也整不会了。我数学奇烂，那就用一个简明易懂的例子来理解吧。</p>
+<h3 id="人话">人话</h3>
+<p>假设参加了4次考试</p>
+<ul>
+<li>第一次考了80分(score1)</li>
+<li>第二次的平均分是93.3(accArr[1])</li>
+<li>第三次的平均分是95(accArr[2])</li>
+<li>第四次的平均分是97.5(accArr[3])</li>
+</ul>
+<p>但是你忘了每次考试的重要程度（权重）：</p>
+<ul>
+<li>第一次考试占10(noteArr[0] = 10)</li>
+<li>第二次 20(noteArr[1] = 20)</li>
+<li>第三次  30(noteArr[2] = 30)</li>
+<li>第四次 40(noteArr[3] = 40)</li>
+</ul>
+<p>你想知道每次考试单独的平均分是多少</p>
+<ol>
+<li>第一次考试：
+直接用平均分（因为只有一次考试）</li>
+<li>第二次考试：
+先算总分：<code>前两次总分 = (10+20)*93.3 = 2800</code>
+减去第一次的分数：<code>第二次分数 = 2800 - 10 * 80 = 2000</code>
+第二次平均分： <code>score2 = 2000 / 20 = 100</code></li>
+<li>第三次考试：
+总分：<code>(10 + 20 + 30 )*95 = 5700</code>
+减去前两次：<code>第三次分数 = 5700 - 2800</code>
+平均分：<code>score3 = 2900 / 30 ≈ 96.7</code></li>
+<li>第四次考试
+总分：<code>(10+20+30+40)*97.5 = 9750</code>
+减去前3次：<code>第四次分数 = 9750 - 5700 = 4050</code>
+平均分：<code>score4 = 4050 / 40 = 101.25</code></li>
+</ol>
+<p>写着写着突然发现</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#719e07">typedef</span> <span style="color:#719e07">struct</span> Dan
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#586e75">// 四首歌的物量
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>    <span style="color:#dc322f">int</span><span style="color:#719e07">*</span> songs_total_keys;
+</span></span><span style="display:flex;"><span>} Dan;
+</span></span></code></pre></div><p>这个数据结构只需要一个数组。</p>
+<p>人话说完了，该说说计算机的话了。</p>
+<h3 id="实现">实现</h3>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#dc322f">double</span> <span style="color:#719e07">*</span><span style="color:#268bd2">common_calc</span>(<span style="color:#dc322f">int</span> <span style="color:#719e07">*</span>total_keys, <span style="color:#dc322f">double</span> <span style="color:#719e07">*</span>player_acc)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#586e75">// 权重：total_keys
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>    <span style="color:#586e75">// 分数：player_acc
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>    <span style="color:#586e75">// 返回的数组，保存计算完成的Acc
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>    <span style="color:#dc322f">double</span> <span style="color:#719e07">*</span>result <span style="color:#719e07">=</span> (<span style="color:#dc322f">double</span> <span style="color:#719e07">*</span>)<span style="color:#268bd2">malloc</span>(<span style="color:#719e07">sizeof</span>(<span style="color:#dc322f">double</span>) <span style="color:#719e07">*</span> <span style="color:#2aa198">4</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#719e07">if</span> (result <span style="color:#719e07">==</span> <span style="color:#b58900">NULL</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#268bd2">printf</span>(<span style="color:#2aa198">&#34;[ERROR] 内存分配失败！&#34;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#719e07">return</span> <span style="color:#b58900">NULL</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#dc322f">double</span> song1_acc, song2_acc, song3_acc, song4_acc;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#586e75">// 第一首歌：直接取第一个累积平均值
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>    result[<span style="color:#2aa198">0</span>] <span style="color:#719e07">=</span> player_acc[<span style="color:#2aa198">0</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#586e75">// 第二首歌：((n0 + n1)*a1 - n0*a0) / n1
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>    <span style="color:#dc322f">double</span> sum2 <span style="color:#719e07">=</span> total_keys[<span style="color:#2aa198">0</span>] <span style="color:#719e07">+</span> total_keys[<span style="color:#2aa198">1</span>];
+</span></span><span style="display:flex;"><span>    result[<span style="color:#2aa198">1</span>] <span style="color:#719e07">=</span> (sum2 <span style="color:#719e07">*</span> player_acc[<span style="color:#2aa198">1</span>] <span style="color:#719e07">-</span> total_keys[<span style="color:#2aa198">0</span>] <span style="color:#719e07">*</span> player_acc[<span style="color:#2aa198">0</span>]) <span style="color:#719e07">/</span> total_keys[<span style="color:#2aa198">1</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#586e75">// 第三首歌：((n0 + n1 + n2)*a2 - (n0 + n1)*a1) / n2
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>    <span style="color:#dc322f">double</span> sum3 <span style="color:#719e07">=</span> sum2 <span style="color:#719e07">+</span> total_keys[<span style="color:#2aa198">2</span>];
+</span></span><span style="display:flex;"><span>    result[<span style="color:#2aa198">2</span>] <span style="color:#719e07">=</span> (sum3 <span style="color:#719e07">*</span> player_acc[<span style="color:#2aa198">2</span>] <span style="color:#719e07">-</span> sum2 <span style="color:#719e07">*</span> player_acc[<span style="color:#2aa198">1</span>]) <span style="color:#719e07">/</span> total_keys[<span style="color:#2aa198">2</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#586e75">// 第四首歌：((n0 + n1 + n2 + n3)*a3 - (n0 + n1 + n2)*a2) / n3
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>    <span style="color:#dc322f">double</span> sum4 <span style="color:#719e07">=</span> sum3 <span style="color:#719e07">+</span> total_keys[<span style="color:#2aa198">3</span>];
+</span></span><span style="display:flex;"><span>    result[<span style="color:#2aa198">3</span>] <span style="color:#719e07">=</span> (sum4 <span style="color:#719e07">*</span> player_acc[<span style="color:#2aa198">3</span>] <span style="color:#719e07">-</span> sum3 <span style="color:#719e07">*</span> player_acc[<span style="color:#2aa198">2</span>]) <span style="color:#719e07">/</span> total_keys[<span style="color:#2aa198">3</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#719e07">return</span> result;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>然后就是主函数处理用户输入了，没什么含金量，不水了。</p>
+
+        </div>
+        <footer>
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">yingyu5658</span></span><time>Jun 7, 2025</time>
+    
+      <span class="categories">
+        Tags:<a class="category" href="http://localhost:1313/tags/malody">Malody</a>  <a class="category" href="http://localhost:1313/tags/osu">osu</a>  <a class="category" href="http://localhost:1313/tags/%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84%e4%b8%8e%e7%ae%97%e6%b3%95">数据结构与算法</a>  
+    
+    </span>
+  </p><p class="meta">
+    
+        <a class="basic-alignment left" href="http://localhost:1313/blog/2025-06-06-%E6%9D%82%E8%AE%B0%232025-06-06/" title="杂记#2025-06-06">杂记#2025-06-06</a>
+    
+
+    
+      <a class="basic-alignment right" href="http://localhost:1313/blog/2025-06-10-%E4%BB%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AE%BE%E7%BD%AE%E5%85%A5%E6%89%8B%E4%B8%80%E6%8B%9B%E7%A0%B4%E8%A7%A3%E4%BD%9C%E6%96%87%E7%BD%91%E7%AB%99%E7%A6%81%E6%AD%A2%E5%A4%8D%E5%88%B6/" title="从浏览器设置入手，一招破解作文网站禁止复制">从浏览器设置入手，一招破解作文网站禁止复制</a>
+    
+  </p>
+  
+  
+</footer>
+
+
+      </article>
+    </div>
+    <aside class="sidebar thirds">
+  <section class="first odd">
+
+    
+      <h1>Sidebar Header</h1>
+    
+
+    <p>
+      
+        <p>New paragraph</p>
+<p>Another paragraph which has two spaces in the end to create a new line using markdown<br>
+New line but not a new paragraph</p>
+
+      
+    </p>
+  </section><ul class="sidebar-nav">
+  <li class="sidebar-nav-item">
+    <a target="_blank" rel="noopener noreferrer" href="https://github.com/yingyu5658" title="https://github.com/yingyu5658"><i class="fa fa-github fa-3x"></i></a>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </li>
+</ul>
+
+    
+      <section class="odd">
+        
+          <h1>Sidebar Links</h1>
+        
+        
+          <li>
+            <a href="http://localhost:1313/categories/golang/" title="Hugo category" >Hugo category</a>
+          </li>
+        
+          <li>
+            <a href="http://localhost:1313/about" title="About page" >About page</a>
+          </li>
+        
+          <li>
+            <a href="https://www.google.com" title="Google" >Google</a>
+          </li>
+        
+      </section>
+    
+  
+    
+      <section class="even">
+        <h1>Recent Posts</h1>
+        <ul id="recent_posts">
+          
+          
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2025-08-08-%E6%9C%AA%E5%91%BD%E5%90%8D/">未命名</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2025-08-07-%E5%A6%82%E4%BD%95%E8%AE%A2%E9%98%85%E6%96%B0%E9%97%BB%E7%BB%84/">如何订阅新闻组</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2025-08-06-%E6%9C%80%E8%86%88%E5%BA%94%E4%B8%8D%E7%88%B1%E6%83%9C%E4%B9%A6%E7%9A%84%E4%BA%BA/">最膈应不爱惜书的人</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2025-08-06-%E5%88%AB%E9%97%B2%E7%9D%80%E6%B2%A1%E4%BA%8B%E8%87%AA%E6%90%9C%E9%BB%91%E5%8E%86%E5%8F%B2%E5%95%8A/">别闲着没事自搜，黑历史啊</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2025-08-04-%E6%97%A9%E7%9D%A1%E6%97%A9%E8%B5%B7%E7%9A%84%E4%BC%98%E7%82%B9/">早睡早起的优点</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2025-07-29-%E4%BB%8E%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%88%B0%E7%89%A9%E7%90%86%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90%E7%A8%8B%E5%BA%8F%E7%9A%84%E7%BC%96%E8%AF%91%E4%B8%8E%E6%89%A7%E8%A1%8C/">从编译原理到物理原理剖析程序的编译与执行</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2025-07-26-%E5%9C%A82025%E5%B9%B4%E6%90%AD%E5%BB%BA%E6%96%B0%E9%97%BB%E7%BB%84/">在2025年，搭建新闻组</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2025-07-22-%E6%97%A0%E8%9D%89%E9%B8%A3%E5%A4%8F/">无蝉鸣夏</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2025-07-21-%E4%B8%87%E8%83%BD%E5%BF%85%E8%83%9C%E6%B2%9F%E9%80%9A%E6%B3%95/">万能必胜沟通法</a>
+              </li>
+            
+          
+        </ul>
+      </section>
+    
+  
+</aside>
+
+  </div>
+</div>
+
+    <footer role="contentinfo">
+      <p>Copyright &copy; 2025 yingyu5658 - <a href="http://localhost:1313/license/">License</a> -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io" rel="noopener noreferrer">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/" rel="noopener noreferrer">Hugo-Octopress</a> theme.
+      </p>
+    </footer>
+  </body>
+</html>
+

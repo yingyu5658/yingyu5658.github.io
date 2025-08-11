@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+
+  
+      <link href="/css/fonts.css" rel="stylesheet" type="text/css">
+    
+  <title>从0开始搭建自己的终端开发环境</title><link rel="stylesheet" href="/css/hugo-octopress.css">
+
+  
+    <link rel="stylesheet" href="/css/fork-awesome.min.css">
+  
+    <link href="http://localhost:1313/favicon.png" rel="icon">
+  
+
+  <meta name="description" content="" />
+  <meta name="keywords" content="">
+  <meta name="author" content="yingyu5658"><meta name="generator" content="Hugo 0.148.2">
+
+</head>
+<body><header role="banner"><hgroup><h1><a href="http://localhost:1313/">映屿</a></h1>
+    <h2>yingyu5658的数字花园</h2>
+</hgroup></header><nav role="navigation"><fieldset class="mobile-nav"><select onchange="location = this.value;">
+    <option value="">Navigate…</option>
+      
+        <option value="http://localhost:1313/">» Home</option>
+      
+        <option value="http://localhost:1313/about">» About</option>
+      
+        <option value="http://localhost:1313/post">» Archive</option>
+      
+        <option value="http://localhost:1313/links">» Links</option>
+      
+        <option value="http://localhost:1313/newsgroup">» Newsgroup</option>
+      
+  </select>
+</fieldset><ul class="main-navigation">
+    
+      <li><a href="http://localhost:1313/" title="Home">Home</a></li>
+    
+  
+    
+      <li><a href="http://localhost:1313/about" title="About"  target="_blank"  rel="noopener noreferrer">About</a></li>
+    
+  
+    
+      <li><a href="http://localhost:1313/post" title="Archive"  target="_blank"  rel="noopener noreferrer">Archive</a></li>
+    
+  
+    
+      <li><a href="http://localhost:1313/links" title="Links"  target="_blank"  rel="noopener noreferrer">Links</a></li>
+    
+  
+    
+      <li><a href="http://localhost:1313/newsgroup" title="Newsgroup"  target="_blank"  rel="noopener noreferrer">Newsgroup</a></li>
+    
+  
+</ul>
+
+<ul class="subscription">
+  
+    
+        <a href="http://localhost:1313/atom.xml" target="_blank" type="application/rss+xml" title="RSS" rel="noopener noreferrer"><i class="fa fa-rss-square fa-lg"></i></a>
+    
+  
+</ul>
+
+
+  <form action="https://www.google.com/search" method="get" target="_blank" rel="noopener noreferrer">
+    <fieldset role="search">
+      <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+      <input type="hidden" name="q" value="site:http://localhost:1313/" />
+    </fieldset>
+  </form>
+
+</nav>
+
+
+<div id="main">
+  <div id="content">
+    <div>
+      <article class="hentry" role="article">
+
+        
+        <header>
+  <p class="meta">Apr 15, 2025
+     - 3 minute read - <a class="label" href="http://localhost:1313/categories/%e6%8a%80%e6%9c%af/">技术 </a>
+    
+  </p>
+  <h1 class="entry-title">
+     从0开始搭建自己的终端开发环境 
+  </h1>
+</header>
+
+
+        <div class="entry-content">
+          
+          <p><strong>系统</strong>：WSL Arch</p>
+<h3 id="主折腾点">主折腾点</h3>
+<p><strong>代码编辑器</strong>：Vim(Neovim)</p>
+<p><strong>终端体验优化</strong>：tmux</p>
+<p><strong>文件管理器</strong>：yazi</p>
+<h2 id="代码编辑器neovim">代码编辑器——Neovim</h2>
+<h3 id="前言">前言</h3>
+<p>Neovim和Vim相比，在性能和易用性上有很大的提升，在异步任务表现突出；使用更加现代的lua脚本配置，可读性更高。</p>
+<h4 id="为什么不用lazyvim">为什么不用Lazyvim？</h4>
+<p>答：我个人用了很长一段时间Lazyvim，虽然开箱即用，简单调试就可以使用，但是我并不能清除的理解他到底给我装了什么，我是否需要那些插件。感觉像在用别人的软件，而自己从头开始配置vim的掌控感是使用他人的配置文件无法比拟的，在配置的过程中也可以培养排错和程序调试能力，唯一的缺点就是略微耗费时间。</p>
+<h3 id="安装">安装</h3>
+<p>先滚一把系统保证软件包都是最新的</p>
+<p><code>sudo pacman -Syyu</code></p>
+<p>安装Neovim</p>
+<p><code>sudo pacman -S neovim</code></p>
+<p>这时候在终端输入<code>nvim</code>就可以打开neovim了。![image-20250415212435171](E:/Blog/source/im</p>
+<p><strong>按<code>:q</code>退出。</strong></p>
+<p>这个初始的界面非常简陋，我们先进行核心功能配置，后续在更改主题。</p>
+<p>nvim的用户级配置文件在<code>~/.config/nvim</code>中。</p>
+<h3 id="安装包管理器">安装包管理器</h3>
+<p>我们选择Lazy作为包管理器，他和其他的包管理器相比起来，在懒加载、UI界面等方面有显著优势，可以减小配置复杂度。</p>
+<p>访问
+<a href="https://lazy.folke.io/installation" target="_blank" rel="noopener">lazy.nvim官网</a>，官方文档永远都是最好的教程。这里有一段代码</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#586e75">-- Bootstrap lazy.nvim</span>
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">local</span> lazypath <span style="color:#719e07">=</span> vim.fn.stdpath(<span style="color:#2aa198">&#34;data&#34;</span>) <span style="color:#719e07">..</span> <span style="color:#2aa198">&#34;/lazy/lazy.nvim&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">if</span> <span style="color:#719e07">not</span> (vim.uv <span style="color:#719e07">or</span> vim.loop).fs_stat(lazypath) <span style="color:#268bd2">then</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">local</span> lazyrepo <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;https://github.com/folke/lazy.nvim.git&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">local</span> out <span style="color:#719e07">=</span> vim.fn.system({ <span style="color:#2aa198">&#34;git&#34;</span>, <span style="color:#2aa198">&#34;clone&#34;</span>, <span style="color:#2aa198">&#34;--filter=blob:none&#34;</span>, <span style="color:#2aa198">&#34;--branch=stable&#34;</span>, lazyrepo, lazypath })
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">if</span> vim.v.shell_error <span style="color:#719e07">~=</span> <span style="color:#2aa198">0</span> <span style="color:#268bd2">then</span>
+</span></span><span style="display:flex;"><span>    vim.api.nvim_echo({
+</span></span><span style="display:flex;"><span>      { <span style="color:#2aa198">&#34;Failed to clone lazy.nvim:</span><span style="color:#cb4b16">\n</span><span style="color:#2aa198">&#34;</span>, <span style="color:#2aa198">&#34;ErrorMsg&#34;</span> },
+</span></span><span style="display:flex;"><span>      { out, <span style="color:#2aa198">&#34;WarningMsg&#34;</span> },
+</span></span><span style="display:flex;"><span>      { <span style="color:#2aa198">&#34;</span><span style="color:#cb4b16">\n</span><span style="color:#2aa198">Press any key to exit...&#34;</span> },
+</span></span><span style="display:flex;"><span>    }, <span style="color:#cb4b16">true</span>, {})
+</span></span><span style="display:flex;"><span>    vim.fn.getchar()
+</span></span><span style="display:flex;"><span>    os.exit(<span style="color:#2aa198">1</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">end</span>
+</span></span><span style="display:flex;"><span>vim.opt.rtp:prepend(lazypath)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75">-- Make sure to setup `mapleader` and `maplocalleader` before</span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75">-- loading lazy.nvim so that mappings are correct.</span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75">-- This is also a good place to setup other settings (vim.opt)</span>
+</span></span><span style="display:flex;"><span>vim.g.mapleader <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34; &#34;</span>
+</span></span><span style="display:flex;"><span>vim.g.maplocalleader <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;</span><span style="color:#cb4b16">\\</span><span style="color:#2aa198">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75">-- Setup lazy.nvim</span>
+</span></span><span style="display:flex;"><span>require(<span style="color:#2aa198">&#34;lazy&#34;</span>).setup({
+</span></span><span style="display:flex;"><span>  spec <span style="color:#719e07">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#586e75">-- import your plugins</span>
+</span></span><span style="display:flex;"><span>    { import <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;plugins&#34;</span> },
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#586e75">-- Configure any other settings here. See the documentation for more details.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#586e75">-- colorscheme that will be used when installing plugins.</span>
+</span></span><span style="display:flex;"><span>  install <span style="color:#719e07">=</span> { colorscheme <span style="color:#719e07">=</span> { <span style="color:#2aa198">&#34;habamax&#34;</span> } },
+</span></span><span style="display:flex;"><span>  <span style="color:#586e75">-- automatically check for plugin updates</span>
+</span></span><span style="display:flex;"><span>  checker <span style="color:#719e07">=</span> { enabled <span style="color:#719e07">=</span> <span style="color:#cb4b16">true</span> },
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><p>这段代码主要在为Lazy包管理器初始化，所以按照官网的目录结构，我们在<code>~/.config/nvim/lua</code>下新建一个config文件夹，把代码粘贴进去。</p>
+<p>注意到，代码中有一段是导入plugins这个模块，所以我们需要在<code>~/.config/nvim/lua</code>下创建一个plugins文件夹</p>
+<p>然后在<code>~/.config/nvim/init.lua</code>里粘贴这行代码</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span>require(<span style="color:#2aa198">&#34;config.lazy&#34;</span>)
+</span></span></code></pre></div><p><code>init/lua</code>是Neovim的初始化配置文件，程序会首先读取这个文件里的代码。</p>
+<p>这行代码是引入config/lazy这个文件，初始化Lazy，所以要放在第一行。</p>
+<p>那么经过这一番操作，Lazy安装好了，我们的目录结构应该如下：</p>
+<pre tabindex="0"><code>`-- nvim
+    `-- lua
+        `-- config
+            `-- lazy.lua
+</code></pre><p>现在在终端输入<code>nvim</code>启动Neovim，会发现有个报错</p>
+<pre tabindex="0"><code>No specs found for module &#34;plugins&#34;
+</code></pre><p>查阅
+<a href="https://github.com/folke/lazy.nvim/discussions/1875" target="_blank" rel="noopener">bug: No specs found for module &ldquo;plugins&rdquo; (Structured Setup) · folke/lazy.nvim · Discussion #1875</a>可得，这个问题是由于我们还没有安装任何插件导致的，他不影响什么，但是很烦人。如果想要关掉，可以在plugins下新建一个lua文件，然后输入</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#268bd2">return</span>{
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>这样就可以正常启动nvim不报错了。由此可见，Lazy安装插件是返回一张表，所以以后每次新建插件文件的时候都要填写以上内容。</p>
+<h3 id="基础配置">基础配置</h3>
+<p>在安装插件前，我们要先进行一些基础配置，让这个编辑器用的舒服一点。</p>
+<p>设置别名：``</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#268bd2">local</span> opt <span style="color:#719e07">=</span> vim.opt
+</span></span></code></pre></div><p>声明一个本地变量opt=vim.opt，简写提高效率。</p>
+<p>为什么要显示声明local？原因是lua脚本的所有变量默认都是全局变量，很怪对吧，我也觉得。</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span>opt.relativenumber <span style="color:#719e07">=</span> <span style="color:#cb4b16">false</span>	<span style="color:#586e75">-- 禁用相对行号</span>
+</span></span><span style="display:flex;"><span>opt.number <span style="color:#719e07">=</span> <span style="color:#cb4b16">true</span>		   <span style="color:#586e75">-- 启用绝对行号</span>
+</span></span><span style="display:flex;"><span>vim.api.nvim_set_hl(<span style="color:#2aa198">0</span>, <span style="color:#2aa198">&#34;LineNr&#34;</span>, { fg <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;#FFD700&#34;</span> }) <span style="color:#586e75">-- 所有行号设为金色</span>
+</span></span></code></pre></div><p>相对行号可以更容易的数行数来达到<code>hjkl/d/v等 + 行数</code>来快速进行文本编辑操作，但是我个人不太适应，就没开，后期可以通过修改按键配置来做到随时开关。</p>
+<h3 id="安装插件">安装插件</h3>
+<h4 id="neo-tree">neo-tree</h4>
+<p>neo-tree 编辑器的文件系统资源管理器。使用此插件，用户可以直观地浏览复杂的目录层次结构，快速打开文件进行读取或编辑，并执行基本的文件系统作。</p>
+<p>仓库：
+<a href="https://github.com/nvim-neo-tree/neo-tree.nvim" target="_blank" rel="noopener">nvim-neo-tree/neo-tree.nvim: Neovim plugin to manage the file system and other tree like structures.</a></p>
+<p>进入Plugins目录，新建一个文件名为nerdtree的lua脚本。先把上文提到的返回表写进去。</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#586e75">-- neo-tree.lua</span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75">-- 代码来自仓库README</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#2aa198">&#34;nvim-neo-tree/neo-tree.nvim&#34;</span>,
+</span></span><span style="display:flex;"><span>  branch <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;v3.x&#34;</span>,
+</span></span><span style="display:flex;"><span>  dependencies <span style="color:#719e07">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#2aa198">&#34;nvim-lua/plenary.nvim&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#2aa198">&#34;nvim-tree/nvim-web-devicons&#34;</span>, <span style="color:#586e75">-- not strictly required, but recommended</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#2aa198">&#34;MunifTanjim/nui.nvim&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#586e75">-- {&#34;3rd/image.nvim&#34;, opts = {}}, -- Optional image support in preview window: See `# Preview Mode` for more information</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  lazy <span style="color:#719e07">=</span> <span style="color:#cb4b16">false</span>, <span style="color:#586e75">-- neo-tree will lazily load itself</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#586e75">---@module &#34;neo-tree&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#586e75">---@type neotree.Config?</span>
+</span></span><span style="display:flex;"><span>  opts <span style="color:#719e07">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#586e75">-- fill any relevant options here</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>插件装好了发现，不知道怎么打开啊。这时候就需要我们自己动手改一个舒服点的键位。在<code>~/.config/nvim/lua/config</code>中新建一个keymaps.lua，并在init.lua中引用</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#586e75">-- 习惯上，我喜欢把leader键映射到空格，敲起来顺手</span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75">-- 基础按键配置</span>
+</span></span><span style="display:flex;"><span>vim.g.mapleader <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34; &#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">local</span> opt <span style="color:#719e07">=</span> { noremap <span style="color:#719e07">=</span> <span style="color:#cb4b16">true</span>, slient <span style="color:#719e07">=</span> <span style="color:#cb4b16">true</span> }
+</span></span><span style="display:flex;"><span><span style="color:#586e75">-- 窗口切换更顺手，少按一个w</span>
+</span></span><span style="display:flex;"><span>vim.keymap.set(<span style="color:#2aa198">&#34;n&#34;</span>, <span style="color:#2aa198">&#34;&lt;C-h&gt;&#34;</span>, <span style="color:#2aa198">&#34;&lt;C-w&gt;h&#34;</span>)
+</span></span><span style="display:flex;"><span>vim.keymap.set(<span style="color:#2aa198">&#34;n&#34;</span>, <span style="color:#2aa198">&#34;&lt;C-j&gt;&#34;</span>, <span style="color:#2aa198">&#34;&lt;C-w&gt;j&#34;</span>)
+</span></span><span style="display:flex;"><span>vim.keymap.set(<span style="color:#2aa198">&#34;n&#34;</span>, <span style="color:#2aa198">&#34;&lt;C-k&gt;&#34;</span>, <span style="color:#2aa198">&#34;&lt;C-w&gt;k&#34;</span>)
+</span></span><span style="display:flex;"><span>vim.keymap.set(<span style="color:#2aa198">&#34;n&#34;</span>, <span style="color:#2aa198">&#34;&lt;C-l&gt;&#34;</span>, <span style="color:#2aa198">&#34;&lt;C-w&gt;l&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75">-- Neotree</span>
+</span></span><span style="display:flex;"><span>vim.keymap.set(<span style="color:#2aa198">&#34;n&#34;</span>, <span style="color:#2aa198">&#34;&lt;Leader&gt;e&#34;</span>, <span style="color:#2aa198">&#34;&lt;cmd&gt;Neotree toggle&lt;CR&gt;&#34;</span>, opts)
+</span></span></code></pre></div><h4 id="代码补全格式化检查">代码补全、格式化、检查</h4>
+<p>要让vim看起来像一个正经的处理代码的文本编辑器，这些是必不可少的。</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#586e75">-- 文件路径：lua/plugins/code-edit.lua</span>
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">return</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#586e75">-- LSP 核心组件 (必须最先声明)</span>
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#2aa198">&#34;neovim/nvim-lspconfig&#34;</span>,
+</span></span><span style="display:flex;"><span>    dependencies <span style="color:#719e07">=</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#2aa198">&#34;williamboman/mason.nvim&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#2aa198">&#34;williamboman/mason-lspconfig.nvim&#34;</span>,
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    config <span style="color:#719e07">=</span> <span style="color:#268bd2">function</span>()
+</span></span><span style="display:flex;"><span>      <span style="color:#586e75">-- 延迟加载 LSP 配置</span>
+</span></span><span style="display:flex;"><span>      vim.schedule(<span style="color:#268bd2">function</span>()
+</span></span><span style="display:flex;"><span>        <span style="color:#268bd2">local</span> lspconfig <span style="color:#719e07">=</span> require(<span style="color:#2aa198">&#34;lspconfig&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#268bd2">local</span> mason <span style="color:#719e07">=</span> require(<span style="color:#2aa198">&#34;mason&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#268bd2">local</span> mason_lspconfig <span style="color:#719e07">=</span> require(<span style="color:#2aa198">&#34;mason-lspconfig&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#586e75">-- 通用 LSP 配置</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#268bd2">local</span> on_attach <span style="color:#719e07">=</span> <span style="color:#268bd2">function</span>(client, bufnr)
+</span></span><span style="display:flex;"><span>          <span style="color:#586e75">-- 快捷键配置...</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#268bd2">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        mason.setup()
+</span></span><span style="display:flex;"><span>        mason_lspconfig.setup({
+</span></span><span style="display:flex;"><span>          ensure_installed <span style="color:#719e07">=</span> { <span style="color:#2aa198">&#34;tsserver&#34;</span>, <span style="color:#2aa198">&#34;cssls&#34;</span>, <span style="color:#2aa198">&#34;html&#34;</span>, <span style="color:#2aa198">&#34;clangd&#34;</span>, <span style="color:#2aa198">&#34;eslint&#34;</span> }
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        mason_lspconfig.setup_handlers({
+</span></span><span style="display:flex;"><span>          <span style="color:#268bd2">function</span>(server_name)
+</span></span><span style="display:flex;"><span>            lspconfig[server_name].setup({
+</span></span><span style="display:flex;"><span>              on_attach <span style="color:#719e07">=</span> on_attach,
+</span></span><span style="display:flex;"><span>              capabilities <span style="color:#719e07">=</span> require(<span style="color:#2aa198">&#34;cmp_nvim_lsp&#34;</span>).default_capabilities(),
+</span></span><span style="display:flex;"><span>              <span style="color:#586e75">-- 各语言特殊配置...</span>
+</span></span><span style="display:flex;"><span>            })
+</span></span><span style="display:flex;"><span>          <span style="color:#268bd2">end</span>
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>      <span style="color:#268bd2">end</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#268bd2">end</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#586e75">-- 自动补全引擎（需在 LSP 之后加载）</span>
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#2aa198">&#34;hrsh7th/nvim-cmp&#34;</span>,
+</span></span><span style="display:flex;"><span>    dependencies <span style="color:#719e07">=</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#2aa198">&#34;hrsh7th/cmp-nvim-lsp&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#2aa198">&#34;L3MON4D3/LuaSnip&#34;</span>,
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    config <span style="color:#719e07">=</span> <span style="color:#268bd2">function</span>()
+</span></span><span style="display:flex;"><span>      <span style="color:#586e75">-- cmp 配置...</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#268bd2">end</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#586e75">-- 格式化工具</span>
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#2aa198">&#34;stevearc/conform.nvim&#34;</span>,
+</span></span><span style="display:flex;"><span>    config <span style="color:#719e07">=</span> <span style="color:#268bd2">function</span>()
+</span></span><span style="display:flex;"><span>      <span style="color:#586e75">-- conform 配置...</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#268bd2">end</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#586e75">-- 语法高亮增强</span>
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#2aa198">&#34;nvim-treesitter/nvim-treesitter&#34;</span>,
+</span></span><span style="display:flex;"><span>    build <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;:TSUpdate&#34;</span>,
+</span></span><span style="display:flex;"><span>    config <span style="color:#719e07">=</span> <span style="color:#268bd2">function</span>()
+</span></span><span style="display:flex;"><span>      <span style="color:#586e75">-- treesitter 配置...</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#268bd2">end</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>代码编辑器的配置就告一段落了，真写规范的代码还是建议vscode（虽然有点偏离终端的主题了）。如果你爱折腾vim那当然也可以，工具自己用的趁手就是最好的。</p>
+<h2 id="oh-my-zsh">Oh-My-Zsh</h2>
+<p>Oh My Zsh 是基于 zsh 命令行的一个扩展工具集，提供了丰富的扩展功能。</p>
+<h3 id="安装zsh">安装<strong>ZSH</strong></h3>
+<p><code>sudo pacman -S zsh</code></p>
+<p>设置默认终端为zsh</p>
+<p><code>chsh -s /bin/zsh</code></p>
+<h3 id="安装oh-my-zsh">安装Oh-My-Zsh</h3>
+<p>国内镜像</p>
+<p><code>sh -c &quot;$(curl -fsSL https://gitee.com/pocmon/ohmyzsh/raw/master/tools/install.sh)&quot;</code></p>
+<p>我个人觉得这个主题就挺好的了，不多改动。</p>
+<h4 id="插件安装">插件安装</h4>
+<h4 id="zsh--autosuggestions">zsh -autosuggestions</h4>
+<p>预测命令</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://github.moeyy.xyz/https://github.com/zsh-users/zsh-autosuggestions <span style="color:#2aa198">${</span><span style="color:#268bd2">ZSH_CUSTOM</span><span style="color:#719e07">:-</span>~/.oh-my-zsh/custom<span style="color:#2aa198">}</span>/plugins/zsh-autosuggestions
+</span></span></code></pre></div><h4 id="zsh-syntax-highlighting">zsh-syntax-highlighting</h4>
+<p>语法检查，命令正确时为绿色，否则红色。</p>
+<pre tabindex="0"><code>git clone https://github.moeyy.xyz/https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+</code></pre><h4 id="启用插件">启用插件</h4>
+<p><code>nvim ~/.zshrc</code></p>
+<p>修改：</p>
+<pre tabindex="0"><code>plugins=(
+  git
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+  )
+</code></pre><p>重启终端即可启用。</p>
+<h4 id="别名设置">别名设置</h4>
+<p>别名可以更快地帮助我们启用命令</p>
+<p><code>nvim ~/.zshrc</code></p>
+<pre tabindex="0"><code>alias s=&#34;neofetch&#34;
+alias vim=&#34;nvim&#34;
+alias c=&#34;clear&#34;
+alias gcl = &#34;git clone&#34;
+</code></pre><p>这里根据我的习惯改了几个别名。</p>
+
+        </div>
+        <footer>
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">yingyu5658</span></span><time>Apr 15, 2025</time>
+    
+      <span class="categories">
+        Tags:<a class="category" href="http://localhost:1313/tags/%e7%bb%88%e7%ab%af">终端</a>  <a class="category" href="http://localhost:1313/tags/neovim">Neovim</a>  
+    
+    </span>
+  </p><p class="meta">
+    
+        <a class="basic-alignment left" href="http://localhost:1313/post/2025-04-13-%E5%88%9D%E6%8A%98%E8%85%BEemacs%E8%AE%B0%E5%BD%95/" title="初折腾Emacs记录">初折腾Emacs记录</a>
+    
+
+    
+      <a class="basic-alignment right" href="http://localhost:1313/post/2025-04-19-%E9%BB%91%E5%8E%86%E5%8F%B2%E8%AF%BB%E8%87%AA%E5%B7%B1%E4%BB%A5%E5%89%8D%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81/" title="【黑历史】读自己以前写的代码">【黑历史】读自己以前写的代码</a>
+    
+  </p>
+  
+  
+</footer>
+
+
+      </article>
+    </div>
+    <aside class="sidebar thirds">
+  <section class="first odd">
+
+    
+      <h1>Misc</h1>
+    
+
+    <p>
+      
+        <p>E-mail: 
+<a href="mailto:i@yingyu5658.me">i@yingyu5658.me</a></p>
+<p>Newsgroup: news.yingyu5658.me</p>
+<p>Github: 
+<a href="https://www.github.com/yingyu5658" target="_blank" rel="noopener">https://www.github.com/yingyu5658</a></p>
+<p><img src="/unamed.jpg" alt=""></p>
+
+      
+    </p>
+  </section><ul class="sidebar-nav">
+  <li class="sidebar-nav-item">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </li>
+</ul>
+
+    
+      <section class="even">
+        <h1>Recent Posts</h1>
+        <ul id="recent_posts">
+          
+          
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-08-08-%E6%9C%AA%E5%91%BD%E5%90%8D/">未命名</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-08-07-%E5%A6%82%E4%BD%95%E8%AE%A2%E9%98%85%E6%96%B0%E9%97%BB%E7%BB%84/">如何订阅新闻组</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-08-06-%E6%9C%80%E8%86%88%E5%BA%94%E4%B8%8D%E7%88%B1%E6%83%9C%E4%B9%A6%E7%9A%84%E4%BA%BA/">最膈应不爱惜书的人</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-08-06-%E5%88%AB%E9%97%B2%E7%9D%80%E6%B2%A1%E4%BA%8B%E8%87%AA%E6%90%9C%E9%BB%91%E5%8E%86%E5%8F%B2%E5%95%8A/">别闲着没事自搜，黑历史啊</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-08-04-%E6%97%A9%E7%9D%A1%E6%97%A9%E8%B5%B7%E7%9A%84%E4%BC%98%E7%82%B9/">早睡早起的优点</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-07-29-%E4%BB%8E%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%88%B0%E7%89%A9%E7%90%86%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90%E7%A8%8B%E5%BA%8F%E7%9A%84%E7%BC%96%E8%AF%91%E4%B8%8E%E6%89%A7%E8%A1%8C/">从编译原理到物理原理剖析程序的编译与执行</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-07-26-%E5%9C%A82025%E5%B9%B4%E6%90%AD%E5%BB%BA%E6%96%B0%E9%97%BB%E7%BB%84/">在2025年，搭建新闻组</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-07-22-%E6%97%A0%E8%9D%89%E9%B8%A3%E5%A4%8F/">无蝉鸣夏</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-07-21-%E4%B8%87%E8%83%BD%E5%BF%85%E8%83%9C%E6%B2%9F%E9%80%9A%E6%B3%95/">万能必胜沟通法</a>
+              </li>
+            
+          
+        </ul>
+      </section>
+    
+  
+</aside>
+
+  </div>
+</div>
+<div id="waline"></div>
+<script type="module">
+	import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+	init({
+		el: '#waline',
+		serverURL: 'waline.yingyu5658.me'
+	});
+</script>
+
+
+
+
+
+    <footer role="contentinfo">
+      <p>Copyright &copy; 2025 yingyu5658 - <a href="http://localhost:1313/license/">License</a> -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io" rel="noopener noreferrer">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/" rel="noopener noreferrer">Hugo-Octopress</a> theme.
+      </p>
+    </footer>
+  </body>
+</html>
+

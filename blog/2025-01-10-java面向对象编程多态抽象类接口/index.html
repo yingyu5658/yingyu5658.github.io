@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+
+  
+      <link href="/css/fonts.css" rel="stylesheet" type="text/css">
+    
+  <title>Java面向对象编程——多态、抽象类、接口</title><link rel="stylesheet" href="/css/hugo-octopress.css">
+
+  
+    <link rel="stylesheet" href="/css/fork-awesome.min.css">
+  
+    <link href="http://localhost:1313/favicon.png" rel="icon">
+  
+
+  <meta name="description" content="" />
+  <meta name="keywords" content="">
+  <meta name="author" content="yingyu5658"><meta name="generator" content="Hugo 0.148.2">
+
+</head>
+<body><header role="banner"><hgroup><h1><a href="http://localhost:1313/">映屿</a></h1>
+    <h2>yingyu5658的数字花园</h2>
+</hgroup></header><nav role="navigation"><fieldset class="mobile-nav"><select onchange="location = this.value;">
+    <option value="">Navigate…</option>
+      
+        <option value="http://localhost:1313/">» Home</option>
+      
+        <option value="http://localhost:1313/about">» About</option>
+      
+        <option value="http://localhost:1313/post">» Archive</option>
+      
+        <option value="http://localhost:1313/links">» Links</option>
+      
+        <option value="http://localhost:1313/newsgroup">» Newsgroup</option>
+      
+  </select>
+</fieldset><ul class="main-navigation">
+    
+      <li><a href="http://localhost:1313/" title="Home">Home</a></li>
+    
+  
+    
+      <li><a href="http://localhost:1313/about" title="About"  target="_blank"  rel="noopener noreferrer">About</a></li>
+    
+  
+    
+      <li><a href="http://localhost:1313/post" title="Archive"  target="_blank"  rel="noopener noreferrer">Archive</a></li>
+    
+  
+    
+      <li><a href="http://localhost:1313/links" title="Links"  target="_blank"  rel="noopener noreferrer">Links</a></li>
+    
+  
+    
+      <li><a href="http://localhost:1313/newsgroup" title="Newsgroup"  target="_blank"  rel="noopener noreferrer">Newsgroup</a></li>
+    
+  
+</ul>
+
+<ul class="subscription">
+  
+    
+        <a href="http://localhost:1313/atom.xml" target="_blank" type="application/rss+xml" title="RSS" rel="noopener noreferrer"><i class="fa fa-rss-square fa-lg"></i></a>
+    
+  
+</ul>
+
+
+  <form action="https://www.google.com/search" method="get" target="_blank" rel="noopener noreferrer">
+    <fieldset role="search">
+      <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+      <input type="hidden" name="q" value="site:http://localhost:1313/" />
+    </fieldset>
+  </form>
+
+</nav>
+
+
+<div id="main">
+  <div id="content">
+    <div>
+      <article class="hentry" role="article">
+
+        
+        <header>
+  <p class="meta">Jan 10, 2025
+     - 1 minute read - <a class="label" href="http://localhost:1313/categories/%e6%8a%80%e6%9c%af/">技术 </a>
+    
+  </p>
+  <h1 class="entry-title">
+     Java面向对象编程——多态、抽象类、接口 
+  </h1>
+</header>
+
+
+        <div class="entry-content">
+          
+          <h1 id="什么是多态">什么是多态</h1>
+<ul>
+<li>在继承/实现情况下的一种现象，表现为：对象多态、行为多态。</li>
+</ul>
+<h2 id="多态的前提">多态的前提</h2>
+<ul>
+<li>有<strong>继承/实</strong>现关系；存在父类引用子类对象；<strong>存在方法重写</strong></li>
+<li>
+<h2 id="多态的注意事项">多态的注意事项</h2>
+</li>
+<li>多态是对象、行为的多态，成员变量不体现多态。</li>
+</ul>
+<h1 id="使用多态的好处">使用多态的好处</h1>
+<ul>
+<li>在多态形式下，右边的对象是解耦合的，更便于拓展和维护。</li>
+<li>定义方法时，使用父类类型的形参，可以接收一切子类对象，扩展性更强、更便利。</li>
+</ul>
+<h1 id="多态下产生的一个问题">多态下产生的一个问题</h1>
+<ul>
+<li>多态下不能使用子类的独有功能。</li>
+</ul>
+<h2 id="多态下的类型转换">多态下的类型转换</h2>
+<ul>
+<li>自动类型转换：<code>父类 变量名 = new 子类();</code></li>
+<li>强制类型转换： <code>子类 变量名 = (子类)父类变量</code></li>
+</ul>
+<h2 id="强制类型转换的注意事项">强制类型转换的注意事项</h2>
+<ul>
+<li>存在继承/实现关系就可以在编译阶段进行强制类型转换，编译阶段不会报错。</li>
+<li>运行时，如果发现对象的真实类型与强转后的类型不同，就会报类型转换异常(ClassCastException)</li>
+</ul>
+<h3 id="强转前java建议">强转前，Java建议：</h3>
+<ul>
+<li>使用instanceof关键字，判断当前对象的真是类型，再进行强制类型转换。</li>
+</ul>
+<h1 id="final">final</h1>
+<ul>
+<li>final关键字的中文是最终的意思，可以修饰类、方法、变量
+<ul>
+<li>修饰类：该类被称为最终类，特点是不能被继承了。</li>
+<li>修饰方法：该方法被称为最终方法，特点是不能被重写了。</li>
+<li>修饰变量：该变量只能被赋值一次。</li>
+</ul>
+</li>
+</ul>
+<h1 id="常量">常量</h1>
+<ul>
+<li>使用了static final 修饰的成员变量就被称为常量；</li>
+<li>作用：通常用于记录系统的配置信息。</li>
+<li><strong>注意：常量的命名规范：使用大写英文单词，多个单词使用下划线连接起来。</strong></li>
+</ul>
+<h2 id="视同常量记录系统配置信息的优势执行原理">视同常量记录系统配置信息的优势、执行原理</h2>
+<ul>
+<li>代码可读性更好、可维护性也更好。</li>
+<li>程序编译后，常量会被宏替换：出现常量的地方全部会被替换成其记住的字面量，这样可以保证使用常量和直接用字面量的性能是一样的。</li>
+</ul>
+<h1 id="抽象类">抽象类</h1>
+<h2 id="什么是抽象类">什么是抽象类</h2>
+<ul>
+<li>Java中有个关键字叫abstract，他就是抽象的意思，可以用来修饰类、成员方法</li>
+<li>abstract修饰类，这个就是抽象类，修饰成员方法同理。</li>
+</ul>
+<h2 id="抽象类的注意事项特点">抽象类的注意事项、特点</h2>
+<ul>
+<li>抽象类中不一定有抽象方法，有抽象方法的类一定是抽象类。</li>
+<li>类该有的成员（成员变量、方法、构造器）抽象类都可以有。</li>
+<li><strong>抽象类最主要的特点：</strong> 抽象类不能创建对象，仅作为一种特殊的父类，让子类继承并实现。</li>
+<li>一个类继承抽象类，必须重写完抽象类的全部抽象方法，否则这个类也必须定义成抽象类。</li>
+</ul>
+<h2 id="抽象类的使用场景和好处">抽象类的使用场景和好处</h2>
+<ul>
+<li>父类知道每个子类都要做某个行为，但每个子类做的情况不一样，父类就定义成抽象方法，交给子类去重写实现，我们设计这样的抽象类，就是为了更好的支持多态。<del>爸爸画饼儿子烙饼</del></li>
+</ul>
+<h1 id="接口">接口</h1>
+<h2 id="接口概述">接口概述</h2>
+<ul>
+<li>Java提供了一个关键字interface，用这个关键字我们可以定义出一个特殊的结构：接口。</li>
+<li>注意：接口不能创建对象；接口是用来被类实现（implements）的，实现接口的类被称为实现类。</li>
+<li>一个类可以实现多个接口，实现类实现多个接口必须重写完全部接口的全部抽象方法，否则实现类需要定义成抽象类。</li>
+</ul>
+<p><img src="https://www.yingyu5658.cn/usr/uploads/2024/12/2743265221.jpg" alt=""></p>
+
+        </div>
+        <footer>
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">yingyu5658</span></span><time>Jan 10, 2025</time>
+    
+      <span class="categories">
+        Tags:<a class="category" href="http://localhost:1313/tags/java">Java</a>  
+    
+    </span>
+  </p><p class="meta">
+    
+        <a class="basic-alignment left" href="http://localhost:1313/blog/2025-01-10-java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E7%BB%A7%E6%89%BF/" title="Java面向对象编程——继承">Java面向对象编程——继承</a>
+    
+
+    
+      <a class="basic-alignment right" href="http://localhost:1313/blog/2025-01-22-%E5%BC%80%E7%AE%B1%E5%8D%B3%E7%94%A8%E7%9A%84neovim%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" title="开箱即用的neovim配置文件">开箱即用的neovim配置文件</a>
+    
+  </p>
+  
+  
+</footer>
+
+
+      </article>
+    </div>
+    <aside class="sidebar thirds">
+  <section class="first odd">
+
+    
+      <h1>Sidebar Header</h1>
+    
+
+    <p>
+      
+        <p>New paragraph</p>
+<p>Another paragraph which has two spaces in the end to create a new line using markdown<br>
+New line but not a new paragraph</p>
+
+      
+    </p>
+  </section><ul class="sidebar-nav">
+  <li class="sidebar-nav-item">
+    <a target="_blank" rel="noopener noreferrer" href="https://github.com/yingyu5658" title="https://github.com/yingyu5658"><i class="fa fa-github fa-3x"></i></a>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </li>
+</ul>
+
+    
+      <section class="odd">
+        
+          <h1>Sidebar Links</h1>
+        
+        
+          <li>
+            <a href="http://localhost:1313/categories/golang/" title="Hugo category" >Hugo category</a>
+          </li>
+        
+          <li>
+            <a href="http://localhost:1313/about" title="About page" >About page</a>
+          </li>
+        
+          <li>
+            <a href="https://www.google.com" title="Google" >Google</a>
+          </li>
+        
+      </section>
+    
+  
+    
+      <section class="even">
+        <h1>Recent Posts</h1>
+        <ul id="recent_posts">
+          
+          
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2025-08-08-%E6%9C%AA%E5%91%BD%E5%90%8D/">未命名</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2025-08-07-%E5%A6%82%E4%BD%95%E8%AE%A2%E9%98%85%E6%96%B0%E9%97%BB%E7%BB%84/">如何订阅新闻组</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2025-08-06-%E6%9C%80%E8%86%88%E5%BA%94%E4%B8%8D%E7%88%B1%E6%83%9C%E4%B9%A6%E7%9A%84%E4%BA%BA/">最膈应不爱惜书的人</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2025-08-06-%E5%88%AB%E9%97%B2%E7%9D%80%E6%B2%A1%E4%BA%8B%E8%87%AA%E6%90%9C%E9%BB%91%E5%8E%86%E5%8F%B2%E5%95%8A/">别闲着没事自搜，黑历史啊</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2025-08-04-%E6%97%A9%E7%9D%A1%E6%97%A9%E8%B5%B7%E7%9A%84%E4%BC%98%E7%82%B9/">早睡早起的优点</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2025-07-29-%E4%BB%8E%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%88%B0%E7%89%A9%E7%90%86%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90%E7%A8%8B%E5%BA%8F%E7%9A%84%E7%BC%96%E8%AF%91%E4%B8%8E%E6%89%A7%E8%A1%8C/">从编译原理到物理原理剖析程序的编译与执行</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2025-07-26-%E5%9C%A82025%E5%B9%B4%E6%90%AD%E5%BB%BA%E6%96%B0%E9%97%BB%E7%BB%84/">在2025年，搭建新闻组</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2025-07-22-%E6%97%A0%E8%9D%89%E9%B8%A3%E5%A4%8F/">无蝉鸣夏</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2025-07-21-%E4%B8%87%E8%83%BD%E5%BF%85%E8%83%9C%E6%B2%9F%E9%80%9A%E6%B3%95/">万能必胜沟通法</a>
+              </li>
+            
+          
+        </ul>
+      </section>
+    
+  
+</aside>
+
+  </div>
+</div>
+
+    <footer role="contentinfo">
+      <p>Copyright &copy; 2025 yingyu5658 - <a href="http://localhost:1313/license/">License</a> -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io" rel="noopener noreferrer">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/" rel="noopener noreferrer">Hugo-Octopress</a> theme.
+      </p>
+    </footer>
+  </body>
+</html>
+

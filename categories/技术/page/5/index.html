@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>技术 - 映屿</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+	<link rel="alternate" type="application/rss+xml" href="/categories/%E6%8A%80%E6%9C%AF/index.xml" title="映屿">
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo logo--mixed">
+		<a class="logo__link" href="/" title="映屿" rel="home">
+			<div class="logo__item logo__imagebox">
+					<img class="logo__img" src="/avatar.png">
+				</div><div class="logo__item logo__text">
+					<div class="logo__title">映屿</div>
+					<div class="logo__tagline">yingyu5658的数字花园</div>
+				</div>
+		</a>
+	</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main list" role="main">
+	<header class="main__header">
+		<h1 class="main__title">技术</h1>
+	</header><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AErime%E8%BE%93%E5%85%A5%E6%B3%95/" rel="bookmark">
+			安装配置Rime输入法
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<h1 id="前言">前言</h1>
+<p>其实我有能用的fcitx5+搜狗输入法的方案，但奈何kitty终端有对这个输入法的兼容性问题，无法启用中文，又奈何kitty的界面多美观舒服，和Konsole比起来简直就不是一个时代的产物。</p>
+<h1 id="安装ibus框架和rime输入法引擎">安装Ibus框架和Rime输入法引擎</h1>
+<p><strong>安装 IBus 和 Rime 组件</strong>：
+<code>sudo pacman -S ibus ibus-rime</code></p>
+<p><strong>安装 Rime 双拼方案：</strong>
+<code>sudo pacman -S rime-double-pinyin</code></p>
+<h2 id="配置-ibus-和-rime">配置 IBus 和 Rime</h2>
+<p><strong>设置环境变量</strong>
+在<code>~/.xprofile</code>添加以下内容</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export GTK_IM_MODULE<span style="color:#f92672">=</span>ibus export QT_IM_MODULE<span style="color:#f92672">=</span>ibus export XMODIFIERS<span style="color:#f92672">=</span>@im<span style="color:#f92672">=</span>ibus
+</span></span></code></pre></div><p>重启系统或执行 <code>source ~/.xprofile</code> 使配置生效</p>
+<p><strong>启动 IBus 并添加 Rime 输入源</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ibus-daemon -drx
+</span></span></code></pre></div><p>右键点击系统托盘中的 IBus 图标，选择 <strong>Preferences</strong> → <strong>Input Method</strong> → <strong>Add</strong>，选择 <strong>Chinese (Rime)</strong>。</p>
+<p><strong>配置双拼方案</strong>
+编辑 Rime 的配置文件 <code>~/.config/ibus/rime/default.custom.yaml</code>：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>patch:
+</span></span><span style="display:flex;"><span>schema_list:
+</span></span><span style="display:flex;"><span>	- schema: double_pinyin <span style="color:#75715e"># 自然码双拼</span>
+</span></span><span style="display:flex;"><span>	- schema: luna_pinyin <span style="color:#75715e"># 全拼备用</span>
+</span></span></code></pre></div><h2 id="优化-rime-的智能联想与词库">优化 Rime 的智能联想与词库</h2>
+<p><strong>启用雾凇拼音方案（推荐）</strong></p>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/nodejs%E7%8E%AF%E5%A2%83%E4%B8%8B%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%8B%BC%E6%8E%A5%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%87%BA%E6%9C%89undefind/" rel="bookmark">
+			Nodejs环境下控制台拼接字符串输出有undefind
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>今天在Nodejs环境下搓小工具，控制台输出拼接字符串时，发现有<code>undefind</code>，代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">date</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Date();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">year</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">date</span>.<span style="color:#a6e22e">getFullYear</span>();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">month</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">date</span>.<span style="color:#a6e22e">getMonth</span>();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">day</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">date</span>.<span style="color:#a6e22e">getDate</span>();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">hour</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">date</span>.<span style="color:#a6e22e">getHours</span>();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">minute</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">date</span>.<span style="color:#a6e22e">getMinutes</span>();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">second</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">date</span>.<span style="color:#a6e22e">getSeconds</span>();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">logTime</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`[</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">year</span><span style="color:#e6db74">}</span><span style="color:#e6db74">-</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">month</span><span style="color:#e6db74">}</span><span style="color:#e6db74">-</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">day</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">hour</span><span style="color:#e6db74">}</span><span style="color:#e6db74">:</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">minute</span><span style="color:#e6db74">}</span><span style="color:#e6db74">:</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">second</span><span style="color:#e6db74">}</span><span style="color:#e6db74">] `</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GenerateLog</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">static</span> <span style="color:#a6e22e">log</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">stdout</span>.<span style="color:#a6e22e">write</span>(<span style="color:#a6e22e">logTime</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">GenerateLog</span>.<span style="color:#a6e22e">log</span>() <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;log output on the console&#34;</span>);
+</span></span></code></pre></div><p>输出确是这样：</p>
+<pre tabindex="0"><code>[2025-3-22 18:56:33] undefindlog output on the console
+</code></pre><p>原因
+：<code>GenerateLog.log()</code>方法没有返回值，所以输出<code>undefind</code>，解决方法如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// 让log方法返回logTime
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GenerateLog</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">static</span> <span style="color:#a6e22e">log</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">logTime</span>; <span style="color:#75715e">// 返回字符串
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">GenerateLog</span>.<span style="color:#a6e22e">log</span>() <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;log output on the console&#34;</span>);
+</span></span></code></pre></div><p>关键总结：
+Javascript中，如果方法没有返回值，那么输出的就是<code>undefind</code></p>
+<h4 id="扩展">扩展</h4>
+<p>为什么 console.log() 本身会返回 undefined？
+在 REPL 环境（如 Node.js 命令行或浏览器控制台）中，每条语句的执行结果会被隐式打印。由于 console.log() 函数本身没有返回值（即返回 undefined），因此会显示 undefined。但在脚本执行时，这一行为不会发生，因为脚本模式不自动打印返回值</p>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/%E5%85%89%E9%80%9F%E7%A0%B4%E8%A7%A3%E4%BD%9C%E6%96%87%E7%BD%91%E7%AB%99%E7%A6%81%E6%AD%A2%E5%A4%8D%E5%88%B6/" rel="bookmark">
+			光速破解作文网站禁止复制
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>今天上网搜集范文，又遇到了这个很多年前就让我非常痛恨的网站。可以看到，这个网站应该是通过JS，检测鼠标左键或者CTRL+C再弹出这个窗口达到的防止用户复制的目的，可以此为切入点，查看一下这个网站的源码。找到问题所在。</p>
+<p><img src="./Pasted%20image%2020250321081959.png" alt="">
+要把这个仇报了。下载网页到本地，这里出了一个小插曲，在FIREFOX浏览器下载的所有网页文件，中文都是乱码，顺便来解决一下这个问题。
+在平板MT管理器右上角可以看到，这个文件的编码格式是GB2312，在vim中输入<code>:e ++enc=gb2312</code>，在输入<code>set fileencoding=utf-8</code>就可正常查看了。现在的代码结构非常屎，保存格式化一下。
+第159行，有一个webchatbox的盒子，可以看到，这里就是为防止复制创建的盒子，把这段代码注释掉。
+<img src="./Pasted%20image%2020250321112804.png" alt="">
+这还没完，再去到页面复制发现还是有未处理完善的残留页面
+<img src="./Pasted%20image%2020250321112937.png" alt="">
+原因在于第223行的开始的一个盒子，把这段也注释掉即可</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>                        &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;modal modal-server&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>                            &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;wx_pic_img&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;webchat-server-box&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>                                &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;modal-close&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>                                &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;payqr_box&#34;</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;display: block;&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>                                    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;cj_title&#34;</span>&gt;&lt;<span style="color:#f92672">span</span>&gt;常见问题&lt;/<span style="color:#f92672">span</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>                                    &lt;<span style="color:#f92672">ul</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;customer_service_box&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>                                        &lt;<span style="color:#f92672">li</span>&gt;
+</span></span><span style="display:flex;"><span>                                            &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;que&#34;</span>&gt;1.支付成功后，怎么复制？&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>                                            &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ans&#34;</span>&gt;亲，您好！付款成功后，无需验证码，直接复制哦！&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>                                        &lt;/<span style="color:#f92672">li</span>&gt;
+</span></span><span style="display:flex;"><span>                                        &lt;<span style="color:#f92672">li</span>&gt;
+</span></span><span style="display:flex;"><span>                                            &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;que&#34;</span>&gt;2.支付成功后，为何无法复制内容？&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>                                            &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ans&#34;</span>&gt;亲，请尝试刷新一下网页（按键盘F5键），再进行复制。&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>                                        &lt;/<span style="color:#f92672">li</span>&gt;
+</span></span><span style="display:flex;"><span>                                        &lt;<span style="color:#f92672">li</span>&gt;
+</span></span><span style="display:flex;"><span>                                            &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;que&#34;</span>&gt;3.付费后能否更换浏览器、更换电脑进行复制？&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>                                            &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ans&#34;</span>&gt;亲，更换浏览器或电脑会导致复制不成功哦！请确保付费时的浏览器及电脑和复制文章时所用的浏览器是一样的。&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>                                        &lt;/<span style="color:#f92672">li</span>&gt;
+</span></span><span style="display:flex;"><span>                                        &lt;<span style="color:#f92672">li</span>&gt;
+</span></span><span style="display:flex;"><span>                                            &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;que&#34;</span>&gt;4.如何联系客服？&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>                                            &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ans&#34;</span>&gt;麻烦您添加客服微信：zjdddx1 ，留言“付款后无法复制文章”，并发送相关付款截图，客服将为您处理。&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>                                        &lt;/<span style="color:#f92672">li</span>&gt;
+</span></span><span style="display:flex;"><span>                                    &lt;/<span style="color:#f92672">ul</span>&gt;
+</span></span><span style="display:flex;"><span>                                &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>                            &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>                        &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>                        &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;copy-success alert-bounceIn&#34;</span>&gt;&lt;<span style="color:#f92672">img</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;co_files/payed.png&#34;</span>
+</span></span><span style="display:flex;"><span>                                <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;icon&#34;</span>&gt;&lt;<span style="color:#f92672">span</span>&gt;复制成功！&lt;/<span style="color:#f92672">span</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                        &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;co_files/js.cookie.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>                        &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">language</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;javascript&#34;</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;co_files/bottom.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>                        &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">language</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;javascript&#34;</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;co_files/doc.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span></code></pre></div><p>这样再保存，回到页面中就可正常复制了。前端的这点小儿科把戏，轻松搞定。</p>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/%E4%BA%BA%E8%AF%9D%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3%E5%85%AB%E4%B8%8B%E9%81%97%E4%BC%A0%E4%B9%8B%E7%94%9F%E7%89%A9%E7%9A%84%E9%81%97%E4%BC%A0%E5%8F%98%E5%BC%82/" rel="bookmark">
+			人话简单理解八下遗传之生物的遗传变异
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// 母亲类</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Mother</span> {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 母亲的性格是开朗的</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> String personality <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;cheerful&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 母亲的身高是160.5</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">double</span> height <span style="color:#f92672">=</span> 160.<span style="color:#a6e22e">5</span>;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 母亲有耳垂</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> hasEarlobe <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 吃东西方法</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">eating</span>(Foods food) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;母亲吃东西细嚼慢咽&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 孩子类继承母亲类</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Child</span> <span style="color:#66d9ef">extends</span> Mother{
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 变异</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 孩子的性格是内向的</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> String personality <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;introverted&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 孩子无耳垂</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> hasEarlobe <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 孩子身高比母亲高</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">double</span> height <span style="color:#f92672">=</span> 180.<span style="color:#a6e22e">5</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">eating</span>(Foods food) {
+</span></span><span style="display:flex;"><span>System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;孩子吃东西狼吞虎咽&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>感觉比书上讲的一大堆狗屁废话简练多了。。（？</p>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/kitty%E7%BB%88%E7%AB%AF%E7%BE%8E%E5%8C%96%E8%AE%B0%E5%BD%95/" rel="bookmark">
+			Kitty终端美化记录
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>Kitty这个终端可谓是兼顾了性能与美观，虽然默认设置很简陋，但是经过一番折腾后也能变得很漂亮。</p>
+<h1 id="选择配色">选择配色</h1>
+<p>运行<code>kitty + kitten themes</code>后会弹出一个选择配色的界面
+<img src="./Pasted%20image%2020250309124346.png" alt="">
+令我感到非常高兴的是，这个界面支持vim的hjkl键位，也可以用/来搜索。
+选好后，回车按m，command + ^ + ,重载配置文件。</p>
+<h1 id="配置字体">配置字体</h1>
+<p>打开kitty的配置文件<code>nvim ~/.config/kitty/kitty.conf</code>，把字号改到12
+<code>font_size 12</code>
+输入<code>kitty list-fonts --psnames</code>来列出系统安装好的所有等宽字体。</p>
+<h1 id="设置窗口风格">设置窗口风格</h1>
+<p>进入配置文件</p>
+<pre tabindex="0"><code>#window
+# 不显示窗口标题栏 保留窗口圆角
+hide_window_decorations titlebar-only
+# 边距
+window_padding_width 5
+# 不透明度
+background_opacity   0.8
+# 毛玻璃效果
+background_blur      30
+</code></pre><h1 id="设置标签栏风格">设置标签栏风格</h1>
+<pre tabindex="0"><code>#tab bar
+tab_bar_edge          top
+tab_bar_style         powerline
+tab_powerline_style   slanted
+</code></pre><h1 id="安装终端文件管理器">安装终端文件管理器</h1>
+<p><code>yay -S yazi</code>
+推荐yazi的原因，就是能用vim快捷键啊！hjkl好文明！
+而且它还能直接在终端预览图片
+<img src="./Pasted%20image%2020250309131507.png" alt=""></p>
+<h1 id="最终效果预览">最终效果预览</h1>
+<p><img src="./Pasted%20image%2020250309131145.png" alt=""></p>
+<p><img src="./Pasted%20image%2020250309131221.png" alt=""></p>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/kde%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E6%97%A0%E6%B3%95%E5%9C%A8konsole%E5%88%87%E6%8D%A2%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" rel="bookmark">
+			KDE桌面环境无法在Konsole切换中文输入法的解决方案
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<h3 id="原因">原因</h3>
+<p>KDE默认使用Wayland会话，而fcitx4不支持Wayland，需升级到fcitx5。若无法升级到fcitx5或升级后仍然无法切换中文输入法，<strong>安装fcitx-qt6</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo pacman -S fcitx-qt6
+</span></span></code></pre></div><p>安装后执行<code>sudo reboot now</code>进行重启，问题解决。</p>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/%E6%97%A0%E5%BA%9F%E8%AF%9D%E5%85%A8%E7%BD%91%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84hexo&#43;obsidian%E5%9B%BE%E7%89%87%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" rel="bookmark">
+			【无废话】全网最简单的Hexo&#43;Obsidian图片解决方案
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>把Hexo博客根目录用黑曜石打开，如果已经打开了仓库
+<img src="./Pasted%20image%2020250305215423.png" alt="">
+在弹出的窗口中选第二个。</p>
+<p>在source目录下新建images文件夹用于存放图片
+设置 =&gt; 文件与链接 =&gt; 附件默认存放路径：选择指定的附件文件夹。路径填写刚刚创建的image文件夹的相对路径
+取消使用Wiki链接
+注意。由于我的文件结构是这样的所以这么填写，要<strong>根据自己的文件结构填写相对路径</strong>。
+<img src="./Pasted%20image%2020250305215642.png" alt="">
+搞定，同时可以在本地编辑环境和博客网站中显示。</p>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/%E6%9C%AA%E8%A7%A3%E5%86%B3windows-wsl%E6%8A%A5%E9%94%99error-0x80080005/" rel="bookmark">
+			【未解决】Windows WSL报错：Error: 0x80080005 ???????
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>设备环境：</p>
+<pre tabindex="0"><code>操作系统：Windows 10
+安装系统：Arch Linux
+错误日志：
+Installing, this may take a few minutes...
+WslRegisterDistribution failed with error: 0x80080005
+Error: 0x80080005 ???????
+
+Press any key to continue...
+</code></pre><p>网上有一篇<a href="https://ask.csdn.net/questions/7625716">文章</a>提到这个错误，下面的评论回复以管理员权限运行命令提示符并执行<code>sc stop LxssManager</code>和<code>sc start LxssManager</code>
+出现如下报错：</p>
+<pre tabindex="0"><code>C:\Windows\system32&gt;sc stop LxssManager
+[SC] OpenService 失败 1060:
+
+指定的服务未安装。
+</code></pre><p>顺藤摸瓜，在网上寻找<code>LxssManager</code>这个服务要如何安装。
+网上暂时还没有找到相关文章能够解决这个问题，但是CSDN的一篇文章引起了我的注意
+<a href="https://blog.csdn.net/renwudao24/article/details/52061906">[SC] OpenService 失败：1060指定的服务未安装_[sc] openservice 失败 1060: 指定的服务未安装。-CSDN博客</a>
+文章中提到了“服务”，在开始菜单中搜索服务，进入应用找到了一个名为WSL Service的服务。点左上角启动。
+提取关键信息：<strong>1058、被禁用、关联的设备没有启动</strong>。
+检查功能是否开启：按下 <code>Win+S</code> 搜索 <strong>启用或关闭Windows功能</strong>
+勾选<code>适用于Linux的Windows子系统</code>和<code>虚拟机平台</code>这两项，点击确定
+重启电脑。
+回来以后，用管理员身份运行powershell，强制重置WSL服务，依次执行：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wsl --shutdown
+</span></span><span style="display:flex;"><span>wsl --unregister Arch <span style="color:#75715e"># 替换为你的发行版名称</span>
+</span></span><span style="display:flex;"><span>wsl --install -d Arch <span style="color:#75715e"># 重新注册发行版</span>
+</span></span></code></pre></div><p>如果提示内核缺失，在这里下<a href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi">https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi</a></p>
+<p>如果有以下输出：</p>
+<pre tabindex="0"><code>zcz  system32  ♥ 21:32  wsl --shutdown
+此应用程序需要适用于 Linux 的 Windows 子系统可选组件。
+通过运行安装它： wsl.exe --install --no-distribution
+可能需要重新启动系统才能使更改生效。
+错误代码: Wsl/WSL_E_WSL_OPTIONAL_COMPONENT_REQUIRED
+</code></pre><p>两种可能：</p>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/188/" rel="bookmark">
+			分享一个css响应式模板
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#f92672">html</span> {
+</span></span><span style="display:flex;"><span>  color-scheme: light dark; <span style="color:#75715e">/*自由切换深色浅色主题*/</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/*限制图片最大宽度防止溢出*/</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">svg</span><span style="color:#f92672">,</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">img</span><span style="color:#f92672">,</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">video</span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">max-width</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">block</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">body</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">font-family</span>: system-ui;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">1.25</span><span style="color:#66d9ef">rem</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">line-height</span>: <span style="color:#ae81ff">1.5</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/*这里可以使用任意容器*/</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">main</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">width</span>: <span style="color:#a6e22e">min</span>(<span style="color:#ae81ff">65</span><span style="color:#66d9ef">ch</span> , <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">4</span><span style="color:#66d9ef">rem</span>);
+</span></span><span style="display:flex;"><span>  magrin-inline: <span style="color:#66d9ef">auto</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/%E6%8A%80%E6%9C%AF/187/" rel="bookmark">
+			开箱即用的neovim配置文件
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<h3 id="下载链接">下载链接</h3>
+<p><a href="https://yingyu5658.lanzoup.com/iWfXQ2ln6jre">https://yingyu5658.lanzoup.com/iWfXQ2ln6jre</a>
+为了兄弟们下得爽点就不用百度网盘或者夸克了
+代码都有比较详细的注释</p>
+<h3 id="语言支持策略">语言支持策略</h3>
+<ul>
+<li><strong>核心开发场景</strong><br>
+<code>HTML/CSS/JavaScript</code></li>
+<li><strong>扩展语言</strong><br>
+<code>C/CPP</code> 基础语法支持
+Java建议 JetBrains IDE 深度开发</li>
+</ul>
+<h3 id="插件生态">插件生态</h3>
+<table>
+  <thead>
+      <tr>
+          <th>插件名称</th>
+          <th>功能定位</th>
+          <th>配置文件位置</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>LazyVim</strong></td>
+          <td>现代化配置框架</td>
+          <td><code>lua/lazyvim/config/lazy.lua</code></td>
+      </tr>
+      <tr>
+          <td><strong>coc.nvim</strong></td>
+          <td>智能语言服务引擎</td>
+          <td><code>coc-settings.json</code> + 内联配置</td>
+      </tr>
+      <tr>
+          <td><strong>TokyoNight</strong></td>
+          <td>专业暗色主题</td>
+          <td>主题配置文件</td>
+      </tr>
+      <tr>
+          <td><strong>nvim-tree</strong></td>
+          <td>可视化文件系统</td>
+          <td><code>keymaps.lua</code> 集成快捷键</td>
+      </tr>
+  </tbody>
+</table>
+<p>还有一些辅助性质的插件，在此不一一列举</p>
+<h3 id="文件结构">文件结构</h3>
+<p>nvim
+│
+├── coc-settings.json # LSP/语法检查/代码补全规则库
+├── init.lua # 配置入口（模块化加载器）
+├── lazy-lock.json # 插件版本锁定文件（自动生成）
+│
+└─lua/
+├─core/
+│ └─keymaps.lua # 全模式快捷键中枢
+│
+├─lazyvim/ # LazyVim 框架核心
+│ └─config/
+│ └─lazy.lua # 插件加载策略
+│
+└─plugins/ # 插件扩展区
+└─plugins.lua # 第三方插件注册中心</p>
+	</div>
+</article>
+</main>
+
+<div class="pagination">
+	<a class="pagination__item pagination__item--prev btn" href="/categories/%E6%8A%80%E6%9C%AF/page/4/">«</a>
+	<span class="pagination__item pagination__item--current">5/7</span>
+	<a class="pagination__item pagination__item--next btn" href="/categories/%E6%8A%80%E6%9C%AF/page/6/">»</a>
+</div>
+
+			</div>
+			
+<aside class="sidebar sidebar--left"><div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
+		<input class="widget-search__field" type="search" placeholder="Search…" value="" name="q" aria-label="Search…">
+		<input class="widget-search__submit" type="submit" value="Search">
+		<input type="hidden" name="sitesearch" value="http://localhost:1313/">
+	</form>
+</div>
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/post/%E9%9A%8F%E7%AC%94/%E6%9C%AA%E5%91%BD%E5%90%8D/">未命名</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/%E6%8A%80%E6%9C%AF/how-to-subscribe-newsgroup/">如何订阅新闻组</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/%E9%9A%8F%E7%AC%94/%E6%9C%80%E8%86%88%E5%BA%94%E4%B8%8D%E7%88%B1%E6%83%9C%E4%B9%A6%E7%9A%84%E4%BA%BA/">最膈应不爱惜书的人</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/%E9%9A%8F%E7%AC%94/%E5%88%AB%E9%97%B2%E7%9D%80%E6%B2%A1%E4%BA%8B%E8%87%AA%E6%90%9C%E9%BB%91%E5%8E%86%E5%8F%B2%E5%95%8A/">别闲着没事自搜，黑历史啊</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/%E9%9A%8F%E7%AC%94/%E6%97%A9%E7%9D%A1%E6%97%A9%E8%B5%B7%E7%9A%84%E4%BC%98%E7%82%B9/">早睡早起的优点</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-categories widget">
+	<h4 class="widget__title">Categories</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>&nbsp;
+				<span class="widget__counter widget__counter--bubble">69</span>
+				</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>&nbsp;
+				<span class="widget__counter widget__counter--bubble">36</span>
+				</li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/tags/acgn/" title="ACGN">ACGN (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/arch/" title="Arch">Arch (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/bug/" title="Bug">Bug (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/c/" title="C">C (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/css/" title="CSS">CSS (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/c%E8%AF%AD%E8%A8%80/" title="C语言">C语言 (2)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/electron/" title="Electron">Electron (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/emacs/" title="Emacs">Emacs (4)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/fedora/" title="Fedora">Fedora (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/geyser/" title="Geyser">Geyser (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/gnu/" title="GNU">GNU (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/hexo/" title="Hexo">Hexo (4)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/java/" title="Java">Java (14)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/javascript/" title="JavaScript">JavaScript (4)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/linux/" title="Linux">Linux (12)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/malody/" title="Malody">Malody (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/minecraft/" title="Minecraft">Minecraft (2)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/neovim/" title="Neovim">Neovim (2)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/nodejs/" title="NodeJS">NodeJS (2)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/obsidain/" title="Obsidain">Obsidain (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/osu/" title="Osu">Osu (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/seo/" title="SEO">SEO (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/terrira/" title="Terrira">Terrira (2)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/thunderbird/" title="Thunderbird">Thunderbird (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/typecho/" title="Typecho">Typecho (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/vim/" title="Vim">Vim (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/windows/" title="Windows">Windows (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E5%8E%8C%E8%A0%A2%E7%97%87/" title="“厌蠢症”">“厌蠢症” (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" title="二叉树">二叉树 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E4%BA%BA%E9%99%85%E4%BA%A4%E5%BE%80/" title="人际交往">人际交往 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E4%BF%A1%E6%81%AF%E8%8A%82%E9%A3%9F/" title="信息节食">信息节食 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/" title="冒泡排序">冒泡排序 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E5%86%99%E4%BD%9C/" title="写作">写作 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E5%89%8D%E7%AB%AF/" title="前端">前端 (3)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E5%8D%9A%E5%AE%A2/" title="博客">博客 (7)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E5%8E%86%E5%8F%B2/" title="历史">历史 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/" title="哈希表">哈希表 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E5%93%B2%E5%AD%A6/" title="哲学">哲学 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E5%9B%BE%E4%B9%A6/" title="图书">图书 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E5%A4%8F/" title="夏">夏 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E5%AD%A6%E4%B8%9A/" title="学业">学业 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E5%AD%A6%E6%A0%A1/" title="学校">学校 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E5%B0%8F%E5%93%81/" title="小品">小品 (3)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/" title="嵌入式">嵌入式 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E5%BA%95%E5%B1%82%E6%8A%80%E6%9C%AF/" title="底层技术">底层技术 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E5%BD%A2%E8%80%8C%E4%B8%8A%E5%AD%A6/" title="形而上学">形而上学 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E6%80%80%E6%97%A7/" title="怀旧">怀旧 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E6%84%9F%E8%B0%A2%E6%81%A9%E5%B8%88%E5%A4%B8%E5%A5%96/" title="感谢恩师夸奖">感谢恩师夸奖 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E6%88%91/" title="我">我 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E6%89%A9%E5%88%97/" title="扩列">扩列 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/" title="搜索引擎">搜索引擎 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E6%95%99%E7%A8%8B/" title="教程">教程 (3)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" title="数据结构与算法">数据结构与算法 (6)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E6%96%87%E7%AB%A0/" title="文章">文章 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E6%96%B0%E9%97%BB%E7%BB%84/" title="新闻组">新闻组 (2)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E6%97%A5%E5%B8%B8/" title="日常">日常 (2)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E6%97%A9%E7%9D%A1%E6%97%A9%E8%B5%B7/" title="早睡早起">早睡早起 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E6%97%B6%E6%94%BF/" title="时政">时政 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E6%9C%8B%E5%8F%8B%E5%9C%88/" title="朋友圈">朋友圈 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="服务器">服务器 (5)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E6%9C%AA%E6%88%90%E5%B9%B4%E4%BA%BA%E4%BF%9D%E6%8A%A4/" title="未成年人保护">未成年人保护 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E6%9D%82%E8%AE%B0/" title="杂记">杂记 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E6%B1%87%E7%BC%96/" title="汇编">汇编 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E6%B2%9F%E9%80%9A/" title="沟通">沟通 (2)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" title="浏览器">浏览器 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E6%B8%B8%E6%88%8F/" title="游戏">游戏 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E7%8C%AB/" title="猫">猫 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E7%A0%B4%E8%A7%A3/" title="破解">破解 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E7%A4%BE%E4%BA%A4/" title="社交">社交 (3)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E7%AC%94%E8%AE%B0/" title="笔记">笔记 (4)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E7%BB%88%E7%AB%AF/" title="终端">终端 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E7%BC%96%E7%A8%8B/" title="编程">编程 (2)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" title="编译原理">编译原理 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E7%BC%96%E8%AF%91%E5%99%A8/" title="编译器">编译器 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E7%BF%BB%E8%AF%91/" title="翻译">翻译 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E8%80%83%E8%AF%95/" title="考试">考试 (2)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E8%87%AA%E6%90%9C/" title="自搜">自搜 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E8%A7%82%E5%AF%9F/" title="观察">观察 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E8%B4%9D%E6%96%AF/" title="贝斯">贝斯 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E8%B4%AD%E7%89%A9/" title="购物">购物 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/" title="软件开发">软件开发 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E8%BE%A8%E8%AF%81%E6%B3%95/" title="辨证法">辨证法 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E9%85%92/" title="酒">酒 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E9%98%85%E8%AF%BB/" title="阅读">阅读 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" title="阅读笔记">阅读笔记 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E9%98%BF%E9%87%8C%E4%BA%91/" title="阿里云">阿里云 (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E9%9A%8F%E7%AC%94/" title="随笔">随笔 (3)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E9%9F%B3%E4%B9%90/" title="音乐">音乐 (1)</a>
+	</div>
+</div>
+</aside>
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2025 映屿.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>

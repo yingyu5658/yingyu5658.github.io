@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+
+  
+      <link href="/css/fonts.css" rel="stylesheet" type="text/css">
+    
+  <title>Kitty终端美化记录</title><link rel="stylesheet" href="/css/hugo-octopress.css">
+
+  
+    <link rel="stylesheet" href="/css/fork-awesome.min.css">
+  
+    <link href="http://localhost:1313/favicon.png" rel="icon">
+  
+
+  <meta name="description" content="" />
+  <meta name="keywords" content="">
+  <meta name="author" content="yingyu5658"><meta name="generator" content="Hugo 0.148.2">
+
+</head>
+<body><header role="banner"><hgroup><h1><a href="http://localhost:1313/">映屿</a></h1>
+    <h2>yingyu5658的数字花园</h2>
+</hgroup></header><nav role="navigation"><fieldset class="mobile-nav"><select onchange="location = this.value;">
+    <option value="">Navigate…</option>
+      
+        <option value="http://localhost:1313/">» Home</option>
+      
+        <option value="http://localhost:1313/about">» About</option>
+      
+        <option value="http://localhost:1313/post">» Archive</option>
+      
+        <option value="http://localhost:1313/links">» Links</option>
+      
+        <option value="http://localhost:1313/newsgroup">» Newsgroup</option>
+      
+  </select>
+</fieldset><ul class="main-navigation">
+    
+      <li><a href="http://localhost:1313/" title="Home">Home</a></li>
+    
+  
+    
+      <li><a href="http://localhost:1313/about" title="About"  target="_blank"  rel="noopener noreferrer">About</a></li>
+    
+  
+    
+      <li><a href="http://localhost:1313/post" title="Archive"  target="_blank"  rel="noopener noreferrer">Archive</a></li>
+    
+  
+    
+      <li><a href="http://localhost:1313/links" title="Links"  target="_blank"  rel="noopener noreferrer">Links</a></li>
+    
+  
+    
+      <li><a href="http://localhost:1313/newsgroup" title="Newsgroup"  target="_blank"  rel="noopener noreferrer">Newsgroup</a></li>
+    
+  
+</ul>
+
+<ul class="subscription">
+  
+    
+        <a href="http://localhost:1313/atom.xml" target="_blank" type="application/rss+xml" title="RSS" rel="noopener noreferrer"><i class="fa fa-rss-square fa-lg"></i></a>
+    
+  
+</ul>
+
+
+  <form action="https://www.google.com/search" method="get" target="_blank" rel="noopener noreferrer">
+    <fieldset role="search">
+      <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+      <input type="hidden" name="q" value="site:http://localhost:1313/" />
+    </fieldset>
+  </form>
+
+</nav>
+
+
+<div id="main">
+  <div id="content">
+    <div>
+      <article class="hentry" role="article">
+
+        
+        <header>
+  <p class="meta">Mar 9, 2025
+     - 1 minute read - <a class="label" href="http://localhost:1313/categories/%e6%8a%80%e6%9c%af/">技术 </a>
+    
+  </p>
+  <h1 class="entry-title">
+     Kitty终端美化记录 
+  </h1>
+</header>
+
+
+        <div class="entry-content">
+          
+          <p>Kitty这个终端可谓是兼顾了性能与美观，虽然默认设置很简陋，但是经过一番折腾后也能变得很漂亮。</p>
+<h1 id="选择配色">选择配色</h1>
+<p>运行<code>kitty + kitten themes</code>后会弹出一个选择配色的界面
+<img src="./Pasted%20image%2020250309124346.png" alt="">
+令我感到非常高兴的是，这个界面支持vim的hjkl键位，也可以用/来搜索。
+选好后，回车按m，command + ^ + ,重载配置文件。</p>
+<h1 id="配置字体">配置字体</h1>
+<p>打开kitty的配置文件<code>nvim ~/.config/kitty/kitty.conf</code>，把字号改到12
+<code>font_size 12</code>
+输入<code>kitty list-fonts --psnames</code>来列出系统安装好的所有等宽字体。</p>
+<h1 id="设置窗口风格">设置窗口风格</h1>
+<p>进入配置文件</p>
+<pre tabindex="0"><code>#window
+# 不显示窗口标题栏 保留窗口圆角
+hide_window_decorations titlebar-only
+# 边距
+window_padding_width 5
+# 不透明度
+background_opacity   0.8
+# 毛玻璃效果
+background_blur      30
+</code></pre><h1 id="设置标签栏风格">设置标签栏风格</h1>
+<pre tabindex="0"><code>#tab bar
+tab_bar_edge          top
+tab_bar_style         powerline
+tab_powerline_style   slanted
+</code></pre><h1 id="安装终端文件管理器">安装终端文件管理器</h1>
+<p><code>yay -S yazi</code>
+推荐yazi的原因，就是能用vim快捷键啊！hjkl好文明！
+而且它还能直接在终端预览图片
+<img src="./Pasted%20image%2020250309131507.png" alt=""></p>
+<h1 id="最终效果预览">最终效果预览</h1>
+<p><img src="./Pasted%20image%2020250309131145.png" alt=""></p>
+<p><img src="./Pasted%20image%2020250309131221.png" alt=""></p>
+
+        </div>
+        <footer>
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">yingyu5658</span></span><time>Mar 9, 2025</time>
+    
+      <span class="categories">
+        Tags:<a class="category" href="http://localhost:1313/tags/linux">Linux</a>  
+    
+    </span>
+  </p><p class="meta">
+    
+        <a class="basic-alignment left" href="http://localhost:1313/post/2025-03-08-kde%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E6%97%A0%E6%B3%95%E5%9C%A8konsole%E5%88%87%E6%8D%A2%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="KDE桌面环境无法在Konsole切换中文输入法的解决方案">KDE桌面环境无法在Konsole切换中文输入法的解决方案</a>
+    
+
+    
+      <a class="basic-alignment right" href="http://localhost:1313/post/2025-03-18-%E4%BA%BA%E8%AF%9D%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3%E5%85%AB%E4%B8%8B%E9%81%97%E4%BC%A0%E4%B9%8B%E7%94%9F%E7%89%A9%E7%9A%84%E9%81%97%E4%BC%A0%E5%8F%98%E5%BC%82/" title="人话简单理解八下遗传之生物的遗传变异">人话简单理解八下遗传之生物的遗传变异</a>
+    
+  </p>
+  
+  
+</footer>
+
+
+      </article>
+    </div>
+    <aside class="sidebar thirds">
+  <section class="first odd">
+
+    
+      <h1>Misc</h1>
+    
+
+    <p>
+      
+        <p>E-mail: 
+<a href="mailto:i@yingyu5658.me">i@yingyu5658.me</a></p>
+<p>Newsgroup: news.yingyu5658.me</p>
+<p>Github: 
+<a href="https://www.github.com/yingyu5658" target="_blank" rel="noopener">https://www.github.com/yingyu5658</a></p>
+<p><img src="/unamed.jpg" alt=""></p>
+
+      
+    </p>
+  </section><ul class="sidebar-nav">
+  <li class="sidebar-nav-item">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </li>
+</ul>
+
+    
+      <section class="even">
+        <h1>Recent Posts</h1>
+        <ul id="recent_posts">
+          
+          
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-08-08-%E6%9C%AA%E5%91%BD%E5%90%8D/">未命名</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-08-07-%E5%A6%82%E4%BD%95%E8%AE%A2%E9%98%85%E6%96%B0%E9%97%BB%E7%BB%84/">如何订阅新闻组</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-08-06-%E6%9C%80%E8%86%88%E5%BA%94%E4%B8%8D%E7%88%B1%E6%83%9C%E4%B9%A6%E7%9A%84%E4%BA%BA/">最膈应不爱惜书的人</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-08-06-%E5%88%AB%E9%97%B2%E7%9D%80%E6%B2%A1%E4%BA%8B%E8%87%AA%E6%90%9C%E9%BB%91%E5%8E%86%E5%8F%B2%E5%95%8A/">别闲着没事自搜，黑历史啊</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-08-04-%E6%97%A9%E7%9D%A1%E6%97%A9%E8%B5%B7%E7%9A%84%E4%BC%98%E7%82%B9/">早睡早起的优点</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-07-29-%E4%BB%8E%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%88%B0%E7%89%A9%E7%90%86%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90%E7%A8%8B%E5%BA%8F%E7%9A%84%E7%BC%96%E8%AF%91%E4%B8%8E%E6%89%A7%E8%A1%8C/">从编译原理到物理原理剖析程序的编译与执行</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-07-26-%E5%9C%A82025%E5%B9%B4%E6%90%AD%E5%BB%BA%E6%96%B0%E9%97%BB%E7%BB%84/">在2025年，搭建新闻组</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-07-22-%E6%97%A0%E8%9D%89%E9%B8%A3%E5%A4%8F/">无蝉鸣夏</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-07-21-%E4%B8%87%E8%83%BD%E5%BF%85%E8%83%9C%E6%B2%9F%E9%80%9A%E6%B3%95/">万能必胜沟通法</a>
+              </li>
+            
+          
+        </ul>
+      </section>
+    
+  
+</aside>
+
+  </div>
+</div>
+<div id="waline"></div>
+<script type="module">
+	import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+	init({
+		el: '#waline',
+		serverURL: 'waline.yingyu5658.me'
+	});
+</script>
+
+
+
+
+
+    <footer role="contentinfo">
+      <p>Copyright &copy; 2025 yingyu5658 - <a href="http://localhost:1313/license/">License</a> -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io" rel="noopener noreferrer">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/" rel="noopener noreferrer">Hugo-Octopress</a> theme.
+      </p>
+    </footer>
+  </body>
+</html>
+

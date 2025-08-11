@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+
+  
+      <link href="/css/fonts.css" rel="stylesheet" type="text/css">
+    
+  <title>【数据结构与算法】冒泡排序</title><link rel="stylesheet" href="/css/hugo-octopress.css">
+
+  
+    <link rel="stylesheet" href="/css/fork-awesome.min.css">
+  
+    <link href="http://localhost:1313/favicon.png" rel="icon">
+  
+
+  <meta name="description" content="" />
+  <meta name="keywords" content="">
+  <meta name="author" content="yingyu5658"><meta name="generator" content="Hugo 0.148.2">
+
+</head>
+<body><header role="banner"><hgroup><h1><a href="http://localhost:1313/">映屿</a></h1>
+    <h2>yingyu5658的数字花园</h2>
+</hgroup></header><nav role="navigation"><fieldset class="mobile-nav"><select onchange="location = this.value;">
+    <option value="">Navigate…</option>
+      
+        <option value="http://localhost:1313/">» Home</option>
+      
+        <option value="http://localhost:1313/about">» About</option>
+      
+        <option value="http://localhost:1313/post">» Archive</option>
+      
+        <option value="http://localhost:1313/links">» Links</option>
+      
+        <option value="http://localhost:1313/newsgroup">» Newsgroup</option>
+      
+  </select>
+</fieldset><ul class="main-navigation">
+    
+      <li><a href="http://localhost:1313/" title="Home">Home</a></li>
+    
+  
+    
+      <li><a href="http://localhost:1313/about" title="About"  target="_blank"  rel="noopener noreferrer">About</a></li>
+    
+  
+    
+      <li><a href="http://localhost:1313/post" title="Archive"  target="_blank"  rel="noopener noreferrer">Archive</a></li>
+    
+  
+    
+      <li><a href="http://localhost:1313/links" title="Links"  target="_blank"  rel="noopener noreferrer">Links</a></li>
+    
+  
+    
+      <li><a href="http://localhost:1313/newsgroup" title="Newsgroup"  target="_blank"  rel="noopener noreferrer">Newsgroup</a></li>
+    
+  
+</ul>
+
+<ul class="subscription">
+  
+    
+        <a href="http://localhost:1313/atom.xml" target="_blank" type="application/rss+xml" title="RSS" rel="noopener noreferrer"><i class="fa fa-rss-square fa-lg"></i></a>
+    
+  
+</ul>
+
+
+  <form action="https://www.google.com/search" method="get" target="_blank" rel="noopener noreferrer">
+    <fieldset role="search">
+      <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+      <input type="hidden" name="q" value="site:http://localhost:1313/" />
+    </fieldset>
+  </form>
+
+</nav>
+
+
+<div id="main">
+  <div id="content">
+    <div>
+      <article class="hentry" role="article">
+
+        
+        <header>
+  <p class="meta">May 10, 2025
+     - 1 minute read - <a class="label" href="http://localhost:1313/categories/%e6%8a%80%e6%9c%af/">技术 </a>
+    
+  </p>
+  <h1 class="entry-title">
+     【数据结构与算法】冒泡排序 
+  </h1>
+</header>
+
+
+        <div class="entry-content">
+          
+          <h2 id="核心思想">核心思想</h2>
+<p>通过相邻元素的两两比较，将较大的元素逐步“冒泡”到数组末尾，每轮排序确定一个最大元素的最终位置。</p>
+<h2 id="代码实现">代码实现</h2>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#dc322f">void</span> <span style="color:#268bd2">bubble_sort</span>(<span style="color:#dc322f">int</span> arr[], <span style="color:#dc322f">int</span> n) {
+</span></span><span style="display:flex;"><span>  <span style="color:#586e75">// 最外层控制循环轮数 n-1轮
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>  <span style="color:#719e07">for</span> (<span style="color:#dc322f">int</span> i <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; i <span style="color:#719e07">&lt;</span> n <span style="color:#719e07">-</span> <span style="color:#2aa198">1</span>; i<span style="color:#719e07">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#586e75">// 内层循环处理相邻元素比较和交换
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>    <span style="color:#719e07">for</span>(<span style="color:#dc322f">int</span> j <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; j <span style="color:#719e07">&lt;</span> n<span style="color:#719e07">-</span>i<span style="color:#719e07">-</span><span style="color:#2aa198">1</span>; j<span style="color:#719e07">++</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#719e07">if</span> (arr[j] <span style="color:#719e07">&gt;</span> arr[j<span style="color:#719e07">+</span><span style="color:#2aa198">1</span>]) {
+</span></span><span style="display:flex;"><span>        <span style="color:#dc322f">int</span> temp <span style="color:#719e07">=</span> arr[j];
+</span></span><span style="display:flex;"><span>        arr[j] <span style="color:#719e07">=</span> arr[j<span style="color:#719e07">+</span><span style="color:#2aa198">1</span>];
+</span></span><span style="display:flex;"><span>        arr[j<span style="color:#719e07">+</span><span style="color:#2aa198">1</span>] <span style="color:#719e07">=</span> temp;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75">// 调用
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span><span style="color:#dc322f">void</span> <span style="color:#268bd2">print_array</span>(<span style="color:#dc322f">int</span> arr[], <span style="color:#dc322f">int</span> size) {
+</span></span><span style="display:flex;"><span>  <span style="color:#719e07">for</span> (<span style="color:#dc322f">int</span> i <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; i <span style="color:#719e07">&lt;</span> size; i<span style="color:#719e07">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#268bd2">printf</span>(<span style="color:#2aa198">&#34;%d,&#34;</span>, arr[i]);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">printf</span>(<span style="color:#2aa198">&#34;</span><span style="color:#cb4b16">\n</span><span style="color:#2aa198">&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#dc322f">int</span> <span style="color:#268bd2">main</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#dc322f">int</span> arr[] <span style="color:#719e07">=</span> {<span style="color:#2aa198">23</span>, <span style="color:#2aa198">232</span>, <span style="color:#2aa198">55</span>, <span style="color:#2aa198">2</span>, <span style="color:#2aa198">7</span>, <span style="color:#2aa198">0</span>, <span style="color:#2aa198">576</span>, <span style="color:#2aa198">342</span>};
+</span></span><span style="display:flex;"><span>  <span style="color:#dc322f">int</span> n <span style="color:#719e07">=</span> <span style="color:#719e07">sizeof</span>(arr) <span style="color:#719e07">/</span> <span style="color:#719e07">sizeof</span>(arr[<span style="color:#2aa198">0</span>]);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">printf</span>(<span style="color:#2aa198">&#34;排序前：&#34;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">print_array</span>(arr, n);
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">bubble_sort</span>(arr, n);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">printf</span>(<span style="color:#2aa198">&#34;排序后&#34;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">print_array</span>(arr, n);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="原理分析">原理分析</h2>
+<h3 id="外层循环的-i--n---1">外层循环的 i &lt; n - 1</h3>
+<ul>
+<li>n个元素的数组最多需要n-1轮冒泡，如5元素数组需要4轮排序</li>
+<li><strong>数学依据</strong>：每轮将一个最大值“沉底”，当完成n-1轮时，最后一个元素必然有序</li>
+</ul>
+<p>示例验证：</p>
+<pre tabindex="0"><code>原始数组：[3, 1, 4, 2]
+第一轮：[1, 3, 2, 4] （确定最大值4）
+第二轮：[1, 2, 3, 4]
+</code></pre><p>用文字解释上面的函数，原理就是在循环中对比数组第i个元素和i+1（即后一位）元素的大小，若i &gt; i +1 则把两者交换位置，随着循环的进行，数组就会被排序。</p>
+<h3 id="内层循环的-j--n---i---1">内层循环的 j &lt; n - i - 1</h3>
+<ul>
+<li>动态缩小范围：每轮结束后末尾i个元素已有序</li>
+<li>比较次数：第i轮需要比较(n-1)-i次相邻元素</li>
+</ul>
+<p>想象一下数组的线性结构，实际上就是在计算排序后的一位的前一位，这样就不会处理已经排序好的元素，进入下一轮循环时可正常排序。</p>
+<h3 id="数组长度n的计算机制">数组长度n的计算机制</h3>
+<p>在main函数中，对于n的计算，采用了<code>sizeof(arr) / sizeof(arr[0])</code>的方式。可以这么理解。</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#dc322f">int</span> arr[] <span style="color:#719e07">=</span> {<span style="color:#2aa198">6</span>,<span style="color:#2aa198">4</span>,<span style="color:#2aa198">8</span>,<span style="color:#2aa198">2</span>};
+</span></span><span style="display:flex;"><span>假设int占用4字节，计算整个数组的内存占用
+</span></span><span style="display:flex;"><span><span style="color:#719e07">sizeof</span>(arr) <span style="color:#719e07">=</span> <span style="color:#2aa198">5</span> <span style="color:#719e07">*</span> <span style="color:#2aa198">4</span> <span style="color:#719e07">=</span> <span style="color:#2aa198">20</span>
+</span></span><span style="display:flex;"><span><span style="color:#719e07">sizeof</span>(arr[<span style="color:#2aa198">0</span>]) <span style="color:#719e07">=</span> <span style="color:#2aa198">4</span>
+</span></span><span style="display:flex;"><span>n <span style="color:#719e07">=</span> <span style="color:#2aa198">20</span> <span style="color:#719e07">/</span> <span style="color:#2aa198">4</span> <span style="color:#719e07">=</span> <span style="color:#2aa198">5</span>
+</span></span></code></pre></div><p>计算出数组的总占用，再除以单个占用，就可以得到元素个数了。</p>
+<h3 id="参数n的作用">参数n的作用</h3>
+<ul>
+<li>循环控制：确定外层循环次数n-1次</li>
+<li>边界保护，防止越界</li>
+<li>效率优化：避免无效比较，如j&lt;n-i-1</li>
+</ul>
+<h2 id="最坏情况">最坏情况</h2>
+<p>冒泡排序的最坏情况发生在<strong>输入数组完全逆序情况下</strong>，此时算法需要进行最大次数的比较和交换操作，时间复杂度达到最高。</p>
+<p>当待排序数组的初始状态为完全逆序，如[5,4,3,2,1]，每一轮外层循环都要将当前为排序部分的最大元素冒泡到正确位置，而且每次比较都会发生交换，此时：</p>
+<ul>
+<li><strong>比较次数</strong>： 共需要进行*(n - 1) + (n - 2) + &hellip;*（等差数列求和）。</li>
+<li><strong>交换次数</strong>： 每次比较均需要交换，总交换次数也为上式结果。</li>
+</ul>
+
+        </div>
+        <footer>
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">yingyu5658</span></span><time>May 10, 2025</time>
+    
+      <span class="categories">
+        Tags:<a class="category" href="http://localhost:1313/tags/%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84%e4%b8%8e%e7%ae%97%e6%b3%95">数据结构与算法</a>  <a class="category" href="http://localhost:1313/tags/%e5%86%92%e6%b3%a1%e6%8e%92%e5%ba%8f">冒泡排序</a>  
+    
+    </span>
+  </p><p class="meta">
+    
+        <a class="basic-alignment left" href="http://localhost:1313/post/idea2025.1%E6%9C%80%E6%96%B0%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B-%E6%97%A0%E9%9C%80%E6%89%AB%E7%A0%81%E5%85%B3%E6%B3%A8%E4%BB%BB%E4%BD%95%E5%85%AC%E4%BC%97%E5%8F%B7/" title="IDEA2025.1最新破解教程 无需扫码关注任何公众号">IDEA2025.1最新破解教程 无需扫码关注任何公众号</a>
+    
+
+    
+      <a class="basic-alignment right" href="http://localhost:1313/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E6%A0%88/" title="【数据结构与算法】栈">【数据结构与算法】栈</a>
+    
+  </p>
+  
+  
+</footer>
+
+
+		<hr>
+		<div id="waline"></div>
+<script type="module">
+	import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+	init({
+		el: '#waline',
+		serverURL: 'waline.yingyu5658.me'
+	});
+</script>
+
+
+
+      </article>
+    </div>
+    <aside class="sidebar thirds">
+  <section class="first odd">
+
+    
+      <h1>Misc</h1>
+    
+
+    <p>
+      
+        <p>E-mail: 
+<a href="mailto:i@yingyu5658.me">i@yingyu5658.me</a></p>
+<p>Newsgroup: news.yingyu5658.me</p>
+<p>Github: 
+<a href="https://www.github.com/yingyu5658" target="_blank" rel="noopener">https://www.github.com/yingyu5658</a></p>
+<p><img src="/unamed.jpg" alt=""></p>
+
+      
+    </p>
+  </section><ul class="sidebar-nav">
+  <li class="sidebar-nav-item">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </li>
+</ul>
+
+    
+      <section class="even">
+        <h1>Recent Posts</h1>
+        <ul id="recent_posts">
+          
+          
+            
+          
+            
+              <li class="post">
+                <a href="/post/%E6%9C%AA%E5%91%BD%E5%90%8D/">未命名</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/%E5%A6%82%E4%BD%95%E8%AE%A2%E9%98%85%E6%96%B0%E9%97%BB%E7%BB%84/">如何订阅新闻组</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/%E6%9C%80%E8%86%88%E5%BA%94%E4%B8%8D%E7%88%B1%E6%83%9C%E4%B9%A6%E7%9A%84%E4%BA%BA/">最膈应不爱惜书的人</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/%E5%88%AB%E9%97%B2%E7%9D%80%E6%B2%A1%E4%BA%8B%E8%87%AA%E6%90%9C%E9%BB%91%E5%8E%86%E5%8F%B2%E5%95%8A/">别闲着没事自搜，黑历史啊</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/%E6%97%A9%E7%9D%A1%E6%97%A9%E8%B5%B7%E7%9A%84%E4%BC%98%E7%82%B9/">早睡早起的优点</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/%E4%BB%8E%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%88%B0%E7%89%A9%E7%90%86%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90%E7%A8%8B%E5%BA%8F%E7%9A%84%E7%BC%96%E8%AF%91%E4%B8%8E%E6%89%A7%E8%A1%8C/">从编译原理到物理原理剖析程序的编译与执行</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/%E5%9C%A82025%E5%B9%B4%E6%90%AD%E5%BB%BA%E6%96%B0%E9%97%BB%E7%BB%84/">在2025年，搭建新闻组</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/%E6%97%A0%E8%9D%89%E9%B8%A3%E5%A4%8F/">无蝉鸣夏</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/%E4%B8%87%E8%83%BD%E5%BF%85%E8%83%9C%E6%B2%9F%E9%80%9A%E6%B3%95/">万能必胜沟通法</a>
+              </li>
+            
+          
+        </ul>
+      </section>
+    
+  
+</aside>
+
+  </div>
+</div>
+
+
+
+    <footer role="contentinfo">
+      <p>Copyright &copy; 2025 yingyu5658 - <a href="http://localhost:1313/license/">License</a> -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io" rel="noopener noreferrer">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/" rel="noopener noreferrer">Hugo-Octopress</a> theme.
+      </p>
+    </footer>
+  </body>
+</html>
+

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+
+  
+      <link href="/css/fonts.css" rel="stylesheet" type="text/css">
+    
+  <title>在2025年，搭建新闻组</title><link rel="stylesheet" href="/css/hugo-octopress.css">
+
+  
+    <link rel="stylesheet" href="/css/fork-awesome.min.css">
+  
+    <link href="http://localhost:1313/favicon.png" rel="icon">
+  
+
+  <meta name="description" content="" />
+  <meta name="keywords" content="">
+  <meta name="author" content="yingyu5658"><meta name="generator" content="Hugo 0.148.2">
+
+</head>
+<body><header role="banner"><hgroup><h1><a href="http://localhost:1313/">映屿</a></h1>
+    <h2>yingyu5658的数字花园</h2>
+</hgroup></header><nav role="navigation"><fieldset class="mobile-nav"><select onchange="location = this.value;">
+    <option value="">Navigate…</option>
+      
+        <option value="http://localhost:1313/">» Home</option>
+      
+        <option value="http://localhost:1313/about">» About</option>
+      
+        <option value="http://localhost:1313/post">» Archive</option>
+      
+        <option value="http://localhost:1313/links">» Links</option>
+      
+        <option value="http://localhost:1313/newsgroup">» Newsgroup</option>
+      
+  </select>
+</fieldset><ul class="main-navigation">
+    
+      <li><a href="http://localhost:1313/" title="Home">Home</a></li>
+    
+  
+    
+      <li><a href="http://localhost:1313/about" title="About"  target="_blank"  rel="noopener noreferrer">About</a></li>
+    
+  
+    
+      <li><a href="http://localhost:1313/post" title="Archive"  target="_blank"  rel="noopener noreferrer">Archive</a></li>
+    
+  
+    
+      <li><a href="http://localhost:1313/links" title="Links"  target="_blank"  rel="noopener noreferrer">Links</a></li>
+    
+  
+    
+      <li><a href="http://localhost:1313/newsgroup" title="Newsgroup"  target="_blank"  rel="noopener noreferrer">Newsgroup</a></li>
+    
+  
+</ul>
+
+<ul class="subscription">
+  
+    
+        <a href="http://localhost:1313/atom.xml" target="_blank" type="application/rss+xml" title="RSS" rel="noopener noreferrer"><i class="fa fa-rss-square fa-lg"></i></a>
+    
+  
+</ul>
+
+
+  <form action="https://www.google.com/search" method="get" target="_blank" rel="noopener noreferrer">
+    <fieldset role="search">
+      <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+      <input type="hidden" name="q" value="site:http://localhost:1313/" />
+    </fieldset>
+  </form>
+
+</nav>
+
+
+<div id="main">
+  <div id="content">
+    <div>
+      <article class="hentry" role="article">
+
+        
+        <header>
+  <p class="meta">Jul 26, 2025
+     - 2 minute read - <a class="label" href="http://localhost:1313/categories/%e6%8a%80%e6%9c%af/">技术 </a>
+    
+  </p>
+  <h1 class="entry-title">
+     在2025年，搭建新闻组 
+  </h1>
+</header>
+
+
+        <div class="entry-content">
+          
+          <h2 id="介绍">介绍</h2>
+<p>新闻组(英文名Usenet或NewsGroup)，简单地说就是一个基于网络的计算机组合，这些计算机被称为新闻服务器，不同的用户通过一些软件可连接到新闻服务器上，阅读其他人的消息并可以参与讨论。新闻组是一个完全交互式的超级电子论坛，是任何一个网络用户都能进行相互交流的工具。现在已经没落，1990年前后是新闻组的鼎盛时期。很可惜，我晚了20年。</p>
+<p>新闻组基于古老的NNTP协议，又名Usenet，类似一个巨大的论坛，用户可以在不同的组中发表内容，其他用户也可以回复内容，一切基于Email。</p>
+<h2 id="搭建">搭建</h2>
+<p><strong>这可能是当今互联网上，你能找到的为数不多的最新的有关新闻组的文章。</strong></p>
+<p>我使用
+<a href="https://github.com/erco77/newsd" target="_blank" rel="noopener">newsd</a>这个服务端来搭建，至于为什么没有使用<strong>inn</strong>，有两个原因：教程过时、软件库中没有。</p>
+<h3 id="编译与初始化">编译与初始化</h3>
+<pre tabindex="0"><code>git clone https://github.com/erco77/newsd.git
+make
+</code></pre><p>如果没有错误的话，输出是这样的：</p>
+<pre tabindex="0"><code>yingyu5658@bongo ~/e/newsd (master)&gt; make
+g++ -Wall -DSPOOL_DIR=\&#34;/var/spool/newsd\&#34; -DCONFIG_FILE=\&#34;/etc/newsd.conf\&#34; -DSENDMAIL=\&#34;/usr/sbin/sendmail\&#34; -g -c newsd.C
+g++ -Wall -DSPOOL_DIR=\&#34;/var/spool/newsd\&#34; -DCONFIG_FILE=\&#34;/etc/newsd.conf\&#34; -DSENDMAIL=\&#34;/usr/sbin/sendmail\&#34; -g -c Subs.C
+g++ -Wall -DSPOOL_DIR=\&#34;/var/spool/newsd\&#34; -DCONFIG_FILE=\&#34;/etc/newsd.conf\&#34; -DSENDMAIL=\&#34;/usr/sbin/sendmail\&#34; -g -c Article.C
+g++ -Wall -DSPOOL_DIR=\&#34;/var/spool/newsd\&#34; -DCONFIG_FILE=\&#34;/etc/newsd.conf\&#34; -DSENDMAIL=\&#34;/usr/sbin/sendmail\&#34; -g -c Configuration.C
+g++ -Wall -DSPOOL_DIR=\&#34;/var/spool/newsd\&#34; -DCONFIG_FILE=\&#34;/etc/newsd.conf\&#34; -DSENDMAIL=\&#34;/usr/sbin/sendmail\&#34; -g -c Group.C
+g++ -Wall -DSPOOL_DIR=\&#34;/var/spool/newsd\&#34; -DCONFIG_FILE=\&#34;/etc/newsd.conf\&#34; -DSENDMAIL=\&#34;/usr/sbin/sendmail\&#34; -g -c Server.C
+g++ -Wall  newsd.o Subs.o Article.o Configuration.o Group.o Server.o -o newsd
+pod2man --center &#34;newsd Documentation&#34; --section=8 newsd.pod      &gt; newsd.8
+pod2man --center &#34;newsd Documentation&#34; --section=8 newsd.conf.pod &gt; newsd.conf.8
+pod2html newsd.pod      &gt; newsd.html
+pod2html newsd.conf.pod &gt; newsd.conf.html
+</code></pre><p>前台调试模式：sudo ./newsd -d -f
+后台守护进程：sudo ./newsd（日志输出至 ${LOG_DIR}/newsd.log）</p>
+<h3 id="创建sendmail文件">创建<code>sendmail</code>文件</h3>
+<pre tabindex="0"><code>sudo touch /usr/sbin/sendemail
+chmod a+x /usr/sbin/sendmail
+</code></pre><h3 id="创建新闻组">创建新闻组</h3>
+<pre tabindex="0"><code>sudo ./newsd -newgroup
+</code></pre><p>运行这条命令后，程序会依次要求输入：</p>
+<ul>
+<li>
+<p>组名</p>
+</li>
+<li>
+<p>是否允许用户发件</p>
+</li>
+<li>
+<p>字数限制（？）</p>
+</li>
+<li>
+<p>描述</p>
+</li>
+<li>
+<p>管理员的邮箱</p>
+</li>
+<li>
+<p>将所有帖子的副本密送到的邮箱</p>
+</li>
+</ul>
+<p>创建好后，运行<code>sudo ./newsd -d -f</code>。</p>
+<pre tabindex="0"><code>Sat Jul 26 12:28:48 2025 newsd[38895]: -- newsd started - V1.54--
+Sat Jul 26 12:28:48 2025 newsd[38895]: -- start config summary --
+Sat Jul 26 12:28:48 2025 newsd[38895]: ErrorLog stderr
+Sat Jul 26 12:28:48 2025 newsd[38895]: HostnameLookups off
+Sat Jul 26 12:28:48 2025 newsd[38895]: Listen 0.0.0.0:119
+Sat Jul 26 12:28:48 2025 newsd[38895]: LogLevel debug
+Sat Jul 26 12:28:48 2025 newsd[38895]: MaxClients 0
+Sat Jul 26 12:28:48 2025 newsd[38895]: MaxLogSize 1048576
+Sat Jul 26 12:28:48 2025 newsd[38895]: SendMail /usr/sbin/sendmail -t
+Sat Jul 26 12:28:48 2025 newsd[38895]: ServerName bongo
+Sat Jul 26 12:28:48 2025 newsd[38895]: SpamFilter 
+Sat Jul 26 12:28:48 2025 newsd[38895]: SpoolDir /var/spool/newsd
+Sat Jul 26 12:28:48 2025 newsd[38895]: Timeout 43200
+Sat Jul 26 12:28:48 2025 newsd[38895]: User news
+Sat Jul 26 12:28:48 2025 newsd[38895]: -- end config summary --
+</code></pre><p>其中，我们需要注意的信息是监听地址，由于我这里是本地环境，是<code>0.0.0.0</code>。这时用客户端连接这个地址，订阅刚刚创建的组就可以使用了。</p>
+<p>这个服务端自己搭着玩玩还是足够的，大规模还是要用其他的，不过现在大规模的新闻组肯定不多了。</p>
+<h2 id="我的新闻组">我的新闻组</h2>
+<pre tabindex="0"><code>news.yingyu5658.me
+</code></pre><p>希望每月服务器钱不要白搭。</p>
+
+        </div>
+        <footer>
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">yingyu5658</span></span><time>Jul 26, 2025</time>
+    
+      <span class="categories">
+        Tags:<a class="category" href="http://localhost:1313/tags/%e6%96%b0%e9%97%bb%e7%bb%84">新闻组</a>  <a class="category" href="http://localhost:1313/tags/%e6%80%80%e6%97%a7">怀旧</a>  
+    
+    </span>
+  </p><p class="meta">
+    
+        <a class="basic-alignment left" href="http://localhost:1313/post/2025-07-22-%E6%97%A0%E8%9D%89%E9%B8%A3%E5%A4%8F/" title="无蝉鸣夏">无蝉鸣夏</a>
+    
+
+    
+      <a class="basic-alignment right" href="http://localhost:1313/post/2025-07-29-%E4%BB%8E%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%88%B0%E7%89%A9%E7%90%86%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90%E7%A8%8B%E5%BA%8F%E7%9A%84%E7%BC%96%E8%AF%91%E4%B8%8E%E6%89%A7%E8%A1%8C/" title="从编译原理到物理原理剖析程序的编译与执行">从编译原理到物理原理剖析程序的编译与执行</a>
+    
+  </p>
+  
+  
+</footer>
+
+
+      </article>
+    </div>
+    <aside class="sidebar thirds">
+  <section class="first odd">
+
+    
+      <h1>Misc</h1>
+    
+
+    <p>
+      
+        <p>E-mail: 
+<a href="mailto:i@yingyu5658.me">i@yingyu5658.me</a></p>
+<p>Newsgroup: news.yingyu5658.me</p>
+<p>Github: 
+<a href="https://www.github.com/yingyu5658" target="_blank" rel="noopener">https://www.github.com/yingyu5658</a></p>
+<p><img src="/unamed.jpg" alt=""></p>
+
+      
+    </p>
+  </section><ul class="sidebar-nav">
+  <li class="sidebar-nav-item">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </li>
+</ul>
+
+    
+      <section class="even">
+        <h1>Recent Posts</h1>
+        <ul id="recent_posts">
+          
+          
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-08-08-%E6%9C%AA%E5%91%BD%E5%90%8D/">未命名</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-08-07-%E5%A6%82%E4%BD%95%E8%AE%A2%E9%98%85%E6%96%B0%E9%97%BB%E7%BB%84/">如何订阅新闻组</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-08-06-%E6%9C%80%E8%86%88%E5%BA%94%E4%B8%8D%E7%88%B1%E6%83%9C%E4%B9%A6%E7%9A%84%E4%BA%BA/">最膈应不爱惜书的人</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-08-06-%E5%88%AB%E9%97%B2%E7%9D%80%E6%B2%A1%E4%BA%8B%E8%87%AA%E6%90%9C%E9%BB%91%E5%8E%86%E5%8F%B2%E5%95%8A/">别闲着没事自搜，黑历史啊</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-08-04-%E6%97%A9%E7%9D%A1%E6%97%A9%E8%B5%B7%E7%9A%84%E4%BC%98%E7%82%B9/">早睡早起的优点</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-07-29-%E4%BB%8E%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%88%B0%E7%89%A9%E7%90%86%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90%E7%A8%8B%E5%BA%8F%E7%9A%84%E7%BC%96%E8%AF%91%E4%B8%8E%E6%89%A7%E8%A1%8C/">从编译原理到物理原理剖析程序的编译与执行</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-07-26-%E5%9C%A82025%E5%B9%B4%E6%90%AD%E5%BB%BA%E6%96%B0%E9%97%BB%E7%BB%84/">在2025年，搭建新闻组</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-07-22-%E6%97%A0%E8%9D%89%E9%B8%A3%E5%A4%8F/">无蝉鸣夏</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-07-21-%E4%B8%87%E8%83%BD%E5%BF%85%E8%83%9C%E6%B2%9F%E9%80%9A%E6%B3%95/">万能必胜沟通法</a>
+              </li>
+            
+          
+        </ul>
+      </section>
+    
+  
+</aside>
+
+  </div>
+</div>
+<div id="waline"></div>
+<script type="module">
+	import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+	init({
+		el: '#waline',
+		serverURL: 'waline.yingyu5658.me'
+	});
+</script>
+
+
+
+
+
+    <footer role="contentinfo">
+      <p>Copyright &copy; 2025 yingyu5658 - <a href="http://localhost:1313/license/">License</a> -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io" rel="noopener noreferrer">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/" rel="noopener noreferrer">Hugo-Octopress</a> theme.
+      </p>
+    </footer>
+  </body>
+</html>
+

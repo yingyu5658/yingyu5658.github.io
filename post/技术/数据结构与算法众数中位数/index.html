@@ -1,69 +1,150 @@
-<!doctype html>
-<html
-  lang="zh-CN"
-  dir="ltr"
->
-  <head>
-<meta charset="utf-8"> <meta name="viewport" content="width=device-width"> <title>【数据结构与算法】众数、中位数 | 映屿</title>  <link rel="stylesheet" href="/css/main.min.b3c2b1719da459be773323892668daea201afd0e70c30ce64aaeb8bdeb9ef5fa.css" integrity="sha256-s8KxcZ2kWb53MyOJJmja6iAa/Q5wwwzmSq64veue9fo=" crossorigin="anonymous">  <script src="/js/main.a7956529a5290cbd80aa9c64ee52ceefa89957b568d8a14c217a91d7f4d6aa38.js" integrity="sha256-p5VlKaUpDL2Aqpxk7lLO76iZV7Vo2KFMIXqR1/TWqjg=" crossorigin="anonymous"></script>
-  </head>
-  <body>
-		<main> 
-	<header>
-		<meta charset="utf-8"> <meta name="viewport" content="width=device-width"> <title>【数据结构与算法】众数、中位数 | 映屿</title>  <link rel="stylesheet" href="/css/main.min.b3c2b1719da459be773323892668daea201afd0e70c30ce64aaeb8bdeb9ef5fa.css" integrity="sha256-s8KxcZ2kWb53MyOJJmja6iAa/Q5wwwzmSq64veue9fo=" crossorigin="anonymous">  <script src="/js/main.a7956529a5290cbd80aa9c64ee52ceefa89957b568d8a14c217a91d7f4d6aa38.js" integrity="sha256-p5VlKaUpDL2Aqpxk7lLO76iZV7Vo2KFMIXqR1/TWqjg=" crossorigin="anonymous"></script>
-	</header>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
 
-	   <h1 class="inner-post-title">【数据结构与算法】众数、中位数</h1> 
-<time datetime="2025-05-27">
-  May. 27, 2025
-</time> 
-   <hr>
-<div class="post-content">
-<p>今天学这个东西的时候，看到这种线性的数据结构加上排序步骤，很难不想写个程序来跑跑。</p>
+  
+      <link href="/css/fonts.css" rel="stylesheet" type="text/css">
+    
+  <title>【数据结构与算法】众数、中位数</title><link rel="stylesheet" href="/css/hugo-octopress.css">
+
+  
+    <link rel="stylesheet" href="/css/fork-awesome.min.css">
+  
+    <link href="https://www.yingyu5658.me/favicon.png" rel="icon">
+  
+
+  <meta name="description" content="" />
+  <meta name="keywords" content="">
+  <meta name="author" content="yingyu5658"><meta name="generator" content="Hugo 0.148.2">
+
+</head>
+<body><header role="banner"><hgroup><h1><a href="https://www.yingyu5658.me/">映屿</a></h1>
+    <h2>yingyu5658的数字花园</h2>
+</hgroup></header><nav role="navigation"><fieldset class="mobile-nav"><select onchange="location = this.value;">
+    <option value="">Navigate…</option>
+      
+        <option value="https://www.yingyu5658.me/">» Home</option>
+      
+        <option value="https://www.yingyu5658.me/about">» About</option>
+      
+        <option value="https://www.yingyu5658.me/post">» Archive</option>
+      
+        <option value="https://www.yingyu5658.me/links">» Links</option>
+      
+        <option value="https://www.yingyu5658.me/newsgroup">» Newsgroup</option>
+      
+  </select>
+</fieldset><ul class="main-navigation">
+    
+      <li><a href="https://www.yingyu5658.me/" title="Home">Home</a></li>
+    
+  
+    
+      <li><a href="https://www.yingyu5658.me/about" title="About"  target="_blank"  rel="noopener noreferrer">About</a></li>
+    
+  
+    
+      <li><a href="https://www.yingyu5658.me/post" title="Archive"  target="_blank"  rel="noopener noreferrer">Archive</a></li>
+    
+  
+    
+      <li><a href="https://www.yingyu5658.me/links" title="Links"  target="_blank"  rel="noopener noreferrer">Links</a></li>
+    
+  
+    
+      <li><a href="https://www.yingyu5658.me/newsgroup" title="Newsgroup"  target="_blank"  rel="noopener noreferrer">Newsgroup</a></li>
+    
+  
+</ul>
+
+<ul class="subscription">
+  
+    
+        <a href="https://www.yingyu5658.me/atom.xml" target="_blank" type="application/rss+xml" title="RSS" rel="noopener noreferrer"><i class="fa fa-rss-square fa-lg"></i></a>
+    
+  
+</ul>
+
+
+  <form action="https://www.google.com/search" method="get" target="_blank" rel="noopener noreferrer">
+    <fieldset role="search">
+      <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+      <input type="hidden" name="q" value="site:https://www.yingyu5658.me/" />
+    </fieldset>
+  </form>
+
+</nav>
+
+
+<div id="main">
+  <div id="content">
+    <div>
+      <article class="hentry" role="article">
+
+        
+        <header>
+  <p class="meta">May 27, 2025
+     - 2 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e6%8a%80%e6%9c%af/">技术 </a>
+    
+  </p>
+  <h1 class="entry-title">
+     【数据结构与算法】众数、中位数 
+  </h1>
+</header>
+
+
+        <div class="entry-content">
+          
+          <p>今天学这个东西的时候，看到这种线性的数据结构加上排序步骤，很难不想写个程序来跑跑。</p>
 <p>先来说说中位数，这个比较有思路。</p>
 <h2 id="中位数">中位数</h2>
 <p>具体的操作步骤应该是：<strong>排序 =&gt; 获得数据元素个数n =&gt; 是奇数 ? (n+1) / 2 : n / 2</strong></p>
 <p>那么排序就用之前学的冒泡排序，这种题目大概不会完全倒序给数据，编写sort函数：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">sort</span>(<span style="color:#0b0;font-weight:bold">int</span> arr[], <span style="color:#0b0;font-weight:bold">int</span> n)
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#dc322f">void</span> <span style="color:#268bd2">sort</span>(<span style="color:#dc322f">int</span> arr[], <span style="color:#dc322f">int</span> n)
 </span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">for</span> (<span style="color:#0b0;font-weight:bold">int</span> i <span style="color:#666">=</span> <span style="color:#666">0</span>; i <span style="color:#666">&lt;</span> n <span style="color:#666">-</span> <span style="color:#666">1</span>; i<span style="color:#666">++</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">for</span> (<span style="color:#0b0;font-weight:bold">int</span> j <span style="color:#666">=</span> <span style="color:#666">0</span>; j <span style="color:#666">&lt;</span> n <span style="color:#666">-</span> i <span style="color:#666">-</span> <span style="color:#666">1</span>; j<span style="color:#666">++</span>) {
-</span></span><span style="display:flex;"><span>      <span style="color:#a2f;font-weight:bold">if</span> (arr[j] <span style="color:#666">&gt;</span> arr[j <span style="color:#666">+</span> <span style="color:#666">1</span>]) {
-</span></span><span style="display:flex;"><span>        <span style="color:#0b0;font-weight:bold">int</span> temp <span style="color:#666">=</span> arr[j];
-</span></span><span style="display:flex;"><span>        arr[j] <span style="color:#666">=</span> arr[j <span style="color:#666">+</span> <span style="color:#666">1</span>];
-</span></span><span style="display:flex;"><span>        arr[j <span style="color:#666">+</span> <span style="color:#666">1</span>] <span style="color:#666">=</span> temp;
+</span></span><span style="display:flex;"><span>  <span style="color:#719e07">for</span> (<span style="color:#dc322f">int</span> i <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; i <span style="color:#719e07">&lt;</span> n <span style="color:#719e07">-</span> <span style="color:#2aa198">1</span>; i<span style="color:#719e07">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#719e07">for</span> (<span style="color:#dc322f">int</span> j <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; j <span style="color:#719e07">&lt;</span> n <span style="color:#719e07">-</span> i <span style="color:#719e07">-</span> <span style="color:#2aa198">1</span>; j<span style="color:#719e07">++</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#719e07">if</span> (arr[j] <span style="color:#719e07">&gt;</span> arr[j <span style="color:#719e07">+</span> <span style="color:#2aa198">1</span>]) {
+</span></span><span style="display:flex;"><span>        <span style="color:#dc322f">int</span> temp <span style="color:#719e07">=</span> arr[j];
+</span></span><span style="display:flex;"><span>        arr[j] <span style="color:#719e07">=</span> arr[j <span style="color:#719e07">+</span> <span style="color:#2aa198">1</span>];
+</span></span><span style="display:flex;"><span>        arr[j <span style="color:#719e07">+</span> <span style="color:#2aa198">1</span>] <span style="color:#719e07">=</span> temp;
 </span></span><span style="display:flex;"><span>      }
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>接下来是判断奇偶，奇偶的判断非常简单，对取模运算的值比对就可以，编写is_even函数，判断奇偶性。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">is_even</span>(<span style="color:#0b0;font-weight:bold">int</span> data)
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#dc322f">int</span> <span style="color:#268bd2">is_even</span>(<span style="color:#dc322f">int</span> data)
 </span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">if</span> (data <span style="color:#666">%</span> <span style="color:#666">2</span> <span style="color:#666">==</span> <span style="color:#666">0</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">return</span> <span style="color:#a2f">true</span>;
-</span></span><span style="display:flex;"><span>  } <span style="color:#a2f;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">return</span> <span style="color:#a2f">false</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#719e07">if</span> (data <span style="color:#719e07">%</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">==</span> <span style="color:#2aa198">0</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#719e07">return</span> <span style="color:#b58900">true</span>;
+</span></span><span style="display:flex;"><span>  } <span style="color:#719e07">else</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#719e07">return</span> <span style="color:#b58900">false</span>;
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>完成了奇偶判断，下一步就可以正式进行中位数的运算，编写get_median函数。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">double</span> <span style="color:#00a000">get_median</span>(<span style="color:#0b0;font-weight:bold">int</span> arr[], <span style="color:#0b0;font-weight:bold">int</span> length)
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#dc322f">double</span> <span style="color:#268bd2">get_median</span>(<span style="color:#dc322f">int</span> arr[], <span style="color:#dc322f">int</span> length)
 </span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-style:italic">// 获取索引
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>  <span style="color:#0b0;font-weight:bold">double</span> result <span style="color:#666">=</span> <span style="color:#666">0</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#00a000">sort</span>(arr, length);
-</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">if</span> (<span style="color:#00a000">is_even</span>(length)) {
-</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">int</span> median_index_1 <span style="color:#666">=</span> arr[(length <span style="color:#666">/</span> <span style="color:#666">2</span>) <span style="color:#666">-</span> <span style="color:#666">1</span>];
-</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">int</span> median_index_2 <span style="color:#666">=</span> arr[length <span style="color:#666">/</span> <span style="color:#666">2</span>];
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic">// 计算数据
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    result <span style="color:#666">=</span> (median_index_1 <span style="color:#666">+</span> median_index_2) <span style="color:#666">/</span> <span style="color:#666">2.0</span>;
-</span></span><span style="display:flex;"><span>  } <span style="color:#a2f;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>    result <span style="color:#666">=</span> arr[length <span style="color:#666">/</span> <span style="color:#666">2</span>];
+</span></span><span style="display:flex;"><span>  <span style="color:#586e75">// 获取索引
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>  <span style="color:#dc322f">double</span> result <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">sort</span>(arr, length);
+</span></span><span style="display:flex;"><span>  <span style="color:#719e07">if</span> (<span style="color:#268bd2">is_even</span>(length)) {
+</span></span><span style="display:flex;"><span>    <span style="color:#dc322f">int</span> median_index_1 <span style="color:#719e07">=</span> arr[(length <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span>) <span style="color:#719e07">-</span> <span style="color:#2aa198">1</span>];
+</span></span><span style="display:flex;"><span>    <span style="color:#dc322f">int</span> median_index_2 <span style="color:#719e07">=</span> arr[length <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span>];
+</span></span><span style="display:flex;"><span>    <span style="color:#586e75">// 计算数据
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>    result <span style="color:#719e07">=</span> (median_index_1 <span style="color:#719e07">+</span> median_index_2) <span style="color:#719e07">/</span> <span style="color:#2aa198">2.0</span>;
+</span></span><span style="display:flex;"><span>  } <span style="color:#719e07">else</span> {
+</span></span><span style="display:flex;"><span>    result <span style="color:#719e07">=</span> arr[length <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span>];
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">return</span> result;
+</span></span><span style="display:flex;"><span>  <span style="color:#719e07">return</span> result;
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>这个函数首先计算了中位数在数组的哪个索引，然后进行了计算。</p>
 <h2 id="众数">众数</h2>
-<p>众数（Mode）是指在<a href="https://baike.baidu.com/item/%E7%BB%9F%E8%AE%A1%E5%88%86%E5%B8%83/8478867?fromModule=lemma_inlink">统计分布</a>上具有明显集中趋势点的<a href="https://baike.baidu.com/item/%E6%95%B0%E5%80%BC/2013853?fromModule=lemma_inlink">数值</a>，代表<a href="https://baike.baidu.com/item/%E6%95%B0%E6%8D%AE/33305?fromModule=lemma_inlink">数据</a>的一般水平。 也是一组数据中出现次数最多的数值，有时众数在一组数中有好几个。用M表示。</p>
+<p>众数（Mode）是指在
+<a href="https://baike.baidu.com/item/%E7%BB%9F%E8%AE%A1%E5%88%86%E5%B8%83/8478867?fromModule=lemma_inlink" target="_blank" rel="noopener">统计分布</a>上具有明显集中趋势点的
+<a href="https://baike.baidu.com/item/%E6%95%B0%E5%80%BC/2013853?fromModule=lemma_inlink" target="_blank" rel="noopener">数值</a>，代表
+<a href="https://baike.baidu.com/item/%E6%95%B0%E6%8D%AE/33305?fromModule=lemma_inlink" target="_blank" rel="noopener">数据</a>的一般水平。 也是一组数据中出现次数最多的数值，有时众数在一组数中有好几个。用M表示。</p>
 <p>那么，在程序中，想要计算一个值出现的次数并比对，可拆分为两步。</p>
 <ol>
 <li>计算出每一个数据出现的次数</li>
@@ -71,34 +152,34 @@
 <li>找出最大值</li>
 </ol>
 <p>我没学过什么高级的数据结构，就用这个复制数组的笨办法吧。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">get_mode</span>(<span style="color:#0b0;font-weight:bold">int</span> arr[], <span style="color:#0b0;font-weight:bold">int</span> length)
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#dc322f">int</span> <span style="color:#268bd2">get_mode</span>(<span style="color:#dc322f">int</span> arr[], <span style="color:#dc322f">int</span> length)
 </span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#0b0;font-weight:bold">int</span> <span style="color:#666">*</span>copy_arr <span style="color:#666">=</span> <span style="color:#00a000">malloc</span>(length <span style="color:#666">*</span> <span style="color:#a2f;font-weight:bold">sizeof</span>(<span style="color:#0b0;font-weight:bold">int</span>));
-</span></span><span style="display:flex;"><span>  <span style="color:#00a000">memcpy</span>(copy_arr, arr, length <span style="color:#666">*</span> <span style="color:#a2f;font-weight:bold">sizeof</span>(<span style="color:#0b0;font-weight:bold">int</span>));
-</span></span><span style="display:flex;"><span>  <span style="color:#00a000">sort</span>(copy_arr, length);
+</span></span><span style="display:flex;"><span>  <span style="color:#dc322f">int</span> <span style="color:#719e07">*</span>copy_arr <span style="color:#719e07">=</span> <span style="color:#268bd2">malloc</span>(length <span style="color:#719e07">*</span> <span style="color:#719e07">sizeof</span>(<span style="color:#dc322f">int</span>));
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">memcpy</span>(copy_arr, arr, length <span style="color:#719e07">*</span> <span style="color:#719e07">sizeof</span>(<span style="color:#dc322f">int</span>));
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">sort</span>(copy_arr, length);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#0b0;font-weight:bold">int</span> max_count <span style="color:#666">=</span> <span style="color:#666">0</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#0b0;font-weight:bold">int</span> current_count <span style="color:#666">=</span> <span style="color:#666">1</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#0b0;font-weight:bold">int</span> mode <span style="color:#666">=</span> copy_arr[<span style="color:#666">0</span>];
+</span></span><span style="display:flex;"><span>  <span style="color:#dc322f">int</span> max_count <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#dc322f">int</span> current_count <span style="color:#719e07">=</span> <span style="color:#2aa198">1</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#dc322f">int</span> mode <span style="color:#719e07">=</span> copy_arr[<span style="color:#2aa198">0</span>];
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">for</span> (<span style="color:#0b0;font-weight:bold">int</span> i <span style="color:#666">=</span> <span style="color:#666">1</span>; i <span style="color:#666">&lt;</span> length; i<span style="color:#666">++</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">if</span> (copy_arr[i] <span style="color:#666">==</span> copy_arr[i <span style="color:#666">-</span> <span style="color:#666">1</span>]) {
-</span></span><span style="display:flex;"><span>      current_count<span style="color:#666">++</span>;
-</span></span><span style="display:flex;"><span>    } <span style="color:#a2f;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>      <span style="color:#a2f;font-weight:bold">if</span> (current_count <span style="color:#666">&gt;</span> max_count) {
-</span></span><span style="display:flex;"><span>        max_count <span style="color:#666">=</span> current_count;
-</span></span><span style="display:flex;"><span>        mode <span style="color:#666">=</span> copy_arr[i <span style="color:#666">-</span> <span style="color:#666">1</span>];
+</span></span><span style="display:flex;"><span>  <span style="color:#719e07">for</span> (<span style="color:#dc322f">int</span> i <span style="color:#719e07">=</span> <span style="color:#2aa198">1</span>; i <span style="color:#719e07">&lt;</span> length; i<span style="color:#719e07">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#719e07">if</span> (copy_arr[i] <span style="color:#719e07">==</span> copy_arr[i <span style="color:#719e07">-</span> <span style="color:#2aa198">1</span>]) {
+</span></span><span style="display:flex;"><span>      current_count<span style="color:#719e07">++</span>;
+</span></span><span style="display:flex;"><span>    } <span style="color:#719e07">else</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#719e07">if</span> (current_count <span style="color:#719e07">&gt;</span> max_count) {
+</span></span><span style="display:flex;"><span>        max_count <span style="color:#719e07">=</span> current_count;
+</span></span><span style="display:flex;"><span>        mode <span style="color:#719e07">=</span> copy_arr[i <span style="color:#719e07">-</span> <span style="color:#2aa198">1</span>];
 </span></span><span style="display:flex;"><span>      }
-</span></span><span style="display:flex;"><span>      current_count <span style="color:#666">=</span> <span style="color:#666">1</span>;
+</span></span><span style="display:flex;"><span>      current_count <span style="color:#719e07">=</span> <span style="color:#2aa198">1</span>;
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">if</span> (current_count <span style="color:#666">&gt;</span> max_count) {
-</span></span><span style="display:flex;"><span>    mode <span style="color:#666">=</span> copy_arr[length <span style="color:#666">-</span> <span style="color:#666">1</span>];
+</span></span><span style="display:flex;"><span>  <span style="color:#719e07">if</span> (current_count <span style="color:#719e07">&gt;</span> max_count) {
+</span></span><span style="display:flex;"><span>    mode <span style="color:#719e07">=</span> copy_arr[length <span style="color:#719e07">-</span> <span style="color:#2aa198">1</span>];
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#00a000">free</span>(copy_arr);
-</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">return</span> mode;
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">free</span>(copy_arr);
+</span></span><span style="display:flex;"><span>  <span style="color:#719e07">return</span> mode;
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>这个函数干了以下几件事：</p>
 <ul>
@@ -109,24 +190,40 @@
 <li>动态更新众数值</li>
 </ul>
 <p>测试跑一把，输出如下</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>()
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#dc322f">int</span> <span style="color:#268bd2">main</span>()
 </span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#0b0;font-weight:bold">int</span> arr[] <span style="color:#666">=</span> {<span style="color:#666">1</span>, <span style="color:#666">1</span>, <span style="color:#666">1</span>, <span style="color:#666">1</span>, <span style="color:#666">2</span>, <span style="color:#666">2</span>, <span style="color:#666">4</span>, <span style="color:#666">5</span>, <span style="color:#666">7</span>, <span style="color:#666">4</span>, <span style="color:#666">4</span>, <span style="color:#666">4</span>, <span style="color:#666">4</span>, <span style="color:#666">4</span>, <span style="color:#666">4</span>, <span style="color:#666">4</span>, <span style="color:#666">4</span>, <span style="color:#666">4</span>, <span style="color:#666">2</span>};
-</span></span><span style="display:flex;"><span>  <span style="color:#0b0;font-weight:bold">int</span> length <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">sizeof</span>(arr) <span style="color:#666">/</span> <span style="color:#a2f;font-weight:bold">sizeof</span>(arr[<span style="color:#666">0</span>]);
-</span></span><span style="display:flex;"><span>  <span style="color:#0b0;font-weight:bold">int</span> result <span style="color:#666">=</span> <span style="color:#00a000">get_mode</span>(arr, length);
-</span></span><span style="display:flex;"><span>  <span style="color:#00a000">printf</span>(<span style="color:#b44">&#34;result = %d</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>, result);
+</span></span><span style="display:flex;"><span>  <span style="color:#dc322f">int</span> arr[] <span style="color:#719e07">=</span> {<span style="color:#2aa198">1</span>, <span style="color:#2aa198">1</span>, <span style="color:#2aa198">1</span>, <span style="color:#2aa198">1</span>, <span style="color:#2aa198">2</span>, <span style="color:#2aa198">2</span>, <span style="color:#2aa198">4</span>, <span style="color:#2aa198">5</span>, <span style="color:#2aa198">7</span>, <span style="color:#2aa198">4</span>, <span style="color:#2aa198">4</span>, <span style="color:#2aa198">4</span>, <span style="color:#2aa198">4</span>, <span style="color:#2aa198">4</span>, <span style="color:#2aa198">4</span>, <span style="color:#2aa198">4</span>, <span style="color:#2aa198">4</span>, <span style="color:#2aa198">4</span>, <span style="color:#2aa198">2</span>};
+</span></span><span style="display:flex;"><span>  <span style="color:#dc322f">int</span> length <span style="color:#719e07">=</span> <span style="color:#719e07">sizeof</span>(arr) <span style="color:#719e07">/</span> <span style="color:#719e07">sizeof</span>(arr[<span style="color:#2aa198">0</span>]);
+</span></span><span style="display:flex;"><span>  <span style="color:#dc322f">int</span> result <span style="color:#719e07">=</span> <span style="color:#268bd2">get_mode</span>(arr, length);
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">printf</span>(<span style="color:#2aa198">&#34;result = %d</span><span style="color:#cb4b16">\n</span><span style="color:#2aa198">&#34;</span>, result);
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><pre tabindex="0"><code>result = 4
 </code></pre><p><del>这个办法实在是有点蠢，找时间仔细学学哈希表，应该能更快。</del></p>
 
-</div>
- 
-<div>
-    <a  class="label" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">#数据结构与算法</a>
-</div>
+        </div>
+        <footer>
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">yingyu5658</span></span><time>May 27, 2025</time>
+    
+      <span class="categories">
+        Tags:<a class="category" href="https://www.yingyu5658.me/tags/%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84%e4%b8%8e%e7%ae%97%e6%b3%95">数据结构与算法</a>  
+    
+    </span>
+  </p><p class="meta">
+    
+        <a class="basic-alignment left" href="https://www.yingyu5658.me/post/%E9%9A%8F%E7%AC%94/%E9%AB%98%E6%95%88%E7%8E%87%E7%9A%84%E6%B2%9F%E9%80%9A%E7%BB%9D%E4%B8%8D%E4%BC%9A%E4%BB%8E%E5%9C%A8%E5%90%97%E5%BC%80%E5%A7%8B/" title="高效率的沟通绝不会从在吗开始">高效率的沟通绝不会从在吗开始</a>
+    
 
-<link rel="stylesheet" href="/css/main.css" />
-<div id="waline"></div>
+    
+      <a class="basic-alignment right" href="https://www.yingyu5658.me/post/%E9%9A%8F%E7%AC%94/%E6%84%9F%E8%B0%A2%E6%81%A9%E5%B8%88%E5%A4%B8%E5%A5%96/" title="感谢恩师夸奖">感谢恩师夸奖</a>
+    
+  </p>
+  
+  
+</footer>
+
+
+		<div id="waline"></div>
 <script type="module">
 	import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
 	init({
@@ -135,16 +232,122 @@
 	});
 </script>
 
-	<footer>
-		<p>-----------------------------------</p>
 
-<p>Email: i (at) yingyu5658 (dot) com</p>
 
-<img src="/notbyai.png" class="not-by-ai" /> <br>
- 
+      </article>
+    </div>
+    <aside class="sidebar thirds">
+  <section class="first odd">
+
+    
+      <h1>Misc</h1>
+    
+
+    <p>
+      
+        <p>E-mail: 
+<a href="mailto:i@yingyu5658.me">i@yingyu5658.me</a></p>
+<p>Newsgroup: news.yingyu5658.me</p>
+<p>Github: 
+<a href="https://www.github.com/yingyu5658" target="_blank" rel="noopener">https://www.github.com/yingyu5658</a></p>
+<p><img src="/unamed.jpg" alt=""></p>
+
+      
+    </p>
+  </section><ul class="sidebar-nav">
+  <li class="sidebar-nav-item">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </li>
+</ul>
+
+    
+      <section class="even">
+        <h1>Recent Posts</h1>
+        <ul id="recent_posts">
+          
+          
+            
+          
+            
+              <li class="post">
+                <a href="/post/%E9%9A%8F%E7%AC%94/%E7%A7%8B%E5%A4%A9%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A3%B0%E7%8B%97%E5%8F%AB/">秋天的第一声狗叫</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/%E9%9A%8F%E7%AC%94/%E6%9C%AA%E5%91%BD%E5%90%8D/">未命名</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/%E6%8A%80%E6%9C%AF/how-to-subscribe-newsgroup/">如何订阅新闻组</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/%E9%9A%8F%E7%AC%94/%E6%9C%80%E8%86%88%E5%BA%94%E4%B8%8D%E7%88%B1%E6%83%9C%E4%B9%A6%E7%9A%84%E4%BA%BA/">最膈应不爱惜书的人</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/%E9%9A%8F%E7%AC%94/%E5%88%AB%E9%97%B2%E7%9D%80%E6%B2%A1%E4%BA%8B%E8%87%AA%E6%90%9C%E9%BB%91%E5%8E%86%E5%8F%B2%E5%95%8A/">别闲着没事自搜，黑历史啊</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/%E9%9A%8F%E7%AC%94/%E6%97%A9%E7%9D%A1%E6%97%A9%E8%B5%B7%E7%9A%84%E4%BC%98%E7%82%B9/">早睡早起的优点</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/%E6%8A%80%E6%9C%AF/%E4%BB%8E%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%88%B0%E7%89%A9%E7%90%86%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90%E7%A8%8B%E5%BA%8F%E7%9A%84%E7%BC%96%E8%AF%91%E4%B8%8E%E6%89%A7%E8%A1%8C/">从编译原理到物理原理剖析程序的编译与执行</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/%E6%8A%80%E6%9C%AF/set-up-newsgroup/">在2025年，搭建新闻组</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/%E9%9A%8F%E7%AC%94/%E6%97%A0%E8%9D%89%E9%B8%A3%E5%A4%8F/">无蝉鸣夏</a>
+              </li>
+            
+          
+        </ul>
+      </section>
+    
+  
+</aside>
+
+  </div>
+</div>
+
+
+
+    <footer role="contentinfo">
+      <p>Copyright &copy; 2025 yingyu5658 - <a href="https://www.yingyu5658.me/license/">License</a> -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io" rel="noopener noreferrer">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/" rel="noopener noreferrer">Hugo-Octopress</a> theme.
+      </p>
     </footer>
-
-</main>
-      </body>
+  </body>
 </html>
 

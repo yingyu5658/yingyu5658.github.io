@@ -1,90 +1,168 @@
-<!doctype html>
-<html
-  lang="zh-CN"
-  dir="ltr"
->
-  <head>
-<meta charset="utf-8"> <meta name="viewport" content="width=device-width"> <title>初折腾Emacs记录 | 映屿</title>  <link rel="stylesheet" href="/css/main.min.b3c2b1719da459be773323892668daea201afd0e70c30ce64aaeb8bdeb9ef5fa.css" integrity="sha256-s8KxcZ2kWb53MyOJJmja6iAa/Q5wwwzmSq64veue9fo=" crossorigin="anonymous">  <script src="/js/main.a7956529a5290cbd80aa9c64ee52ceefa89957b568d8a14c217a91d7f4d6aa38.js" integrity="sha256-p5VlKaUpDL2Aqpxk7lLO76iZV7Vo2KFMIXqR1/TWqjg=" crossorigin="anonymous"></script>
-  </head>
-  <body>
-		<main> 
-	<header>
-		<meta charset="utf-8"> <meta name="viewport" content="width=device-width"> <title>初折腾Emacs记录 | 映屿</title>  <link rel="stylesheet" href="/css/main.min.b3c2b1719da459be773323892668daea201afd0e70c30ce64aaeb8bdeb9ef5fa.css" integrity="sha256-s8KxcZ2kWb53MyOJJmja6iAa/Q5wwwzmSq64veue9fo=" crossorigin="anonymous">  <script src="/js/main.a7956529a5290cbd80aa9c64ee52ceefa89957b568d8a14c217a91d7f4d6aa38.js" integrity="sha256-p5VlKaUpDL2Aqpxk7lLO76iZV7Vo2KFMIXqR1/TWqjg=" crossorigin="anonymous"></script>
-	</header>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
 
-	   <h1 class="inner-post-title">初折腾Emacs记录</h1> 
-<time datetime="2025-04-13">
-  Apr. 13, 2025
-</time> 
-   <hr>
-<div class="post-content">
-<h2 id="基础配置">基础配置</h2>
+  
+      <link href="/css/fonts.css" rel="stylesheet" type="text/css">
+    
+  <title>初折腾Emacs记录</title><link rel="stylesheet" href="/css/hugo-octopress.css">
+
+  
+    <link rel="stylesheet" href="/css/fork-awesome.min.css">
+  
+    <link href="https://www.yingyu5658.me/favicon.png" rel="icon">
+  
+
+  <meta name="description" content="" />
+  <meta name="keywords" content="">
+  <meta name="author" content="yingyu5658"><meta name="generator" content="Hugo 0.148.2">
+
+</head>
+<body><header role="banner"><hgroup><h1><a href="https://www.yingyu5658.me/">映屿</a></h1>
+    <h2>yingyu5658的数字花园</h2>
+</hgroup></header><nav role="navigation"><fieldset class="mobile-nav"><select onchange="location = this.value;">
+    <option value="">Navigate…</option>
+      
+        <option value="https://www.yingyu5658.me/">» Home</option>
+      
+        <option value="https://www.yingyu5658.me/about">» About</option>
+      
+        <option value="https://www.yingyu5658.me/post">» Archive</option>
+      
+        <option value="https://www.yingyu5658.me/links">» Links</option>
+      
+        <option value="https://www.yingyu5658.me/newsgroup">» Newsgroup</option>
+      
+  </select>
+</fieldset><ul class="main-navigation">
+    
+      <li><a href="https://www.yingyu5658.me/" title="Home">Home</a></li>
+    
+  
+    
+      <li><a href="https://www.yingyu5658.me/about" title="About"  target="_blank"  rel="noopener noreferrer">About</a></li>
+    
+  
+    
+      <li><a href="https://www.yingyu5658.me/post" title="Archive"  target="_blank"  rel="noopener noreferrer">Archive</a></li>
+    
+  
+    
+      <li><a href="https://www.yingyu5658.me/links" title="Links"  target="_blank"  rel="noopener noreferrer">Links</a></li>
+    
+  
+    
+      <li><a href="https://www.yingyu5658.me/newsgroup" title="Newsgroup"  target="_blank"  rel="noopener noreferrer">Newsgroup</a></li>
+    
+  
+</ul>
+
+<ul class="subscription">
+  
+    
+        <a href="https://www.yingyu5658.me/atom.xml" target="_blank" type="application/rss+xml" title="RSS" rel="noopener noreferrer"><i class="fa fa-rss-square fa-lg"></i></a>
+    
+  
+</ul>
+
+
+  <form action="https://www.google.com/search" method="get" target="_blank" rel="noopener noreferrer">
+    <fieldset role="search">
+      <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+      <input type="hidden" name="q" value="site:https://www.yingyu5658.me/" />
+    </fieldset>
+  </form>
+
+</nav>
+
+
+<div id="main">
+  <div id="content">
+    <div>
+      <article class="hentry" role="article">
+
+        
+        <header>
+  <p class="meta">Apr 13, 2025
+     - 2 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e6%8a%80%e6%9c%af/">技术 </a>
+    
+  </p>
+  <h1 class="entry-title">
+     初折腾Emacs记录 
+  </h1>
+</header>
+
+
+        <div class="entry-content">
+          
+          <h2 id="基础配置">基础配置</h2>
 <p>Windows下需要在软件顶部Toolbar的Options中随便更改一个选项，然后再点Save Options，这样就会再<code>C:\Users\Username\appdata\Roaming\</code>下生成.emacs和.emacs.d/</p>
 <p>在emacs.d中新建一个文件<code>init.el</code>，填写如下配置</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span><span style="color:#080;font-style:italic">;;; init.el --- Load the full configuration -*- lexical-binding: t -*-</span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">;;; Commentary:</span>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span><span style="color:#586e75">;;; init.el --- Load the full configuration -*- lexical-binding: t -*-</span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75">;;; Commentary:</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">;; This file bootstraps the configuration, which is divided into</span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">;; a number of other files.</span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75">;; This file bootstraps the configuration, which is divided into</span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75">;; a number of other files.</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">;;; Code:</span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75">;;; Code:</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>(<span style="color:#a2f;font-weight:bold">let</span> ((<span style="color:#b8860b">minver</span> <span style="color:#b44">&#34;25.1&#34;</span>))
-</span></span><span style="display:flex;"><span> (<span style="color:#a2f">when</span> (<span style="color:#b8860b">version&lt;</span> <span style="color:#b8860b">emacs-version</span> <span style="color:#b8860b">minver</span>)
-</span></span><span style="display:flex;"><span>  (<span style="color:#0b0;font-weight:bold">error</span> <span style="color:#b44">&#34;Your Emacs is too old -- this config requires v%s or higher&#34;</span> <span style="color:#b8860b">minver</span>)))
-</span></span><span style="display:flex;"><span>(<span style="color:#a2f">when</span> (<span style="color:#b8860b">version&lt;</span> <span style="color:#b8860b">emacs-version</span> <span style="color:#b44">&#34;26.1&#34;</span>)
-</span></span><span style="display:flex;"><span> (<span style="color:#b8860b">message</span> <span style="color:#b44">&#34;Your Emacs is old, and some functionality in this config will be disabled. Please upgrade if possible.&#34;</span>))
+</span></span><span style="display:flex;"><span>(<span style="color:#719e07">let</span> ((<span style="color:#268bd2">minver</span> <span style="color:#2aa198">&#34;25.1&#34;</span>))
+</span></span><span style="display:flex;"><span> (<span style="color:#b58900">when</span> (<span style="color:#268bd2">version&lt;</span> <span style="color:#268bd2">emacs-version</span> <span style="color:#268bd2">minver</span>)
+</span></span><span style="display:flex;"><span>  (<span style="color:#dc322f">error</span> <span style="color:#2aa198">&#34;Your Emacs is too old -- this config requires v%s or higher&#34;</span> <span style="color:#268bd2">minver</span>)))
+</span></span><span style="display:flex;"><span>(<span style="color:#b58900">when</span> (<span style="color:#268bd2">version&lt;</span> <span style="color:#268bd2">emacs-version</span> <span style="color:#2aa198">&#34;26.1&#34;</span>)
+</span></span><span style="display:flex;"><span> (<span style="color:#268bd2">message</span> <span style="color:#2aa198">&#34;Your Emacs is old, and some functionality in this config will be disabled. Please upgrade if possible.&#34;</span>))
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>(<span style="color:#b8860b">add-to-list</span> <span style="color:#b8860b">&#39;load-path</span> (<span style="color:#b8860b">expand-file-name</span> <span style="color:#b44">&#34;lisp&#34;</span> <span style="color:#b8860b">user-emacs-directory</span>)) <span style="color:#080;font-style:italic">; 设定源码加载路径</span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">;; (require &#39;init-benchmarking) ;; Measure startup time</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#268bd2">add-to-list</span> <span style="color:#2aa198">&#39;load-path</span> (<span style="color:#268bd2">expand-file-name</span> <span style="color:#2aa198">&#34;lisp&#34;</span> <span style="color:#268bd2">user-emacs-directory</span>)) <span style="color:#586e75">; 设定源码加载路径</span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75">;; (require &#39;init-benchmarking) ;; Measure startup time</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>(<span style="color:#b8860b">defconst</span> <span style="color:#b8860b">*spell-check-support-enabled*</span> <span style="color:#800">nil</span>) <span style="color:#080;font-style:italic">;; Enable with t if you prefer</span>
-</span></span><span style="display:flex;"><span>(<span style="color:#b8860b">defconst</span> <span style="color:#b8860b">*is-a-mac*</span> (<span style="color:#00a000">eq</span> <span style="color:#b8860b">system-type</span> <span style="color:#b8860b">&#39;darwin</span>))
+</span></span><span style="display:flex;"><span>(<span style="color:#268bd2">defconst</span> <span style="color:#268bd2">*spell-check-support-enabled*</span> <span style="color:#cb4b16">nil</span>) <span style="color:#586e75">;; Enable with t if you prefer</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#268bd2">defconst</span> <span style="color:#268bd2">*is-a-mac*</span> (<span style="color:#268bd2">eq</span> <span style="color:#268bd2">system-type</span> <span style="color:#2aa198">&#39;darwin</span>))
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">;; Adjust garbage collection thresholds during startup, and thereafter</span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75">;; Adjust garbage collection thresholds during startup, and thereafter</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>(<span style="color:#a2f;font-weight:bold">let</span> ((<span style="color:#b8860b">normal-gc-cons-threshold</span> (<span style="color:#00a000">*</span> <span style="color:#666">20</span> <span style="color:#666">1024</span> <span style="color:#666">1024</span>))
-</span></span><span style="display:flex;"><span>   (<span style="color:#b8860b">init-gc-cons-threshold</span> (<span style="color:#00a000">*</span> <span style="color:#666">128</span> <span style="color:#666">1024</span> <span style="color:#666">1024</span>)))
-</span></span><span style="display:flex;"><span> (<span style="color:#a2f;font-weight:bold">setq</span> <span style="color:#b8860b">gc-cons-threshold</span> <span style="color:#b8860b">init-gc-cons-threshold</span>)
-</span></span><span style="display:flex;"><span> (<span style="color:#b8860b">add-hook</span> <span style="color:#b8860b">&#39;emacs-startup-hook</span>
-</span></span><span style="display:flex;"><span>      (<span style="color:#a2f">lambda</span> () (<span style="color:#a2f;font-weight:bold">setq</span> <span style="color:#b8860b">gc-cons-threshold</span> <span style="color:#b8860b">normal-gc-cons-threshold</span>))))
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(<span style="color:#719e07">let</span> ((<span style="color:#268bd2">normal-gc-cons-threshold</span> (<span style="color:#268bd2">*</span> <span style="color:#2aa198">20</span> <span style="color:#2aa198">1024</span> <span style="color:#2aa198">1024</span>))
+</span></span><span style="display:flex;"><span>   (<span style="color:#268bd2">init-gc-cons-threshold</span> (<span style="color:#268bd2">*</span> <span style="color:#2aa198">128</span> <span style="color:#2aa198">1024</span> <span style="color:#2aa198">1024</span>)))
+</span></span><span style="display:flex;"><span> (<span style="color:#719e07">setq</span> <span style="color:#268bd2">gc-cons-threshold</span> <span style="color:#268bd2">init-gc-cons-threshold</span>)
+</span></span><span style="display:flex;"><span> (<span style="color:#268bd2">add-hook</span> <span style="color:#2aa198">&#39;emacs-startup-hook</span>
+</span></span><span style="display:flex;"><span>      (<span style="color:#b58900">lambda</span> () (<span style="color:#719e07">setq</span> <span style="color:#268bd2">gc-cons-threshold</span> <span style="color:#268bd2">normal-gc-cons-threshold</span>))))
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">;; ==========================================================================================================</span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">;; ===========================================日常使用配置===================================================</span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">;; ==========================================================================================================</span>
-</span></span><span style="display:flex;"><span>(<span style="color:#a2f;font-weight:bold">setq</span> <span style="color:#b8860b">confirm-kill-emacs</span> <span style="color:#00a000">#&#39;yes-or-no-p</span>)   <span style="color:#080;font-style:italic">; 在关闭 Emacs 前询问是否确认关闭，防止误触</span>
-</span></span><span style="display:flex;"><span>(<span style="color:#b8860b">electric-pair-mode</span> <span style="color:#800">t</span>)            <span style="color:#080;font-style:italic">; 自动补全括号</span>
-</span></span><span style="display:flex;"><span>(<span style="color:#b8860b">add-hook</span> <span style="color:#b8860b">&#39;prog-mode-hook</span> <span style="color:#00a000">#&#39;</span><span style="color:#b8860b">show-paren-mode</span>) <span style="color:#080;font-style:italic">; 编程模式下，光标在括号上时高亮另一个括号</span>
-</span></span><span style="display:flex;"><span>(<span style="color:#b8860b">column-number-mode</span> <span style="color:#800">t</span>)            <span style="color:#080;font-style:italic">; 在 Mode line 上显示列号</span>
-</span></span><span style="display:flex;"><span>(<span style="color:#b8860b">global-auto-revert-mode</span> <span style="color:#800">t</span>)         <span style="color:#080;font-style:italic">; 当另一程序修改了文件时，让 Emacs 及时刷新 Buffer</span>
-</span></span><span style="display:flex;"><span>(<span style="color:#b8860b">delete-selection-mode</span> <span style="color:#800">t</span>)          <span style="color:#080;font-style:italic">; 选中文本后输入文本会替换文本（更符合我们习惯了的其它编辑器的逻辑）</span>
-</span></span><span style="display:flex;"><span>(<span style="color:#a2f;font-weight:bold">setq</span> <span style="color:#b8860b">inhibit-startup-message</span> <span style="color:#800">t</span>)       <span style="color:#080;font-style:italic">; 关闭启动 Emacs 时的欢迎界面</span>
-</span></span><span style="display:flex;"><span>(<span style="color:#a2f;font-weight:bold">setq</span> <span style="color:#b8860b">make-backup-files</span> <span style="color:#800">nil</span>)         <span style="color:#080;font-style:italic">; 关闭文件自动备份</span>
-</span></span><span style="display:flex;"><span>(<span style="color:#b8860b">add-hook</span> <span style="color:#b8860b">&#39;prog-mode-hook</span> <span style="color:#00a000">#&#39;</span><span style="color:#b8860b">hs-minor-mode</span>)  <span style="color:#080;font-style:italic">; 编程模式下，可以折叠代码块</span>
-</span></span><span style="display:flex;"><span>(<span style="color:#b8860b">global-display-line-numbers-mode</span> <span style="color:#666">1</span>)     <span style="color:#080;font-style:italic">; 在 Window 显示行号</span>
-</span></span><span style="display:flex;"><span>(<span style="color:#b8860b">tool-bar-mode</span> <span style="color:#666">-1</span>)              <span style="color:#080;font-style:italic">; （熟练后可选）关闭 Tool bar</span>
-</span></span><span style="display:flex;"><span>(<span style="color:#a2f">when</span> (<span style="color:#b8860b">display-graphic-p</span>) (<span style="color:#b8860b">toggle-scroll-bar</span> <span style="color:#666">-1</span>)) <span style="color:#080;font-style:italic">; 图形界面时关闭滚动条</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>(<span style="color:#b8860b">savehist-mode</span> <span style="color:#666">1</span>)              <span style="color:#080;font-style:italic">; （可选）打开 Buffer 历史记录保存</span>
-</span></span><span style="display:flex;"><span>(<span style="color:#a2f;font-weight:bold">setq</span> <span style="color:#b8860b">display-line-numbers-type</span> <span style="color:#b8860b">&#39;relative</span>)  <span style="color:#080;font-style:italic">; （可选）显示相对行号</span>
-</span></span><span style="display:flex;"><span>(<span style="color:#b8860b">add-to-list</span> <span style="color:#b8860b">&#39;default-frame-alist</span> <span style="color:#666">&#39;</span>(<span style="color:#b8860b">width</span> <span style="color:#666">.</span> <span style="color:#666">90</span>)) <span style="color:#080;font-style:italic">; （可选）设定启动图形界面时的初始 Frame 宽度（字符数）</span>
-</span></span><span style="display:flex;"><span>(<span style="color:#b8860b">add-to-list</span> <span style="color:#b8860b">&#39;default-frame-alist</span> <span style="color:#666">&#39;</span>(<span style="color:#b8860b">height</span> <span style="color:#666">.</span> <span style="color:#666">55</span>)) <span style="color:#080;font-style:italic">; （可选）设定启动图形界面时的初始 Frame 高度（字符数）</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">;; ==========================================================================================================</span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">;; ===========================================插件镜像配置===================================================</span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">;; ==========================================================================================================</span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">; 腾讯镜像</span>
-</span></span><span style="display:flex;"><span>(<span style="color:#00a000">require</span> <span style="color:#b8860b">&#39;package</span>)
-</span></span><span style="display:flex;"><span>(<span style="color:#a2f;font-weight:bold">setq</span> <span style="color:#b8860b">package-archives</span> <span style="color:#666">&#39;</span>((<span style="color:#b44">&#34;gnu&#34;</span>  <span style="color:#666">.</span> <span style="color:#b44">&#34;http://mirrors.cloud.tencent.com/elpa/gnu/&#34;</span>)
-</span></span><span style="display:flex;"><span>             (<span style="color:#b44">&#34;melpa&#34;</span> <span style="color:#666">.</span> <span style="color:#b44">&#34;http://mirrors.cloud.tencent.com/elpa/melpa/&#34;</span>)))
-</span></span><span style="display:flex;"><span>(<span style="color:#b8860b">package-initialize</span>)
+</span></span><span style="display:flex;"><span><span style="color:#586e75">;; ==========================================================================================================</span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75">;; ===========================================日常使用配置===================================================</span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75">;; ==========================================================================================================</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#719e07">setq</span> <span style="color:#268bd2">confirm-kill-emacs</span> <span style="color:#268bd2">#&#39;yes-or-no-p</span>)   <span style="color:#586e75">; 在关闭 Emacs 前询问是否确认关闭，防止误触</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#268bd2">electric-pair-mode</span> <span style="color:#cb4b16">t</span>)            <span style="color:#586e75">; 自动补全括号</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#268bd2">add-hook</span> <span style="color:#2aa198">&#39;prog-mode-hook</span> <span style="color:#268bd2">#&#39;</span><span style="color:#268bd2">show-paren-mode</span>) <span style="color:#586e75">; 编程模式下，光标在括号上时高亮另一个括号</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#268bd2">column-number-mode</span> <span style="color:#cb4b16">t</span>)            <span style="color:#586e75">; 在 Mode line 上显示列号</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#268bd2">global-auto-revert-mode</span> <span style="color:#cb4b16">t</span>)         <span style="color:#586e75">; 当另一程序修改了文件时，让 Emacs 及时刷新 Buffer</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#268bd2">delete-selection-mode</span> <span style="color:#cb4b16">t</span>)          <span style="color:#586e75">; 选中文本后输入文本会替换文本（更符合我们习惯了的其它编辑器的逻辑）</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#719e07">setq</span> <span style="color:#268bd2">inhibit-startup-message</span> <span style="color:#cb4b16">t</span>)       <span style="color:#586e75">; 关闭启动 Emacs 时的欢迎界面</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#719e07">setq</span> <span style="color:#268bd2">make-backup-files</span> <span style="color:#cb4b16">nil</span>)         <span style="color:#586e75">; 关闭文件自动备份</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#268bd2">add-hook</span> <span style="color:#2aa198">&#39;prog-mode-hook</span> <span style="color:#268bd2">#&#39;</span><span style="color:#268bd2">hs-minor-mode</span>)  <span style="color:#586e75">; 编程模式下，可以折叠代码块</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#268bd2">global-display-line-numbers-mode</span> <span style="color:#2aa198">1</span>)     <span style="color:#586e75">; 在 Window 显示行号</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#268bd2">tool-bar-mode</span> <span style="color:#2aa198">-1</span>)              <span style="color:#586e75">; （熟练后可选）关闭 Tool bar</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#b58900">when</span> (<span style="color:#268bd2">display-graphic-p</span>) (<span style="color:#268bd2">toggle-scroll-bar</span> <span style="color:#2aa198">-1</span>)) <span style="color:#586e75">; 图形界面时关闭滚动条</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(<span style="color:#268bd2">savehist-mode</span> <span style="color:#2aa198">1</span>)              <span style="color:#586e75">; （可选）打开 Buffer 历史记录保存</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#719e07">setq</span> <span style="color:#268bd2">display-line-numbers-type</span> <span style="color:#2aa198">&#39;relative</span>)  <span style="color:#586e75">; （可选）显示相对行号</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#268bd2">add-to-list</span> <span style="color:#2aa198">&#39;default-frame-alist</span> <span style="color:#719e07">&#39;</span>(<span style="color:#268bd2">width</span> <span style="color:#719e07">.</span> <span style="color:#2aa198">90</span>)) <span style="color:#586e75">; （可选）设定启动图形界面时的初始 Frame 宽度（字符数）</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#268bd2">add-to-list</span> <span style="color:#2aa198">&#39;default-frame-alist</span> <span style="color:#719e07">&#39;</span>(<span style="color:#268bd2">height</span> <span style="color:#719e07">.</span> <span style="color:#2aa198">55</span>)) <span style="color:#586e75">; （可选）设定启动图形界面时的初始 Frame 高度（字符数）</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">;;; init.el ends here</span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75">;; ==========================================================================================================</span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75">;; ===========================================插件镜像配置===================================================</span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75">;; ==========================================================================================================</span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75">; 腾讯镜像</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#268bd2">require</span> <span style="color:#2aa198">&#39;package</span>)
+</span></span><span style="display:flex;"><span>(<span style="color:#719e07">setq</span> <span style="color:#268bd2">package-archives</span> <span style="color:#719e07">&#39;</span>((<span style="color:#2aa198">&#34;gnu&#34;</span>  <span style="color:#719e07">.</span> <span style="color:#2aa198">&#34;http://mirrors.cloud.tencent.com/elpa/gnu/&#34;</span>)
+</span></span><span style="display:flex;"><span>             (<span style="color:#2aa198">&#34;melpa&#34;</span> <span style="color:#719e07">.</span> <span style="color:#2aa198">&#34;http://mirrors.cloud.tencent.com/elpa/melpa/&#34;</span>)))
+</span></span><span style="display:flex;"><span>(<span style="color:#268bd2">package-initialize</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75">;;; init.el ends here</span>
 </span></span></code></pre></div><p>基础的设置和插件镜像源就配置好了，此配置可完全复制照抄。</p>
 <p>重启Emacs，按下<code>M-x</code>输入<code>package-list-packages</code>即可查看仓库中的所有插件</p>
 <p><img src="/images/%E5%88%9D%E6%8A%98%E8%85%BEEmacs%E8%AE%B0%E5%BD%95/image-20250413122315180.png" alt="image-20250413122315180"></p>
@@ -95,18 +173,34 @@
 <h2 id="use-package">use-package</h2>
 <h3 id="安装">安装</h3>
 <p>输入命令<code>package-install</code>回车后输入use-package回车，然后在init.el的最上面写</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span>(<span style="color:#b8860b">eval-when-compile</span>
-</span></span><span style="display:flex;"><span> (<span style="color:#00a000">require</span> <span style="color:#b8860b">&#39;use-package</span>))
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span>(<span style="color:#268bd2">eval-when-compile</span>
+</span></span><span style="display:flex;"><span> (<span style="color:#268bd2">require</span> <span style="color:#2aa198">&#39;use-package</span>))
 </span></span></code></pre></div><p>每次启动Emacs优先加载此插件</p>
 
-</div>
- 
-<div>
-    <a  class="label" href="/tags/emacs/">#Emacs</a>
-</div>
+        </div>
+        <footer>
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">yingyu5658</span></span><time>Apr 13, 2025</time>
+    
+      <span class="categories">
+        Tags:<a class="category" href="https://www.yingyu5658.me/tags/emacs">Emacs</a>  
+    
+    </span>
+  </p><p class="meta">
+    
+        <a class="basic-alignment left" href="https://www.yingyu5658.me/post/%E9%9A%8F%E7%AC%94/%E7%9B%BC%E6%9C%9B%E4%B8%8B%E9%9B%A8/" title="盼望下雨">盼望下雨</a>
+    
 
-<link rel="stylesheet" href="/css/main.css" />
-<div id="waline"></div>
+    
+      <a class="basic-alignment right" href="https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BB%88%E7%AB%AF%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" title="从0开始搭建自己的终端开发环境">从0开始搭建自己的终端开发环境</a>
+    
+  </p>
+  
+  
+</footer>
+
+
+		<div id="waline"></div>
 <script type="module">
 	import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
 	init({
@@ -115,16 +209,122 @@
 	});
 </script>
 
-	<footer>
-		<p>-----------------------------------</p>
 
-<p>Email: i (at) yingyu5658 (dot) com</p>
 
-<img src="/notbyai.png" class="not-by-ai" /> <br>
- 
+      </article>
+    </div>
+    <aside class="sidebar thirds">
+  <section class="first odd">
+
+    
+      <h1>Misc</h1>
+    
+
+    <p>
+      
+        <p>E-mail: 
+<a href="mailto:i@yingyu5658.me">i@yingyu5658.me</a></p>
+<p>Newsgroup: news.yingyu5658.me</p>
+<p>Github: 
+<a href="https://www.github.com/yingyu5658" target="_blank" rel="noopener">https://www.github.com/yingyu5658</a></p>
+<p><img src="/unamed.jpg" alt=""></p>
+
+      
+    </p>
+  </section><ul class="sidebar-nav">
+  <li class="sidebar-nav-item">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </li>
+</ul>
+
+    
+      <section class="even">
+        <h1>Recent Posts</h1>
+        <ul id="recent_posts">
+          
+          
+            
+          
+            
+              <li class="post">
+                <a href="/post/%E9%9A%8F%E7%AC%94/%E7%A7%8B%E5%A4%A9%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A3%B0%E7%8B%97%E5%8F%AB/">秋天的第一声狗叫</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/%E9%9A%8F%E7%AC%94/%E6%9C%AA%E5%91%BD%E5%90%8D/">未命名</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/%E6%8A%80%E6%9C%AF/how-to-subscribe-newsgroup/">如何订阅新闻组</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/%E9%9A%8F%E7%AC%94/%E6%9C%80%E8%86%88%E5%BA%94%E4%B8%8D%E7%88%B1%E6%83%9C%E4%B9%A6%E7%9A%84%E4%BA%BA/">最膈应不爱惜书的人</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/%E9%9A%8F%E7%AC%94/%E5%88%AB%E9%97%B2%E7%9D%80%E6%B2%A1%E4%BA%8B%E8%87%AA%E6%90%9C%E9%BB%91%E5%8E%86%E5%8F%B2%E5%95%8A/">别闲着没事自搜，黑历史啊</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/%E9%9A%8F%E7%AC%94/%E6%97%A9%E7%9D%A1%E6%97%A9%E8%B5%B7%E7%9A%84%E4%BC%98%E7%82%B9/">早睡早起的优点</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/%E6%8A%80%E6%9C%AF/%E4%BB%8E%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%88%B0%E7%89%A9%E7%90%86%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90%E7%A8%8B%E5%BA%8F%E7%9A%84%E7%BC%96%E8%AF%91%E4%B8%8E%E6%89%A7%E8%A1%8C/">从编译原理到物理原理剖析程序的编译与执行</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/%E6%8A%80%E6%9C%AF/set-up-newsgroup/">在2025年，搭建新闻组</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/%E9%9A%8F%E7%AC%94/%E6%97%A0%E8%9D%89%E9%B8%A3%E5%A4%8F/">无蝉鸣夏</a>
+              </li>
+            
+          
+        </ul>
+      </section>
+    
+  
+</aside>
+
+  </div>
+</div>
+
+
+
+    <footer role="contentinfo">
+      <p>Copyright &copy; 2025 yingyu5658 - <a href="https://www.yingyu5658.me/license/">License</a> -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io" rel="noopener noreferrer">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/" rel="noopener noreferrer">Hugo-Octopress</a> theme.
+      </p>
     </footer>
-
-</main>
-      </body>
+  </body>
 </html>
 

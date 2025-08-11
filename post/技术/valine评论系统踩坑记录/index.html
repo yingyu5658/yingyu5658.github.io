@@ -1,42 +1,136 @@
-<!doctype html>
-<html
-  lang="zh-CN"
-  dir="ltr"
->
-  <head>
-<meta charset="utf-8"> <meta name="viewport" content="width=device-width"> <title>Valine评论系统踩坑记录 | 映屿</title>  <link rel="stylesheet" href="/css/main.min.b3c2b1719da459be773323892668daea201afd0e70c30ce64aaeb8bdeb9ef5fa.css" integrity="sha256-s8KxcZ2kWb53MyOJJmja6iAa/Q5wwwzmSq64veue9fo=" crossorigin="anonymous">  <script src="/js/main.a7956529a5290cbd80aa9c64ee52ceefa89957b568d8a14c217a91d7f4d6aa38.js" integrity="sha256-p5VlKaUpDL2Aqpxk7lLO76iZV7Vo2KFMIXqR1/TWqjg=" crossorigin="anonymous"></script>
-  </head>
-  <body>
-		<main> 
-	<header>
-		<meta charset="utf-8"> <meta name="viewport" content="width=device-width"> <title>Valine评论系统踩坑记录 | 映屿</title>  <link rel="stylesheet" href="/css/main.min.b3c2b1719da459be773323892668daea201afd0e70c30ce64aaeb8bdeb9ef5fa.css" integrity="sha256-s8KxcZ2kWb53MyOJJmja6iAa/Q5wwwzmSq64veue9fo=" crossorigin="anonymous">  <script src="/js/main.a7956529a5290cbd80aa9c64ee52ceefa89957b568d8a14c217a91d7f4d6aa38.js" integrity="sha256-p5VlKaUpDL2Aqpxk7lLO76iZV7Vo2KFMIXqR1/TWqjg=" crossorigin="anonymous"></script>
-	</header>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
 
-	   <h1 class="inner-post-title">Valine评论系统踩坑记录</h1> 
-<time datetime="2025-04-23">
-  Apr. 23, 2025
-</time> 
-   <hr>
-<div class="post-content">
-<p>我个人很早以前就惦记着换上这个评论系统，曾经使用Butterfly主题的时候就有折腾过Valine，当时是浏览器缓存策略和CORS跨域拦截的问题。网上能找到的教程都比较老，几年以前的情况不再适用于现在了，所以现在去折腾的话，大概率要踩非常多的坑。本文主要讲述我个人踩到的坑和解决方法。</p>
+  
+      <link href="/css/fonts.css" rel="stylesheet" type="text/css">
+    
+  <title>Valine评论系统踩坑记录</title><link rel="stylesheet" href="/css/hugo-octopress.css">
+
+  
+    <link rel="stylesheet" href="/css/fork-awesome.min.css">
+  
+    <link href="https://www.yingyu5658.me/favicon.png" rel="icon">
+  
+
+  <meta name="description" content="" />
+  <meta name="keywords" content="">
+  <meta name="author" content="yingyu5658"><meta name="generator" content="Hugo 0.148.2">
+
+</head>
+<body><header role="banner"><hgroup><h1><a href="https://www.yingyu5658.me/">映屿</a></h1>
+    <h2>yingyu5658的数字花园</h2>
+</hgroup></header><nav role="navigation"><fieldset class="mobile-nav"><select onchange="location = this.value;">
+    <option value="">Navigate…</option>
+      
+        <option value="https://www.yingyu5658.me/">» Home</option>
+      
+        <option value="https://www.yingyu5658.me/about">» About</option>
+      
+        <option value="https://www.yingyu5658.me/post">» Archive</option>
+      
+        <option value="https://www.yingyu5658.me/links">» Links</option>
+      
+        <option value="https://www.yingyu5658.me/newsgroup">» Newsgroup</option>
+      
+  </select>
+</fieldset><ul class="main-navigation">
+    
+      <li><a href="https://www.yingyu5658.me/" title="Home">Home</a></li>
+    
+  
+    
+      <li><a href="https://www.yingyu5658.me/about" title="About"  target="_blank"  rel="noopener noreferrer">About</a></li>
+    
+  
+    
+      <li><a href="https://www.yingyu5658.me/post" title="Archive"  target="_blank"  rel="noopener noreferrer">Archive</a></li>
+    
+  
+    
+      <li><a href="https://www.yingyu5658.me/links" title="Links"  target="_blank"  rel="noopener noreferrer">Links</a></li>
+    
+  
+    
+      <li><a href="https://www.yingyu5658.me/newsgroup" title="Newsgroup"  target="_blank"  rel="noopener noreferrer">Newsgroup</a></li>
+    
+  
+</ul>
+
+<ul class="subscription">
+  
+    
+        <a href="https://www.yingyu5658.me/atom.xml" target="_blank" type="application/rss+xml" title="RSS" rel="noopener noreferrer"><i class="fa fa-rss-square fa-lg"></i></a>
+    
+  
+</ul>
+
+
+  <form action="https://www.google.com/search" method="get" target="_blank" rel="noopener noreferrer">
+    <fieldset role="search">
+      <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+      <input type="hidden" name="q" value="site:https://www.yingyu5658.me/" />
+    </fieldset>
+  </form>
+
+</nav>
+
+
+<div id="main">
+  <div id="content">
+    <div>
+      <article class="hentry" role="article">
+
+        
+        <header>
+  <p class="meta">Apr 23, 2025
+     - 1 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e6%8a%80%e6%9c%af/">技术 </a>
+    
+  </p>
+  <h1 class="entry-title">
+     Valine评论系统踩坑记录 
+  </h1>
+</header>
+
+
+        <div class="entry-content">
+          
+          <p>我个人很早以前就惦记着换上这个评论系统，曾经使用Butterfly主题的时候就有折腾过Valine，当时是浏览器缓存策略和CORS跨域拦截的问题。网上能找到的教程都比较老，几年以前的情况不再适用于现在了，所以现在去折腾的话，大概率要踩非常多的坑。本文主要讲述我个人踩到的坑和解决方法。</p>
 <p>本文内容是我自己试错出来的，不要问为什么要这么做，我也不清楚，但是这么做可以正常使用！</p>
 <p>首先你要有一个自己的域名，不要用.github.io。LeanCloud中设置-域名绑定-API访问域名要绑定你自己的二级域。</p>
 <p><img src="./image-20250423220150404.png" alt=""></p>
 <p>这里一定一定要做DNS解析，非常重要。</p>
 <p>然后就是安全中心里面的Web安全域名，LeanCloud默认放行localhost，但是127.0.0.1我这边测试是不行的，如果有需求要自己填写。Web安全域名要填写https、http两种协议保险。</p>
 <p>主题配置文件中，以我这个主题为例，serverURLs要填写自己的二级域名</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">serverURLs</span>:<span style="color:#bbb"> </span>https://comment.yingyu5658.me<span style="color:#bbb">
-</span></span></span></code></pre></div><p>一定要加协议头，否则将会在你的博客域名下构建请求，比如我的<code>www.yingyu5658.me/comment.yingyu5658.me/</code>，这将导致报错。即使你使用国际版也要填写这一项！Leancloud请求不到。</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span> <span style="color:#268bd2">serverURLs</span>: https://comment.yingyu5658.me
+</span></span></code></pre></div><p>一定要加协议头，否则将会在你的博客域名下构建请求，比如我的<code>www.yingyu5658.me/comment.yingyu5658.me/</code>，这将导致报错。即使你使用国际版也要填写这一项！Leancloud请求不到。</p>
 <p>现在Valine的教程都有过时，遇到问题还需结合具体情况分析。我看LeanCloud的各种API结构变更还挺多的，太久远的教程就不建议看了。</p>
 
-</div>
- 
-<div>
-    <a  class="label" href="/tags/%E5%8D%9A%E5%AE%A2/">#博客</a>
-</div>
+        </div>
+        <footer>
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">yingyu5658</span></span><time>Apr 23, 2025</time>
+    
+      <span class="categories">
+        Tags:<a class="category" href="https://www.yingyu5658.me/tags/%e5%8d%9a%e5%ae%a2">博客</a>  
+    
+    </span>
+  </p><p class="meta">
+    
+        <a class="basic-alignment left" href="https://www.yingyu5658.me/post/%E9%9A%8F%E7%AC%94/%E6%94%92%E9%92%B1%E7%9B%AE%E6%A0%87%E8%BE%BE%E6%88%90/" title="攒钱目标达成？！">攒钱目标达成？！</a>
+    
 
-<link rel="stylesheet" href="/css/main.css" />
-<div id="waline"></div>
+    
+      <a class="basic-alignment right" href="https://www.yingyu5658.me/post/%E9%9A%8F%E7%AC%94/%E9%9A%90%E5%B1%85/" title="隐居">隐居</a>
+    
+  </p>
+  
+  
+</footer>
+
+
+		<div id="waline"></div>
 <script type="module">
 	import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
 	init({
@@ -45,16 +139,122 @@
 	});
 </script>
 
-	<footer>
-		<p>-----------------------------------</p>
 
-<p>Email: i (at) yingyu5658 (dot) com</p>
 
-<img src="/notbyai.png" class="not-by-ai" /> <br>
- 
+      </article>
+    </div>
+    <aside class="sidebar thirds">
+  <section class="first odd">
+
+    
+      <h1>Misc</h1>
+    
+
+    <p>
+      
+        <p>E-mail: 
+<a href="mailto:i@yingyu5658.me">i@yingyu5658.me</a></p>
+<p>Newsgroup: news.yingyu5658.me</p>
+<p>Github: 
+<a href="https://www.github.com/yingyu5658" target="_blank" rel="noopener">https://www.github.com/yingyu5658</a></p>
+<p><img src="/unamed.jpg" alt=""></p>
+
+      
+    </p>
+  </section><ul class="sidebar-nav">
+  <li class="sidebar-nav-item">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </li>
+</ul>
+
+    
+      <section class="even">
+        <h1>Recent Posts</h1>
+        <ul id="recent_posts">
+          
+          
+            
+          
+            
+              <li class="post">
+                <a href="/post/%E9%9A%8F%E7%AC%94/%E7%A7%8B%E5%A4%A9%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A3%B0%E7%8B%97%E5%8F%AB/">秋天的第一声狗叫</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/%E9%9A%8F%E7%AC%94/%E6%9C%AA%E5%91%BD%E5%90%8D/">未命名</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/%E6%8A%80%E6%9C%AF/how-to-subscribe-newsgroup/">如何订阅新闻组</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/%E9%9A%8F%E7%AC%94/%E6%9C%80%E8%86%88%E5%BA%94%E4%B8%8D%E7%88%B1%E6%83%9C%E4%B9%A6%E7%9A%84%E4%BA%BA/">最膈应不爱惜书的人</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/%E9%9A%8F%E7%AC%94/%E5%88%AB%E9%97%B2%E7%9D%80%E6%B2%A1%E4%BA%8B%E8%87%AA%E6%90%9C%E9%BB%91%E5%8E%86%E5%8F%B2%E5%95%8A/">别闲着没事自搜，黑历史啊</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/%E9%9A%8F%E7%AC%94/%E6%97%A9%E7%9D%A1%E6%97%A9%E8%B5%B7%E7%9A%84%E4%BC%98%E7%82%B9/">早睡早起的优点</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/%E6%8A%80%E6%9C%AF/%E4%BB%8E%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%88%B0%E7%89%A9%E7%90%86%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90%E7%A8%8B%E5%BA%8F%E7%9A%84%E7%BC%96%E8%AF%91%E4%B8%8E%E6%89%A7%E8%A1%8C/">从编译原理到物理原理剖析程序的编译与执行</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/%E6%8A%80%E6%9C%AF/set-up-newsgroup/">在2025年，搭建新闻组</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/%E9%9A%8F%E7%AC%94/%E6%97%A0%E8%9D%89%E9%B8%A3%E5%A4%8F/">无蝉鸣夏</a>
+              </li>
+            
+          
+        </ul>
+      </section>
+    
+  
+</aside>
+
+  </div>
+</div>
+
+
+
+    <footer role="contentinfo">
+      <p>Copyright &copy; 2025 yingyu5658 - <a href="https://www.yingyu5658.me/license/">License</a> -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io" rel="noopener noreferrer">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/" rel="noopener noreferrer">Hugo-Octopress</a> theme.
+      </p>
     </footer>
-
-</main>
-      </body>
+  </body>
 </html>
 

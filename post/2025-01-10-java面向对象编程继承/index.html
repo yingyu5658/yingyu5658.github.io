@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+
+  
+      <link href="/css/fonts.css" rel="stylesheet" type="text/css">
+    
+  <title>Java面向对象编程——继承</title><link rel="stylesheet" href="/css/hugo-octopress.css">
+
+  
+    <link rel="stylesheet" href="/css/fork-awesome.min.css">
+  
+    <link href="http://localhost:1313/favicon.png" rel="icon">
+  
+
+  <meta name="description" content="" />
+  <meta name="keywords" content="">
+  <meta name="author" content="yingyu5658"><meta name="generator" content="Hugo 0.148.2">
+
+</head>
+<body><header role="banner"><hgroup><h1><a href="http://localhost:1313/">映屿</a></h1>
+    <h2>yingyu5658的数字花园</h2>
+</hgroup></header><nav role="navigation"><fieldset class="mobile-nav"><select onchange="location = this.value;">
+    <option value="">Navigate…</option>
+      
+        <option value="http://localhost:1313/">» Home</option>
+      
+        <option value="http://localhost:1313/about">» About</option>
+      
+        <option value="http://localhost:1313/post">» Archive</option>
+      
+        <option value="http://localhost:1313/links">» Links</option>
+      
+        <option value="http://localhost:1313/newsgroup">» Newsgroup</option>
+      
+  </select>
+</fieldset><ul class="main-navigation">
+    
+      <li><a href="http://localhost:1313/" title="Home">Home</a></li>
+    
+  
+    
+      <li><a href="http://localhost:1313/about" title="About"  target="_blank"  rel="noopener noreferrer">About</a></li>
+    
+  
+    
+      <li><a href="http://localhost:1313/post" title="Archive"  target="_blank"  rel="noopener noreferrer">Archive</a></li>
+    
+  
+    
+      <li><a href="http://localhost:1313/links" title="Links"  target="_blank"  rel="noopener noreferrer">Links</a></li>
+    
+  
+    
+      <li><a href="http://localhost:1313/newsgroup" title="Newsgroup"  target="_blank"  rel="noopener noreferrer">Newsgroup</a></li>
+    
+  
+</ul>
+
+<ul class="subscription">
+  
+    
+        <a href="http://localhost:1313/atom.xml" target="_blank" type="application/rss+xml" title="RSS" rel="noopener noreferrer"><i class="fa fa-rss-square fa-lg"></i></a>
+    
+  
+</ul>
+
+
+  <form action="https://www.google.com/search" method="get" target="_blank" rel="noopener noreferrer">
+    <fieldset role="search">
+      <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+      <input type="hidden" name="q" value="site:http://localhost:1313/" />
+    </fieldset>
+  </form>
+
+</nav>
+
+
+<div id="main">
+  <div id="content">
+    <div>
+      <article class="hentry" role="article">
+
+        
+        <header>
+  <p class="meta">Jan 10, 2025
+     - 1 minute read - <a class="label" href="http://localhost:1313/categories/%e6%8a%80%e6%9c%af/">技术 </a>
+    
+  </p>
+  <h1 class="entry-title">
+     Java面向对象编程——继承 
+  </h1>
+</header>
+
+
+        <div class="entry-content">
+          
+          <h1 id="什么是继承">什么是继承</h1>
+<ul>
+<li>Java中提供了一个关键字<code>extends</code>，用这个关键字，可以让一个类和另一个类建立起父子关系。</li>
+</ul>
+<h2 id="继承的特点">继承的特点</h2>
+<ul>
+<li>子类能继承父类的非私有成员变量和成员方法。</li>
+</ul>
+<h2 id="继承后对象的创建">继承后对象的创建</h2>
+<ul>
+<li>子类的对象是由子类、父类共同完成的。</li>
+</ul>
+<h1 id="继承相关的注意事项">继承相关的注意事项</h1>
+<h2 id="权限修饰符">权限修饰符</h2>
+<h2 id="什么是权限修饰符">什么是权限修饰符？</h2>
+<ul>
+<li>用来限制类中的成员（成员变量、成员方法、构造器、代码块&hellip;）能够被访问的范围</li>
+</ul>
+<h2 id="权限修饰符有几种与各自的作用">权限修饰符有几种与各自的作用</h2>
+<table>
+  <thead>
+      <tr>
+          <th>修饰符</th>
+          <th>在本类中</th>
+          <th>同一个包下的其他类</th>
+          <th>任意包下的子类</th>
+          <th>任意包下的任意类</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>private</td>
+          <td>√</td>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>缺省</td>
+          <td>√</td>
+          <td>√</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>protected</td>
+          <td>√</td>
+          <td>√</td>
+          <td>√</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>public</td>
+          <td>√</td>
+          <td>√</td>
+          <td>√</td>
+          <td>√</td>
+      </tr>
+      <tr>
+          <td>provate &lt; 缺省 &lt; protected &lt; public</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+  </tbody>
+</table>
+<h1 id="单继承">单继承</h1>
+<p>Java是<strong>继承</strong>的，Java中的类<strong>不支持多继承</strong>，但是支持<strong>多层继承</strong>。</p>
+<h1 id="object类">Object类</h1>
+<ul>
+<li>Ojbect类是所有Java类的父类，任何类都是Object的子类。</li>
+</ul>
+<h1 id="方法重写">方法重写</h1>
+<h2 id="什么是方法重写">什么是方法重写</h2>
+<ul>
+<li>当子类发现父类中的方法无法满足自己的需求时，<strong>子类可以重写一个方法名称、参数列表一样的方法</strong>去覆盖父类的这个方法，这就是方法重写。</li>
+<li>注意：方法重写后，方法的访问遵循<strong>就近原则</strong>。</li>
+</ul>
+<h2 id="方法重写的注意事项">方法重写的注意事项</h2>
+<ul>
+<li>重写时使用<strong>Override注解</strong>，他可以指定Java编译器，检查我们方法重写的格式是否正确，代码可读性也会更好。</li>
+<li>子类重写父类方法时，访问权限必须大于或等于父类该方法的权限（<strong>public &gt; protected &gt; 缺省</strong>）。</li>
+<li>重写的方法返回值类型，必须与被重写方法的返回值类型一样，或者范围更小。</li>
+<li>私有方法、静态方法不能被重写，如果重写会报错。</li>
+</ul>
+<h2 id="方法重写在开发中的常见应用场景">方法重写在开发中的常见应用场景</h2>
+<ul>
+<li>子类重写Object类的toString()方法，以便返回对象的内容。</li>
+</ul>
+<h1 id="子类中访问其他成员的特点">子类中访问其他成员的特点</h1>
+<ol>
+<li>
+<p>在子类方法中访问其他成员是按照就近原则的。</p>
+<ul>
+<li>先子类局部范围找。</li>
+<li>然后子类成员范围找。</li>
+<li>然后父类成员找</li>
+<li>然后父类成员范围找，如果父类范围还没有找到则报错。</li>
+</ul>
+</li>
+<li>
+<p>如果子父类中，出现了重名的成员，会优先使用子类的，如果此时一定要在子类中使用父类的方法怎么办？</p>
+<ul>
+<li>可以通过<code>super</code>关键字，指定访问父类的成员：<code>super.父类成员变量/父类成员方法</code></li>
+</ul>
+</li>
+</ol>
+<h1 id="子类构造器的特点">子类构造器的特点</h1>
+<ul>
+<li>子类的全部构造器，都会先调用父类的构造器，再执行自己。</li>
+</ul>
+<h2 id="子类构造器是如何实现调用父类构造器的">子类构造器是如何实现调用父类构造器的：</h2>
+<ul>
+<li>默认情况下，子类全部构造器的第一行代码是<code>super();</code>（写不写都有），他会调用父类的无参数构造器。</li>
+<li>如果父类没有无参数构造器，我们必须在子类构造器的第一行手写<code>super();</code>，指定去调用父类的构造器。</li>
+</ul>
+<p><img src="https://www.yingyu5658.cn/usr/uploads/2024/12/2743265221.jpg" alt=""></p>
+
+        </div>
+        <footer>
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">yingyu5658</span></span><time>Jan 10, 2025</time>
+    
+      <span class="categories">
+        Tags:<a class="category" href="http://localhost:1313/tags/java">Java</a>  
+    
+    </span>
+  </p><p class="meta">
+    
+        <a class="basic-alignment left" href="http://localhost:1313/post/2025-01-08-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E5%85%B3%E9%97%AD%E4%BA%86%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/" title="为什么我关闭了评论功能">为什么我关闭了评论功能</a>
+    
+
+    
+      <a class="basic-alignment right" href="http://localhost:1313/post/2025-01-10-java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E5%A4%9A%E6%80%81%E6%8A%BD%E8%B1%A1%E7%B1%BB%E6%8E%A5%E5%8F%A3/" title="Java面向对象编程——多态、抽象类、接口">Java面向对象编程——多态、抽象类、接口</a>
+    
+  </p>
+  
+  
+</footer>
+
+
+      </article>
+    </div>
+    <aside class="sidebar thirds">
+  <section class="first odd">
+
+    
+      <h1>Misc</h1>
+    
+
+    <p>
+      
+        <p>E-mail: 
+<a href="mailto:i@yingyu5658.me">i@yingyu5658.me</a></p>
+<p>Newsgroup: news.yingyu5658.me</p>
+<p>Github: 
+<a href="https://www.github.com/yingyu5658" target="_blank" rel="noopener">https://www.github.com/yingyu5658</a></p>
+<p><img src="/unamed.jpg" alt=""></p>
+
+      
+    </p>
+  </section><ul class="sidebar-nav">
+  <li class="sidebar-nav-item">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </li>
+</ul>
+
+    
+      <section class="even">
+        <h1>Recent Posts</h1>
+        <ul id="recent_posts">
+          
+          
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-08-08-%E6%9C%AA%E5%91%BD%E5%90%8D/">未命名</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-08-07-%E5%A6%82%E4%BD%95%E8%AE%A2%E9%98%85%E6%96%B0%E9%97%BB%E7%BB%84/">如何订阅新闻组</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-08-06-%E6%9C%80%E8%86%88%E5%BA%94%E4%B8%8D%E7%88%B1%E6%83%9C%E4%B9%A6%E7%9A%84%E4%BA%BA/">最膈应不爱惜书的人</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-08-06-%E5%88%AB%E9%97%B2%E7%9D%80%E6%B2%A1%E4%BA%8B%E8%87%AA%E6%90%9C%E9%BB%91%E5%8E%86%E5%8F%B2%E5%95%8A/">别闲着没事自搜，黑历史啊</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-08-04-%E6%97%A9%E7%9D%A1%E6%97%A9%E8%B5%B7%E7%9A%84%E4%BC%98%E7%82%B9/">早睡早起的优点</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-07-29-%E4%BB%8E%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%88%B0%E7%89%A9%E7%90%86%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90%E7%A8%8B%E5%BA%8F%E7%9A%84%E7%BC%96%E8%AF%91%E4%B8%8E%E6%89%A7%E8%A1%8C/">从编译原理到物理原理剖析程序的编译与执行</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-07-26-%E5%9C%A82025%E5%B9%B4%E6%90%AD%E5%BB%BA%E6%96%B0%E9%97%BB%E7%BB%84/">在2025年，搭建新闻组</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-07-22-%E6%97%A0%E8%9D%89%E9%B8%A3%E5%A4%8F/">无蝉鸣夏</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/post/2025-07-21-%E4%B8%87%E8%83%BD%E5%BF%85%E8%83%9C%E6%B2%9F%E9%80%9A%E6%B3%95/">万能必胜沟通法</a>
+              </li>
+            
+          
+        </ul>
+      </section>
+    
+  
+</aside>
+
+  </div>
+</div>
+<div id="waline"></div>
+<script type="module">
+	import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+	init({
+		el: '#waline',
+		serverURL: 'waline.yingyu5658.me'
+	});
+</script>
+
+
+
+
+
+    <footer role="contentinfo">
+      <p>Copyright &copy; 2025 yingyu5658 - <a href="http://localhost:1313/license/">License</a> -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io" rel="noopener noreferrer">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/" rel="noopener noreferrer">Hugo-Octopress</a> theme.
+      </p>
+    </footer>
+  </body>
+</html>
+
