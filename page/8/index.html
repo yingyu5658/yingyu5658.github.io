@@ -67,12 +67,41 @@
 </ul>
 
 
-  <form action="https://www.google.com/search" method="get" target="_blank" rel="noopener noreferrer">
+
+
+
+
+  <form action="https://www.bing.com/search" method="get" target="_blank" rel="noopener noreferrer">
     <fieldset role="search">
-      <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-      <input type="hidden" name="q" value="site:https://www.yingyu5658.me/" />
+      <input class="search"
+             type="text"
+             name="userQuery"
+             results="0"
+             placeholder="Search"
+             autocomplete="off">
+      
+      <input type="hidden" 
+             name="q" 
+             value="www.yingyu5658.me">
     </fieldset>
   </form>
+  
+  <script>
+    (function() {
+      const form = document.querySelector('form[action="https://www.bing.com/search"]');
+      if (!form) return;
+      
+      form.addEventListener('submit', function(e) {
+        const userInput = this.querySelector('[name="userQuery"]');
+        const hiddenQuery = this.querySelector('[name="q"]');
+        const query = userInput.value.trim();
+        
+        hiddenQuery.value = query ? 
+          `${query} site:${hiddenQuery.value}` : 
+          `site:${hiddenQuery.value}`;
+      });
+    })();
+  </script>
 
 </nav>
 
@@ -83,200 +112,475 @@
       
         
         <article><header>
-  <p class="meta">Jun 11, 2025
-     - 1 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e9%9a%8f%e7%ac%94/">随笔 </a>
-    
-  </p>
-  <h1 class="entry-title">
-     我说过吗？ 
-  </h1>
-</header>
-
-          
-            <p><p>我见到了一个口齿不清又爱自言自语的人。</p>
-<p>“我说过这个吗？”</p>
-<p>“没说过啊？”</p>
-<p>“哦哦对的对的哦不对不对哦对的对的。”</p>
-<p>“我说过那个吗？”</p>
-<p>“没说过啊？”</p>
-<p>“这个不说了。”</p>
-<p>“那个也不说了！”</p>
-<p>“不对，哦哦对的对的，不对不对。”</p>
-<p>我真说了，我真没说，我真说了！！！</p>
-<p>对，对吗？</p></p>
-              <footer>
-                <a href="https://www.yingyu5658.me/post/%E9%9A%8F%E7%AC%94/%E6%88%91%E8%AF%B4%E8%BF%87%E5%90%97/" rel="full-article">Would you like to know more? →</a>
-              </footer>
-          
-        </article>
-        
-        <article><header>
-  <p class="meta">Jun 10, 2025
+  <p class="meta">Apr 6, 2025
      - 1 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e6%8a%80%e6%9c%af/">技术 </a>
     
   </p>
   <h1 class="entry-title">
-     从浏览器设置入手，一招破解作文网站禁止复制 
+     把主力机系统换成Arch Linux是我这辈子做过的最蠢的决定 
   </h1>
 </header>
 
           
-            禁用JavaScript
+            <p><h1 id="前言">前言</h1>
+<p>先说结论。</p>
+<p><strong>我是傻逼！</strong></p>
+<p><strong>我是傻逼！！</strong></p>
+<p><strong>我是傻逼！！！</strong></p>
+<p>本文将讲述</p>
+<ul>
+<li>为什么我放弃了Arch</li>
+<li>为什么我放弃了Linux。</li>
+<li>什么人适合用Linux做主力系统</li>
+</ul>
+<p>本文的所有观点仅仅代表个人观点，我纯菜。你问我为什么要选择Arch，而不是Ubuntu或者其他新手友好的发行版，我不知道，正如上文所说，我是傻逼！</p>
+<h2 id="为什么我放弃了arch">为什么我放弃了Arch</h2>
+<p>说到这个问题，就要先来谈谈为什么我要把Windows换成Linux。</p>
+<p>Linux这个系统对于我来说一直是神秘而美好的，至少在当时。我痴迷于命令行、终端、Vim这种工具。小时候也看过爸爸零几年买的《鸟哥的Linux私房菜》，给我当时幼小的心灵带来的极大的震撼。</p>
+<p>我当时也对Linux的目录结构非常新鲜，不分盘的设定感觉很好玩。</p>
+<p>我网站的服务器是Linux、身边的各种设备都有Linux的影子，这更加提高了我对Linux的向往程度。</p>
+<p>还有一个原因是，我当时正在用C语言写一个小工具，Windows下的gcc无法使用通配符<code>*</code>，要想用只能去打开Git Bash或者MSYS2，这俩东西界面的丑陋程度相比就不用我多说了，我当时就是喜欢把精力浪费在不必要的地方上，Windows的那个终端被我“美化”得花里胡哨的，上面两者的界面当然入不了我的眼。</p>
+<p>为了解决这个问题，我开始使用WSL2，但仅仅停留在开始阶段。</p>
+<p>我这个系统不知道怎么回事，根本没办法用WSL2，详情见https://www.yingyu5658.cn/post/1348465439/</p>
+<p>全网都没有遇到这个问题的，那既然如此，重装系统吧。</p>
+<p>和系统相处就像谈恋爱，总有一段热恋期，过了这个时期后就冷淡了、矛盾也就浮出水面。刚装好的前几天，我的热情前所未有的高涨，学习各种命令、各种工具，当然少不了配置我最爱的Vim。那么说到Vim，归根结底是文本编辑器对吧，打字的软件，那么就要说说我用Linux的第一大困难——<strong>输入法配置难</strong></p>
+<h3 id="输入法配置难">输入法配置难</h3>
+<p>我是双拼用户，从小学六年级就开始用小鹤双拼打字了，这么长时间的习惯很难改，我也不想改。但是Linux上对双拼友好的输入法方案几乎没几个，我尝试过两个，Fcitx5 + 搜狗, Fcitx5 + Rime。</p>
+<p>这两个方案都大差不差，只是搜狗的可能略微智能一点，下载源什么的换成国内镜像，分分钟搞定下载问题。难就难在，我使用的终端不兼容Fcitx。</p>
+<p>没错，我用的就是Kitty。</p>
+<p>那么，肯定有人就想说，KDE自带的Console不能用吗？非得额外下载一个干什么？？</p>
+<p>我的答案就是：<strong>丑</strong>。</p>
+<p>没错，就是因为Console丑。当然他也可以美化，但问题就在于，他的窗口圆角不彻底，而且把标签页显示关掉后，只能额外开一个窗口，占用屏幕空间。</p>
+<p>而Kitty就不同，窗口边框干净利落，看起来很舒服，而且配色看起来也比Konsole那高饱和度的方案舒服太多了。标签页不是类似于系统组件的那种形式，所以不会额外占窗口空间。</p>
+<p>虽然不兼容问题，在程序启动参数添加一条指定ibus接口的命令就解决了。</p>
+<p>你问我为什么非得要追求好看，闲的么？我当时可能会扣一大串字来回怼你，但是我现在觉得我错了，我认同你的观点，就是闲的。</p>
+<p>如开头所说，我是傻逼！</p>
+<p>配置各种东西就免不了使用Github下载，那么就由此引出了第二个问题，<strong>代理配置难</strong></p>
+<h3 id="代理配置难">代理配置难</h3>
+<p>我这边访问Github非常不稳定，有时候能丝滑裸连，有时候挂代理都难上。我先用了Steam++的Github加速服务，但是他会把Github的一些地址都重定向到localhost导致使用Git的某些功能如<code>git push</code>异常。我又换到FastGithub，这东西很好用，但也有不稳定的时候，当他作为系统服务启动的时候，发生异常，想杀死他就变得十分困难，然后导致几乎所有Git功能都瘫痪，非常麻烦，<code>git clone</code>都跑不下来。</p>
+<h3 id="显卡驱动安装难">显卡驱动安装难</h3>
+<p>Linux显卡驱动问题一直都是社区津津乐道的蛋疼问题，更蛋疼的是我的显卡还是英伟达的，你问我为什么用英伟达显卡还玩Linux，我不知道。正如开头所说，我是傻逼！</p>
+<p>显卡驱动的问题，我研究了一周左右，虽然最后还是成功了，但是离正常使用还有一段距离。也是有很多小问题，比如使用系统自带的截图会黑屏，用不了i3等窗口管理器等等。</p>
+<p>当初安装显卡驱动导致的问题包括但不限于：</p>
+<ul>
+<li>鼠标灵敏度异常</li>
+<li>显示比例异常</li>
+<li>画面撕裂</li>
+<li>系统炸了</li>
+<li>桌面炸了</li>
+<li>能进图形界面但是不能登录</li>
+</ul>
+<p>嗯对就是这么离谱。当然经过我一番折腾还是达到了能用但体验不好的程度。</p>
+<h3 id="安装软件难">安装软件难</h3>
+<p>拿QQ举例，QQ官网的Linux安装包是.deb，如果我想安装，还是要经过一大通折腾，拼凑出来一个半成品QQ，而且最难受的是，每次他都会自动推送更新，我还更不了，还不能忽略版本，让我这个强迫症非常折磨。</p>
+<h2 id="为什么我放弃了linux">为什么我放弃了Linux</h2>
+<p>其实原本我是不打算放弃Linux的，因为我突然想玩星露谷物语了，就想着要不要装双系统，但是我装Arch根本没有经验，磁盘分区做的很烂，上面的一番折腾已经让我筋疲力尽，我不想再玩Arch，只想找一个开箱即用的Linux发行版。</p>
+<p>我的目光理所应当地投到了Ubuntu，这是我小时候体验的第一个Linux发行版，对我来说意义有点特殊，而且也属于开箱即用，所以Arch就光荣的升级为我的前任了。</p>
+<p>Windows系统的安装非常简单，只要一直下一步下一步下一步，然后等就行了。Ubuntu也差不多，但需要注意的一点是，有一个步骤让用户选择以怎样的方式安装Ubuntu，给了三个选项，一个是用Windows Boot Manager管理，一个是擦除磁盘，好像还有一个，没注意。</p>
+<p>我要装双系统，当然是选第一个选项，系统正常装上了，一切正常。下载软件，Neovim、VSCode、kitty。</p>
+<p>kitty&hellip;&hellip;</p>
+<p>上文提到，Kitty不支持fcitx5，理论上这个问题还是可以像Arch时期那么解决，但是我当时没找到怎么给程序添加启动参数。跟着网上的教程折腾了半天系统配置文件后，我成功的又把系统玩炸了，进不去桌面。</p>
+<p>当时已经是晚上十点多了，当天上午刚出去踏青，走了一万一千步，对于我来说已经把这一个月的活动量都用完了，筋疲力尽。非常困倦的状态下，我打算重装Ubuntu，正式因为特别困，智商下降得厉害，在安装程序选择了第二个：擦除磁盘。</p>
+<p>我原本Windows系统的D盘擦干净装了个Ubuntu。</p>
+<p>&hellip;&hellip;&hellip;.</p>
+<p>那就这样吧，也行，我试着在Windows里把C盘装的那个坏掉的Ubuntu删掉，但是Windows访问不了那块神秘区域。。。</p>
+<p>那行吧，重装系统。我格式化了C盘，删除了所有的分区，重装了Windows。在下载软件的时候猛地一惊。</p>
+<blockquote>
+<p>我为什么现在不用WSL了呢？</p></p>
               <footer>
-                <a href="https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/%E4%BB%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AE%BE%E7%BD%AE%E5%85%A5%E6%89%8B%E4%B8%80%E6%8B%9B%E7%A0%B4%E8%A7%A3%E4%BD%9C%E6%96%87%E7%BD%91%E7%AB%99%E7%A6%81%E6%AD%A2%E5%A4%8D%E5%88%B6/" rel="full-article">Would you like to know more? →</a>
+                <a href="https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/%E6%8A%8A%E4%B8%BB%E5%8A%9B%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%8D%A2%E6%88%90arch-linux%E6%98%AF%E6%88%91%E8%BF%99%E8%BE%88%E5%AD%90%E5%81%9A%E8%BF%87%E7%9A%84%E6%9C%80%E8%A0%A2%E7%9A%84%E5%86%B3%E5%AE%9A/" rel="full-article">Would you like to know more? →</a>
               </footer>
           
         </article>
         
         <article><header>
-  <p class="meta">Jun 7, 2025
-     - 6 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e6%8a%80%e6%9c%af/">技术 </a>
+  <p class="meta">Mar 30, 2025
+     - 1 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e6%8a%80%e6%9c%af/">技术 </a>
     
   </p>
   <h1 class="entry-title">
-     4Key音游段位单曲成绩计算的程序实现 
+     上帝类是什么？该如何避免上帝类？ 
   </h1>
 </header>
 
           
-            <p><h2 id="前言">前言</h2>
-<p>其实这个坑我很早以前就想开了，在我刚开始学编程那会就一直想写一个这个东西。但苦于数学进度没达到，要用到加权平均数，这东西我前两天才学到，之前对数学也一直是懒得学的状态，要不然几乎是看不懂那个算法的。</p>
-<p>我手头有一个
-<a href="https://github.com/Special-Week" target="_blank" rel="noopener">Special-Week</a>写的网页版的单曲成绩计算器，就以这个为研究样本吧。以下简称原作者为sw（如有冒犯请联系修改）</p>
-<h2 id="数据结构设计">数据结构设计</h2>
-<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>    <span style="color:#586e75">// 基础的4k类
-</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>    <span style="color:#268bd2">class</span> Dan4k {
-</span></span><span style="display:flex;"><span>        constructor(key1, key2, key3, key4, danName) {
-</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_key1 <span style="color:#719e07">=</span> key1;
-</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_key2 <span style="color:#719e07">=</span> key2;
-</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_key3 <span style="color:#719e07">=</span> key3;
-</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_key4 <span style="color:#719e07">=</span> key4;
-</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_danName <span style="color:#719e07">=</span> danName;
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    }
-</span></span></code></pre></div><p>每一个段（LN、Om），sw都单独写了一个内部类，继承Dan4k。</p>
-<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span> <span style="color:#586e75">// lnDan类
-</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>    <span style="color:#268bd2">class</span> LnDan <span style="color:#268bd2">extends</span> Dan4k {
-</span></span><span style="display:flex;"><span>        constructor(key1, lnKey1, key2, lnKey2, key3, lnKey3, key4, lnKey4, danName) {
-</span></span><span style="display:flex;"><span>            <span style="color:#268bd2">super</span>(key1, key2, key3, key4, danName);
-</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_lnKey1 <span style="color:#719e07">=</span> lnKey1;
-</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_lnKey2 <span style="color:#719e07">=</span> lnKey2;
-</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_lnKey3 <span style="color:#719e07">=</span> lnKey3;
-</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_lnKey4 <span style="color:#719e07">=</span> lnKey4;
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#586e75">// ma段
-</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>    <span style="color:#268bd2">class</span> MaDan <span style="color:#268bd2">extends</span> Dan4k {
-</span></span><span style="display:flex;"><span>        constructor(key1, key2, key3, key4, name1, name2, name3, name4, danName) {
-</span></span><span style="display:flex;"><span>            <span style="color:#268bd2">super</span>(key1, key2, key3, key4, danName);
-</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_name1 <span style="color:#719e07">=</span> name1;
-</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_name2 <span style="color:#719e07">=</span> name2;
-</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_name3 <span style="color:#719e07">=</span> name3;
-</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_name4 <span style="color:#719e07">=</span> name4;
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#586e75">// reform段
-</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>    <span style="color:#268bd2">class</span> ReformDan <span style="color:#268bd2">extends</span> Dan4k {
-</span></span><span style="display:flex;"><span>        constructor(key1, key2, key3, key4, name1, name2, name3, name4, danName) {
-</span></span><span style="display:flex;"><span>            <span style="color:#268bd2">super</span>(key1, key2, key3, key4, danName);
-</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_name1 <span style="color:#719e07">=</span> name1;
-</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_name2 <span style="color:#719e07">=</span> name2;
-</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_name3 <span style="color:#719e07">=</span> name3;
-</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_name4 <span style="color:#719e07">=</span> name4;
-</span></span><span style="display:flex;"><span>        }
+            <p><h1 id="什么是上帝类">什么是上帝类</h1>
+<p>所谓的上帝类，就是指<strong>一个类承担了过多的职能</strong>，变得过于<strong>臃肿</strong>和<strong>复杂</strong>、<strong>难以维护</strong>。没有遵守单一职责原则。像上帝一样什么都能干，每个功能高度耦合，牵一发而动全身，不利于业务的拓展。</p>
+<h1 id="上帝类是如何产生的">上帝类是如何产生的</h1>
+<p>上帝类的产生，通常是由于需要快速实现功能而做出的妥协，长期积累就变成繁重的技术债务。或是缺乏规划经验，功能不断地被加到类中。依旧长期积累，上帝类产生了。</p>
+<h1 id="上帝类的优缺点">上帝类的优缺点</h1>
+<p>上帝类虽然在上文被冠以臃肿、难维护的帽子，但并不代表他没有优点，要辨证地看待。</p>
+<ul>
+<li>优点：上帝类适用于一些较小的、逻辑简单的任务或工具类，逻辑不复杂，也不需要长时间维护，即拿即用。不用过多地考虑职责和颗粒度的划分，也能提高开发效率</li>
+<li>缺点：即上文中所提到的。臃肿、复杂、难以维护、测试麻烦、缺乏可读性、耦合度高，不可拓展同时违反SRP和OCP原则</li>
+</ul>
+<h1 id="上帝类的判定">上帝类的判定</h1>
+<ul>
+<li>代码行数判定法：代码行数很多的有可能是上帝类，注意是有可能。如果是上帝类，应当进行适当重构</li>
+<li>依赖关系判定法：通过分析类的依赖关系来判定其是否与其他类高度关联，如果是，他有可能是上帝类。</li>
+<li>职责判定法：如果一个类承担了过多的职责，他该干的也干了，不该干的也干了，那么毫无疑问，他是上帝类。</li>
+<li>测试覆盖率判定法： 如果一个类难以单元测试，或覆盖率低或总是出现奇奇怪怪的不可预测的问题，那么他有可能是上帝类。</li>
+</ul>
+<h1 id="如何避免上帝类">如何避免上帝类</h1>
+<p>所以，要如何避免上帝类，这个问题的答案已经显而易见了。和上一段相反着做即可。遵守单一职责原则。规划好代码架构。比如，要处理一个压缩包解析和数据展示功能，首先就要拆分职责为不同的类。类中再去写相对应的函数。我们可以把这个功能拆分为解压、读取、展示信息三个类，类中分别编写相应的代码，这样就能做到避免上帝类的产生，从而提高代码的可维护性和可拓展性。</p>
+<p><img src="./20250320.png" alt=""></p></p>
+              <footer>
+                <a href="https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/%E4%B8%8A%E5%B8%9D%E7%B1%BB%E6%98%AF%E4%BB%80%E4%B9%88%E8%AF%A5%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E4%B8%8A%E5%B8%9D%E7%B1%BB/" rel="full-article">Would you like to know more? →</a>
+              </footer>
+          
+        </article>
+        
+        <article><header>
+  <p class="meta">Mar 24, 2025
+     - 1 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e6%8a%80%e6%9c%af/">技术 </a>
+    
+  </p>
+  <h1 class="entry-title">
+     安装配置Rime输入法 
+  </h1>
+</header>
+
+          
+            <p><h1 id="前言">前言</h1>
+<p>其实我有能用的fcitx5+搜狗输入法的方案，但奈何kitty终端有对这个输入法的兼容性问题，无法启用中文，又奈何kitty的界面多美观舒服，和Konsole比起来简直就不是一个时代的产物。</p>
+<h1 id="安装ibus框架和rime输入法引擎">安装Ibus框架和Rime输入法引擎</h1>
+<p><strong>安装 IBus 和 Rime 组件</strong>：
+<code>sudo pacman -S ibus ibus-rime</code></p>
+<p><strong>安装 Rime 双拼方案：</strong>
+<code>sudo pacman -S rime-double-pinyin</code></p>
+<h2 id="配置-ibus-和-rime">配置 IBus 和 Rime</h2>
+<p><strong>设置环境变量</strong>
+在<code>~/.xprofile</code>添加以下内容</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#b58900">export</span> <span style="color:#268bd2">GTK_IM_MODULE</span><span style="color:#719e07">=</span>ibus <span style="color:#b58900">export</span> <span style="color:#268bd2">QT_IM_MODULE</span><span style="color:#719e07">=</span>ibus <span style="color:#b58900">export</span> <span style="color:#268bd2">XMODIFIERS</span><span style="color:#719e07">=</span>@im<span style="color:#719e07">=</span>ibus
+</span></span></code></pre></div><p>重启系统或执行 <code>source ~/.xprofile</code> 使配置生效</p>
+<p><strong>启动 IBus 并添加 Rime 输入源</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ibus-daemon -drx
+</span></span></code></pre></div><p>右键点击系统托盘中的 IBus 图标，选择 <strong>Preferences</strong> → <strong>Input Method</strong> → <strong>Add</strong>，选择 <strong>Chinese (Rime)</strong>。</p>
+<p><strong>配置双拼方案</strong>
+编辑 Rime 的配置文件 <code>~/.config/ibus/rime/default.custom.yaml</code>：</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>patch:
+</span></span><span style="display:flex;"><span>schema_list:
+</span></span><span style="display:flex;"><span>	- schema: double_pinyin <span style="color:#586e75"># 自然码双拼</span>
+</span></span><span style="display:flex;"><span>	- schema: luna_pinyin <span style="color:#586e75"># 全拼备用</span>
+</span></span></code></pre></div><h2 id="优化-rime-的智能联想与词库">优化 Rime 的智能联想与词库</h2>
+<p><strong>启用雾凇拼音方案（推荐）</strong></p></p>
+              <footer>
+                <a href="https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AErime%E8%BE%93%E5%85%A5%E6%B3%95/" rel="full-article">Would you like to know more? →</a>
+              </footer>
+          
+        </article>
+        
+        <article><header>
+  <p class="meta">Mar 22, 2025
+     - 1 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e6%8a%80%e6%9c%af/">技术 </a>
+    
+  </p>
+  <h1 class="entry-title">
+     Nodejs环境下控制台拼接字符串输出有undefind 
+  </h1>
+</header>
+
+          
+            <p><p>今天在Nodejs环境下搓小工具，控制台输出拼接字符串时，发现有<code>undefind</code>，代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#268bd2">const</span> date <span style="color:#719e07">=</span> <span style="color:#719e07">new</span> <span style="color:#b58900">Date</span>();
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">const</span> year <span style="color:#719e07">=</span> date.getFullYear();
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">const</span> month <span style="color:#719e07">=</span> date.getMonth();
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">const</span> day <span style="color:#719e07">=</span> date.getDate();
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">const</span> hour <span style="color:#719e07">=</span> date.getHours();
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">const</span> minute <span style="color:#719e07">=</span> date.getMinutes();
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">const</span> second <span style="color:#719e07">=</span> date.getSeconds();
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">const</span> logTime <span style="color:#719e07">=</span> <span style="color:#586e75">`[</span><span style="color:#2aa198">${</span>year<span style="color:#2aa198">}</span><span style="color:#586e75">-</span><span style="color:#2aa198">${</span>month<span style="color:#2aa198">}</span><span style="color:#586e75">-</span><span style="color:#2aa198">${</span>day<span style="color:#2aa198">}</span><span style="color:#586e75"> </span><span style="color:#2aa198">${</span>hour<span style="color:#2aa198">}</span><span style="color:#586e75">:</span><span style="color:#2aa198">${</span>minute<span style="color:#2aa198">}</span><span style="color:#586e75">:</span><span style="color:#2aa198">${</span>second<span style="color:#2aa198">}</span><span style="color:#586e75">] `</span>;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#586e75">// om段
-</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>    <span style="color:#268bd2">class</span> OmDan <span style="color:#268bd2">extends</span> Dan4k {
-</span></span><span style="display:flex;"><span>        constructor(key1, key2, key3, key4, danName) {
-</span></span><span style="display:flex;"><span>            <span style="color:#268bd2">super</span>(key1, key2, key3, key4, danName);
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    }
-</span></span></code></pre></div><p>我打算重写的程序不带LN玩了，我自己也没玩过LN，不清楚是什么机制。那就来看看剩下的几个类。</p></p>
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">class</span> GenerateLog {
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">static</span> log() {
+</span></span><span style="display:flex;"><span>    process.stdout.write(logTime);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>console.log(GenerateLog.log() <span style="color:#719e07">+</span> <span style="color:#2aa198">&#34;log output on the console&#34;</span>);
+</span></span></code></pre></div><p>输出确是这样：</p>
+<pre tabindex="0"><code>[2025-3-22 18:56:33] undefindlog output on the console
+</code></pre><p>原因
+：<code>GenerateLog.log()</code>方法没有返回值，所以输出<code>undefind</code>，解决方法如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#586e75">// 让log方法返回logTime
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span><span style="color:#268bd2">class</span> GenerateLog {
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">static</span> log() {
+</span></span><span style="display:flex;"><span>    <span style="color:#719e07">return</span> logTime; <span style="color:#586e75">// 返回字符串
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>console.log(GenerateLog.log() <span style="color:#719e07">+</span> <span style="color:#2aa198">&#34;log output on the console&#34;</span>);
+</span></span></code></pre></div><p>关键总结：
+Javascript中，如果方法没有返回值，那么输出的就是<code>undefind</code></p></p>
               <footer>
-                <a href="https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/4key%E9%9F%B3%E6%B8%B8%E6%AE%B5%E4%BD%8D%E5%8D%95%E6%9B%B2%E6%88%90%E7%BB%A9%E8%AE%A1%E7%AE%97%E7%9A%84%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0/" rel="full-article">Would you like to know more? →</a>
+                <a href="https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/nodejs%E7%8E%AF%E5%A2%83%E4%B8%8B%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%8B%BC%E6%8E%A5%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%87%BA%E6%9C%89undefind/" rel="full-article">Would you like to know more? →</a>
               </footer>
           
         </article>
         
         <article><header>
-  <p class="meta">Jun 6, 2025
-     - 1 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e9%9a%8f%e7%ac%94/">随笔 </a>
-    
-  </p>
-  <h1 class="entry-title">
-     杂记#2025-06-06 
-  </h1>
-</header>
-
-          
-            <p><p>纠结了很长时间，这篇文章命名的事。我是典型的选择困难，出于文章内容组织的形式，就把他命名为杂记了。不过应该也没什么人看，我就~~（梦）~~想到什么写什么了</p>
-<h2 id="时间感慨">时间感慨</h2>
-<p>今天就上半天学，下午高考布置考场了。一进门就看到教学楼处处拉着横幅，写着给高考考生加油助威的标语。睡眼惺忪的我一下子就惊醒了，高考？又来？下课，和同学聊天，我又想起来这茬，自言自语：“高考，又高考了&hellip;&hellip;”让人听见了，“高考就考呗和你有啥关系？”是啊，和我有什么关系，该和我有关系吗？高考过一阵子后就该中考了。再过一年，我也上中考考场了。</p>
-<p>今天是我初中三年，第二次，也是最后一次放高考假，初一的时候还什么也不懂，傻了吧唧地，快乐地就活了一年。一升入初二，第一个学期精神状态出奇的差。老师天天讲各种心灵鸡汤、各种教育学生，都放他妈狗屁。只有三年过得太快了这句话是真的。一直感觉自己刚升入初中啊，地生会考迫在眉睫了。</p>
-<p>端午假期回来的那天，升旗仪式改成了给初高三学生加油的什么仪式，实际上也就是校领导在上面讲讲万年一套的老话，学生在台下鼓鼓掌。可能是吧，初一是什么场面，已经忘了，但依稀记得，我当时很受鼓舞，觉得老师和上台讲话的同学吐出来的每一个字、每一个标点符号都是那么振奋人心。今年只有麻木感和危机感，回班后，班主任说，明年就该你们走那个状元门啦！围着我心的最后那块砖头也被一脚踢飞了。</p>
-<p>我对毕业不害怕，我甚至有点向往毕业。好像有人初中毕业哭得死去活来的，记得小学就有人这样了。可能我向来都是一个薄情的人，对于同学情这种事，没那么大牵挂，活的也舒心。网络也发达，能联系的自然会联系，没话说的也就不必强找话题，已经不是一路人了。顺其自然？顺其自然。真正让我害怕的是考试，我也没有特别想去的学校，也没有特别想学的专业。计算机？程序员？别操蛋来了，已经不是2020年了，普通人没高学历怎么卷。美术？那更是要饿死的了。没什么学习的动力，唯一的动力就是成绩不差暂且能在同学面前抬起头吧。我感兴趣的方向都有被AI替代的风险了。现在想这个确实为时过早，高中三年活下来才有资格想去哪里要饭。</p>
-<p>一写学校的事就难免重力展开啊&hellip;&hellip;</p>
-<h2 id="夏">夏</h2>
-<p>小时候非常喜欢夏天，现在平等地讨厌春秋，因为会犯鼻炎；一贯地憎恨冬天，太冷了。那只有夏天好了。</p>
-<p>夏天一直有一层回忆滤镜，今年要仔细感受一下。好好想想，童年夏天回忆有三：</p>
-<p>空调、冰棍、帆布毯。两样陆陆续续都回来了，唯独空调费劲，空调到底是因为热才开，还是因为“时候到了”才开？空调服务的对象是“时候”，还是人？</p>
-<h2 id="工具迷恋">工具迷恋</h2>
-<p>我承认，我真的没把时间花在刀刃上。经常浪费时间，在一个几百年前的软件上花大力气大时间，甚至废寝忘食，就为了实现一个已经由专业团队开发好的、开箱即用的、体验还更好的功能。美其名曰“极客精神”。我对极客精神没偏见，只是突然发觉，不应该把时间花费在这种事上。对，我就是在说Emacs和Vim。</p>
-<p>工具说到底还是为了做事的，先选简单的工具，把事情做得精湛，再谈优化工具。代码还写不明白，反到是一直迷恋在配置各种编辑器，白白浪费时间，作业也写不成，代码也写不成，最后配置出来了一块会爆炸的排泄物，一团矛盾。</p>
-<p>去年12月底，我开始知道了Vim这个东西，在折腾了一会被劝退后，发了条朋友圈吐槽。</p>
-<p><img src="./Pastedimage20250607121725.png" alt=""></p>
-<p>但是不得不承认，Vim比Emacs好配多了。现在我的Vim起码到了能畅快写代码的程度。在这之前，一直都在断断续续地折腾Vim、终端、系统。真正写代码的时间没有三分之一。幸好在
-<a href="http://www.yingyu5658.me/post/4108562128/" target="_blank" rel="noopener">玩腻Arch</a>后及时悔悟，装回了Windows，虽然种种不适应，但用起来很方便，起码不会再像以前那样浪费时间了。</p>
-<p>感谢Windows，感谢微软&hellip;&hellip;否则我就要成为开机 =&gt; 桌面炸了 =&gt; 花两天修复桌面 =&gt; 开机 =&gt; 打开自己半透明+亚克力+二次元小人背景的终端 =&gt; 输入neofetch欣赏半个小时桌面并截图发群里：“顺便说一下，我用的是Arch。”的那种人了。偶然间听到过一句话： “如果一块表时间是错的，那他走的每一秒都是错的；如果这块表停了，那它一天中至少有两次是对的。”挺有道理的。</p>
-<p>翻看了一下自己写的代码和以前的文章，发现自己的快速上手的能力较强，各项技术都有涉猎，知识面较广，但这样的结果就是哪样都不深。尤其是数据结构与算法接触非常少，写不出来什么干巴的代码，之后要改一改了，在数学和算法上深耕一下，也在C语言深耕。C语言一直是很让我向往的语言，运行几乎无开销、对硬件极致的控制能力，灵活、高效、结构紧凑。但他复杂易混淆的指针也多次劝退我这个初学者。这个精髓没领悟到，玩C语言就玩不到灵魂了。</p></p>
-              <footer>
-                <a href="https://www.yingyu5658.me/post/%E9%9A%8F%E7%AC%94/%E6%9D%82%E8%AE%B0-2025-06-06/" rel="full-article">Would you like to know more? →</a>
-              </footer>
-          
-        </article>
-        
-        <article><header>
-  <p class="meta">Jun 6, 2025
+  <p class="meta">Mar 21, 2025
      - 1 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e6%8a%80%e6%9c%af/">技术 </a>
     
   </p>
   <h1 class="entry-title">
-     C语言的头文件与OOP范式的抽象类、接口的异同点 
+     光速破解作文网站禁止复制 
   </h1>
 </header>
 
           
-            <p><h2 id="引言">引言</h2>
-<p>说真的，从去年十一月份开始接触编程，到现在也好几个月了，自认为进步速度较快，但速度快也就导致了深度浅，走马观花式的学习，现在还是有很多理解不深刻的点，今天来仔细研究一下这个问题。我也是先入为主，第一门编程语言学的是Java，所以再接触C，一些概念就混淆了。</p>
-<h2 id="c语言模块化设计的核心">C语言模块化设计的核心</h2>
-<p>头文件本质是对外提供的接口<strong>契约</strong>，包含函数声明、宏定义、结构体类型声明。例如：</p>
-<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#586e75">// math_utils.h
-</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span><span style="color:#719e07">#ifndef MATH_UTILS_H
-</span></span></span><span style="display:flex;"><span><span style="color:#719e07">#define MATH_UTILS_H
-</span></span></span><span style="display:flex;"><span><span style="color:#719e07"></span><span style="color:#dc322f">int</span> <span style="color:#268bd2">add</span>(<span style="color:#dc322f">int</span> a, <span style="color:#dc322f">int</span> b);  <span style="color:#586e75">// 函数声明
-</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span><span style="color:#719e07">#endif
-</span></span></span></code></pre></div><ul>
-<li>编译隔离：通过头文件守卫(#ifndef)实现模块之间的编译隔离。</li>
-<li>虽然头文件可以实现函数，但这会破坏模块化。</li>
-</ul>
-<h3 id="模块化实现规范">模块化实现规范</h3>
-<ul>
-<li>源文件承载具体实现，通过包含对应头文件实现联系</li>
-<li>模块间通过<code>extern</code>关键字声明共享全局变量（谨慎使用）</li>
-</ul>
-<h2 id="面向对象中的抽象机制">面向对象中的抽象机制</h2>
-<p>抽象类可以包含部分实现，它的目的是：<strong>描述一个公共基类，有共同的特征，有部分方法实现，但另一部分依赖子类自行实现</strong>。</p>
-<p>接口是一系列方法的声明，一个接口就是在描述一种能力。</p>
-<p>设计目标上，抽象类为了代码复用+多台，而接口是行为契约。</p>
-<h2 id="设计范式对比">设计范式对比</h2>
-<h3 id="c模块化-vs-oop抽象">C模块化 vs OOP抽象</h3>
-<ul>
-<li>抽象粒度：C模块关注功能单元（做什么），而OOP抽象关注对象行为契约（是谁做什么）</li>
-<li>扩展方式：C通过函数指针传递上下文，OOP通过继承、实现扩展。</li>
-</ul></p>
+            <p><p>今天上网搜集范文，又遇到了这个很多年前就让我非常痛恨的网站。可以看到，这个网站应该是通过JS，检测鼠标左键或者CTRL+C再弹出这个窗口达到的防止用户复制的目的，可以此为切入点，查看一下这个网站的源码。找到问题所在。</p>
+<p><img src="./Pasted%20image%2020250321081959.png" alt="">
+要把这个仇报了。下载网页到本地，这里出了一个小插曲，在FIREFOX浏览器下载的所有网页文件，中文都是乱码，顺便来解决一下这个问题。
+在平板MT管理器右上角可以看到，这个文件的编码格式是GB2312，在vim中输入<code>:e ++enc=gb2312</code>，在输入<code>set fileencoding=utf-8</code>就可正常查看了。现在的代码结构非常屎，保存格式化一下。
+第159行，有一个webchatbox的盒子，可以看到，这里就是为防止复制创建的盒子，把这段代码注释掉。
+<img src="./Pasted%20image%2020250321112804.png" alt="">
+这还没完，再去到页面复制发现还是有未处理完善的残留页面
+<img src="./Pasted%20image%2020250321112937.png" alt="">
+原因在于第223行的开始的一个盒子，把这段也注释掉即可</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>                        &lt;<span style="color:#268bd2">div</span> class<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;modal modal-server&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>                            &lt;<span style="color:#268bd2">div</span> class<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;wx_pic_img&#34;</span> id<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;webchat-server-box&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>                                &lt;<span style="color:#268bd2">div</span> class<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;modal-close&#34;</span>&gt;&lt;/<span style="color:#268bd2">div</span>&gt;
+</span></span><span style="display:flex;"><span>                                &lt;<span style="color:#268bd2">div</span> class<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;payqr_box&#34;</span> style<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;display: block;&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>                                    &lt;<span style="color:#268bd2">div</span> class<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;cj_title&#34;</span>&gt;&lt;<span style="color:#268bd2">span</span>&gt;常见问题&lt;/<span style="color:#268bd2">span</span>&gt;&lt;/<span style="color:#268bd2">div</span>&gt;
+</span></span><span style="display:flex;"><span>                                    &lt;<span style="color:#268bd2">ul</span> class<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;customer_service_box&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>                                        &lt;<span style="color:#268bd2">li</span>&gt;
+</span></span><span style="display:flex;"><span>                                            &lt;<span style="color:#268bd2">div</span> class<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;que&#34;</span>&gt;1.支付成功后，怎么复制？&lt;/<span style="color:#268bd2">div</span>&gt;
+</span></span><span style="display:flex;"><span>                                            &lt;<span style="color:#268bd2">div</span> class<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;ans&#34;</span>&gt;亲，您好！付款成功后，无需验证码，直接复制哦！&lt;/<span style="color:#268bd2">div</span>&gt;
+</span></span><span style="display:flex;"><span>                                        &lt;/<span style="color:#268bd2">li</span>&gt;
+</span></span><span style="display:flex;"><span>                                        &lt;<span style="color:#268bd2">li</span>&gt;
+</span></span><span style="display:flex;"><span>                                            &lt;<span style="color:#268bd2">div</span> class<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;que&#34;</span>&gt;2.支付成功后，为何无法复制内容？&lt;/<span style="color:#268bd2">div</span>&gt;
+</span></span><span style="display:flex;"><span>                                            &lt;<span style="color:#268bd2">div</span> class<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;ans&#34;</span>&gt;亲，请尝试刷新一下网页（按键盘F5键），再进行复制。&lt;/<span style="color:#268bd2">div</span>&gt;
+</span></span><span style="display:flex;"><span>                                        &lt;/<span style="color:#268bd2">li</span>&gt;
+</span></span><span style="display:flex;"><span>                                        &lt;<span style="color:#268bd2">li</span>&gt;
+</span></span><span style="display:flex;"><span>                                            &lt;<span style="color:#268bd2">div</span> class<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;que&#34;</span>&gt;3.付费后能否更换浏览器、更换电脑进行复制？&lt;/<span style="color:#268bd2">div</span>&gt;
+</span></span><span style="display:flex;"><span>                                            &lt;<span style="color:#268bd2">div</span> class<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;ans&#34;</span>&gt;亲，更换浏览器或电脑会导致复制不成功哦！请确保付费时的浏览器及电脑和复制文章时所用的浏览器是一样的。&lt;/<span style="color:#268bd2">div</span>&gt;
+</span></span><span style="display:flex;"><span>                                        &lt;/<span style="color:#268bd2">li</span>&gt;
+</span></span><span style="display:flex;"><span>                                        &lt;<span style="color:#268bd2">li</span>&gt;
+</span></span><span style="display:flex;"><span>                                            &lt;<span style="color:#268bd2">div</span> class<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;que&#34;</span>&gt;4.如何联系客服？&lt;/<span style="color:#268bd2">div</span>&gt;
+</span></span><span style="display:flex;"><span>                                            &lt;<span style="color:#268bd2">div</span> class<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;ans&#34;</span>&gt;麻烦您添加客服微信：zjdddx1 ，留言“付款后无法复制文章”，并发送相关付款截图，客服将为您处理。&lt;/<span style="color:#268bd2">div</span>&gt;
+</span></span><span style="display:flex;"><span>                                        &lt;/<span style="color:#268bd2">li</span>&gt;
+</span></span><span style="display:flex;"><span>                                    &lt;/<span style="color:#268bd2">ul</span>&gt;
+</span></span><span style="display:flex;"><span>                                &lt;/<span style="color:#268bd2">div</span>&gt;
+</span></span><span style="display:flex;"><span>                            &lt;/<span style="color:#268bd2">div</span>&gt;
+</span></span><span style="display:flex;"><span>                        &lt;/<span style="color:#268bd2">div</span>&gt;
+</span></span><span style="display:flex;"><span>                        &lt;<span style="color:#268bd2">div</span> class<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;copy-success alert-bounceIn&#34;</span>&gt;&lt;<span style="color:#268bd2">img</span> src<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;co_files/payed.png&#34;</span>
+</span></span><span style="display:flex;"><span>                                class<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;icon&#34;</span>&gt;&lt;<span style="color:#268bd2">span</span>&gt;复制成功！&lt;/<span style="color:#268bd2">span</span>&gt;&lt;/<span style="color:#268bd2">div</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                        &lt;<span style="color:#268bd2">script</span> type<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;text/javascript&#34;</span> src<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;co_files/js.cookie.min.js&#34;</span>&gt;&lt;/<span style="color:#268bd2">script</span>&gt;
+</span></span><span style="display:flex;"><span>                        &lt;<span style="color:#268bd2">script</span> language<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;javascript&#34;</span> src<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;co_files/bottom.js&#34;</span>&gt;&lt;/<span style="color:#268bd2">script</span>&gt;
+</span></span><span style="display:flex;"><span>                        &lt;<span style="color:#268bd2">script</span> language<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;javascript&#34;</span> src<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;co_files/doc.js&#34;</span>&gt;&lt;/<span style="color:#268bd2">script</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    &lt;/<span style="color:#268bd2">div</span>&gt;
+</span></span></code></pre></div><p>这样再保存，回到页面中就可正常复制了。前端的这点小儿科把戏，轻松搞定。</p></p>
               <footer>
-                <a href="https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/c%E8%AF%AD%E8%A8%80%E7%9A%84%E5%A4%B4%E6%96%87%E4%BB%B6%E4%B8%8Eoop%E8%8C%83%E5%BC%8F%E7%9A%84%E6%8A%BD%E8%B1%A1%E7%B1%BB%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%BC%82%E5%90%8C%E7%82%B9/" rel="full-article">Would you like to know more? →</a>
+                <a href="https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/%E5%85%89%E9%80%9F%E7%A0%B4%E8%A7%A3%E4%BD%9C%E6%96%87%E7%BD%91%E7%AB%99%E7%A6%81%E6%AD%A2%E5%A4%8D%E5%88%B6/" rel="full-article">Would you like to know more? →</a>
+              </footer>
+          
+        </article>
+        
+        <article><header>
+  <p class="meta">Mar 18, 2025
+     - 1 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e6%8a%80%e6%9c%af/">技术 </a>
+    
+  </p>
+  <h1 class="entry-title">
+     人话简单理解八下遗传之生物的遗传变异 
+  </h1>
+</header>
+
+          
+            <p><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#586e75">// 母亲类</span>
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">public</span> <span style="color:#268bd2">class</span> <span style="color:#268bd2">Mother</span> {
+</span></span><span style="display:flex;"><span><span style="color:#586e75">// 母亲的性格是开朗的</span>
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">public</span> String personality <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;cheerful&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#586e75">// 母亲的身高是160.5</span>
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">public</span> <span style="color:#dc322f">double</span> height <span style="color:#719e07">=</span> 160.5;
+</span></span><span style="display:flex;"><span><span style="color:#586e75">// 母亲有耳垂</span>
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">public</span> <span style="color:#dc322f">boolean</span> hasEarlobe <span style="color:#719e07">=</span> <span style="color:#cb4b16">true</span>;
+</span></span><span style="display:flex;"><span><span style="color:#586e75">// 吃东西方法</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">public</span> <span style="color:#dc322f">void</span> <span style="color:#268bd2">eating</span>(Foods food) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>System.out.println(<span style="color:#2aa198">&#34;母亲吃东西细嚼慢咽&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75">// 孩子类继承母亲类</span>
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">public</span> <span style="color:#268bd2">class</span> <span style="color:#268bd2">Child</span> <span style="color:#268bd2">extends</span> Mother{
+</span></span><span style="display:flex;"><span><span style="color:#586e75">// 变异</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75">// 孩子的性格是内向的</span>
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">public</span> String personality <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;introverted&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#586e75">// 孩子无耳垂</span>
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">public</span> <span style="color:#dc322f">boolean</span> hasEarlobe <span style="color:#719e07">=</span> <span style="color:#cb4b16">false</span>;
+</span></span><span style="display:flex;"><span><span style="color:#586e75">// 孩子身高比母亲高</span>
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">public</span> <span style="color:#dc322f">double</span> height <span style="color:#719e07">=</span> 180.5;
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">@Override</span>
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">public</span> <span style="color:#dc322f">void</span> <span style="color:#268bd2">eating</span>(Foods food) {
+</span></span><span style="display:flex;"><span>System.out.println(<span style="color:#2aa198">&#34;孩子吃东西狼吞虎咽&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>感觉比书上讲的一大堆狗屁废话简练多了。。（？</p></p>
+              <footer>
+                <a href="https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/%E4%BA%BA%E8%AF%9D%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3%E5%85%AB%E4%B8%8B%E9%81%97%E4%BC%A0%E4%B9%8B%E7%94%9F%E7%89%A9%E7%9A%84%E9%81%97%E4%BC%A0%E5%8F%98%E5%BC%82/" rel="full-article">Would you like to know more? →</a>
+              </footer>
+          
+        </article>
+        
+        <article><header>
+  <p class="meta">Mar 9, 2025
+     - 1 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e6%8a%80%e6%9c%af/">技术 </a>
+    
+  </p>
+  <h1 class="entry-title">
+     Kitty终端美化记录 
+  </h1>
+</header>
+
+          
+            <p><p>Kitty这个终端可谓是兼顾了性能与美观，虽然默认设置很简陋，但是经过一番折腾后也能变得很漂亮。</p>
+<h1 id="选择配色">选择配色</h1>
+<p>运行<code>kitty + kitten themes</code>后会弹出一个选择配色的界面
+<img src="./Pasted%20image%2020250309124346.png" alt="">
+令我感到非常高兴的是，这个界面支持vim的hjkl键位，也可以用/来搜索。
+选好后，回车按m，command + ^ + ,重载配置文件。</p>
+<h1 id="配置字体">配置字体</h1>
+<p>打开kitty的配置文件<code>nvim ~/.config/kitty/kitty.conf</code>，把字号改到12
+<code>font_size 12</code>
+输入<code>kitty list-fonts --psnames</code>来列出系统安装好的所有等宽字体。</p>
+<h1 id="设置窗口风格">设置窗口风格</h1>
+<p>进入配置文件</p>
+<pre tabindex="0"><code>#window
+# 不显示窗口标题栏 保留窗口圆角
+hide_window_decorations titlebar-only
+# 边距
+window_padding_width 5
+# 不透明度
+background_opacity   0.8
+# 毛玻璃效果
+background_blur      30
+</code></pre><h1 id="设置标签栏风格">设置标签栏风格</h1>
+<pre tabindex="0"><code>#tab bar
+tab_bar_edge          top
+tab_bar_style         powerline
+tab_powerline_style   slanted
+</code></pre><h1 id="安装终端文件管理器">安装终端文件管理器</h1>
+<p><code>yay -S yazi</code>
+推荐yazi的原因，就是能用vim快捷键啊！hjkl好文明！
+而且它还能直接在终端预览图片
+<img src="./Pasted%20image%2020250309131507.png" alt=""></p>
+<h1 id="最终效果预览">最终效果预览</h1>
+<p><img src="./Pasted%20image%2020250309131145.png" alt=""></p>
+<p><img src="./Pasted%20image%2020250309131221.png" alt=""></p></p>
+              <footer>
+                <a href="https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/kitty%E7%BB%88%E7%AB%AF%E7%BE%8E%E5%8C%96%E8%AE%B0%E5%BD%95/" rel="full-article">Would you like to know more? →</a>
+              </footer>
+          
+        </article>
+        
+        <article><header>
+  <p class="meta">Mar 8, 2025
+     - 1 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e6%8a%80%e6%9c%af/">技术 </a>
+    
+  </p>
+  <h1 class="entry-title">
+     KDE桌面环境无法在Konsole切换中文输入法的解决方案 
+  </h1>
+</header>
+
+          
+            <p><h3 id="原因">原因</h3>
+<p>KDE默认使用Wayland会话，而fcitx4不支持Wayland，需升级到fcitx5。若无法升级到fcitx5或升级后仍然无法切换中文输入法，<strong>安装fcitx-qt6</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo pacman -S fcitx-qt6
+</span></span></code></pre></div><p>安装后执行<code>sudo reboot now</code>进行重启，问题解决。</p></p>
+              <footer>
+                <a href="https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/kde%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E6%97%A0%E6%B3%95%E5%9C%A8konsole%E5%88%87%E6%8D%A2%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" rel="full-article">Would you like to know more? →</a>
+              </footer>
+          
+        </article>
+        
+        <article><header>
+  <p class="meta">Mar 5, 2025
+     - 1 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e6%8a%80%e6%9c%af/">技术 </a>
+    
+  </p>
+  <h1 class="entry-title">
+     【无废话】全网最简单的Hexo&#43;Obsidian图片解决方案 
+  </h1>
+</header>
+
+          
+            <p><p>把Hexo博客根目录用黑曜石打开，如果已经打开了仓库
+<img src="./Pasted%20image%2020250305215423.png" alt="">
+在弹出的窗口中选第二个。</p>
+<p>在source目录下新建images文件夹用于存放图片
+设置 =&gt; 文件与链接 =&gt; 附件默认存放路径：选择指定的附件文件夹。路径填写刚刚创建的image文件夹的相对路径
+取消使用Wiki链接
+注意。由于我的文件结构是这样的所以这么填写，要<strong>根据自己的文件结构填写相对路径</strong>。
+<img src="./Pasted%20image%2020250305215642.png" alt="">
+搞定，同时可以在本地编辑环境和博客网站中显示。</p></p>
+              <footer>
+                <a href="https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/%E6%97%A0%E5%BA%9F%E8%AF%9D%E5%85%A8%E7%BD%91%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84hexo&#43;obsidian%E5%9B%BE%E7%89%87%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" rel="full-article">Would you like to know more? →</a>
+              </footer>
+          
+        </article>
+        
+        <article><header>
+  <p class="meta">Mar 4, 2025
+     - 3 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e6%8a%80%e6%9c%af/">技术 </a>
+    
+  </p>
+  <h1 class="entry-title">
+     【未解决】Windows WSL报错：Error: 0x80080005 ??????? 
+  </h1>
+</header>
+
+          
+            <p><p>设备环境：</p>
+<pre tabindex="0"><code>操作系统：Windows 10
+安装系统：Arch Linux
+错误日志：
+Installing, this may take a few minutes...
+WslRegisterDistribution failed with error: 0x80080005
+Error: 0x80080005 ???????
+
+Press any key to continue...
+</code></pre><p>网上有一篇
+<a href="https://ask.csdn.net/questions/7625716" target="_blank" rel="noopener">文章</a>提到这个错误，下面的评论回复以管理员权限运行命令提示符并执行<code>sc stop LxssManager</code>和<code>sc start LxssManager</code>
+出现如下报错：</p>
+<pre tabindex="0"><code>C:\Windows\system32&gt;sc stop LxssManager
+[SC] OpenService 失败 1060:
+
+指定的服务未安装。
+</code></pre><p>顺藤摸瓜，在网上寻找<code>LxssManager</code>这个服务要如何安装。
+网上暂时还没有找到相关文章能够解决这个问题，但是CSDN的一篇文章引起了我的注意
+
+<a href="https://blog.csdn.net/renwudao24/article/details/52061906" target="_blank" rel="noopener">[SC] OpenService 失败：1060指定的服务未安装_[sc] openservice 失败 1060: 指定的服务未安装。-CSDN博客</a>
+文章中提到了“服务”，在开始菜单中搜索服务，进入应用找到了一个名为WSL Service的服务。点左上角启动。
+提取关键信息：<strong>1058、被禁用、关联的设备没有启动</strong>。
+检查功能是否开启：按下 <code>Win+S</code> 搜索 <strong>启用或关闭Windows功能</strong>
+勾选<code>适用于Linux的Windows子系统</code>和<code>虚拟机平台</code>这两项，点击确定
+重启电脑。
+回来以后，用管理员身份运行powershell，强制重置WSL服务，依次执行：</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wsl --shutdown
+</span></span><span style="display:flex;"><span>wsl --unregister Arch <span style="color:#586e75"># 替换为你的发行版名称</span>
+</span></span><span style="display:flex;"><span>wsl --install -d Arch <span style="color:#586e75"># 重新注册发行版</span>
+</span></span></code></pre></div><p>如果提示内核缺失，在这里下
+<a href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi" target="_blank" rel="noopener">https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi</a></p>
+<p>如果有以下输出：</p>
+<pre tabindex="0"><code>zcz  system32  ♥ 21:32  wsl --shutdown
+此应用程序需要适用于 Linux 的 Windows 子系统可选组件。
+通过运行安装它： wsl.exe --install --no-distribution
+可能需要重新启动系统才能使更改生效。
+错误代码: Wsl/WSL_E_WSL_OPTIONAL_COMPONENT_REQUIRED
+</code></pre><p>两种可能：</p></p>
+              <footer>
+                <a href="https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/%E6%9C%AA%E8%A7%A3%E5%86%B3windows-wsl%E6%8A%A5%E9%94%99error-0x80080005/" rel="full-article">Would you like to know more? →</a>
               </footer>
           
         </article>
@@ -315,33 +619,11 @@
     
         <a href="/page/11/" class="label-pagination">11</a>
     
-        <a href="/page/12/" class="label-pagination">12</a>
-    
-        <a href="/page/13/" class="label-pagination">13</a>
-    
-        <a href="/page/14/" class="label-pagination">14</a>
-    
-        <a href="/page/15/" class="label-pagination">15</a>
-    
-        <a href="/page/16/" class="label-pagination">16</a>
-    
-        <a href="/page/17/" class="label-pagination">17</a>
-    
-        <a href="/page/18/" class="label-pagination">18</a>
-    
-        <a href="/page/19/" class="label-pagination">19</a>
-    
-        <a href="/page/20/" class="label-pagination">20</a>
-    
-        <a href="/page/21/" class="label-pagination">21</a>
-    
-        <a href="/page/22/" class="label-pagination">22</a>
-    
 
     <a href="/page/9/" aria-label="Next" class="label-pagination"><i class="fa fa-angle-right fa-lg"></i></a>
     
 
-    <a href="/page/22/" aria-label="Last"><i class="fa fa-angle-double-right fa-lg"></i></a>
+    <a href="/page/11/" aria-label="Last"><i class="fa fa-angle-double-right fa-lg"></i></a>
     
 
 </div>
