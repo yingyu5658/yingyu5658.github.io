@@ -67,41 +67,42 @@
 </ul>
 
 
-
-
-
-
   <form action="https://www.bing.com/search" method="get" target="_blank" rel="noopener noreferrer">
     <fieldset role="search">
-      <input class="search"
-             type="text"
-             name="userQuery"
-             results="0"
-             placeholder="Search"
-             autocomplete="off">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+	<input type="hidden" name="q" value="site:https://www.yingyu5658.me/" />
+	<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('form'); 
+    const textInput = document.querySelector('input.search[type="text"]');
+    const hiddenInput = document.querySelector('input[type="hidden"][name="q"]');
+
+    
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); 
+
       
-      <input type="hidden" 
-             name="q" 
-             value="www.yingyu5658.me">
+      const userInput = textInput.value.trim();
+
+      
+      const siteFilter = hiddenInput.value;
+
+      
+      const combinedValue = userInput ? `${userInput} ${siteFilter}` : siteFilter;
+
+      
+      const tmpInput = document.createElement('input');
+      tmpInput.type = 'hidden';
+      tmpInput.name = 'q';
+      tmpInput.value = combinedValue;
+
+      form.appendChild(tmpInput);
+      form.submit();
+    });
+  });
+</script>
     </fieldset>
   </form>
-  
-  <script>
-    (function() {
-      const form = document.querySelector('form[action="https://www.bing.com/search"]');
-      if (!form) return;
-      
-      form.addEventListener('submit', function(e) {
-        const userInput = this.querySelector('[name="userQuery"]');
-        const hiddenQuery = this.querySelector('[name="q"]');
-        const query = userInput.value.trim();
-        
-        hiddenQuery.value = query ? 
-          `${query} site:${hiddenQuery.value}` : 
-          `site:${hiddenQuery.value}`;
-      });
-    })();
-  </script>
 
 </nav>
 
@@ -112,359 +113,320 @@
       
         
         <article><header>
-  <p class="meta">Jun 18, 2025
-     - 1 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e9%9a%8f%e7%ac%94/">随笔 </a>
-    
+  <p class="meta">Jul 10, 2025
+     - 1 minute read 
   </p>
   <h1 class="entry-title">
-     好文章 
+     对博客主题的一点想法 
   </h1>
 </header>
 
           
-            <p><h2 id="心灵小语">心灵小语</h2>
-<p>我们的语文作业从初一开始就偶尔留一项叫“心灵小语“的作业，文风可以和博客比较相似。但毕竟是要给老师看的，措辞还是要严谨一点。前两天的语文课老师读了两篇文章，巧了，我最受不了这种文章————用力堆砌耀眼夺目的辞藻，如青春、奋斗、阳光、生活。这就是老师眼中的好文章，扮演一个老师喜欢的性格，讲写点能敲出回声的文字，点意林风格的俗套故事。</p>
-<p>对不起，这种耀眼的词汇会让我被燃烧成灰。</p>
-<p>我不是标榜我的文章写的多好，只是单纯厌恶这种堆辞藻、假大空。以我的水平五十步笑百步又如何，名为心灵小语，心灵敲出的回声比文字还大，老师美其名曰：”以文观人”，好好观吧，多观观吹口气就破的纸壳吧；多观观用图钉钉在脸上的真诚的笑吧；多观观炽热的可燃的木头削成的心灵吧。烧了都嫌<strong>恶臭</strong>。</p>
-<p>活了十四年，我感受到的所谓的青春就是四五十个人挤在一个小屋子里研究一个这辈子也不会用到的式子的结果是什么。明明任何一个理科都非常有趣，但总是被迫去研究最没有意义的一个环节，痛苦又无奈。所以我痛恨代数，几何多在探究“为什么“而不是”是什么”。这才是数学让人有成就感的一环。</p>
-<p>现在明白了，大家很爱说上岸这个词，原来是从苦海游上来了。</p>
-<p>真他妈恶心，我的青春啊。</p></p>
+            <p><p>简单回顾以下建站历程，博客的内容从“我是谁”转移到了&quot;我想说什么&quot;。从最早开始正式写博客的<strong>Gmeek</strong>，到后来使用<strong>Typecho</strong>，再到<strong>Hexo,Hugo</strong>，这几个不同的时期是我对主题看法的不同阶段。</p>
+<p>Gmeek时期，没有概念，没看过几个人的博客，后来接触得多了，看了很多主题才意识到自己博客的主题有多简陋，换到Typecho，开始折腾主题，经历了一段不堪回首的时期。经典的一些元素：左下角挡字小人、底部音乐播放器、背景樱花飘落特效、点击特效，总之就是各种花里胡哨。文章，没有几篇，但是你可以在网页上找到任何你想找到的东西，除了文章。当时很喜欢Butterfly主题</p>
+<p>后来换到了Hexo，也有Butterfly，继续用。发现点二十个网站，三十个都是Butterfly，很尴尬，后来经过几经波折，换到了Maupassant，输出了几篇自认为有点内容的文章，主要还是有感而发，我写东西不在乎谁看了，谁怎么看。我只是享受编辑和发送的过程。有人说心情不好，就把让你不开心的事写在纸上然后团成球扔进垃圾桶。这样还是太浪费了，毕竟是自己亲笔写下的文字，另说浪费纸张也不好。</p>
+<p>在Hexo时期，我一直在寻找让读者弱化“我是谁”，专心聚焦与内容的主题。Maupassant就很好。后来转来Hugo，是看中了云风博客的那种千禧年的风格，不花哨，也不简陋。基于
+<a href="http://jiaoyuan.org/" target="_blank" rel="noopener">JiaoYuan</a>的移植后简单修改了以下配色之类，就正式投入使用。</p>
+<p>我认为，博客重在内容，想表达什么观点、想记录什么事件。毕竟Blog，Web Log，Log，日志，记录。除了记录，也可以是扩大自己声音的一个渠道，独立于平台，起码不会有<strong>跳墙的</strong>删掉你辛辛苦苦打出来的一大段字。</p>
+<p>而把重心放到了“我是谁”的站点，应该算作“个人主页”，并非博客，用作于一些项目展示、网络名片也是很好的。</p>
+<p>而ta说“我是谁”，和自己观察“ta是谁“，是两种截然不同的感受。前者能迅速建立起一个停留于表层但具体的印象，而后者多出一种<strong>视奸</strong>的快感。从字里行间里感受ta是什么人，虽然建立印象的周期长，但深入。值得。</p>
+<p>所以很多人博客的关于页面，我就当看个乐呵就过去了，仔细看每一篇文章，从ta的文字、观点、立场、价值观和认知来建立起ta的形象。有些人宏伟庄严，有些人冷漠麻木，有些人用平实朴素的语言记录，有些人用各种<strong>恶心到家的语气词和括号里补充的动作描写</strong>，绞尽脑汁想怎么把自己表现得多可爱。想可爱，先从<strong>扮演人类</strong>开始吧。这么在意别人怎么看自己，我替你感到疲惫。</p>
+<p>好吧，我承认我有点冒犯了，一些朋友看到标题是关于主题的点进来还躺枪，那对不起，我冒犯的就是你。</p></p>
               <footer>
-                <a href="https://www.yingyu5658.me/post/%E9%9A%8F%E7%AC%94/%E5%A5%BD%E6%96%87%E7%AB%A0/" rel="full-article">Would you like to know more? →</a>
+                <a href="https://www.yingyu5658.me/post/%E9%9A%8F%E7%AC%94/%E5%AF%B9%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E7%9A%84%E4%B8%80%E7%82%B9%E6%83%B3%E6%B3%95/" rel="full-article">Would you like to know more? →</a>
               </footer>
           
         </article>
         
         <article><header>
-  <p class="meta">Jun 15, 2025
+  <p class="meta">Jul 10, 2025
      - 1 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e6%8a%80%e6%9c%af/">技术 </a>
     
   </p>
   <h1 class="entry-title">
-     《操作系统导论》学习笔记 
+     C语言实现简易Shell 
   </h1>
 </header>
 
           
-            <p><h2 id="操作系统做什么">操作系统做什么</h2>
+            <p><p>实现一个Shell，需要的功能有：</p>
 <ul>
-<li>它取得并虚拟化CPU、内存或磁盘等物理资源。</li>
-<li>处理并发问题。</li>
-<li>持久地存储文件，使文件长期安全。</li>
+<li>循环读取用户输入</li>
+<li>输出提示符</li>
+<li>创建子进程执行命令</li>
+<li>等待回收子进程</li>
 </ul>
-<h2 id="设计目标">设计目标</h2>
-<p>最基本的，建立一些抽象，让系统方便使用。将其划分为<strong>小而且容易理解的部分</strong>。</p>
-<p>提供<strong>高性能</strong>，最小化系统开销。</p>
-<p>提供程序保护，确保恶意或偶然的不良行为不会损害其他程序和系统本身，即隔离。让进程彼此隔离是关键。</p>
-<p>不间断运行的能力，力求可靠性。</p>
-<h2 id="进程">进程</h2>
-<h3 id="定义">定义</h3>
-<p>运行中的程序。</p>
-<p>程序本身没有生命周期的概念，只是存储在磁盘上的指令和静态数据，操作系统让这些字节运行起来。</p>
-<h3 id="虚拟化">虚拟化</h3>
-<p>操作系统通过虚拟化CPU来提供有无数CPU可用的假象。通过让一个进程只运行一个时间片，然后切换到其他进程，操作系统提供了存在多个虚拟CPU的假象，这就是<strong>时分共享CPU技术</strong>。允许用户运行多个并发进程，潜在的开销就是性能损失，因为CPU共享，每个进程的运行速度就会变慢。（受力面积和压强的关系）。</p>
-<h3 id="进程api">进程API</h3>
-<ul>
-<li>
-<p>创建（create）：调用系统操作来创建新进程。</p>
-</li>
-<li>
-<p>销毁（destroy）：强制销毁进程，大部分程序会再结束后自动退出，但如果用户想终止，这个接口很有用。</p>
-</li>
-<li>
-<p>等待（wait）：等待进程停止运行。</p>
-</li>
-<li>
-<p>状态（status）：获得有关进程的状态信息，如运行时间等。</p>
-</li>
-<li>
-<p>其他控制（miscellaneous control）：除了杀死和等待进程外还有其他控制，如暂停。</p>
-</li>
-</ul>
-<blockquote>
-<p>[!NOTE]
-书签：P21 4.3</p></blockquote></p>
+<p>shell中的大多数命令都是通过创建子进程来执行的，可以使用<code>fork()</code>创建子进程，然后替换主进程执行命令。
+创建
+常用函数原型</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#dc322f">pid_t</span> <span style="color:#268bd2">fork</span>(<span style="color:#dc322f">void</span>); <span style="color:#586e75">// pid_t是int类型
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span><span style="color:#dc322f">pid_t</span> <span style="color:#268bd2">get_pid</span>(); <span style="color:#586e75">// 获取当前进程pid
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>pid_ <span style="color:#268bd2">getppid</span>(); <span style="color:#586e75">// 获取当前进程的父进程值
+</span></span></span></code></pre></div><p><code>fork()</code>用于创建创建一个进程，所阐明的进程复制父进程的代码段/数据段/BSS段/等所有用户空间信息，在内和中操作系统重新为其申请了一个PCB，并使用父进程的PCB初始化。</p>
+<p>实现fork()子进程替换为命令子进程, 最佳的进程替换的接口是<code>exevp()</code></p>
+<p>在创建子进程前，我们需要解析传递给shell的参数</p>
+<p>使用<code>strtok()</code>对command以空格进行分割，所以显而易见地，得到的结果数组中，第0位是命令名称，后面全部都是选项。</p>
+<p>使用<code>waitpid()</code>等待子进程，<code>fork()</code>获取的子进程id可以用于制定回收子进程。</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#719e07">#include</span> <span style="color:#719e07">&lt;pwd.h&gt;</span><span style="color:#719e07">
+</span></span></span><span style="display:flex;"><span><span style="color:#719e07">#include</span> <span style="color:#719e07">&lt;sys/wait.h&gt;</span><span style="color:#719e07">
+</span></span></span><span style="display:flex;"><span><span style="color:#719e07">#include</span> <span style="color:#719e07">&lt;stdio.h&gt;</span><span style="color:#719e07">
+</span></span></span><span style="display:flex;"><span><span style="color:#719e07">#include</span> <span style="color:#719e07">&lt;string.h&gt;</span><span style="color:#719e07">
+</span></span></span><span style="display:flex;"><span><span style="color:#719e07">#include</span> <span style="color:#719e07">&lt;sys/types.h&gt;</span><span style="color:#719e07">
+</span></span></span><span style="display:flex;"><span><span style="color:#719e07">#include</span> <span style="color:#719e07">&lt;unistd.h&gt;</span><span style="color:#719e07">
+</span></span></span><span style="display:flex;"><span><span style="color:#719e07"></span>
+</span></span><span style="display:flex;"><span><span style="color:#719e07">#define MAX_COMMAND_SIZE 256
+</span></span></span><span style="display:flex;"><span><span style="color:#719e07"></span>
+</span></span><span style="display:flex;"><span><span style="color:#dc322f">int</span> <span style="color:#268bd2">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#dc322f">char</span> <span style="color:#719e07">*</span>command_argv[MAX_COMMAND_SIZE];
+</span></span><span style="display:flex;"><span>	<span style="color:#dc322f">char</span> command[MAX_COMMAND_SIZE];
+</span></span><span style="display:flex;"><span>	<span style="color:#268bd2">memset</span>(command, <span style="color:#2aa198">&#39;\n&#39;</span>, MAX_COMMAND_SIZE);
+</span></span><span style="display:flex;"><span>	<span style="color:#719e07">const</span> <span style="color:#dc322f">char</span><span style="color:#719e07">*</span> user_name <span style="color:#719e07">=</span> <span style="color:#268bd2">getlogin</span>();
+</span></span><span style="display:flex;"><span>	<span style="color:#719e07">while</span>(<span style="color:#2aa198">1</span>)
+</span></span><span style="display:flex;"><span>	{
+</span></span><span style="display:flex;"><span>		<span style="color:#268bd2">printf</span>(<span style="color:#2aa198">&#34;[%s@EazyShell]$ &#34;</span>, user_name);
+</span></span><span style="display:flex;"><span>		<span style="color:#268bd2">fgets</span>(command, MAX_COMMAND_SIZE, stdin);
+</span></span><span style="display:flex;"><span>		   command[<span style="color:#268bd2">strcspn</span>(command, <span style="color:#2aa198">&#34;</span><span style="color:#cb4b16">\n</span><span style="color:#2aa198">&#34;</span>)] <span style="color:#719e07">=</span> <span style="color:#2aa198">&#39;\0&#39;</span>; <span style="color:#586e75">// 去掉末尾的换行符
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>		<span style="color:#586e75">// 分割命令行，一个空格为一项子命令或参数
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>		command_argv[<span style="color:#2aa198">0</span>] <span style="color:#719e07">=</span> <span style="color:#268bd2">strtok</span>(command,<span style="color:#2aa198">&#34; &#34;</span>);
+</span></span><span style="display:flex;"><span>		<span style="color:#dc322f">int</span> index <span style="color:#719e07">=</span> <span style="color:#2aa198">1</span>;
+</span></span><span style="display:flex;"><span>		<span style="color:#719e07">while</span>(command_argv[index<span style="color:#719e07">++</span>] <span style="color:#719e07">=</span> <span style="color:#268bd2">strtok</span>(<span style="color:#b58900">NULL</span>, <span style="color:#2aa198">&#34; &#34;</span>));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#586e75">// 创建子进程，并进程替换
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>		<span style="color:#dc322f">pid_t</span> id <span style="color:#719e07">=</span> <span style="color:#268bd2">fork</span>();
+</span></span><span style="display:flex;"><span>		<span style="color:#719e07">if</span>(id <span style="color:#719e07">==</span> <span style="color:#2aa198">0</span>)
+</span></span><span style="display:flex;"><span>		{
+</span></span><span style="display:flex;"><span>			<span style="color:#586e75">// 进程替换
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>			<span style="color:#268bd2">execvp</span>(command_argv[<span style="color:#2aa198">0</span>], command_argv);
+</span></span><span style="display:flex;"><span>			<span style="color:#719e07">return</span>  <span style="color:#719e07">-</span><span style="color:#2aa198">1</span>; <span style="color:#586e75">// 失败则退出-1
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>		}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#586e75">// 父进程回收子进程
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>		<span style="color:#dc322f">int</span> status <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>;
+</span></span><span style="display:flex;"><span>		<span style="color:#dc322f">pid_t</span> ret <span style="color:#719e07">=</span> <span style="color:#268bd2">waitpid</span>(id, <span style="color:#719e07">&amp;</span>status, <span style="color:#2aa198">0</span>);
+</span></span><span style="display:flex;"><span>		<span style="color:#719e07">if</span> (ret <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>)
+</span></span><span style="display:flex;"><span>		{
+</span></span><span style="display:flex;"><span>			<span style="color:#268bd2">printf</span>(<span style="color:#2aa198">&#34;父进程成功回收子进程, exit_code: %d, exit_sig: %d</span><span style="color:#cb4b16">\n</span><span style="color:#2aa198">&#34;</span>, <span style="color:#268bd2">WEXITSTATUS</span>(status), <span style="color:#268bd2">WTERMSIG</span>(status));
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#719e07">return</span> <span style="color:#2aa198">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>这个程序的健壮性和内存布局还有待优化，但只是一个简易的shell，用于理解它的工作原理，这就够了。</p></p>
               <footer>
-                <a href="https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AF%BC%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="full-article">Would you like to know more? →</a>
+                <a href="https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/c%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E7%AE%80%E6%98%93shell/" rel="full-article">Would you like to know more? →</a>
               </footer>
           
         </article>
         
         <article><header>
-  <p class="meta">Jun 13, 2025
+  <p class="meta">Jul 5, 2025
      - 1 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e6%8a%80%e6%9c%af/">技术 </a>
     
   </p>
   <h1 class="entry-title">
-     给比我岁数还大的电脑装Fedora 
+     C语言的可变参数 
   </h1>
 </header>
 
           
-            <p><h2 id="前言">前言</h2>
-<p><img src="./ccb6ab92150b3314a3cb09eee8102a56.jpg" alt=""></p>
-<p>印象中，这台电脑在我很小的时候就存在了，我爸的网盘里至今还有我当时用这台电脑播放江南Style，我在床上跳舞的视频。</p>
-<p>这台机子开Powershell都卡，更不用说日常使用。</p>
-<p><img src="./de5fce2eac7705b9df0d9a6e76ebf799.jpg" alt="">
-我甚至都不想在这台电脑上截图，当拍屏大师吧。</p>
-<p>听说Linux用户有个刻板印象就是，用着十几年前的笔记本，从来不用最新设备，那这不刚好吻合上了吗。</p>
-<p>诶&hellip;&hellip;等等，我
-<a href="https://www.yingyu5658.me/post/3691550015/" target="_blank" rel="noopener">之前</a>好像说过不折腾了？算了，反正Fedora没有Arch那么折腾（吧）。</p></p>
-              <footer>
-                <a href="https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/%E7%BB%99%E6%AF%94%E6%88%91%E5%B2%81%E6%95%B0%E8%BF%98%E5%A4%A7%E7%9A%84%E7%94%B5%E8%84%91%E8%A3%85fedora/" rel="full-article">Would you like to know more? →</a>
-              </footer>
-          
-        </article>
-        
-        <article><header>
-  <p class="meta">Jun 12, 2025
-     - 1 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e9%9a%8f%e7%ac%94/">随笔 </a>
-    
-  </p>
-  <h1 class="entry-title">
-     怪癖 
-  </h1>
-</header>
+            <p><h2 id="介绍">介绍</h2>
+<p>C语言中，<code>printf()</code>和<code>scanf()</code>函数就是典型的变参函数，其优点是灵活处理参数。</p>
+<p>想要创建变参函数需引入头文件<code>stdarg.h</code>，它有一些宏：</p>
+<pre tabindex="0"><code>va_list 指向整个可变参数列表的指针
+原型：typedef char* va_list;
 
-          
-            <p><p>我这人怪癖挺多的，屋子里不能拉开窗帘，我讨厌被别人看到；屋子里只留一盏台灯和电子设备的光，很有安全感；电脑桌面上不能有任何图标，我爱干净。</p>
-<p>屋子里静静的，只有空调运转和电脑硬盘读写的机械声。暖黄色的台灯灯光不会分散太多注意力，在学校喧闹一天后，这是最快的“回血”方法。很难想象那些住宿学校的学生是什么支撑着他们活下去，如果是我，我大概率会跳楼。我喜欢雨天，也跟这个有点关系，非常有安全感，非常舒适，望着天上的云，总有种熟悉的感觉，说不上来是什么，是在梦里，又或许是小时候见到过类似的场景，冷白色调的阴天光线总是有种熟悉感。</p>
-<p>我对噪音非常敏感，完全受不了人群的嘈杂声，那会让我筋疲力尽，除了睡的晚，这也是我在学校课间几乎睡满的原因。每天中午打饭时，百家争鸣百花齐放，没有一个人类，没有一个人类的行为，我正好坐在第一排，所有表演我都是最近距离的观众。光是看着折腾吵闹就已经让人筋疲力尽。</p>
-<p>手机常年静音勿扰，我极度厌恶手机的提示音，别人能动几下手指就简单地侵入我的生活，极度厌恶。把手机打开静音模式，是我自己在主动接受信息，只有在我想看的时候才能输入信息，而不是做一半事情就被突兀的响铃和震动打断。</p>
-<p>所有软件都是暗色模式，所有。如上文，我经常在灯光昏暗的环境下，刺眼的白光很不舒服，最极端的时间，手机、电脑、平板壁纸都是一张纯黑的图片，大道至简。但博客不同，内容风格不太适合暗色，我感觉纯技术博客更适合暗色，极客风吧。</p>
-<p>由于长期使用Vim，我也讨厌操作鼠标，甚至浏览器都装上了Vim插件，所有能用Vim模式的软件都在用Vim模式。</p>
-<p>高考最后一天，我们学校是考点，我在家休假。实在无聊，就去镜子前看自己，盯着看，镜子里的世界太真实了，哪一个才是真正的我？看得出神，感觉下一秒就能冲破镜框，搂到对方的后背。看着镜子里的自己，一种陌生感和恐惧感油然而生。我真的活着，我真的是我，镜子里这个人是谁？会不会他才是真正的我？</p>
-<p>又是一段东拼西扯的意识流文字。</p></p>
-              <footer>
-                <a href="https://www.yingyu5658.me/post/%E9%9A%8F%E7%AC%94/%E6%80%AA%E7%99%96/" rel="full-article">Would you like to know more? →</a>
-              </footer>
-          
-        </article>
-        
-        <article><header>
-  <p class="meta">Jun 11, 2025
-     - 1 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e9%9a%8f%e7%ac%94/">随笔 </a>
-    
-  </p>
-  <h1 class="entry-title">
-     网络死亡计划 
-  </h1>
-</header>
+va_start 指向可变参数列表前的参数（...前的参数）
+原型：void va_start(va_list ap, paramN);
 
-          
-            <p><p>最近要把生活重心和精力再往学业上分配更多，打算逐步减少社交软件的使用。因此产生了些许对自己在社交软件的某些群组上是否需要存在的焦虑。所以有了这个想法：<strong>在网络上死亡。</strong></p>
-<p>具体应该说是在社交软件上的死亡。为期两周，直到期末考试结束。</p>
-<p>反正也不会有几个人关注我的博客，那就随便说说吧。如果你疑惑为什么我长时间装死，那看到这篇文章也就解答了。</p>
-<p>一直感觉很多社交都是热脸贴冷屁股，浪费时间浪费精力。如果长达两周我没有在某个我曾经经常发言的群发言，而且也没有人主动找我，那也就意味着我在那个群不重要，对那群人不重要，不是一个圈子，无共同话题，也就没有留下去的意义。</p>
-<p>主要包括：</p>
-<ul>
-<li>停止发布朋友圈和QQ空间</li>
-<li>停止在所有非必要微信QQ群发言</li>
-<li>多学习，多写博客，多读书</li>
-</ul>
-<p>如果这样过得很舒服，那可能会一直延续下去。我一直在寻找真正有意义的社交圈和社交方式，但至今为止，觉得最有效的能让自己没那么累的方式就是减少社交。</p>
-<p>今后会把大部分生活琐事记录和观点表达转移到博客而非朋友圈和QQ空间。后者总是被动接受信息，不一定能找到共鸣，而前者是主动选择文章阅读，而且博客的性质能让人组织起完整的语言，客观地记录和表达；在QQ空间和微信发表出来总是有一种为了给某人看或为了给某些人看的味道，有些不舒服，也影响言语措辞。我这人变得越来越怪。</p></p>
-              <footer>
-                <a href="https://www.yingyu5658.me/post/%E9%9A%8F%E7%AC%94/%E7%BD%91%E7%BB%9C%E6%AD%BB%E4%BA%A1%E8%AE%A1%E5%88%92/" rel="full-article">Would you like to know more? →</a>
-              </footer>
-          
-        </article>
-        
-        <article><header>
-  <p class="meta">Jun 11, 2025
-     - 1 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e9%9a%8f%e7%ac%94/">随笔 </a>
-    
-  </p>
-  <h1 class="entry-title">
-     我说过吗？ 
-  </h1>
-</header>
+va_arg 可变参数列表
+原型：typedef va_arg(va_list ap, type)
 
-          
-            <p><p>我见到了一个口齿不清又爱自言自语的人。</p>
-<p>“我说过这个吗？”</p>
-<p>“没说过啊？”</p>
-<p>“哦哦对的对的哦不对不对哦对的对的。”</p>
-<p>“我说过那个吗？”</p>
-<p>“没说过啊？”</p>
-<p>“这个不说了。”</p>
-<p>“那个也不说了！”</p>
-<p>“不对，哦哦对的对的，不对不对。”</p>
-<p>我真说了，我真没说，我真说了！！！</p>
-<p>对，对吗？</p></p>
-              <footer>
-                <a href="https://www.yingyu5658.me/post/%E9%9A%8F%E7%AC%94/%E6%88%91%E8%AF%B4%E8%BF%87%E5%90%97/" rel="full-article">Would you like to know more? →</a>
-              </footer>
-          
-        </article>
-        
-        <article><header>
-  <p class="meta">Jun 10, 2025
-     - 1 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e6%8a%80%e6%9c%af/">技术 </a>
-    
-  </p>
-  <h1 class="entry-title">
-     从浏览器设置入手，一招破解作文网站禁止复制 
-  </h1>
-</header>
-
-          
-            禁用JavaScript
-              <footer>
-                <a href="https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/%E4%BB%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AE%BE%E7%BD%AE%E5%85%A5%E6%89%8B%E4%B8%80%E6%8B%9B%E7%A0%B4%E8%A7%A3%E4%BD%9C%E6%96%87%E7%BD%91%E7%AB%99%E7%A6%81%E6%AD%A2%E5%A4%8D%E5%88%B6/" rel="full-article">Would you like to know more? →</a>
-              </footer>
-          
-        </article>
-        
-        <article><header>
-  <p class="meta">Jun 7, 2025
-     - 6 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e6%8a%80%e6%9c%af/">技术 </a>
-    
-  </p>
-  <h1 class="entry-title">
-     4Key音游段位单曲成绩计算的程序实现 
-  </h1>
-</header>
-
-          
-            <p><h2 id="前言">前言</h2>
-<p>其实这个坑我很早以前就想开了，在我刚开始学编程那会就一直想写一个这个东西。但苦于数学进度没达到，要用到加权平均数，这东西我前两天才学到，之前对数学也一直是懒得学的状态，要不然几乎是看不懂那个算法的。</p>
-<p>我手头有一个
-<a href="https://github.com/Special-Week" target="_blank" rel="noopener">Special-Week</a>写的网页版的单曲成绩计算器，就以这个为研究样本吧。以下简称原作者为sw（如有冒犯请联系修改）</p>
-<h2 id="数据结构设计">数据结构设计</h2>
-<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>    <span style="color:#586e75">// 基础的4k类
-</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>    <span style="color:#268bd2">class</span> Dan4k {
-</span></span><span style="display:flex;"><span>        constructor(key1, key2, key3, key4, danName) {
-</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_key1 <span style="color:#719e07">=</span> key1;
-</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_key2 <span style="color:#719e07">=</span> key2;
-</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_key3 <span style="color:#719e07">=</span> key3;
-</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_key4 <span style="color:#719e07">=</span> key4;
-</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_danName <span style="color:#719e07">=</span> danName;
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    }
-</span></span></code></pre></div><p>每一个段（LN、Om），sw都单独写了一个内部类，继承Dan4k。</p>
-<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span> <span style="color:#586e75">// lnDan类
-</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>    <span style="color:#268bd2">class</span> LnDan <span style="color:#268bd2">extends</span> Dan4k {
-</span></span><span style="display:flex;"><span>        constructor(key1, lnKey1, key2, lnKey2, key3, lnKey3, key4, lnKey4, danName) {
-</span></span><span style="display:flex;"><span>            <span style="color:#268bd2">super</span>(key1, key2, key3, key4, danName);
-</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_lnKey1 <span style="color:#719e07">=</span> lnKey1;
-</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_lnKey2 <span style="color:#719e07">=</span> lnKey2;
-</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_lnKey3 <span style="color:#719e07">=</span> lnKey3;
-</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_lnKey4 <span style="color:#719e07">=</span> lnKey4;
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#586e75">// ma段
-</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>    <span style="color:#268bd2">class</span> MaDan <span style="color:#268bd2">extends</span> Dan4k {
-</span></span><span style="display:flex;"><span>        constructor(key1, key2, key3, key4, name1, name2, name3, name4, danName) {
-</span></span><span style="display:flex;"><span>            <span style="color:#268bd2">super</span>(key1, key2, key3, key4, danName);
-</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_name1 <span style="color:#719e07">=</span> name1;
-</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_name2 <span style="color:#719e07">=</span> name2;
-</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_name3 <span style="color:#719e07">=</span> name3;
-</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_name4 <span style="color:#719e07">=</span> name4;
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#586e75">// reform段
-</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>    <span style="color:#268bd2">class</span> ReformDan <span style="color:#268bd2">extends</span> Dan4k {
-</span></span><span style="display:flex;"><span>        constructor(key1, key2, key3, key4, name1, name2, name3, name4, danName) {
-</span></span><span style="display:flex;"><span>            <span style="color:#268bd2">super</span>(key1, key2, key3, key4, danName);
-</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_name1 <span style="color:#719e07">=</span> name1;
-</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_name2 <span style="color:#719e07">=</span> name2;
-</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_name3 <span style="color:#719e07">=</span> name3;
-</span></span><span style="display:flex;"><span>            <span style="color:#719e07">this</span>.m_name4 <span style="color:#719e07">=</span> name4;
+va_end 结束对可变参数列表的访问，并释放资源
+原型：void va_end(va_list ap);
+</code></pre><h2 id="使用例">使用例</h2>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#719e07">#include</span> <span style="color:#719e07">&lt;stdio.h&gt;</span><span style="color:#719e07">
+</span></span></span><span style="display:flex;"><span><span style="color:#719e07">#include</span> <span style="color:#719e07">&lt;stdarg.h&gt;</span><span style="color:#719e07">
+</span></span></span><span style="display:flex;"><span><span style="color:#719e07"></span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75">// 定义一个使用省略号的函数原型
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span><span style="color:#dc322f">void</span> <span style="color:#268bd2">function</span>(<span style="color:#dc322f">int</span> argument, ...)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>        <span style="color:#586e75">// 声明一个va_list类型的变量ap，这是可变参数列表
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>        va_list ap;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#586e75">// 使用va_start把变量ap初始化为参数列表
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>        <span style="color:#268bd2">va_start</span>(ap, argument);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#586e75">// 第二个参数表明本函数期望传入一个int类型
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>        <span style="color:#586e75">// 但是编译器不会检查到底输入了什么。
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>        <span style="color:#dc322f">int</span> output <span style="color:#719e07">=</span> <span style="color:#268bd2">va_arg</span>(ap, <span style="color:#dc322f">int</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#268bd2">printf</span>(<span style="color:#2aa198">&#34;可变参数：%d</span><span style="color:#cb4b16">\n</span><span style="color:#2aa198">&#34;</span>, output);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#268bd2">va_end</span>(ap);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#dc322f">int</span> <span style="color:#268bd2">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>        <span style="color:#268bd2">function</span>(<span style="color:#2aa198">1</span>, <span style="color:#2aa198">109</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>输出：</p>
+<pre tabindex="0"><code>可变参数：109
+</code></pre><p>函数起了作用，但是如果我们需要接受多个参数，应该如何获取呢？</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#719e07">#include</span> <span style="color:#719e07">&lt;stdio.h&gt;</span><span style="color:#719e07">
+</span></span></span><span style="display:flex;"><span><span style="color:#719e07">#include</span> <span style="color:#719e07">&lt;stdarg.h&gt;</span><span style="color:#719e07">
+</span></span></span><span style="display:flex;"><span><span style="color:#719e07"></span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75">// 定义一个使用省略号的函数原型
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span><span style="color:#dc322f">void</span> <span style="color:#268bd2">function</span>(<span style="color:#dc322f">int</span> argument, ...)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>        <span style="color:#586e75">// 声明一个va_list类型的变量ap，这是可变参数列表
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>        va_list ap;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#586e75">// 使用va_start把变量ap初始化为参数列表，此处的第二个参数是最后一个固定参数
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>        <span style="color:#268bd2">va_start</span>(ap, argument);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#586e75">// 第二个参数表明本函数期望传入一个int类型
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>        <span style="color:#586e75">// 但是编译器不会检查到底输入了什么。
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>
+</span></span><span style="display:flex;"><span>        <span style="color:#dc322f">int</span> arguments_list[<span style="color:#2aa198">4</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#719e07">for</span>(<span style="color:#dc322f">int</span> i <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; i <span style="color:#719e07">&lt;</span> <span style="color:#2aa198">4</span>; i<span style="color:#719e07">++</span>) {
+</span></span><span style="display:flex;"><span>                arguments_list[i] <span style="color:#719e07">=</span> <span style="color:#268bd2">va_arg</span>(ap, <span style="color:#dc322f">int</span>); <span style="color:#586e75">// 按int类型提取参数
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#268bd2">va_end</span>(ap);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#586e75">// 遍历参数列表并打印
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>        <span style="color:#719e07">for</span> (<span style="color:#dc322f">int</span> i <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; i <span style="color:#719e07">&lt;</span> <span style="color:#2aa198">4</span>; i<span style="color:#719e07">++</span>) {
+</span></span><span style="display:flex;"><span>                <span style="color:#268bd2">printf</span>(<span style="color:#2aa198">&#34;可变参数%d：%d</span><span style="color:#cb4b16">\n</span><span style="color:#2aa198">&#34;</span>, i <span style="color:#719e07">+</span> <span style="color:#2aa198">1</span>, arguments_list[i]);
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#586e75">// om段
-</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>    <span style="color:#268bd2">class</span> OmDan <span style="color:#268bd2">extends</span> Dan4k {
-</span></span><span style="display:flex;"><span>        constructor(key1, key2, key3, key4, danName) {
-</span></span><span style="display:flex;"><span>            <span style="color:#268bd2">super</span>(key1, key2, key3, key4, danName);
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    }
-</span></span></code></pre></div><p>我打算重写的程序不带LN玩了，我自己也没玩过LN，不清楚是什么机制。那就来看看剩下的几个类。</p></p>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#dc322f">int</span> <span style="color:#268bd2">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>        <span style="color:#268bd2">function</span>(<span style="color:#2aa198">1</span>, <span style="color:#2aa198">10</span>, <span style="color:#2aa198">12</span>, <span style="color:#2aa198">2</span>, <span style="color:#2aa198">111</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="扩展va_start的第二个参数的工作原理">扩展：<code>va_start</code>的第二个参数的工作原理</h2>
+<p><code>va_start</code>的第二个参数用于定位可变参数列表的起始位置，具体而言，它指向函数参数列表中最后一个固定参数（即省略号前的参数），通过该参数的地址计算出第一个可变参数在内存中的位置。</p></p>
               <footer>
-                <a href="https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/4key%E9%9F%B3%E6%B8%B8%E6%AE%B5%E4%BD%8D%E5%8D%95%E6%9B%B2%E6%88%90%E7%BB%A9%E8%AE%A1%E7%AE%97%E7%9A%84%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0/" rel="full-article">Would you like to know more? →</a>
+                <a href="https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/c%E8%AF%AD%E8%A8%80%E7%9A%84%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0/" rel="full-article">Would you like to know more? →</a>
               </footer>
           
         </article>
         
         <article><header>
-  <p class="meta">Jun 6, 2025
+  <p class="meta">Jul 5, 2025
      - 1 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e9%9a%8f%e7%ac%94/">随笔 </a>
     
   </p>
   <h1 class="entry-title">
-     杂记#2025-06-06 
+     为什么我选择Github issues，而不是朋友圈 
   </h1>
 </header>
 
           
-            <p><p>纠结了很长时间，这篇文章命名的事。我是典型的选择困难，出于文章内容组织的形式，就把他命名为杂记了。不过应该也没什么人看，我就~~（梦）~~想到什么写什么了</p>
-<h2 id="时间感慨">时间感慨</h2>
-<p>今天就上半天学，下午高考布置考场了。一进门就看到教学楼处处拉着横幅，写着给高考考生加油助威的标语。睡眼惺忪的我一下子就惊醒了，高考？又来？下课，和同学聊天，我又想起来这茬，自言自语：“高考，又高考了&hellip;&hellip;”让人听见了，“高考就考呗和你有啥关系？”是啊，和我有什么关系，该和我有关系吗？高考过一阵子后就该中考了。再过一年，我也上中考考场了。</p>
-<p>今天是我初中三年，第二次，也是最后一次放高考假，初一的时候还什么也不懂，傻了吧唧地，快乐地就活了一年。一升入初二，第一个学期精神状态出奇的差。老师天天讲各种心灵鸡汤、各种教育学生，都放他妈狗屁。只有三年过得太快了这句话是真的。一直感觉自己刚升入初中啊，地生会考迫在眉睫了。</p>
-<p>端午假期回来的那天，升旗仪式改成了给初高三学生加油的什么仪式，实际上也就是校领导在上面讲讲万年一套的老话，学生在台下鼓鼓掌。可能是吧，初一是什么场面，已经忘了，但依稀记得，我当时很受鼓舞，觉得老师和上台讲话的同学吐出来的每一个字、每一个标点符号都是那么振奋人心。今年只有麻木感和危机感，回班后，班主任说，明年就该你们走那个状元门啦！围着我心的最后那块砖头也被一脚踢飞了。</p>
-<p>我对毕业不害怕，我甚至有点向往毕业。好像有人初中毕业哭得死去活来的，记得小学就有人这样了。可能我向来都是一个薄情的人，对于同学情这种事，没那么大牵挂，活的也舒心。网络也发达，能联系的自然会联系，没话说的也就不必强找话题，已经不是一路人了。顺其自然？顺其自然。真正让我害怕的是考试，我也没有特别想去的学校，也没有特别想学的专业。计算机？程序员？别操蛋来了，已经不是2020年了，普通人没高学历怎么卷。美术？那更是要饿死的了。没什么学习的动力，唯一的动力就是成绩不差暂且能在同学面前抬起头吧。我感兴趣的方向都有被AI替代的风险了。现在想这个确实为时过早，高中三年活下来才有资格想去哪里要饭。</p>
-<p>一写学校的事就难免重力展开啊&hellip;&hellip;</p>
-<h2 id="夏">夏</h2>
-<p>小时候非常喜欢夏天，现在平等地讨厌春秋，因为会犯鼻炎；一贯地憎恨冬天，太冷了。那只有夏天好了。</p>
-<p>夏天一直有一层回忆滤镜，今年要仔细感受一下。好好想想，童年夏天回忆有三：</p>
-<p>空调、冰棍、帆布毯。两样陆陆续续都回来了，唯独空调费劲，空调到底是因为热才开，还是因为“时候到了”才开？空调服务的对象是“时候”，还是人？</p>
-<h2 id="工具迷恋">工具迷恋</h2>
-<p>我承认，我真的没把时间花在刀刃上。经常浪费时间，在一个几百年前的软件上花大力气大时间，甚至废寝忘食，就为了实现一个已经由专业团队开发好的、开箱即用的、体验还更好的功能。美其名曰“极客精神”。我对极客精神没偏见，只是突然发觉，不应该把时间花费在这种事上。对，我就是在说Emacs和Vim。</p>
-<p>工具说到底还是为了做事的，先选简单的工具，把事情做得精湛，再谈优化工具。代码还写不明白，反到是一直迷恋在配置各种编辑器，白白浪费时间，作业也写不成，代码也写不成，最后配置出来了一块会爆炸的排泄物，一团矛盾。</p>
-<p>去年12月底，我开始知道了Vim这个东西，在折腾了一会被劝退后，发了条朋友圈吐槽。</p>
-<p><img src="./Pastedimage20250607121725.png" alt=""></p>
-<p>但是不得不承认，Vim比Emacs好配多了。现在我的Vim起码到了能畅快写代码的程度。在这之前，一直都在断断续续地折腾Vim、终端、系统。真正写代码的时间没有三分之一。幸好在
-<a href="http://www.yingyu5658.me/post/4108562128/" target="_blank" rel="noopener">玩腻Arch</a>后及时悔悟，装回了Windows，虽然种种不适应，但用起来很方便，起码不会再像以前那样浪费时间了。</p>
-<p>感谢Windows，感谢微软&hellip;&hellip;否则我就要成为开机 =&gt; 桌面炸了 =&gt; 花两天修复桌面 =&gt; 开机 =&gt; 打开自己半透明+亚克力+二次元小人背景的终端 =&gt; 输入neofetch欣赏半个小时桌面并截图发群里：“顺便说一下，我用的是Arch。”的那种人了。偶然间听到过一句话： “如果一块表时间是错的，那他走的每一秒都是错的；如果这块表停了，那它一天中至少有两次是对的。”挺有道理的。</p>
-<p>翻看了一下自己写的代码和以前的文章，发现自己的快速上手的能力较强，各项技术都有涉猎，知识面较广，但这样的结果就是哪样都不深。尤其是数据结构与算法接触非常少，写不出来什么干巴的代码，之后要改一改了，在数学和算法上深耕一下，也在C语言深耕。C语言一直是很让我向往的语言，运行几乎无开销、对硬件极致的控制能力，灵活、高效、结构紧凑。但他复杂易混淆的指针也多次劝退我这个初学者。这个精髓没领悟到，玩C语言就玩不到灵魂了。</p></p>
+            <p><blockquote>
+<p>本页面内容来自
+<a href="https://github.com/yingyu5658/Moments/edit/main/README.md" target="_blank" rel="noopener">Moments</a></p></blockquote>
+<h2 id="概述">概述</h2>
+<p>把GitHub issues当朋友圈发。</p>
+<p>我厌倦朋友圈浓重的装逼气味和虚假社交属性，打造一个纸糊的人设并不好玩，专门发出来某些东西给某人看也非常恶心，所以我选择逃避。</p>
+<h2 id="为什么要用issues而不是朋友圈">为什么要用issues，而不是朋友圈？</h2>
+<ul>
+<li>访问受限，门槛较高 &amp;&amp; 过滤傻逼</li>
+<li>有更方便管理的标签和查找</li>
+<li>易于二次开发</li>
+<li>Markdown格式写作</li>
+<li>清净，不用一点开就吃别人拉出来的屎</li>
+<li>能相对敞亮地说话</li>
+</ul>
+<p>综上，使用issues是更好的。</p>
+<h2 id="为什么叫moments">为什么叫Moments？</h2>
+<p>这是微信英文界面对朋友圈的翻译，我觉得这个翻译像是十几年前微信朋友圈这个功能刚出来时做的。刹那、瞬间，重在记录，而现在朋友圈的发展越来越妖魔化，已经变成一些虚伪的人从各个角度试图营销自己的垃圾场，也变成了意义不明、只放一个二维码要求扩列的赛博妓院。朋友圈的内容总给人虚假感，因为微信是一个社交平台，和你的人设高度绑定，大部分人到死前都会经历毫无尊严的一段时光，想到这里，那些虚假的人设、别人的看法也就没那么重要了。</p>
+<h2 id="个人原因">个人原因</h2>
+<p>我从发布了第一条
+<a href="https://www.yingyu5658.me/post/707697709/" target="_blank" rel="noopener">私密朋友圈</a>开始，就一直在探索利用间隙碎片时间释放表达欲与分享欲的途径，，为了远离那些恶心的卖弄人设行为且能专心用私密朋友圈记录，我屏蔽了所有好友的朋友圈，但微信朋友圈不易于管理和查找，没一阵就被pass掉。</p>
+<p>除了朋友圈，我大部分释放前两种欲望的途径是和群里的网友聊天，但是随着
+<a href="https://www.yingyu5658.me/post/2631380338/" target="_blank" rel="noopener">网络死亡计划</a>对群聊的筛选，我活动的群聊变得很少，有些还留着的群是因为加的时间很长，但基本没人理我。后来
+<a href="https://www.yingyu5658.me/post/3628666444/" target="_blank" rel="noopener">信息节食</a>的实行，我也不会再浪费太多时间在群里吹水，总憋着容易溢出，于是Moments诞生了。</p></p>
               <footer>
-                <a href="https://www.yingyu5658.me/post/%E9%9A%8F%E7%AC%94/%E6%9D%82%E8%AE%B0-2025-06-06/" rel="full-article">Would you like to know more? →</a>
+                <a href="https://www.yingyu5658.me/post/%E9%9A%8F%E7%AC%94/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E9%80%89%E6%8B%A9github-issues%E8%80%8C%E4%B8%8D%E6%98%AF%E6%9C%8B%E5%8F%8B%E5%9C%88/" rel="full-article">Would you like to know more? →</a>
               </footer>
           
         </article>
         
         <article><header>
-  <p class="meta">Jun 6, 2025
-     - 1 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e6%8a%80%e6%9c%af/">技术 </a>
+  <p class="meta">Jul 4, 2025
+     - 4 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e6%8a%80%e6%9c%af/">技术 </a>
     
   </p>
   <h1 class="entry-title">
-     C语言的头文件与OOP范式的抽象类、接口的异同点 
+     使用Javascript TSS和Highlights构建一个文本阅读器 
   </h1>
 </header>
 
           
-            <p><h2 id="引言">引言</h2>
-<p>说真的，从去年十一月份开始接触编程，到现在也好几个月了，自认为进步速度较快，但速度快也就导致了深度浅，走马观花式的学习，现在还是有很多理解不深刻的点，今天来仔细研究一下这个问题。我也是先入为主，第一门编程语言学的是Java，所以再接触C，一些概念就混淆了。</p>
-<h2 id="c语言模块化设计的核心">C语言模块化设计的核心</h2>
-<p>头文件本质是对外提供的接口<strong>契约</strong>，包含函数声明、宏定义、结构体类型声明。例如：</p>
-<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#586e75">// math_utils.h
-</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span><span style="color:#719e07">#ifndef MATH_UTILS_H
-</span></span></span><span style="display:flex;"><span><span style="color:#719e07">#define MATH_UTILS_H
-</span></span></span><span style="display:flex;"><span><span style="color:#719e07"></span><span style="color:#dc322f">int</span> <span style="color:#268bd2">add</span>(<span style="color:#dc322f">int</span> a, <span style="color:#dc322f">int</span> b);  <span style="color:#586e75">// 函数声明
-</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span><span style="color:#719e07">#endif
-</span></span></span></code></pre></div><ul>
-<li>编译隔离：通过头文件守卫(#ifndef)实现模块之间的编译隔离。</li>
-<li>虽然头文件可以实现函数，但这会破坏模块化。</li>
-</ul>
-<h3 id="模块化实现规范">模块化实现规范</h3>
+            <p><blockquote>
+<p>原文：https://jsdev.space/tts-sentence-reader/
+翻译：yingyu5658 
+<a href="mailto:yingyu5658@outlook.com">yingyu5658@outlook.com</a></p></blockquote>
+<p><img src="https://jsdev.space/.netlify/images?url=_astro%2Ftts-sentence-reader.hV9whx3I.png&amp;w=800&amp;h=800" alt=""></p>
+<p>在这篇文章中，我们将构建一个简单的Web工具来探究<strong>Text-toSpeech(TTS)<strong>在JavaScript中是如何工作的。我们也将深入研究</strong>句子级高亮</strong>的工作逻辑。这两项功能经常结合在一起使用，以走到浏览器中打造无障碍的动态阅读体验。</p>
+<p>步骤:</p>
+<ol>
+<li>学习在浏览器中,TTS是如何工作的</li>
+<li>探究动态高亮句子的实现方法</li>
+<li>用HTML, CSS, JavaScript构建一个小工具(
+<a href="https://codepen.io/jsdevspace/pen/YPXRRjO" target="_blank" rel="noopener">Demo &amp; Code</a>)</li>
+</ol>
+<h2 id="-浏览器中的tts概述">📢 浏览器中的TTS概述</h2>
+<p>JavaScript提供一个内置的API：
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis" target="_blank" rel="noopener"><code>SpeechSynthesis</code></a>，它允许我们使用系统中的可用嗓音去大声朗读问文字。</p>
+<h3 id="核心对象">核心对象:</h3>
 <ul>
-<li>源文件承载具体实现，通过包含对应头文件实现联系</li>
-<li>模块间通过<code>extern</code>关键字声明共享全局变量（谨慎使用）</li>
+<li><code>speechSynthesis</code> — 控制播放、暂停、恢复、停止</li>
+<li><code>SpeechSynthesisUtterance</code> — 作为TTS引擎的待播报文本</li>
 </ul>
-<h2 id="面向对象中的抽象机制">面向对象中的抽象机制</h2>
-<p>抽象类可以包含部分实现，它的目的是：<strong>描述一个公共基类，有共同的特征，有部分方法实现，但另一部分依赖子类自行实现</strong>。</p>
-<p>接口是一系列方法的声明，一个接口就是在描述一种能力。</p>
-<p>设计目标上，抽象类为了代码复用+多台，而接口是行为契约。</p>
-<h2 id="设计范式对比">设计范式对比</h2>
-<h3 id="c模块化-vs-oop抽象">C模块化 vs OOP抽象</h3>
-<ul>
-<li>抽象粒度：C模块关注功能单元（做什么），而OOP抽象关注对象行为契约（是谁做什么）</li>
-<li>扩展方式：C通过函数指针传递上下文，OOP通过继承、实现扩展。</li>
-</ul></p>
+<h3 id="示例">✨示例:</h3>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#268bd2">const</span> msg <span style="color:#719e07">=</span> <span style="color:#719e07">new</span> SpeechSynthesisUtterance(<span style="color:#2aa198">&#34;Hello, world!&#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#b58900">window</span>.speechSynthesis.speak(msg);
+</span></span></code></pre></div><h3 id="-添加嗓音和配置">⚙️ 添加嗓音和配置</h3>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#268bd2">const</span> utter <span style="color:#719e07">=</span> <span style="color:#719e07">new</span> SpeechSynthesisUtterance(<span style="color:#2aa198">&#34;This is a test&#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">const</span> voices <span style="color:#719e07">=</span> <span style="color:#b58900">window</span>.speechSynthesis.getVoices();
+</span></span><span style="display:flex;"><span>utter.voice <span style="color:#719e07">=</span> voices.find(v =&gt; v.lang <span style="color:#719e07">===</span> <span style="color:#2aa198">&#39;en-US&#39;</span>);
+</span></span><span style="display:flex;"><span>utter.rate <span style="color:#719e07">=</span> <span style="color:#2aa198">1.2</span>;
+</span></span><span style="display:flex;"><span>utter.pitch <span style="color:#719e07">=</span> <span style="color:#2aa198">1</span>;
+</span></span><span style="display:flex;"><span><span style="color:#b58900">window</span>.speechSynthesis.speak(utter);
+</span></span></code></pre></div><p>你也可以追踪朗读的开始和结束：</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>utter.onstart <span style="color:#719e07">=</span> () =&gt; console.log(<span style="color:#2aa198">&#39;Started speaking&#39;</span>);
+</span></span><span style="display:flex;"><span>utter.onend <span style="color:#719e07">=</span> () =&gt; console.log(<span style="color:#2aa198">&#39;Finished speaking&#39;</span>);
+</span></span></code></pre></div><h2 id="-句子高亮">✍️ 句子高亮</h2>
+<p>展示给用户哪一个句子正在阅读，我们需要用CSS和JavaScript来高亮文本。</p>
+<h3 id="示例-html">示例 HTML:</h3>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#268bd2">p</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#268bd2">span</span> class<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;sentence&#34;</span>&gt;First sentence.&lt;/<span style="color:#268bd2">span</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#268bd2">span</span> class<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;sentence&#34;</span>&gt;Second sentence.&lt;/<span style="color:#268bd2">span</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#268bd2">p</span>&gt;
+</span></span></code></pre></div><h3 id="处理高亮的css">处理高亮的CSS:</h3>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span>.<span style="color:#268bd2">sentence</span>.<span style="color:#268bd2">active</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#719e07">background-color</span>: <span style="color:#cb4b16">yellow</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#719e07">font-weight</span>: <span style="color:#cb4b16">bold</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="javascript高亮逻辑">JavaScript高亮逻辑：</h3>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#268bd2">function</span> highlight(index) {
+</span></span><span style="display:flex;"><span>  <span style="color:#b58900">document</span>.querySelectorAll(<span style="color:#2aa198">&#39;.sentence&#39;</span>).forEach((el, i) =&gt; {
+</span></span><span style="display:flex;"><span>    el.classList.toggle(<span style="color:#2aa198">&#39;active&#39;</span>, i <span style="color:#719e07">===</span> index);
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h1 id="项目-使用tss和高亮的阅读器">🚀项目: 使用TSS和高亮的阅读器</h1>
+<p>我们的程序将要：</p></p>
               <footer>
-                <a href="https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/c%E8%AF%AD%E8%A8%80%E7%9A%84%E5%A4%B4%E6%96%87%E4%BB%B6%E4%B8%8Eoop%E8%8C%83%E5%BC%8F%E7%9A%84%E6%8A%BD%E8%B1%A1%E7%B1%BB%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%BC%82%E5%90%8C%E7%82%B9/" rel="full-article">Would you like to know more? →</a>
+                <a href="https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/%E7%94%A8javascript-tss%E5%92%8Chighlights%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8F%A5%E7%BA%A7%E6%96%87%E6%9C%AC%E9%98%85%E8%AF%BB%E5%99%A8/" rel="full-article">Would you like to know more? →</a>
               </footer>
           
         </article>
@@ -503,11 +465,33 @@
     
         <a href="/page/11/" class="label-pagination">11</a>
     
+        <a href="/page/12/" class="label-pagination">12</a>
+    
+        <a href="/page/13/" class="label-pagination">13</a>
+    
+        <a href="/page/14/" class="label-pagination">14</a>
+    
+        <a href="/page/15/" class="label-pagination">15</a>
+    
+        <a href="/page/16/" class="label-pagination">16</a>
+    
+        <a href="/page/17/" class="label-pagination">17</a>
+    
+        <a href="/page/18/" class="label-pagination">18</a>
+    
+        <a href="/page/19/" class="label-pagination">19</a>
+    
+        <a href="/page/20/" class="label-pagination">20</a>
+    
+        <a href="/page/21/" class="label-pagination">21</a>
+    
+        <a href="/page/22/" class="label-pagination">22</a>
+    
 
     <a href="/page/5/" aria-label="Next" class="label-pagination"><i class="fa fa-angle-right fa-lg"></i></a>
     
 
-    <a href="/page/11/" aria-label="Last"><i class="fa fa-angle-double-right fa-lg"></i></a>
+    <a href="/page/22/" aria-label="Last"><i class="fa fa-angle-double-right fa-lg"></i></a>
     
 
 </div>

@@ -67,41 +67,42 @@
 </ul>
 
 
-
-
-
-
   <form action="https://www.bing.com/search" method="get" target="_blank" rel="noopener noreferrer">
     <fieldset role="search">
-      <input class="search"
-             type="text"
-             name="userQuery"
-             results="0"
-             placeholder="Search"
-             autocomplete="off">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+	<input type="hidden" name="q" value="site:https://www.yingyu5658.me/" />
+	<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('form'); 
+    const textInput = document.querySelector('input.search[type="text"]');
+    const hiddenInput = document.querySelector('input[type="hidden"][name="q"]');
+
+    
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); 
+
       
-      <input type="hidden" 
-             name="q" 
-             value="www.yingyu5658.me">
+      const userInput = textInput.value.trim();
+
+      
+      const siteFilter = hiddenInput.value;
+
+      
+      const combinedValue = userInput ? `${userInput} ${siteFilter}` : siteFilter;
+
+      
+      const tmpInput = document.createElement('input');
+      tmpInput.type = 'hidden';
+      tmpInput.name = 'q';
+      tmpInput.value = combinedValue;
+
+      form.appendChild(tmpInput);
+      form.submit();
+    });
+  });
+</script>
     </fieldset>
   </form>
-  
-  <script>
-    (function() {
-      const form = document.querySelector('form[action="https://www.bing.com/search"]');
-      if (!form) return;
-      
-      form.addEventListener('submit', function(e) {
-        const userInput = this.querySelector('[name="userQuery"]');
-        const hiddenQuery = this.querySelector('[name="q"]');
-        const query = userInput.value.trim();
-        
-        hiddenQuery.value = query ? 
-          `${query} site:${hiddenQuery.value}` : 
-          `site:${hiddenQuery.value}`;
-      });
-    })();
-  </script>
 
 </nav>
 
@@ -112,436 +113,254 @@
       
         
         <article><header>
-  <p class="meta">May 25, 2025
+  <p class="meta">Jun 22, 2025
      - 1 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e6%8a%80%e6%9c%af/">技术 </a>
     
   </p>
   <h1 class="entry-title">
-     【数据结构与算法】二叉树 
+     会考地理复习笔记 
   </h1>
 </header>
 
           
-            <p><h2 id="定义">定义</h2>
-<p>二叉树（binary tree）是指树中节点的度不大于2的有序树，它是一种最简单且最重要的树。二叉树的递归定义为：二叉树是一棵空树，或者是一棵由一个根节点和两棵互不相交的，分别称作根的左子树和右子树组成的非空树；左子树和右子树又同样都是二叉树。</p>
-<h2 id="实现">实现</h2>
-<h3 id="结构定义">结构定义</h3>
-<p><del>尝试了一下C语言，各种指针乱指，各种bug，暂时放自己一马，跟自己和解一下用js写写吧。</del></p>
-<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#268bd2">class</span> TreeNode {
-</span></span><span style="display:flex;"><span>  constructor(data) {
-</span></span><span style="display:flex;"><span>    <span style="color:#719e07">this</span>.data <span style="color:#719e07">=</span> data;
-</span></span><span style="display:flex;"><span>    <span style="color:#719e07">this</span>.left <span style="color:#719e07">=</span> <span style="color:#cb4b16">null</span>;  <span style="color:#586e75">// 左节点
-</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>    <span style="color:#719e07">this</span>.right <span style="color:#719e07">=</span> <span style="color:#cb4b16">null</span>; <span style="color:#586e75">// 右边节点
-</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="创建对象并绑定节点">创建对象并绑定节点</h3>
-<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#586e75">// 手动绑定节点
-</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span><span style="color:#268bd2">let</span> root <span style="color:#719e07">=</span> <span style="color:#719e07">new</span> TreeNode(<span style="color:#2aa198">1</span>)
-</span></span><span style="display:flex;"><span>root.left <span style="color:#719e07">=</span> <span style="color:#719e07">new</span> TreeNode(<span style="color:#2aa198">2</span>)
-</span></span><span style="display:flex;"><span>root.right <span style="color:#719e07">=</span> <span style="color:#719e07">new</span> TreeNode(<span style="color:#2aa198">3</span>)
-</span></span><span style="display:flex;"><span>root.left.left <span style="color:#719e07">=</span> <span style="color:#719e07">new</span> TreeNode(<span style="color:#2aa198">4</span>)
-</span></span><span style="display:flex;"><span>root.right.right <span style="color:#719e07">=</span> <span style="color:#719e07">new</span> TreeNode(<span style="color:#2aa198">5</span>)
-</span></span></code></pre></div><p>此时树的结构：</p>
-<pre tabindex="0"><code>      1
-     /  \
-     2   3
-   /  \   \
-  4    5   6
-</code></pre><h3 id="遍历二叉树">遍历二叉树</h3>
-<h4 id="前序遍历dfs">前序遍历（DFS）</h4>
-<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#268bd2">function</span> preOrder(node) {
-</span></span><span style="display:flex;"><span>  <span style="color:#719e07">if</span>(node) {
-</span></span><span style="display:flex;"><span>    console.log(node.data)
-</span></span><span style="display:flex;"><span>    preOrder(node.left)
-</span></span><span style="display:flex;"><span>    preOrder(node.right)
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>这里用递归调用，遍历到左右元素</p>
-<h4 id="层序遍历bfs">层序遍历（BFS）</h4>
-<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#268bd2">function</span> levelOrder(root) {
-</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">const</span> queue <span style="color:#719e07">=</span> [];
-</span></span><span style="display:flex;"><span>  queue.push(root);
-</span></span><span style="display:flex;"><span>  <span style="color:#719e07">while</span> (queue.length) {
-</span></span><span style="display:flex;"><span>    <span style="color:#268bd2">const</span> node <span style="color:#719e07">=</span> queue.shift();
-</span></span><span style="display:flex;"><span>    console.log(node.data);
-</span></span><span style="display:flex;"><span>    <span style="color:#719e07">if</span> (node.left) queue.push(node.left);
-</span></span><span style="display:flex;"><span>    <span style="color:#719e07">if</span> (node.right) queue.push(node.right);
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div></p>
-              <footer>
-                <a href="https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%BA%8C%E5%8F%89%E6%A0%91/" rel="full-article">Would you like to know more? →</a>
-              </footer>
-          
-        </article>
-        
-        <article><header>
-  <p class="meta">May 20, 2025
-     - 1 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e9%9a%8f%e7%ac%94/">随笔 </a>
-    
-  </p>
-  <h1 class="entry-title">
-     “我有厌蠢症” 
-  </h1>
-</header>
-
-          
-            <p><p>“厌蠢症”大概是迄今为止我听到的唯一一个能与近些年很火的一个心理测试——MBTI抗衡的。</p>
-<p>前两年MBTI这东西刚出来时，很多人争着抢着去做测试，把自己标签上的四个字母如数家珍，甚至为了维持人设，去扮演人格，倒反天罡。但不能否认，这个测试确实能在与陌生人的聊天中快速找到话题切入点，以两大种类属性人格为根，横向延伸出许多话题，建立起临时的友谊。过两天，结果就是空间互赞，再不联系。</p>
-<p>同时，这个测试也有一个点，当局者迷。即<strong>筛选</strong>。</p>
-<p>筛选出分辨能力弱，花钱去做假测试的和不清楚真实的自己，喜欢给自己贴标签，经常把MBTI挂在嘴边的人。这两种人，说难听点，<strong>蠢</strong>。</p>
-<p>用MBTI的例子来引出本文的核心观点：<strong>厌蠢症才是真的蠢</strong>。</p>
-<p>不可否认地，高傲自大的人确实蠢。</p>
-<p>上次让我这么情绪复杂的还是一群没病硬装、拿疾病当挡箭牌的“抑郁症患者”。</p>
-<p>厌蠢症这三个字，完全是送命题，也筛选出智商和情商都达到“蠢”的标准的人。首先，当你说出这句话，就意味着你把自己当做了聪明人。带着狂妄、自大、轻浮、傲慢的“聪明人”。</p>
-<p>傲慢才是原罪。</p>
-<p>带着这份傲慢，厌蠢症发作，完全暴露自己最低智的一面，自诩聪明人。实际上蠢到极点还不自知。用人类的大脑仔细思考一下，这三个字是否写出来咬手、读出来扎嘴？用人类的大脑仔细思考一下，你是否有资格讨厌你所谓的“蠢”？用人类的大脑思考一下，你对聪明的定义，以及对自己的理解是什么样的？仔细思考一下，你能否在生活中完美无缺？你是否在每一场考试都拿到满分？你是否能照顾他人情绪，读懂空气氛围？</p>
-<p>他们思考出结果了吗？没有。厌蠢症患者无法思考。不具备人类的大脑，没有思考的能力。也不愿意去思考，只是一直傲慢自大下去，这才是真的蠢。</p>
-<p>再把这句愚蠢的话大声地说出来：“我有厌蠢症。”</p>
-<p>自己作何感想？他人作何感想？</p>
-<p>如果你愿意继续做你所谓的聪明人并继续厌蠢下去，那你只有高傲自大、狂妄轻浮，你是真的蠢。</p></p>
-              <footer>
-                <a href="https://www.yingyu5658.me/post/%E9%9A%8F%E7%AC%94/%E6%88%91%E6%9C%89%E5%8E%8C%E8%A0%A2%E7%97%87/" rel="full-article">Would you like to know more? →</a>
-              </footer>
-          
-        </article>
-        
-        <article><header>
-  <p class="meta">May 19, 2025
-     - 1 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e9%9a%8f%e7%ac%94/">随笔 </a>
-    
-  </p>
-  <h1 class="entry-title">
-     这样的博客的意义是？ 
-  </h1>
-</header>
-
-          
-            <p><h2 id="博客文章的密码">博客文章的密码</h2>
-<p>博客文章加密码，意义何在？</p>
-<p>写博客的意义是？</p>
-<p>写博客的意义之一，不是放大自己的声音，表达自己的观点吗？</p>
-<p>这就要牵扯到你写博客的目的。如果你说，你写博客是为了取悦自己，那为什么要把文章发出来？取悦自己是真的吗？还是对自己网站没有流量的自我安慰？不允许他人看见，那我只能认为您财力精力都很强盛，有财力购买服务器、主题；有精力维护服务器、网站。为什么不写在备忘录里呢？</p>
-<p>发出来，不是为了被人看见？</p>
-<p>还是说，是在扮演什么角色、人设给什么人看？</p>
-<hr>
-<p>我个人一直十分痛恨各大平台的强制注册手段，复制代码要注册、展开文章要注册，打开评论区还要注册。所以在我一开始使用动态博客程序的时候，从来没想过有强迫读者注册才能评论。</p>
-<p>这个问题依然要归结到写博客的意义。如果你写博客，是为了变现，利用在各个博客的评论区乱尿增加的一点SEO权重带来的可怜流量，和不知道从哪里抄搬来的技术文章，连格式都不调一下就挂在网站上又或是分享一大堆所谓免费资源，引流关注微信公众号的，强迫注册，为了赚钱，不寒碜。吗？</p>
-<p>很他妈寒碜！</p>
-<p>读者吃着你搬来的别人拉的屎，又要被你骗去你自建的茅房，这钱就算拿到，也是脏的，好好掂量一下这钱里都有什么。</p>
-<p>如果是正常的博客，要强迫读者注册才可评论，查看文章，那更令人费解。技术文章下，读者遇到了问题，或想更近一步讨论；表达观点、分享日常的文章下，读者看到一个有趣的灵魂，一个，强迫注册，都无异于直接抹杀读者讨论的念头。输入邮箱或手机号，接收验证码、输入验证码，再登录。加之服务器地理位置、配置等原因导致的访问不畅，每一秒所做的每一个行为，都是在一丝丝抽离由文字与读者建立起的联系。</p>
-<p>最后，只能说上一句：</p>
-<blockquote>
-<p>我写博客只为取悦自己。</p></blockquote></p>
-              <footer>
-                <a href="https://www.yingyu5658.me/post/%E9%9A%8F%E7%AC%94/%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E5%8A%A0%E5%AF%86%E7%A0%81%E7%9A%84%E6%84%8F%E4%B9%89%E6%98%AF/" rel="full-article">Would you like to know more? →</a>
-              </footer>
-          
-        </article>
-        
-        <article><header>
-  <p class="meta">May 12, 2025
-     - 1 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e6%8a%80%e6%9c%af/">技术 </a>
-    
-  </p>
-  <h1 class="entry-title">
-     在VSCode上搭建C51单片机开发环境 
-  </h1>
-</header>
-
-          
-            <p><p>安装插件<code>Embedded IDE</code></p>
-<p><img src="./image-20250512190017524.png" alt="Embedded IDE"></p>
-<p>安装好后，左边一栏会多出一个芯片图标</p>
-<p><img src="./image-20250512190113812.png" alt="image-20250512190113812"></p>
-<p>点击，选择Create Project</p>
-<p><img src="./image-20250512190345994.png" alt="image-20250512190345994"></p>
-<p>选择第二个内置项目模板，然后找到8051。</p></p>
-              <footer>
-                <a href="https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/%E5%9C%A8vscode%E4%B8%8A%E6%90%AD%E5%BB%BAc51%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" rel="full-article">Would you like to know more? →</a>
-              </footer>
-          
-        </article>
-        
-        <article><header>
-  <p class="meta">May 11, 2025
-     - 1 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e6%8a%80%e6%9c%af/">技术 </a>
-    
-  </p>
-  <h1 class="entry-title">
-     【数据结构与算法】栈 
-  </h1>
-</header>
-
-          
-            <p><h2 id="基本概念">基本概念</h2>
-<p>栈（Stack）是一种后进先出（LIFO）原则的线性数据结构。核心操作包括：</p>
-<ul>
-<li>压栈（Push）：将元素添加到栈顶</li>
-<li>出栈（Pop）：移除并返回栈顶元素</li>
-<li>查看栈顶（Check）获取但移除栈顶元素</li>
-<li>判空（is_empty）检查栈是否为空</li>
-</ul>
-<h2 id="结构定义">结构定义</h2>
-<p>使用动态数组实现栈，包含三个核心属性：</p>
-<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#719e07">typedef</span> <span style="color:#719e07">struct</span> Stack {
-</span></span><span style="display:flex;"><span>    <span style="color:#dc322f">int</span><span style="color:#719e07">*</span> data; <span style="color:#586e75">// 存储元素的数组
-</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>    <span style="color:#dc322f">int</span> top;   <span style="color:#586e75">// 栈顶指针（当前元素位置）
-</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>    <span style="color:#dc322f">int</span> capacity; <span style="color:#586e75">// 栈的最大容量
-</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>}
-</span></span></code></pre></div><ul>
-<li><code>data</code>：动态分配的数组指针</li>
-<li><code>top</code>：初始值为-1，表示空栈，压栈时递增，出栈时递减</li>
-<li><code>capacity</code>：栈的容量上限</li>
-</ul>
-<h2 id="功能实现">功能实现</h2>
-<h3 id="初始化">初始化</h3>
-<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#586e75">// 初始化栈
-</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span><span style="color:#dc322f">void</span> <span style="color:#268bd2">init_stack</span>(Stack <span style="color:#719e07">*</span>s, <span style="color:#dc322f">int</span> capacity) {
-</span></span><span style="display:flex;"><span>  <span style="color:#586e75">// 计算最大容量
-</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>  s <span style="color:#719e07">-&gt;</span> data <span style="color:#719e07">=</span> (<span style="color:#dc322f">int</span><span style="color:#719e07">*</span>)<span style="color:#268bd2">malloc</span>(<span style="color:#719e07">sizeof</span>(<span style="color:#dc322f">int</span>) <span style="color:#719e07">*</span> capacity)
-</span></span><span style="display:flex;"><span>  <span style="color:#719e07">if</span>(<span style="color:#719e07">!</span>s <span style="color:#719e07">-&gt;</span> data) {
-</span></span><span style="display:flex;"><span>    <span style="color:#268bd2">printf</span>(<span style="color:#2aa198">&#34;内存分配失败！</span><span style="color:#cb4b16">\n</span><span style="color:#2aa198">&#34;</span>);
-</span></span><span style="display:flex;"><span>    <span style="color:#268bd2">exit</span>(<span style="color:#2aa198">1</span>);
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>  <span style="color:#586e75">// 初始化栈顶为-1，表空
-</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>  s <span style="color:#719e07">-&gt;</span> top <span style="color:#719e07">=</span> <span style="color:#719e07">-</span><span style="color:#2aa198">1</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#586e75">// 把当前计算的最大容量赋值给传进来的栈
-</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>  s <span style="color:#719e07">-&gt;</span> capacity <span style="color:#719e07">=</span> capacity;
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>这个函数中进行了动态分配内存计算最大容量，初始化赋值和异常处理。</p>
-<h3 id="压栈push">压栈（Push）</h3>
-<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#586e75">// 压栈（Push）
-</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span><span style="color:#dc322f">void</span> <span style="color:#268bd2">push</span>(Stack <span style="color:#719e07">*</span>s, <span style="color:#dc322f">int</span> value) {
-</span></span><span style="display:flex;"><span>  <span style="color:#719e07">if</span> (s <span style="color:#719e07">-&gt;</span> top <span style="color:#719e07">=</span> s <span style="color:#719e07">-&gt;</span> capacity <span style="color:#719e07">-</span><span style="color:#2aa198">1</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#268bd2">printf</span>(<span style="color:#2aa198">&#34;栈已满！</span><span style="color:#cb4b16">\n</span><span style="color:#2aa198">&#34;</span>);
-</span></span><span style="display:flex;"><span>    <span style="color:#719e07">return</span>;
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>  s <span style="color:#719e07">-&gt;</span> data[<span style="color:#719e07">++</span>s<span style="color:#719e07">-&gt;</span>top] <span style="color:#719e07">=</span> value;
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>检查栈是否已满，先递增指针再存入数据</p></p>
-              <footer>
-                <a href="https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E6%A0%88/" rel="full-article">Would you like to know more? →</a>
-              </footer>
-          
-        </article>
-        
-        <article><header>
-  <p class="meta">May 10, 2025
-     - 1 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e6%8a%80%e6%9c%af/">技术 </a>
-    
-  </p>
-  <h1 class="entry-title">
-     【数据结构与算法】冒泡排序 
-  </h1>
-</header>
-
-          
-            <p><h2 id="核心思想">核心思想</h2>
-<p>通过相邻元素的两两比较，将较大的元素逐步“冒泡”到数组末尾，每轮排序确定一个最大元素的最终位置。</p>
-<h2 id="代码实现">代码实现</h2>
-<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#dc322f">void</span> <span style="color:#268bd2">bubble_sort</span>(<span style="color:#dc322f">int</span> arr[], <span style="color:#dc322f">int</span> n) {
-</span></span><span style="display:flex;"><span>  <span style="color:#586e75">// 最外层控制循环轮数 n-1轮
-</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>  <span style="color:#719e07">for</span> (<span style="color:#dc322f">int</span> i <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; i <span style="color:#719e07">&lt;</span> n <span style="color:#719e07">-</span> <span style="color:#2aa198">1</span>; i<span style="color:#719e07">++</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#586e75">// 内层循环处理相邻元素比较和交换
-</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>    <span style="color:#719e07">for</span>(<span style="color:#dc322f">int</span> j <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; j <span style="color:#719e07">&lt;</span> n<span style="color:#719e07">-</span>i<span style="color:#719e07">-</span><span style="color:#2aa198">1</span>; j<span style="color:#719e07">++</span>) {
-</span></span><span style="display:flex;"><span>      <span style="color:#719e07">if</span> (arr[j] <span style="color:#719e07">&gt;</span> arr[j<span style="color:#719e07">+</span><span style="color:#2aa198">1</span>]) {
-</span></span><span style="display:flex;"><span>        <span style="color:#dc322f">int</span> temp <span style="color:#719e07">=</span> arr[j];
-</span></span><span style="display:flex;"><span>        arr[j] <span style="color:#719e07">=</span> arr[j<span style="color:#719e07">+</span><span style="color:#2aa198">1</span>];
-</span></span><span style="display:flex;"><span>        arr[j<span style="color:#719e07">+</span><span style="color:#2aa198">1</span>] <span style="color:#719e07">=</span> temp;
-</span></span><span style="display:flex;"><span>      }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#586e75">// 调用
-</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span><span style="color:#dc322f">void</span> <span style="color:#268bd2">print_array</span>(<span style="color:#dc322f">int</span> arr[], <span style="color:#dc322f">int</span> size) {
-</span></span><span style="display:flex;"><span>  <span style="color:#719e07">for</span> (<span style="color:#dc322f">int</span> i <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; i <span style="color:#719e07">&lt;</span> size; i<span style="color:#719e07">++</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#268bd2">printf</span>(<span style="color:#2aa198">&#34;%d,&#34;</span>, arr[i]);
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">printf</span>(<span style="color:#2aa198">&#34;</span><span style="color:#cb4b16">\n</span><span style="color:#2aa198">&#34;</span>);
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#dc322f">int</span> <span style="color:#268bd2">main</span>() {
-</span></span><span style="display:flex;"><span>  <span style="color:#dc322f">int</span> arr[] <span style="color:#719e07">=</span> {<span style="color:#2aa198">23</span>, <span style="color:#2aa198">232</span>, <span style="color:#2aa198">55</span>, <span style="color:#2aa198">2</span>, <span style="color:#2aa198">7</span>, <span style="color:#2aa198">0</span>, <span style="color:#2aa198">576</span>, <span style="color:#2aa198">342</span>};
-</span></span><span style="display:flex;"><span>  <span style="color:#dc322f">int</span> n <span style="color:#719e07">=</span> <span style="color:#719e07">sizeof</span>(arr) <span style="color:#719e07">/</span> <span style="color:#719e07">sizeof</span>(arr[<span style="color:#2aa198">0</span>]);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">printf</span>(<span style="color:#2aa198">&#34;排序前：&#34;</span>);
-</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">print_array</span>(arr, n);
-</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">bubble_sort</span>(arr, n);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">printf</span>(<span style="color:#2aa198">&#34;排序后&#34;</span>);
-</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">print_array</span>(arr, n);
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h2 id="原理分析">原理分析</h2>
-<h3 id="外层循环的-i--n---1">外层循环的 i &lt; n - 1</h3>
-<ul>
-<li>n个元素的数组最多需要n-1轮冒泡，如5元素数组需要4轮排序</li>
-<li><strong>数学依据</strong>：每轮将一个最大值“沉底”，当完成n-1轮时，最后一个元素必然有序</li>
-</ul>
-<p>示例验证：</p></p>
-              <footer>
-                <a href="https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/" rel="full-article">Would you like to know more? →</a>
-              </footer>
-          
-        </article>
-        
-        <article><header>
-  <p class="meta">May 9, 2025
-     - 1 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e6%8a%80%e6%9c%af/">技术 </a>
-    
-  </p>
-  <h1 class="entry-title">
-     IDEA2025.1最新破解教程 无需扫码关注任何公众号 
-  </h1>
-</header>
-
-          
-            <p><h2 id="前言">前言</h2>
-<p>看了几篇废话连篇狗屁不通还要关注公众号的文章以后给我气急了。这篇文章会用最简单的方法花最短的时间搞定IDEA</p>
-<p><strong>从2025.1以前的低版本升级上来的或曾经装过老版本的注意</strong>：</p>
-<p>清空 IDEA 2025 以前使用过的激活方式和配置文件</p>
-<p>C/:Users【系统用户名】AppData/RoamingJetBrains</p>
-<p>C/:Users/用户名/Library/Application Support/JetBrains</p>
-<blockquote>
-<p>这里是看网上的文章写的，我刚刚重装完系统很干净，如果这里有误请补充。</p></blockquote>
-<p>
-<a href="https://github.com/yingyu5658/script/releases" target="_blank" rel="noopener">破解脚本下载</a></p>
-<p>注意，存放路径不能有中文。</p>
-<p>我是Windows系统，运行<code>install-current-user.vbs</code></p></p>
-              <footer>
-                <a href="https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/idea2025-1%E6%9C%80%E6%96%B0%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B-%E6%97%A0%E9%9C%80%E6%89%AB%E7%A0%81%E5%85%B3%E6%B3%A8%E4%BB%BB%E4%BD%95%E5%85%AC%E4%BC%97%E5%8F%B7/" rel="full-article">Would you like to know more? →</a>
-              </footer>
-          
-        </article>
-        
-        <article><header>
-  <p class="meta">Apr 29, 2025
-     - 1 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e6%8a%80%e6%9c%af/">技术 </a>
-    
-  </p>
-  <h1 class="entry-title">
-     x86-64汇编学习笔记 
-  </h1>
-</header>
-
-          
-            <p><h2 id="机器指令和机器语言">机器指令和机器语言</h2>
-<p>机器指令，二进制数字，机器语言全局机器指令的集合，CPU通过执行一系列的机器指令完成计算工作。</p>
-<p>汇编语言就是为了代替机器指令，使人类能够更加简单地编写程序而诞生的。汇编语言就是机器码的助记符。</p>
-<p>编译器将汇编代码再编译为真正的机器码。</p>
-<h2 id="内存与硬盘">内存与硬盘</h2>
-<p>内存指内存条，即RAM，临时存储，读写快容量小。</p>
-<p>硬盘长期存储，读写慢但容量大。</p>
-<p><strong>ROM并非硬盘</strong>，ROM<strong>只读存储器</strong>（Read Only Memory），其内容在写入后就不能更改。</p>
-<h2 id="存储单元">存储单元</h2>
-<p>物理内存被划分为很多个存储单元，一个存储单元能存储8bit内容，也就是1字节。</p>
-<p><strong>内存的最小单元是字节，不是位。</strong></p>
-<ul>
-<li>
-<p>1B = 8bit</p>
-</li>
-<li>
-<p>1KB = 1024B</p>
-</li>
-<li>
-<p>1MB = 1024KB</p>
-<p>&hellip;&hellip;</p>
-</li>
-</ul>
-<p>每一个存储单元都有相应的编号，也就是内存地址。运行程序时，操作系统会把程序载入内存中，随后CPU读取和写入程序中的某些数据并执行代码。</p>
-<p>无论是读取还是写入、执行，这些都是需要通过CPU总线进行的。</p>
-<p>总线分为数据线、地址总线、控制总线</p>
-<p>简而言之，地址总线负责寻址，控制总线负责发出控制指令，如读写，数据总线负责各个组件之间的数据传输。</p>
-<h2 id="cpu的寻址能力">CPU的寻址能力</h2>
-<p>CPU的寻址能力是由地址总线的位数决定的。</p>
-<p>通常认为32位系统有32位的寻址能力，64位同理，但不绝对。</p>
-<h2 id="虚拟内存">虚拟内存</h2>
-<p>物理内存即真实存在的内存，虚拟内存是建立在页表的基础上，由操作系统实现的。</p>
-<h2 id="寄存器">寄存器</h2>
-<p>基本的程序执行寄存器分为以下四类</p>
+            <p><h2 id="地球公转自转与季节气候">地球公转自转与季节气候</h2>
 <ol>
-<li>通用目的寄存器</li>
-<li>段寄存器</li>
-<li>标志寄存器</li>
-<li>指令指针寄存器</li>
+<li>东西半球分界线：20W 160E</li>
+<li>地球自转方向：自西向东</li>
+<li>南北半球季节相反</li>
+<li>夏至日太阳直射北回归线，北半球昼最长也最短，南半球昼最短夜最长，北极圈及其以北极昼，南极圈以其南极夜</li>
+<li>冬至日太阳直射南回归线，北半球昼最短夜最长，南半球昼最长夜最短，北极圈及其以北极夜，南极圈及其以南极昼</li>
+<li>春分秋分，太阳直射赤道，昼夜等长
+<img src="./Pasted%20image%2020250622085510.png" alt="地球公转示意图"></li>
+<li>根据各地获得太阳光照的多少，把地球表面分为五个带：<strong>热带、北温带、南温带、北寒带、南寒带</strong>
+<img src="./Pasted%20image%2020250622085617.png" alt=""></li>
 </ol>
-<h3 id="16位通用寄存器中的高位和低位">16位通用寄存器中的高位和低位</h3>
-<p>16位通用寄存器中，ax,bx,cx,dx可以只使用其高8位或低8位。</p>
-<p>高8位用字符<code>h</code>表示，低8位用字母<code>l</code>表示。</p>
-<h3 id="32位通用目的寄存器">32位通用目的寄存器</h3>
-<p>将16位通用寄存器扩展到32位，就得到了以下寄存器。</p>
-<ul>
-<li>EAX</li>
-<li>EBX</li>
-<li>EDX</li>
-<li>ESI</li>
-<li>EDI</li>
-<li>ESP</li>
-<li>EBP</li>
-</ul>
-<h3 id="64位通用目的寄存器">64位通用目的寄存器</h3>
-<p>将32扩展到64位，就得到了以下寄存器</p>
-<ul>
-<li>RAX</li>
-<li>RBX</li>
-<li>RCX</li>
-<li>RDX</li>
-<li>RSI</li>
-<li>RDI</li>
-<li>RSP</li>
-<li>RDP</li>
-</ul>
-<p>R是通用前缀，取自单词Register。</p>
-<p>此外还有R8-R15。</p>
-<h3 id="同名寄存器之间的关系">同名寄存器之间的关系</h3>
-<p>同名寄存器之间并不是许多个相互独立的寄存器，而是共同属于一个寄存器。</p>
-<p>以RAX为例：</p>
-<p>RAX是整个64位寄存器，EAX指的是RAX的低32位，AX指的是RAX的0-15位。AH指的是RAX的8-15位，AL指的是RAX的0-7位。</p>
-<p>1 word = 2 byte</p></p>
+<h2 id="地图">地图</h2>
+<ol>
+<li>比例尺=图上距离/实地距离，指示表大多指向正北方向</li>
+<li>同一条等高线上的海拔相同；等高线越密集，坡度越陡；等高线越稀疏，坡度越缓。</li>
+<li><strong>等高线上不同的山体部位</strong>
+<img src="./Pasted%20image%2020250622085815.png" alt="山峰">
+<ol>
+<li>山峰：等高线闭合，数值从中间向四周递减
+<img src="./Pasted%20image%2020250622085858.png" alt="山脊"></li>
+<li>山脊：等高线的弯曲部分向低处突出
+<img src="./Pasted%20image%2020250622090016.png" alt="山谷"></li>
+<li>山谷：等高线的弯曲部分向高处突出，常形成河流
+<img src="./Pasted%20image%2020250622090117.png" alt="陡崖"></li>
+<li>陡崖：等高线重叠，适合开展攀岩运动</li>
+</ol>
+</li>
+<li><strong>陆地表面的地形类型</strong>
+1.高原：海拔在500米以上，面积较大，外围较陡，内部起伏较为缓和</li>
+<li><strong>大洲分界线</strong>
+<img src="./Pasted%20image%2020250622090805.png" alt="">
+<ol>
+<li>亚欧分界线：乌拉尔山脉、乌拉尔和、厉害、大高加索山脉、黑海、土耳其海峡</li>
+<li>亚非分界线：苏伊士运河</li>
+<li>北美南美分界线：巴拿马运河</li>
+<li>欧非分界线：直布罗陀海峡</li>
+</ol>
+</li>
+</ol>
+<h3 id="板块构造学说">板块构造学说</h3>
+<ol>
+<li>板块内部地壳比较稳定；板块与板块交界的地带，地壳比较活跃，多火山地震</li>
+<li>在板块交界处，两个板块发生张烈，。常常形成裂谷或海洋；两个板块发生碰撞，在陆地常常形成山脉
+<img src="./Pasted%20image%2020250622091156.png" alt="六大板块分布示意图"></li>
+<li>世界上许多高大绵长的山脉主要分布在板块挤压碰撞的地带，如阿尔卑斯——喜马拉雅山系，科迪勒拉山系等</li>
+<li>世界上的火山和地震也集中分布在地壳比较活跃的板块交界地带，例如环太平洋地带和地中海——喜马拉雅地带
+<img src="./Pasted%20image%2020250622091407.png" alt=""></li>
+</ol></p>
               <footer>
-                <a href="https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/x86-64%E6%B1%87%E7%BC%96%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="full-article">Would you like to know more? →</a>
+                <a href="https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/%E4%BC%9A%E8%80%83%E5%9C%B0%E7%90%86%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="full-article">Would you like to know more? →</a>
               </footer>
           
         </article>
         
         <article><header>
-  <p class="meta">Apr 29, 2025
+  <p class="meta">Jun 21, 2025
      - 1 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e6%8a%80%e6%9c%af/">技术 </a>
     
   </p>
   <h1 class="entry-title">
-     WSL Arch Linux ZSH输入中文&lt;0xffffffff&gt;解决方法 
+     Tmux配置记录 
   </h1>
 </header>
 
           
-            乱码是由于没有安装字体造成的，安装字体即可
+            <p><p>TMux 是终端复用神器，让你在一个终端窗口管理多个会话、窗口和窗格。</p>
+<p>基础操作：启动Tmux</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>tmux
+</span></span></code></pre></div><p>所以我选择在<code>~/.bashrc</code>里加上这句，每次打开终端都会自动进入tmux。</p>
+<p><strong>需要掌握的概念</strong>：</p>
+<ul>
+<li>会话（Session）：长期运行的终端环境。</li>
+<li>窗口（Window）：会话中的标签页。</li>
+<li>窗格（Pane）：窗口中的分屏。</li>
+</ul>
+<p><strong>默认快捷键：</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th>操作</th>
+          <th>快捷键</th>
+          <th>说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>会话管理</strong></td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>脱离会话</td>
+          <td><code>Ctrl+b d</code></td>
+          <td>后台运行会话</td>
+      </tr>
+      <tr>
+          <td>查看会话列表</td>
+          <td><code>Ctrl+b s</code></td>
+          <td>方向键选择并进入</td>
+      </tr>
+      <tr>
+          <td>重命名当前会话</td>
+          <td><code>Ctrl+b $</code></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td><strong>窗口管理</strong></td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>新建窗口</td>
+          <td><code>Ctrl+b c</code></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>关闭当前窗口</td>
+          <td><code>Ctrl+b &amp;</code></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>切换窗口</td>
+          <td><code>Ctrl+b 0~9</code></td>
+          <td>切换到指定编号窗口</td>
+      </tr>
+      <tr>
+          <td>窗口列表</td>
+          <td><code>Ctrl+b w</code></td>
+          <td>可视化选择窗口</td>
+      </tr>
+      <tr>
+          <td><strong>窗格管理</strong></td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>水平分割窗格</td>
+          <td><code>Ctrl+b &quot;</code></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>垂直分割窗格</td>
+          <td><code>Ctrl+b %</code></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>切换窗格</td>
+          <td><code>Ctrl+b 方向键</code></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>关闭当前窗格</td>
+          <td><code>Ctrl+b x</code></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>最大化/恢复窗格</td>
+          <td><code>Ctrl+b z</code></td>
+          <td>临时全屏当前窗格</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>配置自定义（~/.tmux.conf）</strong>：</p></p>
               <footer>
-                <a href="https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/wsl-arch-linux-zsh%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" rel="full-article">Would you like to know more? →</a>
+                <a href="https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/tmux%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/" rel="full-article">Would you like to know more? →</a>
               </footer>
           
         </article>
         
         <article><header>
-  <p class="meta">Apr 29, 2025
-     - 1 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e6%8a%80%e6%9c%af/">技术 </a>
+  <p class="meta">Jun 20, 2025
+     - 1 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e9%9a%8f%e7%ac%94/">随笔 </a>
     
   </p>
   <h1 class="entry-title">
-     Emacs EAF插件打开浏览器只显示opening http://xxx.xxx的解决方法 
+     超市见闻 
   </h1>
 </header>
 
           
-            <p><p>检查是否安装全部依赖，如yay、pip等。我这里是由于没有安装pip导致的。</p>
-<p><code>sudo pacman -S python-pip</code></p>
-<p>安装好后，进入eaf安装目录</p>
-<p><code>cd ~/.emacs.d/site-lisp/emacs-application-framework &amp;&amp; ./install-eaf.py</code></p>
-<p>重新安装eaf。等待脚本运行完成，打开emacs，输入<code>M-x eaf-install-and-update</code>，等待执行完成。</p>
-<p>重新输入<code>M-x eaf-open-browser</code>，输入网址，即可正常访问网页。</p></p>
+            <p><p>今天中考布置考场，只上半天课。下周一就是地生会考了，看完考场回来，已经接近一点，早点没吃，去便利店买点面包垫肚子，看到了两个其他学校的学生一人拿着一瓶酒，在台前结账。</p>
+<p>一开始我并不确定那是不是酒，但当机器冰冷的女声提示工作人员确认顾客是否成年，禁止向未成年人出售烟酒，再加之她们两个鬼鬼祟祟的表情，可以断定就是酒了。那两个人面容有些憔悴，脸上圈着黑眼圈，快三十度的天，依然穿着校服外套，敞开怀，驼着背。看起来跟我同龄。其中一个人尽力用只能让对方听到的声音说出：“吓死我了。”很显然，她失败了。但买酒成功了，别的失败对她讲都不重要了。事发时，我就在她们身后排队结账，这一切都被我完整地看在眼里。</p>
+<p>结账的小哥麻木地接过瓶子扫码，提醒付款，他好像已经习以为常了。《未成年人保护法》、《酒类流通管理办法》都明确规定禁止向未成年人出售烟酒，所谓上有政策，下有对策。这对策妙，无视法律和政策。</p>
+<p>我个人对烟酒一直没什么好印象，抽烟的学生都是不良；喝酒的大人耍酒疯很麻烦，不耍也很烦人；旁边有人抽烟难免被二手烟呛到，完全无法呼吸。消遣排解的方式有很多，偏偏选择伤害自己身心又对别人无益的那一个。</p></p>
               <footer>
-                <a href="https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/emacs-eaf%E6%8F%92%E4%BB%B6%E6%89%93%E5%BC%80%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%AA%E6%98%BE%E7%A4%BAopening-http-xxx-xxx%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" rel="full-article">Would you like to know more? →</a>
+                <a href="https://www.yingyu5658.me/post/%E9%9A%8F%E7%AC%94/%E8%B6%85%E5%B8%82%E8%A7%81%E9%97%BB/" rel="full-article">Would you like to know more? →</a>
+              </footer>
+          
+        </article>
+        
+        <article><header>
+  <p class="meta">Jun 19, 2025
+     - 1 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e9%9a%8f%e7%ac%94/">随笔 </a>
+    
+  </p>
+  <h1 class="entry-title">
+     第三次世界大战 
+  </h1>
+</header>
+
+          
+            <p><p>我始终坚信，也能深刻体会到一句话——林子大了什么鸟都有。</p>
+<p>最近两天伊以冲突闹得很大，工厂停运、百姓流亡，民不聊生，当地居民都处于恐慌和焦虑中。</p>
+<p>我不对局势做点评，也不站队有立场。我发现了身边有一些人，对战争非常感兴趣，甚至期盼战争。</p>
+<p>难以想象、不可理喻、不是人类，无法共情。我开始怀疑我自己的立场和价值观是不是有问题。</p>
+<p>印象很深的一句话：“第三次世界大战要开始了，太好了。”</p>
+<p>我说的明白点，打仗谁能好过？用你跟泌尿系统一次握手都没进行过的低能连接的大脑好好想想，打仗谁能好过？<strong>你是想被送到前线，给上头那帮老家伙们当棋子，当挡子弹的肉盾，还是想当送死的炮灰？</strong></p>
+<p>还是你觉得打仗就能变革，改变你社会蛀虫父母累赘的现状，还是觉得你FPS游戏经验丰富，上战场能大杀四方为国争光？别跪着求对方不要用钝刀割下自己的猪头都很强了。上了战场就祈求你看军事视频和意淫战争的经验有用吧。</p>
+<p>好日子过久了，忘却战争的残酷，战争被娱乐化，这种人就出现了。</p></p>
+              <footer>
+                <a href="https://www.yingyu5658.me/post/%E9%9A%8F%E7%AC%94/%E7%AC%AC%E4%B8%89%E6%AC%A1%E4%B8%96%E7%95%8C%E5%A4%A7%E6%88%98/" rel="full-article">Would you like to know more? →</a>
+              </footer>
+          
+        </article>
+        
+        <article><header>
+  <p class="meta">Jun 19, 2025
+     - 1 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e9%9a%8f%e7%ac%94/">随笔 </a>
+    
+  </p>
+  <h1 class="entry-title">
+     高超的表达能力 
+  </h1>
+</header>
+
+          
+            <p><p>“帮我拿个东西。”</p>
+<p>“拿什么东西？”</p>
+<p>“就是那个。”</p>
+<p>“在哪里？”</p>
+<p>“就在那里。”</p>
+<p>“到底在哪里？”</p>
+<p>“就是在那里！”</p>
+<hr>
+<p>少看点你那短视频玩那点烂梗吧。</p></p>
+              <footer>
+                <a href="https://www.yingyu5658.me/post/%E9%9A%8F%E7%AC%94/%E9%AB%98%E8%B6%85%E7%9A%84%E8%A1%A8%E8%BE%BE%E8%83%BD%E5%8A%9B/" rel="full-article">Would you like to know more? →</a>
               </footer>
           
         </article>
@@ -580,11 +399,33 @@
     
         <a href="/page/11/" class="label-pagination">11</a>
     
+        <a href="/page/12/" class="label-pagination">12</a>
+    
+        <a href="/page/13/" class="label-pagination">13</a>
+    
+        <a href="/page/14/" class="label-pagination">14</a>
+    
+        <a href="/page/15/" class="label-pagination">15</a>
+    
+        <a href="/page/16/" class="label-pagination">16</a>
+    
+        <a href="/page/17/" class="label-pagination">17</a>
+    
+        <a href="/page/18/" class="label-pagination">18</a>
+    
+        <a href="/page/19/" class="label-pagination">19</a>
+    
+        <a href="/page/20/" class="label-pagination">20</a>
+    
+        <a href="/page/21/" class="label-pagination">21</a>
+    
+        <a href="/page/22/" class="label-pagination">22</a>
+    
 
     <a href="/page/7/" aria-label="Next" class="label-pagination"><i class="fa fa-angle-right fa-lg"></i></a>
     
 
-    <a href="/page/11/" aria-label="Last"><i class="fa fa-angle-double-right fa-lg"></i></a>
+    <a href="/page/22/" aria-label="Last"><i class="fa fa-angle-double-right fa-lg"></i></a>
     
 
 </div>
