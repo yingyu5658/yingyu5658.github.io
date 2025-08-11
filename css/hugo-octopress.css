@@ -1,3 +1,124 @@
+[role="banner"] {
+	background-color: #333333;
+}
+
+@media only screen and (min-width: 992px) {
+    body {
+        font-size: 1.15em
+    }
+    h1 {
+        font-size: 2.6em;
+        line-height: 1.2em
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    article blockquote {
+        padding-left: 1.5em;
+        border-left-width: 4px
+    }
+}
+
+@media only screen and (max-width: 476px) {
+	* {
+		max-width: 100% !important;
+	}
+}
+
+@media only screen and (min-width: 480px) {
+    body>header,
+    body>nav,
+    body>footer,
+    body #content>article,
+    body #content>div>article,
+    body #content>div>section {
+        padding-left: 25px;
+        padding-right: 25px
+    }
+
+	* {
+		max-width: 100%;
+	}
+}
+@media only screen and (min-width: 768px) {
+    body>header,
+    body>nav,
+    body>footer,
+    body #content>article,
+    body #content>div>article,
+    body #content>div>section {
+        padding-left: 35px;
+        padding-right: 35px
+    }
+}
+@media only screen and (min-width: 992px) {
+    body>header,
+    body>nav,
+    body>footer,
+    body #content>article,
+    body #content>div>article,
+    body #content>div>section { /* changed padding for the main article from 55px to 40px*/
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+body div.pagination {
+    margin-left: 18px;
+    margin-right: 18px
+}
+@media only screen and (min-width: 480px) {
+    body div.pagination {
+        margin-left: 25px;
+        margin-right: 25px
+    }
+}
+@media only screen and (min-width: 768px) {
+    body div.pagination {
+        margin-left: 35px;
+        margin-right: 35px
+    }
+}
+@media only screen and (min-width: 992px) {
+    body div.pagination {
+        margin-left: 55px;
+        margin-right: 55px
+    }
+}
+
+
+@media only screen and (min-width: 750px) {
+    body.sidebar-footer aside.sidebar {
+        float: none;
+        width: auto;
+        clear: left;
+        margin: 0;
+        padding: 0 35px 1px;
+        background-color: #f7f7f7;
+        border-top: 1px solid #eaeaea
+    }
+    body.sidebar-footer aside.sidebar section.odd,
+    body.sidebar-footer aside.sidebar section.even {
+        float: left;
+        width: 48%
+    }
+    body.sidebar-footer aside.sidebar section.odd {
+        margin-left: 0
+    }
+    body.sidebar-footer aside.sidebar section.even {
+        margin-left: 4%
+    }
+    body.sidebar-footer aside.sidebar.thirds section {
+        width: 30%;
+        margin-left: 5%
+    }
+    body.sidebar-footer aside.sidebar.thirds section.first {
+        margin-left: 0;
+        clear: both
+    }
+}
+
+
+
 html,
 body,
 div,
@@ -244,15 +365,6 @@ h1 {
     font-size: 2.2em;
     line-height: 1.2em
 }
-/* @media only screen and (min-width: 992px) {
-    body {
-        font-size: 1.15em
-    }
-    h1 {
-        font-size: 2.6em;
-        line-height: 1.2em
-    }
-} */
 h1,
 h2,
 h3,
@@ -413,12 +525,7 @@ article blockquote cite:before {
     padding-left: .3em;
     color: #aaa
 }
-@media only screen and (min-width: 992px) {
-    article blockquote {
-        padding-left: 1.5em;
-        border-left-width: 4px
-    }
-}
+
 .pullquote-right:before,
 .pullquote-left:before {
     padding: 0;
@@ -488,61 +595,6 @@ body #content>div>article,
 body #content>div>section {
     padding-left: 18px;
     padding-right: 18px
-}
-@media only screen and (min-width: 480px) {
-    body>header,
-    body>nav,
-    body>footer,
-    body #content>article,
-    body #content>div>article,
-    body #content>div>section {
-        padding-left: 25px;
-        padding-right: 25px
-    }
-}
-@media only screen and (min-width: 768px) {
-    body>header,
-    body>nav,
-    body>footer,
-    body #content>article,
-    body #content>div>article,
-    body #content>div>section {
-        padding-left: 35px;
-        padding-right: 35px
-    }
-}
-@media only screen and (min-width: 992px) {
-    body>header,
-    body>nav,
-    body>footer,
-    body #content>article,
-    body #content>div>article,
-    body #content>div>section { /* changed padding for the main article from 55px to 40px*/
-        padding-left: 30px;
-        padding-right: 30px;
-    }
-}
-body div.pagination {
-    margin-left: 18px;
-    margin-right: 18px
-}
-@media only screen and (min-width: 480px) {
-    body div.pagination {
-        margin-left: 25px;
-        margin-right: 25px
-    }
-}
-@media only screen and (min-width: 768px) {
-    body div.pagination {
-        margin-left: 35px;
-        margin-right: 35px
-    }
-}
-@media only screen and (min-width: 992px) {
-    body div.pagination {
-        margin-left: 55px;
-        margin-right: 55px
-    }
 }
 body>header {
     font-size: 1em;
@@ -616,36 +668,8 @@ aside.sidebar img.right {
 .no-sidebar .toggle-sidebar {
     display: none
 }
-@media only screen and (min-width: 750px) {
-    body.sidebar-footer aside.sidebar {
-        float: none;
-        width: auto;
-        clear: left;
-        margin: 0;
-        padding: 0 35px 1px;
-        background-color: #f7f7f7;
-        border-top: 1px solid #eaeaea
-    }
-    body.sidebar-footer aside.sidebar section.odd,
-    body.sidebar-footer aside.sidebar section.even {
-        float: left;
-        width: 48%
-    }
-    body.sidebar-footer aside.sidebar section.odd {
-        margin-left: 0
-    }
-    body.sidebar-footer aside.sidebar section.even {
-        margin-left: 4%
-    }
-    body.sidebar-footer aside.sidebar.thirds section {
-        width: 30%;
-        margin-left: 5%
-    }
-    body.sidebar-footer aside.sidebar.thirds section.first {
-        margin-left: 0;
-        clear: both
-    }
-}
+
+
 body.sidebar-footer #content {
     margin-right: 0px
 }
@@ -687,6 +711,8 @@ body.sidebar-footer .toggle-sidebar {
         clear: both
     }
 }
+
+
 @media only screen and (min-width: 768px) {
     body {
         -webkit-text-size-adjust: auto
@@ -763,12 +789,15 @@ body.sidebar-footer .toggle-sidebar {
         clear: both
     }
 }
+
+
+
 @media only screen and (min-width: 992px) {
     body>header {
         font-size: 1.3em
     }
     #content {
-        margin-right: 320px; /* increase this by X where X is the increase in width of aside.sidebar a few line down */
+        margin-right: 320px;
     }
     #content>div,
     #content>article {
@@ -776,7 +805,7 @@ body.sidebar-footer .toggle-sidebar {
         padding-bottom: 0.5em;
     }
     aside.sidebar {
-        width: 280px;   /* increase sidebad, remember to increase the margin-right of #content a few lines up by the same amount */
+        width: 280px;
         padding: 0em 20px 20px
     }
     .collapse-sidebar aside.sidebar {
@@ -784,6 +813,7 @@ body.sidebar-footer .toggle-sidebar {
         padding-right: 55px
     }
 }
+
 body>header {
     background: #333
 }
@@ -869,6 +899,7 @@ body>nav fieldset.mobile-nav select {
 body>nav ul {
     display: none
 }
+
 @media only screen and (min-width: 550px) {
     body>nav {
         font-size: .9em
@@ -983,6 +1014,8 @@ body>nav ul {
         width: 173px
     }
 }
+
+*/
 .maskImage ul.subscription {
     position: relative;
     top: .2em
