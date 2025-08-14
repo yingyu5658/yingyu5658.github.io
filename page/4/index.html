@@ -113,6 +113,26 @@
       
         
         <article><header>
+  <p class="meta">Jul 11, 2025
+     - 1 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e6%8a%80%e6%9c%af/">技术 </a>
+    
+  </p>
+  <h1 class="entry-title">
+     Vscode编辑Markdown体验非常好 
+  </h1>
+</header>
+
+          
+            <p><p>平常我想写Markdown，都是用typora或Ｏbsidian，这两个软件都很好。但各有优缺点，但现在让我硬挑，我还真挑不出来几个。让我真正觉得Vscode更好的是从Hexo迁移到Hugo的那次经历。</p>
+<p>Hexo和Hugo的Front Matter格式不同，比如Hexo的date，是<code>yyyy-MM-dd hh:mm:ss</code>格式，但Hugo是<code>yyyy-MM-ddThh:mm:ss+hh:mm</code>的ISO 8601 标准时间格式，所以就要进行替换。我尝试用让Ai写脚本，但项目的目录结构错综复杂，匹配不彻底，匹配彻底也有不周全的地方。而Vscode的查找替换功能很好地解决了这个问题，如果有正则表达式写起来太麻烦的，搜个前缀，然后选中修改所有匹配项也就差不多了。</p>
+<p>而且Vscode有Vim插件，可以解决老Vimer的hjkl依赖问题，唯一不足就是不能用C-v粘贴图片，可能是我还没研究出来。Vscode中编辑主题的代码或者临时写个自动化脚本折腾一下博客也很方便，只需要开一个Vscode，内置终端足以新建文章，Git推送，如果你很闲，甚至在那个终端可以打开Vim，用Vim来编辑。</p></p>
+              <footer>
+                <a href="https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/vscode-edit-markdown/" rel="full-article">Would you like to know more? →</a>
+              </footer>
+          
+        </article>
+        
+        <article><header>
   <p class="meta">Jul 10, 2025
      - 1 minute read 
   </p>
@@ -360,77 +380,6 @@ va_end 结束对可变参数列表的访问，并释放资源
           
         </article>
         
-        <article><header>
-  <p class="meta">Jul 4, 2025
-     - 4 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e6%8a%80%e6%9c%af/">技术 </a>
-    
-  </p>
-  <h1 class="entry-title">
-     使用Javascript TSS和Highlights构建一个文本阅读器 
-  </h1>
-</header>
-
-          
-            <p><blockquote>
-<p>原文：https://jsdev.space/tts-sentence-reader/
-翻译：yingyu5658 
-<a href="mailto:yingyu5658@outlook.com">yingyu5658@outlook.com</a></p></blockquote>
-<p><img src="https://jsdev.space/.netlify/images?url=_astro%2Ftts-sentence-reader.hV9whx3I.png&amp;w=800&amp;h=800" alt=""></p>
-<p>在这篇文章中，我们将构建一个简单的Web工具来探究<strong>Text-toSpeech(TTS)<strong>在JavaScript中是如何工作的。我们也将深入研究</strong>句子级高亮</strong>的工作逻辑。这两项功能经常结合在一起使用，以走到浏览器中打造无障碍的动态阅读体验。</p>
-<p>步骤:</p>
-<ol>
-<li>学习在浏览器中,TTS是如何工作的</li>
-<li>探究动态高亮句子的实现方法</li>
-<li>用HTML, CSS, JavaScript构建一个小工具(
-<a href="https://codepen.io/jsdevspace/pen/YPXRRjO" target="_blank" rel="noopener">Demo &amp; Code</a>)</li>
-</ol>
-<h2 id="-浏览器中的tts概述">📢 浏览器中的TTS概述</h2>
-<p>JavaScript提供一个内置的API：
-<a href="https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis" target="_blank" rel="noopener"><code>SpeechSynthesis</code></a>，它允许我们使用系统中的可用嗓音去大声朗读问文字。</p>
-<h3 id="核心对象">核心对象:</h3>
-<ul>
-<li><code>speechSynthesis</code> — 控制播放、暂停、恢复、停止</li>
-<li><code>SpeechSynthesisUtterance</code> — 作为TTS引擎的待播报文本</li>
-</ul>
-<h3 id="示例">✨示例:</h3>
-<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#268bd2">const</span> msg <span style="color:#719e07">=</span> <span style="color:#719e07">new</span> SpeechSynthesisUtterance(<span style="color:#2aa198">&#34;Hello, world!&#34;</span>);
-</span></span><span style="display:flex;"><span><span style="color:#b58900">window</span>.speechSynthesis.speak(msg);
-</span></span></code></pre></div><h3 id="-添加嗓音和配置">⚙️ 添加嗓音和配置</h3>
-<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#268bd2">const</span> utter <span style="color:#719e07">=</span> <span style="color:#719e07">new</span> SpeechSynthesisUtterance(<span style="color:#2aa198">&#34;This is a test&#34;</span>);
-</span></span><span style="display:flex;"><span><span style="color:#268bd2">const</span> voices <span style="color:#719e07">=</span> <span style="color:#b58900">window</span>.speechSynthesis.getVoices();
-</span></span><span style="display:flex;"><span>utter.voice <span style="color:#719e07">=</span> voices.find(v =&gt; v.lang <span style="color:#719e07">===</span> <span style="color:#2aa198">&#39;en-US&#39;</span>);
-</span></span><span style="display:flex;"><span>utter.rate <span style="color:#719e07">=</span> <span style="color:#2aa198">1.2</span>;
-</span></span><span style="display:flex;"><span>utter.pitch <span style="color:#719e07">=</span> <span style="color:#2aa198">1</span>;
-</span></span><span style="display:flex;"><span><span style="color:#b58900">window</span>.speechSynthesis.speak(utter);
-</span></span></code></pre></div><p>你也可以追踪朗读的开始和结束：</p>
-<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>utter.onstart <span style="color:#719e07">=</span> () =&gt; console.log(<span style="color:#2aa198">&#39;Started speaking&#39;</span>);
-</span></span><span style="display:flex;"><span>utter.onend <span style="color:#719e07">=</span> () =&gt; console.log(<span style="color:#2aa198">&#39;Finished speaking&#39;</span>);
-</span></span></code></pre></div><h2 id="-句子高亮">✍️ 句子高亮</h2>
-<p>展示给用户哪一个句子正在阅读，我们需要用CSS和JavaScript来高亮文本。</p>
-<h3 id="示例-html">示例 HTML:</h3>
-<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#268bd2">p</span>&gt;
-</span></span><span style="display:flex;"><span>  &lt;<span style="color:#268bd2">span</span> class<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;sentence&#34;</span>&gt;First sentence.&lt;/<span style="color:#268bd2">span</span>&gt;
-</span></span><span style="display:flex;"><span>  &lt;<span style="color:#268bd2">span</span> class<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;sentence&#34;</span>&gt;Second sentence.&lt;/<span style="color:#268bd2">span</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;/<span style="color:#268bd2">p</span>&gt;
-</span></span></code></pre></div><h3 id="处理高亮的css">处理高亮的CSS:</h3>
-<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span>.<span style="color:#268bd2">sentence</span>.<span style="color:#268bd2">active</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#719e07">background-color</span>: <span style="color:#cb4b16">yellow</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#719e07">font-weight</span>: <span style="color:#cb4b16">bold</span>;
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="javascript高亮逻辑">JavaScript高亮逻辑：</h3>
-<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#268bd2">function</span> highlight(index) {
-</span></span><span style="display:flex;"><span>  <span style="color:#b58900">document</span>.querySelectorAll(<span style="color:#2aa198">&#39;.sentence&#39;</span>).forEach((el, i) =&gt; {
-</span></span><span style="display:flex;"><span>    el.classList.toggle(<span style="color:#2aa198">&#39;active&#39;</span>, i <span style="color:#719e07">===</span> index);
-</span></span><span style="display:flex;"><span>  });
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h1 id="项目-使用tss和高亮的阅读器">🚀项目: 使用TSS和高亮的阅读器</h1>
-<p>我们的程序将要：</p></p>
-              <footer>
-                <a href="https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/%E7%94%A8javascript-tss%E5%92%8Chighlights%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8F%A5%E7%BA%A7%E6%96%87%E6%9C%AC%E9%98%85%E8%AF%BB%E5%99%A8/" rel="full-article">Would you like to know more? →</a>
-              </footer>
-          
-        </article>
-        
       
       
 
@@ -541,6 +490,12 @@ va_end 结束对可变参数列表的访问，并释放资源
           
             
               <li class="post">
+                <a href="/post/%E9%9A%8F%E7%AC%94/%E5%A4%8F%E6%97%A5%E6%AE%8B%E5%BD%B1/">夏日残影</a>
+              </li>
+            
+          
+            
+              <li class="post">
                 <a href="/post/%E9%9A%8F%E7%AC%94/%E7%A7%8B%E5%A4%A9%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A3%B0%E7%8B%97%E5%8F%AB/">秋天的第一声狗叫</a>
               </li>
             
@@ -584,12 +539,6 @@ va_end 结束对可变参数列表的访问，并释放资源
             
               <li class="post">
                 <a href="/post/%E6%8A%80%E6%9C%AF/set-up-newsgroup/">在2025年，搭建新闻组</a>
-              </li>
-            
-          
-            
-              <li class="post">
-                <a href="/post/%E9%9A%8F%E7%AC%94/%E6%97%A0%E8%9D%89%E9%B8%A3%E5%A4%8F/">无蝉鸣夏</a>
               </li>
             
           

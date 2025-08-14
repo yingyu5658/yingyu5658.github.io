@@ -113,6 +113,67 @@
       
         
         <article><header>
+  <p class="meta">Mar 21, 2025
+     - 1 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e6%8a%80%e6%9c%af/">技术 </a>
+    
+  </p>
+  <h1 class="entry-title">
+     光速破解作文网站禁止复制 
+  </h1>
+</header>
+
+          
+            <p><p>今天上网搜集范文，又遇到了这个很多年前就让我非常痛恨的网站。可以看到，这个网站应该是通过JS，检测鼠标左键或者CTRL+C再弹出这个窗口达到的防止用户复制的目的，可以此为切入点，查看一下这个网站的源码。找到问题所在。</p>
+<p><img src="./Pasted%20image%2020250321081959.png" alt="">
+要把这个仇报了。下载网页到本地，这里出了一个小插曲，在FIREFOX浏览器下载的所有网页文件，中文都是乱码，顺便来解决一下这个问题。
+在平板MT管理器右上角可以看到，这个文件的编码格式是GB2312，在vim中输入<code>:e ++enc=gb2312</code>，在输入<code>set fileencoding=utf-8</code>就可正常查看了。现在的代码结构非常屎，保存格式化一下。
+第159行，有一个webchatbox的盒子，可以看到，这里就是为防止复制创建的盒子，把这段代码注释掉。
+<img src="./Pasted%20image%2020250321112804.png" alt="">
+这还没完，再去到页面复制发现还是有未处理完善的残留页面
+<img src="./Pasted%20image%2020250321112937.png" alt="">
+原因在于第223行的开始的一个盒子，把这段也注释掉即可</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>                        &lt;<span style="color:#268bd2">div</span> class<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;modal modal-server&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>                            &lt;<span style="color:#268bd2">div</span> class<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;wx_pic_img&#34;</span> id<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;webchat-server-box&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>                                &lt;<span style="color:#268bd2">div</span> class<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;modal-close&#34;</span>&gt;&lt;/<span style="color:#268bd2">div</span>&gt;
+</span></span><span style="display:flex;"><span>                                &lt;<span style="color:#268bd2">div</span> class<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;payqr_box&#34;</span> style<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;display: block;&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>                                    &lt;<span style="color:#268bd2">div</span> class<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;cj_title&#34;</span>&gt;&lt;<span style="color:#268bd2">span</span>&gt;常见问题&lt;/<span style="color:#268bd2">span</span>&gt;&lt;/<span style="color:#268bd2">div</span>&gt;
+</span></span><span style="display:flex;"><span>                                    &lt;<span style="color:#268bd2">ul</span> class<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;customer_service_box&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>                                        &lt;<span style="color:#268bd2">li</span>&gt;
+</span></span><span style="display:flex;"><span>                                            &lt;<span style="color:#268bd2">div</span> class<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;que&#34;</span>&gt;1.支付成功后，怎么复制？&lt;/<span style="color:#268bd2">div</span>&gt;
+</span></span><span style="display:flex;"><span>                                            &lt;<span style="color:#268bd2">div</span> class<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;ans&#34;</span>&gt;亲，您好！付款成功后，无需验证码，直接复制哦！&lt;/<span style="color:#268bd2">div</span>&gt;
+</span></span><span style="display:flex;"><span>                                        &lt;/<span style="color:#268bd2">li</span>&gt;
+</span></span><span style="display:flex;"><span>                                        &lt;<span style="color:#268bd2">li</span>&gt;
+</span></span><span style="display:flex;"><span>                                            &lt;<span style="color:#268bd2">div</span> class<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;que&#34;</span>&gt;2.支付成功后，为何无法复制内容？&lt;/<span style="color:#268bd2">div</span>&gt;
+</span></span><span style="display:flex;"><span>                                            &lt;<span style="color:#268bd2">div</span> class<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;ans&#34;</span>&gt;亲，请尝试刷新一下网页（按键盘F5键），再进行复制。&lt;/<span style="color:#268bd2">div</span>&gt;
+</span></span><span style="display:flex;"><span>                                        &lt;/<span style="color:#268bd2">li</span>&gt;
+</span></span><span style="display:flex;"><span>                                        &lt;<span style="color:#268bd2">li</span>&gt;
+</span></span><span style="display:flex;"><span>                                            &lt;<span style="color:#268bd2">div</span> class<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;que&#34;</span>&gt;3.付费后能否更换浏览器、更换电脑进行复制？&lt;/<span style="color:#268bd2">div</span>&gt;
+</span></span><span style="display:flex;"><span>                                            &lt;<span style="color:#268bd2">div</span> class<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;ans&#34;</span>&gt;亲，更换浏览器或电脑会导致复制不成功哦！请确保付费时的浏览器及电脑和复制文章时所用的浏览器是一样的。&lt;/<span style="color:#268bd2">div</span>&gt;
+</span></span><span style="display:flex;"><span>                                        &lt;/<span style="color:#268bd2">li</span>&gt;
+</span></span><span style="display:flex;"><span>                                        &lt;<span style="color:#268bd2">li</span>&gt;
+</span></span><span style="display:flex;"><span>                                            &lt;<span style="color:#268bd2">div</span> class<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;que&#34;</span>&gt;4.如何联系客服？&lt;/<span style="color:#268bd2">div</span>&gt;
+</span></span><span style="display:flex;"><span>                                            &lt;<span style="color:#268bd2">div</span> class<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;ans&#34;</span>&gt;麻烦您添加客服微信：zjdddx1 ，留言“付款后无法复制文章”，并发送相关付款截图，客服将为您处理。&lt;/<span style="color:#268bd2">div</span>&gt;
+</span></span><span style="display:flex;"><span>                                        &lt;/<span style="color:#268bd2">li</span>&gt;
+</span></span><span style="display:flex;"><span>                                    &lt;/<span style="color:#268bd2">ul</span>&gt;
+</span></span><span style="display:flex;"><span>                                &lt;/<span style="color:#268bd2">div</span>&gt;
+</span></span><span style="display:flex;"><span>                            &lt;/<span style="color:#268bd2">div</span>&gt;
+</span></span><span style="display:flex;"><span>                        &lt;/<span style="color:#268bd2">div</span>&gt;
+</span></span><span style="display:flex;"><span>                        &lt;<span style="color:#268bd2">div</span> class<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;copy-success alert-bounceIn&#34;</span>&gt;&lt;<span style="color:#268bd2">img</span> src<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;co_files/payed.png&#34;</span>
+</span></span><span style="display:flex;"><span>                                class<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;icon&#34;</span>&gt;&lt;<span style="color:#268bd2">span</span>&gt;复制成功！&lt;/<span style="color:#268bd2">span</span>&gt;&lt;/<span style="color:#268bd2">div</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                        &lt;<span style="color:#268bd2">script</span> type<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;text/javascript&#34;</span> src<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;co_files/js.cookie.min.js&#34;</span>&gt;&lt;/<span style="color:#268bd2">script</span>&gt;
+</span></span><span style="display:flex;"><span>                        &lt;<span style="color:#268bd2">script</span> language<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;javascript&#34;</span> src<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;co_files/bottom.js&#34;</span>&gt;&lt;/<span style="color:#268bd2">script</span>&gt;
+</span></span><span style="display:flex;"><span>                        &lt;<span style="color:#268bd2">script</span> language<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;javascript&#34;</span> src<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;co_files/doc.js&#34;</span>&gt;&lt;/<span style="color:#268bd2">script</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    &lt;/<span style="color:#268bd2">div</span>&gt;
+</span></span></code></pre></div><p>这样再保存，回到页面中就可正常复制了。前端的这点小儿科把戏，轻松搞定。</p></p>
+              <footer>
+                <a href="https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/%E5%85%89%E9%80%9F%E7%A0%B4%E8%A7%A3%E4%BD%9C%E6%96%87%E7%BD%91%E7%AB%99%E7%A6%81%E6%AD%A2%E5%A4%8D%E5%88%B6/" rel="full-article">Would you like to know more? →</a>
+              </footer>
+          
+        </article>
+        
+        <article><header>
   <p class="meta">Mar 18, 2025
      - 1 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e6%8a%80%e6%9c%af/">技术 </a>
     
@@ -263,61 +324,6 @@ tab_powerline_style   slanted
           
         </article>
         
-        <article><header>
-  <p class="meta">Mar 4, 2025
-     - 3 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e6%8a%80%e6%9c%af/">技术 </a>
-    
-  </p>
-  <h1 class="entry-title">
-     【未解决】Windows WSL报错：Error: 0x80080005 ??????? 
-  </h1>
-</header>
-
-          
-            <p><p>设备环境：</p>
-<pre tabindex="0"><code>操作系统：Windows 10
-安装系统：Arch Linux
-错误日志：
-Installing, this may take a few minutes...
-WslRegisterDistribution failed with error: 0x80080005
-Error: 0x80080005 ???????
-
-Press any key to continue...
-</code></pre><p>网上有一篇
-<a href="https://ask.csdn.net/questions/7625716" target="_blank" rel="noopener">文章</a>提到这个错误，下面的评论回复以管理员权限运行命令提示符并执行<code>sc stop LxssManager</code>和<code>sc start LxssManager</code>
-出现如下报错：</p>
-<pre tabindex="0"><code>C:\Windows\system32&gt;sc stop LxssManager
-[SC] OpenService 失败 1060:
-
-指定的服务未安装。
-</code></pre><p>顺藤摸瓜，在网上寻找<code>LxssManager</code>这个服务要如何安装。
-网上暂时还没有找到相关文章能够解决这个问题，但是CSDN的一篇文章引起了我的注意
-
-<a href="https://blog.csdn.net/renwudao24/article/details/52061906" target="_blank" rel="noopener">[SC] OpenService 失败：1060指定的服务未安装_[sc] openservice 失败 1060: 指定的服务未安装。-CSDN博客</a>
-文章中提到了“服务”，在开始菜单中搜索服务，进入应用找到了一个名为WSL Service的服务。点左上角启动。
-提取关键信息：<strong>1058、被禁用、关联的设备没有启动</strong>。
-检查功能是否开启：按下 <code>Win+S</code> 搜索 <strong>启用或关闭Windows功能</strong>
-勾选<code>适用于Linux的Windows子系统</code>和<code>虚拟机平台</code>这两项，点击确定
-重启电脑。
-回来以后，用管理员身份运行powershell，强制重置WSL服务，依次执行：</p>
-<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wsl --shutdown
-</span></span><span style="display:flex;"><span>wsl --unregister Arch <span style="color:#586e75"># 替换为你的发行版名称</span>
-</span></span><span style="display:flex;"><span>wsl --install -d Arch <span style="color:#586e75"># 重新注册发行版</span>
-</span></span></code></pre></div><p>如果提示内核缺失，在这里下
-<a href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi" target="_blank" rel="noopener">https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi</a></p>
-<p>如果有以下输出：</p>
-<pre tabindex="0"><code>zcz  system32  ♥ 21:32  wsl --shutdown
-此应用程序需要适用于 Linux 的 Windows 子系统可选组件。
-通过运行安装它： wsl.exe --install --no-distribution
-可能需要重新启动系统才能使更改生效。
-错误代码: Wsl/WSL_E_WSL_OPTIONAL_COMPONENT_REQUIRED
-</code></pre><p>两种可能：</p></p>
-              <footer>
-                <a href="https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/%E6%9C%AA%E8%A7%A3%E5%86%B3windows-wsl%E6%8A%A5%E9%94%99error-0x80080005/" rel="full-article">Would you like to know more? →</a>
-              </footer>
-          
-        </article>
-        
       
       
 
@@ -428,6 +434,12 @@ Press any key to continue...
           
             
               <li class="post">
+                <a href="/post/%E9%9A%8F%E7%AC%94/%E5%A4%8F%E6%97%A5%E6%AE%8B%E5%BD%B1/">夏日残影</a>
+              </li>
+            
+          
+            
+              <li class="post">
                 <a href="/post/%E9%9A%8F%E7%AC%94/%E7%A7%8B%E5%A4%A9%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A3%B0%E7%8B%97%E5%8F%AB/">秋天的第一声狗叫</a>
               </li>
             
@@ -471,12 +483,6 @@ Press any key to continue...
             
               <li class="post">
                 <a href="/post/%E6%8A%80%E6%9C%AF/set-up-newsgroup/">在2025年，搭建新闻组</a>
-              </li>
-            
-          
-            
-              <li class="post">
-                <a href="/post/%E9%9A%8F%E7%AC%94/%E6%97%A0%E8%9D%89%E9%B8%A3%E5%A4%8F/">无蝉鸣夏</a>
               </li>
             
           

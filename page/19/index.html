@@ -118,6 +118,80 @@
     
   </p>
   <h1 class="entry-title">
+     String的注意事项 
+  </h1>
+</header>
+
+          
+            <p><h1 id="string的注意事项">String的注意事项</h1>
+<ul>
+<li>
+<ol>
+<li>String对象的内容不可改变， 被称为不可变字符串对象。</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>只要是以“&hellip;”的方式写出的字符串，都会存储到字符串常量池，且相同的字符串只存储一份；</li>
+</ol>
+</li>
+<li>但通过new方式创建字符串对象，每new一次都会产生一个新的对象放在堆内存中。</li>
+</ul>
+<h1 id="不可变字符串对象">不可变字符串对象</h1>
+<p>不可变？它肯定可变啊，比如</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#719e07">package</span> string;  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">public</span> <span style="color:#268bd2">class</span> <span style="color:#268bd2">StringDemo3</span> {  
+</span></span><span style="display:flex;"><span>    <span style="color:#268bd2">public</span> <span style="color:#268bd2">static</span> <span style="color:#dc322f">void</span> <span style="color:#268bd2">main</span>(String<span style="color:#719e07">[]</span> args) {  
+</span></span><span style="display:flex;"><span>        String name <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;yingyu5658&#34;</span>;  
+</span></span><span style="display:flex;"><span>        name <span style="color:#719e07">+=</span> <span style="color:#2aa198">&#34;.cn&#34;</span>;  
+</span></span><span style="display:flex;"><span>        name <span style="color:#719e07">+=</span> <span style="color:#2aa198">&#34;域名&#34;</span>;  
+</span></span><span style="display:flex;"><span>        System.out.println(name);  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>    }  
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>这时候把name打印出来不就是<code>yingyu5658.cn域名</code>了吗？
+<strong>每次试图改变字符串对象实际上是新产生可字符串对象，变量每次都与指向了新的字符串对象，之前字符串对象的内容确实是没有改变的，因此说String的对象都是不可变的。</strong></p>
+<h1 id="第二点注意事项">第二点注意事项</h1>
+<p>示例代码：</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#719e07">package</span> string;  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">public</span> <span style="color:#268bd2">class</span> <span style="color:#268bd2">StringDemo3</span> {  
+</span></span><span style="display:flex;"><span>    <span style="color:#268bd2">public</span> <span style="color:#268bd2">static</span> <span style="color:#dc322f">void</span> <span style="color:#268bd2">main</span>(String<span style="color:#719e07">[]</span> args) {  
+</span></span><span style="display:flex;"><span>        String s1 <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;abc&#34;</span>;  
+</span></span><span style="display:flex;"><span>        String s2 <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;abc&#34;</span>;  
+</span></span><span style="display:flex;"><span>        System.out.println(s1 <span style="color:#719e07">==</span> s2);  
+</span></span><span style="display:flex;"><span>        <span style="color:#586e75">//true  </span>
+</span></span><span style="display:flex;"><span>    }  
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>这里使用双等来判断两个变量的地址是否相同，返回结果为<code>true</code>,也就是说，地址是相同的。
+原理：上文提到，双引号包裹住的字符串，会被保存到字符串常量池中，<strong>且相同的字符串只存储一份</strong>。这里我们声明了两个内容为abc的String类型变量。Java是很聪明的，当我们把s2声明，它要存到字符串常量池时，看到内容一样，就不再存了，而是把<strong>s2也指向abc</strong>，因此s1地址和s2地址是一样的。</p>
+<h2 id="new">new</h2>
+<p>示例代码：</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#719e07">package</span> string;  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">public</span> <span style="color:#268bd2">class</span> <span style="color:#268bd2">StringDemo3</span> {  
+</span></span><span style="display:flex;"><span>    <span style="color:#268bd2">public</span> <span style="color:#268bd2">static</span> <span style="color:#dc322f">void</span> <span style="color:#268bd2">main</span>(String<span style="color:#719e07">[]</span> args) {  
+</span></span><span style="display:flex;"><span>        <span style="color:#dc322f">char</span><span style="color:#719e07">[]</span> chars <span style="color:#719e07">=</span> {<span style="color:#2aa198">&#39;a&#39;</span>,<span style="color:#2aa198">&#39;b&#39;</span>,<span style="color:#2aa198">&#39;c&#39;</span>};  
+</span></span><span style="display:flex;"><span>       String a1 <span style="color:#719e07">=</span>  <span style="color:#719e07">new</span> String(chars);  
+</span></span><span style="display:flex;"><span>       String a2 <span style="color:#719e07">=</span>  <span style="color:#719e07">new</span> String(chars);  
+</span></span><span style="display:flex;"><span>        System.out.println(a1 <span style="color:#719e07">==</span> a2);  
+</span></span><span style="display:flex;"><span>        <span style="color:#586e75">//false  </span>
+</span></span><span style="display:flex;"><span>    }  
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>上文提到，每new一次就会创建一个新的对象，所以此时再比较两者地址，返回false，是不同的。</p></p>
+              <footer>
+                <a href="https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/171/" rel="full-article">Would you like to know more? →</a>
+              </footer>
+          
+        </article>
+        
+        <article><header>
+  <p class="meta">Dec 19, 2024
+     - 1 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e6%8a%80%e6%9c%af/">技术 </a>
+    
+  </p>
+  <h1 class="entry-title">
      Java遍历字符串 
   </h1>
 </header>
@@ -357,72 +431,6 @@ http {
           
         </article>
         
-        <article><header>
-  <p class="meta">Dec 13, 2024
-     - 1 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e6%8a%80%e6%9c%af/">技术 </a>
-    
-  </p>
-  <h1 class="entry-title">
-     Vim基础操作快速入门 
-  </h1>
-</header>
-
-          
-            <p><h1 id="前言">前言</h1>
-<p>各种鼠标操作让我有点抓狂，vim或许是一个很适合我的东西，全键盘操作听起来就很方便快捷，除了上手难度有点高以外，vim看起来似乎没有任何的缺点。在下载安装好了vim后，我开始学习了快捷键。<del>然后我们就可以直接把鼠标扔了。</del></p>
-<p><strong>记住要先把输入法切换成英文模式</strong></p>
-<h1 id="普通模式">普通模式</h1>
-<h2 id="退出">退出</h2>
-<p>很多人第一次用vim，最难受的事情绝对是不知道怎么退出。
-退出：<code>:q!</code></p>
-<h2 id="移动光标">移动光标</h2>
-<p><code>h</code> <code>j</code> <code>k</code> <code>l</code> 这四个按键分别对应左 下 上 右</p>
-<blockquote>
-<p>这个比较难适应，不过也比把手移动到右下方用箭头键舒服了</p></blockquote>
-<h3 id="大范围移动">大范围移动</h3>
-<p>行数 + <code>h</code>/ <code>j</code>/ <code>k</code>/ <code>l</code>
-比如，想要向下移动三行，就是3<code>j</code>，向左移动四格，就是3<code>h</code>
-<code>gg</code> 跳转到文档的最上方
-<code>G</code> 跳转到文档的最下方</p>
-<h3 id="按照单词跳转">按照单词跳转</h3>
-<p><code>w</code>，也就是“word”的首字母。就可以跳转到下一个单词的开头。
-<code>b</code> beginning就跳转到前一个单词的开头
-<code>f</code> find 查找单词。比如要把光标移动到离你最近的b，就可以输入<code>fb</code></p>
-<h3 id="翻页">翻页</h3>
-<p><code>Ctrl + u</code>向上翻页。u理解为up首字母。
-<code>Ctrl + d</code>向下翻页。d理解为down首字母。</p>
-<h2 id="复制粘贴">复制粘贴</h2>
-<p>在普通模式下，输入<code>y</code> （yank），复制整个单词：<code>yaw</code> “aw&rsquo;“为<del>阿伟</del> all word
-<code>p</code> 即paste，粘贴。</p>
-<h2 id="删除">删除</h2>
-<p>普通模式下，<code>d</code> 也就是delete，直接删除当前行和下一行的内容
-还可以跟上文的<code>hjkl</code>结合起来，比如d8j就是向下删除八行</p>
-<h2 id="撤销">撤销</h2>
-<p><code>u</code> 也就是undo。</p>
-<blockquote>
-<p>这些快捷键很灵活，都可以互相结合使用</p></blockquote>
-<h1 id="输入模式">输入模式</h1>
-<h2 id="进入输入模式">进入输入模式</h2>
-<p>在普通模式下，输入<code>i</code> 也就是insert，就可以进入输入模式了。</p>
-<ol>
-<li><code>i</code>是在当前光标的前一个字母开始输入。</li>
-<li>使用<code>a</code>也就是append，就可以在当前光标之后输入。</li>
-<li>使用<code>I</code>就会从这一行的开头进入输入模式。</li>
-<li>使用<code>A</code>就会从这一行的末尾进入输入模式。
-完成编辑后，使用<code>ESC</code> 就可以退出编辑模式，回到普通模式了。</li>
-</ol>
-<h1 id="命令模式">命令模式</h1>
-<p>在普通模式下输入<code>：</code>就可以进入命令模式，按下<code>ESC</code>就会退出命令模式。
-在下方的命令行中，可以输入命令
-<code>q</code>也就是quit就可以退出
-保存<code>w</code>
-保存并退出<code>wq</code></p></p>
-              <footer>
-                <a href="https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/147/" rel="full-article">Would you like to know more? →</a>
-              </footer>
-          
-        </article>
-        
       
       
 
@@ -533,6 +541,12 @@ http {
           
             
               <li class="post">
+                <a href="/post/%E9%9A%8F%E7%AC%94/%E5%A4%8F%E6%97%A5%E6%AE%8B%E5%BD%B1/">夏日残影</a>
+              </li>
+            
+          
+            
+              <li class="post">
                 <a href="/post/%E9%9A%8F%E7%AC%94/%E7%A7%8B%E5%A4%A9%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A3%B0%E7%8B%97%E5%8F%AB/">秋天的第一声狗叫</a>
               </li>
             
@@ -576,12 +590,6 @@ http {
             
               <li class="post">
                 <a href="/post/%E6%8A%80%E6%9C%AF/set-up-newsgroup/">在2025年，搭建新闻组</a>
-              </li>
-            
-          
-            
-              <li class="post">
-                <a href="/post/%E9%9A%8F%E7%AC%94/%E6%97%A0%E8%9D%89%E9%B8%A3%E5%A4%8F/">无蝉鸣夏</a>
               </li>
             
           

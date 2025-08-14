@@ -113,6 +113,29 @@
       
         
         <article><header>
+  <p class="meta">Apr 29, 2025
+     - 1 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e6%8a%80%e6%9c%af/">技术 </a>
+    
+  </p>
+  <h1 class="entry-title">
+     Emacs EAF插件打开浏览器只显示opening http://xxx.xxx的解决方法 
+  </h1>
+</header>
+
+          
+            <p><p>检查是否安装全部依赖，如yay、pip等。我这里是由于没有安装pip导致的。</p>
+<p><code>sudo pacman -S python-pip</code></p>
+<p>安装好后，进入eaf安装目录</p>
+<p><code>cd ~/.emacs.d/site-lisp/emacs-application-framework &amp;&amp; ./install-eaf.py</code></p>
+<p>重新安装eaf。等待脚本运行完成，打开emacs，输入<code>M-x eaf-install-and-update</code>，等待执行完成。</p>
+<p>重新输入<code>M-x eaf-open-browser</code>，输入网址，即可正常访问网页。</p></p>
+              <footer>
+                <a href="https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/emacs-eaf%E6%8F%92%E4%BB%B6%E6%89%93%E5%BC%80%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%AA%E6%98%BE%E7%A4%BAopening-http-xxx-xxx%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" rel="full-article">Would you like to know more? →</a>
+              </footer>
+          
+        </article>
+        
+        <article><header>
   <p class="meta">Apr 26, 2025
      - 1 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e9%9a%8f%e7%ac%94/">随笔 </a>
     
@@ -280,82 +303,6 @@
           
         </article>
         
-        <article><header>
-  <p class="meta">Apr 15, 2025
-     - 3 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e6%8a%80%e6%9c%af/">技术 </a>
-    
-  </p>
-  <h1 class="entry-title">
-     从0开始搭建自己的终端开发环境 
-  </h1>
-</header>
-
-          
-            <p><p><strong>系统</strong>：WSL Arch</p>
-<h3 id="主折腾点">主折腾点</h3>
-<p><strong>代码编辑器</strong>：Vim(Neovim)</p>
-<p><strong>终端体验优化</strong>：tmux</p>
-<p><strong>文件管理器</strong>：yazi</p>
-<h2 id="代码编辑器neovim">代码编辑器——Neovim</h2>
-<h3 id="前言">前言</h3>
-<p>Neovim和Vim相比，在性能和易用性上有很大的提升，在异步任务表现突出；使用更加现代的lua脚本配置，可读性更高。</p>
-<h4 id="为什么不用lazyvim">为什么不用Lazyvim？</h4>
-<p>答：我个人用了很长一段时间Lazyvim，虽然开箱即用，简单调试就可以使用，但是我并不能清除的理解他到底给我装了什么，我是否需要那些插件。感觉像在用别人的软件，而自己从头开始配置vim的掌控感是使用他人的配置文件无法比拟的，在配置的过程中也可以培养排错和程序调试能力，唯一的缺点就是略微耗费时间。</p>
-<h3 id="安装">安装</h3>
-<p>先滚一把系统保证软件包都是最新的</p>
-<p><code>sudo pacman -Syyu</code></p>
-<p>安装Neovim</p>
-<p><code>sudo pacman -S neovim</code></p>
-<p>这时候在终端输入<code>nvim</code>就可以打开neovim了。![image-20250415212435171](E:/Blog/source/im</p>
-<p><strong>按<code>:q</code>退出。</strong></p>
-<p>这个初始的界面非常简陋，我们先进行核心功能配置，后续在更改主题。</p>
-<p>nvim的用户级配置文件在<code>~/.config/nvim</code>中。</p>
-<h3 id="安装包管理器">安装包管理器</h3>
-<p>我们选择Lazy作为包管理器，他和其他的包管理器相比起来，在懒加载、UI界面等方面有显著优势，可以减小配置复杂度。</p>
-<p>访问
-<a href="https://lazy.folke.io/installation" target="_blank" rel="noopener">lazy.nvim官网</a>，官方文档永远都是最好的教程。这里有一段代码</p>
-<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#586e75">-- Bootstrap lazy.nvim</span>
-</span></span><span style="display:flex;"><span><span style="color:#268bd2">local</span> lazypath <span style="color:#719e07">=</span> vim.fn.stdpath(<span style="color:#2aa198">&#34;data&#34;</span>) <span style="color:#719e07">..</span> <span style="color:#2aa198">&#34;/lazy/lazy.nvim&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#268bd2">if</span> <span style="color:#719e07">not</span> (vim.uv <span style="color:#719e07">or</span> vim.loop).fs_stat(lazypath) <span style="color:#268bd2">then</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">local</span> lazyrepo <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;https://github.com/folke/lazy.nvim.git&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">local</span> out <span style="color:#719e07">=</span> vim.fn.system({ <span style="color:#2aa198">&#34;git&#34;</span>, <span style="color:#2aa198">&#34;clone&#34;</span>, <span style="color:#2aa198">&#34;--filter=blob:none&#34;</span>, <span style="color:#2aa198">&#34;--branch=stable&#34;</span>, lazyrepo, lazypath })
-</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">if</span> vim.v.shell_error <span style="color:#719e07">~=</span> <span style="color:#2aa198">0</span> <span style="color:#268bd2">then</span>
-</span></span><span style="display:flex;"><span>    vim.api.nvim_echo({
-</span></span><span style="display:flex;"><span>      { <span style="color:#2aa198">&#34;Failed to clone lazy.nvim:</span><span style="color:#cb4b16">\n</span><span style="color:#2aa198">&#34;</span>, <span style="color:#2aa198">&#34;ErrorMsg&#34;</span> },
-</span></span><span style="display:flex;"><span>      { out, <span style="color:#2aa198">&#34;WarningMsg&#34;</span> },
-</span></span><span style="display:flex;"><span>      { <span style="color:#2aa198">&#34;</span><span style="color:#cb4b16">\n</span><span style="color:#2aa198">Press any key to exit...&#34;</span> },
-</span></span><span style="display:flex;"><span>    }, <span style="color:#cb4b16">true</span>, {})
-</span></span><span style="display:flex;"><span>    vim.fn.getchar()
-</span></span><span style="display:flex;"><span>    os.exit(<span style="color:#2aa198">1</span>)
-</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">end</span>
-</span></span><span style="display:flex;"><span><span style="color:#268bd2">end</span>
-</span></span><span style="display:flex;"><span>vim.opt.rtp:prepend(lazypath)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#586e75">-- Make sure to setup `mapleader` and `maplocalleader` before</span>
-</span></span><span style="display:flex;"><span><span style="color:#586e75">-- loading lazy.nvim so that mappings are correct.</span>
-</span></span><span style="display:flex;"><span><span style="color:#586e75">-- This is also a good place to setup other settings (vim.opt)</span>
-</span></span><span style="display:flex;"><span>vim.g.mapleader <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34; &#34;</span>
-</span></span><span style="display:flex;"><span>vim.g.maplocalleader <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;</span><span style="color:#cb4b16">\\</span><span style="color:#2aa198">&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#586e75">-- Setup lazy.nvim</span>
-</span></span><span style="display:flex;"><span>require(<span style="color:#2aa198">&#34;lazy&#34;</span>).setup({
-</span></span><span style="display:flex;"><span>  spec <span style="color:#719e07">=</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#586e75">-- import your plugins</span>
-</span></span><span style="display:flex;"><span>    { import <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;plugins&#34;</span> },
-</span></span><span style="display:flex;"><span>  },
-</span></span><span style="display:flex;"><span>  <span style="color:#586e75">-- Configure any other settings here. See the documentation for more details.</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#586e75">-- colorscheme that will be used when installing plugins.</span>
-</span></span><span style="display:flex;"><span>  install <span style="color:#719e07">=</span> { colorscheme <span style="color:#719e07">=</span> { <span style="color:#2aa198">&#34;habamax&#34;</span> } },
-</span></span><span style="display:flex;"><span>  <span style="color:#586e75">-- automatically check for plugin updates</span>
-</span></span><span style="display:flex;"><span>  checker <span style="color:#719e07">=</span> { enabled <span style="color:#719e07">=</span> <span style="color:#cb4b16">true</span> },
-</span></span><span style="display:flex;"><span>})
-</span></span></code></pre></div><p>这段代码主要在为Lazy包管理器初始化，所以按照官网的目录结构，我们在<code>~/.config/nvim/lua</code>下新建一个config文件夹，把代码粘贴进去。</p></p>
-              <footer>
-                <a href="https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BB%88%E7%AB%AF%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" rel="full-article">Would you like to know more? →</a>
-              </footer>
-          
-        </article>
-        
       
       
 
@@ -466,6 +413,12 @@
           
             
               <li class="post">
+                <a href="/post/%E9%9A%8F%E7%AC%94/%E5%A4%8F%E6%97%A5%E6%AE%8B%E5%BD%B1/">夏日残影</a>
+              </li>
+            
+          
+            
+              <li class="post">
                 <a href="/post/%E9%9A%8F%E7%AC%94/%E7%A7%8B%E5%A4%A9%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A3%B0%E7%8B%97%E5%8F%AB/">秋天的第一声狗叫</a>
               </li>
             
@@ -509,12 +462,6 @@
             
               <li class="post">
                 <a href="/post/%E6%8A%80%E6%9C%AF/set-up-newsgroup/">在2025年，搭建新闻组</a>
-              </li>
-            
-          
-            
-              <li class="post">
-                <a href="/post/%E9%9A%8F%E7%AC%94/%E6%97%A0%E8%9D%89%E9%B8%A3%E5%A4%8F/">无蝉鸣夏</a>
               </li>
             
           
