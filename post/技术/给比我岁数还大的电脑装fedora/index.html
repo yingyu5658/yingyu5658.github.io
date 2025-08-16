@@ -1,309 +1,504 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<!doctype html>
+<html lang="zh-CN">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
 
-  
-      <link href="/css/fonts.css" rel="stylesheet" type="text/css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     
-  <title>给比我岁数还大的电脑装Fedora</title><link rel="stylesheet" href="/css/hugo-octopress.css">
 
-  
-    <link rel="stylesheet" href="/css/fork-awesome.min.css">
-  
-    <link href="https://www.yingyu5658.me/favicon.png" rel="icon">
-  
-
-  <meta name="description" content="" />
-  <meta name="keywords" content="">
-  <meta name="author" content="yingyu5658"><meta name="generator" content="Hugo 0.148.2">
-
-</head>
-<body><header role="banner"><hgroup><h1><a href="https://www.yingyu5658.me/">映屿</a></h1>
-    <h2>yingyu5658的数字花园</h2>
-</hgroup></header><nav role="navigation"><fieldset class="mobile-nav"><select onchange="location = this.value;">
-    <option value="">Navigate…</option>
-      
-        <option value="https://www.yingyu5658.me/">» Home</option>
-      
-        <option value="https://www.yingyu5658.me/about">» About</option>
-      
-        <option value="https://www.yingyu5658.me/post">» Archive</option>
-      
-        <option value="https://www.yingyu5658.me/links">» Links</option>
-      
-        <option value="https://www.yingyu5658.me/newsgroup">» Newsgroup</option>
-      
-  </select>
-</fieldset><ul class="main-navigation">
-    
-      <li><a href="https://www.yingyu5658.me/" title="Home">Home</a></li>
-    
-  
-    
-      <li><a href="https://www.yingyu5658.me/about" title="About"  target="_blank"  rel="noopener noreferrer">About</a></li>
-    
-  
-    
-      <li><a href="https://www.yingyu5658.me/post" title="Archive"  target="_blank"  rel="noopener noreferrer">Archive</a></li>
-    
-  
-    
-      <li><a href="https://www.yingyu5658.me/links" title="Links"  target="_blank"  rel="noopener noreferrer">Links</a></li>
-    
-  
-    
-      <li><a href="https://www.yingyu5658.me/newsgroup" title="Newsgroup"  target="_blank"  rel="noopener noreferrer">Newsgroup</a></li>
-    
-  
-</ul>
-
-<ul class="subscription">
-  
-    
-        <a href="https://www.yingyu5658.me/atom.xml" target="_blank" type="application/rss+xml" title="RSS" rel="noopener noreferrer"><i class="fa fa-rss-square fa-lg"></i></a>
-    
-  
-</ul>
-
-
-  <form action="https://www.bing.com/search" method="get" target="_blank" rel="noopener noreferrer">
-    <fieldset role="search">
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-	<input type="hidden" name="q" value="site:https://www.yingyu5658.me/" />
-	<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const form = document.querySelector('form'); 
-    const textInput = document.querySelector('input.search[type="text"]');
-    const hiddenInput = document.querySelector('input[type="hidden"][name="q"]');
-
-    
-    form.addEventListener('submit', function(e) {
-      e.preventDefault(); 
-
-      
-      const userInput = textInput.value.trim();
-
-      
-      const siteFilter = hiddenInput.value;
-
-      
-      const combinedValue = userInput ? `${userInput} ${siteFilter}` : siteFilter;
-
-      
-      const tmpInput = document.createElement('input');
-      tmpInput.type = 'hidden';
-      tmpInput.name = 'q';
-      tmpInput.value = combinedValue;
-
-      form.appendChild(tmpInput);
-      form.submit();
-    });
-  });
-</script>
-    </fieldset>
-  </form>
-
-</nav>
-
-
-<div id="main">
-  <div id="content">
-    <div>
-      <article class="hentry" role="article">
-
+    <title>给比我岁数还大的电脑装Fedora | 映屿</title>
+    <meta property="og:title" content="给比我岁数还大的电脑装Fedora - 映屿">
+    <meta property="og:type" content="article">
         
-        <header>
-  <p class="meta">Jun 13, 2025
-     - 1 minute read - <a class="label" href="https://www.yingyu5658.me/categories/%e6%8a%80%e6%9c%af/">技术 </a>
+    <meta property="article:published_time" content='2025-06-13T20:11:49&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2025-06-13T20:11:49&#43;08:00'>
+        
+    <meta name="Keywords" content="yingyu5658,博客,Web,软件,C语言,Nodejs">
+    <meta name="description" content="给比我岁数还大的电脑装Fedora">
+        
+    <meta name="author" content="">
+    <meta property="og:url" content="https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/%E7%BB%99%E6%AF%94%E6%88%91%E5%B2%81%E6%95%B0%E8%BF%98%E5%A4%A7%E7%9A%84%E7%94%B5%E8%84%91%E8%A3%85fedora/">
+    <link rel="shortcut icon" href='/favicon.ico' type="image/x-icon">
+    <link rel="icon" href='/favicon.png' type="image/png">
+    <link rel="alternate icon" href='/favicon.png' type="image/svg+xml">
     
-  </p>
-  <h1 class="entry-title">
-     给比我岁数还大的电脑装Fedora 
-  </h1>
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+
+    
+    
+    
+    
+    
+    
+        <link rel="stylesheet" href='/css/style.extra.css'>
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://www.yingyu5658.me/">
+                        映屿
+                    </a>
+                
+                <p class="description">yingyu5658的数字花园</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://www.yingyu5658.me/">Home</a>
+                    
+                    <a  href="https://www.yingyu5658.me/categories" title="分类">分类</a>
+                    
+                    <a  href="https://www.yingyu5658.me/links" title="友链">友链</a>
+                    
+                    <a  href="https://www.yingyu5658.me/archives" title="归档">归档</a>
+                    
+                    <a  href="https://www.yingyu5658.me/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
 </header>
 
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
 
-        <div class="entry-content">
-          
-          <h2 id="前言">前言</h2>
-<p><img src="./ccb6ab92150b3314a3cb09eee8102a56.jpg" alt=""></p>
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">给比我岁数还大的电脑装Fedora</h1>
+        </header>
+        
+  <time datetime="2025-06-13T20:11:49Z" class="post-meta meta-date dt-published">
+    2025-06-13
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/%E6%8A%80%E6%9C%AF' target="_blank">技术</a>
+  
+</div>
+
+
+        
+        
+        <div class="post-content">
+            <h2 id="前言">前言</h2>
+<p>
+        <img class="mx-auto" alt="" src="./ccb6ab92150b3314a3cb09eee8102a56.jpg" />   
+    </p>
 <p>印象中，这台电脑在我很小的时候就存在了，我爸的网盘里至今还有我当时用这台电脑播放江南Style，我在床上跳舞的视频。</p>
 <p>这台机子开Powershell都卡，更不用说日常使用。</p>
-<p><img src="./de5fce2eac7705b9df0d9a6e76ebf799.jpg" alt="">
+<p>
+        <img class="mx-auto" alt="" src="./de5fce2eac7705b9df0d9a6e76ebf799.jpg" />   
+    
 我甚至都不想在这台电脑上截图，当拍屏大师吧。</p>
 <p>听说Linux用户有个刻板印象就是，用着十几年前的笔记本，从来不用最新设备，那这不刚好吻合上了吗。</p>
-<p>诶&hellip;&hellip;等等，我
-<a href="https://www.yingyu5658.me/post/3691550015/" target="_blank" rel="noopener">之前</a>好像说过不折腾了？算了，反正Fedora没有Arch那么折腾（吧）。</p>
+<p>诶&hellip;&hellip;等等，我<a href="https://www.yingyu5658.me/post/3691550015/">之前</a>好像说过不折腾了？算了，反正Fedora没有Arch那么折腾（吧）。</p>
 <h2 id="正文">正文</h2>
-<p><img src="./Pasted%20image%2020250613202911.png" alt=""></p>
+<p>
+        <img class="mx-auto" alt="" src="./Pasted%20image%2020250613202911.png" />   
+    </p>
 <p>镜像下好后，用Rufus拷到U盘。</p>
 <p>插到电脑上，额，先让我研究一下BIOS怎么进&hellip;&hellip;</p>
-<p><img src="./25890eb0322bbe6620bd4edc0b9b9e9e.jpg" alt="">
+<p>
+        <img class="mx-auto" alt="" src="./25890eb0322bbe6620bd4edc0b9b9e9e.jpg" />   
+    
 把#1改成刚刚做的启动盘。保存后重启。</p>
-<p><img src="./092ae6cfdd02bb72a2f02674392afdd6.jpg" alt="">
+<p>
+        <img class="mx-auto" alt="" src="./092ae6cfdd02bb72a2f02674392afdd6.jpg" />   
+    
 哎，没想到第一难在这等着我呢。引导进不去。难道是我打开方式有问题？重新进BIOS，#1设置成UEFI巴拉巴拉试试。</p>
-<p><img src="./3c968f8512852e157f43355f88d53ed8.jpg" alt="">
+<p>
+        <img class="mx-auto" alt="" src="./3c968f8512852e157f43355f88d53ed8.jpg" />   
+    
 诶！成了，等一阵黑屏过后就弹Fedora Logo了。</p>
-<p><img src="./b6cec1104a907293109eb1f94eb175c8.jpg" alt="">
+<p>
+        <img class="mx-auto" alt="" src="./b6cec1104a907293109eb1f94eb175c8.jpg" />   
+    
 直接端上来吧！不管三七二十八直接Install！</p>
 <p>整个安装过程还是很傻瓜式的，只要有小学英文基础点点点就好了。</p>
-<p><img src="./01b262c2846e87f4dcaa8726cbf2a347.jpg" alt="">
+<p>
+        <img class="mx-auto" alt="" src="./01b262c2846e87f4dcaa8726cbf2a347.jpg" />   
+    
 虽然但是，这个简体中文怎么标的是新加坡。</p>
 <p>一顿等待后，进入系统让选择一下语言，连接个WIFI就算大功告成了。</p>
 <p><del>本来以为能有什么好玩的，还真这么傻瓜啊。。。</del></p>
 <p>最后再来个经典的neofetch
-<img src="./34996156f7df6e00bd8f4a6139f9f3fb.jpg" alt=""></p>
+
+        <img class="mx-auto" alt="" src="./34996156f7df6e00bd8f4a6139f9f3fb.jpg" />   
+    </p>
 <p>系统也装完了，文章也写完了，电影也下完了，爽！
-<img src="./Pasted%20image%2020250613211830.png" alt=""></p>
+
+        <img class="mx-auto" alt="" src="./Pasted%20image%2020250613211830.png" />   
+    </p>
         </div>
-        <footer>
-  <p class="meta">
-    <span class="byline author vcard">Posted by <span class="fn">yingyu5658</span></span><time>Jun 13, 2025</time>
-    
-      <span class="categories">
-        Tags:<a class="category" href="https://www.yingyu5658.me/tags/linux">Linux</a>  <a class="category" href="https://www.yingyu5658.me/tags/fedora">Fedora</a>  
-    
-    </span>
-  </p><p class="meta">
-    
-        <a class="basic-alignment left" href="https://www.yingyu5658.me/post/%E9%9A%8F%E7%AC%94/%E6%80%AA%E7%99%96/" title="怪癖">怪癖</a>
-    
 
-    
-      <a class="basic-alignment right" href="https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AF%BC%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="《操作系统导论》学习笔记">《操作系统导论》学习笔记</a>
-    
-  </p>
-  
-  
-</footer>
+        
 
 
-		<div id="waline"></div>
+        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/post/%E6%8A%80%E6%9C%AF/emacs%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95-2c-c&#43;&#43;%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">Emacs配置记录 2——C/C&#43;&#43;环境配置</a></li>
+        
+        <li><a href="/post/%E6%8A%80%E6%9C%AF/%E6%88%91%E8%BF%98%E6%98%AF%E6%94%BE%E4%B8%8D%E4%B8%8Bemacs/">我还是放不下Emacs！</a></li>
+        
+        <li><a href="/post/%E6%8A%80%E6%9C%AF/wsl-arch-linux-zsh%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">WSL Arch Linux ZSH输入中文&lt;0xffffffff&gt;解决方法</a></li>
+        
+        <li><a href="/post/%E6%8A%80%E6%9C%AF/emacs-eaf%E6%8F%92%E4%BB%B6%E6%89%93%E5%BC%80%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%AA%E6%98%BE%E7%A4%BAopening-http-xxx-xxx%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">Emacs EAF插件打开浏览器只显示opening http://xxx.xxx的解决方法</a></li>
+        
+        <li><a href="/post/%E6%8A%80%E6%9C%AF/%E6%8A%8A%E4%B8%BB%E5%8A%9B%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%8D%A2%E6%88%90arch-linux%E6%98%AF%E6%88%91%E8%BF%99%E8%BE%88%E5%AD%90%E5%81%9A%E8%BF%87%E7%9A%84%E6%9C%80%E8%A0%A2%E7%9A%84%E5%86%B3%E5%AE%9A/">把主力机系统换成Arch Linux是我这辈子做过的最蠢的决定</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='/tags/linux' target="_blank">Linux</a></li>
+                
+                <li><a href='/tags/fedora' target="_blank">Fedora</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+     
+
+
+<div id="waline"></div>
 <script type="module">
 	import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
 	init({
 		el: '#waline',
-		serverURL: 'waline.yingyu5658.me'
+		serverURL: 'waline.yingyu5658.me',
+		placeholder: '不建议使用Outlook邮箱，其过于严格的拦截机制会导致收不到本站发出的跟进回复邮件。',
 	});
 </script>
 
 
 
-      </article>
-    </div>
-    <aside class="sidebar thirds">
-  <section class="first odd">
-
-    
-      <h1>Misc</h1>
-    
-
-    <p>
-      
-        <p>E-mail: 
-<a href="mailto:i@yingyu5658.me">i@yingyu5658.me</a></p>
-<p>Newsgroup: news.yingyu5658.me</p>
-<p>Github: 
-<a href="https://www.github.com/yingyu5658" target="_blank" rel="noopener">https://www.github.com/yingyu5658</a></p>
-<p><img src="/unamed.jpg" alt=""></p>
-
-      
-    </p>
-  </section><ul class="sidebar-nav">
-  <li class="sidebar-nav-item">
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    </li>
-</ul>
-
-    
-      <section class="even">
-        <h1>Recent Posts</h1>
-        <ul id="recent_posts">
-          
-          
-            
-          
-            
-              <li class="post">
-                <a href="/post/%E9%9A%8F%E7%AC%94/%E5%A4%8F%E6%97%A5%E6%AE%8B%E5%BD%B1/">夏日残影</a>
-              </li>
-            
-          
-            
-              <li class="post">
-                <a href="/post/%E9%9A%8F%E7%AC%94/%E7%A7%8B%E5%A4%A9%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A3%B0%E7%8B%97%E5%8F%AB/">秋天的第一声狗叫</a>
-              </li>
-            
-          
-            
-              <li class="post">
-                <a href="/post/%E9%9A%8F%E7%AC%94/%E6%9C%AA%E5%91%BD%E5%90%8D/">未命名</a>
-              </li>
-            
-          
-            
-              <li class="post">
-                <a href="/post/%E6%8A%80%E6%9C%AF/how-to-subscribe-newsgroup/">如何订阅新闻组</a>
-              </li>
-            
-          
-            
-              <li class="post">
-                <a href="/post/%E9%9A%8F%E7%AC%94/%E6%9C%80%E8%86%88%E5%BA%94%E4%B8%8D%E7%88%B1%E6%83%9C%E4%B9%A6%E7%9A%84%E4%BA%BA/">最膈应不爱惜书的人</a>
-              </li>
-            
-          
-            
-              <li class="post">
-                <a href="/post/%E9%9A%8F%E7%AC%94/%E5%88%AB%E9%97%B2%E7%9D%80%E6%B2%A1%E4%BA%8B%E8%87%AA%E6%90%9C%E9%BB%91%E5%8E%86%E5%8F%B2%E5%95%8A/">别闲着没事自搜，黑历史啊</a>
-              </li>
-            
-          
-            
-              <li class="post">
-                <a href="/post/%E9%9A%8F%E7%AC%94/%E6%97%A9%E7%9D%A1%E6%97%A9%E8%B5%B7%E7%9A%84%E4%BC%98%E7%82%B9/">早睡早起的优点</a>
-              </li>
-            
-          
-            
-              <li class="post">
-                <a href="/post/%E6%8A%80%E6%9C%AF/%E4%BB%8E%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%88%B0%E7%89%A9%E7%90%86%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90%E7%A8%8B%E5%BA%8F%E7%9A%84%E7%BC%96%E8%AF%91%E4%B8%8E%E6%89%A7%E8%A1%8C/">从编译原理到物理原理剖析程序的编译与执行</a>
-              </li>
-            
-          
-            
-              <li class="post">
-                <a href="/post/%E6%8A%80%E6%9C%AF/set-up-newsgroup/">在2025年，搭建新闻组</a>
-              </li>
-            
-          
-        </ul>
-      </section>
-    
-  
-</aside>
-
-  </div>
 </div>
 
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='https://www.yingyu5658.me/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://www.yingyu5658.me/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">Latest articles</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://www.yingyu5658.me/post/%E9%9A%8F%E7%AC%94/%E5%A4%8F%E6%97%A5%E6%AE%8B%E5%BD%B1/" title="夏日残影" target="_blank">夏日残影</a>
+    </li>
+    
+    <li>
+        <a href="https://www.yingyu5658.me/post/%E9%9A%8F%E7%AC%94/%E7%A7%8B%E5%A4%A9%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A3%B0%E7%8B%97%E5%8F%AB/" title="秋天的第一声狗叫" target="_blank">秋天的第一声狗叫</a>
+    </li>
+    
+    <li>
+        <a href="https://www.yingyu5658.me/post/%E9%9A%8F%E7%AC%94/%E6%9C%AA%E5%91%BD%E5%90%8D/" title="未命名" target="_blank">未命名</a>
+    </li>
+    
+    <li>
+        <a href="https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/how-to-subscribe-newsgroup/" title="如何订阅新闻组" target="_blank">如何订阅新闻组</a>
+    </li>
+    
+    <li>
+        <a href="https://www.yingyu5658.me/post/%E9%9A%8F%E7%AC%94/%E6%9C%80%E8%86%88%E5%BA%94%E4%B8%8D%E7%88%B1%E6%83%9C%E4%B9%A6%E7%9A%84%E4%BA%BA/" title="最膈应不爱惜书的人" target="_blank">最膈应不爱惜书的人</a>
+    </li>
+    
+    <li>
+        <a href="https://www.yingyu5658.me/post/%E9%9A%8F%E7%AC%94/%E5%88%AB%E9%97%B2%E7%9D%80%E6%B2%A1%E4%BA%8B%E8%87%AA%E6%90%9C%E9%BB%91%E5%8E%86%E5%8F%B2%E5%95%8A/" title="别闲着没事自搜，黑历史啊" target="_blank">别闲着没事自搜，黑历史啊</a>
+    </li>
+    
+    <li>
+        <a href="https://www.yingyu5658.me/post/%E9%9A%8F%E7%AC%94/%E6%97%A9%E7%9D%A1%E6%97%A9%E8%B5%B7%E7%9A%84%E4%BC%98%E7%82%B9/" title="早睡早起的优点" target="_blank">早睡早起的优点</a>
+    </li>
+    
+    <li>
+        <a href="https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/%E4%BB%8E%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%88%B0%E7%89%A9%E7%90%86%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90%E7%A8%8B%E5%BA%8F%E7%9A%84%E7%BC%96%E8%AF%91%E4%B8%8E%E6%89%A7%E8%A1%8C/" title="从编译原理到物理原理剖析程序的编译与执行" target="_blank">从编译原理到物理原理剖析程序的编译与执行</a>
+    </li>
+    
+    <li>
+        <a href="https://www.yingyu5658.me/post/%E6%8A%80%E6%9C%AF/set-up-newsgroup/" title="在2025年，搭建新闻组" target="_blank">在2025年，搭建新闻组</a>
+    </li>
+    
+    <li>
+        <a href="https://www.yingyu5658.me/post/%E9%9A%8F%E7%AC%94/%E6%97%A0%E8%9D%89%E9%B8%A3%E5%A4%8F/" title="无蝉鸣夏" target="_blank">无蝉鸣夏</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/categories/'>Categories</a></h3>
+<ul class="widget-list">
+    
+    <li><a href="https://www.yingyu5658.me/categories/%E6%8A%80%E6%9C%AF/">技术 (68)</a></li>
+    
+    <li><a href="https://www.yingyu5658.me/categories/%E9%9A%8F%E7%AC%94/">随笔 (38)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/tags/'>Tags</a></h3>
+<div class="tagcloud">
+    
+    <a href="https://www.yingyu5658.me/tags/acgn/">ACGN</a>
+    
+    <a href="https://www.yingyu5658.me/tags/arch/">Arch</a>
+    
+    <a href="https://www.yingyu5658.me/tags/bug/">Bug</a>
+    
+    <a href="https://www.yingyu5658.me/tags/c/">C</a>
+    
+    <a href="https://www.yingyu5658.me/tags/css/">CSS</a>
+    
+    <a href="https://www.yingyu5658.me/tags/c%E8%AF%AD%E8%A8%80/">C语言</a>
+    
+    <a href="https://www.yingyu5658.me/tags/electron/">Electron</a>
+    
+    <a href="https://www.yingyu5658.me/tags/emacs/">Emacs</a>
+    
+    <a href="https://www.yingyu5658.me/tags/fedora/">Fedora</a>
+    
+    <a href="https://www.yingyu5658.me/tags/geyser/">Geyser</a>
+    
+    <a href="https://www.yingyu5658.me/tags/gnu/">GNU</a>
+    
+    <a href="https://www.yingyu5658.me/tags/hexo/">Hexo</a>
+    
+    <a href="https://www.yingyu5658.me/tags/java/">Java</a>
+    
+    <a href="https://www.yingyu5658.me/tags/javascript/">JavaScript</a>
+    
+    <a href="https://www.yingyu5658.me/tags/linux/">Linux</a>
+    
+    <a href="https://www.yingyu5658.me/tags/malody/">Malody</a>
+    
+    <a href="https://www.yingyu5658.me/tags/minecraft/">Minecraft</a>
+    
+    <a href="https://www.yingyu5658.me/tags/neovim/">Neovim</a>
+    
+    <a href="https://www.yingyu5658.me/tags/nodejs/">NodeJS</a>
+    
+    <a href="https://www.yingyu5658.me/tags/obsidain/">Obsidain</a>
+    
+    <a href="https://www.yingyu5658.me/tags/osu/">Osu</a>
+    
+    <a href="https://www.yingyu5658.me/tags/seo/">SEO</a>
+    
+    <a href="https://www.yingyu5658.me/tags/terrira/">Terrira</a>
+    
+    <a href="https://www.yingyu5658.me/tags/thunderbird/">Thunderbird</a>
+    
+    <a href="https://www.yingyu5658.me/tags/typecho/">Typecho</a>
+    
+    <a href="https://www.yingyu5658.me/tags/vim/">Vim</a>
+    
+    <a href="https://www.yingyu5658.me/tags/windows/">Windows</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E5%8E%8C%E8%A0%A2%E7%97%87/">“厌蠢症”</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/">二叉树</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E4%BA%BA%E9%99%85%E4%BA%A4%E5%BE%80/">人际交往</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E4%BF%A1%E6%81%AF%E8%8A%82%E9%A3%9F/">信息节食</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/">冒泡排序</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E5%86%99%E4%BD%9C/">写作</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E5%89%8D%E7%AB%AF/">前端</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E5%8D%9A%E5%AE%A2/">博客</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E5%8E%86%E5%8F%B2/">历史</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/">哈希表</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E5%93%B2%E5%AD%A6/">哲学</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E5%9B%BE%E4%B9%A6/">图书</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E5%A4%8F/">夏</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E5%AD%A6%E4%B8%9A/">学业</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E5%AD%A6%E6%A0%A1/">学校</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E5%B0%8F%E5%93%81/">小品</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/">嵌入式</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E5%BA%95%E5%B1%82%E6%8A%80%E6%9C%AF/">底层技术</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E5%BD%A2%E8%80%8C%E4%B8%8A%E5%AD%A6/">形而上学</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E6%80%80%E6%97%A7/">怀旧</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E6%84%9F%E8%B0%A2%E6%81%A9%E5%B8%88%E5%A4%B8%E5%A5%96/">感谢恩师夸奖</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E6%88%91/">我</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E6%89%A9%E5%88%97/">扩列</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/">搜索引擎</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E6%95%99%E7%A8%8B/">教程</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E6%96%87%E7%AB%A0/">文章</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E6%96%B0%E9%97%BB%E7%BB%84/">新闻组</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E6%97%A5%E5%B8%B8/">日常</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E6%97%A9%E7%9D%A1%E6%97%A9%E8%B5%B7/">早睡早起</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E6%97%B6%E6%94%BF/">时政</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E6%9C%8B%E5%8F%8B%E5%9C%88/">朋友圈</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E6%9C%AA%E6%88%90%E5%B9%B4%E4%BA%BA%E4%BF%9D%E6%8A%A4/">未成年人保护</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E6%9D%82%E8%AE%B0/">杂记</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E6%B1%87%E7%BC%96/">汇编</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E6%B2%9F%E9%80%9A/">沟通</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/">浏览器</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E6%B8%B8%E6%88%8F/">游戏</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E7%8B%97%E5%8F%AB/">狗叫</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E7%8C%AB/">猫</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E7%A0%B4%E8%A7%A3/">破解</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E7%A4%BE%E4%BA%A4/">社交</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E7%BB%88%E7%AB%AF/">终端</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E7%BC%96%E7%A8%8B/">编程</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">编译原理</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E7%BC%96%E8%AF%91%E5%99%A8/">编译器</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E7%BF%BB%E8%AF%91/">翻译</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E8%80%83%E8%AF%95/">考试</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E8%87%AA%E6%90%9C/">自搜</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E8%A7%82%E5%AF%9F/">观察</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E8%B4%9D%E6%96%AF/">贝斯</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E8%B4%AD%E7%89%A9/">购物</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/">软件开发</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E8%BE%A8%E8%AF%81%E6%B3%95/">辨证法</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E9%85%92/">酒</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E9%98%85%E8%AF%BB/">阅读</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">阅读笔记</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E9%98%BF%E9%87%8C%E4%BA%91/">阿里云</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E9%9A%8F%E7%AC%94/">随笔</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E9%9F%B3%E4%B9%90/">音乐</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">Links</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://www.sifangbazhu.tech/" title="MRZHU的小站">MRZHU的小站</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://rhopaper.top/" title="RhoPaperの小站">RhoPaperの小站</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://genelinux.com" title="Geneliunx">Geneliunx</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://printempw.github.io" title="PRIN BLOG">PRIN BLOG</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.banzhuanriji.com/" title="搬砖日记">搬砖日记</a>
+        </li>
+        
+    </ul>
+</section>
 
 
-    <footer role="contentinfo">
-      <p>Copyright &copy; 2025 yingyu5658 - <a href="https://www.yingyu5658.me/license/">License</a> -
-        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io" rel="noopener noreferrer">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/" rel="noopener noreferrer">Hugo-Octopress</a> theme.
-      </p>
-    </footer>
-  </body>
+    <section class="widget">
+        <h3 class="widget-title">Meta</h3>
+        <ul class="widget-list">
+            <li><a href="https://www.yingyu5658.me/index.xml">RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
 </html>
-
