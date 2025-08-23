@@ -1,0 +1,678 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="记录日常观察、技术实践、阅读思考与个人成长的网络日志。关于互联网、书籍、生活琐事以及那些一闪而过的念头。记录生活、吐槽见闻、分享阅读。真实，或许还有点拧巴。">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+
+    
+
+    
+    
+        <title>Emacs配置记录 2——C/C&#43;&#43;环境配置 | 映屿</title>
+        <meta property="og:title" content="Emacs配置记录 2——C/C&#43;&#43;环境配置 - 映屿">
+        <meta property="og:type" content="article">
+        
+        <meta property="article:published_time" content='2025-06-04T18:58:37&#43;08:00'>
+        
+        
+        <meta property="article:modified_time" content='2025-06-04T18:58:37&#43;08:00'>
+        
+        <meta name="Keywords" content="yingyu5658,博客,Web,软件,C语言,Nodejs">
+        <meta name="description" content="Emacs配置记录 2——C/C&#43;&#43;环境配置">
+        
+        <meta name="author" content="">
+        
+    
+
+    <meta property="og:url" content="https://www.yingyu5658.me/post/tech/emacs%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95-2c-c&#43;&#43;%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">
+    <link rel="shortcut icon" href='/favicon.ico' type="image/x-icon">
+    <link rel="icon" href='/favicon.png' type="image/png">
+    <link rel="alternate icon" href='/favicon.png' type="image/svg+xml">
+    
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+
+    
+    
+    
+    
+    
+    
+        <link rel="stylesheet" href='/css/style.extra.css'>
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name">
+                
+                    <a id="logo" href="https://www.yingyu5658.me/">映屿</a>
+                
+				<em><p class="description">关于互联网、书籍、生活琐事以及那些一闪而过的念头</p></em>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://www.yingyu5658.me/">Home</a>
+                    
+                    <a  href="https://www.yingyu5658.me/categories" title="分类">分类</a>
+                    
+                    <a  href="https://www.yingyu5658.me/links" title="友链">友链</a>
+                    
+                    <a  href="https://www.yingyu5658.me/archives" title="归档">归档</a>
+                    
+                    <a  href="https://www.yingyu5658.me/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+ 	<div id="secondary">
+    <section class="widget">
+        <form id="search" action='https://www.yingyu5658.me/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="输入你的好奇心">
+      <input type="hidden" name="sitesearch" value="https://www.yingyu5658.me/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">Latest articles</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://www.yingyu5658.me/post/readings/izu-no-odoriko/" title="《伊豆的舞女》读后感" target="_blank">《伊豆的舞女》读后感</a>
+    </li>
+    
+    <li>
+        <a href="https://www.yingyu5658.me/post/jottings/overcast/" title="阴云" target="_blank">阴云</a>
+    </li>
+    
+    <li>
+        <a href="https://www.yingyu5658.me/post/jottings/we-are-all-bull-shit/" title="别吵了，大家一样烂" target="_blank">别吵了，大家一样烂</a>
+    </li>
+    
+    <li>
+        <a href="https://www.yingyu5658.me/post/jottings/%E5%A4%8F%E6%97%A5%E6%AE%8B%E5%BD%B1/" title="夏日残影" target="_blank">夏日残影</a>
+    </li>
+    
+    <li>
+        <a href="https://www.yingyu5658.me/post/jottings/%E7%A7%8B%E5%A4%A9%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A3%B0%E7%8B%97%E5%8F%AB/" title="秋天的第一声狗叫" target="_blank">秋天的第一声狗叫</a>
+    </li>
+    
+    <li>
+        <a href="https://www.yingyu5658.me/post/jottings/%E6%9C%AA%E5%91%BD%E5%90%8D/" title="未命名" target="_blank">未命名</a>
+    </li>
+    
+    <li>
+        <a href="https://www.yingyu5658.me/post/tech/how-to-subscribe-newsgroup/" title="如何订阅新闻组" target="_blank">如何订阅新闻组</a>
+    </li>
+    
+    <li>
+        <a href="https://www.yingyu5658.me/post/jottings/%E6%9C%80%E8%86%88%E5%BA%94%E4%B8%8D%E7%88%B1%E6%83%9C%E4%B9%A6%E7%9A%84%E4%BA%BA/" title="最膈应不爱惜书的人" target="_blank">最膈应不爱惜书的人</a>
+    </li>
+    
+    <li>
+        <a href="https://www.yingyu5658.me/post/jottings/%E5%88%AB%E9%97%B2%E7%9D%80%E6%B2%A1%E4%BA%8B%E8%87%AA%E6%90%9C%E9%BB%91%E5%8E%86%E5%8F%B2%E5%95%8A/" title="别闲着没事自搜，黑历史啊" target="_blank">别闲着没事自搜，黑历史啊</a>
+    </li>
+    
+    <li>
+        <a href="https://www.yingyu5658.me/post/jottings/%E6%97%A9%E7%9D%A1%E6%97%A9%E8%B5%B7%E7%9A%84%E4%BC%98%E7%82%B9/" title="早睡早起的优点" target="_blank">早睡早起的优点</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/categories/'>Categories</a></h3>
+<ul class="widget-list">
+    
+    <li><a href="https://www.yingyu5658.me/categories/%E6%8A%80%E6%9C%AF/">技术 (68)</a></li>
+    
+    <li><a href="https://www.yingyu5658.me/categories/%E8%AF%BB%E4%B9%A6/">读书 (1)</a></li>
+    
+    <li><a href="https://www.yingyu5658.me/categories/%E9%9A%8F%E7%AC%94/">随笔 (40)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/tags/'>Tags</a></h3>
+<div class="tagcloud">
+    
+    <a href="https://www.yingyu5658.me/tags/acgn/">ACGN</a>
+    
+    <a href="https://www.yingyu5658.me/tags/arch/">Arch</a>
+    
+    <a href="https://www.yingyu5658.me/tags/bug/">Bug</a>
+    
+    <a href="https://www.yingyu5658.me/tags/b%E7%AB%99/">B站</a>
+    
+    <a href="https://www.yingyu5658.me/tags/c/">C</a>
+    
+    <a href="https://www.yingyu5658.me/tags/css/">CSS</a>
+    
+    <a href="https://www.yingyu5658.me/tags/c%E8%AF%AD%E8%A8%80/">C语言</a>
+    
+    <a href="https://www.yingyu5658.me/tags/electron/">Electron</a>
+    
+    <a href="https://www.yingyu5658.me/tags/emacs/">Emacs</a>
+    
+    <a href="https://www.yingyu5658.me/tags/fedora/">Fedora</a>
+    
+    <a href="https://www.yingyu5658.me/tags/geyser/">Geyser</a>
+    
+    <a href="https://www.yingyu5658.me/tags/gnu/">GNU</a>
+    
+    <a href="https://www.yingyu5658.me/tags/hexo/">Hexo</a>
+    
+    <a href="https://www.yingyu5658.me/tags/java/">Java</a>
+    
+    <a href="https://www.yingyu5658.me/tags/javascript/">JavaScript</a>
+    
+    <a href="https://www.yingyu5658.me/tags/linux/">Linux</a>
+    
+    <a href="https://www.yingyu5658.me/tags/malody/">Malody</a>
+    
+    <a href="https://www.yingyu5658.me/tags/minecraft/">Minecraft</a>
+    
+    <a href="https://www.yingyu5658.me/tags/neovim/">Neovim</a>
+    
+    <a href="https://www.yingyu5658.me/tags/nodejs/">NodeJS</a>
+    
+    <a href="https://www.yingyu5658.me/tags/obsidain/">Obsidain</a>
+    
+    <a href="https://www.yingyu5658.me/tags/osu/">Osu</a>
+    
+    <a href="https://www.yingyu5658.me/tags/seo/">SEO</a>
+    
+    <a href="https://www.yingyu5658.me/tags/terrira/">Terrira</a>
+    
+    <a href="https://www.yingyu5658.me/tags/thunderbird/">Thunderbird</a>
+    
+    <a href="https://www.yingyu5658.me/tags/typecho/">Typecho</a>
+    
+    <a href="https://www.yingyu5658.me/tags/vim/">Vim</a>
+    
+    <a href="https://www.yingyu5658.me/tags/windows/">Windows</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E5%8E%8C%E8%A0%A2%E7%97%87/">“厌蠢症”</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/">二叉树</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E4%BA%BA%E9%99%85%E4%BA%A4%E5%BE%80/">人际交往</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E4%BC%8A%E8%B1%86%E7%9A%84%E8%88%9E%E5%A5%B3/">伊豆的舞女</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E4%BF%A1%E6%81%AF%E8%8A%82%E9%A3%9F/">信息节食</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/">冒泡排序</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E5%86%99%E4%BD%9C/">写作</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E5%89%8D%E7%AB%AF/">前端</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E5%8D%9A%E5%AE%A2/">博客</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E5%8E%86%E5%8F%B2/">历史</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/">哈希表</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E5%93%B2%E5%AD%A6/">哲学</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E5%9B%BE%E4%B9%A6/">图书</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E5%A4%8F/">夏</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E5%AD%A6%E4%B8%9A/">学业</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E5%AD%A6%E6%A0%A1/">学校</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E5%B0%8F%E5%93%81/">小品</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/">嵌入式</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E5%B7%9D%E7%AB%AF%E5%BA%B7%E6%88%90/">川端康成</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E5%BA%95%E5%B1%82%E6%8A%80%E6%9C%AF/">底层技术</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E5%BD%A2%E8%80%8C%E4%B8%8A%E5%AD%A6/">形而上学</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E6%80%80%E6%97%A7/">怀旧</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E6%84%9F%E8%B0%A2%E6%81%A9%E5%B8%88%E5%A4%B8%E5%A5%96/">感谢恩师夸奖</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E6%88%91/">我</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E6%89%A9%E5%88%97/">扩列</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/">搜索引擎</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E6%95%99%E7%A8%8B/">教程</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E6%96%87%E7%AB%A0/">文章</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E6%96%B0%E9%97%BB%E7%BB%84/">新闻组</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E6%97%81%E8%A7%82%E8%80%85/">旁观者</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E6%97%A5%E5%B8%B8/">日常</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E6%97%A5%E6%9C%AC%E6%96%87%E5%AD%A6/">日本文学</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E6%97%A9%E7%9D%A1%E6%97%A9%E8%B5%B7/">早睡早起</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E6%97%B6%E6%94%BF/">时政</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E6%9C%8B%E5%8F%8B%E5%9C%88/">朋友圈</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E6%9C%AA%E6%88%90%E5%B9%B4%E4%BA%BA%E4%BF%9D%E6%8A%A4/">未成年人保护</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E6%9D%82%E8%AE%B0/">杂记</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E6%B1%87%E7%BC%96/">汇编</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E6%B2%9F%E9%80%9A/">沟通</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/">浏览器</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E6%B8%B8%E6%88%8F/">游戏</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E7%8B%97%E5%8F%AB/">狗叫</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E7%8C%AB/">猫</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E7%9F%A5%E4%B9%8E/">知乎</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E7%A0%B4%E8%A7%A3/">破解</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E7%A4%BE%E4%BA%A4/">社交</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E7%BB%88%E7%AB%AF/">终端</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E7%BC%96%E7%A8%8B/">编程</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">编译原理</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E7%BC%96%E8%AF%91%E5%99%A8/">编译器</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83/">网络环境</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E7%BF%BB%E8%AF%91/">翻译</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E8%80%83%E8%AF%95/">考试</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E8%87%AA%E6%90%9C/">自搜</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E8%A7%82%E5%AF%9F/">观察</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E8%B1%86%E7%93%A3/">豆瓣</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E8%B4%9D%E6%96%AF/">贝斯</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E8%B4%AD%E7%89%A9/">购物</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/">软件开发</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E8%BE%A8%E8%AF%81%E6%B3%95/">辨证法</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E9%85%92/">酒</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E9%98%85%E8%AF%BB/">阅读</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">阅读笔记</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E9%98%BF%E9%87%8C%E4%BA%91/">阿里云</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E9%9A%8F%E7%AC%94/">随笔</a>
+    
+    <a href="https://www.yingyu5658.me/tags/%E9%9F%B3%E4%B9%90/">音乐</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">Links</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://www.sifangbazhu.tech/" title="MRZHU的小站">MRZHU的小站</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://rhopaper.top/" title="RhoPaperの小站">RhoPaperの小站</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://177.plus/" title="177">177</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://printempw.github.io/" title="PRIN BLOG">PRIN BLOG</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://webteleporter.top/" title="Web Teleporter">Web Teleporter</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://banzhuanriji.com/" title="搬砖日记">搬砖日记</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://note.redcha.cn/" title="彬红茶日记">彬红茶日记</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.qingfengnb.cn/" title="轻风blog">轻风blog</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://chengshuo.top/" title="成烁的主页">成烁的主页</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://blog.bxaw.name" title="白熊阿丸的小屋">白熊阿丸的小屋</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">Meta</h3>
+        <ul class="widget-list">
+            <li><a href="https://www.yingyu5658.me/atom.xml">RSS</a></li>
+            <li><a href="https://github.com/yingyu5658/">Github</a></li>
+        </ul>
+    </section>
+</div>
+
+
+                <div class="col-8" id="main">
+                   
+<div class="res-cons">
+    
+    <article class="post">
+        
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "headline": "\"Emacs配置记录 2——C/C++环境配置\"",
+            "image": [
+                
+                    "/default-post-image.jpg" | absURL | jsonify
+                
+            ],
+            "author": {
+                "@type": "Person",
+                "name": "null"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "映屿",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://www.yingyu5658.me/avatar.png"
+                }
+            },
+            "datePublished": "\"2025-06-04\"",
+            "dateModified": "\"2025-06-04\"",
+            "mainEntityOfPage": "\"https://www.yingyu5658.me/post/tech/emacs%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95-2c-c++%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/\"",
+            "description": "\"\\u003ch2 id=\\\"前言\\\"\\u003e前言\\u003c/h2\\u003e\\n\\u003cp\\u003e经过\\u003ca href=\\\"\\\"\\u003e上一篇\\u003c/a\\u003e的简单调教，Emacs已经勉强变成了一个温顺的文本编辑器，但是离写代码这个宏大的目标还是有一段距离的，今天来解决主要问题：代码补全。由于我要写一点简单的C代码，那么重点就先放到C/CPP环境搭建中。\\u003c/p\\u003e\\n\\u003cp\\u003e站在巨人的肩膀上，在Emacs中的代码补全使用巨硬的LSP协议。\\u003c/p\\u003e\\n\\u003ch2 id=\\\"spacemacs\\\"\\u003eSpacemacs\\u003c/h2\\u003e\\n\\u003cp\\u003e经过考 …\\u003c/p\\u003e\""
+        }
+        </script>
+        
+        
+        
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "首页",
+      "item": "https:\/\/www.yingyu5658.me\/"
+    }
+    
+    
+        
+            ,{
+                "@type": "ListItem",
+                "position":  2 ,
+                "name": "技术",
+                "item": "\/categories\/%E6%8A%80%E6%9C%AF"
+            }
+            
+        
+    
+    ,{
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Emacs配置记录 2——C\/C\u002b\u002b环境配置",
+      "item": "https:\/\/www.yingyu5658.me\/post\/tech\/emacs%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95-2c-c\u002b\u002b%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE\/"
+    }
+  ]
+}
+</script>
+
+
+        
+        <header>
+			<h1 class="post-title"><a>Emacs配置记录 2——C/C&#43;&#43;环境配置</a></h1>
+        </header>
+        
+  <time datetime="2025-06-04T18:58:37Z" class="post-meta meta-date dt-published">
+    2025-06-04
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/%E6%8A%80%E6%9C%AF' target="_blank">技术</a>
+  
+</div>
+
+
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="post-content">
+            <h2 id="前言">前言</h2>
+<p>经过<a href="">上一篇</a>的简单调教，Emacs已经勉强变成了一个温顺的文本编辑器，但是离写代码这个宏大的目标还是有一段距离的，今天来解决主要问题：代码补全。由于我要写一点简单的C代码，那么重点就先放到C/CPP环境搭建中。</p>
+<p>站在巨人的肩膀上，在Emacs中的代码补全使用巨硬的LSP协议。</p>
+<h2 id="spacemacs">Spacemacs</h2>
+<p>经过考虑，我还是决定使用Spacemacs，比起原版Emacs，它更适合新手，也更能快速投入开发。避免配置陷阱，过多把时间花在刀把上。唉，也就是说，昨天大部分都白干了。算了，生命的意义就在于折腾，怕折腾我也不会玩Emacs了。来吧！</p>
+<p>先来安装一下Spacemacs。
+<code>git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d</code></p>
+<p>重启Emacs，让他下载一下自带的包。</p>
+<p>上次没清理干净Spacemacs，不知道存在哪的备份还在，算是免去了一些折腾吧。来看看现在的Emacs都配置了什么。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span>   <span style="color:#953800">dotspacemacs-configuration-layers</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#0550ae">&#39;</span><span style="color:#1f2328">(</span><span style="color:#953800">yaml</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#953800">markdown</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#953800">javascript</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#1f2328">(</span><span style="color:#953800">auto-completion</span> <span style="color:#032f62">:variables</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#953800">auto-completion-idle-delay</span> <span style="color:#0550ae">0.01</span>    <span style="color:#57606a">; 降低补全延迟</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#953800">auto-completion-minimum-prefix-length</span> <span style="color:#0550ae">1</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#1f2328">(</span><span style="color:#953800">prettier</span> <span style="color:#032f62">:variables</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#953800">prettier-always-enable</span> <span style="color:#0550ae">t</span><span style="color:#1f2328">)</span>  <span style="color:#57606a">; 保存时自动格式化</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#1f2328">(</span><span style="color:#953800">javascript</span> <span style="color:#032f62">:variables</span>
+</span></span><span style="display:flex;"><span>                 <span style="color:#953800">javascript-backend</span> <span style="color:#032f62">&#39;lsp</span>        <span style="color:#57606a">; 启用LSP后端</span>
+</span></span><span style="display:flex;"><span>                 <span style="color:#953800">javascript-fmt-tool</span> <span style="color:#032f62">&#39;prettier</span><span style="color:#1f2328">)</span> <span style="color:#57606a">; 格式化工具选Prettier</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#1f2328">(</span><span style="color:#953800">c-c++</span> <span style="color:#032f62">:variables</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#953800">c-c++-backend</span> <span style="color:#032f62">&#39;lsp-clangd</span><span style="color:#1f2328">)</span>         <span style="color:#57606a">; C/C++使用Clangd后端</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#1f2328">(</span><span style="color:#953800">vue</span> <span style="color:#032f62">:variables</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#953800">vue-backend</span> <span style="color:#032f62">&#39;lsp</span><span style="color:#1f2328">)</span>                    <span style="color:#57606a">; Vue使用LSP后端</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#1f2328">(</span><span style="color:#953800">html</span><span style="color:#1f2328">)</span>                                    <span style="color:#57606a">; HTML/CSS支持</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#1f2328">(</span><span style="color:#953800">lsp</span><span style="color:#1f2328">)</span>                                     <span style="color:#57606a">; 必须的LSP核心支持层</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#1f2328">(</span><span style="color:#953800">auto-completion</span><span style="color:#1f2328">)</span>                         <span style="color:#57606a">; 自动补全</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#1f2328">(</span><span style="color:#953800">syntax-checking</span><span style="color:#1f2328">)</span>                         <span style="color:#57606a">; 语法检查</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#57606a">;; ----------------------------------------------------------------</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#57606a">;; Example of useful layers you may want to use right away.</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#57606a">;; Uncomment some layer names and press `SPC f e R&#39; (Vim style) or</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#57606a">;; `M-m f e R&#39; (Emacs style) to install them.</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#57606a">;; ----------------------------------------------------------------</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#57606a">;; auto-completion</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#57606a">;; better-defaults</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#953800">emacs-lisp</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#953800">treemacs</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#57606a">;; git</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#953800">helm</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#953800">lsp</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#57606a">;; markdown</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#953800">multiple-cursors</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#57606a">;; org</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#57606a">;; (shell :variables</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#57606a">;;        shell-default-height 30</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#57606a">;;        shell-default-position &#39;bottom)</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#57606a">;; spell-checking</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#57606a">;; syntax-checking</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#57606a">;; version-control</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#953800">treemacs</span><span style="color:#1f2328">)</span>
+</span></span></code></pre></div><p>emmm，还是有点有用的。比如C/C++这里，就启用了LSP。还有一些之前搞的前端配置。就是不知道为啥，JavaScript的补全不太好使。</p>
+<h2 id="语法检查">语法检查</h2>
+<p>语法检查，选择当前比较成熟的flycheck，在Spacemacs中对应<code>syntax-checking</code>，在.spacemacs中的<code>dotspacemacs-configuration-layers</code>写入<code>(configuration-layer/declare-layer 'syntax-checking)</code>
+该层会自动集成Flycheck及其常见语言的后端支持。</p>
+<p>C/C++要安装<code>clang-tidy</code>或<code>cppcheck</code>。</p>
+<h3 id="进阶配置">进阶配置</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span>  <span style="color:#1f2328">(</span><span style="color:#953800">with-eval-after-load</span> <span style="color:#032f62">&#39;flycheck</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">(</span><span style="color:#cf222e">setq</span> <span style="color:#953800">flycheck-check-syntax-automatically</span> <span style="color:#0550ae">&#39;</span><span style="color:#1f2328">(</span><span style="color:#953800">save</span> <span style="color:#953800">mode-enabled</span><span style="color:#1f2328">)</span> <span style="color:#57606a">;; 保存时检查</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#953800">flycheck-display-errors-delay</span> <span style="color:#0550ae">0.5</span>                        <span style="color:#57606a">;; 错误显示延迟</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#953800">flycheck-indication-mode</span> <span style="color:#032f62">&#39;right-fringe</span><span style="color:#1f2328">))</span>                 <span style="color:#57606a">;; 错误标记位置</span>
+</span></span></code></pre></div><h2 id="spacemacs-文件基本介绍"><a href="https://liuzhijun-source.github.io/spacemacs-14-days/#/Week01/Day05/day05_spacemacs%E7%9A%84%E8%BF%9B%E9%98%B6%E9%85%8D%E7%BD%AE_%E4%B8%8A?id=spacemacs-%e6%96%87%e4%bb%b6%e5%9f%ba%e6%9c%ac%e4%bb%8b%e7%bb%8d">.spacemacs 文件基本介绍</a></h2>
+<p>.spacemacs 文件一般会自动生成在主目录下，这个文件是配置 Spacemacs 的入口，有关于 Spacemacs 本身的配置基本都能在里面进行修改，用户设置同样在这个文件中修改。</p>
+<p>.spacemacs 中，内容一般被分为以下几个部分，每个部分都封装在一个函数中：</p>
+<ul>
+<li><code>dotspacemacs/layers</code></li>
+</ul>
+<p>在这里可以声明一些 layer，以及删除、增添一些包，在这里还可以调整 Spacemacs 加载时的一些行为</p>
+<ul>
+<li><code>dotspacemacs/init</code></li>
+</ul>
+<p>Spacemacs 绝大部分的配置都位于此，你可以在此修改配置中可选的选项，但绝对不能将自己的用户配置代码添加在这里</p>
+<ul>
+<li><code>dotspacemacs/user-init</code></li>
+</ul>
+<p>这里的内容会在 Emacs 启动前开始加载，一般在这里设置你需要使用的 elpa 源，你应该尽量把用户配置放在 <code>dotspacemacs/user-config</code> 中</p>
+<ul>
+<li><code>dotspacemacs/user-config</code></li>
+</ul>
+<p>在这里可以添加你的用户配置代码，你自己的定义的大部分配置一般都在这里完成</p>
+<ul>
+<li><code>dotspacemacs/emacs-custom-settings</code></li>
+</ul>
+<p>Spacemacs 自己生成的配置，同样不建议自己去修改</p>
+<blockquote>
+<p>摘自<a href="https://liuzhijun-source.github.io/spacemacs-14-days/#/Week01/Day05/day05_spacemacs%E7%9A%84%E8%BF%9B%E9%98%B6%E9%85%8D%E7%BD%AE_%E4%B8%8A">Spacemaccs 14 Days</a></p></blockquote>
+
+        </div>
+
+        
+
+        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/post/tech/%E6%88%91%E8%BF%98%E6%98%AF%E6%94%BE%E4%B8%8D%E4%B8%8Bemacs/">我还是放不下Emacs！</a></li>
+        
+        <li><a href="/post/tech/emacs-eaf%E6%8F%92%E4%BB%B6%E6%89%93%E5%BC%80%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%AA%E6%98%BE%E7%A4%BAopening-http-xxx-xxx%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">Emacs EAF插件打开浏览器只显示opening http://xxx.xxx的解决方法</a></li>
+        
+        <li><a href="/post/tech/wsl-arch-linux-zsh%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">WSL Arch Linux ZSH输入中文输入法乱码解决方法</a></li>
+        
+        <li><a href="/post/tech/%E5%88%9D%E6%8A%98%E8%85%BEemacs%E8%AE%B0%E5%BD%95/">初折腾Emacs记录</a></li>
+        
+        <li><a href="/post/tech/%E6%8A%8A%E4%B8%BB%E5%8A%9B%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%8D%A2%E6%88%90arch-linux%E6%98%AF%E6%88%91%E8%BF%99%E8%BE%88%E5%AD%90%E5%81%9A%E8%BF%87%E7%9A%84%E6%9C%80%E8%A0%A2%E7%9A%84%E5%86%B3%E5%AE%9A/">把主力机系统换成Arch Linux是我这辈子做过的最蠢的决定</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+				<p class="text-tags">Tags: </p>
+                
+				<li><a href='/tags/emacs' target="_blank">Emacs, </a></li>
+                
+				<li><a href='/tags/linux' target="_blank">Linux, </a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+<div id="waline"></div>
+<script type="module">
+	import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+	init({
+		el: '#waline',
+		serverURL: 'waline.yingyu5658.me',
+		placeholder: '不建议使用Outlook邮箱，其过于严格的拦截机制会导致收不到本站发出的跟进回复邮件。',
+	});
+</script>
+</div>
+
+<footer id="footer">
+    <div>
+		<p>© 2025 <a href="https://www.yingyu5658.me">映屿</a>. 由<a href="https://gohugo.io/">Typecho</a>强力驱动.
+		</p><br> 
+   
+		
+    </div>
+    <br />
+</footer>
+
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
