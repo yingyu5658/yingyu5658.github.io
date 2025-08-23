@@ -1,8 +1,18 @@
 {
   "redirects": [
     {
-      "source": "/post/%E6%8A%80%E6%9C%AF/kitty%E7%BB%88%E7%AB%AF%E7%BE%8E%E5%8C%96%E8%AE%B0%E5%BD%95/",
-      "destination": "https://www.yingyu5658.me/post/tech/kitty%E7%BB%88%E7%AB%AF%E7%BE%8E%E5%8C%96%E8%AE%B0%E5%BD%95/",
+      "source": "/post/%E8%AF%BB%E4%B9%A6/:slug",
+      "destination": "/post/readings/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/post/%E6%8A%80%E6%9C%AF/:slug",
+      "destination": "/post/tech/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/post/%E9%9A%8F%E6%89%8B/:slug",
+      "destination": "/post/jottings/:slug",
       "permanent": true
     }
   ]
