@@ -1,18 +1,19 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "redirects": [
     {
-      "source": "/post/技术/*",
-      "destination": "/post/tech/*",
+      "source": "/post/技术/(.*)",
+      "destination": "/post/tech/\$1",
       "permanent": true
     },
     {
-      "source": "/post/读书/*",
-      "destination": "/post/readings/*",
+      "source": "/post/读书/(.*)",
+      "destination": "/post/readings/\$1",
       "permanent": true
     },
     {
-      "source": "/post/随笔/*",
-      "destination": "/post/jottings/*",
+      "source": "/post/随笔/(.*)",
+      "destination": "/post/jottings/\$1",
       "permanent": true
     }
   ]
