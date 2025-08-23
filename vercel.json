@@ -3,17 +3,17 @@
   "redirects": [
     {
       "source": "/post/技术/(.*)",
-      "destination": "/post/tech/\$1",
+      "destination": "/post/tech/:slug",
       "permanent": true
     },
     {
       "source": "/post/读书/(.*)",
-      "destination": "/post/readings/\$1",
+      "destination": "/post/readings/:slug",
       "permanent": true
     },
     {
       "source": "/post/随笔/(.*)",
-      "destination": "/post/jottings/\$1",
+      "destination": "/post/jottings/:slug",
       "permanent": true
     }
   ]
