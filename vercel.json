@@ -2,17 +2,17 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "redirects": [
     {
-      "source": "/post/技术/(.*)",
+      "source": "/post/技术/:slug",
       "destination": "/post/tech/:slug",
       "permanent": true
     },
     {
-      "source": "/post/读书/(.*)",
+      "source": "/post/读书/:slug",
       "destination": "/post/readings/:slug",
       "permanent": true
     },
     {
-      "source": "/post/随笔/(.*)",
+      "source": "/post/随笔/:slug",
       "destination": "/post/jottings/:slug",
       "permanent": true
     }
