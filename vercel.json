@@ -1,8 +1,48 @@
 {
   "redirects": [
     {
-      "source": "/post/技术/(.*)",
-      "destination": "/post/tech/(.*)",
+      "source": "/post/读书",
+      "destination": "/post/readings/",
+      "permanent": true
+    },
+    {
+      "source": "/post/%E8%AF%BB%E4%B9%A6",
+      "destination": "/post/readings/",
+      "permanent": true
+    },
+    {
+      "source": "/post/%E8%AF%BB%E4%B9%A6/(.*)",
+      "destination": "/post/readings/$1",
+      "permanent": true
+    },
+    {
+      "source": "/post/技术",
+      "destination": "/post/tech/",
+      "permanent": true
+    },
+    {
+      "source": "/post/%E6%8A%80%E6%9C%AF",
+      "destination": "/post/tech/",
+      "permanent": true
+    },
+    {
+      "source": "/post/%E6%8A%80%E6%9C%AF/(.*)",
+      "destination": "/post/tech/$1",
+      "permanent": true
+    },
+    {
+      "source": "/post/随笔",
+      "destination": "/post/jottings/",
+      "permanent": true
+    },
+    {
+      "source": "/post/%E9%9A%8F%E7%AC%94",
+      "destination": "/post/jottings/",
+      "permanent": true
+    },
+    {
+      "source": "/post/%E9%9A%8F%E7%AC%94/(.*)",
+      "destination": "/post/jottings/$1",
       "permanent": true
     }
   ]
