@@ -110,213 +110,6 @@
                         <article class="post">
                             <header>
                                 <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/post/tech/%E5%9C%A8vscode%E4%B8%8A%E6%90%AD%E5%BB%BAc51%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">在VSCode上搭建C51单片机开发环境</a>
-                                </h2>
-                            </header>
-                            <date class="post-meta meta-date">
-                                2025年5月12日
-                                18:56
-                            </date>
-                            
-                            <div class="post-meta meta-category">
-                                ，归类于
-                                
-                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
-                                
-                            </div>
-                            
-                            
-                            <div class="post-content summary auto">
-                                
-                                
-                                    <p>安装插件<code>Embedded IDE</code></p>
-<p>
-        <img class="mx-auto" alt="Embedded IDE" src="./image-20250512190017524.png" />   
-    </p>
-<p>安装好后，左边一栏会多出一个芯片图标</p>
-<p>
-        <img class="mx-auto" alt="image-20250512190113812" src="./image-20250512190113812.png" />   
-    </p>
-<p>点击，选择Create Project</p>
-<p>
-        <img class="mx-auto" alt="image-20250512190345994" src="./image-20250512190345994.png" />   
-    </p>
-<p>选择第二个内置项目模板，然后找到8051。</p>
-                                
-                            </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/%E5%9C%A8vscode%E4%B8%8A%E6%90%AD%E5%BB%BAc51%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">阅读全文</a></p>
-                        </article>
-                    
-                        <article class="post">
-                            <header>
-                                <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/post/tech/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E6%A0%88/">【数据结构与算法】栈</a>
-                                </h2>
-                            </header>
-                            <date class="post-meta meta-date">
-                                2025年5月11日
-                                10:09
-                            </date>
-                            
-                            <div class="post-meta meta-category">
-                                ，归类于
-                                
-                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
-                                
-                            </div>
-                            
-                            
-                            <div class="post-content summary auto">
-                                
-                                
-                                    <h2 id="基本概念">基本概念</h2>
-<p>栈（Stack）是一种后进先出（LIFO）原则的线性数据结构。核心操作包括：</p>
-<ul>
-<li>压栈（Push）：将元素添加到栈顶</li>
-<li>出栈（Pop）：移除并返回栈顶元素</li>
-<li>查看栈顶（Check）获取但移除栈顶元素</li>
-<li>判空（is_empty）检查栈是否为空</li>
-</ul>
-<h2 id="结构定义">结构定义</h2>
-<p>使用动态数组实现栈，包含三个核心属性：</p>
-                                
-                            </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E6%A0%88/">阅读全文</a></p>
-                        </article>
-                    
-                        <article class="post">
-                            <header>
-                                <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/post/tech/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/">【数据结构与算法】冒泡排序</a>
-                                </h2>
-                            </header>
-                            <date class="post-meta meta-date">
-                                2025年5月10日
-                                20:06
-                            </date>
-                            
-                            <div class="post-meta meta-category">
-                                ，归类于
-                                
-                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
-                                
-                            </div>
-                            
-                            
-                            <div class="post-content summary auto">
-                                
-                                
-                                    <h2 id="核心思想">核心思想</h2>
-<p>通过相邻元素的两两比较，将较大的元素逐步“冒泡”到数组末尾，每轮排序确定一个最大元素的最终位置。</p>
-<h2 id="代码实现">代码实现</h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#cf222e">void</span> <span style="color:#6639ba">bubble_sort</span><span style="color:#1f2328">(</span><span style="color:#cf222e">int</span> arr<span style="color:#1f2328">[],</span> <span style="color:#cf222e">int</span> n<span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a">// 最外层控制循环轮数 n-1轮
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>  <span style="color:#cf222e">for</span> <span style="color:#1f2328">(</span><span style="color:#cf222e">int</span> i <span style="color:#0550ae">=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">;</span> i <span style="color:#0550ae">&lt;</span> n <span style="color:#0550ae">-</span> <span style="color:#0550ae">1</span><span style="color:#1f2328">;</span> i<span style="color:#0550ae">++</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// 内层循环处理相邻元素比较和交换
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>    <span style="color:#cf222e">for</span><span style="color:#1f2328">(</span><span style="color:#cf222e">int</span> j <span style="color:#0550ae">=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">;</span> j <span style="color:#0550ae">&lt;</span> n<span style="color:#0550ae">-</span>i<span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">;</span> j<span style="color:#0550ae">++</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#cf222e">if</span> <span style="color:#1f2328">(</span>arr<span style="color:#1f2328">[</span>j<span style="color:#1f2328">]</span> <span style="color:#0550ae">&gt;</span> arr<span style="color:#1f2328">[</span>j<span style="color:#0550ae">+</span><span style="color:#0550ae">1</span><span style="color:#1f2328">])</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">int</span> temp <span style="color:#0550ae">=</span> arr<span style="color:#1f2328">[</span>j<span style="color:#1f2328">];</span>
-</span></span><span style="display:flex;"><span>        arr<span style="color:#1f2328">[</span>j<span style="color:#1f2328">]</span> <span style="color:#0550ae">=</span> arr<span style="color:#1f2328">[</span>j<span style="color:#0550ae">+</span><span style="color:#0550ae">1</span><span style="color:#1f2328">];</span>
-</span></span><span style="display:flex;"><span>        arr<span style="color:#1f2328">[</span>j<span style="color:#0550ae">+</span><span style="color:#0550ae">1</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">=</span> temp<span style="color:#1f2328">;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a">// 调用
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span><span style="color:#cf222e">void</span> <span style="color:#6639ba">print_array</span><span style="color:#1f2328">(</span><span style="color:#cf222e">int</span> arr<span style="color:#1f2328">[],</span> <span style="color:#cf222e">int</span> size<span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">for</span> <span style="color:#1f2328">(</span><span style="color:#cf222e">int</span> i <span style="color:#0550ae">=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">;</span> i <span style="color:#0550ae">&lt;</span> size<span style="color:#1f2328">;</span> i<span style="color:#0550ae">++</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">printf</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;%d,&#34;</span><span style="color:#1f2328">,</span> arr<span style="color:#1f2328">[</span>i<span style="color:#1f2328">]);</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#6639ba">printf</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;</span><span style="color:#0a3069">\n</span><span style="color:#0a3069">&#34;</span><span style="color:#1f2328">);</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">int</span> <span style="color:#6639ba">main</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">int</span> arr<span style="color:#1f2328">[]</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">{</span><span style="color:#0550ae">23</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">232</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">55</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">2</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">7</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">576</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">342</span><span style="color:#1f2328">};</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">int</span> n <span style="color:#0550ae">=</span> <span style="color:#cf222e">sizeof</span><span style="color:#1f2328">(</span>arr<span style="color:#1f2328">)</span> <span style="color:#0550ae">/</span> <span style="color:#cf222e">sizeof</span><span style="color:#1f2328">(</span>arr<span style="color:#1f2328">[</span><span style="color:#0550ae">0</span><span style="color:#1f2328">]);</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#6639ba">printf</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;排序前：&#34;</span><span style="color:#1f2328">);</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#6639ba">print_array</span><span style="color:#1f2328">(</span>arr<span style="color:#1f2328">,</span> n<span style="color:#1f2328">);</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#6639ba">bubble_sort</span><span style="color:#1f2328">(</span>arr<span style="color:#1f2328">,</span> n<span style="color:#1f2328">);</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#6639ba">printf</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;排序后&#34;</span><span style="color:#1f2328">);</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#6639ba">print_array</span><span style="color:#1f2328">(</span>arr<span style="color:#1f2328">,</span> n<span style="color:#1f2328">);</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
-</span></span></code></pre></div><h2 id="原理分析">原理分析</h2>
-<h3 id="外层循环的-i--n---1">外层循环的 i &lt; n - 1</h3>
-<ul>
-<li>n个元素的数组最多需要n-1轮冒泡，如5元素数组需要4轮排序</li>
-<li><strong>数学依据</strong>：每轮将一个最大值“沉底”，当完成n-1轮时，最后一个元素必然有序</li>
-</ul>
-<p>示例验证：</p>
-                                
-                            </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/">阅读全文</a></p>
-                        </article>
-                    
-                        <article class="post">
-                            <header>
-                                <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/post/tech/idea2025-1%E6%9C%80%E6%96%B0%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B-%E6%97%A0%E9%9C%80%E6%89%AB%E7%A0%81%E5%85%B3%E6%B3%A8%E4%BB%BB%E4%BD%95%E5%85%AC%E4%BC%97%E5%8F%B7/">IDEA2025.1最新破解教程 无需扫码关注任何公众号</a>
-                                </h2>
-                            </header>
-                            <date class="post-meta meta-date">
-                                2025年5月9日
-                                19:51
-                            </date>
-                            
-                            <div class="post-meta meta-category">
-                                ，归类于
-                                
-                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
-                                
-                            </div>
-                            
-                            
-                            <div class="post-content summary auto">
-                                
-                                
-                                    <h2 id="前言">前言</h2>
-<p>看了几篇废话连篇狗屁不通还要关注公众号的文章以后给我气急了。这篇文章会用最简单的方法花最短的时间搞定IDEA</p>
-<p><strong>从2025.1以前的低版本升级上来的或曾经装过老版本的注意</strong>：</p>
-                                
-                            </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/idea2025-1%E6%9C%80%E6%96%B0%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B-%E6%97%A0%E9%9C%80%E6%89%AB%E7%A0%81%E5%85%B3%E6%B3%A8%E4%BB%BB%E4%BD%95%E5%85%AC%E4%BC%97%E5%8F%B7/">阅读全文</a></p>
-                        </article>
-                    
-                        <article class="post">
-                            <header>
-                                <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/post/tech/x86-64%E6%B1%87%E7%BC%96%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">x86-64汇编学习笔记</a>
-                                </h2>
-                            </header>
-                            <date class="post-meta meta-date">
-                                2025年4月29日
-                                13:44
-                            </date>
-                            
-                            <div class="post-meta meta-category">
-                                ，归类于
-                                
-                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
-                                
-                            </div>
-                            
-                            
-                            <div class="post-content summary auto">
-                                
-                                
-                                    <h2 id="机器指令和机器语言">机器指令和机器语言</h2>
-<p>机器指令，二进制数字，机器语言全局机器指令的集合，CPU通过执行一系列的机器指令完成计算工作。</p>
-<p>汇编语言就是为了代替机器指令，使人类能够更加简单地编写程序而诞生的。汇编语言就是机器码的助记符。</p>
-                                
-                            </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/x86-64%E6%B1%87%E7%BC%96%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">阅读全文</a></p>
-                        </article>
-                    
-                        <article class="post">
-                            <header>
-                                <h2 class="post-title">
                                     <a href="https://www.yingyu5658.me/post/tech/wsl-arch-linux-zsh%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">WSL Arch Linux ZSH输入中文输入法乱码解决方法</a>
                                 </h2>
                             </header>
@@ -463,6 +256,205 @@
                             <p class="readmore"><a href="https://www.yingyu5658.me/post/jottings/%E6%94%92%E9%92%B1%E7%9B%AE%E6%A0%87%E8%BE%BE%E6%88%90/">阅读全文</a></p>
                         </article>
                     
+                        <article class="post">
+                            <header>
+                                <h2 class="post-title">
+                                    <a href="https://www.yingyu5658.me/post/tech/%E9%BB%91%E5%8E%86%E5%8F%B2%E8%AF%BB%E8%87%AA%E5%B7%B1%E4%BB%A5%E5%89%8D%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81/">【黑历史】读自己以前写的代码</a>
+                                </h2>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2025年4月19日
+                                15:20
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                ，归类于
+                                
+                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
+                                
+                            </div>
+                            
+                            
+                            <div class="post-content summary auto">
+                                
+                                
+                                    <p>仓库地址就不放出来了，太耻辱了&hellip;&hellip;</p>
+<p>先来看看Main.java</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#cf222e">package</span><span style="color:#fff"> </span><span style="color:#24292e">cn.yingyu5658.lbl</span><span style="color:#1f2328">;</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span><span style="color:#57606a">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"> * @author yingyu5658
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"> */</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span><span style="color:#cf222e">public</span><span style="color:#fff"> </span><span style="color:#cf222e">class</span> <span style="color:#1f2328">Main</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#cf222e">public</span><span style="color:#fff"> </span><span style="color:#cf222e">static</span><span style="color:#fff"> </span><span style="color:#cf222e">void</span><span style="color:#fff"> </span><span style="color:#6639ba">main</span><span style="color:#1f2328">(</span>String<span style="color:#0550ae">[]</span><span style="color:#fff"> </span>args<span style="color:#1f2328">)</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span>LuBuLu<span style="color:#fff"> </span>cmd<span style="color:#fff"> </span><span style="color:#0550ae">=</span><span style="color:#fff"> </span><span style="color:#cf222e">new</span><span style="color:#fff"> </span>LuBuLu<span style="color:#1f2328">();</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span><span style="color:#cf222e">while</span><span style="color:#1f2328">(</span><span style="color:#cf222e">true</span><span style="color:#1f2328">)</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">            </span>cmd<span style="color:#1f2328">.</span><span style="color:#1f2328">command</span><span style="color:#1f2328">();</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span></code></pre></div><p>嗯还写了Author，生怕别人不知道这坨屎是谁拉的。</p>
+                                
+                            </div>
+                            <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/%E9%BB%91%E5%8E%86%E5%8F%B2%E8%AF%BB%E8%87%AA%E5%B7%B1%E4%BB%A5%E5%89%8D%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81/">阅读全文</a></p>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h2 class="post-title">
+                                    <a href="https://www.yingyu5658.me/post/tech/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BB%88%E7%AB%AF%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">从0开始搭建自己的终端开发环境</a>
+                                </h2>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2025年4月15日
+                                21:15
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                ，归类于
+                                
+                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
+                                
+                            </div>
+                            
+                            
+                            <div class="post-content summary auto">
+                                
+                                
+                                    <p><strong>系统</strong>：WSL Arch</p>
+<h3 id="主折腾点">主折腾点</h3>
+<p><strong>代码编辑器</strong>：Vim(Neovim)</p>
+<p><strong>终端体验优化</strong>：tmux</p>
+<p><strong>文件管理器</strong>：yazi</p>
+<h2 id="代码编辑器neovim">代码编辑器——Neovim</h2>
+<h3 id="前言">前言</h3>
+<p>Neovim和Vim相比，在性能和易用性上有很大的提升，在异步任务表现突出；使用更加现代的lua脚本配置，可读性更高。</p>
+                                
+                            </div>
+                            <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BB%88%E7%AB%AF%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">阅读全文</a></p>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h2 class="post-title">
+                                    <a href="https://www.yingyu5658.me/post/tech/%E5%88%9D%E6%8A%98%E8%85%BEemacs%E8%AE%B0%E5%BD%95/">初折腾Emacs记录</a>
+                                </h2>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2025年4月13日
+                                12:15
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                ，归类于
+                                
+                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
+                                
+                            </div>
+                            
+                            
+                            <div class="post-content summary auto">
+                                
+                                
+                                    <h2 id="基础配置">基础配置</h2>
+<p>Windows下需要在软件顶部Toolbar的Options中随便更改一个选项，然后再点Save Options，这样就会再<code>C:\Users\Username\appdata\Roaming\</code>下生成.emacs和.emacs.d/</p>
+                                
+                            </div>
+                            <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/%E5%88%9D%E6%8A%98%E8%85%BEemacs%E8%AE%B0%E5%BD%95/">阅读全文</a></p>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h2 class="post-title">
+                                    <a href="https://www.yingyu5658.me/post/jottings/%E7%9B%BC%E6%9C%9B%E4%B8%8B%E9%9B%A8/">盼望下雨</a>
+                                </h2>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2025年4月12日
+                                02:10
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                ，归类于
+                                
+                                    <a href="/categories/%E9%9A%8F%E7%AC%94">随笔</a>
+                                
+                            </div>
+                            
+                            
+                            <div class="post-content summary manual">
+                                
+                                
+                                    矫情地宣泄情感。
+                                
+                            </div>
+                            <p class="readmore"><a href="https://www.yingyu5658.me/post/jottings/%E7%9B%BC%E6%9C%9B%E4%B8%8B%E9%9B%A8/">阅读全文</a></p>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h2 class="post-title">
+                                    <a href="https://www.yingyu5658.me/post/tech/osu-apiv1%E8%AF%B7%E6%B1%82%E7%A4%BA%E4%BE%8B/">osu!APIv1请求示例</a>
+                                </h2>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2025年4月11日
+                                22:29
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                ，归类于
+                                
+                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
+                                
+                            </div>
+                            
+                            
+                            <div class="post-content summary auto">
+                                
+                                
+                                    <h2 id="前言">前言</h2>
+<p>本文章使用Nodejs环境做演示。请求用户数据。代码中的APIKEY要在<a href="https://osu.ppy.sh/home/account/edit">osu官网‬</a>申请。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#cf222e">const</span> <span style="color:#1f2328">API_URL</span> <span style="color:#0550ae">=</span> <span style="color:#0a3069">&#34;osu.ppy.sh&#34;</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">const</span> <span style="color:#1f2328">init</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">k</span><span style="color:#0550ae">:</span> <span style="color:#0a3069">&#34;YOUR_API_KEY&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">type</span><span style="color:#0550ae">:</span> <span style="color:#0a3069">&#34;string&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">u</span><span style="color:#0550ae">:</span> <span style="color:#0a3069">&#34;kyzzz5658&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">};</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">const</span> <span style="color:#1f2328">https</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">require</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;https&#34;</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// 将参数序列化为查询字符串
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span><span style="color:#cf222e">const</span> <span style="color:#1f2328">query</span> <span style="color:#0550ae">=</span> <span style="color:#cf222e">new</span> <span style="color:#1f2328">URLSearchParams</span><span style="color:#1f2328">(</span><span style="color:#1f2328">init</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">const</span> <span style="color:#1f2328">options</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">hostname</span><span style="color:#0550ae">:</span> <span style="color:#1f2328">API_URL</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">method</span><span style="color:#0550ae">:</span> <span style="color:#0a3069">&#34;GET&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">path</span><span style="color:#0550ae">:</span> <span style="color:#0a3069">`/api/get_user?</span><span style="color:#0a3069">${</span><span style="color:#1f2328">query</span><span style="color:#0a3069">}</span><span style="color:#0a3069">`</span> <span style="color:#57606a">// 附加参数
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span><span style="color:#1f2328">};</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">const</span> <span style="color:#1f2328">req</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">https</span><span style="color:#1f2328">.</span><span style="color:#1f2328">request</span><span style="color:#1f2328">(</span><span style="color:#1f2328">options</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">res</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">=&gt;</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">let</span> <span style="color:#1f2328">data</span> <span style="color:#0550ae">=</span> <span style="color:#0a3069">&#39;&#39;</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">res</span><span style="color:#1f2328">.</span><span style="color:#1f2328">on</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#39;data&#39;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">chunk</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">=&gt;</span> <span style="color:#1f2328">data</span> <span style="color:#0550ae">+=</span> <span style="color:#1f2328">chunk</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">res</span><span style="color:#1f2328">.</span><span style="color:#1f2328">on</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#39;end&#39;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">()</span> <span style="color:#1f2328">=&gt;</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">try</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">console</span><span style="color:#1f2328">.</span><span style="color:#1f2328">log</span><span style="color:#1f2328">(</span><span style="color:#1f2328">JSON</span><span style="color:#1f2328">.</span><span style="color:#1f2328">parse</span><span style="color:#1f2328">(</span><span style="color:#1f2328">data</span><span style="color:#1f2328">[</span><span style="color:#0550ae">0</span><span style="color:#1f2328">].</span><span style="color:#1f2328">username</span><span style="color:#1f2328">));</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span> <span style="color:#cf222e">catch</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">e</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">console</span><span style="color:#1f2328">.</span><span style="color:#1f2328">error</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#39;JSON 解析失败:&#39;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">e</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">});</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">});</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// 错误处理
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span><span style="color:#1f2328">req</span><span style="color:#1f2328">.</span><span style="color:#1f2328">on</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#39;error&#39;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">err</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">=&gt;</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">console</span><span style="color:#1f2328">.</span><span style="color:#1f2328">error</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#39;请求失败:&#39;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">err</span><span style="color:#1f2328">.</span><span style="color:#1f2328">code</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">});</span>
+</span></span></code></pre></div><p>输出：</p>
+                                
+                            </div>
+                            <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/osu-apiv1%E8%AF%B7%E6%B1%82%E7%A4%BA%E4%BE%8B/">阅读全文</a></p>
+                        </article>
+                    
 
                     
 
@@ -541,7 +533,7 @@
         
         
         <li >
-            <a href="https://www.yingyu5658.me/page/12/">12</a>
+            <a href="https://www.yingyu5658.me/page/11/">11</a>
         </li>
         
     
@@ -625,7 +617,7 @@
         <h3 class="widget-title"><a href='/categories/'>Categories</a></h3>
 <ul class="widget-list">
     
-    <li><a href="https://www.yingyu5658.me/categories/%E6%8A%80%E6%9C%AF/">技术 (68)</a></li>
+    <li><a href="https://www.yingyu5658.me/categories/%E6%8A%80%E6%9C%AF/">技术 (59)</a></li>
     
     <li><a href="https://www.yingyu5658.me/categories/%E8%AF%BB%E4%B9%A6/">读书 (1)</a></li>
     
@@ -642,13 +634,9 @@
     
     <a href="https://www.yingyu5658.me/tags/arch/">Arch</a>
     
-    <a href="https://www.yingyu5658.me/tags/bug/">Bug</a>
-    
     <a href="https://www.yingyu5658.me/tags/b%E7%AB%99/">B站</a>
     
     <a href="https://www.yingyu5658.me/tags/c/">C</a>
-    
-    <a href="https://www.yingyu5658.me/tags/css/">CSS</a>
     
     <a href="https://www.yingyu5658.me/tags/c%E8%AF%AD%E8%A8%80/">C语言</a>
     
@@ -728,8 +716,6 @@
     
     <a href="https://www.yingyu5658.me/tags/%E5%B0%8F%E5%93%81/">小品</a>
     
-    <a href="https://www.yingyu5658.me/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/">嵌入式</a>
-    
     <a href="https://www.yingyu5658.me/tags/%E5%B7%9D%E7%AB%AF%E5%BA%B7%E6%88%90/">川端康成</a>
     
     <a href="https://www.yingyu5658.me/tags/%E5%BA%95%E5%B1%82%E6%8A%80%E6%9C%AF/">底层技术</a>
@@ -785,8 +771,6 @@
     <a href="https://www.yingyu5658.me/tags/%E7%8C%AB/">猫</a>
     
     <a href="https://www.yingyu5658.me/tags/%E7%9F%A5%E4%B9%8E/">知乎</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E7%A0%B4%E8%A7%A3/">破解</a>
     
     <a href="https://www.yingyu5658.me/tags/%E7%A4%BE%E4%BA%A4/">社交</a>
     

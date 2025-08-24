@@ -140,7 +140,7 @@
         <h3 class="widget-title"><a href='/categories/'>Categories</a></h3>
 <ul class="widget-list">
     
-    <li><a href="https://www.yingyu5658.me/categories/%E6%8A%80%E6%9C%AF/">技术 (68)</a></li>
+    <li><a href="https://www.yingyu5658.me/categories/%E6%8A%80%E6%9C%AF/">技术 (59)</a></li>
     
     <li><a href="https://www.yingyu5658.me/categories/%E8%AF%BB%E4%B9%A6/">读书 (1)</a></li>
     
@@ -157,13 +157,9 @@
     
     <a href="https://www.yingyu5658.me/tags/arch/">Arch</a>
     
-    <a href="https://www.yingyu5658.me/tags/bug/">Bug</a>
-    
     <a href="https://www.yingyu5658.me/tags/b%E7%AB%99/">B站</a>
     
     <a href="https://www.yingyu5658.me/tags/c/">C</a>
-    
-    <a href="https://www.yingyu5658.me/tags/css/">CSS</a>
     
     <a href="https://www.yingyu5658.me/tags/c%E8%AF%AD%E8%A8%80/">C语言</a>
     
@@ -243,8 +239,6 @@
     
     <a href="https://www.yingyu5658.me/tags/%E5%B0%8F%E5%93%81/">小品</a>
     
-    <a href="https://www.yingyu5658.me/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/">嵌入式</a>
-    
     <a href="https://www.yingyu5658.me/tags/%E5%B7%9D%E7%AB%AF%E5%BA%B7%E6%88%90/">川端康成</a>
     
     <a href="https://www.yingyu5658.me/tags/%E5%BA%95%E5%B1%82%E6%8A%80%E6%9C%AF/">底层技术</a>
@@ -300,8 +294,6 @@
     <a href="https://www.yingyu5658.me/tags/%E7%8C%AB/">猫</a>
     
     <a href="https://www.yingyu5658.me/tags/%E7%9F%A5%E4%B9%8E/">知乎</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E7%A0%B4%E8%A7%A3/">破解</a>
     
     <a href="https://www.yingyu5658.me/tags/%E7%A4%BE%E4%BA%A4/">社交</a>
     
@@ -424,99 +416,6 @@
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://www.yingyu5658.me/post/tech/electron-commonjs-require%E8%B8%A9%E5%9D%91/" target="_blank">Electron CommonJS require踩坑</a>
-            </h1>
-        </header>
-        
-  <time datetime="2025-05-31T01:07:36Z" class="post-meta meta-date dt-published">
-    2025-05-31
-  </time>
-
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/categories/%E6%8A%80%E6%9C%AF' target="_blank">技术</a>
-  
-</div>
-
-
-        <div class="post-content">
-            <p>最近在开发一个Electron项目，在导入类的时候有以下报错:</p>
-<pre tabindex="0"><code>node:internal/modules/cjs/loader:1411 Uncaught Error: Cannot find module &#39;./File&#39;
-Require stack:
-- E:\Develop\markdown-editor\src\html\index.html
-    at Module._resolveFilename (node:internal/modules/cjs/loader:1408:15)
-    at a._resolveFilename (node:electron/js2c/renderer_init:2:2643)
-    at defaultResolveImpl (node:internal/modules/cjs/loader:1064:19)
-    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1069:22)
-    at Module._load (node:internal/modules/cjs/loader:1218:37)
-    at c._load (node:electron/js2c/node_init:2:17950)
-    at s._load (node:electron/js2c/renderer_init:2:31718)
-    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
-    at wrapModuleLoad (node:internal/modules/cjs/loader:242:24)
-    at Module.require (node:internal/modules/cjs/loader:1494:12)
-</code></pre><p>提示找不到模块。</p>……
-            <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/electron-commonjs-require%E8%B8%A9%E5%9D%91/" target="_blank">- Read more -</a></p>
-        </div>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://www.yingyu5658.me/post/tech/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E4%B8%8E%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B%E7%BC%96%E7%A8%8B%E7%9A%84%E6%9C%AC%E8%B4%A8%E5%8C%BA%E5%88%AB/" target="_blank">面向对象与面向过程的本质区别</a>
-            </h1>
-        </header>
-        
-  <time datetime="2025-05-29T21:21:36Z" class="post-meta meta-date dt-published">
-    2025-05-29
-  </time>
-
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/categories/%E6%8A%80%E6%9C%AF' target="_blank">技术</a>
-  
-</div>
-
-
-        <div class="post-content">
-            <p>面向对象与面向过程这两种编程思想主要体现在一件事上：面向对象关心<strong>谁来做</strong>，而面向过程关心<strong>做什么</strong>。</p>
-<p>举个例子，如果我现在要开发一个五子棋小游戏，在面向对象的思想中，实现步骤应该是这样的。</p>……
-            <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E4%B8%8E%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B%E7%BC%96%E7%A8%8B%E7%9A%84%E6%9C%AC%E8%B4%A8%E5%8C%BA%E5%88%AB/" target="_blank">- Read more -</a></p>
-        </div>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://www.yingyu5658.me/post/tech/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%93%88%E5%B8%8C%E8%A1%A8/" target="_blank">【数据结构与算法】哈希表</a>
-            </h1>
-        </header>
-        
-  <time datetime="2025-05-28T21:44:28Z" class="post-meta meta-date dt-published">
-    2025-05-28
-  </time>
-
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/categories/%E6%8A%80%E6%9C%AF' target="_blank">技术</a>
-  
-</div>
-
-
-        <div class="post-content">
-            <p>哈希表（Hash Table）是一种基于键（Key）直接访问数据的高效数据结构，其核心思想是通过哈希函数将键映射到数组的特定位置，从而实现平均时间复杂度为 O(1)O(1) 的插入、查找和删除操作。</p>……
-            <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%93%88%E5%B8%8C%E8%A1%A8/" target="_blank">- Read more -</a></p>
-        </div>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
                 <a href="https://www.yingyu5658.me/post/tech/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%BC%97%E6%95%B0%E4%B8%AD%E4%BD%8D%E6%95%B0/" target="_blank">【数据结构与算法】众数、中位数</a>
             </h1>
         </header>
@@ -567,44 +466,6 @@ Require stack:
             <h2 id="定义">定义</h2>
 <p>二叉树（binary tree）是指树中节点的度不大于2的有序树，它是一种最简单且最重要的树。二叉树的递归定义为：二叉树是一棵空树，或者是一棵由一个根节点和两棵互不相交的，分别称作根的左子树和右子树组成的非空树；左子树和右子树又同样都是二叉树。</p>……
             <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%BA%8C%E5%8F%89%E6%A0%91/" target="_blank">- Read more -</a></p>
-        </div>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://www.yingyu5658.me/post/tech/%E5%9C%A8vscode%E4%B8%8A%E6%90%AD%E5%BB%BAc51%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" target="_blank">在VSCode上搭建C51单片机开发环境</a>
-            </h1>
-        </header>
-        
-  <time datetime="2025-05-12T18:56:36Z" class="post-meta meta-date dt-published">
-    2025-05-12
-  </time>
-
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/categories/%E6%8A%80%E6%9C%AF' target="_blank">技术</a>
-  
-</div>
-
-
-        <div class="post-content">
-            <p>安装插件<code>Embedded IDE</code></p>
-<p>
-        <img class="mx-auto" alt="Embedded IDE" src="./image-20250512190017524.png" />   
-    </p>
-<p>安装好后，左边一栏会多出一个芯片图标</p>
-<p>
-        <img class="mx-auto" alt="image-20250512190113812" src="./image-20250512190113812.png" />   
-    </p>
-<p>点击，选择Create Project</p>
-<p>
-        <img class="mx-auto" alt="image-20250512190345994" src="./image-20250512190345994.png" />   
-    </p>
-<p>选择第二个内置项目模板，然后找到8051。</p>……
-            <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/%E5%9C%A8vscode%E4%B8%8A%E6%90%AD%E5%BB%BAc51%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" target="_blank">- Read more -</a></p>
         </div>
     </article>
     
@@ -714,34 +575,6 @@ Require stack:
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://www.yingyu5658.me/post/tech/idea2025-1%E6%9C%80%E6%96%B0%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B-%E6%97%A0%E9%9C%80%E6%89%AB%E7%A0%81%E5%85%B3%E6%B3%A8%E4%BB%BB%E4%BD%95%E5%85%AC%E4%BC%97%E5%8F%B7/" target="_blank">IDEA2025.1最新破解教程 无需扫码关注任何公众号</a>
-            </h1>
-        </header>
-        
-  <time datetime="2025-05-09T11:51:18Z" class="post-meta meta-date dt-published">
-    2025-05-09
-  </time>
-
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/categories/%E6%8A%80%E6%9C%AF' target="_blank">技术</a>
-  
-</div>
-
-
-        <div class="post-content">
-            <h2 id="前言">前言</h2>
-<p>看了几篇废话连篇狗屁不通还要关注公众号的文章以后给我气急了。这篇文章会用最简单的方法花最短的时间搞定IDEA</p>
-<p><strong>从2025.1以前的低版本升级上来的或曾经装过老版本的注意</strong>：</p>……
-            <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/idea2025-1%E6%9C%80%E6%96%B0%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B-%E6%97%A0%E9%9C%80%E6%89%AB%E7%A0%81%E5%85%B3%E6%B3%A8%E4%BB%BB%E4%BD%95%E5%85%AC%E4%BC%97%E5%8F%B7/" target="_blank">- Read more -</a></p>
-        </div>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
                 <a href="https://www.yingyu5658.me/post/tech/x86-64%E6%B1%87%E7%BC%96%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" target="_blank">x86-64汇编学习笔记</a>
             </h1>
         </header>
@@ -764,6 +597,169 @@ Require stack:
 <p>机器指令，二进制数字，机器语言全局机器指令的集合，CPU通过执行一系列的机器指令完成计算工作。</p>
 <p>汇编语言就是为了代替机器指令，使人类能够更加简单地编写程序而诞生的。汇编语言就是机器码的助记符。</p>……
             <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/x86-64%E6%B1%87%E7%BC%96%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" target="_blank">- Read more -</a></p>
+        </div>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://www.yingyu5658.me/post/tech/wsl-arch-linux-zsh%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" target="_blank">WSL Arch Linux ZSH输入中文输入法乱码解决方法</a>
+            </h1>
+        </header>
+        
+  <time datetime="2025-04-29T10:31:26Z" class="post-meta meta-date dt-published">
+    2025-04-29
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/%E6%8A%80%E6%9C%AF' target="_blank">技术</a>
+  
+</div>
+
+
+        <div class="post-content">
+            <p>没有进行配置的情况下输入中文，一般会显示&lt;0xffffffff&gt;，这是由于没有安装字体造成的。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo pacman -S noto-fonts-cjk  <span style="color:#57606a"># 安装中文字体</span>
+</span></span><span style="display:flex;"><span>sudo vi /etc/locale.gen        <span style="color:#57606a"># 取消注释 zh_CN.UTF-8</span>
+</span></span><span style="display:flex;"><span>sudo locale-gen                <span style="color:#57606a"># 生成语言环境</span>
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">echo</span> <span style="color:#0a3069">&#34;export LANG=zh_CN.UTF-8&#34;</span> &gt;&gt; ~/.zshrc  <span style="color:#57606a"># 设置默认中文环境</span>
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">source</span> ~/.zshrc
+</span></span></code></pre></div><p>source后，再次尝试输入中文，无异常。</p>……
+            <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/wsl-arch-linux-zsh%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" target="_blank">- Read more -</a></p>
+        </div>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://www.yingyu5658.me/post/tech/emacs-eaf%E6%8F%92%E4%BB%B6%E6%89%93%E5%BC%80%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%AA%E6%98%BE%E7%A4%BAopening-http-xxx-xxx%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" target="_blank">Emacs EAF插件打开浏览器只显示opening http://xxx.xxx的解决方法</a>
+            </h1>
+        </header>
+        
+  <time datetime="2025-04-29T10:02:49Z" class="post-meta meta-date dt-published">
+    2025-04-29
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/%E6%8A%80%E6%9C%AF' target="_blank">技术</a>
+  
+</div>
+
+
+        <div class="post-content">
+            <p>检查是否安装全部依赖，如yay、pip等。我这里是由于没有安装pip导致的。</p>
+<p><code>sudo pacman -S python-pip</code></p>
+<p>安装好后，进入eaf安装目录</p>
+<p><code>cd ~/.emacs.d/site-lisp/emacs-application-framework &amp;&amp; ./install-eaf.py</code></p>
+<p>重新安装eaf。等待脚本运行完成，打开emacs，输入<code>M-x eaf-install-and-update</code>，等待执行完成。</p>……
+            <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/emacs-eaf%E6%8F%92%E4%BB%B6%E6%89%93%E5%BC%80%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%AA%E6%98%BE%E7%A4%BAopening-http-xxx-xxx%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" target="_blank">- Read more -</a></p>
+        </div>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://www.yingyu5658.me/post/tech/valine%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/" target="_blank">Valine评论系统踩坑记录</a>
+            </h1>
+        </header>
+        
+  <time datetime="2025-04-23T21:54:03Z" class="post-meta meta-date dt-published">
+    2025-04-23
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/%E6%8A%80%E6%9C%AF' target="_blank">技术</a>
+  
+</div>
+
+
+        <div class="post-content">
+            <p>我个人很早以前就惦记着换上这个评论系统，曾经使用Butterfly主题的时候就有折腾过Valine，当时是浏览器缓存策略和CORS跨域拦截的问题。网上能找到的教程都比较老，几年以前的情况不再适用于现在了，所以现在去折腾的话，大概率要踩非常多的坑。本文主要讲述我个人踩到的坑和解决方法。</p>……
+            <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/valine%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/" target="_blank">- Read more -</a></p>
+        </div>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://www.yingyu5658.me/post/tech/%E9%BB%91%E5%8E%86%E5%8F%B2%E8%AF%BB%E8%87%AA%E5%B7%B1%E4%BB%A5%E5%89%8D%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81/" target="_blank">【黑历史】读自己以前写的代码</a>
+            </h1>
+        </header>
+        
+  <time datetime="2025-04-19T15:20:19Z" class="post-meta meta-date dt-published">
+    2025-04-19
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/%E6%8A%80%E6%9C%AF' target="_blank">技术</a>
+  
+</div>
+
+
+        <div class="post-content">
+            <p>仓库地址就不放出来了，太耻辱了&hellip;&hellip;</p>
+<p>先来看看Main.java</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#cf222e">package</span><span style="color:#fff"> </span><span style="color:#24292e">cn.yingyu5658.lbl</span><span style="color:#1f2328">;</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span><span style="color:#57606a">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"> * @author yingyu5658
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"> */</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span><span style="color:#cf222e">public</span><span style="color:#fff"> </span><span style="color:#cf222e">class</span> <span style="color:#1f2328">Main</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#cf222e">public</span><span style="color:#fff"> </span><span style="color:#cf222e">static</span><span style="color:#fff"> </span><span style="color:#cf222e">void</span><span style="color:#fff"> </span><span style="color:#6639ba">main</span><span style="color:#1f2328">(</span>String<span style="color:#0550ae">[]</span><span style="color:#fff"> </span>args<span style="color:#1f2328">)</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span>LuBuLu<span style="color:#fff"> </span>cmd<span style="color:#fff"> </span><span style="color:#0550ae">=</span><span style="color:#fff"> </span><span style="color:#cf222e">new</span><span style="color:#fff"> </span>LuBuLu<span style="color:#1f2328">();</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span><span style="color:#cf222e">while</span><span style="color:#1f2328">(</span><span style="color:#cf222e">true</span><span style="color:#1f2328">)</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">            </span>cmd<span style="color:#1f2328">.</span><span style="color:#1f2328">command</span><span style="color:#1f2328">();</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span></code></pre></div><p>嗯还写了Author，生怕别人不知道这坨屎是谁拉的。</p>……
+            <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/%E9%BB%91%E5%8E%86%E5%8F%B2%E8%AF%BB%E8%87%AA%E5%B7%B1%E4%BB%A5%E5%89%8D%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81/" target="_blank">- Read more -</a></p>
+        </div>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://www.yingyu5658.me/post/tech/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BB%88%E7%AB%AF%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" target="_blank">从0开始搭建自己的终端开发环境</a>
+            </h1>
+        </header>
+        
+  <time datetime="2025-04-15T21:15:24Z" class="post-meta meta-date dt-published">
+    2025-04-15
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/%E6%8A%80%E6%9C%AF' target="_blank">技术</a>
+  
+</div>
+
+
+        <div class="post-content">
+            <p><strong>系统</strong>：WSL Arch</p>
+<h3 id="主折腾点">主折腾点</h3>
+<p><strong>代码编辑器</strong>：Vim(Neovim)</p>
+<p><strong>终端体验优化</strong>：tmux</p>
+<p><strong>文件管理器</strong>：yazi</p>
+<h2 id="代码编辑器neovim">代码编辑器——Neovim</h2>
+<h3 id="前言">前言</h3>
+<p>Neovim和Vim相比，在性能和易用性上有很大的提升，在异步任务表现突出；使用更加现代的lua脚本配置，可读性更高。</p>……
+            <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BB%88%E7%AB%AF%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" target="_blank">- Read more -</a></p>
         </div>
     </article>
     
@@ -802,10 +798,6 @@ Require stack:
     
     <li >
         <a href="https://www.yingyu5658.me/categories/%E6%8A%80%E6%9C%AF/page/6/">6</a>
-    </li>
-    
-    <li >
-        <a href="https://www.yingyu5658.me/categories/%E6%8A%80%E6%9C%AF/page/7/">7</a>
     </li>
     
 

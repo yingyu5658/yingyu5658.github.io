@@ -317,39 +317,6 @@
                         <article class="post">
                             <header>
                                 <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/post/tech/fedora42%E6%97%A0%E6%B3%95%E6%92%AD%E6%94%BE%E9%9F%B3%E9%A2%91%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/fedora-linux-cant-play-audio/">Fedora42无法播放音频的解决方案</a>
-                                </h2>
-                            </header>
-                            <date class="post-meta meta-date">
-                                2025年7月12日
-                                13:26
-                            </date>
-                            
-                            <div class="post-meta meta-category">
-                                ，归类于
-                                
-                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
-                                
-                            </div>
-                            
-                            
-                            <div class="post-content summary auto">
-                                
-                                
-                                    <h2 id="基本信息">基本信息</h2>
-<pre tabindex="0"><code>OS: Fedora Linux 42 (Workstation Edition) x86_64
-Host: Z490 GAMING X (-CF)
-Kernel: Linux 6.15.4-200.fc42.x86_64
-</code></pre><h2 id="问题描述">问题描述</h2>
-<p>无法播放任何音频，内核日志无报错，alsamixer中显示没有任何静音选项，系统自带音频模块无缺失，进行过一次<code>dnf update</code>。</p>
-                                
-                            </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/fedora42%E6%97%A0%E6%B3%95%E6%92%AD%E6%94%BE%E9%9F%B3%E9%A2%91%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/fedora-linux-cant-play-audio/">阅读全文</a></p>
-                        </article>
-                    
-                        <article class="post">
-                            <header>
-                                <h2 class="post-title">
                                     <a href="https://www.yingyu5658.me/post/tech/c%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6io/">C语言下的二进制文件IO踩坑</a>
                                 </h2>
                             </header>
@@ -383,12 +350,33 @@ Kernel: Linux 6.15.4-200.fc42.x86_64
                         <article class="post">
                             <header>
                                 <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/post/tech/vscode-edit-markdown/">Vscode编辑Markdown体验非常好</a>
+                                    <a href="https://www.yingyu5658.me/post/jottings/%E5%AF%B9%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E7%9A%84%E4%B8%80%E7%82%B9%E6%83%B3%E6%B3%95/">对博客主题的一点想法</a>
                                 </h2>
                             </header>
                             <date class="post-meta meta-date">
-                                2025年7月11日
-                                00:33
+                                2025年7月10日
+                                21:12
+                            </date>
+                            
+                            
+                            <div class="post-content summary auto">
+                                
+                                
+                                    <p>简单回顾以下建站历程，博客的内容从“我是谁”转移到了&quot;我想说什么&quot;。从最早开始正式写博客的<strong>Gmeek</strong>，到后来使用<strong>Typecho</strong>，再到<strong>Hexo,Hugo</strong>，这几个不同的时期是我对主题看法的不同阶段。</p>
+                                
+                            </div>
+                            <p class="readmore"><a href="https://www.yingyu5658.me/post/jottings/%E5%AF%B9%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E7%9A%84%E4%B8%80%E7%82%B9%E6%83%B3%E6%B3%95/">阅读全文</a></p>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h2 class="post-title">
+                                    <a href="https://www.yingyu5658.me/post/tech/c%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E7%AE%80%E6%98%93shell/">C语言实现简易Shell</a>
+                                </h2>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2025年7月10日
+                                00:09
                             </date>
                             
                             <div class="post-meta meta-category">
@@ -402,10 +390,19 @@ Kernel: Linux 6.15.4-200.fc42.x86_64
                             <div class="post-content summary auto">
                                 
                                 
-                                    <p>平常我想写Markdown，都是用typora或Ｏbsidian，这两个软件都很好。但各有优缺点，但现在让我硬挑，我还真挑不出来几个。让我真正觉得Vscode更好的是从Hexo迁移到Hugo的那次经历。</p>
+                                    <p>实现一个Shell，需要的功能有：</p>
+<ul>
+<li>循环读取用户输入</li>
+<li>输出提示符</li>
+<li>创建子进程执行命令</li>
+<li>等待回收子进程</li>
+</ul>
+<p>shell中的大多数命令都是通过创建子进程来执行的，可以使用<code>fork()</code>创建子进程，然后替换主进程执行命令。
+创建
+常用函数原型</p>
                                 
                             </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/vscode-edit-markdown/">阅读全文</a></p>
+                            <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/c%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E7%AE%80%E6%98%93shell/">阅读全文</a></p>
                         </article>
                     
 
@@ -465,7 +462,7 @@ Kernel: Linux 6.15.4-200.fc42.x86_64
         
         
         <li >
-            <a href="https://www.yingyu5658.me/page/12/">12</a>
+            <a href="https://www.yingyu5658.me/page/11/">11</a>
         </li>
         
     
@@ -549,7 +546,7 @@ Kernel: Linux 6.15.4-200.fc42.x86_64
         <h3 class="widget-title"><a href='/categories/'>Categories</a></h3>
 <ul class="widget-list">
     
-    <li><a href="https://www.yingyu5658.me/categories/%E6%8A%80%E6%9C%AF/">技术 (68)</a></li>
+    <li><a href="https://www.yingyu5658.me/categories/%E6%8A%80%E6%9C%AF/">技术 (59)</a></li>
     
     <li><a href="https://www.yingyu5658.me/categories/%E8%AF%BB%E4%B9%A6/">读书 (1)</a></li>
     
@@ -566,13 +563,9 @@ Kernel: Linux 6.15.4-200.fc42.x86_64
     
     <a href="https://www.yingyu5658.me/tags/arch/">Arch</a>
     
-    <a href="https://www.yingyu5658.me/tags/bug/">Bug</a>
-    
     <a href="https://www.yingyu5658.me/tags/b%E7%AB%99/">B站</a>
     
     <a href="https://www.yingyu5658.me/tags/c/">C</a>
-    
-    <a href="https://www.yingyu5658.me/tags/css/">CSS</a>
     
     <a href="https://www.yingyu5658.me/tags/c%E8%AF%AD%E8%A8%80/">C语言</a>
     
@@ -652,8 +645,6 @@ Kernel: Linux 6.15.4-200.fc42.x86_64
     
     <a href="https://www.yingyu5658.me/tags/%E5%B0%8F%E5%93%81/">小品</a>
     
-    <a href="https://www.yingyu5658.me/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/">嵌入式</a>
-    
     <a href="https://www.yingyu5658.me/tags/%E5%B7%9D%E7%AB%AF%E5%BA%B7%E6%88%90/">川端康成</a>
     
     <a href="https://www.yingyu5658.me/tags/%E5%BA%95%E5%B1%82%E6%8A%80%E6%9C%AF/">底层技术</a>
@@ -709,8 +700,6 @@ Kernel: Linux 6.15.4-200.fc42.x86_64
     <a href="https://www.yingyu5658.me/tags/%E7%8C%AB/">猫</a>
     
     <a href="https://www.yingyu5658.me/tags/%E7%9F%A5%E4%B9%8E/">知乎</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E7%A0%B4%E8%A7%A3/">破解</a>
     
     <a href="https://www.yingyu5658.me/tags/%E7%A4%BE%E4%BA%A4/">社交</a>
     

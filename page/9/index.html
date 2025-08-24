@@ -110,246 +110,6 @@
                         <article class="post">
                             <header>
                                 <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/post/tech/nodejs%E7%8E%AF%E5%A2%83%E4%B8%8B%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%8B%BC%E6%8E%A5%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%87%BA%E6%9C%89undefind/">Nodejs环境下控制台拼接字符串输出有undefind</a>
-                                </h2>
-                            </header>
-                            <date class="post-meta meta-date">
-                                2025年3月22日
-                                18:56
-                            </date>
-                            
-                            <div class="post-meta meta-category">
-                                ，归类于
-                                
-                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
-                                
-                            </div>
-                            
-                            
-                            <div class="post-content summary auto">
-                                
-                                
-                                    <p>今天在Nodejs环境下搓小工具，控制台输出拼接字符串时，发现有<code>undefind</code>，代码如下：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#cf222e">const</span> <span style="color:#1f2328">date</span> <span style="color:#0550ae">=</span> <span style="color:#cf222e">new</span> <span style="color:#6639ba">Date</span><span style="color:#1f2328">();</span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">const</span> <span style="color:#1f2328">year</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">date</span><span style="color:#1f2328">.</span><span style="color:#1f2328">getFullYear</span><span style="color:#1f2328">();</span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">const</span> <span style="color:#1f2328">month</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">date</span><span style="color:#1f2328">.</span><span style="color:#1f2328">getMonth</span><span style="color:#1f2328">();</span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">const</span> <span style="color:#1f2328">day</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">date</span><span style="color:#1f2328">.</span><span style="color:#1f2328">getDate</span><span style="color:#1f2328">();</span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">const</span> <span style="color:#1f2328">hour</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">date</span><span style="color:#1f2328">.</span><span style="color:#1f2328">getHours</span><span style="color:#1f2328">();</span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">const</span> <span style="color:#1f2328">minute</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">date</span><span style="color:#1f2328">.</span><span style="color:#1f2328">getMinutes</span><span style="color:#1f2328">();</span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">const</span> <span style="color:#1f2328">second</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">date</span><span style="color:#1f2328">.</span><span style="color:#1f2328">getSeconds</span><span style="color:#1f2328">();</span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">const</span> <span style="color:#1f2328">logTime</span> <span style="color:#0550ae">=</span> <span style="color:#0a3069">`[</span><span style="color:#0a3069">${</span><span style="color:#1f2328">year</span><span style="color:#0a3069">}</span><span style="color:#0a3069">-</span><span style="color:#0a3069">${</span><span style="color:#1f2328">month</span><span style="color:#0a3069">}</span><span style="color:#0a3069">-</span><span style="color:#0a3069">${</span><span style="color:#1f2328">day</span><span style="color:#0a3069">}</span><span style="color:#0a3069"> </span><span style="color:#0a3069">${</span><span style="color:#1f2328">hour</span><span style="color:#0a3069">}</span><span style="color:#0a3069">:</span><span style="color:#0a3069">${</span><span style="color:#1f2328">minute</span><span style="color:#0a3069">}</span><span style="color:#0a3069">:</span><span style="color:#0a3069">${</span><span style="color:#1f2328">second</span><span style="color:#0a3069">}</span><span style="color:#0a3069">] `</span><span style="color:#1f2328">;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">GenerateLog</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">static</span> <span style="color:#1f2328">log</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">process</span><span style="color:#1f2328">.</span><span style="color:#1f2328">stdout</span><span style="color:#1f2328">.</span><span style="color:#1f2328">write</span><span style="color:#1f2328">(</span><span style="color:#1f2328">logTime</span><span style="color:#1f2328">);</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">console</span><span style="color:#1f2328">.</span><span style="color:#1f2328">log</span><span style="color:#1f2328">(</span><span style="color:#1f2328">GenerateLog</span><span style="color:#1f2328">.</span><span style="color:#1f2328">log</span><span style="color:#1f2328">()</span> <span style="color:#0550ae">+</span> <span style="color:#0a3069">&#34;log output on the console&#34;</span><span style="color:#1f2328">);</span>
-</span></span></code></pre></div><p>输出确是这样：</p>
-                                
-                            </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/nodejs%E7%8E%AF%E5%A2%83%E4%B8%8B%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%8B%BC%E6%8E%A5%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%87%BA%E6%9C%89undefind/">阅读全文</a></p>
-                        </article>
-                    
-                        <article class="post">
-                            <header>
-                                <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/post/tech/%E5%85%89%E9%80%9F%E7%A0%B4%E8%A7%A3%E4%BD%9C%E6%96%87%E7%BD%91%E7%AB%99%E7%A6%81%E6%AD%A2%E5%A4%8D%E5%88%B6/">光速破解作文网站禁止复制</a>
-                                </h2>
-                            </header>
-                            <date class="post-meta meta-date">
-                                2025年3月21日
-                                08:17
-                            </date>
-                            
-                            <div class="post-meta meta-category">
-                                ，归类于
-                                
-                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
-                                
-                            </div>
-                            
-                            
-                            <div class="post-content summary auto">
-                                
-                                
-                                    <p>今天上网搜集范文，又遇到了这个很多年前就让我非常痛恨的网站。可以看到，这个网站应该是通过JS，检测鼠标左键或者CTRL+C再弹出这个窗口达到的防止用户复制的目的，可以此为切入点，查看一下这个网站的源码。找到问题所在。</p>
-                                
-                            </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/%E5%85%89%E9%80%9F%E7%A0%B4%E8%A7%A3%E4%BD%9C%E6%96%87%E7%BD%91%E7%AB%99%E7%A6%81%E6%AD%A2%E5%A4%8D%E5%88%B6/">阅读全文</a></p>
-                        </article>
-                    
-                        <article class="post">
-                            <header>
-                                <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/post/tech/%E4%BA%BA%E8%AF%9D%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3%E5%85%AB%E4%B8%8B%E9%81%97%E4%BC%A0%E4%B9%8B%E7%94%9F%E7%89%A9%E7%9A%84%E9%81%97%E4%BC%A0%E5%8F%98%E5%BC%82/">人话简单理解八下遗传之生物的遗传变异</a>
-                                </h2>
-                            </header>
-                            <date class="post-meta meta-date">
-                                2025年3月18日
-                                19:37
-                            </date>
-                            
-                            <div class="post-meta meta-category">
-                                ，归类于
-                                
-                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
-                                
-                            </div>
-                            
-                            
-                            <div class="post-content summary auto">
-                                
-                                
-                                    <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#57606a">// 母亲类</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span><span style="color:#cf222e">public</span><span style="color:#fff"> </span><span style="color:#cf222e">class</span> <span style="color:#1f2328">Mother</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span><span style="color:#57606a">// 母亲的性格是开朗的</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span><span style="color:#cf222e">public</span><span style="color:#fff"> </span>String<span style="color:#fff"> </span>personality<span style="color:#fff"> </span><span style="color:#0550ae">=</span><span style="color:#fff"> </span><span style="color:#0a3069">&#34;cheerful&#34;</span><span style="color:#1f2328">;</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span><span style="color:#57606a">// 母亲的身高是160.5</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span><span style="color:#cf222e">public</span><span style="color:#fff"> </span><span style="color:#cf222e">double</span><span style="color:#fff"> </span>height<span style="color:#fff"> </span><span style="color:#0550ae">=</span><span style="color:#fff"> </span>160<span style="color:#1f2328">.</span><span style="color:#1f2328">5</span><span style="color:#1f2328">;</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span><span style="color:#57606a">// 母亲有耳垂</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span><span style="color:#cf222e">public</span><span style="color:#fff"> </span><span style="color:#cf222e">boolean</span><span style="color:#fff"> </span>hasEarlobe<span style="color:#fff"> </span><span style="color:#0550ae">=</span><span style="color:#fff"> </span><span style="color:#cf222e">true</span><span style="color:#1f2328">;</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span><span style="color:#57606a">// 吃东西方法</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span><span style="color:#cf222e">public</span><span style="color:#fff"> </span><span style="color:#cf222e">void</span><span style="color:#fff"> </span><span style="color:#6639ba">eating</span><span style="color:#1f2328">(</span>Foods<span style="color:#fff"> </span>food<span style="color:#1f2328">)</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span>System<span style="color:#1f2328">.</span><span style="color:#1f2328">out</span><span style="color:#1f2328">.</span><span style="color:#1f2328">println</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;母亲吃东西细嚼慢咽&#34;</span><span style="color:#1f2328">);</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span><span style="color:#1f2328">}</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span><span style="color:#1f2328">}</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span><span style="color:#57606a">// 孩子类继承母亲类</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span><span style="color:#cf222e">public</span><span style="color:#fff"> </span><span style="color:#cf222e">class</span> <span style="color:#1f2328">Child</span><span style="color:#fff"> </span><span style="color:#cf222e">extends</span><span style="color:#fff"> </span>Mother<span style="color:#1f2328">{</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span><span style="color:#57606a">// 变异</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span><span style="color:#57606a">// 孩子的性格是内向的</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span><span style="color:#cf222e">public</span><span style="color:#fff"> </span>String<span style="color:#fff"> </span>personality<span style="color:#fff"> </span><span style="color:#0550ae">=</span><span style="color:#fff"> </span><span style="color:#0a3069">&#34;introverted&#34;</span><span style="color:#1f2328">;</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span><span style="color:#57606a">// 孩子无耳垂</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span><span style="color:#cf222e">public</span><span style="color:#fff"> </span><span style="color:#cf222e">boolean</span><span style="color:#fff"> </span>hasEarlobe<span style="color:#fff"> </span><span style="color:#0550ae">=</span><span style="color:#fff"> </span><span style="color:#cf222e">false</span><span style="color:#1f2328">;</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span><span style="color:#57606a">// 孩子身高比母亲高</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span><span style="color:#cf222e">public</span><span style="color:#fff"> </span><span style="color:#cf222e">double</span><span style="color:#fff"> </span>height<span style="color:#fff"> </span><span style="color:#0550ae">=</span><span style="color:#fff"> </span>180<span style="color:#1f2328">.</span><span style="color:#1f2328">5</span><span style="color:#1f2328">;</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span><span style="color:#0550ae">@Override</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span><span style="color:#cf222e">public</span><span style="color:#fff"> </span><span style="color:#cf222e">void</span><span style="color:#fff"> </span><span style="color:#6639ba">eating</span><span style="color:#1f2328">(</span>Foods<span style="color:#fff"> </span>food<span style="color:#1f2328">)</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span>System<span style="color:#1f2328">.</span><span style="color:#1f2328">out</span><span style="color:#1f2328">.</span><span style="color:#1f2328">println</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;孩子吃东西狼吞虎咽&#34;</span><span style="color:#1f2328">);</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span><span style="color:#1f2328">}</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span><span style="color:#1f2328">}</span><span style="color:#fff">
-</span></span></span></code></pre></div><p>感觉比书上讲的一大堆狗屁废话简练多了。。（？</p>
-                                
-                            </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/%E4%BA%BA%E8%AF%9D%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3%E5%85%AB%E4%B8%8B%E9%81%97%E4%BC%A0%E4%B9%8B%E7%94%9F%E7%89%A9%E7%9A%84%E9%81%97%E4%BC%A0%E5%8F%98%E5%BC%82/">阅读全文</a></p>
-                        </article>
-                    
-                        <article class="post">
-                            <header>
-                                <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/post/tech/kitty%E7%BB%88%E7%AB%AF%E7%BE%8E%E5%8C%96%E8%AE%B0%E5%BD%95/">Kitty终端美化记录</a>
-                                </h2>
-                            </header>
-                            <date class="post-meta meta-date">
-                                2025年3月9日
-                                12:41
-                            </date>
-                            
-                            <div class="post-meta meta-category">
-                                ，归类于
-                                
-                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
-                                
-                            </div>
-                            
-                            
-                            <div class="post-content summary auto">
-                                
-                                
-                                    <p>Kitty这个终端可谓是兼顾了性能与美观，虽然默认设置很简陋，但是经过一番折腾后也能变得很漂亮。</p>
-<h1 id="选择配色">选择配色</h1>
-<p>运行<code>kitty + kitten themes</code>后会弹出一个选择配色的界面
-
-        <img class="mx-auto" alt="" src="./Pasted%20image%2020250309124346.png" />   
-    
-令我感到非常高兴的是，这个界面支持vim的hjkl键位，也可以用/来搜索。
-选好后，回车按m，command + ^ + ,重载配置文件。</p>
-                                
-                            </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/kitty%E7%BB%88%E7%AB%AF%E7%BE%8E%E5%8C%96%E8%AE%B0%E5%BD%95/">阅读全文</a></p>
-                        </article>
-                    
-                        <article class="post">
-                            <header>
-                                <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/post/tech/kde%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E6%97%A0%E6%B3%95%E5%9C%A8konsole%E5%88%87%E6%8D%A2%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">KDE桌面环境无法在Konsole切换中文输入法的解决方案</a>
-                                </h2>
-                            </header>
-                            <date class="post-meta meta-date">
-                                2025年3月8日
-                                22:07
-                            </date>
-                            
-                            <div class="post-meta meta-category">
-                                ，归类于
-                                
-                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
-                                
-                            </div>
-                            
-                            
-                            <div class="post-content summary auto">
-                                
-                                
-                                    <h3 id="原因">原因</h3>
-<p>KDE默认使用Wayland会话，而fcitx4不支持Wayland，需升级到fcitx5。若无法升级到fcitx5或升级后仍然无法切换中文输入法，<strong>安装fcitx-qt6</strong></p>
-                                
-                            </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/kde%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E6%97%A0%E6%B3%95%E5%9C%A8konsole%E5%88%87%E6%8D%A2%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">阅读全文</a></p>
-                        </article>
-                    
-                        <article class="post">
-                            <header>
-                                <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/post/tech/%E6%97%A0%E5%BA%9F%E8%AF%9D%E5%85%A8%E7%BD%91%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84hexo&#43;obsidian%E5%9B%BE%E7%89%87%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">【无废话】全网最简单的Hexo&#43;Obsidian图片解决方案</a>
-                                </h2>
-                            </header>
-                            <date class="post-meta meta-date">
-                                2025年3月5日
-                                21:17
-                            </date>
-                            
-                            <div class="post-meta meta-category">
-                                ，归类于
-                                
-                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
-                                
-                            </div>
-                            
-                            
-                            <div class="post-content summary auto">
-                                
-                                
-                                    <p>把Hexo博客根目录用黑曜石打开，如果已经打开了仓库
-
-        <img class="mx-auto" alt="" src="./Pasted%20image%2020250305215423.png" />   
-    
-在弹出的窗口中选第二个。</p>
-<p>在source目录下新建images文件夹用于存放图片
-设置 =&gt; 文件与链接 =&gt; 附件默认存放路径：选择指定的附件文件夹。路径填写刚刚创建的image文件夹的相对路径
-取消使用Wiki链接
-注意。由于我的文件结构是这样的所以这么填写，要<strong>根据自己的文件结构填写相对路径</strong>。
-
-        <img class="mx-auto" alt="" src="./Pasted%20image%2020250305215642.png" />   
-    
-搞定，同时可以在本地编辑环境和博客网站中显示。</p>
-                                
-                            </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/%E6%97%A0%E5%BA%9F%E8%AF%9D%E5%85%A8%E7%BD%91%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84hexo&#43;obsidian%E5%9B%BE%E7%89%87%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">阅读全文</a></p>
-                        </article>
-                    
-                        <article class="post">
-                            <header>
-                                <h2 class="post-title">
                                     <a href="https://www.yingyu5658.me/post/tech/%E6%9C%AA%E8%A7%A3%E5%86%B3windows-wsl%E6%8A%A5%E9%94%99error-0x80080005/">【未解决】Windows WSL报错：Error: 0x80080005 ???????</a>
                                 </h2>
                             </header>
@@ -490,6 +250,354 @@ Press any key to continue...
                             <p class="readmore"><a href="https://www.yingyu5658.me/post/jottings/194/">阅读全文</a></p>
                         </article>
                     
+                        <article class="post">
+                            <header>
+                                <h2 class="post-title">
+                                    <a href="https://www.yingyu5658.me/post/tech/187/">开箱即用的neovim配置文件</a>
+                                </h2>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2025年1月22日
+                                18:13
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                ，归类于
+                                
+                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
+                                
+                            </div>
+                            
+                            
+                            <div class="post-content summary auto">
+                                
+                                
+                                    <blockquote>
+<p>2025.8.24二编: 这个蠢货为什么不挂github&hellip;&hellip;</p></blockquote>
+<h3 id="下载链接">下载链接</h3>
+<p><a href="https://yingyu5658.lanzoup.com/iWfXQ2ln6jre">https://yingyu5658.lanzoup.com/iWfXQ2ln6jre</a>
+为了兄弟们下得爽点就不用百度网盘或者夸克了
+代码都有比较详细的注释</p>
+                                
+                            </div>
+                            <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/187/">阅读全文</a></p>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h2 class="post-title">
+                                    <a href="https://www.yingyu5658.me/post/tech/186/">Java面向对象编程——多态、抽象类、接口</a>
+                                </h2>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2025年1月10日
+                                15:05
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                ，归类于
+                                
+                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
+                                
+                            </div>
+                            
+                            
+                            <div class="post-content summary auto">
+                                
+                                
+                                    <h1 id="什么是多态">什么是多态</h1>
+<ul>
+<li>在继承/实现情况下的一种现象，表现为：对象多态、行为多态。</li>
+</ul>
+<h2 id="多态的前提">多态的前提</h2>
+<ul>
+<li>有<strong>继承/实</strong>现关系；存在父类引用子类对象；<strong>存在方法重写</strong></li>
+<li>
+<h2 id="多态的注意事项">多态的注意事项</h2>
+</li>
+<li>多态是对象、行为的多态，成员变量不体现多态。</li>
+</ul>
+<h1 id="使用多态的好处">使用多态的好处</h1>
+<ul>
+<li>在多态形式下，右边的对象是解耦合的，更便于拓展和维护。</li>
+<li>定义方法时，使用父类类型的形参，可以接收一切子类对象，扩展性更强、更便利。</li>
+</ul>
+<h1 id="多态下产生的一个问题">多态下产生的一个问题</h1>
+<ul>
+<li>多态下不能使用子类的独有功能。</li>
+</ul>
+<h2 id="多态下的类型转换">多态下的类型转换</h2>
+<ul>
+<li>自动类型转换：<code>父类 变量名 = new 子类();</code></li>
+<li>强制类型转换： <code>子类 变量名 = (子类)父类变量</code></li>
+</ul>
+<h2 id="强制类型转换的注意事项">强制类型转换的注意事项</h2>
+<ul>
+<li>存在继承/实现关系就可以在编译阶段进行强制类型转换，编译阶段不会报错。</li>
+<li>运行时，如果发现对象的真实类型与强转后的类型不同，就会报类型转换异常(ClassCastException)</li>
+</ul>
+<h3 id="强转前java建议">强转前，Java建议：</h3>
+<ul>
+<li>使用instanceof关键字，判断当前对象的真是类型，再进行强制类型转换。</li>
+</ul>
+<h1 id="final">final</h1>
+<ul>
+<li>final关键字的中文是最终的意思，可以修饰类、方法、变量
+<ul>
+<li>修饰类：该类被称为最终类，特点是不能被继承了。</li>
+<li>修饰方法：该方法被称为最终方法，特点是不能被重写了。</li>
+<li>修饰变量：该变量只能被赋值一次。</li>
+</ul>
+</li>
+</ul>
+<h1 id="常量">常量</h1>
+<ul>
+<li>使用了static final 修饰的成员变量就被称为常量；</li>
+<li>作用：通常用于记录系统的配置信息。</li>
+<li><strong>注意：常量的命名规范：使用大写英文单词，多个单词使用下划线连接起来。</strong></li>
+</ul>
+<h2 id="视同常量记录系统配置信息的优势执行原理">视同常量记录系统配置信息的优势、执行原理</h2>
+<ul>
+<li>代码可读性更好、可维护性也更好。</li>
+<li>程序编译后，常量会被宏替换：出现常量的地方全部会被替换成其记住的字面量，这样可以保证使用常量和直接用字面量的性能是一样的。</li>
+</ul>
+<h1 id="抽象类">抽象类</h1>
+<h2 id="什么是抽象类">什么是抽象类</h2>
+<ul>
+<li>Java中有个关键字叫abstract，他就是抽象的意思，可以用来修饰类、成员方法</li>
+<li>abstract修饰类，这个就是抽象类，修饰成员方法同理。</li>
+</ul>
+<h2 id="抽象类的注意事项特点">抽象类的注意事项、特点</h2>
+<ul>
+<li>抽象类中不一定有抽象方法，有抽象方法的类一定是抽象类。</li>
+<li>类该有的成员（成员变量、方法、构造器）抽象类都可以有。</li>
+<li><strong>抽象类最主要的特点：</strong> 抽象类不能创建对象，仅作为一种特殊的父类，让子类继承并实现。</li>
+<li>一个类继承抽象类，必须重写完抽象类的全部抽象方法，否则这个类也必须定义成抽象类。</li>
+</ul>
+<h2 id="抽象类的使用场景和好处">抽象类的使用场景和好处</h2>
+<ul>
+<li>父类知道每个子类都要做某个行为，但每个子类做的情况不一样，父类就定义成抽象方法，交给子类去重写实现，我们设计这样的抽象类，就是为了更好的支持多态。<del>爸爸画饼儿子烙饼</del></li>
+</ul>
+<h1 id="接口">接口</h1>
+<h2 id="接口概述">接口概述</h2>
+<ul>
+<li>Java提供了一个关键字interface，用这个关键字我们可以定义出一个特殊的结构：接口。</li>
+<li>注意：接口不能创建对象；接口是用来被类实现（implements）的，实现接口的类被称为实现类。</li>
+<li>一个类可以实现多个接口，实现类实现多个接口必须重写完全部接口的全部抽象方法，否则实现类需要定义成抽象类。</li>
+</ul>
+<p>
+        <img class="mx-auto" alt="" src="https://www.yingyu5658.cn/usr/uploads/2024/12/2743265221.jpg" />   
+    </p>
+                                
+                            </div>
+                            <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/186/">阅读全文</a></p>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h2 class="post-title">
+                                    <a href="https://www.yingyu5658.me/post/tech/185/">Java面向对象编程——继承</a>
+                                </h2>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2025年1月10日
+                                13:19
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                ，归类于
+                                
+                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
+                                
+                            </div>
+                            
+                            
+                            <div class="post-content summary auto">
+                                
+                                
+                                    <h1 id="什么是继承">什么是继承</h1>
+<ul>
+<li>Java中提供了一个关键字<code>extends</code>，用这个关键字，可以让一个类和另一个类建立起父子关系。</li>
+</ul>
+<h2 id="继承的特点">继承的特点</h2>
+<ul>
+<li>子类能继承父类的非私有成员变量和成员方法。</li>
+</ul>
+<h2 id="继承后对象的创建">继承后对象的创建</h2>
+<ul>
+<li>子类的对象是由子类、父类共同完成的。</li>
+</ul>
+<h1 id="继承相关的注意事项">继承相关的注意事项</h1>
+<h2 id="权限修饰符">权限修饰符</h2>
+<h2 id="什么是权限修饰符">什么是权限修饰符？</h2>
+<ul>
+<li>用来限制类中的成员（成员变量、成员方法、构造器、代码块&hellip;）能够被访问的范围</li>
+</ul>
+<h2 id="权限修饰符有几种与各自的作用">权限修饰符有几种与各自的作用</h2>
+<table>
+  <thead>
+      <tr>
+          <th>修饰符</th>
+          <th>在本类中</th>
+          <th>同一个包下的其他类</th>
+          <th>任意包下的子类</th>
+          <th>任意包下的任意类</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>private</td>
+          <td>√</td>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>缺省</td>
+          <td>√</td>
+          <td>√</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>protected</td>
+          <td>√</td>
+          <td>√</td>
+          <td>√</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>public</td>
+          <td>√</td>
+          <td>√</td>
+          <td>√</td>
+          <td>√</td>
+      </tr>
+      <tr>
+          <td>provate &lt; 缺省 &lt; protected &lt; public</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+  </tbody>
+</table>
+<h1 id="单继承">单继承</h1>
+<p>Java是<strong>继承</strong>的，Java中的类<strong>不支持多继承</strong>，但是支持<strong>多层继承</strong>。</p>
+                                
+                            </div>
+                            <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/185/">阅读全文</a></p>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h2 class="post-title">
+                                    <a href="https://www.yingyu5658.me/post/tech/184/">修复Geyser下基岩版玩家无法在地狱基岩层放置方块</a>
+                                </h2>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2025年1月8日
+                                17:26
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                ，归类于
+                                
+                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
+                                
+                            </div>
+                            
+                            
+                            <div class="post-content summary auto">
+                                
+                                
+                                    <p>在<code>plugins\Geyser-Spigot\config.yml</code>中把第160行的<code>above-bedrock-nether-building: false</code>改为<code>true</code>，重启服务器，问题解决~
+原理：geyser把下界翻译成了末地，会导致下界天空变成末地的样式，不过可以解决基岩版玩家在地狱基岩层的问题。</p>
+                                
+                            </div>
+                            <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/184/">阅读全文</a></p>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h2 class="post-title">
+                                    <a href="https://www.yingyu5658.me/post/tech/181/">Spigot服务端控制台中文乱码解决方案</a>
+                                </h2>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2025年1月4日
+                                08:35
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                ，归类于
+                                
+                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
+                                
+                            </div>
+                            
+                            
+                            <div class="post-content summary auto">
+                                
+                                
+                                    <ol>
+<li>把<code>-Dfile.encoding=UTF-8</code>加在开服脚本文件的<code>-jar</code>前即可。</li>
+<li>在启动脚本第一行加上<code>chcp 65001</code>
+我的启动脚本如下：</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>chcp <span style="color:#0550ae">65001</span>
+</span></span><span style="display:flex;"><span>java -Dfile.encoding<span style="color:#0550ae">=</span>UTF-8 -jar spigot-1.21.jar
+</span></span></code></pre></div><p>
+        <img class="mx-auto" alt="" src="https://www.yingyu5658.cn/usr/uploads/2025/01/1203260069.jpg" />   
+    </p>
+                                
+                            </div>
+                            <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/181/">阅读全文</a></p>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h2 class="post-title">
+                                    <a href="https://www.yingyu5658.me/post/tech/171/">String的注意事项</a>
+                                </h2>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2024年12月19日
+                                22:28
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                ，归类于
+                                
+                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
+                                
+                            </div>
+                            
+                            
+                            <div class="post-content summary auto">
+                                
+                                
+                                    <h1 id="string的注意事项">String的注意事项</h1>
+<ul>
+<li>
+<ol>
+<li>String对象的内容不可改变， 被称为不可变字符串对象。</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>只要是以“&hellip;”的方式写出的字符串，都会存储到字符串常量池，且相同的字符串只存储一份；</li>
+</ol>
+</li>
+<li>但通过new方式创建字符串对象，每new一次都会产生一个新的对象放在堆内存中。</li>
+</ul>
+<h1 id="不可变字符串对象">不可变字符串对象</h1>
+<p>不可变？它肯定可变啊，比如</p>
+                                
+                            </div>
+                            <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/171/">阅读全文</a></p>
+                        </article>
+                    
 
                     
 
@@ -556,19 +664,6 @@ Press any key to continue...
         
         <li >
             <a href="https://www.yingyu5658.me/page/11/">11</a>
-        </li>
-        
-    
-        
-        <li>
-            <span>...</span>
-        </li>
-        
-    
-        
-        
-        <li >
-            <a href="https://www.yingyu5658.me/page/12/">12</a>
         </li>
         
     
@@ -652,7 +747,7 @@ Press any key to continue...
         <h3 class="widget-title"><a href='/categories/'>Categories</a></h3>
 <ul class="widget-list">
     
-    <li><a href="https://www.yingyu5658.me/categories/%E6%8A%80%E6%9C%AF/">技术 (68)</a></li>
+    <li><a href="https://www.yingyu5658.me/categories/%E6%8A%80%E6%9C%AF/">技术 (59)</a></li>
     
     <li><a href="https://www.yingyu5658.me/categories/%E8%AF%BB%E4%B9%A6/">读书 (1)</a></li>
     
@@ -669,13 +764,9 @@ Press any key to continue...
     
     <a href="https://www.yingyu5658.me/tags/arch/">Arch</a>
     
-    <a href="https://www.yingyu5658.me/tags/bug/">Bug</a>
-    
     <a href="https://www.yingyu5658.me/tags/b%E7%AB%99/">B站</a>
     
     <a href="https://www.yingyu5658.me/tags/c/">C</a>
-    
-    <a href="https://www.yingyu5658.me/tags/css/">CSS</a>
     
     <a href="https://www.yingyu5658.me/tags/c%E8%AF%AD%E8%A8%80/">C语言</a>
     
@@ -755,8 +846,6 @@ Press any key to continue...
     
     <a href="https://www.yingyu5658.me/tags/%E5%B0%8F%E5%93%81/">小品</a>
     
-    <a href="https://www.yingyu5658.me/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/">嵌入式</a>
-    
     <a href="https://www.yingyu5658.me/tags/%E5%B7%9D%E7%AB%AF%E5%BA%B7%E6%88%90/">川端康成</a>
     
     <a href="https://www.yingyu5658.me/tags/%E5%BA%95%E5%B1%82%E6%8A%80%E6%9C%AF/">底层技术</a>
@@ -812,8 +901,6 @@ Press any key to continue...
     <a href="https://www.yingyu5658.me/tags/%E7%8C%AB/">猫</a>
     
     <a href="https://www.yingyu5658.me/tags/%E7%9F%A5%E4%B9%8E/">知乎</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E7%A0%B4%E8%A7%A3/">破解</a>
     
     <a href="https://www.yingyu5658.me/tags/%E7%A4%BE%E4%BA%A4/">社交</a>
     
