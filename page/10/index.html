@@ -89,6 +89,8 @@
                     
                     <a  href="https://www.yingyu5658.me/archives" title="归档">归档</a>
                     
+                    <a  href="https://www.yingyu5658.me/newsgroup/" title="新闻组">新闻组</a>
+                    
                     <a  href="https://www.yingyu5658.me/about/" title="关于">关于</a>
                     
                 </nav>
@@ -106,6 +108,49 @@
 
             <div class="col-8" id="main">
                 <div class="res-cons">
+                    
+                        <article class="post">
+                            <header>
+                                <h2 class="post-title">
+                                    <a href="https://www.yingyu5658.me/post/tech/171/">String的注意事项</a>
+                                </h2>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2024年12月19日
+                                22:28
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                ，归类于
+                                
+                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
+                                
+                            </div>
+                            
+                            
+                            <div class="post-content summary auto">
+                                
+                                
+                                    <h1 id="string的注意事项">String的注意事项</h1>
+<ul>
+<li>
+<ol>
+<li>String对象的内容不可改变， 被称为不可变字符串对象。</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>只要是以“&hellip;”的方式写出的字符串，都会存储到字符串常量池，且相同的字符串只存储一份；</li>
+</ol>
+</li>
+<li>但通过new方式创建字符串对象，每new一次都会产生一个新的对象放在堆内存中。</li>
+</ul>
+<h1 id="不可变字符串对象">不可变字符串对象</h1>
+<p>不可变？它肯定可变啊，比如</p>
+                                
+                            </div>
+                            <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/171/">阅读全文</a></p>
+                        </article>
                     
                         <article class="post">
                             <header>
@@ -397,54 +442,6 @@
                                 
                             </div>
                             <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/99/">阅读全文</a></p>
-                        </article>
-                    
-                        <article class="post">
-                            <header>
-                                <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/post/tech/95/">Java方法的传参原理</a>
-                                </h2>
-                            </header>
-                            <date class="post-meta meta-date">
-                                2024年11月30日
-                                20:14
-                            </date>
-                            
-                            <div class="post-meta meta-category">
-                                ，归类于
-                                
-                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
-                                
-                            </div>
-                            
-                            
-                            <div class="post-content summary auto">
-                                
-                                
-                                    <h2 id="java方法的参数传递机制-基本类型">Java方法的参数传递机制-基本类型</h2>
-<p>值传递</p>
-<h3 id="值传递是什么">值传递是什么</h3>
-<p>在传输实参给方法的形参的时候，<strong>传输的是实参变量中存储的副本</strong>
-说人话，把实参里面的东西赋值了一部分扔了给形参</p>
-<h2 id="值传递具体理解案例">值传递具体理解案例</h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#cf222e">public</span><span style="color:#fff"> </span><span style="color:#cf222e">class</span> <span style="color:#1f2328">prameter</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#cf222e">public</span><span style="color:#fff"> </span><span style="color:#cf222e">static</span><span style="color:#fff"> </span><span style="color:#cf222e">void</span><span style="color:#fff"> </span><span style="color:#6639ba">main</span><span style="color:#1f2328">(</span>String<span style="color:#0550ae">[]</span><span style="color:#fff"> </span>args<span style="color:#1f2328">)</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span><span style="color:#cf222e">int</span><span style="color:#fff"> </span>a<span style="color:#fff"> </span><span style="color:#0550ae">=</span><span style="color:#fff"> </span>10<span style="color:#1f2328">;</span><span style="color:#fff"> </span><span style="color:#57606a">//定义一个int变量a赋值为10</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span>change<span style="color:#1f2328">(</span>a<span style="color:#1f2328">);</span><span style="color:#fff"> </span><span style="color:#57606a">//调用change方法</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span>System<span style="color:#1f2328">.</span><span style="color:#1f2328">out</span><span style="color:#1f2328">.</span><span style="color:#1f2328">println</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;main&#34;</span><span style="color:#fff"> </span><span style="color:#0550ae">+</span><span style="color:#fff"> </span>a<span style="color:#1f2328">);</span><span style="color:#fff"> </span><span style="color:#57606a">//打印mian a中的值</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#1f2328">}</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span><span style="color:#57606a">//这里开始写方法</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#cf222e">public</span><span style="color:#fff"> </span><span style="color:#cf222e">static</span><span style="color:#fff"> </span><span style="color:#cf222e">void</span><span style="color:#fff"> </span><span style="color:#6639ba">change</span><span style="color:#1f2328">(</span><span style="color:#cf222e">int</span><span style="color:#fff"> </span>a<span style="color:#1f2328">){</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span>System<span style="color:#1f2328">.</span><span style="color:#1f2328">out</span><span style="color:#1f2328">.</span><span style="color:#1f2328">println</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;change1&#34;</span><span style="color:#fff"> </span><span style="color:#0550ae">+</span><span style="color:#fff"> </span>a<span style="color:#1f2328">);</span><span style="color:#fff"> </span><span style="color:#57606a">//打印方法中a的值</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span>a<span style="color:#fff"> </span><span style="color:#0550ae">=</span><span style="color:#fff"> </span>20<span style="color:#1f2328">;</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span>System<span style="color:#1f2328">.</span><span style="color:#1f2328">out</span><span style="color:#1f2328">.</span><span style="color:#1f2328">println</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;change2&#34;</span>a<span style="color:#1f2328">);</span><span style="color:#fff"> </span><span style="color:#57606a">//打印赋值后a的值</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#1f2328">}</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span><span style="color:#1f2328">}</span><span style="color:#fff">
-</span></span></span></code></pre></div><p>我们运行以后，控制台输出的结果为</p>
-                                
-                            </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/95/">阅读全文</a></p>
                         </article>
                     
 

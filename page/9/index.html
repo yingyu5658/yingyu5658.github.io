@@ -89,6 +89,8 @@
                     
                     <a  href="https://www.yingyu5658.me/archives" title="归档">归档</a>
                     
+                    <a  href="https://www.yingyu5658.me/newsgroup/" title="新闻组">新闻组</a>
+                    
                     <a  href="https://www.yingyu5658.me/about/" title="关于">关于</a>
                     
                 </nav>
@@ -106,6 +108,46 @@
 
             <div class="col-8" id="main">
                 <div class="res-cons">
+                    
+                        <article class="post">
+                            <header>
+                                <h2 class="post-title">
+                                    <a href="https://www.yingyu5658.me/post/tech/%E6%97%A0%E5%BA%9F%E8%AF%9D%E5%85%A8%E7%BD%91%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84hexo&#43;obsidian%E5%9B%BE%E7%89%87%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">【无废话】全网最简单的Hexo&#43;Obsidian图片解决方案</a>
+                                </h2>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2025年3月5日
+                                21:17
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                ，归类于
+                                
+                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
+                                
+                            </div>
+                            
+                            
+                            <div class="post-content summary auto">
+                                
+                                
+                                    <p>把Hexo博客根目录用黑曜石打开，如果已经打开了仓库
+
+        <img class="mx-auto" alt="" src="./Pasted%20image%2020250305215423.png" />   
+    
+在弹出的窗口中选第二个。</p>
+<p>在source目录下新建images文件夹用于存放图片
+设置 =&gt; 文件与链接 =&gt; 附件默认存放路径：选择指定的附件文件夹。路径填写刚刚创建的image文件夹的相对路径
+取消使用Wiki链接
+注意。由于我的文件结构是这样的所以这么填写，要<strong>根据自己的文件结构填写相对路径</strong>。
+
+        <img class="mx-auto" alt="" src="./Pasted%20image%2020250305215642.png" />   
+    
+搞定，同时可以在本地编辑环境和博客网站中显示。</p>
+                                
+                            </div>
+                            <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/%E6%97%A0%E5%BA%9F%E8%AF%9D%E5%85%A8%E7%BD%91%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84hexo&#43;obsidian%E5%9B%BE%E7%89%87%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">阅读全文</a></p>
+                        </article>
                     
                         <article class="post">
                             <header>
@@ -385,9 +427,6 @@ Press any key to continue...
 <li>注意：接口不能创建对象；接口是用来被类实现（implements）的，实现接口的类被称为实现类。</li>
 <li>一个类可以实现多个接口，实现类实现多个接口必须重写完全部接口的全部抽象方法，否则实现类需要定义成抽象类。</li>
 </ul>
-<p>
-        <img class="mx-auto" alt="" src="https://www.yingyu5658.cn/usr/uploads/2024/12/2743265221.jpg" />   
-    </p>
                                 
                             </div>
                             <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/186/">阅读全文</a></p>
@@ -547,55 +586,10 @@ Press any key to continue...
 </ol>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>chcp <span style="color:#0550ae">65001</span>
 </span></span><span style="display:flex;"><span>java -Dfile.encoding<span style="color:#0550ae">=</span>UTF-8 -jar spigot-1.21.jar
-</span></span></code></pre></div><p>
-        <img class="mx-auto" alt="" src="https://www.yingyu5658.cn/usr/uploads/2025/01/1203260069.jpg" />   
-    </p>
+</span></span></code></pre></div>
                                 
                             </div>
                             <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/181/">阅读全文</a></p>
-                        </article>
-                    
-                        <article class="post">
-                            <header>
-                                <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/post/tech/171/">String的注意事项</a>
-                                </h2>
-                            </header>
-                            <date class="post-meta meta-date">
-                                2024年12月19日
-                                22:28
-                            </date>
-                            
-                            <div class="post-meta meta-category">
-                                ，归类于
-                                
-                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
-                                
-                            </div>
-                            
-                            
-                            <div class="post-content summary auto">
-                                
-                                
-                                    <h1 id="string的注意事项">String的注意事项</h1>
-<ul>
-<li>
-<ol>
-<li>String对象的内容不可改变， 被称为不可变字符串对象。</li>
-</ol>
-</li>
-<li>
-<ol start="2">
-<li>只要是以“&hellip;”的方式写出的字符串，都会存储到字符串常量池，且相同的字符串只存储一份；</li>
-</ol>
-</li>
-<li>但通过new方式创建字符串对象，每new一次都会产生一个新的对象放在堆内存中。</li>
-</ul>
-<h1 id="不可变字符串对象">不可变字符串对象</h1>
-<p>不可变？它肯定可变啊，比如</p>
-                                
-                            </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/171/">阅读全文</a></p>
                         </article>
                     
 
