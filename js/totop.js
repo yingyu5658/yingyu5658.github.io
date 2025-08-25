@@ -10,3 +10,5 @@ $("#rocket").click(function() {
     });
     return false;
 });
+
+console.info("你是在查看这个网站的前端代码是如何实现的吗？如果能帮到你，我很高兴。")
