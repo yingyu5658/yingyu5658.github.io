@@ -2,45 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>服务器 on 映屿</title>
-    <link>http://localhost:1313/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+    <link>https://www.yingyu5658.me/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
     <description>Recent content in 服务器 on 映屿</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Wed, 08 Jan 2025 17:26:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/atom.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.yingyu5658.me/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/atom.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>修复Geyser下基岩版玩家无法在地狱基岩层放置方块</title>
-      <link>http://localhost:1313/posts/tech/184/</link>
+      <link>https://www.yingyu5658.me/posts/tech/184/</link>
       <pubDate>Wed, 08 Jan 2025 17:26:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/tech/184/</guid>
+      <guid>https://www.yingyu5658.me/posts/tech/184/</guid>
       <description>&lt;p&gt;在&lt;code&gt;plugins\Geyser-Spigot\config.yml&lt;/code&gt;中把第160行的&lt;code&gt;above-bedrock-nether-building: false&lt;/code&gt;改为&lt;code&gt;true&lt;/code&gt;，重启服务器，问题解决~&#xA;原理：geyser把下界翻译成了末地，会导致下界天空变成末地的样式，不过可以解决基岩版玩家在地狱基岩层的问题。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Spigot服务端控制台中文乱码解决方案</title>
-      <link>http://localhost:1313/posts/tech/181/</link>
+      <link>https://www.yingyu5658.me/posts/tech/181/</link>
       <pubDate>Sat, 04 Jan 2025 08:35:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/tech/181/</guid>
+      <guid>https://www.yingyu5658.me/posts/tech/181/</guid>
       <description>&lt;ol&gt;&#xA;&lt;li&gt;把&lt;code&gt;-Dfile.encoding=UTF-8&lt;/code&gt;加在开服脚本文件的&lt;code&gt;-jar&lt;/code&gt;前即可。&lt;/li&gt;&#xA;&lt;li&gt;在启动脚本第一行加上&lt;code&gt;chcp 65001&lt;/code&gt;&#xA;我的启动脚本如下：&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;chcp &lt;span style=&#34;color:#d19a66&#34;&gt;65001&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;java -Dfile.encoding&lt;span style=&#34;color:#56b6c2&#34;&gt;=&lt;/span&gt;UTF-8 -jar spigot-1.21.jar&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     <item>
       <title>记录配置SSL证书</title>
-      <link>http://localhost:1313/posts/tech/163/</link>
+      <link>https://www.yingyu5658.me/posts/tech/163/</link>
       <pubDate>Tue, 17 Dec 2024 11:46:07 +0000</pubDate>
-      <guid>http://localhost:1313/posts/tech/163/</guid>
+      <guid>https://www.yingyu5658.me/posts/tech/163/</guid>
       <description>&lt;p&gt;首先你要有一个SSL证书，建议在阿里云购买或者&lt;a href=&#34;https://developer.aliyun.com/article/1595201&#34;&gt;免费申请&lt;/a&gt;，具体过程阿里云这个页面讲的很详细，在此不过多赘述。&lt;/p&gt;&#xA;&lt;h1 id=&#34;配置证书&#34;&gt;配置证书&lt;/h1&gt;&#xA;&lt;p&gt;由于我的nginx安装了ssl模块，直接进入配置证书。&lt;/p&gt;&#xA;&lt;p&gt;解压下载好的证书，然后上传到服务器。位置自己方便找到即可&#xA;我放到了root/card&lt;/p&gt;</description>
     </item>
     <item>
       <title>游戏资源下载及连接服务器相关教程</title>
-      <link>http://localhost:1313/posts/jottings/%E6%B8%B8%E6%88%8F%E8%B5%84%E6%BA%90%E4%B8%8B%E8%BD%BD%E5%8F%8A%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%B8%E5%85%B3%E6%95%99%E7%A8%8B/</link>
+      <link>https://www.yingyu5658.me/posts/jottings/%E6%B8%B8%E6%88%8F%E8%B5%84%E6%BA%90%E4%B8%8B%E8%BD%BD%E5%8F%8A%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%B8%E5%85%B3%E6%95%99%E7%A8%8B/</link>
       <pubDate>Fri, 13 Dec 2024 20:26:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/jottings/%E6%B8%B8%E6%88%8F%E8%B5%84%E6%BA%90%E4%B8%8B%E8%BD%BD%E5%8F%8A%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%B8%E5%85%B3%E6%95%99%E7%A8%8B/</guid>
+      <guid>https://www.yingyu5658.me/posts/jottings/%E6%B8%B8%E6%88%8F%E8%B5%84%E6%BA%90%E4%B8%8B%E8%BD%BD%E5%8F%8A%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%B8%E5%85%B3%E6%95%99%E7%A8%8B/</guid>
       <description>&lt;h1 id=&#34;前言&#34;&gt;前言&lt;/h1&gt;&#xA;&lt;p&gt;为了避免不必要的麻烦和纠纷，也是为了打造一个纯粹干净高质量的社区，我们需要对想要参与的人员提出一些条件，请确保你自身可以满足这些条件后再来愉快的玩耍。&#xA;&lt;strong&gt;所有的条件都是最基本的，一点也不苛刻，大部分要求仅仅是一些应该具备的能力。&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>醉酒哈基米寒假开服活动Q&amp;A</title>
-      <link>http://localhost:1313/posts/jottings/141/</link>
+      <link>https://www.yingyu5658.me/posts/jottings/141/</link>
       <pubDate>Sun, 08 Dec 2024 19:31:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/jottings/141/</guid>
+      <guid>https://www.yingyu5658.me/posts/jottings/141/</guid>
       <description>&lt;h1 id=&#34;醉酒哈基米寒假联机活动&#34;&gt;醉酒哈基米寒假联机活动&lt;/h1&gt;&#xA;&lt;p&gt;为打发时间，&lt;del&gt;提升群友之间的羁绊&lt;/del&gt;，2024年寒假特举行泰拉瑞亚/我的世界服务器活动。&lt;/p&gt;&#xA;&lt;p&gt;对于有可能出现的疑问，下方都做了详细的解答，文档中没有的问题可直接咨询我。&lt;/p&gt;</description>
     </item>
   </channel>
