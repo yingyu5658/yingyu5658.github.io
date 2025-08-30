@@ -2,6 +2,7 @@ name: douban
 on: 
   schedule:
   - cron: "30 * * * *"
+  workflow_dispatch:
 
 jobs:
   douban:
