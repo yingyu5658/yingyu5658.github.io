@@ -87,8 +87,6 @@
                     
                     <a  href="https://www.yingyu5658.me/archives" title="归档">归档</a>
                     
-                    <a  href="https://www.yingyu5658.me/newsgroup/" title="新闻组">新闻组</a>
-                    
                     <a  href="https://www.yingyu5658.me/about/" title="关于">关于</a>
                     
                 </nav>
@@ -110,11 +108,38 @@
                         <article class="post">
                             <header>
                                 <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/posts/tech/%E6%9C%AA%E8%A7%A3%E5%86%B3windows-wsl%E6%8A%A5%E9%94%99error-0x80080005/">【未解决】Windows WSL报错：Error: 0x80080005 ???????</a>
+                                    <a href="https://www.yingyu5658.me/posts/tech/%E4%BB%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AE%BE%E7%BD%AE%E5%85%A5%E6%89%8B%E4%B8%80%E6%8B%9B%E7%A0%B4%E8%A7%A3%E4%BD%9C%E6%96%87%E7%BD%91%E7%AB%99%E7%A6%81%E6%AD%A2%E5%A4%8D%E5%88%B6/">从浏览器设置入手，一招破解作文网站禁止复制</a>
                                 </h2>
                             </header>
                             <date class="post-meta meta-date">
-                                March 4, 2025
+                                June 10, 2025
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                in
+                                
+                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
+                                
+                            </div>
+                            
+                            
+                            <div class="post-content summary manual">
+                                
+                                
+                                    禁用JavaScript
+                                
+                            </div>
+                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/%E4%BB%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AE%BE%E7%BD%AE%E5%85%A5%E6%89%8B%E4%B8%80%E6%8B%9B%E7%A0%B4%E8%A7%A3%E4%BD%9C%E6%96%87%E7%BD%91%E7%AB%99%E7%A6%81%E6%AD%A2%E5%A4%8D%E5%88%B6/">阅读全文</a></p>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h2 class="post-title">
+                                    <a href="https://www.yingyu5658.me/posts/tech/4key%E9%9F%B3%E6%B8%B8%E6%AE%B5%E4%BD%8D%E5%8D%95%E6%9B%B2%E6%88%90%E7%BB%A9%E8%AE%A1%E7%AE%97%E7%9A%84%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0/">4Key音游段位单曲成绩计算的程序实现</a>
+                                </h2>
+                            </header>
+                            <date class="post-meta meta-date">
+                                June 7, 2025
                             </date>
                             
                             <div class="post-meta meta-category">
@@ -128,82 +153,21 @@
                             <div class="post-content summary auto">
                                 
                                 
-                                    <p>设备环境：</p>
-<pre tabindex="0"><code>操作系统：Windows 10
-安装系统：Arch Linux
-错误日志：
-Installing, this may take a few minutes...
-WslRegisterDistribution failed with error: 0x80080005
-Error: 0x80080005 ???????
-
-Press any key to continue...
-</code></pre><p>网上有一篇<a href="https://ask.csdn.net/questions/7625716">文章</a>提到这个错误，下面的评论回复以管理员权限运行命令提示符并执行<code>sc stop LxssManager</code>和<code>sc start LxssManager</code>
-出现如下报错：</p>
-<pre tabindex="0"><code>C:\Windows\system32&gt;sc stop LxssManager
-[SC] OpenService 失败 1060:
-
-指定的服务未安装。
-</code></pre><p>顺藤摸瓜，在网上寻找<code>LxssManager</code>这个服务要如何安装。
-网上暂时还没有找到相关文章能够解决这个问题，但是CSDN的一篇文章引起了我的注意
-<a href="https://blog.csdn.net/renwudao24/article/details/52061906">[SC] OpenService 失败：1060指定的服务未安装_[sc] openservice 失败 1060: 指定的服务未安装。-CSDN博客</a>
-文章中提到了“服务”，在开始菜单中搜索服务，进入应用找到了一个名为WSL Service的服务。点左上角启动。
-提取关键信息：<strong>1058、被禁用、关联的设备没有启动</strong>。
-检查功能是否开启：按下 <code>Win+S</code> 搜索 <strong>启用或关闭Windows功能</strong>
-勾选<code>适用于Linux的Windows子系统</code>和<code>虚拟机平台</code>这两项，点击确定
-重启电脑。
-回来以后，用管理员身份运行powershell，强制重置WSL服务，依次执行：</p>
+                                    <h2 id="前言">前言</h2>
+<p>其实这个坑我很早以前就想开了，在我刚开始学编程那会就一直想写一个这个东西。但苦于数学进度没达到，要用到加权平均数，这东西我前两天才学到，之前对数学也一直是懒得学的状态，要不然几乎是看不懂那个算法的。</p>
                                 
                             </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/%E6%9C%AA%E8%A7%A3%E5%86%B3windows-wsl%E6%8A%A5%E9%94%99error-0x80080005/">阅读全文</a></p>
+                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/4key%E9%9F%B3%E6%B8%B8%E6%AE%B5%E4%BD%8D%E5%8D%95%E6%9B%B2%E6%88%90%E7%BB%A9%E8%AE%A1%E7%AE%97%E7%9A%84%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0/">阅读全文</a></p>
                         </article>
                     
                         <article class="post">
                             <header>
                                 <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/posts/tech/css%E9%BC%A0%E6%A0%87%E6%8C%87%E9%92%88%E6%93%8D%E4%BD%9C/">CSS鼠标指针操作</a>
+                                    <a href="https://www.yingyu5658.me/posts/jottings/%E6%9D%82%E8%AE%B0-2025-06-06/">杂记#2025-06-06</a>
                                 </h2>
                             </header>
                             <date class="post-meta meta-date">
-                                March 4, 2025
-                            </date>
-                            
-                            <div class="post-meta meta-category">
-                                in
-                                
-                                    <a href="/categories/"></a>
-                                
-                            </div>
-                            
-                            
-                            <div class="post-content summary auto">
-                                
-                                
-                                    <p>今天在上网冲浪的时候，看到Github上有一个明日方舟风格的<a href="https://github.com/Yue-plus/hexo-theme-arknights">主题</a>，这个主题让我感到新鲜的一点是网页中的鼠标指针特效
-
-        <img class="mx-auto" alt="" src="./view.gif" />   
-    
-这么舒服的动画效果我必须也要做一个，说干就干，新建个HTML文档。</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#56b6c2">*</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">cursor</span>: <span style="color:#e5c07b">pointer</span>;
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>这样，我们整个网页的鼠标指针样式就都变成了小手指的样式，不过这样还是太丑，我们仿照arknights主题的样式，打开PS，画一个指针图标出来看看
-
-        <img class="mx-auto" alt="" src="./screen.png" />   
-    
-使用url()属性可以替换自己的素材图片</p>
-                                
-                            </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/css%E9%BC%A0%E6%A0%87%E6%8C%87%E9%92%88%E6%93%8D%E4%BD%9C/">阅读全文</a></p>
-                        </article>
-                    
-                        <article class="post">
-                            <header>
-                                <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/posts/jottings/194/">孤独摇滚第二季制作决定发布</a>
-                                </h2>
-                            </header>
-                            <date class="post-meta meta-date">
-                                February 15, 2025
+                                June 6, 2025
                             </date>
                             
                             <div class="post-meta meta-category">
@@ -217,44 +181,20 @@ Press any key to continue...
                             <div class="post-content summary auto">
                                 
                                 
-                                    <p>
-        <img class="mx-auto" alt="官号推文截图" src="./images/3572161185.jpg" />   
-    </p>
-<p>普天同庆 皆大欢喜 可喜可贺 朝思夜想
-你说的对，但是电视动画片《孤独摇滚！》改编自滨路晶创作的同名漫画作品，于2021年2月19日宣布电视动画化的消息 <a href="./images/3572161185.jpg">1</a>。该片由CloverWorks负责制作，于2022年10月8日至12月24日播出，全12集 [9]。
-2024年3月24日，官方宣布总集篇前篇《电影总集篇孤独摇滚！ Re:》于2024年6月7日上映，后篇《电影总集篇孤独摇滚！ Re:Re:》于2024年8月9日上映 [29]。
-我现在就要看孤独摇滚第二季
-我现在就要看孤独摇滚第二季
-我现在就要看孤独摇滚第二季
-我现在就要看孤独摇滚第二季
-我现在就要看孤独摇滚第二季
-我现在就要看孤独摇滚第二季
-我现在就要看孤独摇滚第二季
-我现在就要看孤独摇滚第二季
-我现在就要看孤独摇滚第二季
-我现在就要看孤独摇滚第二季
-我现在就要看孤独摇滚第二季
-我现在就要看孤独摇滚第二季
-我现在就要看孤独摇滚第二季
-我现在就要看孤独摇滚第二季
-我现在就要看孤独摇滚第二季
-我现在就要看孤独摇滚第二季
-我现在就要看孤独摇滚第二季
-我现在就要看孤独摇滚第二季
-花茶加倍歘白卡激活话，外喜欢吹夕会w吹黑彩hi这到场这到场被挡抄吧活儿底盒到场诶会撮合桌藏偶尔桌号二水哦二徐欧珠说二宝偶尔宝硕二队二队采耳偶尔对裁往外渤海我都被华欧黑东北菜黑比黑波好的啵还菜这报的说说这倒水偶财务桌晒w淬火外催偶得操B偶得催偶红黑炒荷花好舍不苍社上少社囧囧偶，偶尔可劲儿开车悟空烤鹅吃呢惨二餐三儿从哪</p>
+                                    <p>纠结了很长时间，这篇文章命名的事。我是典型的选择困难，出于文章内容组织的形式，就把他命名为杂记了。不过应该也没什么人看，我就~~（梦）~~想到什么写什么了</p>
                                 
                             </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/jottings/194/">阅读全文</a></p>
+                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/jottings/%E6%9D%82%E8%AE%B0-2025-06-06/">阅读全文</a></p>
                         </article>
                     
                         <article class="post">
                             <header>
                                 <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/posts/tech/187/">开箱即用的neovim配置文件</a>
+                                    <a href="https://www.yingyu5658.me/posts/tech/c%E8%AF%AD%E8%A8%80%E7%9A%84%E5%A4%B4%E6%96%87%E4%BB%B6%E4%B8%8Eoop%E8%8C%83%E5%BC%8F%E7%9A%84%E6%8A%BD%E8%B1%A1%E7%B1%BB%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%BC%82%E5%90%8C%E7%82%B9/">C语言的头文件与OOP范式的抽象类、接口的异同点</a>
                                 </h2>
                             </header>
                             <date class="post-meta meta-date">
-                                January 22, 2025
+                                June 6, 2025
                             </date>
                             
                             <div class="post-meta meta-category">
@@ -268,320 +208,11 @@ Press any key to continue...
                             <div class="post-content summary auto">
                                 
                                 
-                                    <blockquote>
-<p>2025.8.24二编: 这个蠢货为什么不挂github&hellip;&hellip;</p></blockquote>
-<h3 id="下载链接">下载链接</h3>
-<p><a href="https://yingyu5658.lanzoup.com/iWfXQ2ln6jre">https://yingyu5658.lanzoup.com/iWfXQ2ln6jre</a>
-为了兄弟们下得爽点就不用百度网盘或者夸克了
-代码都有比较详细的注释</p>
+                                    <h2 id="引言">引言</h2>
+<p>说真的，从去年十一月份开始接触编程，到现在也好几个月了，自认为进步速度较快，但速度快也就导致了深度浅，走马观花式的学习，现在还是有很多理解不深刻的点，今天来仔细研究一下这个问题。我也是先入为主，第一门编程语言学的是Java，所以再接触C，一些概念就混淆了。</p>
                                 
                             </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/187/">阅读全文</a></p>
-                        </article>
-                    
-                        <article class="post">
-                            <header>
-                                <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/posts/tech/186/">Java面向对象编程——多态、抽象类、接口</a>
-                                </h2>
-                            </header>
-                            <date class="post-meta meta-date">
-                                January 10, 2025
-                            </date>
-                            
-                            <div class="post-meta meta-category">
-                                in
-                                
-                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
-                                
-                            </div>
-                            
-                            
-                            <div class="post-content summary auto">
-                                
-                                
-                                    <h1 id="什么是多态">什么是多态</h1>
-<ul>
-<li>在继承/实现情况下的一种现象，表现为：对象多态、行为多态。</li>
-</ul>
-<h2 id="多态的前提">多态的前提</h2>
-<ul>
-<li>有<strong>继承/实</strong>现关系；存在父类引用子类对象；<strong>存在方法重写</strong></li>
-<li>
-<h2 id="多态的注意事项">多态的注意事项</h2>
-</li>
-<li>多态是对象、行为的多态，成员变量不体现多态。</li>
-</ul>
-<h1 id="使用多态的好处">使用多态的好处</h1>
-<ul>
-<li>在多态形式下，右边的对象是解耦合的，更便于拓展和维护。</li>
-<li>定义方法时，使用父类类型的形参，可以接收一切子类对象，扩展性更强、更便利。</li>
-</ul>
-<h1 id="多态下产生的一个问题">多态下产生的一个问题</h1>
-<ul>
-<li>多态下不能使用子类的独有功能。</li>
-</ul>
-<h2 id="多态下的类型转换">多态下的类型转换</h2>
-<ul>
-<li>自动类型转换：<code>父类 变量名 = new 子类();</code></li>
-<li>强制类型转换： <code>子类 变量名 = (子类)父类变量</code></li>
-</ul>
-<h2 id="强制类型转换的注意事项">强制类型转换的注意事项</h2>
-<ul>
-<li>存在继承/实现关系就可以在编译阶段进行强制类型转换，编译阶段不会报错。</li>
-<li>运行时，如果发现对象的真实类型与强转后的类型不同，就会报类型转换异常(ClassCastException)</li>
-</ul>
-<h3 id="强转前java建议">强转前，Java建议：</h3>
-<ul>
-<li>使用instanceof关键字，判断当前对象的真是类型，再进行强制类型转换。</li>
-</ul>
-<h1 id="final">final</h1>
-<ul>
-<li>final关键字的中文是最终的意思，可以修饰类、方法、变量
-<ul>
-<li>修饰类：该类被称为最终类，特点是不能被继承了。</li>
-<li>修饰方法：该方法被称为最终方法，特点是不能被重写了。</li>
-<li>修饰变量：该变量只能被赋值一次。</li>
-</ul>
-</li>
-</ul>
-<h1 id="常量">常量</h1>
-<ul>
-<li>使用了static final 修饰的成员变量就被称为常量；</li>
-<li>作用：通常用于记录系统的配置信息。</li>
-<li><strong>注意：常量的命名规范：使用大写英文单词，多个单词使用下划线连接起来。</strong></li>
-</ul>
-<h2 id="视同常量记录系统配置信息的优势执行原理">视同常量记录系统配置信息的优势、执行原理</h2>
-<ul>
-<li>代码可读性更好、可维护性也更好。</li>
-<li>程序编译后，常量会被宏替换：出现常量的地方全部会被替换成其记住的字面量，这样可以保证使用常量和直接用字面量的性能是一样的。</li>
-</ul>
-<h1 id="抽象类">抽象类</h1>
-<h2 id="什么是抽象类">什么是抽象类</h2>
-<ul>
-<li>Java中有个关键字叫abstract，他就是抽象的意思，可以用来修饰类、成员方法</li>
-<li>abstract修饰类，这个就是抽象类，修饰成员方法同理。</li>
-</ul>
-<h2 id="抽象类的注意事项特点">抽象类的注意事项、特点</h2>
-<ul>
-<li>抽象类中不一定有抽象方法，有抽象方法的类一定是抽象类。</li>
-<li>类该有的成员（成员变量、方法、构造器）抽象类都可以有。</li>
-<li><strong>抽象类最主要的特点：</strong> 抽象类不能创建对象，仅作为一种特殊的父类，让子类继承并实现。</li>
-<li>一个类继承抽象类，必须重写完抽象类的全部抽象方法，否则这个类也必须定义成抽象类。</li>
-</ul>
-<h2 id="抽象类的使用场景和好处">抽象类的使用场景和好处</h2>
-<ul>
-<li>父类知道每个子类都要做某个行为，但每个子类做的情况不一样，父类就定义成抽象方法，交给子类去重写实现，我们设计这样的抽象类，就是为了更好的支持多态。<del>爸爸画饼儿子烙饼</del></li>
-</ul>
-<h1 id="接口">接口</h1>
-<h2 id="接口概述">接口概述</h2>
-<ul>
-<li>Java提供了一个关键字interface，用这个关键字我们可以定义出一个特殊的结构：接口。</li>
-<li>注意：接口不能创建对象；接口是用来被类实现（implements）的，实现接口的类被称为实现类。</li>
-<li>一个类可以实现多个接口，实现类实现多个接口必须重写完全部接口的全部抽象方法，否则实现类需要定义成抽象类。</li>
-</ul>
-                                
-                            </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/186/">阅读全文</a></p>
-                        </article>
-                    
-                        <article class="post">
-                            <header>
-                                <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/posts/tech/185/">Java面向对象编程——继承</a>
-                                </h2>
-                            </header>
-                            <date class="post-meta meta-date">
-                                January 10, 2025
-                            </date>
-                            
-                            <div class="post-meta meta-category">
-                                in
-                                
-                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
-                                
-                            </div>
-                            
-                            
-                            <div class="post-content summary auto">
-                                
-                                
-                                    <h1 id="什么是继承">什么是继承</h1>
-<ul>
-<li>Java中提供了一个关键字<code>extends</code>，用这个关键字，可以让一个类和另一个类建立起父子关系。</li>
-</ul>
-<h2 id="继承的特点">继承的特点</h2>
-<ul>
-<li>子类能继承父类的非私有成员变量和成员方法。</li>
-</ul>
-<h2 id="继承后对象的创建">继承后对象的创建</h2>
-<ul>
-<li>子类的对象是由子类、父类共同完成的。</li>
-</ul>
-<h1 id="继承相关的注意事项">继承相关的注意事项</h1>
-<h2 id="权限修饰符">权限修饰符</h2>
-<h2 id="什么是权限修饰符">什么是权限修饰符？</h2>
-<ul>
-<li>用来限制类中的成员（成员变量、成员方法、构造器、代码块&hellip;）能够被访问的范围</li>
-</ul>
-<h2 id="权限修饰符有几种与各自的作用">权限修饰符有几种与各自的作用</h2>
-<table>
-  <thead>
-      <tr>
-          <th>修饰符</th>
-          <th>在本类中</th>
-          <th>同一个包下的其他类</th>
-          <th>任意包下的子类</th>
-          <th>任意包下的任意类</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>private</td>
-          <td>√</td>
-          <td></td>
-          <td></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>缺省</td>
-          <td>√</td>
-          <td>√</td>
-          <td></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>protected</td>
-          <td>√</td>
-          <td>√</td>
-          <td>√</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>public</td>
-          <td>√</td>
-          <td>√</td>
-          <td>√</td>
-          <td>√</td>
-      </tr>
-      <tr>
-          <td>provate &lt; 缺省 &lt; protected &lt; public</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-      </tr>
-  </tbody>
-</table>
-<h1 id="单继承">单继承</h1>
-<p>Java是<strong>继承</strong>的，Java中的类<strong>不支持多继承</strong>，但是支持<strong>多层继承</strong>。</p>
-                                
-                            </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/185/">阅读全文</a></p>
-                        </article>
-                    
-                        <article class="post">
-                            <header>
-                                <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/posts/tech/184/">修复Geyser下基岩版玩家无法在地狱基岩层放置方块</a>
-                                </h2>
-                            </header>
-                            <date class="post-meta meta-date">
-                                January 8, 2025
-                            </date>
-                            
-                            <div class="post-meta meta-category">
-                                in
-                                
-                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
-                                
-                            </div>
-                            
-                            
-                            <div class="post-content summary auto">
-                                
-                                
-                                    <p>在<code>plugins\Geyser-Spigot\config.yml</code>中把第160行的<code>above-bedrock-nether-building: false</code>改为<code>true</code>，重启服务器，问题解决~
-原理：geyser把下界翻译成了末地，会导致下界天空变成末地的样式，不过可以解决基岩版玩家在地狱基岩层的问题。</p>
-                                
-                            </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/184/">阅读全文</a></p>
-                        </article>
-                    
-                        <article class="post">
-                            <header>
-                                <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/posts/tech/181/">Spigot服务端控制台中文乱码解决方案</a>
-                                </h2>
-                            </header>
-                            <date class="post-meta meta-date">
-                                January 4, 2025
-                            </date>
-                            
-                            <div class="post-meta meta-category">
-                                in
-                                
-                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
-                                
-                            </div>
-                            
-                            
-                            <div class="post-content summary auto">
-                                
-                                
-                                    <ol>
-<li>把<code>-Dfile.encoding=UTF-8</code>加在开服脚本文件的<code>-jar</code>前即可。</li>
-<li>在启动脚本第一行加上<code>chcp 65001</code>
-我的启动脚本如下：</li>
-</ol>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>chcp <span style="color:#d19a66">65001</span>
-</span></span><span style="display:flex;"><span>java -Dfile.encoding<span style="color:#56b6c2">=</span>UTF-8 -jar spigot-1.21.jar
-</span></span></code></pre></div>
-                                
-                            </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/181/">阅读全文</a></p>
-                        </article>
-                    
-                        <article class="post">
-                            <header>
-                                <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/posts/tech/171/">String的注意事项</a>
-                                </h2>
-                            </header>
-                            <date class="post-meta meta-date">
-                                December 19, 2024
-                            </date>
-                            
-                            <div class="post-meta meta-category">
-                                in
-                                
-                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
-                                
-                            </div>
-                            
-                            
-                            <div class="post-content summary auto">
-                                
-                                
-                                    <h1 id="string的注意事项">String的注意事项</h1>
-<ul>
-<li>
-<ol>
-<li>String对象的内容不可改变， 被称为不可变字符串对象。</li>
-</ol>
-</li>
-<li>
-<ol start="2">
-<li>只要是以“&hellip;”的方式写出的字符串，都会存储到字符串常量池，且相同的字符串只存储一份；</li>
-</ol>
-</li>
-<li>但通过new方式创建字符串对象，每new一次都会产生一个新的对象放在堆内存中。</li>
-</ul>
-<h1 id="不可变字符串对象">不可变字符串对象</h1>
-<p>不可变？它肯定可变啊，比如</p>
-                                
-                            </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/171/">阅读全文</a></p>
+                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/c%E8%AF%AD%E8%A8%80%E7%9A%84%E5%A4%B4%E6%96%87%E4%BB%B6%E4%B8%8Eoop%E8%8C%83%E5%BC%8F%E7%9A%84%E6%8A%BD%E8%B1%A1%E7%B1%BB%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%BC%82%E5%90%8C%E7%82%B9/">阅读全文</a></p>
                         </article>
                     
 
@@ -653,6 +284,19 @@ Press any key to continue...
         </li>
         
     
+        
+        <li>
+            <span>...</span>
+        </li>
+        
+    
+        
+        
+        <li >
+            <a href="https://www.yingyu5658.me/page/22/">22</a>
+        </li>
+        
+    
 
     
 
@@ -680,9 +324,13 @@ Press any key to continue...
 
     </section>
 
-    <section class="widget">
+<section class="widget">
         <h3 class="widget-title">Latest articles</h3>
 <ul class="widget-list">
+    
+    <li>
+        <a href="https://www.yingyu5658.me/posts/jottings/dissipation-of-consciousness-after-death/" title="「我害怕死」" target="_blank">「我害怕死」</a>
+    </li>
     
     <li>
         <a href="https://www.yingyu5658.me/posts/jottings/what-is-carried-by-words-can-transcend-time-and-space/" title="文字所承载的东西能跨越时空" target="_blank">文字所承载的东西能跨越时空</a>
@@ -720,16 +368,10 @@ Press any key to continue...
         <a href="https://www.yingyu5658.me/posts/jottings/%E6%9C%80%E8%86%88%E5%BA%94%E4%B8%8D%E7%88%B1%E6%83%9C%E4%B9%A6%E7%9A%84%E4%BA%BA/" title="最膈应不爱惜书的人" target="_blank">最膈应不爱惜书的人</a>
     </li>
     
-    <li>
-        <a href="https://www.yingyu5658.me/posts/jottings/%E5%88%AB%E9%97%B2%E7%9D%80%E6%B2%A1%E4%BA%8B%E8%87%AA%E6%90%9C%E9%BB%91%E5%8E%86%E5%8F%B2%E5%95%8A/" title="别闲着没事自搜，黑历史啊" target="_blank">别闲着没事自搜，黑历史啊</a>
-    </li>
-    
 </ul>
     </section>
 
-    
-
-    <section class="widget">
+<section class="widget">
         <h3 class="widget-title"><a href='/categories/'>Categories</a></h3>
 <ul class="widget-list">
     
@@ -737,283 +379,68 @@ Press any key to continue...
     
     <li><a href="https://www.yingyu5658.me/categories/%E8%AF%BB%E4%B9%A6/">读书 (1)</a></li>
     
-    <li><a href="https://www.yingyu5658.me/categories/%E9%9A%8F%E7%AC%94/">随笔 (41)</a></li>
+    <li><a href="https://www.yingyu5658.me/categories/%E9%9A%8F%E7%AC%94/">随笔 (42)</a></li>
     
 </ul>
     </section>
 
-    <section class="widget">
-        <h3 class="widget-title"><a href='/tags/'>Tags</a></h3>
-<div class="tagcloud">
-    
-    <a href="https://www.yingyu5658.me/tags/acgn/">ACGN</a>
-    
-    <a href="https://www.yingyu5658.me/tags/arch/">Arch</a>
-    
-    <a href="https://www.yingyu5658.me/tags/b%E7%AB%99/">B站</a>
-    
-    <a href="https://www.yingyu5658.me/tags/c/">C</a>
-    
-    <a href="https://www.yingyu5658.me/tags/c%E8%AF%AD%E8%A8%80/">C语言</a>
-    
-    <a href="https://www.yingyu5658.me/tags/electron/">Electron</a>
-    
-    <a href="https://www.yingyu5658.me/tags/emacs/">Emacs</a>
-    
-    <a href="https://www.yingyu5658.me/tags/fedora/">Fedora</a>
-    
-    <a href="https://www.yingyu5658.me/tags/geyser/">Geyser</a>
-    
-    <a href="https://www.yingyu5658.me/tags/gnu/">GNU</a>
-    
-    <a href="https://www.yingyu5658.me/tags/hexo/">Hexo</a>
-    
-    <a href="https://www.yingyu5658.me/tags/java/">Java</a>
-    
-    <a href="https://www.yingyu5658.me/tags/javascript/">JavaScript</a>
-    
-    <a href="https://www.yingyu5658.me/tags/linux/">Linux</a>
-    
-    <a href="https://www.yingyu5658.me/tags/malody/">Malody</a>
-    
-    <a href="https://www.yingyu5658.me/tags/minecraft/">Minecraft</a>
-    
-    <a href="https://www.yingyu5658.me/tags/neovim/">Neovim</a>
-    
-    <a href="https://www.yingyu5658.me/tags/nodejs/">NodeJS</a>
-    
-    <a href="https://www.yingyu5658.me/tags/obsidain/">Obsidain</a>
-    
-    <a href="https://www.yingyu5658.me/tags/osu/">Osu</a>
-    
-    <a href="https://www.yingyu5658.me/tags/seo/">SEO</a>
-    
-    <a href="https://www.yingyu5658.me/tags/terrira/">Terrira</a>
-    
-    <a href="https://www.yingyu5658.me/tags/thunderbird/">Thunderbird</a>
-    
-    <a href="https://www.yingyu5658.me/tags/typecho/">Typecho</a>
-    
-    <a href="https://www.yingyu5658.me/tags/vim/">Vim</a>
-    
-    <a href="https://www.yingyu5658.me/tags/windows/">Windows</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E5%8E%8C%E8%A0%A2%E7%97%87/">“厌蠢症”</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/">二叉树</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E4%BA%BA%E9%99%85%E4%BA%A4%E5%BE%80/">人际交往</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E4%BC%8A%E8%B1%86%E7%9A%84%E8%88%9E%E5%A5%B3/">伊豆的舞女</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E4%BF%A1%E6%81%AF%E8%8A%82%E9%A3%9F/">信息节食</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/">冒泡排序</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E5%86%99%E4%BD%9C/">写作</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E5%89%8D%E7%AB%AF/">前端</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E5%8D%9A%E5%AE%A2/">博客</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E5%8E%86%E5%8F%B2/">历史</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/">哈希表</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E5%93%B2%E5%AD%A6/">哲学</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E5%9B%9E%E5%BF%86/">回忆</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E5%9B%BE%E4%B9%A6/">图书</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E5%A4%8F/">夏</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E5%AD%A6%E4%B8%9A/">学业</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E5%AD%A6%E6%A0%A1/">学校</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E5%B0%8F%E5%93%81/">小品</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E5%B7%9D%E7%AB%AF%E5%BA%B7%E6%88%90/">川端康成</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E5%BA%95%E5%B1%82%E6%8A%80%E6%9C%AF/">底层技术</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E5%BD%A2%E8%80%8C%E4%B8%8A%E5%AD%A6/">形而上学</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E6%80%80%E6%97%A7/">怀旧</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E6%84%9F%E5%AE%98/">感官</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E6%84%9F%E8%B0%A2%E6%81%A9%E5%B8%88%E5%A4%B8%E5%A5%96/">感谢恩师夸奖</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E6%88%91/">我</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E6%89%A9%E5%88%97/">扩列</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/">搜索引擎</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E6%95%99%E7%A8%8B/">教程</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E6%96%87%E5%AD%97/">文字</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E6%96%87%E7%AB%A0/">文章</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E6%96%B0%E9%97%BB%E7%BB%84/">新闻组</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E6%97%81%E8%A7%82%E8%80%85/">旁观者</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E6%97%A5%E5%B8%B8/">日常</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E6%97%A5%E6%9C%AC%E6%96%87%E5%AD%A6/">日本文学</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E6%97%A9%E7%9D%A1%E6%97%A9%E8%B5%B7/">早睡早起</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E6%97%B6%E6%94%BF/">时政</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E6%9C%8B%E5%8F%8B%E5%9C%88/">朋友圈</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E6%9C%AA%E6%88%90%E5%B9%B4%E4%BA%BA%E4%BF%9D%E6%8A%A4/">未成年人保护</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E6%9D%82%E8%AE%B0/">杂记</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E6%B1%87%E7%BC%96/">汇编</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E6%B2%9F%E9%80%9A/">沟通</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/">浏览器</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E6%B8%B8%E6%88%8F/">游戏</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E7%8B%97%E5%8F%AB/">狗叫</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E7%8C%AB/">猫</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E7%9F%A5%E4%B9%8E/">知乎</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E7%A4%BE%E4%BA%A4/">社交</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E7%BB%88%E7%AB%AF/">终端</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E7%BC%96%E7%A8%8B/">编程</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">编译原理</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E7%BC%96%E8%AF%91%E5%99%A8/">编译器</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83/">网络环境</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E7%BF%BB%E8%AF%91/">翻译</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E8%80%83%E8%AF%95/">考试</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E8%87%AA%E6%90%9C/">自搜</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E8%A7%82%E5%AF%9F/">观察</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E8%AE%B0%E5%BF%86/">记忆</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E8%B1%86%E7%93%A3/">豆瓣</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E8%B4%9D%E6%96%AF/">贝斯</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E8%B4%AD%E7%89%A9/">购物</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/">软件开发</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E8%BE%A8%E8%AF%81%E6%B3%95/">辨证法</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E9%85%92/">酒</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E9%98%85%E8%AF%BB/">阅读</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">阅读笔记</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E9%98%BF%E9%87%8C%E4%BA%91/">阿里云</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E9%9A%8F%E7%AC%94/">随笔</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E9%9F%B3%E4%B9%90/">音乐</a>
-    
-</div>
-    </section>
 
-    
-<section class="widget">
-    <h3 class="widget-title">Links</h3>
-    <ul class="widget-list">
+	<h3 class="widget-title">最近回复</h3>
+<section id="waline-recent"></section>
         
-        <li>
-            <a target="_blank" href="https://www.sifangbazhu.tech/" title="MRZHU的小站">MRZHU的小站</a>
-        </li>
-        
-        <li>
-            <a target="_blank" href="https://rhopaper.top/" title="RhoPaperの小站">RhoPaperの小站</a>
-        </li>
-        
-        <li>
-            <a target="_blank" href="https://177.plus/" title="177">177</a>
-        </li>
-        
-        <li>
-            <a target="_blank" href="https://printempw.github.io/" title="PRIN BLOG">PRIN BLOG</a>
-        </li>
-        
-        <li>
-            <a target="_blank" href="https://webteleporter.top/" title="Web Teleporter">Web Teleporter</a>
-        </li>
-        
-        <li>
-            <a target="_blank" href="https://banzhuanriji.com/" title="搬砖日记">搬砖日记</a>
-        </li>
-        
-        <li>
-            <a target="_blank" href="https://note.redcha.cn/" title="彬红茶日记">彬红茶日记</a>
-        </li>
-        
-        <li>
-            <a target="_blank" href="https://www.qingfengnb.cn/" title="轻风blog">轻风blog</a>
-        </li>
-        
-        <li>
-            <a target="_blank" href="https://chengshuo.top/" title="成烁的主页">成烁的主页</a>
-        </li>
-        
-        <li>
-            <a target="_blank" href="https://blog.bxaw.name" title="白熊阿丸的小屋">白熊阿丸的小屋</a>
-        </li>
-        
-    </ul>
-</section>
+    	
+	
+    </div>
 
+<script type="module">
+  import { RecentComments } from 'https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.mjs';
 
-    <section class="widget">
-        <h3 class="widget-title">Meta</h3>
-        <ul class="widget-list">
-            <li><a href="https://www.yingyu5658.me/atom.xml">RSS</a></li>
-            <li><a href="https://github.com/yingyu5658/">Github</a></li>
-        </ul>
-    </section>
-</div>
+  RecentComments({
+    el: '#waline-recent',
+    serverURL: 'https://waline.yingyu5658.me',
+    count: 5,
+  });
+</script>
 
         </div>
     </div>
 </div>
 </body>
 <footer id="footer">
-    <div>
-		<p>© 2025 <a href="https://www.yingyu5658.me">映屿</a>. 由<a href="https://gohugo.io/">Typecho</a>强力驱动.
-		</p><br> 
-   
+	<div>
+		<p><a href="/links">友链</a> · <a href="/atom.xml">订阅</a></p>
+		<hr width="20px">
+		<p>© 2025 <a href="https://www.yingyu5658.me">映屿</a>. 由<a href="https://gohugo.io/"> Typecho </a>强力驱动.</p>
 		
-    </div>
-    <br />
+		
+		<p>本站已运行<span class="running-time"></span>. 共 104 篇文章.</p>
+
+
+		<script>
+			function initRuntime() {
+				const startDate = new Date('2024-11-03');
+				const now = new Date();
+				const diff = now - startDate;
+
+				
+				const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+				
+				document.querySelector('.running-time').innerText =
+					` ${days} 天`;
+			}
+
+			
+			window.addEventListener('load', initRuntime);
+		</script>
+
+		
+	</div>
+	<br />
 </footer>
+
+
+
 
 
 
@@ -1027,6 +454,8 @@ Press any key to continue...
 
 
 
+
+<script src='/js/app.extra.js'></script>
 
 
 </html>

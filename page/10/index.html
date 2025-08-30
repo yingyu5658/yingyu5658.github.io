@@ -87,8 +87,6 @@
                     
                     <a  href="https://www.yingyu5658.me/archives" title="归档">归档</a>
                     
-                    <a  href="https://www.yingyu5658.me/newsgroup/" title="新闻组">新闻组</a>
-                    
                     <a  href="https://www.yingyu5658.me/about/" title="关于">关于</a>
                     
                 </nav>
@@ -110,11 +108,11 @@
                         <article class="post">
                             <header>
                                 <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/posts/tech/166/">面向对象编程总结</a>
+                                    <a href="https://www.yingyu5658.me/posts/tech/emacs%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95-2c-c&#43;&#43;%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">Emacs配置记录 2——C/C&#43;&#43;环境配置</a>
                                 </h2>
                             </header>
                             <date class="post-meta meta-date">
-                                December 18, 2024
+                                June 4, 2025
                             </date>
                             
                             <div class="post-meta meta-category">
@@ -128,115 +126,24 @@
                             <div class="post-content summary auto">
                                 
                                 
-                                    <p>面向对象（oop）</p>
-<h2 id="面向对象编程的思想面向拿或者找">面向对象编程的思想：面向。拿或者找。</h2>
-<p>对象：东西
-面向对象编程：拿东西过来编程
-面向对象：把现实世界中的食物看成一个一个对象来解决问题的。（万物皆 对象）
-面向对象的好处：代码更符合人类的思维习惯。编程更简单。看程序更容易理解（？）</p>
+                                    <h2 id="前言">前言</h2>
+<p>经过<a href="">上一篇</a>的简单调教，Emacs已经勉强变成了一个温顺的文本编辑器，但是离写代码这个宏大的目标还是有一段距离的，今天来解决主要问题：代码补全。由于我要写一点简单的C代码，那么重点就先放到C/CPP环境搭建中。</p>
+<p>站在巨人的肩膀上，在Emacs中的代码补全使用巨硬的LSP协议。</p>
+<h2 id="spacemacs">Spacemacs</h2>
+<p>经过考虑，我还是决定使用Spacemacs，比起原版Emacs，它更适合新手，也更能快速投入开发。避免配置陷阱，过多把时间花在刀把上。唉，也就是说，昨天大部分都白干了。算了，生命的意义就在于折腾，怕折腾我也不会玩Emacs了。来吧！</p>
                                 
                             </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/166/">阅读全文</a></p>
+                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/emacs%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95-2c-c&#43;&#43;%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">阅读全文</a></p>
                         </article>
                     
                         <article class="post">
                             <header>
                                 <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/posts/tech/163/">记录配置SSL证书</a>
+                                    <a href="https://www.yingyu5658.me/posts/jottings/%E6%98%9F%E8%90%BD%E5%85%B3%E4%BA%8E%E6%88%91%E5%AF%B9%E5%91%BD%E8%BF%90%E6%97%A2%E5%AE%9A%E7%9A%84%E6%83%B3%E6%B3%95/">【投稿】关于我对命运既定的想法</a>
                                 </h2>
                             </header>
                             <date class="post-meta meta-date">
-                                December 17, 2024
-                            </date>
-                            
-                            <div class="post-meta meta-category">
-                                in
-                                
-                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
-                                
-                            </div>
-                            
-                            
-                            <div class="post-content summary auto">
-                                
-                                
-                                    <p>首先你要有一个SSL证书，建议在阿里云购买或者<a href="https://developer.aliyun.com/article/1595201">免费申请</a>，具体过程阿里云这个页面讲的很详细，在此不过多赘述。</p>
-<h1 id="配置证书">配置证书</h1>
-<p>由于我的nginx安装了ssl模块，直接进入配置证书。</p>
-<p>解压下载好的证书，然后上传到服务器。位置自己方便找到即可
-我放到了root/card</p>
-                                
-                            </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/163/">阅读全文</a></p>
-                        </article>
-                    
-                        <article class="post">
-                            <header>
-                                <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/posts/tech/156/">Typecho不要用阿里云系统镜像</a>
-                                </h2>
-                            </header>
-                            <date class="post-meta meta-date">
-                                December 15, 2024
-                            </date>
-                            
-                            <div class="post-meta meta-category">
-                                in
-                                
-                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
-                                
-                            </div>
-                            
-                            
-                            <div class="post-content summary auto">
-                                
-                                
-                                    <p>不要用阿里云的系统镜像，那个是1.1版本的。。。很多插件都没办法正常用。。。比如这两个插件就会这样</p>
-<p>
-        <img class="mx-auto" alt="" src="./4097191903.png" />   
-    </p>
-<p>还有很多主题和插件都犯这样的毛病，在此不多提，我会想办法升级版本的（又挖了个坑）</p>
-                                
-                            </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/156/">阅读全文</a></p>
-                        </article>
-                    
-                        <article class="post">
-                            <header>
-                                <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/posts/tech/147/">Vim基础操作快速入门</a>
-                                </h2>
-                            </header>
-                            <date class="post-meta meta-date">
-                                December 13, 2024
-                            </date>
-                            
-                            <div class="post-meta meta-category">
-                                in
-                                
-                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
-                                
-                            </div>
-                            
-                            
-                            <div class="post-content summary auto">
-                                
-                                
-                                    <h1 id="前言">前言</h1>
-<p>各种鼠标操作让我有点抓狂，vim或许是一个很适合我的东西，全键盘操作听起来就很方便快捷，除了上手难度有点高以外，vim看起来似乎没有任何的缺点。在下载安装好了vim后，我开始学习了快捷键。<del>然后我们就可以直接把鼠标扔了。</del></p>
-                                
-                            </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/147/">阅读全文</a></p>
-                        </article>
-                    
-                        <article class="post">
-                            <header>
-                                <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/posts/jottings/%E6%B8%B8%E6%88%8F%E8%B5%84%E6%BA%90%E4%B8%8B%E8%BD%BD%E5%8F%8A%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%B8%E5%85%B3%E6%95%99%E7%A8%8B/">游戏资源下载及连接服务器相关教程</a>
-                                </h2>
-                            </header>
-                            <date class="post-meta meta-date">
-                                December 13, 2024
+                                June 3, 2025
                             </date>
                             
                             <div class="post-meta meta-category">
@@ -250,22 +157,51 @@
                             <div class="post-content summary auto">
                                 
                                 
-                                    <h1 id="前言">前言</h1>
-<p>为了避免不必要的麻烦和纠纷，也是为了打造一个纯粹干净高质量的社区，我们需要对想要参与的人员提出一些条件，请确保你自身可以满足这些条件后再来愉快的玩耍。
-<strong>所有的条件都是最基本的，一点也不苛刻，大部分要求仅仅是一些应该具备的能力。</strong></p>
+                                    <blockquote>
+<p>本文作者：<a href="https://space.bilibili.com/1920354618">星が落ちる</a>
+本文观点仅代表作者个人观点，不代表任何除作者外的个人或组织的立场。</p></blockquote>
+<p>我的观点或许和强决定论很相似，我认为人类存在本质上是一种“预置框架”下的时间性展开，所谓自由意志与命运抗争，都是框架内既定的程序脚本</p>
                                 
                             </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/jottings/%E6%B8%B8%E6%88%8F%E8%B5%84%E6%BA%90%E4%B8%8B%E8%BD%BD%E5%8F%8A%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%B8%E5%85%B3%E6%95%99%E7%A8%8B/">阅读全文</a></p>
+                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/jottings/%E6%98%9F%E8%90%BD%E5%85%B3%E4%BA%8E%E6%88%91%E5%AF%B9%E5%91%BD%E8%BF%90%E6%97%A2%E5%AE%9A%E7%9A%84%E6%83%B3%E6%B3%95/">阅读全文</a></p>
                         </article>
                     
                         <article class="post">
                             <header>
                                 <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/posts/jottings/141/">醉酒哈基米寒假开服活动Q&amp;amp;A</a>
+                                    <a href="https://www.yingyu5658.me/posts/tech/%E6%88%91%E8%BF%98%E6%98%AF%E6%94%BE%E4%B8%8D%E4%B8%8Bemacs/">我还是放不下Emacs！</a>
                                 </h2>
                             </header>
                             <date class="post-meta meta-date">
-                                December 8, 2024
+                                June 3, 2025
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                in
+                                
+                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
+                                
+                            </div>
+                            
+                            
+                            <div class="post-content summary auto">
+                                
+                                
+                                    <h2 id="前言">前言</h2>
+<p>难受，真难受呀。作为一个痴迷Vim的人，总是被Emacs的强大勾引，看见别人配的酷炫全能的Emacs就走不动路，脑子里想着“没事没事，我Vim轻量启动极快，Emacs这种重量级是比不上的”，自我安慰。实际上多想玩Emacs只有我自己知道&hellip;&hellip;</p>
+                                
+                            </div>
+                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/%E6%88%91%E8%BF%98%E6%98%AF%E6%94%BE%E4%B8%8D%E4%B8%8Bemacs/">阅读全文</a></p>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h2 class="post-title">
+                                    <a href="https://www.yingyu5658.me/posts/jottings/%E7%8C%AB/">猫</a>
+                                </h2>
+                            </header>
+                            <date class="post-meta meta-date">
+                                June 1, 2025
                             </date>
                             
                             <div class="post-meta meta-category">
@@ -279,22 +215,21 @@
                             <div class="post-content summary auto">
                                 
                                 
-                                    <h1 id="醉酒哈基米寒假联机活动">醉酒哈基米寒假联机活动</h1>
-<p>为打发时间，<del>提升群友之间的羁绊</del>，2024年寒假特举行泰拉瑞亚/我的世界服务器活动。</p>
-<p>对于有可能出现的疑问，下方都做了详细的解答，文档中没有的问题可直接咨询我。</p>
+                                    <p>六年前，曾短暂地拥有过一周的狗。只有一周。</p>
+<p>那个时候爸妈都出去上班，只留我和我奶奶在家。奶奶不喜欢小动物，不喜欢任何活物，包括我爸爸。据说她年轻时，经常把我爸爸送到邻居家照看，单纯因为不喜欢。同样地，她也不喜欢花草。爷爷养的茉莉花，颜色洁白，屋内也花香飘逸，死了。被奶奶用热水浇死的。</p>
                                 
                             </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/jottings/141/">阅读全文</a></p>
+                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/jottings/%E7%8C%AB/">阅读全文</a></p>
                         </article>
                     
                         <article class="post">
                             <header>
                                 <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/posts/tech/130/">记录Hexo搭建博客</a>
+                                    <a href="https://www.yingyu5658.me/posts/tech/electron-commonjs-require%E8%B8%A9%E5%9D%91/">Electron CommonJS require踩坑</a>
                                 </h2>
                             </header>
                             <date class="post-meta meta-date">
-                                December 7, 2024
+                                May 31, 2025
                             </date>
                             
                             <div class="post-meta meta-category">
@@ -308,133 +243,24 @@
                             <div class="post-content summary auto">
                                 
                                 
-                                    <h1 id="前言">前言</h1>
-<p>我今天在写网页的时候突然发现我居然忘了一些标签的使用格式，只好打开搜索引擎一顿复习。我正在寻找一种更高效的复习方式。</p>
-<p>我现在的网站风格发布大量的技术文章有点突兀。</p>
+                                    <p>最近在开发一个Electron项目，在导入类的时候有以下报错:</p>
+<pre tabindex="0"><code>node:internal/modules/cjs/loader:1411 Uncaught Error: Cannot find module &#39;./File&#39;
+Require stack:
+- E:\Develop\markdown-editor\src\html\index.html
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1408:15)
+    at a._resolveFilename (node:electron/js2c/renderer_init:2:2643)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1064:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1069:22)
+    at Module._load (node:internal/modules/cjs/loader:1218:37)
+    at c._load (node:electron/js2c/node_init:2:17950)
+    at s._load (node:electron/js2c/renderer_init:2:31718)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:242:24)
+    at Module.require (node:internal/modules/cjs/loader:1494:12)
+</code></pre><p>提示找不到模块。</p>
                                 
                             </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/130/">阅读全文</a></p>
-                        </article>
-                    
-                        <article class="post">
-                            <header>
-                                <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/posts/tech/98/">Java面向对象编程快速入门</a>
-                                </h2>
-                            </header>
-                            <date class="post-meta meta-date">
-                                December 1, 2024
-                            </date>
-                            
-                            <div class="post-meta meta-category">
-                                in
-                                
-                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
-                                
-                            </div>
-                            
-                            
-                            <div class="post-content summary auto">
-                                
-                                
-                                    <h1 id="什么是面向对象编程">什么是面向对象编程</h1>
-<p>通俗易懂的说，就是把一坨一坨的数据放到一起存储
-比如要存储一个学生的语文成绩和数学成绩
-新建一个类</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#c678dd">public</span> <span style="color:#c678dd">class</span> <span style="color:#e5c07b">Student</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">String</span> <span style="color:#e06c75">name</span>;<span style="color:#7f848e">//名字</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">double</span> <span style="color:#e06c75">chinese</span>;<span style="color:#7f848e">//语文成绩</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">double</span> <span style="color:#e06c75">math</span>;<span style="color:#7f848e">//数学成绩</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">public</span> <span style="color:#e5c07b">void</span> <span style="color:#61afef;font-weight:bold">printTotalScore</span>() {
-</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">System</span>.<span style="color:#e06c75">out</span>.<span style="color:#e06c75">println</span>(<span style="color:#e06c75">name</span> <span style="color:#56b6c2">+</span> <span style="color:#98c379">&#34;的总成绩是&#34;</span> <span style="color:#56b6c2">+</span> (<span style="color:#e06c75">chinese</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">math</span>));
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">public</span> <span style="color:#e5c07b">void</span> <span style="color:#61afef;font-weight:bold">printAverageScore</span>() {
-</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">System</span>.<span style="color:#e06c75">out</span>.<span style="color:#e06c75">println</span>(<span style="color:#e06c75">name</span> <span style="color:#56b6c2">+</span> <span style="color:#98c379">&#34;的平均成绩是&#34;</span> <span style="color:#56b6c2">+</span> (<span style="color:#e06c75">chinese</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">math</span>) <span style="color:#56b6c2">/</span> <span style="color:#e06c75">2</span>.<span style="color:#e06c75">0</span>);
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>这样学生的模板就创建好了，但是这个模板还没有指向学生的每一个个体。我们可以再同一个包下再新建一个类。</p>
-                                
-                            </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/98/">阅读全文</a></p>
-                        </article>
-                    
-                        <article class="post">
-                            <header>
-                                <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/posts/tech/99/">深刻认识面向对象</a>
-                                </h2>
-                            </header>
-                            <date class="post-meta meta-date">
-                                December 1, 2024
-                            </date>
-                            
-                            <div class="post-meta meta-category">
-                                in
-                                
-                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
-                                
-                            </div>
-                            
-                            
-                            <div class="post-content summary auto">
-                                
-                                
-                                    <p>面向对象编程的好处</p>
-<blockquote>
-<p>按照<strong>詹姆斯·高斯林</strong>的看法，世间万物都是对象。好比要出去旅游，你要找到车这个对象调用他的行驶功能使用来带你出去旅游。</p></blockquote>
-<p>所以面向对象编程的好处就是：<strong>符合人类思维习惯，编程更简单，更直观</strong>。</p>
-                                
-                            </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/99/">阅读全文</a></p>
-                        </article>
-                    
-                        <article class="post">
-                            <header>
-                                <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/posts/tech/95/">Java方法的传参原理</a>
-                                </h2>
-                            </header>
-                            <date class="post-meta meta-date">
-                                November 30, 2024
-                            </date>
-                            
-                            <div class="post-meta meta-category">
-                                in
-                                
-                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
-                                
-                            </div>
-                            
-                            
-                            <div class="post-content summary auto">
-                                
-                                
-                                    <h2 id="java方法的参数传递机制-基本类型">Java方法的参数传递机制-基本类型</h2>
-<p>值传递</p>
-<h3 id="值传递是什么">值传递是什么</h3>
-<p>在传输实参给方法的形参的时候，<strong>传输的是实参变量中存储的副本</strong>
-说人话，把实参里面的东西赋值了一部分扔了给形参</p>
-<h2 id="值传递具体理解案例">值传递具体理解案例</h2>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#c678dd">public</span> <span style="color:#c678dd">class</span> <span style="color:#e5c07b">prameter</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">public</span> <span style="color:#c678dd">static</span> <span style="color:#e5c07b">void</span> <span style="color:#61afef;font-weight:bold">main</span>(<span style="color:#e06c75">String</span><span style="color:#56b6c2">[]</span> <span style="color:#e06c75">args</span>) {
-</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">int</span> <span style="color:#e06c75">a</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">10</span>; <span style="color:#7f848e">//定义一个int变量a赋值为10</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">change</span>(<span style="color:#e06c75">a</span>); <span style="color:#7f848e">//调用change方法</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">System</span>.<span style="color:#e06c75">out</span>.<span style="color:#e06c75">println</span>(<span style="color:#98c379">&#34;main&#34;</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">a</span>); <span style="color:#7f848e">//打印mian a中的值</span>
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#7f848e">//这里开始写方法</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">public</span> <span style="color:#c678dd">static</span> <span style="color:#e5c07b">void</span> <span style="color:#61afef;font-weight:bold">change</span>(<span style="color:#e5c07b">int</span> <span style="color:#e06c75">a</span>){
-</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">System</span>.<span style="color:#e06c75">out</span>.<span style="color:#e06c75">println</span>(<span style="color:#98c379">&#34;change1&#34;</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">a</span>); <span style="color:#7f848e">//打印方法中a的值</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">a</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">20</span>;
-</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">System</span>.<span style="color:#e06c75">out</span>.<span style="color:#e06c75">println</span>(<span style="color:#98c379">&#34;change2&#34;</span><span style="color:#e06c75">a</span>); <span style="color:#7f848e">//打印赋值后a的值</span>
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>我们运行以后，控制台输出的结果为</p>
-                                
-                            </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/95/">阅读全文</a></p>
+                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/electron-commonjs-require%E8%B8%A9%E5%9D%91/">阅读全文</a></p>
                         </article>
                     
 
@@ -499,6 +325,26 @@
         </li>
         
     
+        
+        
+        <li >
+            <a href="https://www.yingyu5658.me/page/12/">12</a>
+        </li>
+        
+    
+        
+        <li>
+            <span>...</span>
+        </li>
+        
+    
+        
+        
+        <li >
+            <a href="https://www.yingyu5658.me/page/22/">22</a>
+        </li>
+        
+    
 
     
 
@@ -526,9 +372,13 @@
 
     </section>
 
-    <section class="widget">
+<section class="widget">
         <h3 class="widget-title">Latest articles</h3>
 <ul class="widget-list">
+    
+    <li>
+        <a href="https://www.yingyu5658.me/posts/jottings/dissipation-of-consciousness-after-death/" title="「我害怕死」" target="_blank">「我害怕死」</a>
+    </li>
     
     <li>
         <a href="https://www.yingyu5658.me/posts/jottings/what-is-carried-by-words-can-transcend-time-and-space/" title="文字所承载的东西能跨越时空" target="_blank">文字所承载的东西能跨越时空</a>
@@ -566,16 +416,10 @@
         <a href="https://www.yingyu5658.me/posts/jottings/%E6%9C%80%E8%86%88%E5%BA%94%E4%B8%8D%E7%88%B1%E6%83%9C%E4%B9%A6%E7%9A%84%E4%BA%BA/" title="最膈应不爱惜书的人" target="_blank">最膈应不爱惜书的人</a>
     </li>
     
-    <li>
-        <a href="https://www.yingyu5658.me/posts/jottings/%E5%88%AB%E9%97%B2%E7%9D%80%E6%B2%A1%E4%BA%8B%E8%87%AA%E6%90%9C%E9%BB%91%E5%8E%86%E5%8F%B2%E5%95%8A/" title="别闲着没事自搜，黑历史啊" target="_blank">别闲着没事自搜，黑历史啊</a>
-    </li>
-    
 </ul>
     </section>
 
-    
-
-    <section class="widget">
+<section class="widget">
         <h3 class="widget-title"><a href='/categories/'>Categories</a></h3>
 <ul class="widget-list">
     
@@ -583,283 +427,68 @@
     
     <li><a href="https://www.yingyu5658.me/categories/%E8%AF%BB%E4%B9%A6/">读书 (1)</a></li>
     
-    <li><a href="https://www.yingyu5658.me/categories/%E9%9A%8F%E7%AC%94/">随笔 (41)</a></li>
+    <li><a href="https://www.yingyu5658.me/categories/%E9%9A%8F%E7%AC%94/">随笔 (42)</a></li>
     
 </ul>
     </section>
 
-    <section class="widget">
-        <h3 class="widget-title"><a href='/tags/'>Tags</a></h3>
-<div class="tagcloud">
-    
-    <a href="https://www.yingyu5658.me/tags/acgn/">ACGN</a>
-    
-    <a href="https://www.yingyu5658.me/tags/arch/">Arch</a>
-    
-    <a href="https://www.yingyu5658.me/tags/b%E7%AB%99/">B站</a>
-    
-    <a href="https://www.yingyu5658.me/tags/c/">C</a>
-    
-    <a href="https://www.yingyu5658.me/tags/c%E8%AF%AD%E8%A8%80/">C语言</a>
-    
-    <a href="https://www.yingyu5658.me/tags/electron/">Electron</a>
-    
-    <a href="https://www.yingyu5658.me/tags/emacs/">Emacs</a>
-    
-    <a href="https://www.yingyu5658.me/tags/fedora/">Fedora</a>
-    
-    <a href="https://www.yingyu5658.me/tags/geyser/">Geyser</a>
-    
-    <a href="https://www.yingyu5658.me/tags/gnu/">GNU</a>
-    
-    <a href="https://www.yingyu5658.me/tags/hexo/">Hexo</a>
-    
-    <a href="https://www.yingyu5658.me/tags/java/">Java</a>
-    
-    <a href="https://www.yingyu5658.me/tags/javascript/">JavaScript</a>
-    
-    <a href="https://www.yingyu5658.me/tags/linux/">Linux</a>
-    
-    <a href="https://www.yingyu5658.me/tags/malody/">Malody</a>
-    
-    <a href="https://www.yingyu5658.me/tags/minecraft/">Minecraft</a>
-    
-    <a href="https://www.yingyu5658.me/tags/neovim/">Neovim</a>
-    
-    <a href="https://www.yingyu5658.me/tags/nodejs/">NodeJS</a>
-    
-    <a href="https://www.yingyu5658.me/tags/obsidain/">Obsidain</a>
-    
-    <a href="https://www.yingyu5658.me/tags/osu/">Osu</a>
-    
-    <a href="https://www.yingyu5658.me/tags/seo/">SEO</a>
-    
-    <a href="https://www.yingyu5658.me/tags/terrira/">Terrira</a>
-    
-    <a href="https://www.yingyu5658.me/tags/thunderbird/">Thunderbird</a>
-    
-    <a href="https://www.yingyu5658.me/tags/typecho/">Typecho</a>
-    
-    <a href="https://www.yingyu5658.me/tags/vim/">Vim</a>
-    
-    <a href="https://www.yingyu5658.me/tags/windows/">Windows</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E5%8E%8C%E8%A0%A2%E7%97%87/">“厌蠢症”</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/">二叉树</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E4%BA%BA%E9%99%85%E4%BA%A4%E5%BE%80/">人际交往</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E4%BC%8A%E8%B1%86%E7%9A%84%E8%88%9E%E5%A5%B3/">伊豆的舞女</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E4%BF%A1%E6%81%AF%E8%8A%82%E9%A3%9F/">信息节食</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/">冒泡排序</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E5%86%99%E4%BD%9C/">写作</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E5%89%8D%E7%AB%AF/">前端</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E5%8D%9A%E5%AE%A2/">博客</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E5%8E%86%E5%8F%B2/">历史</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/">哈希表</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E5%93%B2%E5%AD%A6/">哲学</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E5%9B%9E%E5%BF%86/">回忆</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E5%9B%BE%E4%B9%A6/">图书</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E5%A4%8F/">夏</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E5%AD%A6%E4%B8%9A/">学业</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E5%AD%A6%E6%A0%A1/">学校</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E5%B0%8F%E5%93%81/">小品</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E5%B7%9D%E7%AB%AF%E5%BA%B7%E6%88%90/">川端康成</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E5%BA%95%E5%B1%82%E6%8A%80%E6%9C%AF/">底层技术</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E5%BD%A2%E8%80%8C%E4%B8%8A%E5%AD%A6/">形而上学</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E6%80%80%E6%97%A7/">怀旧</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E6%84%9F%E5%AE%98/">感官</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E6%84%9F%E8%B0%A2%E6%81%A9%E5%B8%88%E5%A4%B8%E5%A5%96/">感谢恩师夸奖</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E6%88%91/">我</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E6%89%A9%E5%88%97/">扩列</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/">搜索引擎</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E6%95%99%E7%A8%8B/">教程</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E6%96%87%E5%AD%97/">文字</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E6%96%87%E7%AB%A0/">文章</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E6%96%B0%E9%97%BB%E7%BB%84/">新闻组</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E6%97%81%E8%A7%82%E8%80%85/">旁观者</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E6%97%A5%E5%B8%B8/">日常</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E6%97%A5%E6%9C%AC%E6%96%87%E5%AD%A6/">日本文学</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E6%97%A9%E7%9D%A1%E6%97%A9%E8%B5%B7/">早睡早起</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E6%97%B6%E6%94%BF/">时政</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E6%9C%8B%E5%8F%8B%E5%9C%88/">朋友圈</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E6%9C%AA%E6%88%90%E5%B9%B4%E4%BA%BA%E4%BF%9D%E6%8A%A4/">未成年人保护</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E6%9D%82%E8%AE%B0/">杂记</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E6%B1%87%E7%BC%96/">汇编</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E6%B2%9F%E9%80%9A/">沟通</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/">浏览器</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E6%B8%B8%E6%88%8F/">游戏</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E7%8B%97%E5%8F%AB/">狗叫</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E7%8C%AB/">猫</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E7%9F%A5%E4%B9%8E/">知乎</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E7%A4%BE%E4%BA%A4/">社交</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E7%BB%88%E7%AB%AF/">终端</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E7%BC%96%E7%A8%8B/">编程</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">编译原理</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E7%BC%96%E8%AF%91%E5%99%A8/">编译器</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83/">网络环境</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E7%BF%BB%E8%AF%91/">翻译</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E8%80%83%E8%AF%95/">考试</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E8%87%AA%E6%90%9C/">自搜</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E8%A7%82%E5%AF%9F/">观察</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E8%AE%B0%E5%BF%86/">记忆</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E8%B1%86%E7%93%A3/">豆瓣</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E8%B4%9D%E6%96%AF/">贝斯</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E8%B4%AD%E7%89%A9/">购物</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/">软件开发</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E8%BE%A8%E8%AF%81%E6%B3%95/">辨证法</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E9%85%92/">酒</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E9%98%85%E8%AF%BB/">阅读</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">阅读笔记</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E9%98%BF%E9%87%8C%E4%BA%91/">阿里云</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E9%9A%8F%E7%AC%94/">随笔</a>
-    
-    <a href="https://www.yingyu5658.me/tags/%E9%9F%B3%E4%B9%90/">音乐</a>
-    
-</div>
-    </section>
 
-    
-<section class="widget">
-    <h3 class="widget-title">Links</h3>
-    <ul class="widget-list">
+	<h3 class="widget-title">最近回复</h3>
+<section id="waline-recent"></section>
         
-        <li>
-            <a target="_blank" href="https://www.sifangbazhu.tech/" title="MRZHU的小站">MRZHU的小站</a>
-        </li>
-        
-        <li>
-            <a target="_blank" href="https://rhopaper.top/" title="RhoPaperの小站">RhoPaperの小站</a>
-        </li>
-        
-        <li>
-            <a target="_blank" href="https://177.plus/" title="177">177</a>
-        </li>
-        
-        <li>
-            <a target="_blank" href="https://printempw.github.io/" title="PRIN BLOG">PRIN BLOG</a>
-        </li>
-        
-        <li>
-            <a target="_blank" href="https://webteleporter.top/" title="Web Teleporter">Web Teleporter</a>
-        </li>
-        
-        <li>
-            <a target="_blank" href="https://banzhuanriji.com/" title="搬砖日记">搬砖日记</a>
-        </li>
-        
-        <li>
-            <a target="_blank" href="https://note.redcha.cn/" title="彬红茶日记">彬红茶日记</a>
-        </li>
-        
-        <li>
-            <a target="_blank" href="https://www.qingfengnb.cn/" title="轻风blog">轻风blog</a>
-        </li>
-        
-        <li>
-            <a target="_blank" href="https://chengshuo.top/" title="成烁的主页">成烁的主页</a>
-        </li>
-        
-        <li>
-            <a target="_blank" href="https://blog.bxaw.name" title="白熊阿丸的小屋">白熊阿丸的小屋</a>
-        </li>
-        
-    </ul>
-</section>
+    	
+	
+    </div>
 
+<script type="module">
+  import { RecentComments } from 'https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.mjs';
 
-    <section class="widget">
-        <h3 class="widget-title">Meta</h3>
-        <ul class="widget-list">
-            <li><a href="https://www.yingyu5658.me/atom.xml">RSS</a></li>
-            <li><a href="https://github.com/yingyu5658/">Github</a></li>
-        </ul>
-    </section>
-</div>
+  RecentComments({
+    el: '#waline-recent',
+    serverURL: 'https://waline.yingyu5658.me',
+    count: 5,
+  });
+</script>
 
         </div>
     </div>
 </div>
 </body>
 <footer id="footer">
-    <div>
-		<p>© 2025 <a href="https://www.yingyu5658.me">映屿</a>. 由<a href="https://gohugo.io/">Typecho</a>强力驱动.
-		</p><br> 
-   
+	<div>
+		<p><a href="/links">友链</a> · <a href="/atom.xml">订阅</a></p>
+		<hr width="20px">
+		<p>© 2025 <a href="https://www.yingyu5658.me">映屿</a>. 由<a href="https://gohugo.io/"> Typecho </a>强力驱动.</p>
 		
-    </div>
-    <br />
+		
+		<p>本站已运行<span class="running-time"></span>. 共 104 篇文章.</p>
+
+
+		<script>
+			function initRuntime() {
+				const startDate = new Date('2024-11-03');
+				const now = new Date();
+				const diff = now - startDate;
+
+				
+				const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+				
+				document.querySelector('.running-time').innerText =
+					` ${days} 天`;
+			}
+
+			
+			window.addEventListener('load', initRuntime);
+		</script>
+
+		
+	</div>
+	<br />
 </footer>
+
+
+
 
 
 
@@ -873,6 +502,8 @@
 
 
 
+
+<script src='/js/app.extra.js'></script>
 
 
 </html>
