@@ -83,8 +83,6 @@
                 <nav id="nav-menu" class="clearfix">
                     <a class="current" href="https://www.yingyu5658.me/">Home</a>
                     
-                    <a  href="https://www.yingyu5658.me/categories" title="分类">分类</a>
-                    
                     <a  href="https://www.yingyu5658.me/links" title="友链">友链</a>
                     
                     <a  href="https://www.yingyu5658.me/archives" title="归档">归档</a>
@@ -112,79 +110,15 @@
                         <article class="post">
                             <header>
                                 <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/post/tech/osu-apiv1%E8%AF%B7%E6%B1%82%E7%A4%BA%E4%BE%8B/">osu!APIv1请求示例</a>
+                                    <a href="https://www.yingyu5658.me/posts/jottings/%E6%88%91%E7%9A%84%E6%94%92%E9%92%B1%E8%AE%A1%E5%88%92/">我的攒钱计划</a>
                                 </h2>
                             </header>
                             <date class="post-meta meta-date">
-                                2025年4月11日
-                                22:29
+                                April 11, 2025
                             </date>
                             
                             <div class="post-meta meta-category">
-                                ，归类于
-                                
-                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
-                                
-                            </div>
-                            
-                            
-                            <div class="post-content summary auto">
-                                
-                                
-                                    <h2 id="前言">前言</h2>
-<p>本文章使用Nodejs环境做演示。请求用户数据。代码中的APIKEY要在<a href="https://osu.ppy.sh/home/account/edit">osu官网‬</a>申请。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#cf222e">const</span> <span style="color:#1f2328">API_URL</span> <span style="color:#0550ae">=</span> <span style="color:#0a3069">&#34;osu.ppy.sh&#34;</span><span style="color:#1f2328">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">const</span> <span style="color:#1f2328">init</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">k</span><span style="color:#0550ae">:</span> <span style="color:#0a3069">&#34;YOUR_API_KEY&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">type</span><span style="color:#0550ae">:</span> <span style="color:#0a3069">&#34;string&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">u</span><span style="color:#0550ae">:</span> <span style="color:#0a3069">&#34;kyzzz5658&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">};</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">const</span> <span style="color:#1f2328">https</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">require</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;https&#34;</span><span style="color:#1f2328">);</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a">// 将参数序列化为查询字符串
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span><span style="color:#cf222e">const</span> <span style="color:#1f2328">query</span> <span style="color:#0550ae">=</span> <span style="color:#cf222e">new</span> <span style="color:#1f2328">URLSearchParams</span><span style="color:#1f2328">(</span><span style="color:#1f2328">init</span><span style="color:#1f2328">);</span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">const</span> <span style="color:#1f2328">options</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">hostname</span><span style="color:#0550ae">:</span> <span style="color:#1f2328">API_URL</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">method</span><span style="color:#0550ae">:</span> <span style="color:#0a3069">&#34;GET&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">path</span><span style="color:#0550ae">:</span> <span style="color:#0a3069">`/api/get_user?</span><span style="color:#0a3069">${</span><span style="color:#1f2328">query</span><span style="color:#0a3069">}</span><span style="color:#0a3069">`</span> <span style="color:#57606a">// 附加参数
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span><span style="color:#1f2328">};</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">const</span> <span style="color:#1f2328">req</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">https</span><span style="color:#1f2328">.</span><span style="color:#1f2328">request</span><span style="color:#1f2328">(</span><span style="color:#1f2328">options</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">res</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">=&gt;</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">let</span> <span style="color:#1f2328">data</span> <span style="color:#0550ae">=</span> <span style="color:#0a3069">&#39;&#39;</span><span style="color:#1f2328">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">res</span><span style="color:#1f2328">.</span><span style="color:#1f2328">on</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#39;data&#39;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">chunk</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">=&gt;</span> <span style="color:#1f2328">data</span> <span style="color:#0550ae">+=</span> <span style="color:#1f2328">chunk</span><span style="color:#1f2328">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">res</span><span style="color:#1f2328">.</span><span style="color:#1f2328">on</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#39;end&#39;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">()</span> <span style="color:#1f2328">=&gt;</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">try</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">console</span><span style="color:#1f2328">.</span><span style="color:#1f2328">log</span><span style="color:#1f2328">(</span><span style="color:#1f2328">JSON</span><span style="color:#1f2328">.</span><span style="color:#1f2328">parse</span><span style="color:#1f2328">(</span><span style="color:#1f2328">data</span><span style="color:#1f2328">[</span><span style="color:#0550ae">0</span><span style="color:#1f2328">].</span><span style="color:#1f2328">username</span><span style="color:#1f2328">));</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span> <span style="color:#cf222e">catch</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">e</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">console</span><span style="color:#1f2328">.</span><span style="color:#1f2328">error</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#39;JSON 解析失败:&#39;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">e</span><span style="color:#1f2328">);</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">});</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">});</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a">// 错误处理
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span><span style="color:#1f2328">req</span><span style="color:#1f2328">.</span><span style="color:#1f2328">on</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#39;error&#39;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">err</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">=&gt;</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">console</span><span style="color:#1f2328">.</span><span style="color:#1f2328">error</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#39;请求失败:&#39;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">err</span><span style="color:#1f2328">.</span><span style="color:#1f2328">code</span><span style="color:#1f2328">);</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">});</span>
-</span></span></code></pre></div><p>输出：</p>
-                                
-                            </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/osu-apiv1%E8%AF%B7%E6%B1%82%E7%A4%BA%E4%BE%8B/">阅读全文</a></p>
-                        </article>
-                    
-                        <article class="post">
-                            <header>
-                                <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/post/jottings/%E6%88%91%E7%9A%84%E6%94%92%E9%92%B1%E8%AE%A1%E5%88%92/">我的攒钱计划</a>
-                                </h2>
-                            </header>
-                            <date class="post-meta meta-date">
-                                2025年4月11日
-                                20:13
-                            </date>
-                            
-                            <div class="post-meta meta-category">
-                                ，归类于
+                                in
                                 
                                     <a href="/categories/%E9%9A%8F%E7%AC%94">随笔</a>
                                 
@@ -198,22 +132,21 @@
 <p>实现难度是不大，已经有了八百多存款，微信里有一百多，一共900。每天早上父母会给我20元买早饭，省省，不吃了，每天稳定收入20。加上每月50 + 70的零花钱。</p>
                                 
                             </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/post/jottings/%E6%88%91%E7%9A%84%E6%94%92%E9%92%B1%E8%AE%A1%E5%88%92/">阅读全文</a></p>
+                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/jottings/%E6%88%91%E7%9A%84%E6%94%92%E9%92%B1%E8%AE%A1%E5%88%92/">阅读全文</a></p>
                         </article>
                     
                         <article class="post">
                             <header>
                                 <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/post/jottings/%E6%80%9D%E6%83%B3%E9%A9%AF%E5%8C%96%E4%B8%8D%E6%98%AF%E8%89%BA%E6%9C%AF/">思想驯化不是艺术</a>
+                                    <a href="https://www.yingyu5658.me/posts/jottings/%E6%80%9D%E6%83%B3%E9%A9%AF%E5%8C%96%E4%B8%8D%E6%98%AF%E8%89%BA%E6%9C%AF/">思想驯化不是艺术</a>
                                 </h2>
                             </header>
                             <date class="post-meta meta-date">
-                                2025年4月8日
-                                20:18
+                                April 8, 2025
                             </date>
                             
                             <div class="post-meta meta-category">
-                                ，归类于
+                                in
                                 
                                     <a href="/categories/%E9%9A%8F%E7%AC%94">随笔</a>
                                 
@@ -230,22 +163,21 @@
 <p>什么是艺术？艺术，至少是应该是美的。几十个人挤在方寸压抑的教室里，身体像被枷锁锁住，只有上肢能挣扎的“舞蹈”应该是艺术？畸形的审美！</p>
                                 
                             </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/post/jottings/%E6%80%9D%E6%83%B3%E9%A9%AF%E5%8C%96%E4%B8%8D%E6%98%AF%E8%89%BA%E6%9C%AF/">阅读全文</a></p>
+                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/jottings/%E6%80%9D%E6%83%B3%E9%A9%AF%E5%8C%96%E4%B8%8D%E6%98%AF%E8%89%BA%E6%9C%AF/">阅读全文</a></p>
                         </article>
                     
                         <article class="post">
                             <header>
                                 <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/post/tech/%E6%8A%8A%E4%B8%BB%E5%8A%9B%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%8D%A2%E6%88%90arch-linux%E6%98%AF%E6%88%91%E8%BF%99%E8%BE%88%E5%AD%90%E5%81%9A%E8%BF%87%E7%9A%84%E6%9C%80%E8%A0%A2%E7%9A%84%E5%86%B3%E5%AE%9A/">把主力机系统换成Arch Linux是我这辈子做过的最蠢的决定</a>
+                                    <a href="https://www.yingyu5658.me/posts/tech/%E6%8A%8A%E4%B8%BB%E5%8A%9B%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%8D%A2%E6%88%90arch-linux%E6%98%AF%E6%88%91%E8%BF%99%E8%BE%88%E5%AD%90%E5%81%9A%E8%BF%87%E7%9A%84%E6%9C%80%E8%A0%A2%E7%9A%84%E5%86%B3%E5%AE%9A/">把主力机系统换成Arch Linux是我这辈子做过的最蠢的决定</a>
                                 </h2>
                             </header>
                             <date class="post-meta meta-date">
-                                2025年4月6日
-                                17:58
+                                April 6, 2025
                             </date>
                             
                             <div class="post-meta meta-category">
-                                ，归类于
+                                in
                                 
                                     <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
                                 
@@ -269,22 +201,21 @@
 <p>本文的所有观点仅仅代表个人观点，我纯菜。你问我为什么要选择Arch，而不是Ubuntu或者其他新手友好的发行版，我不知道，正如上文所说，我是傻逼！</p>
                                 
                             </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/%E6%8A%8A%E4%B8%BB%E5%8A%9B%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%8D%A2%E6%88%90arch-linux%E6%98%AF%E6%88%91%E8%BF%99%E8%BE%88%E5%AD%90%E5%81%9A%E8%BF%87%E7%9A%84%E6%9C%80%E8%A0%A2%E7%9A%84%E5%86%B3%E5%AE%9A/">阅读全文</a></p>
+                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/%E6%8A%8A%E4%B8%BB%E5%8A%9B%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%8D%A2%E6%88%90arch-linux%E6%98%AF%E6%88%91%E8%BF%99%E8%BE%88%E5%AD%90%E5%81%9A%E8%BF%87%E7%9A%84%E6%9C%80%E8%A0%A2%E7%9A%84%E5%86%B3%E5%AE%9A/">阅读全文</a></p>
                         </article>
                     
                         <article class="post">
                             <header>
                                 <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/post/tech/%E4%B8%8A%E5%B8%9D%E7%B1%BB%E6%98%AF%E4%BB%80%E4%B9%88%E8%AF%A5%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E4%B8%8A%E5%B8%9D%E7%B1%BB/">上帝类是什么？该如何避免上帝类？</a>
+                                    <a href="https://www.yingyu5658.me/posts/tech/%E4%B8%8A%E5%B8%9D%E7%B1%BB%E6%98%AF%E4%BB%80%E4%B9%88%E8%AF%A5%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E4%B8%8A%E5%B8%9D%E7%B1%BB/">上帝类是什么？该如何避免上帝类？</a>
                                 </h2>
                             </header>
                             <date class="post-meta meta-date">
-                                2025年3月30日
-                                10:47
+                                March 30, 2025
                             </date>
                             
                             <div class="post-meta meta-category">
-                                ，归类于
+                                in
                                 
                                     <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
                                 
@@ -298,22 +229,21 @@
 <p>所谓的上帝类，就是指<strong>一个类承担了过多的职能</strong>，变得过于<strong>臃肿</strong>和<strong>复杂</strong>、<strong>难以维护</strong>。没有遵守单一职责原则。像上帝一样什么都能干，每个功能高度耦合，牵一发而动全身，不利于业务的拓展。</p>
                                 
                             </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/%E4%B8%8A%E5%B8%9D%E7%B1%BB%E6%98%AF%E4%BB%80%E4%B9%88%E8%AF%A5%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E4%B8%8A%E5%B8%9D%E7%B1%BB/">阅读全文</a></p>
+                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/%E4%B8%8A%E5%B8%9D%E7%B1%BB%E6%98%AF%E4%BB%80%E4%B9%88%E8%AF%A5%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E4%B8%8A%E5%B8%9D%E7%B1%BB/">阅读全文</a></p>
                         </article>
                     
                         <article class="post">
                             <header>
                                 <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/post/tech/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AErime%E8%BE%93%E5%85%A5%E6%B3%95/">安装配置Rime输入法</a>
+                                    <a href="https://www.yingyu5658.me/posts/tech/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AErime%E8%BE%93%E5%85%A5%E6%B3%95/">安装配置Rime输入法</a>
                                 </h2>
                             </header>
                             <date class="post-meta meta-date">
-                                2025年3月24日
-                                20:37
+                                March 24, 2025
                             </date>
                             
                             <div class="post-meta meta-category">
-                                ，归类于
+                                in
                                 
                                     <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
                                 
@@ -327,22 +257,21 @@
 <p>其实我有能用的fcitx5+搜狗输入法的方案，但奈何kitty终端有对这个输入法的兼容性问题，无法启用中文，又奈何kitty的界面多美观舒服，和Konsole比起来简直就不是一个时代的产物。</p>
                                 
                             </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AErime%E8%BE%93%E5%85%A5%E6%B3%95/">阅读全文</a></p>
+                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AErime%E8%BE%93%E5%85%A5%E6%B3%95/">阅读全文</a></p>
                         </article>
                     
                         <article class="post">
                             <header>
                                 <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/post/tech/nodejs%E7%8E%AF%E5%A2%83%E4%B8%8B%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%8B%BC%E6%8E%A5%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%87%BA%E6%9C%89undefind/">Nodejs环境下控制台拼接字符串输出有undefind</a>
+                                    <a href="https://www.yingyu5658.me/posts/tech/nodejs%E7%8E%AF%E5%A2%83%E4%B8%8B%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%8B%BC%E6%8E%A5%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%87%BA%E6%9C%89undefind/">Nodejs环境下控制台拼接字符串输出有undefind</a>
                                 </h2>
                             </header>
                             <date class="post-meta meta-date">
-                                2025年3月22日
-                                18:56
+                                March 22, 2025
                             </date>
                             
                             <div class="post-meta meta-category">
-                                ，归类于
+                                in
                                 
                                     <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
                                 
@@ -353,41 +282,40 @@
                                 
                                 
                                     <p>今天在Nodejs环境下搓小工具，控制台输出拼接字符串时，发现有<code>undefind</code>，代码如下：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#cf222e">const</span> <span style="color:#1f2328">date</span> <span style="color:#0550ae">=</span> <span style="color:#cf222e">new</span> <span style="color:#6639ba">Date</span><span style="color:#1f2328">();</span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">const</span> <span style="color:#1f2328">year</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">date</span><span style="color:#1f2328">.</span><span style="color:#1f2328">getFullYear</span><span style="color:#1f2328">();</span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">const</span> <span style="color:#1f2328">month</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">date</span><span style="color:#1f2328">.</span><span style="color:#1f2328">getMonth</span><span style="color:#1f2328">();</span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">const</span> <span style="color:#1f2328">day</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">date</span><span style="color:#1f2328">.</span><span style="color:#1f2328">getDate</span><span style="color:#1f2328">();</span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">const</span> <span style="color:#1f2328">hour</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">date</span><span style="color:#1f2328">.</span><span style="color:#1f2328">getHours</span><span style="color:#1f2328">();</span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">const</span> <span style="color:#1f2328">minute</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">date</span><span style="color:#1f2328">.</span><span style="color:#1f2328">getMinutes</span><span style="color:#1f2328">();</span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">const</span> <span style="color:#1f2328">second</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">date</span><span style="color:#1f2328">.</span><span style="color:#1f2328">getSeconds</span><span style="color:#1f2328">();</span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">const</span> <span style="color:#1f2328">logTime</span> <span style="color:#0550ae">=</span> <span style="color:#0a3069">`[</span><span style="color:#0a3069">${</span><span style="color:#1f2328">year</span><span style="color:#0a3069">}</span><span style="color:#0a3069">-</span><span style="color:#0a3069">${</span><span style="color:#1f2328">month</span><span style="color:#0a3069">}</span><span style="color:#0a3069">-</span><span style="color:#0a3069">${</span><span style="color:#1f2328">day</span><span style="color:#0a3069">}</span><span style="color:#0a3069"> </span><span style="color:#0a3069">${</span><span style="color:#1f2328">hour</span><span style="color:#0a3069">}</span><span style="color:#0a3069">:</span><span style="color:#0a3069">${</span><span style="color:#1f2328">minute</span><span style="color:#0a3069">}</span><span style="color:#0a3069">:</span><span style="color:#0a3069">${</span><span style="color:#1f2328">second</span><span style="color:#0a3069">}</span><span style="color:#0a3069">] `</span><span style="color:#1f2328">;</span>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">date</span> <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">Date</span>();
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">year</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">date</span>.<span style="color:#e06c75">getFullYear</span>();
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">month</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">date</span>.<span style="color:#e06c75">getMonth</span>();
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">day</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">date</span>.<span style="color:#e06c75">getDate</span>();
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">hour</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">date</span>.<span style="color:#e06c75">getHours</span>();
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">minute</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">date</span>.<span style="color:#e06c75">getMinutes</span>();
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">second</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">date</span>.<span style="color:#e06c75">getSeconds</span>();
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">logTime</span> <span style="color:#56b6c2">=</span> <span style="color:#98c379">`[</span><span style="color:#98c379">${</span><span style="color:#e06c75">year</span><span style="color:#98c379">}</span><span style="color:#98c379">-</span><span style="color:#98c379">${</span><span style="color:#e06c75">month</span><span style="color:#98c379">}</span><span style="color:#98c379">-</span><span style="color:#98c379">${</span><span style="color:#e06c75">day</span><span style="color:#98c379">}</span><span style="color:#98c379"> </span><span style="color:#98c379">${</span><span style="color:#e06c75">hour</span><span style="color:#98c379">}</span><span style="color:#98c379">:</span><span style="color:#98c379">${</span><span style="color:#e06c75">minute</span><span style="color:#98c379">}</span><span style="color:#98c379">:</span><span style="color:#98c379">${</span><span style="color:#e06c75">second</span><span style="color:#98c379">}</span><span style="color:#98c379">] `</span>;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">GenerateLog</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">static</span> <span style="color:#1f2328">log</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">process</span><span style="color:#1f2328">.</span><span style="color:#1f2328">stdout</span><span style="color:#1f2328">.</span><span style="color:#1f2328">write</span><span style="color:#1f2328">(</span><span style="color:#1f2328">logTime</span><span style="color:#1f2328">);</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">class</span> <span style="color:#e06c75">GenerateLog</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">static</span> <span style="color:#e06c75">log</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">process</span>.<span style="color:#e06c75">stdout</span>.<span style="color:#e06c75">write</span>(<span style="color:#e06c75">logTime</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">console</span><span style="color:#1f2328">.</span><span style="color:#1f2328">log</span><span style="color:#1f2328">(</span><span style="color:#1f2328">GenerateLog</span><span style="color:#1f2328">.</span><span style="color:#1f2328">log</span><span style="color:#1f2328">()</span> <span style="color:#0550ae">+</span> <span style="color:#0a3069">&#34;log output on the console&#34;</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">console</span>.<span style="color:#e06c75">log</span>(<span style="color:#e06c75">GenerateLog</span>.<span style="color:#e06c75">log</span>() <span style="color:#56b6c2">+</span> <span style="color:#98c379">&#34;log output on the console&#34;</span>);
 </span></span></code></pre></div><p>输出确是这样：</p>
                                 
                             </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/nodejs%E7%8E%AF%E5%A2%83%E4%B8%8B%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%8B%BC%E6%8E%A5%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%87%BA%E6%9C%89undefind/">阅读全文</a></p>
+                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/nodejs%E7%8E%AF%E5%A2%83%E4%B8%8B%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%8B%BC%E6%8E%A5%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%87%BA%E6%9C%89undefind/">阅读全文</a></p>
                         </article>
                     
                         <article class="post">
                             <header>
                                 <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/post/tech/%E5%85%89%E9%80%9F%E7%A0%B4%E8%A7%A3%E4%BD%9C%E6%96%87%E7%BD%91%E7%AB%99%E7%A6%81%E6%AD%A2%E5%A4%8D%E5%88%B6/">光速破解作文网站禁止复制</a>
+                                    <a href="https://www.yingyu5658.me/posts/tech/%E5%85%89%E9%80%9F%E7%A0%B4%E8%A7%A3%E4%BD%9C%E6%96%87%E7%BD%91%E7%AB%99%E7%A6%81%E6%AD%A2%E5%A4%8D%E5%88%B6/">光速破解作文网站禁止复制</a>
                                 </h2>
                             </header>
                             <date class="post-meta meta-date">
-                                2025年3月21日
-                                08:17
+                                March 21, 2025
                             </date>
                             
                             <div class="post-meta meta-category">
-                                ，归类于
+                                in
                                 
                                     <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
                                 
@@ -400,22 +328,21 @@
                                     <p>今天上网搜集范文，又遇到了这个很多年前就让我非常痛恨的网站。可以看到，这个网站应该是通过JS，检测鼠标左键或者CTRL+C再弹出这个窗口达到的防止用户复制的目的，可以此为切入点，查看一下这个网站的源码。找到问题所在。</p>
                                 
                             </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/%E5%85%89%E9%80%9F%E7%A0%B4%E8%A7%A3%E4%BD%9C%E6%96%87%E7%BD%91%E7%AB%99%E7%A6%81%E6%AD%A2%E5%A4%8D%E5%88%B6/">阅读全文</a></p>
+                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/%E5%85%89%E9%80%9F%E7%A0%B4%E8%A7%A3%E4%BD%9C%E6%96%87%E7%BD%91%E7%AB%99%E7%A6%81%E6%AD%A2%E5%A4%8D%E5%88%B6/">阅读全文</a></p>
                         </article>
                     
                         <article class="post">
                             <header>
                                 <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/post/tech/kitty%E7%BB%88%E7%AB%AF%E7%BE%8E%E5%8C%96%E8%AE%B0%E5%BD%95/">Kitty终端美化记录</a>
+                                    <a href="https://www.yingyu5658.me/posts/tech/kitty%E7%BB%88%E7%AB%AF%E7%BE%8E%E5%8C%96%E8%AE%B0%E5%BD%95/">Kitty终端美化记录</a>
                                 </h2>
                             </header>
                             <date class="post-meta meta-date">
-                                2025年3月9日
-                                12:41
+                                March 9, 2025
                             </date>
                             
                             <div class="post-meta meta-category">
-                                ，归类于
+                                in
                                 
                                     <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
                                 
@@ -435,22 +362,21 @@
 选好后，回车按m，command + ^ + ,重载配置文件。</p>
                                 
                             </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/kitty%E7%BB%88%E7%AB%AF%E7%BE%8E%E5%8C%96%E8%AE%B0%E5%BD%95/">阅读全文</a></p>
+                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/kitty%E7%BB%88%E7%AB%AF%E7%BE%8E%E5%8C%96%E8%AE%B0%E5%BD%95/">阅读全文</a></p>
                         </article>
                     
                         <article class="post">
                             <header>
                                 <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/post/tech/kde%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E6%97%A0%E6%B3%95%E5%9C%A8konsole%E5%88%87%E6%8D%A2%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">KDE桌面环境无法在Konsole切换中文输入法的解决方案</a>
+                                    <a href="https://www.yingyu5658.me/posts/tech/kde%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E6%97%A0%E6%B3%95%E5%9C%A8konsole%E5%88%87%E6%8D%A2%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">KDE桌面环境无法在Konsole切换中文输入法的解决方案</a>
                                 </h2>
                             </header>
                             <date class="post-meta meta-date">
-                                2025年3月8日
-                                22:07
+                                March 8, 2025
                             </date>
                             
                             <div class="post-meta meta-category">
-                                ，归类于
+                                in
                                 
                                     <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
                                 
@@ -464,7 +390,46 @@
 <p>KDE默认使用Wayland会话，而fcitx4不支持Wayland，需升级到fcitx5。若无法升级到fcitx5或升级后仍然无法切换中文输入法，<strong>安装fcitx-qt6</strong></p>
                                 
                             </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/post/tech/kde%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E6%97%A0%E6%B3%95%E5%9C%A8konsole%E5%88%87%E6%8D%A2%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">阅读全文</a></p>
+                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/kde%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E6%97%A0%E6%B3%95%E5%9C%A8konsole%E5%88%87%E6%8D%A2%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">阅读全文</a></p>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h2 class="post-title">
+                                    <a href="https://www.yingyu5658.me/posts/tech/%E6%97%A0%E5%BA%9F%E8%AF%9D%E5%85%A8%E7%BD%91%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84hexo&#43;obsidian%E5%9B%BE%E7%89%87%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">【无废话】全网最简单的Hexo&#43;Obsidian图片解决方案</a>
+                                </h2>
+                            </header>
+                            <date class="post-meta meta-date">
+                                March 5, 2025
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                in
+                                
+                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
+                                
+                            </div>
+                            
+                            
+                            <div class="post-content summary auto">
+                                
+                                
+                                    <p>把Hexo博客根目录用黑曜石打开，如果已经打开了仓库
+
+        <img class="mx-auto" alt="" src="./Pasted%20image%2020250305215423.png" />   
+    
+在弹出的窗口中选第二个。</p>
+<p>在source目录下新建images文件夹用于存放图片
+设置 =&gt; 文件与链接 =&gt; 附件默认存放路径：选择指定的附件文件夹。路径填写刚刚创建的image文件夹的相对路径
+取消使用Wiki链接
+注意。由于我的文件结构是这样的所以这么填写，要<strong>根据自己的文件结构填写相对路径</strong>。
+
+        <img class="mx-auto" alt="" src="./Pasted%20image%2020250305215642.png" />   
+    
+搞定，同时可以在本地编辑环境和博客网站中显示。</p>
+                                
+                            </div>
+                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/%E6%97%A0%E5%BA%9F%E8%AF%9D%E5%85%A8%E7%BD%91%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84hexo&#43;obsidian%E5%9B%BE%E7%89%87%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">阅读全文</a></p>
                         </article>
                     
 
@@ -581,43 +546,43 @@
 <ul class="widget-list">
     
     <li>
-        <a href="https://www.yingyu5658.me/post/jottings/vague-feelings/" title="文字所承载的东西能跨越时空" target="_blank">文字所承载的东西能跨越时空</a>
+        <a href="https://www.yingyu5658.me/posts/jottings/vague-feelings/" title="文字所承载的东西能跨越时空" target="_blank">文字所承载的东西能跨越时空</a>
     </li>
     
     <li>
-        <a href="https://www.yingyu5658.me/post/readings/izu-no-odoriko/" title="《伊豆的舞女》读后感" target="_blank">《伊豆的舞女》读后感</a>
+        <a href="https://www.yingyu5658.me/posts/readings/izu-no-odoriko/" title="《伊豆的舞女》读后感" target="_blank">《伊豆的舞女》读后感</a>
     </li>
     
     <li>
-        <a href="https://www.yingyu5658.me/post/jottings/overcast/" title="阴云" target="_blank">阴云</a>
+        <a href="https://www.yingyu5658.me/posts/jottings/overcast/" title="阴云" target="_blank">阴云</a>
     </li>
     
     <li>
-        <a href="https://www.yingyu5658.me/post/jottings/we-are-all-bull-shit/" title="别吵了，大家一样烂" target="_blank">别吵了，大家一样烂</a>
+        <a href="https://www.yingyu5658.me/posts/jottings/we-are-all-bull-shit/" title="别吵了，大家一样烂" target="_blank">别吵了，大家一样烂</a>
     </li>
     
     <li>
-        <a href="https://www.yingyu5658.me/post/jottings/%E5%A4%8F%E6%97%A5%E6%AE%8B%E5%BD%B1/" title="夏日残影" target="_blank">夏日残影</a>
+        <a href="https://www.yingyu5658.me/posts/jottings/%E5%A4%8F%E6%97%A5%E6%AE%8B%E5%BD%B1/" title="夏日残影" target="_blank">夏日残影</a>
     </li>
     
     <li>
-        <a href="https://www.yingyu5658.me/post/jottings/%E7%A7%8B%E5%A4%A9%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A3%B0%E7%8B%97%E5%8F%AB/" title="秋天的第一声狗叫" target="_blank">秋天的第一声狗叫</a>
+        <a href="https://www.yingyu5658.me/posts/jottings/%E7%A7%8B%E5%A4%A9%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A3%B0%E7%8B%97%E5%8F%AB/" title="秋天的第一声狗叫" target="_blank">秋天的第一声狗叫</a>
     </li>
     
     <li>
-        <a href="https://www.yingyu5658.me/post/jottings/%E6%9C%AA%E5%91%BD%E5%90%8D/" title="未命名" target="_blank">未命名</a>
+        <a href="https://www.yingyu5658.me/posts/jottings/%E6%9C%AA%E5%91%BD%E5%90%8D/" title="未命名" target="_blank">未命名</a>
     </li>
     
     <li>
-        <a href="https://www.yingyu5658.me/post/tech/how-to-subscribe-newsgroup/" title="如何订阅新闻组" target="_blank">如何订阅新闻组</a>
+        <a href="https://www.yingyu5658.me/posts/tech/how-to-subscribe-newsgroup/" title="如何订阅新闻组" target="_blank">如何订阅新闻组</a>
     </li>
     
     <li>
-        <a href="https://www.yingyu5658.me/post/jottings/%E6%9C%80%E8%86%88%E5%BA%94%E4%B8%8D%E7%88%B1%E6%83%9C%E4%B9%A6%E7%9A%84%E4%BA%BA/" title="最膈应不爱惜书的人" target="_blank">最膈应不爱惜书的人</a>
+        <a href="https://www.yingyu5658.me/posts/jottings/%E6%9C%80%E8%86%88%E5%BA%94%E4%B8%8D%E7%88%B1%E6%83%9C%E4%B9%A6%E7%9A%84%E4%BA%BA/" title="最膈应不爱惜书的人" target="_blank">最膈应不爱惜书的人</a>
     </li>
     
     <li>
-        <a href="https://www.yingyu5658.me/post/jottings/%E5%88%AB%E9%97%B2%E7%9D%80%E6%B2%A1%E4%BA%8B%E8%87%AA%E6%90%9C%E9%BB%91%E5%8E%86%E5%8F%B2%E5%95%8A/" title="别闲着没事自搜，黑历史啊" target="_blank">别闲着没事自搜，黑历史啊</a>
+        <a href="https://www.yingyu5658.me/posts/jottings/%E5%88%AB%E9%97%B2%E7%9D%80%E6%B2%A1%E4%BA%8B%E8%87%AA%E6%90%9C%E9%BB%91%E5%8E%86%E5%8F%B2%E5%95%8A/" title="别闲着没事自搜，黑历史啊" target="_blank">别闲着没事自搜，黑历史啊</a>
     </li>
     
 </ul>
@@ -629,7 +594,7 @@
         <h3 class="widget-title"><a href='/categories/'>Categories</a></h3>
 <ul class="widget-list">
     
-    <li><a href="https://www.yingyu5658.me/categories/%E6%8A%80%E6%9C%AF/">技术 (59)</a></li>
+    <li><a href="https://www.yingyu5658.me/categories/%E6%8A%80%E6%9C%AF/">技术 (58)</a></li>
     
     <li><a href="https://www.yingyu5658.me/categories/%E8%AF%BB%E4%B9%A6/">读书 (1)</a></li>
     
