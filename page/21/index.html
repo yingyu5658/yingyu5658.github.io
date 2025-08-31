@@ -335,23 +335,32 @@
   });
 </script>
  </div> </div> </div> </body> <footer id="footer">
-	<div>
-		<p><a href="/links">友链</a> · <a href="/atom.xml">订阅</a> · <a href=".sitemap.xml">网站地图</a></p>
-		<hr width="80px">
-		<p>© 2025 <a href="https://www.yingyu5658.me">映屿</a>. 由<a href="https://gohugo.io/"> Typecho </a>强力驱动.</p>
-		
-		
-		<p>本站已运行<span class="running-time"></span>. 共 103 篇文章.</p>
-		<div style="display:flex;justify-content:center;align-items:center;"> <a href="https://www.blogsclub.org/rank.html" target="_blank"> <img src="https://www.blogsclub.org/badge/www.yingyu5658.me" style="height:35px!important"> </a> </div><script>function initRuntime() { const startDate = new Date('2024-11-03'); const now = new Date(); const diff = now - startDate; const days = Math.floor(diff / (1000 * 60 * 60 * 24)); document.querySelector('.running-time').innerText = ` ${days} 天`; } window.addEventListener('load', initRuntime); </script>
-	</div>
-	<br />
+  <div>
+    <p><a href="/links">友链</a> · <a href="/atom.xml">订阅</a> · <a href=".sitemap.xml">网站地图</a></p>
+    <hr width="80px" />
+    <p>© 2025 <a href="https://www.yingyu5658.me">映屿</a>. 由<a href="https://gohugo.io/"> Typecho </a>强力驱动.</p>
+     
+    <p>本站已运行<span class="running-time"></span>. 共 103 篇文章.</p>
+
+	<link rel="prefetch" as="image" href="https://www.blogsclub.org/badge/www.yingyu5658.me">
+
+    <script>
+      function initRuntime() {
+        const startDate = new Date('2024-11-03');
+        const now = new Date();
+        const diff = now - startDate;
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        document.querySelector('.running-time').innerText = ` ${days} 天`;
+      }
+      window.addEventListener('load', initRuntime);
+    </script>
+  </div>
+  <br />
 </footer>
 
 <a id="rocket" href="#top"></a>
 <script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
-
-
-
+  
 <script src='/js/'></script>
 
  </html>
