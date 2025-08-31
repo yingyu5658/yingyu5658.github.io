@@ -11,11 +11,27 @@
       "permanent": true
     },
     {
+      "source": "/post/%E6%8A%80%E6%9C%AF/(.*)",
+      "destination": "/posts/tech/$1",
+      "permanent": true
+    },
+    {
       "source": "/post/%E8%AF%BB%E4%B9%A6/(.*)",
       "destination": "/post/readings/$1",
       "permanent": true
     },
 
+    {
+      "source": "/post",
+      "destination": "/posts",
+      "permanent": true
+    },
+    {
+      "source": "/post/",
+      "destination": "/posts/",
+      "permanent": true
+    },
+    
     {
       "source": "/post/readings/:path*",
       "destination": "/posts/readings/:path*",
@@ -36,15 +52,11 @@
       "destination": "/posts/jottings/星落关于我对命运既定的想法",
       "permanent": true
     },
+
     {
-      "source": "/post",
-      "destination": "/posts",
-      "permanent": true
-    },
-    {
-      "source": "/post/",
-      "destination": "/posts/",
-      "permanent": true
+      "source": "/(.*)",
+      "destination": "/index.html",
+      "statusCode": 200  
     }
   ]
 }
