@@ -12,49 +12,80 @@
     },
 
     {
-      "source": "/post/读书/:path*",
-      "destination": "/posts/readings/:path*",
+      "source": "/post/读书/(.*)",
+      "destination": "/posts/readings/$1",
       "permanent": true
     },
     {
-      "source": "/post/%E8%AF%BB%E4%B9%A6/:path*", 
-      "destination": "/posts/readings/:path*",
+      "source": "/post/%E8%AF%BB%E4%B9%A6/(.*)",  
+      "destination": "/posts/readings/$1",
       "permanent": true
     },
     {
-      "source": "/post/技术/:path*", 
-      "destination": "/posts/tech/:path*",
+      "source": "/post/技术/(.*)",
+      "destination": "/posts/tech/$1",
       "permanent": true
     },
     {
-      "source": "/post/%E6%8A%80%E6%9C%AF/:path*", 
-      "destination": "/posts/tech/:path*",
+      "source": "/post/%E6%8A%80%E6%9C%AF/(.*)", 
+      "destination": "/posts/tech/$1",
       "permanent": true
     },
     {
-      "source": "/post/随笔/:path*", 
-      "destination": "/posts/jottings/:path*",
+      "source": "/post/随笔/(.*)", 
+      "destination": "/posts/jottings/$1",
       "permanent": true
     },
     {
-      "source": "/post/%E9%9A%8F%E7%AC%94/:path*",
-      "destination": "/posts/jottings/:path*",
+      "source": "/post/%E9%9A%8F%E7%AC%94/(.*)", 
+      "destination": "/posts/jottings/$1",
       "permanent": true
     },
 
     {
-      "source": "/post/readings/:path*",
-      "destination": "/posts/readings/:path*",
+      "source": "/posts/读书/(.*)",
+      "destination": "/posts/readings/$1",
       "permanent": true
     },
     {
-      "source": "/post/tech/:path*",
-      "destination": "/posts/tech/:path*",
+      "source": "/posts/%E8%AF%BB%E4%B9%A6/(.*)", 
+      "destination": "/posts/readings/$1",
       "permanent": true
     },
     {
-      "source": "/post/jottings/:path*",
-      "destination": "/posts/jottings/:path*",
+      "source": "/posts/技术/(.*)",
+      "destination": "/posts/tech/$1",
+      "permanent": true
+    },
+    {
+      "source": "/posts/%E6%8A%80%E6%9C%AF/(.*)",
+      "destination": "/posts/tech/$1",
+      "permanent": true
+    },
+    {
+      "source": "/posts/随笔/(.*)",
+      "destination": "/posts/jottings/$1",
+      "permanent": true
+    },
+    {
+      "source": "/posts/%E9%9A%8F%E7%AC%94/(.*)", 
+      "destination": "/posts/jottings/$1",
+      "permanent": true
+    },
+
+    {
+      "source": "/post/readings/(.*)",
+      "destination": "/posts/readings/$1",
+      "permanent": true
+    },
+    {
+      "source": "/post/tech/(.*)",
+      "destination": "/posts/tech/$1",
+      "permanent": true
+    },
+    {
+      "source": "/post/jottings/(.*)",
+      "destination": "/posts/jottings/$1",
       "permanent": true
     },
 
@@ -70,8 +101,8 @@
     },
 
     {
-      "source": "/post/:path+",
-      "destination": "/posts/:path+",
+      "source": "/post/(.*)",
+      "destination": "/posts/$1",
       "permanent": true
     },
 
