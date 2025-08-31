@@ -5,36 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="记录日常观察、技术实践、阅读思考与个人成长的网络日志。关于互联网、书籍、生活琐事以及那些一闪而过的念头。记录生活、吐槽见闻、分享阅读。真实，或许还有点拧巴。">
     <meta name="referrer" content="no-referrer-when-downgrade">
-
     
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "映屿",
-        "url": "https://www.yingyu5658.me",
-        "logo": "https://www.yingyu5658.me/avatar.png",
-        "sameAs": [
-            "https://space.bilibili.com/604851180",
-            "https://github.com/yingyu5658"
-        ]
-    }
+    { "@context": "https://schema.org", "@type": "Organization", "name": "映屿", "url": "https://www.yingyu5658.me", "logo": "https://www.yingyu5658.me/avatar.png", "sameAs": [ "https://space.bilibili.com/604851180", "https://github.com/yingyu5658" ] }
     </script>
-    
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "url": "https://www.yingyu5658.me/",
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://www.yingyu5658.me/search?q={search_term}",
-            "query-input": "required name=search_term"
-        }
-    }
+    <script type="application/ld+json"> { "@context": "https://schema.org", "@type": "WebSite", "url": "https://www.yingyu5658.me/", "potentialAction": { "@type": "SearchAction", "target": "https://www.yingyu5658.me/search?q={search_term}", "query-input": "required name=search_term" } }
     </script>
-    
-
     
     
         
@@ -45,30 +21,15 @@
         <meta name="Keywords" content="yingyu5658,博客,Web,软件,C语言,Nodejs,阅读,读书,笔记,随笔,计算机">
         <meta name="description" content="yingyu5658的数字花园">
     
-
-    <meta property="og:url" content="https://www.yingyu5658.me/">
-    <link rel="shortcut icon" href='/favicon.ico' type="image/x-icon">
-    <link rel="icon" href='/favicon.png' type="image/png">
-    <link rel="alternate icon" href='/favicon.png' type="image/svg+xml">
-    
-    <link rel="stylesheet" href='/css/normalize.css'>
-    <link rel="stylesheet" href='/css/style.css'>
-    <link rel="alternate" type="application/rss+xml" href="http://www.yingyu5658.me/atom.xml" title="映屿" />
+    <meta property="og:url" content="https://www.yingyu5658.me/"> <link rel="shortcut icon" href='/favicon.ico' type="image/x-icon"> <link rel="icon" href='/favicon.png' type="image/png"> <link rel="alternate icon" href='/favicon.png' type="image/svg+xml"> <link rel="stylesheet" href='/css/normalize.css'> <link rel="stylesheet" href='/css/style.css'> <link rel="alternate" type="application/rss+xml" href="http://www.yingyu5658.me/atom.xml" title="映屿" />
     <script type="text/javascript" src="/js/jquery.min.js"></script>
-
+    
+        <link href="/css/jquery.fancybox.min.css" rel="stylesheet">
     
     
+        <link rel="stylesheet" href='/css/'>
     
-    
-    
-    
-        <link rel="stylesheet" href='/css/style.extra.css'>
-    
-</head>
-
-
-<body>
-<header id="header" class="clearfix">
+</head> <body> <header id="header" class="clearfix">
     <div class="container">
         <div class="col-group">
             <div class="site-name">
@@ -93,155 +54,16 @@
     </div>
 </header>
 
-
-
-
-<div id="body">
-    <div class="container">
-        <div class="col-group">
-
-            <div class="col-8" id="main">
-                <div class="res-cons">
-                    
-                        <article class="post">
-                            <header>
-                                <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/posts/tech/emacs%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95-2c-c&#43;&#43;%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">Emacs配置记录 2——C/C&#43;&#43;环境配置</a>
-                                </h2>
-                            </header>
-                            <date class="post-meta meta-date">
-                                June 4, 2025
-                            </date>
-                            
-                            <div class="post-meta meta-category">
-                                in
-                                
-                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
-                                
-                            </div>
-                            
-                            
-                            <div class="post-content summary auto">
-                                
-                                
-                                    <h2 id="前言">前言</h2>
+ <div id="body"> <div class="container"> <div class="col-group"> <div class="col-8" id="main"> <div class="res-cons">  <article class="post"> <header> <h2 class="post-title"> <a href="https://www.yingyu5658.me/posts/tech/emacs%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95-2c-c&#43;&#43;%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">Emacs配置记录 2——C/C&#43;&#43;环境配置</a> </h2> </header> <date class="post-meta meta-date"> June 4, 2025 </date>  <div class="post-meta meta-category"> in  <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>  </div>   <div class="post-content summary auto">   <h2 id="前言">前言</h2>
 <p>经过<a href="">上一篇</a>的简单调教，Emacs已经勉强变成了一个温顺的文本编辑器，但是离写代码这个宏大的目标还是有一段距离的，今天来解决主要问题：代码补全。由于我要写一点简单的C代码，那么重点就先放到C/CPP环境搭建中。</p>
 <p>站在巨人的肩膀上，在Emacs中的代码补全使用巨硬的LSP协议。</p>
 <h2 id="spacemacs">Spacemacs</h2>
-<p>经过考虑，我还是决定使用Spacemacs，比起原版Emacs，它更适合新手，也更能快速投入开发。避免配置陷阱，过多把时间花在刀把上。唉，也就是说，昨天大部分都白干了。算了，生命的意义就在于折腾，怕折腾我也不会玩Emacs了。来吧！</p>
-                                
-                            </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/emacs%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95-2c-c&#43;&#43;%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">阅读全文</a></p>
-                        </article>
-                    
-                        <article class="post">
-                            <header>
-                                <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/posts/jottings/%E6%98%9F%E8%90%BD%E5%85%B3%E4%BA%8E%E6%88%91%E5%AF%B9%E5%91%BD%E8%BF%90%E6%97%A2%E5%AE%9A%E7%9A%84%E6%83%B3%E6%B3%95/">【投稿】关于我对命运既定的想法</a>
-                                </h2>
-                            </header>
-                            <date class="post-meta meta-date">
-                                June 3, 2025
-                            </date>
-                            
-                            <div class="post-meta meta-category">
-                                in
-                                
-                                    <a href="/categories/%E9%9A%8F%E7%AC%94">随笔</a>
-                                
-                            </div>
-                            
-                            
-                            <div class="post-content summary auto">
-                                
-                                
-                                    <blockquote>
+<p>经过考虑，我还是决定使用Spacemacs，比起原版Emacs，它更适合新手，也更能快速投入开发。避免配置陷阱，过多把时间花在刀把上。唉，也就是说，昨天大部分都白干了。算了，生命的意义就在于折腾，怕折腾我也不会玩Emacs了。来吧！</p>  </div> <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/emacs%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95-2c-c&#43;&#43;%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">阅读全文</a></p> </article>  <article class="post"> <header> <h2 class="post-title"> <a href="https://www.yingyu5658.me/posts/jottings/%E6%98%9F%E8%90%BD%E5%85%B3%E4%BA%8E%E6%88%91%E5%AF%B9%E5%91%BD%E8%BF%90%E6%97%A2%E5%AE%9A%E7%9A%84%E6%83%B3%E6%B3%95/">【投稿】关于我对命运既定的想法</a> </h2> </header> <date class="post-meta meta-date"> June 3, 2025 </date>  <div class="post-meta meta-category"> in  <a href="/categories/%E9%9A%8F%E7%AC%94">随笔</a>  </div>   <div class="post-content summary auto">   <blockquote>
 <p>本文作者：<a href="https://space.bilibili.com/1920354618">星が落ちる</a>
 本文观点仅代表作者个人观点，不代表任何除作者外的个人或组织的立场。</p></blockquote>
-<p>我的观点或许和强决定论很相似，我认为人类存在本质上是一种“预置框架”下的时间性展开，所谓自由意志与命运抗争，都是框架内既定的程序脚本</p>
-                                
-                            </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/jottings/%E6%98%9F%E8%90%BD%E5%85%B3%E4%BA%8E%E6%88%91%E5%AF%B9%E5%91%BD%E8%BF%90%E6%97%A2%E5%AE%9A%E7%9A%84%E6%83%B3%E6%B3%95/">阅读全文</a></p>
-                        </article>
-                    
-                        <article class="post">
-                            <header>
-                                <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/posts/tech/%E6%88%91%E8%BF%98%E6%98%AF%E6%94%BE%E4%B8%8D%E4%B8%8Bemacs/">我还是放不下Emacs！</a>
-                                </h2>
-                            </header>
-                            <date class="post-meta meta-date">
-                                June 3, 2025
-                            </date>
-                            
-                            <div class="post-meta meta-category">
-                                in
-                                
-                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
-                                
-                            </div>
-                            
-                            
-                            <div class="post-content summary auto">
-                                
-                                
-                                    <h2 id="前言">前言</h2>
-<p>难受，真难受呀。作为一个痴迷Vim的人，总是被Emacs的强大勾引，看见别人配的酷炫全能的Emacs就走不动路，脑子里想着“没事没事，我Vim轻量启动极快，Emacs这种重量级是比不上的”，自我安慰。实际上多想玩Emacs只有我自己知道&hellip;&hellip;</p>
-                                
-                            </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/%E6%88%91%E8%BF%98%E6%98%AF%E6%94%BE%E4%B8%8D%E4%B8%8Bemacs/">阅读全文</a></p>
-                        </article>
-                    
-                        <article class="post">
-                            <header>
-                                <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/posts/jottings/%E7%8C%AB/">猫</a>
-                                </h2>
-                            </header>
-                            <date class="post-meta meta-date">
-                                June 1, 2025
-                            </date>
-                            
-                            <div class="post-meta meta-category">
-                                in
-                                
-                                    <a href="/categories/%E9%9A%8F%E7%AC%94">随笔</a>
-                                
-                            </div>
-                            
-                            
-                            <div class="post-content summary auto">
-                                
-                                
-                                    <p>六年前，曾短暂地拥有过一周的狗。只有一周。</p>
-<p>那个时候爸妈都出去上班，只留我和我奶奶在家。奶奶不喜欢小动物，不喜欢任何活物，包括我爸爸。据说她年轻时，经常把我爸爸送到邻居家照看，单纯因为不喜欢。同样地，她也不喜欢花草。爷爷养的茉莉花，颜色洁白，屋内也花香飘逸，死了。被奶奶用热水浇死的。</p>
-                                
-                            </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/jottings/%E7%8C%AB/">阅读全文</a></p>
-                        </article>
-                    
-                        <article class="post">
-                            <header>
-                                <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/posts/tech/electron-commonjs-require%E8%B8%A9%E5%9D%91/">Electron CommonJS require踩坑</a>
-                                </h2>
-                            </header>
-                            <date class="post-meta meta-date">
-                                May 31, 2025
-                            </date>
-                            
-                            <div class="post-meta meta-category">
-                                in
-                                
-                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
-                                
-                            </div>
-                            
-                            
-                            <div class="post-content summary auto">
-                                
-                                
-                                    <p>最近在开发一个Electron项目，在导入类的时候有以下报错:</p>
+<p>我的观点或许和强决定论很相似，我认为人类存在本质上是一种“预置框架”下的时间性展开，所谓自由意志与命运抗争，都是框架内既定的程序脚本</p>  </div> <p class="readmore"><a href="https://www.yingyu5658.me/posts/jottings/%E6%98%9F%E8%90%BD%E5%85%B3%E4%BA%8E%E6%88%91%E5%AF%B9%E5%91%BD%E8%BF%90%E6%97%A2%E5%AE%9A%E7%9A%84%E6%83%B3%E6%B3%95/">阅读全文</a></p> </article>  <article class="post"> <header> <h2 class="post-title"> <a href="https://www.yingyu5658.me/posts/tech/%E6%88%91%E8%BF%98%E6%98%AF%E6%94%BE%E4%B8%8D%E4%B8%8Bemacs/">我还是放不下Emacs！</a> </h2> </header> <date class="post-meta meta-date"> June 3, 2025 </date>  <div class="post-meta meta-category"> in  <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>  </div>   <div class="post-content summary auto">   <h2 id="前言">前言</h2>
+<p>难受，真难受呀。作为一个痴迷Vim的人，总是被Emacs的强大勾引，看见别人配的酷炫全能的Emacs就走不动路，脑子里想着“没事没事，我Vim轻量启动极快，Emacs这种重量级是比不上的”，自我安慰。实际上多想玩Emacs只有我自己知道&hellip;&hellip;</p>  </div> <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/%E6%88%91%E8%BF%98%E6%98%AF%E6%94%BE%E4%B8%8D%E4%B8%8Bemacs/">阅读全文</a></p> </article>  <article class="post"> <header> <h2 class="post-title"> <a href="https://www.yingyu5658.me/posts/jottings/%E7%8C%AB/">猫</a> </h2> </header> <date class="post-meta meta-date"> June 1, 2025 </date>  <div class="post-meta meta-category"> in  <a href="/categories/%E9%9A%8F%E7%AC%94">随笔</a>  </div>   <div class="post-content summary auto">   <p>六年前，曾短暂地拥有过一周的狗。只有一周。</p>
+<p>那个时候爸妈都出去上班，只留我和我奶奶在家。奶奶不喜欢小动物，不喜欢任何活物，包括我爸爸。据说她年轻时，经常把我爸爸送到邻居家照看，单纯因为不喜欢。同样地，她也不喜欢花草。爷爷养的茉莉花，颜色洁白，屋内也花香飘逸，死了。被奶奶用热水浇死的。</p>  </div> <p class="readmore"><a href="https://www.yingyu5658.me/posts/jottings/%E7%8C%AB/">阅读全文</a></p> </article>  <article class="post"> <header> <h2 class="post-title"> <a href="https://www.yingyu5658.me/posts/tech/electron-commonjs-require%E8%B8%A9%E5%9D%91/">Electron CommonJS require踩坑</a> </h2> </header> <date class="post-meta meta-date"> May 31, 2025 </date>  <div class="post-meta meta-category"> in  <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>  </div>   <div class="post-content summary auto">   <p>最近在开发一个Electron项目，在导入类的时候有以下报错:</p>
 <pre tabindex="0"><code>node:internal/modules/cjs/loader:1411 Uncaught Error: Cannot find module &#39;./File&#39;
 Require stack:
 - E:\Develop\markdown-editor\src\html\index.html
@@ -255,14 +77,7 @@ Require stack:
     at TracingChannel.traceSync (node:diagnostics_channel:322:14)
     at wrapModuleLoad (node:internal/modules/cjs/loader:242:24)
     at Module.require (node:internal/modules/cjs/loader:1494:12)
-</code></pre><p>提示找不到模块。</p>
-                                
-                            </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/electron-commonjs-require%E8%B8%A9%E5%9D%91/">阅读全文</a></p>
-                        </article>
-                    
-
-                    
+</code></pre><p>提示找不到模块。</p>  </div> <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/electron-commonjs-require%E8%B8%A9%E5%9D%91/">阅读全文</a></p> </article>  
 
 
 
@@ -355,11 +170,7 @@ Require stack:
 
 
 
-
-                </div>
-            </div>
-
-            <div id="secondary">
+ </div> </div> <div id="secondary">
     <section class="widget">
         <form id="search" action='https://www.yingyu5658.me/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
@@ -433,13 +244,11 @@ Require stack:
 
 	<h3 class="widget-title">最近回复</h3>
 <section id="waline-recent"></section>
-        
     	
-	
     </div>
 
 <script type="module">
-  import { RecentComments } from 'https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.mjs';
+  import { RecentComments } from '/js/waline.mjs';
 
   RecentComments({
     el: '#waline-recent',
@@ -447,66 +256,24 @@ Require stack:
     count: 5,
   });
 </script>
-
-        </div>
-    </div>
-</div>
-</body>
-<footer id="footer">
+ </div> </div> </div> </body> <footer id="footer">
 	<div>
-		<p><a href="/links">友链</a> · <a href="/atom.xml">订阅</a></p>
-		<hr width="20px">
+		<p><a href="/links">友链</a> · <a href="/atom.xml">订阅</a> · <a href=".sitemap.xml">网站地图</a></p>
+		<hr width="80px">
 		<p>© 2025 <a href="https://www.yingyu5658.me">映屿</a>. 由<a href="https://gohugo.io/"> Typecho </a>强力驱动.</p>
 		
 		
 		<p>本站已运行<span class="running-time"></span>. 共 104 篇文章.</p>
-
-		<div style="display:flex;justify-content:center;align-items:center;">
-    <a href="https://www.blogsclub.org/rank.html" target="_blank">
-			<img src="https://www.blogsclub.org/badge/www.yingyu5658.me"
-             style="height:35px!important">
-    </a>
-</div>
-		<script>
-			function initRuntime() {
-				const startDate = new Date('2024-11-03');
-				const now = new Date();
-				const diff = now - startDate;
-
-				
-				const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-
-				
-				document.querySelector('.running-time').innerText =
-					` ${days} 天`;
-			}
-
-			
-			window.addEventListener('load', initRuntime);
-		</script>
-
-		
+		<div style="display:flex;justify-content:center;align-items:center;"> <a href="https://www.blogsclub.org/rank.html" target="_blank"> <img src="https://www.blogsclub.org/badge/www.yingyu5658.me" style="height:35px!important"> </a> </div><script>function initRuntime() { const startDate = new Date('2024-11-03'); const now = new Date(); const diff = now - startDate; const days = Math.floor(diff / (1000 * 60 * 60 * 24)); document.querySelector('.running-time').innerText = ` ${days} 天`; } window.addEventListener('load', initRuntime); </script>
 	</div>
 	<br />
 </footer>
-
-
-
-
-
 
 <a id="rocket" href="#top"></a>
 <script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
 
 
 
+<script src='/js/'></script>
 
-
-
-
-
-
-<script src='/js/app.extra.js'></script>
-
-
-</html>
+ </html>

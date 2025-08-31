@@ -6,9 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="记录日常观察、技术实践、阅读思考与个人成长的网络日志。关于互联网、书籍、生活琐事以及那些一闪而过的念头。记录生活、吐槽见闻、分享阅读。真实，或许还有点拧巴。">
     <meta name="referrer" content="no-referrer-when-downgrade">
-
-    
-
     
     
         <title>人生中第一次大考 | 映屿</title>
@@ -26,26 +23,14 @@
         <meta name="author" content="">
         
     
-
-    <meta property="og:url" content="https://www.yingyu5658.me/posts/jottings/%E4%BA%BA%E7%94%9F%E4%B8%AD%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%A4%A7%E8%80%83/">
-    <link rel="shortcut icon" href='/favicon.ico' type="image/x-icon">
-    <link rel="icon" href='/favicon.png' type="image/png">
-    <link rel="alternate icon" href='/favicon.png' type="image/svg+xml">
+    <meta property="og:url" content="https://www.yingyu5658.me/posts/jottings/%E4%BA%BA%E7%94%9F%E4%B8%AD%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%A4%A7%E8%80%83/"> <link rel="shortcut icon" href='/favicon.ico' type="image/x-icon"> <link rel="icon" href='/favicon.png' type="image/png"> <link rel="alternate icon" href='/favicon.png' type="image/svg+xml"> <link rel="stylesheet" href='/css/normalize.css'> <link rel="stylesheet" href='/css/style.css'> <script type="text/javascript" src="/js/jquery.min.js"></script>
     
-    <link rel="stylesheet" href='/css/normalize.css'>
-    <link rel="stylesheet" href='/css/style.css'>
-    <script type="text/javascript" src="/js/jquery.min.js"></script>
-
+        <link href="/css/jquery.fancybox.min.css" rel="stylesheet">
     
     
-    
-    
-    
-    
-        <link rel="stylesheet" href='/css/style.extra.css'>
+        <link rel="stylesheet" href='/css/'>
     
 </head>
-
 
 <body>
     <header id="header" class="clearfix">
@@ -149,13 +134,11 @@
 
 	<h3 class="widget-title">最近回复</h3>
 <section id="waline-recent"></section>
-        
     	
-	
     </div>
 
 <script type="module">
-  import { RecentComments } from 'https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.mjs';
+  import { RecentComments } from '/js/waline.mjs';
 
   RecentComments({
     el: '#waline-recent',
@@ -267,7 +250,9 @@
 <p>考前两天我几乎没复习任何东西，对了一张地理卷子的答案，94/100，看着网上初一地理的课，做了些复习笔记。遗憾的是，那篇笔记我忘记了push到博客上，所以我才有时间在这里写字。那两天完全无心复习 。唯一留作业的历史和数学两科中，只有数学勉勉强强写了一张卷子，今天考完回来开始写作业吧。</p>
 <p>每次各种略微重要的考试前，总有一群大脑发育不完全的懒猪在朋友圈、QQ空间转各种迷信性质的图片。我也发了一个说说。
 
-        <img class="mx-auto" alt="" src="./Pasted%20image%2020250623202023.png" />   
+        <a data-fancybox="gallery" href="./Pasted%20image%2020250623202023.png">
+            <img class="mx-auto" alt="" src="./Pasted%20image%2020250623202023.png" />
+        </a>
     
 我认为我说的非常有道理。</p>
 <p>有些生理意义上的头疼，前一晚做了些梦，很乱，没睡好。早上六点家里的幼畜例行吵闹，两个小时的睡眠空缺又让我的精神雪上加霜，起床后眼睛肿了，可能又碰到什么过敏物质。</p>
@@ -277,8 +262,6 @@
 <p>考点学校比我念书的学校环境好多了，教室宽敞明亮，楼道也很干净，桌椅看起来都是新的。生物有一道种植大棚里二氧化碳发生器的作用的题，和一道肾单位尿液再吸收的题，前者超纲，后者没复习到。无论怎样，考完了。</p>
 
         </div>
-
-        
 
 
         <div class="post-meta meta-tags">
@@ -294,7 +277,7 @@
     </article>
 <div id="waline"></div>
 <script type="module">
-	import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+	import { init } from '/js/waline.js';
 	init({
 		el: '#waline',
 		serverURL: 'waline.yingyu5658.me',
@@ -316,55 +299,19 @@
 
 <footer id="footer">
 	<div>
-		<p><a href="/links">友链</a> · <a href="/atom.xml">订阅</a></p>
-		<hr width="20px">
+		<p><a href="/links">友链</a> · <a href="/atom.xml">订阅</a> · <a href=".sitemap.xml">网站地图</a></p>
+		<hr width="80px">
 		<p>© 2025 <a href="https://www.yingyu5658.me">映屿</a>. 由<a href="https://gohugo.io/"> Typecho </a>强力驱动.</p>
 		
 		
 		<p>本站已运行<span class="running-time"></span>. 共 0 篇文章.</p>
-
-		<div style="display:flex;justify-content:center;align-items:center;">
-    <a href="https://www.blogsclub.org/rank.html" target="_blank">
-			<img src="https://www.blogsclub.org/badge/www.yingyu5658.me"
-             style="height:35px!important">
-    </a>
-</div>
-		<script>
-			function initRuntime() {
-				const startDate = new Date('2024-11-03');
-				const now = new Date();
-				const diff = now - startDate;
-
-				
-				const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-
-				
-				document.querySelector('.running-time').innerText =
-					` ${days} 天`;
-			}
-
-			
-			window.addEventListener('load', initRuntime);
-		</script>
-
-		
+		<div style="display:flex;justify-content:center;align-items:center;"> <a href="https://www.blogsclub.org/rank.html" target="_blank"> <img src="https://www.blogsclub.org/badge/www.yingyu5658.me" style="height:35px!important"> </a> </div><script>function initRuntime() { const startDate = new Date('2024-11-03'); const now = new Date(); const diff = now - startDate; const days = Math.floor(diff / (1000 * 60 * 60 * 24)); document.querySelector('.running-time').innerText = ` ${days} 天`; } window.addEventListener('load', initRuntime); </script>
 	</div>
 	<br />
 </footer>
 
-
-
-
-
-
 <a id="rocket" href="#top"></a>
 <script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
-
-
-
-
-
-
 
 
 

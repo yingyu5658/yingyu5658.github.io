@@ -6,9 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="记录日常观察、技术实践、阅读思考与个人成长的网络日志。关于互联网、书籍、生活琐事以及那些一闪而过的念头。记录生活、吐槽见闻、分享阅读。真实，或许还有点拧巴。">
     <meta name="referrer" content="no-referrer-when-downgrade">
-
-    
-
     
     
         <title>Kitty终端美化记录 | 映屿</title>
@@ -26,26 +23,14 @@
         <meta name="author" content="">
         
     
-
-    <meta property="og:url" content="https://www.yingyu5658.me/posts/tech/kitty%E7%BB%88%E7%AB%AF%E7%BE%8E%E5%8C%96%E8%AE%B0%E5%BD%95/">
-    <link rel="shortcut icon" href='/favicon.ico' type="image/x-icon">
-    <link rel="icon" href='/favicon.png' type="image/png">
-    <link rel="alternate icon" href='/favicon.png' type="image/svg+xml">
+    <meta property="og:url" content="https://www.yingyu5658.me/posts/tech/kitty%E7%BB%88%E7%AB%AF%E7%BE%8E%E5%8C%96%E8%AE%B0%E5%BD%95/"> <link rel="shortcut icon" href='/favicon.ico' type="image/x-icon"> <link rel="icon" href='/favicon.png' type="image/png"> <link rel="alternate icon" href='/favicon.png' type="image/svg+xml"> <link rel="stylesheet" href='/css/normalize.css'> <link rel="stylesheet" href='/css/style.css'> <script type="text/javascript" src="/js/jquery.min.js"></script>
     
-    <link rel="stylesheet" href='/css/normalize.css'>
-    <link rel="stylesheet" href='/css/style.css'>
-    <script type="text/javascript" src="/js/jquery.min.js"></script>
-
+        <link href="/css/jquery.fancybox.min.css" rel="stylesheet">
     
     
-    
-    
-    
-    
-        <link rel="stylesheet" href='/css/style.extra.css'>
+        <link rel="stylesheet" href='/css/'>
     
 </head>
-
 
 <body>
     <header id="header" class="clearfix">
@@ -149,13 +134,11 @@
 
 	<h3 class="widget-title">最近回复</h3>
 <section id="waline-recent"></section>
-        
     	
-	
     </div>
 
 <script type="module">
-  import { RecentComments } from 'https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.mjs';
+  import { RecentComments } from '/js/waline.mjs';
 
   RecentComments({
     el: '#waline-recent',
@@ -196,7 +179,7 @@
             "datePublished": "\"2025-03-09\"",
             "dateModified": "\"2025-03-09\"",
             "mainEntityOfPage": "\"https://www.yingyu5658.me/posts/tech/kitty%E7%BB%88%E7%AB%AF%E7%BE%8E%E5%8C%96%E8%AE%B0%E5%BD%95/\"",
-            "description": "\"\\u003cp\\u003eKitty这个终端可谓是兼顾了性能与美观，虽然默认设置很简陋，但是经过一番折腾后也能变得很漂亮。\\u003c/p\\u003e\\n\\u003ch1 id=\\\"选择配色\\\"\\u003e选择配色\\u003c/h1\\u003e\\n\\u003cp\\u003e运行\\u003ccode\\u003ekitty + kitten themes\\u003c/code\\u003e后会弹出一个选择配色的界面\\n\\n        \\u003cimg class=\\\"mx-auto\\\" alt=\\\"\\\" src=\\\"./Pasted%20image%2020250309124346.png\\\" /\\u003e   \\n    \\n令我感到非常高兴的是，这个界面支持vim的hjkl键位，也可以用/来搜索。\\n选好后，回车 …\\u003c/p\\u003e\""
+            "description": "\"\\u003cp\\u003eKitty这个终端可谓是兼顾了性能与美观，虽然默认设置很简陋，但是经过一番折腾后也能变得很漂亮。\\u003c/p\\u003e\\n\\u003ch2 id=\\\"选择配色\\\"\\u003e选择配色\\u003c/h2\\u003e\\n\\u003cp\\u003e运行\\u003ccode\\u003ekitty + kitten themes\\u003c/code\\u003e后会弹出一个选择配色的界面\\n\\n        \\u003ca data-fancybox=\\\"gallery\\\" href=\\\"./Pasted%20image%2020250309124346.png\\\"\\u003e\\n            \\u003cimg class=\\\"mx-auto\\\" alt=\\\"\\\" src=\\\"./Pasted%20image%2020250309124346.png\\\" /\\u003e\\n        \\u003c/a\\u003e\\n    \\n令我感到非常高兴的是，这个界面支持vim的hjkl键 …\\u003c/p\\u003e\""
         }
         </script>
         
@@ -264,18 +247,20 @@
         
         <div class="post-content">
             <p>Kitty这个终端可谓是兼顾了性能与美观，虽然默认设置很简陋，但是经过一番折腾后也能变得很漂亮。</p>
-<h1 id="选择配色">选择配色</h1>
+<h2 id="选择配色">选择配色</h2>
 <p>运行<code>kitty + kitten themes</code>后会弹出一个选择配色的界面
 
-        <img class="mx-auto" alt="" src="./Pasted%20image%2020250309124346.png" />   
+        <a data-fancybox="gallery" href="./Pasted%20image%2020250309124346.png">
+            <img class="mx-auto" alt="" src="./Pasted%20image%2020250309124346.png" />
+        </a>
     
 令我感到非常高兴的是，这个界面支持vim的hjkl键位，也可以用/来搜索。
 选好后，回车按m，command + ^ + ,重载配置文件。</p>
-<h1 id="配置字体">配置字体</h1>
+<h2 id="配置字体">配置字体</h2>
 <p>打开kitty的配置文件<code>nvim ~/.config/kitty/kitty.conf</code>，把字号改到12
 <code>font_size 12</code>
 输入<code>kitty list-fonts --psnames</code>来列出系统安装好的所有等宽字体。</p>
-<h1 id="设置窗口风格">设置窗口风格</h1>
+<h2 id="设置窗口风格">设置窗口风格</h2>
 <p>进入配置文件</p>
 <pre tabindex="0"><code>#window
 # 不显示窗口标题栏 保留窗口圆角
@@ -286,29 +271,33 @@ window_padding_width 5
 background_opacity   0.8
 # 毛玻璃效果
 background_blur      30
-</code></pre><h1 id="设置标签栏风格">设置标签栏风格</h1>
+</code></pre><h2 id="设置标签栏风格">设置标签栏风格</h2>
 <pre tabindex="0"><code>#tab bar
 tab_bar_edge          top
 tab_bar_style         powerline
 tab_powerline_style   slanted
-</code></pre><h1 id="安装终端文件管理器">安装终端文件管理器</h1>
+</code></pre><h2 id="安装终端文件管理器">安装终端文件管理器</h2>
 <p><code>yay -S yazi</code>
 推荐yazi的原因，就是能用vim快捷键啊！hjkl好文明！
 而且它还能直接在终端预览图片
 
-        <img class="mx-auto" alt="" src="./Pasted%20image%2020250309131507.png" />   
+        <a data-fancybox="gallery" href="./Pasted%20image%2020250309131507.png">
+            <img class="mx-auto" alt="" src="./Pasted%20image%2020250309131507.png" />
+        </a>
     </p>
-<h1 id="最终效果预览">最终效果预览</h1>
+<h2 id="最终效果预览">最终效果预览</h2>
 <p>
-        <img class="mx-auto" alt="" src="./Pasted%20image%2020250309131145.png" />   
+        <a data-fancybox="gallery" href="./Pasted%20image%2020250309131145.png">
+            <img class="mx-auto" alt="" src="./Pasted%20image%2020250309131145.png" />
+        </a>
     </p>
 <p>
-        <img class="mx-auto" alt="" src="./Pasted%20image%2020250309131221.png" />   
+        <a data-fancybox="gallery" href="./Pasted%20image%2020250309131221.png">
+            <img class="mx-auto" alt="" src="./Pasted%20image%2020250309131221.png" />
+        </a>
     </p>
 
         </div>
-
-        
 
 
         <div class="post-meta meta-tags">
@@ -324,7 +313,7 @@ tab_powerline_style   slanted
     </article>
 <div id="waline"></div>
 <script type="module">
-	import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+	import { init } from '/js/waline.js';
 	init({
 		el: '#waline',
 		serverURL: 'waline.yingyu5658.me',
@@ -348,55 +337,19 @@ tab_powerline_style   slanted
 
 <footer id="footer">
 	<div>
-		<p><a href="/links">友链</a> · <a href="/atom.xml">订阅</a></p>
-		<hr width="20px">
+		<p><a href="/links">友链</a> · <a href="/atom.xml">订阅</a> · <a href=".sitemap.xml">网站地图</a></p>
+		<hr width="80px">
 		<p>© 2025 <a href="https://www.yingyu5658.me">映屿</a>. 由<a href="https://gohugo.io/"> Typecho </a>强力驱动.</p>
 		
 		
 		<p>本站已运行<span class="running-time"></span>. 共 0 篇文章.</p>
-
-		<div style="display:flex;justify-content:center;align-items:center;">
-    <a href="https://www.blogsclub.org/rank.html" target="_blank">
-			<img src="https://www.blogsclub.org/badge/www.yingyu5658.me"
-             style="height:35px!important">
-    </a>
-</div>
-		<script>
-			function initRuntime() {
-				const startDate = new Date('2024-11-03');
-				const now = new Date();
-				const diff = now - startDate;
-
-				
-				const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-
-				
-				document.querySelector('.running-time').innerText =
-					` ${days} 天`;
-			}
-
-			
-			window.addEventListener('load', initRuntime);
-		</script>
-
-		
+		<div style="display:flex;justify-content:center;align-items:center;"> <a href="https://www.blogsclub.org/rank.html" target="_blank"> <img src="https://www.blogsclub.org/badge/www.yingyu5658.me" style="height:35px!important"> </a> </div><script>function initRuntime() { const startDate = new Date('2024-11-03'); const now = new Date(); const diff = now - startDate; const days = Math.floor(diff / (1000 * 60 * 60 * 24)); document.querySelector('.running-time').innerText = ` ${days} 天`; } window.addEventListener('load', initRuntime); </script>
 	</div>
 	<br />
 </footer>
 
-
-
-
-
-
 <a id="rocket" href="#top"></a>
 <script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
-
-
-
-
-
-
 
 
 

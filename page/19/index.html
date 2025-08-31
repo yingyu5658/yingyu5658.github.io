@@ -5,36 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="记录日常观察、技术实践、阅读思考与个人成长的网络日志。关于互联网、书籍、生活琐事以及那些一闪而过的念头。记录生活、吐槽见闻、分享阅读。真实，或许还有点拧巴。">
     <meta name="referrer" content="no-referrer-when-downgrade">
-
     
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "映屿",
-        "url": "https://www.yingyu5658.me",
-        "logo": "https://www.yingyu5658.me/avatar.png",
-        "sameAs": [
-            "https://space.bilibili.com/604851180",
-            "https://github.com/yingyu5658"
-        ]
-    }
+    { "@context": "https://schema.org", "@type": "Organization", "name": "映屿", "url": "https://www.yingyu5658.me", "logo": "https://www.yingyu5658.me/avatar.png", "sameAs": [ "https://space.bilibili.com/604851180", "https://github.com/yingyu5658" ] }
     </script>
-    
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "url": "https://www.yingyu5658.me/",
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://www.yingyu5658.me/search?q={search_term}",
-            "query-input": "required name=search_term"
-        }
-    }
+    <script type="application/ld+json"> { "@context": "https://schema.org", "@type": "WebSite", "url": "https://www.yingyu5658.me/", "potentialAction": { "@type": "SearchAction", "target": "https://www.yingyu5658.me/search?q={search_term}", "query-input": "required name=search_term" } }
     </script>
-    
-
     
     
         
@@ -45,30 +21,15 @@
         <meta name="Keywords" content="yingyu5658,博客,Web,软件,C语言,Nodejs,阅读,读书,笔记,随笔,计算机">
         <meta name="description" content="yingyu5658的数字花园">
     
-
-    <meta property="og:url" content="https://www.yingyu5658.me/">
-    <link rel="shortcut icon" href='/favicon.ico' type="image/x-icon">
-    <link rel="icon" href='/favicon.png' type="image/png">
-    <link rel="alternate icon" href='/favicon.png' type="image/svg+xml">
-    
-    <link rel="stylesheet" href='/css/normalize.css'>
-    <link rel="stylesheet" href='/css/style.css'>
-    <link rel="alternate" type="application/rss+xml" href="http://www.yingyu5658.me/atom.xml" title="映屿" />
+    <meta property="og:url" content="https://www.yingyu5658.me/"> <link rel="shortcut icon" href='/favicon.ico' type="image/x-icon"> <link rel="icon" href='/favicon.png' type="image/png"> <link rel="alternate icon" href='/favicon.png' type="image/svg+xml"> <link rel="stylesheet" href='/css/normalize.css'> <link rel="stylesheet" href='/css/style.css'> <link rel="alternate" type="application/rss+xml" href="http://www.yingyu5658.me/atom.xml" title="映屿" />
     <script type="text/javascript" src="/js/jquery.min.js"></script>
-
+    
+        <link href="/css/jquery.fancybox.min.css" rel="stylesheet">
     
     
+        <link rel="stylesheet" href='/css/'>
     
-    
-    
-    
-        <link rel="stylesheet" href='/css/style.extra.css'>
-    
-</head>
-
-
-<body>
-<header id="header" class="clearfix">
+</head> <body> <header id="header" class="clearfix">
     <div class="container">
         <div class="col-group">
             <div class="site-name">
@@ -93,38 +54,7 @@
     </div>
 </header>
 
-
-
-
-<div id="body">
-    <div class="container">
-        <div class="col-group">
-
-            <div class="col-8" id="main">
-                <div class="res-cons">
-                    
-                        <article class="post">
-                            <header>
-                                <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/posts/tech/171/">String的注意事项</a>
-                                </h2>
-                            </header>
-                            <date class="post-meta meta-date">
-                                December 19, 2024
-                            </date>
-                            
-                            <div class="post-meta meta-category">
-                                in
-                                
-                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
-                                
-                            </div>
-                            
-                            
-                            <div class="post-content summary auto">
-                                
-                                
-                                    <h1 id="string的注意事项">String的注意事项</h1>
+ <div id="body"> <div class="container"> <div class="col-group"> <div class="col-8" id="main"> <div class="res-cons">  <article class="post"> <header> <h2 class="post-title"> <a href="https://www.yingyu5658.me/posts/tech/171/">String的注意事项</a> </h2> </header> <date class="post-meta meta-date"> December 19, 2024 </date>  <div class="post-meta meta-category"> in  <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>  </div>   <div class="post-content summary auto">   <h1 id="string的注意事项">String的注意事项</h1>
 <ul>
 <li>
 <ol>
@@ -139,136 +69,23 @@
 <li>但通过new方式创建字符串对象，每new一次都会产生一个新的对象放在堆内存中。</li>
 </ul>
 <h1 id="不可变字符串对象">不可变字符串对象</h1>
-<p>不可变？它肯定可变啊，比如</p>
-                                
-                            </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/171/">阅读全文</a></p>
-                        </article>
-                    
-                        <article class="post">
-                            <header>
-                                <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/posts/tech/166/">面向对象编程总结</a>
-                                </h2>
-                            </header>
-                            <date class="post-meta meta-date">
-                                December 18, 2024
-                            </date>
-                            
-                            <div class="post-meta meta-category">
-                                in
-                                
-                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
-                                
-                            </div>
-                            
-                            
-                            <div class="post-content summary auto">
-                                
-                                
-                                    <p>面向对象（oop）</p>
+<p>不可变？它肯定可变啊，比如</p>  </div> <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/171/">阅读全文</a></p> </article>  <article class="post"> <header> <h2 class="post-title"> <a href="https://www.yingyu5658.me/posts/tech/166/">面向对象编程总结</a> </h2> </header> <date class="post-meta meta-date"> December 18, 2024 </date>  <div class="post-meta meta-category"> in  <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>  </div>   <div class="post-content summary auto">   <p>面向对象（oop）</p>
 <h2 id="面向对象编程的思想面向拿或者找">面向对象编程的思想：面向。拿或者找。</h2>
 <p>对象：东西
 面向对象编程：拿东西过来编程
 面向对象：把现实世界中的食物看成一个一个对象来解决问题的。（万物皆 对象）
-面向对象的好处：代码更符合人类的思维习惯。编程更简单。看程序更容易理解（？）</p>
-                                
-                            </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/166/">阅读全文</a></p>
-                        </article>
-                    
-                        <article class="post">
-                            <header>
-                                <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/posts/tech/163/">记录配置SSL证书</a>
-                                </h2>
-                            </header>
-                            <date class="post-meta meta-date">
-                                December 17, 2024
-                            </date>
-                            
-                            <div class="post-meta meta-category">
-                                in
-                                
-                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
-                                
-                            </div>
-                            
-                            
-                            <div class="post-content summary auto">
-                                
-                                
-                                    <p>首先你要有一个SSL证书，建议在阿里云购买或者<a href="https://developer.aliyun.com/article/1595201">免费申请</a>，具体过程阿里云这个页面讲的很详细，在此不过多赘述。</p>
+面向对象的好处：代码更符合人类的思维习惯。编程更简单。看程序更容易理解（？）</p>  </div> <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/166/">阅读全文</a></p> </article>  <article class="post"> <header> <h2 class="post-title"> <a href="https://www.yingyu5658.me/posts/tech/163/">记录配置SSL证书</a> </h2> </header> <date class="post-meta meta-date"> December 17, 2024 </date>  <div class="post-meta meta-category"> in  <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>  </div>   <div class="post-content summary auto">   <p>首先你要有一个SSL证书，建议在阿里云购买或者<a href="https://developer.aliyun.com/article/1595201">免费申请</a>，具体过程阿里云这个页面讲的很详细，在此不过多赘述。</p>
 <h1 id="配置证书">配置证书</h1>
 <p>由于我的nginx安装了ssl模块，直接进入配置证书。</p>
 <p>解压下载好的证书，然后上传到服务器。位置自己方便找到即可
-我放到了root/card</p>
-                                
-                            </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/163/">阅读全文</a></p>
-                        </article>
-                    
-                        <article class="post">
-                            <header>
-                                <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/posts/tech/156/">Typecho不要用阿里云系统镜像</a>
-                                </h2>
-                            </header>
-                            <date class="post-meta meta-date">
-                                December 15, 2024
-                            </date>
-                            
-                            <div class="post-meta meta-category">
-                                in
-                                
-                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
-                                
-                            </div>
-                            
-                            
-                            <div class="post-content summary auto">
-                                
-                                
-                                    <p>不要用阿里云的系统镜像，那个是1.1版本的。。。很多插件都没办法正常用。。。比如这两个插件就会这样</p>
+我放到了root/card</p>  </div> <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/163/">阅读全文</a></p> </article>  <article class="post"> <header> <h2 class="post-title"> <a href="https://www.yingyu5658.me/posts/tech/156/">Typecho不要用阿里云系统镜像</a> </h2> </header> <date class="post-meta meta-date"> December 15, 2024 </date>  <div class="post-meta meta-category"> in  <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>  </div>   <div class="post-content summary auto">   <p>不要用阿里云的系统镜像，那个是1.1版本的。。。很多插件都没办法正常用。。。比如这两个插件就会这样</p>
 <p>
-        <img class="mx-auto" alt="" src="./4097191903.png" />   
+        <a data-fancybox="gallery" href="./4097191903.png">
+            <img class="mx-auto" alt="" src="./4097191903.png" />
+        </a>
     </p>
-<p>还有很多主题和插件都犯这样的毛病，在此不多提，我会想办法升级版本的（又挖了个坑）</p>
-                                
-                            </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/156/">阅读全文</a></p>
-                        </article>
-                    
-                        <article class="post">
-                            <header>
-                                <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/posts/tech/147/">Vim基础操作快速入门</a>
-                                </h2>
-                            </header>
-                            <date class="post-meta meta-date">
-                                December 13, 2024
-                            </date>
-                            
-                            <div class="post-meta meta-category">
-                                in
-                                
-                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
-                                
-                            </div>
-                            
-                            
-                            <div class="post-content summary auto">
-                                
-                                
-                                    <h1 id="前言">前言</h1>
-<p>各种鼠标操作让我有点抓狂，vim或许是一个很适合我的东西，全键盘操作听起来就很方便快捷，除了上手难度有点高以外，vim看起来似乎没有任何的缺点。在下载安装好了vim后，我开始学习了快捷键。<del>然后我们就可以直接把鼠标扔了。</del></p>
-                                
-                            </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/147/">阅读全文</a></p>
-                        </article>
-                    
-
-                    
+<p>还有很多主题和插件都犯这样的毛病，在此不多提，我会想办法升级版本的（又挖了个坑）</p>  </div> <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/156/">阅读全文</a></p> </article>  <article class="post"> <header> <h2 class="post-title"> <a href="https://www.yingyu5658.me/posts/tech/147/">Vim基础操作快速入门</a> </h2> </header> <date class="post-meta meta-date"> December 13, 2024 </date>  <div class="post-meta meta-category"> in  <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>  </div>   <div class="post-content summary auto">   <h1 id="前言">前言</h1>
+<p>各种鼠标操作让我有点抓狂，vim或许是一个很适合我的东西，全键盘操作听起来就很方便快捷，除了上手难度有点高以外，vim看起来似乎没有任何的缺点。在下载安装好了vim后，我开始学习了快捷键。<del>然后我们就可以直接把鼠标扔了。</del></p>  </div> <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/147/">阅读全文</a></p> </article>  
 
 
 
@@ -361,11 +178,7 @@
 
 
 
-
-                </div>
-            </div>
-
-            <div id="secondary">
+ </div> </div> <div id="secondary">
     <section class="widget">
         <form id="search" action='https://www.yingyu5658.me/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
@@ -439,13 +252,11 @@
 
 	<h3 class="widget-title">最近回复</h3>
 <section id="waline-recent"></section>
-        
     	
-	
     </div>
 
 <script type="module">
-  import { RecentComments } from 'https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.mjs';
+  import { RecentComments } from '/js/waline.mjs';
 
   RecentComments({
     el: '#waline-recent',
@@ -453,66 +264,24 @@
     count: 5,
   });
 </script>
-
-        </div>
-    </div>
-</div>
-</body>
-<footer id="footer">
+ </div> </div> </div> </body> <footer id="footer">
 	<div>
-		<p><a href="/links">友链</a> · <a href="/atom.xml">订阅</a></p>
-		<hr width="20px">
+		<p><a href="/links">友链</a> · <a href="/atom.xml">订阅</a> · <a href=".sitemap.xml">网站地图</a></p>
+		<hr width="80px">
 		<p>© 2025 <a href="https://www.yingyu5658.me">映屿</a>. 由<a href="https://gohugo.io/"> Typecho </a>强力驱动.</p>
 		
 		
 		<p>本站已运行<span class="running-time"></span>. 共 104 篇文章.</p>
-
-		<div style="display:flex;justify-content:center;align-items:center;">
-    <a href="https://www.blogsclub.org/rank.html" target="_blank">
-			<img src="https://www.blogsclub.org/badge/www.yingyu5658.me"
-             style="height:35px!important">
-    </a>
-</div>
-		<script>
-			function initRuntime() {
-				const startDate = new Date('2024-11-03');
-				const now = new Date();
-				const diff = now - startDate;
-
-				
-				const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-
-				
-				document.querySelector('.running-time').innerText =
-					` ${days} 天`;
-			}
-
-			
-			window.addEventListener('load', initRuntime);
-		</script>
-
-		
+		<div style="display:flex;justify-content:center;align-items:center;"> <a href="https://www.blogsclub.org/rank.html" target="_blank"> <img src="https://www.blogsclub.org/badge/www.yingyu5658.me" style="height:35px!important"> </a> </div><script>function initRuntime() { const startDate = new Date('2024-11-03'); const now = new Date(); const diff = now - startDate; const days = Math.floor(diff / (1000 * 60 * 60 * 24)); document.querySelector('.running-time').innerText = ` ${days} 天`; } window.addEventListener('load', initRuntime); </script>
 	</div>
 	<br />
 </footer>
-
-
-
-
-
 
 <a id="rocket" href="#top"></a>
 <script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
 
 
 
+<script src='/js/'></script>
 
-
-
-
-
-
-<script src='/js/app.extra.js'></script>
-
-
-</html>
+ </html>

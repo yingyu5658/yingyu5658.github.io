@@ -5,36 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="记录日常观察、技术实践、阅读思考与个人成长的网络日志。关于互联网、书籍、生活琐事以及那些一闪而过的念头。记录生活、吐槽见闻、分享阅读。真实，或许还有点拧巴。">
     <meta name="referrer" content="no-referrer-when-downgrade">
-
     
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "映屿",
-        "url": "https://www.yingyu5658.me",
-        "logo": "https://www.yingyu5658.me/avatar.png",
-        "sameAs": [
-            "https://space.bilibili.com/604851180",
-            "https://github.com/yingyu5658"
-        ]
-    }
+    { "@context": "https://schema.org", "@type": "Organization", "name": "映屿", "url": "https://www.yingyu5658.me", "logo": "https://www.yingyu5658.me/avatar.png", "sameAs": [ "https://space.bilibili.com/604851180", "https://github.com/yingyu5658" ] }
     </script>
-    
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "url": "https://www.yingyu5658.me/",
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://www.yingyu5658.me/search?q={search_term}",
-            "query-input": "required name=search_term"
-        }
-    }
+    <script type="application/ld+json"> { "@context": "https://schema.org", "@type": "WebSite", "url": "https://www.yingyu5658.me/", "potentialAction": { "@type": "SearchAction", "target": "https://www.yingyu5658.me/search?q={search_term}", "query-input": "required name=search_term" } }
     </script>
-    
-
     
     
         
@@ -45,30 +21,15 @@
         <meta name="Keywords" content="yingyu5658,博客,Web,软件,C语言,Nodejs,阅读,读书,笔记,随笔,计算机">
         <meta name="description" content="yingyu5658的数字花园">
     
-
-    <meta property="og:url" content="https://www.yingyu5658.me/">
-    <link rel="shortcut icon" href='/favicon.ico' type="image/x-icon">
-    <link rel="icon" href='/favicon.png' type="image/png">
-    <link rel="alternate icon" href='/favicon.png' type="image/svg+xml">
-    
-    <link rel="stylesheet" href='/css/normalize.css'>
-    <link rel="stylesheet" href='/css/style.css'>
-    <link rel="alternate" type="application/rss+xml" href="http://www.yingyu5658.me/atom.xml" title="映屿" />
+    <meta property="og:url" content="https://www.yingyu5658.me/"> <link rel="shortcut icon" href='/favicon.ico' type="image/x-icon"> <link rel="icon" href='/favicon.png' type="image/png"> <link rel="alternate icon" href='/favicon.png' type="image/svg+xml"> <link rel="stylesheet" href='/css/normalize.css'> <link rel="stylesheet" href='/css/style.css'> <link rel="alternate" type="application/rss+xml" href="http://www.yingyu5658.me/atom.xml" title="映屿" />
     <script type="text/javascript" src="/js/jquery.min.js"></script>
-
+    
+        <link href="/css/jquery.fancybox.min.css" rel="stylesheet">
     
     
+        <link rel="stylesheet" href='/css/'>
     
-    
-    
-    
-        <link rel="stylesheet" href='/css/style.extra.css'>
-    
-</head>
-
-
-<body>
-<header id="header" class="clearfix">
+</head> <body> <header id="header" class="clearfix">
     <div class="container">
         <div class="col-group">
             <div class="site-name">
@@ -93,38 +54,7 @@
     </div>
 </header>
 
-
-
-
-<div id="body">
-    <div class="container">
-        <div class="col-group">
-
-            <div class="col-8" id="main">
-                <div class="res-cons">
-                    
-                        <article class="post">
-                            <header>
-                                <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/posts/tech/c%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E7%AE%80%E6%98%93shell/">C语言实现简易Shell</a>
-                                </h2>
-                            </header>
-                            <date class="post-meta meta-date">
-                                July 10, 2025
-                            </date>
-                            
-                            <div class="post-meta meta-category">
-                                in
-                                
-                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
-                                
-                            </div>
-                            
-                            
-                            <div class="post-content summary auto">
-                                
-                                
-                                    <p>实现一个Shell，需要的功能有：</p>
+ <div id="body"> <div class="container"> <div class="col-group"> <div class="col-8" id="main"> <div class="res-cons">  <article class="post"> <header> <h2 class="post-title"> <a href="https://www.yingyu5658.me/posts/tech/c%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E7%AE%80%E6%98%93shell/">C语言实现简易Shell</a> </h2> </header> <date class="post-meta meta-date"> July 10, 2025 </date>  <div class="post-meta meta-category"> in  <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>  </div>   <div class="post-content summary auto">   <p>实现一个Shell，需要的功能有：</p>
 <ul>
 <li>循环读取用户输入</li>
 <li>输出提示符</li>
@@ -133,137 +63,24 @@
 </ul>
 <p>shell中的大多数命令都是通过创建子进程来执行的，可以使用<code>fork()</code>创建子进程，然后替换主进程执行命令。
 创建
-常用函数原型</p>
-                                
-                            </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/c%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E7%AE%80%E6%98%93shell/">阅读全文</a></p>
-                        </article>
-                    
-                        <article class="post">
-                            <header>
-                                <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/posts/tech/c%E8%AF%AD%E8%A8%80%E7%9A%84%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0/">C语言的可变参数</a>
-                                </h2>
-                            </header>
-                            <date class="post-meta meta-date">
-                                July 5, 2025
-                            </date>
-                            
-                            <div class="post-meta meta-category">
-                                in
-                                
-                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
-                                
-                            </div>
-                            
-                            
-                            <div class="post-content summary auto">
-                                
-                                
-                                    <h2 id="介绍">介绍</h2>
+常用函数原型</p>  </div> <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/c%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E7%AE%80%E6%98%93shell/">阅读全文</a></p> </article>  <article class="post"> <header> <h2 class="post-title"> <a href="https://www.yingyu5658.me/posts/tech/c%E8%AF%AD%E8%A8%80%E7%9A%84%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0/">C语言的可变参数</a> </h2> </header> <date class="post-meta meta-date"> July 5, 2025 </date>  <div class="post-meta meta-category"> in  <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>  </div>   <div class="post-content summary auto">   <h2 id="介绍">介绍</h2>
 <p>C语言中，<code>printf()</code>和<code>scanf()</code>函数就是典型的变参函数，其优点是灵活处理参数。</p>
-<p>想要创建变参函数需引入头文件<code>stdarg.h</code>，它有一些宏：</p>
-                                
-                            </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/c%E8%AF%AD%E8%A8%80%E7%9A%84%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0/">阅读全文</a></p>
-                        </article>
-                    
-                        <article class="post">
-                            <header>
-                                <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/posts/jottings/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E9%80%89%E6%8B%A9github-issues%E8%80%8C%E4%B8%8D%E6%98%AF%E6%9C%8B%E5%8F%8B%E5%9C%88/">为什么我选择Github issues，而不是朋友圈</a>
-                                </h2>
-                            </header>
-                            <date class="post-meta meta-date">
-                                July 5, 2025
-                            </date>
-                            
-                            <div class="post-meta meta-category">
-                                in
-                                
-                                    <a href="/categories/%E9%9A%8F%E7%AC%94">随笔</a>
-                                
-                            </div>
-                            
-                            
-                            <div class="post-content summary auto">
-                                
-                                
-                                    <blockquote>
+<p>想要创建变参函数需引入头文件<code>stdarg.h</code>，它有一些宏：</p>  </div> <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/c%E8%AF%AD%E8%A8%80%E7%9A%84%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0/">阅读全文</a></p> </article>  <article class="post"> <header> <h2 class="post-title"> <a href="https://www.yingyu5658.me/posts/jottings/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E9%80%89%E6%8B%A9github-issues%E8%80%8C%E4%B8%8D%E6%98%AF%E6%9C%8B%E5%8F%8B%E5%9C%88/">为什么我选择Github issues，而不是朋友圈</a> </h2> </header> <date class="post-meta meta-date"> July 5, 2025 </date>  <div class="post-meta meta-category"> in  <a href="/categories/%E9%9A%8F%E7%AC%94">随笔</a>  </div>   <div class="post-content summary auto">   <blockquote>
 <p>本页面内容来自<a href="https://github.com/yingyu5658/Moments/edit/main/README.md">Moments</a></p></blockquote>
 <h2 id="概述">概述</h2>
 <p>把GitHub issues当朋友圈发。</p>
-<p>我厌倦朋友圈浓重的装逼气味和虚假社交属性，打造一个纸糊的人设并不好玩，专门发出来某些东西给某人看也非常恶心，所以我选择逃避。</p>
-                                
-                            </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/jottings/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E9%80%89%E6%8B%A9github-issues%E8%80%8C%E4%B8%8D%E6%98%AF%E6%9C%8B%E5%8F%8B%E5%9C%88/">阅读全文</a></p>
-                        </article>
-                    
-                        <article class="post">
-                            <header>
-                                <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/posts/tech/%E7%94%A8javascript-tss%E5%92%8Chighlights%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8F%A5%E7%BA%A7%E6%96%87%E6%9C%AC%E9%98%85%E8%AF%BB%E5%99%A8/">使用Javascript TSS和Highlights构建一个文本阅读器</a>
-                                </h2>
-                            </header>
-                            <date class="post-meta meta-date">
-                                July 4, 2025
-                            </date>
-                            
-                            <div class="post-meta meta-category">
-                                in
-                                
-                                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
-                                
-                            </div>
-                            
-                            
-                            <div class="post-content summary auto">
-                                
-                                
-                                    <blockquote>
+<p>我厌倦朋友圈浓重的装逼气味和虚假社交属性，打造一个纸糊的人设并不好玩，专门发出来某些东西给某人看也非常恶心，所以我选择逃避。</p>  </div> <p class="readmore"><a href="https://www.yingyu5658.me/posts/jottings/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E9%80%89%E6%8B%A9github-issues%E8%80%8C%E4%B8%8D%E6%98%AF%E6%9C%8B%E5%8F%8B%E5%9C%88/">阅读全文</a></p> </article>  <article class="post"> <header> <h2 class="post-title"> <a href="https://www.yingyu5658.me/posts/tech/%E7%94%A8javascript-tss%E5%92%8Chighlights%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8F%A5%E7%BA%A7%E6%96%87%E6%9C%AC%E9%98%85%E8%AF%BB%E5%99%A8/">使用Javascript TSS和Highlights构建一个文本阅读器</a> </h2> </header> <date class="post-meta meta-date"> July 4, 2025 </date>  <div class="post-meta meta-category"> in  <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>  </div>   <div class="post-content summary auto">   <blockquote>
 <p>原文：https://jsdev.space/tts-sentence-reader/
 翻译：yingyu5658 <a href="mailto:yingyu5658@outlook.com">yingyu5658@outlook.com</a></p></blockquote>
 <p>
-        <img class="mx-auto" alt="" src="https://jsdev.space/.netlify/images?url=_astro%2Ftts-sentence-reader.hV9whx3I.png&amp;w=800&amp;h=800" />   
+        <a data-fancybox="gallery" href="https://jsdev.space/.netlify/images?url=_astro%2Ftts-sentence-reader.hV9whx3I.png&amp;w=800&amp;h=800">
+            <img class="mx-auto" alt="" src="https://jsdev.space/.netlify/images?url=_astro%2Ftts-sentence-reader.hV9whx3I.png&amp;w=800&amp;h=800" />
+        </a>
     </p>
-<p>在这篇文章中，我们将构建一个简单的Web工具来探究<strong>Text-toSpeech(TTS)<strong>在JavaScript中是如何工作的。我们也将深入研究</strong>句子级高亮</strong>的工作逻辑。这两项功能经常结合在一起使用，以走到浏览器中打造无障碍的动态阅读体验。</p>
-                                
-                            </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/%E7%94%A8javascript-tss%E5%92%8Chighlights%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8F%A5%E7%BA%A7%E6%96%87%E6%9C%AC%E9%98%85%E8%AF%BB%E5%99%A8/">阅读全文</a></p>
-                        </article>
-                    
-                        <article class="post">
-                            <header>
-                                <h2 class="post-title">
-                                    <a href="https://www.yingyu5658.me/posts/jottings/%E4%BF%A1%E6%81%AF%E8%8A%82%E9%A3%9F/">信息节食</a>
-                                </h2>
-                            </header>
-                            <date class="post-meta meta-date">
-                                July 3, 2025
-                            </date>
-                            
-                            <div class="post-meta meta-category">
-                                in
-                                
-                                    <a href="/categories/%E9%9A%8F%E7%AC%94">随笔</a>
-                                
-                            </div>
-                            
-                            
-                            <div class="post-content summary auto">
-                                
-                                
-                                    <h2 id="起因">起因</h2>
+<p>在这篇文章中，我们将构建一个简单的Web工具来探究<strong>Text-toSpeech(TTS)<strong>在JavaScript中是如何工作的。我们也将深入研究</strong>句子级高亮</strong>的工作逻辑。这两项功能经常结合在一起使用，以走到浏览器中打造无障碍的动态阅读体验。</p>  </div> <p class="readmore"><a href="https://www.yingyu5658.me/posts/tech/%E7%94%A8javascript-tss%E5%92%8Chighlights%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8F%A5%E7%BA%A7%E6%96%87%E6%9C%AC%E9%98%85%E8%AF%BB%E5%99%A8/">阅读全文</a></p> </article>  <article class="post"> <header> <h2 class="post-title"> <a href="https://www.yingyu5658.me/posts/jottings/%E4%BF%A1%E6%81%AF%E8%8A%82%E9%A3%9F/">信息节食</a> </h2> </header> <date class="post-meta meta-date"> July 3, 2025 </date>  <div class="post-meta meta-category"> in  <a href="/categories/%E9%9A%8F%E7%AC%94">随笔</a>  </div>   <div class="post-content summary auto">   <h2 id="起因">起因</h2>
 <p>信息节食这个概念，大概是我初一的时候在政治课本听说的。当时还不以为然，现在越来越觉得信息节食很重要。</p>
 <h2 id="行动">行动</h2>
-<p>我是个注意力比较涣散的人，可能是因为我常年熬夜等不健康的生活习惯，在家的时候注意力只能维持四十分钟左右，想持续一个小时的高效学习非常困难。其原因就在于我非常喜欢看QQ群，经过层层筛选后的QQ群是真正有共同话题的地方。问题就在于此，太有共同话题了，群友说的每一句话都能参与，这也就让我做一半事情就拿起手机看QQ，又是因为经过筛选，所以群很少，哪怕没有消息也要等上一会消息。长此以往，浪费时间还伤眼睛伤颈椎，而且极大部分消息都是娱乐，对提升自身完全没有帮助。所以我把QQ号退出了登录并在空间留下了邮箱，有重要且正经的事时，能高效交流。</p>
-                                
-                            </div>
-                            <p class="readmore"><a href="https://www.yingyu5658.me/posts/jottings/%E4%BF%A1%E6%81%AF%E8%8A%82%E9%A3%9F/">阅读全文</a></p>
-                        </article>
-                    
-
-                    
+<p>我是个注意力比较涣散的人，可能是因为我常年熬夜等不健康的生活习惯，在家的时候注意力只能维持四十分钟左右，想持续一个小时的高效学习非常困难。其原因就在于我非常喜欢看QQ群，经过层层筛选后的QQ群是真正有共同话题的地方。问题就在于此，太有共同话题了，群友说的每一句话都能参与，这也就让我做一半事情就拿起手机看QQ，又是因为经过筛选，所以群很少，哪怕没有消息也要等上一会消息。长此以往，浪费时间还伤眼睛伤颈椎，而且极大部分消息都是娱乐，对提升自身完全没有帮助。所以我把QQ号退出了登录并在空间留下了邮箱，有重要且正经的事时，能高效交流。</p>  </div> <p class="readmore"><a href="https://www.yingyu5658.me/posts/jottings/%E4%BF%A1%E6%81%AF%E8%8A%82%E9%A3%9F/">阅读全文</a></p> </article>  
 
 
 
@@ -356,11 +173,7 @@
 
 
 
-
-                </div>
-            </div>
-
-            <div id="secondary">
+ </div> </div> <div id="secondary">
     <section class="widget">
         <form id="search" action='https://www.yingyu5658.me/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
@@ -434,13 +247,11 @@
 
 	<h3 class="widget-title">最近回复</h3>
 <section id="waline-recent"></section>
-        
     	
-	
     </div>
 
 <script type="module">
-  import { RecentComments } from 'https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.mjs';
+  import { RecentComments } from '/js/waline.mjs';
 
   RecentComments({
     el: '#waline-recent',
@@ -448,66 +259,24 @@
     count: 5,
   });
 </script>
-
-        </div>
-    </div>
-</div>
-</body>
-<footer id="footer">
+ </div> </div> </div> </body> <footer id="footer">
 	<div>
-		<p><a href="/links">友链</a> · <a href="/atom.xml">订阅</a></p>
-		<hr width="20px">
+		<p><a href="/links">友链</a> · <a href="/atom.xml">订阅</a> · <a href=".sitemap.xml">网站地图</a></p>
+		<hr width="80px">
 		<p>© 2025 <a href="https://www.yingyu5658.me">映屿</a>. 由<a href="https://gohugo.io/"> Typecho </a>强力驱动.</p>
 		
 		
 		<p>本站已运行<span class="running-time"></span>. 共 104 篇文章.</p>
-
-		<div style="display:flex;justify-content:center;align-items:center;">
-    <a href="https://www.blogsclub.org/rank.html" target="_blank">
-			<img src="https://www.blogsclub.org/badge/www.yingyu5658.me"
-             style="height:35px!important">
-    </a>
-</div>
-		<script>
-			function initRuntime() {
-				const startDate = new Date('2024-11-03');
-				const now = new Date();
-				const diff = now - startDate;
-
-				
-				const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-
-				
-				document.querySelector('.running-time').innerText =
-					` ${days} 天`;
-			}
-
-			
-			window.addEventListener('load', initRuntime);
-		</script>
-
-		
+		<div style="display:flex;justify-content:center;align-items:center;"> <a href="https://www.blogsclub.org/rank.html" target="_blank"> <img src="https://www.blogsclub.org/badge/www.yingyu5658.me" style="height:35px!important"> </a> </div><script>function initRuntime() { const startDate = new Date('2024-11-03'); const now = new Date(); const diff = now - startDate; const days = Math.floor(diff / (1000 * 60 * 60 * 24)); document.querySelector('.running-time').innerText = ` ${days} 天`; } window.addEventListener('load', initRuntime); </script>
 	</div>
 	<br />
 </footer>
-
-
-
-
-
 
 <a id="rocket" href="#top"></a>
 <script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
 
 
 
+<script src='/js/'></script>
 
-
-
-
-
-
-<script src='/js/app.extra.js'></script>
-
-
-</html>
+ </html>
