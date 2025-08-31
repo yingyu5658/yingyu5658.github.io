@@ -23,15 +23,33 @@
 
     {
       "source": "/post",
-      "destination": "/posts",
-      "permanent": true
-    },
-    {
-      "source": "/post/",
-      "destination": "/posts/",
-      "permanent": true
-    },
-    
+	  "destination": "/posts",
+	  "permanent": true
+	},
+	{
+		"source": "/post/",
+		"destination": "/posts/",
+		"permanent": true
+	},
+
+
+
+
+	{
+		"source": "/post/:path*",
+		"destination": "/posts/:path*",
+		"permanent": true
+	},
+
+
+
+
+
+
+
+
+
+
     {
       "source": "/post/readings/:path*",
       "destination": "/posts/readings/:path*",
@@ -47,11 +65,55 @@
       "destination": "/posts/jottings/:path*",
       "permanent": true
     },
+
+
     {
       "source": "/post/2888969971/",
       "destination": "/posts/jottings/星落关于我对命运既定的想法",
       "permanent": true
     },
+	{
+      "source": "/post/2888969971/",
+      "destination": "/posts/jottings/%E6%98%9F%E8%90%BD%E5%85%B3%E4%BA%8E%E6%88%91%E5%AF%B9%E5%91%BD%E8%BF%90%E6%97%A2%E5%AE%9A%E7%9A%84%E6%83%B3%E6%B3%95/",
+      "permanent": true
+    },
+
+
+	{
+	  "source": "/post/2367861242/",
+	  "destination": "/posts/jottings/人生中第一次大考/",
+	  "permanent": true
+	},
+
+	{
+		"source": "/post/2367861242/",
+		"destination": "/posts/jottings/%E4%BA%BA%E7%94%9F%E4%B8%AD%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%A4%A7%E8%80%83/",
+		"permanent": true
+	},
+{
+      "source": "/post/2888969971",
+      "destination": "/posts/jottings/星落关于我对命运既定的想法",
+      "permanent": true
+    },
+	{
+      "source": "/post/2888969971",
+      "destination": "/posts/jottings/%E6%98%9F%E8%90%BD%E5%85%B3%E4%BA%8E%E6%88%91%E5%AF%B9%E5%91%BD%E8%BF%90%E6%97%A2%E5%AE%9A%E7%9A%84%E6%83%B3%E6%B3%95/",
+      "permanent": true
+    },
+
+
+	{
+	  "source": "/post/2367861242",
+	  "destination": "/posts/jottings/人生中第一次大考/",
+	  "permanent": true
+	},
+
+	{
+		"source": "/post/2367861242",
+		"destination": "/posts/jottings/%E4%BA%BA%E7%94%9F%E4%B8%AD%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%A4%A7%E8%80%83/",
+		"permanent": true
+	},
+
 
     {
       "source": "/(.*)",
