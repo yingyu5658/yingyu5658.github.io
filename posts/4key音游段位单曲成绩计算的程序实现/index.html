@@ -507,7 +507,9 @@
             
         </div>
     </article>
-<div id="waline"></div>
+	<p>如果您更喜欢单独交流，欢迎发送邮件到<a href="mailto:i@yingyu5658.me"><strong>i@yingyu5658.me</strong></a>.</p>
+<div id="waline">
+</div>
 <script type="module">
 	import { init } from '/js/waline.js';
 	init({
@@ -525,9 +527,18 @@
 
 <div class="post-archive">
     <div class="random-post">
-                <h2><a href="/posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%93%88%E5%B8%8C%E8%A1%A8/">【数据结构与算法】哈希表</a></h2>
+                <h2><a href="/posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E6%A0%88/">【数据结构与算法】栈</a></h2>
         
-            <p class="summary"><p>哈希表（Hash Table）是一种基于键（Key）直接访问数据的高效数据结构，其核心思想是通过哈希函数将键映射到数组的特定位置，从而实现平均时间复杂度为 O(1)O(1) 的插入、查找和删除操作。</p></p>
+            <p class="summary"><h2 id="基本概念">基本概念</h2>
+<p>栈（Stack）是一种后进先出（LIFO）原则的线性数据结构。核心操作包括：</p>
+<ul>
+<li>压栈（Push）：将元素添加到栈顶</li>
+<li>出栈（Pop）：移除并返回栈顶元素</li>
+<li>查看栈顶（Check）获取但移除栈顶元素</li>
+<li>判空（is_empty）检查栈是否为空</li>
+</ul>
+<h2 id="结构定义">结构定义</h2>
+<p>使用动态数组实现栈，包含三个核心属性：</p></p>
         
 <h2 style="text-align: right; margin-bottom: 15px; color: #4a4c4d !important;">
             <i>接下来阅读</i>

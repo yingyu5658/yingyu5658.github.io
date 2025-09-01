@@ -345,7 +345,9 @@ http {
             
         </div>
     </article>
-<div id="waline"></div>
+	<p>如果您更喜欢单独交流，欢迎发送邮件到<a href="mailto:i@yingyu5658.me"><strong>i@yingyu5658.me</strong></a>.</p>
+<div id="waline">
+</div>
 <script type="module">
 	import { init } from '/js/waline.js';
 	init({
@@ -363,11 +365,16 @@ http {
 
 <div class="post-archive">
     <div class="random-post">
-                <h2><a href="/posts/%E6%B8%B8%E6%88%8F%E8%B5%84%E6%BA%90%E4%B8%8B%E8%BD%BD%E5%8F%8A%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%B8%E5%85%B3%E6%95%99%E7%A8%8B/">游戏资源下载及连接服务器相关教程</a></h2>
+                <h2><a href="/posts/181/">Spigot服务端控制台中文乱码解决方案</a></h2>
         
-            <p class="summary"><h1 id="前言">前言</h1>
-<p>为了避免不必要的麻烦和纠纷，也是为了打造一个纯粹干净高质量的社区，我们需要对想要参与的人员提出一些条件，请确保你自身可以满足这些条件后再来愉快的玩耍。
-<strong>所有的条件都是最基本的，一点也不苛刻，大部分要求仅仅是一些应该具备的能力。</strong></p></p>
+            <p class="summary"><ol>
+<li>把<code>-Dfile.encoding=UTF-8</code>加在开服脚本文件的<code>-jar</code>前即可。</li>
+<li>在启动脚本第一行加上<code>chcp 65001</code>
+我的启动脚本如下：</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>chcp <span style="color:#d19a66">65001</span>
+</span></span><span style="display:flex;"><span>java -Dfile.encoding<span style="color:#56b6c2">=</span>UTF-8 -jar spigot-1.21.jar
+</span></span></code></pre></div></p>
         
 <h2 style="text-align: right; margin-bottom: 15px; color: #4a4c4d !important;">
             <i>接下来阅读</i>
