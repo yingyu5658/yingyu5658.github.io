@@ -299,7 +299,7 @@
             
         </div>
     </article>
-	<i><p style="margin-top: 15px;">我会认真阅读每一条评论，但如果我没有回复您的评论，<strong>那意味着我认同您的看法</strong>，或<strong>您的观点直击要害</strong>，<strong>我没有要作补充的</strong>。<strong>不代表我对您的评论有任何意见</strong>，请理解！</p></i>
+	<i><p style="margin-top: 15px;">我会认真阅读每一条评论，如果我没有回复您的评论，<strong>那意味着我认同您的看法</strong>，或<strong>您的观点直击要害</strong>，<strong>我没有要作补充的</strong>。<strong>不代表我对您的评论有任何意见</strong>，请理解！</p></i>
 	<p style="margin-bottom: 0;">如果您更喜欢单独交流，欢迎发送邮件到<a href="mailto:i@yingyu5658.me"><strong>i@yingyu5658.me</strong></a>.</p><br>
 <div id="waline">
 </div>
@@ -320,13 +320,16 @@
 
 <div class="post-archive">
     <div class="random-post">
-                <h2><a href="/posts/163/">记录配置SSL证书</a></h2>
+                <h2><a href="/posts/181/">Spigot服务端控制台中文乱码解决方案</a></h2>
         
-            <p class="summary"><p>首先你要有一个SSL证书，建议在阿里云购买或者<a href="https://developer.aliyun.com/article/1595201">免费申请</a>，具体过程阿里云这个页面讲的很详细，在此不过多赘述。</p>
-<h1 id="配置证书">配置证书</h1>
-<p>由于我的nginx安装了ssl模块，直接进入配置证书。</p>
-<p>解压下载好的证书，然后上传到服务器。位置自己方便找到即可
-我放到了root/card</p></p>
+            <p class="summary"><ol>
+<li>把<code>-Dfile.encoding=UTF-8</code>加在开服脚本文件的<code>-jar</code>前即可。</li>
+<li>在启动脚本第一行加上<code>chcp 65001</code>
+我的启动脚本如下：</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>chcp <span style="color:#d19a66">65001</span>
+</span></span><span style="display:flex;"><span>java -Dfile.encoding<span style="color:#56b6c2">=</span>UTF-8 -jar spigot-1.21.jar
+</span></span></code></pre></div></p>
         
 <h2 style="text-align: right; margin-bottom: 15px; color: #4a4c4d !important;">
             <i>接下来阅读</i>
