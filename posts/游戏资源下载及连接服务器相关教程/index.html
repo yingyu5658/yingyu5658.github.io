@@ -299,7 +299,7 @@
             
         </div>
     </article>
-	<i><p style="margin-top: 0;">我会认真阅读每一条评论，但如果我没有回复您的评论，<strong>那意味着我认同您的看法</strong>，或<strong>您的观点直击要害</strong>，<strong>我没有要作补充的</strong>。<strong>不代表我对您的评论有任何意见</strong>，请理解！</p></i>
+	<i><p style="margin-top: 15px;">我会认真阅读每一条评论，但如果我没有回复您的评论，<strong>那意味着我认同您的看法</strong>，或<strong>您的观点直击要害</strong>，<strong>我没有要作补充的</strong>。<strong>不代表我对您的评论有任何意见</strong>，请理解！</p></i>
 	<p style="margin-bottom: 0;">如果您更喜欢单独交流，欢迎发送邮件到<a href="mailto:i@yingyu5658.me"><strong>i@yingyu5658.me</strong></a>.</p><br>
 <div id="waline">
 </div>
@@ -320,10 +320,13 @@
 
 <div class="post-archive">
     <div class="random-post">
-                <h2><a href="/posts/184/">修复Geyser下基岩版玩家无法在地狱基岩层放置方块</a></h2>
+                <h2><a href="/posts/163/">记录配置SSL证书</a></h2>
         
-            <p class="summary"><p>在<code>plugins\Geyser-Spigot\config.yml</code>中把第160行的<code>above-bedrock-nether-building: false</code>改为<code>true</code>，重启服务器，问题解决~
-原理：geyser把下界翻译成了末地，会导致下界天空变成末地的样式，不过可以解决基岩版玩家在地狱基岩层的问题。</p></p>
+            <p class="summary"><p>首先你要有一个SSL证书，建议在阿里云购买或者<a href="https://developer.aliyun.com/article/1595201">免费申请</a>，具体过程阿里云这个页面讲的很详细，在此不过多赘述。</p>
+<h1 id="配置证书">配置证书</h1>
+<p>由于我的nginx安装了ssl模块，直接进入配置证书。</p>
+<p>解压下载好的证书，然后上传到服务器。位置自己方便找到即可
+我放到了root/card</p></p>
         
 <h2 style="text-align: right; margin-bottom: 15px; color: #4a4c4d !important;">
             <i>接下来阅读</i>
