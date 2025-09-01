@@ -317,13 +317,10 @@
 
 <div class="post-archive">
     <div class="random-post">
-                <h2><a href="/posts/163/">记录配置SSL证书</a></h2>
+                <h2><a href="/posts/184/">修复Geyser下基岩版玩家无法在地狱基岩层放置方块</a></h2>
         
-            <p class="summary"><p>首先你要有一个SSL证书，建议在阿里云购买或者<a href="https://developer.aliyun.com/article/1595201">免费申请</a>，具体过程阿里云这个页面讲的很详细，在此不过多赘述。</p>
-<h1 id="配置证书">配置证书</h1>
-<p>由于我的nginx安装了ssl模块，直接进入配置证书。</p>
-<p>解压下载好的证书，然后上传到服务器。位置自己方便找到即可
-我放到了root/card</p></p>
+            <p class="summary"><p>在<code>plugins\Geyser-Spigot\config.yml</code>中把第160行的<code>above-bedrock-nether-building: false</code>改为<code>true</code>，重启服务器，问题解决~
+原理：geyser把下界翻译成了末地，会导致下界天空变成末地的样式，不过可以解决基岩版玩家在地狱基岩层的问题。</p></p>
         
 <h2 style="text-align: right; margin-bottom: 15px; color: #4a4c4d !important;">
             <i>接下来阅读</i>
