@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="记录日常观察、技术实践、阅读思考与个人成长的网络日志。关于互联网、书籍、生活琐事以及那些一闪而过的念头。记录生活、吐槽见闻、分享阅读。真实，或许还有点拧巴。">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    
+        <title>【黑历史】读自己以前写的代码 | 映屿</title>
+        <meta property="og:title" content="【黑历史】读自己以前写的代码 - 映屿">
+        <meta property="og:type" content="article">
+        
+        <meta property="article:published_time" content='2025-04-19T15:20:19&#43;08:00'>
+        
+        
+        <meta property="article:modified_time" content='2025-04-19T15:20:19&#43;08:00'>
+        
+        <meta name="Keywords" content="yingyu5658,博客,Web,软件,C语言,Nodejs,阅读,读书,笔记,随笔,计算机">
+        <meta name="description" content="【黑历史】读自己以前写的代码">
+        
+        <meta name="author" content="">
+        
+    
+    <meta property="og:url" content="https://www.yingyu5658.me/posts/%E9%BB%91%E5%8E%86%E5%8F%B2%E8%AF%BB%E8%87%AA%E5%B7%B1%E4%BB%A5%E5%89%8D%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81/"> <link rel="shortcut icon" href='/favicon.ico' type="image/x-icon"> <link rel="icon" href='/favicon.png' type="image/png"> <link rel="alternate icon" href='/favicon.png' type="image/svg+xml"> <link rel="stylesheet" href='/css/normalize.css'> <link rel="stylesheet" href='/css/style.css'> <script type="text/javascript" src="/js/jquery.min.js"></script>
+    
+        <link href="/css/jquery.fancybox.min.css" rel="stylesheet">
+    
+    
+        <link rel="stylesheet" href='/css/'>
+    
+</head>
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name">
+                
+                    <a id="logo" href="https://www.yingyu5658.me/">映屿</a>
+                
+				<em><p class="description">关于互联网、书籍、生活琐事以及那些一闪而过的念头</p></em>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://www.yingyu5658.me/">首页</a>
+                    
+                    <a  href="https://www.yingyu5658.me/archives" title="归档">归档</a>
+                    
+                    <a  href="https://www.yingyu5658.me/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+ 	<div id="secondary">
+    <section class="widget">
+        <form id="search" action='https://www.yingyu5658.me/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="输入你的好奇心">
+      <input type="hidden" name="sitesearch" value="https://www.yingyu5658.me/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+
+    </section>
+
+	<section class="widget">
+        <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
+<ul class="widget-list">
+    
+    <li><a href="https://www.yingyu5658.me/categories/%E6%8A%80%E6%9C%AF/">技术 (57)</a></li>
+    
+    <li><a href="https://www.yingyu5658.me/categories/%E8%AF%BB%E4%B9%A6/">读书 (1)</a></li>
+    
+    <li><a href="https://www.yingyu5658.me/categories/%E9%9A%8F%E7%AC%94/">随笔 (41)</a></li>
+    
+</ul>
+    </section>
+
+
+	<section class="widget">
+        <h3 class="widget-title">最近更新</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://www.yingyu5658.me/posts/dissipation-of-consciousness-after-death/" title="「我害怕死」" target="_blank">「我害怕死」</a>
+    </li>
+    
+    <li>
+        <a href="https://www.yingyu5658.me/posts/what-is-carried-by-words-can-transcend-time-and-space/" title="文字所承载的东西能跨越时空" target="_blank">文字所承载的东西能跨越时空</a>
+    </li>
+    
+    <li>
+        <a href="https://www.yingyu5658.me/posts/izu-no-odoriko/" title="《伊豆的舞女》读后感" target="_blank">《伊豆的舞女》读后感</a>
+    </li>
+    
+    <li>
+        <a href="https://www.yingyu5658.me/posts/overcast/" title="阴云" target="_blank">阴云</a>
+    </li>
+    
+    <li>
+        <a href="https://www.yingyu5658.me/posts/we-are-all-bull-shit/" title="别吵了，大家一样烂" target="_blank">别吵了，大家一样烂</a>
+    </li>
+    
+    <li>
+        <a href="https://www.yingyu5658.me/posts/%E5%A4%8F%E6%97%A5%E6%AE%8B%E5%BD%B1/" title="夏日残影" target="_blank">夏日残影</a>
+    </li>
+    
+    <li>
+        <a href="https://www.yingyu5658.me/posts/%E7%A7%8B%E5%A4%A9%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A3%B0%E7%8B%97%E5%8F%AB/" title="秋天的第一声狗叫" target="_blank">秋天的第一声狗叫</a>
+    </li>
+    
+    <li>
+        <a href="https://www.yingyu5658.me/posts/%E6%9C%AA%E5%91%BD%E5%90%8D/" title="未命名" target="_blank">未命名</a>
+    </li>
+    
+    <li>
+        <a href="https://www.yingyu5658.me/posts/how-to-subscribe-newsgroup/" title="如何订阅新闻组" target="_blank">如何订阅新闻组</a>
+    </li>
+    
+    <li>
+        <a href="https://www.yingyu5658.me/posts/%E6%9C%80%E8%86%88%E5%BA%94%E4%B8%8D%E7%88%B1%E6%83%9C%E4%B9%A6%E7%9A%84%E4%BA%BA/" title="最膈应不爱惜书的人" target="_blank">最膈应不爱惜书的人</a>
+    </li>
+    
+</ul>
+	</section>
+
+	
+    	
+    </div>
+	
+
+
+                <div class="col-8" id="main">
+                   
+<div class="res-cons">
+    
+    <article class="post">
+        
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "headline": "\"【黑历史】读自己以前写的代码\"",
+            "image": [
+                
+                    "/default-post-image.jpg" | absURL | jsonify
+                
+            ],
+            "author": {
+                "@type": "Person",
+                "name": "null"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "映屿",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://www.yingyu5658.me/avatar.png"
+                }
+            },
+            "datePublished": "\"2025-04-19\"",
+            "dateModified": "\"2025-04-19\"",
+            "mainEntityOfPage": "\"https://www.yingyu5658.me/posts/%E9%BB%91%E5%8E%86%E5%8F%B2%E8%AF%BB%E8%87%AA%E5%B7%B1%E4%BB%A5%E5%89%8D%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81/\"",
+            "description": "\"\\u003cp\\u003e仓库地址就不放出来了，太耻辱了\\u0026hellip;\\u0026hellip;\\u003c/p\\u003e\\n\\u003cp\\u003e先来看看Main.java\\u003c/p\\u003e\\n\\u003cdiv class=\\\"highlight\\\"\\u003e\\u003cpre tabindex=\\\"0\\\" style=\\\"color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;\\\"\\u003e\\u003ccode class=\\\"language-java\\\" data-lang=\\\"java\\\"\\u003e\\u003cspan style=\\\"display:flex;\\\"\\u003e\\u003cspan\\u003e\\u003cspan style=\\\"color:#c678dd\\\"\\u003epackage\\u003c/span\\u003e \\u003cspan style=\\\"color:#e06c75\\\"\\u003ecn.yingyu5658.lbl\\u003c/span\\u003e;\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan style=\\\"display:flex;\\\"\\u003e\\u003cspan\\u003e\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan style=\\\"display:flex;\\\"\\u003e\\u003cspan\\u003e\\u003cspan style=\\\"color:#7f848e\\\"\\u003e/**\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan style=\\\"display:flex;\\\"\\u003e\\u003cspan\\u003e\\u003cspan style=\\\"color:#7f848e\\\"\\u003e * @author yingyu5658\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan style=\\\"display:flex;\\\"\\u003e\\u003cspan\\u003e\\u003cspan style=\\\"color:#7f848e\\\"\\u003e */\\u003c/span\\u003e\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan style=\\\"display:flex;\\\"\\u003e\\u003cspan\\u003e\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan style=\\\"display:flex;\\\"\\u003e\\u003cspan\\u003e\\u003cspan style=\\\"color:#c678dd\\\"\\u003epublic\\u003c/span\\u003e \\u003cspan style=\\\"color:#c678dd\\\"\\u003eclass\\u003c/span\\u003e \\u003cspan style=\\\"color:#e5c07b\\\"\\u003eMain\\u003c/span\\u003e {\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan style=\\\"display:flex;\\\"\\u003e\\u003cspan\\u003e    \\u003cspan style=\\\"color:#c678dd\\\"\\u003epublic\\u003c/span\\u003e \\u003cspan style=\\\"color:#c678dd\\\"\\u003estatic\\u003c/span\\u003e \\u003cspan style=\\\"color:#e5c07b\\\"\\u003evoid\\u003c/span\\u003e \\u003cspan style=\\\"color:#61afef;font-weight:bold\\\"\\u003emain\\u003c/span\\u003e( …\\u003c/span\\u003e\\u003c/span\\u003e\\u003c/span\\u003e\\u003c/span\\u003e\\u003c/span\\u003e\\u003c/span\\u003e\\u003c/span\\u003e\\u003c/span\\u003e\\u003c/span\\u003e\\u003c/span\\u003e\\u003c/span\\u003e\\u003c/span\\u003e\\u003c/span\\u003e\\u003c/span\\u003e\\u003c/span\\u003e\\u003c/span\\u003e\\u003c/code\\u003e\\u003c/pre\\u003e\\u003c/div\\u003e\""
+        }
+        </script>
+        
+        
+        
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "首页",
+      "item": "https:\/\/www.yingyu5658.me\/"
+    }
+    
+    
+        
+            ,{
+                "@type": "ListItem",
+                "position":  2 ,
+                "name": "技术",
+                "item": "\/categories\/%E6%8A%80%E6%9C%AF"
+            }
+            
+        
+    
+    ,{
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "【黑历史】读自己以前写的代码",
+      "item": "https:\/\/www.yingyu5658.me\/posts\/%E9%BB%91%E5%8E%86%E5%8F%B2%E8%AF%BB%E8%87%AA%E5%B7%B1%E4%BB%A5%E5%89%8D%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81\/"
+    }
+  ]
+}
+</script>
+
+
+        
+        <header>
+			<h1 class="post-title"><a>【黑历史】读自己以前写的代码</a></h1>
+        </header>
+        
+  <time datetime="2025-04-19T15:20:19Z" class="post-meta meta-date dt-published">
+    2025-04-19
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/%E6%8A%80%E6%9C%AF' target="_blank">技术</a>
+  
+</div>
+
+
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="post-content">
+            <p>仓库地址就不放出来了，太耻辱了&hellip;&hellip;</p>
+<p>先来看看Main.java</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#c678dd">package</span> <span style="color:#e06c75">cn.yingyu5658.lbl</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"> * @author yingyu5658
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"> */</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">public</span> <span style="color:#c678dd">class</span> <span style="color:#e5c07b">Main</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">public</span> <span style="color:#c678dd">static</span> <span style="color:#e5c07b">void</span> <span style="color:#61afef;font-weight:bold">main</span>(<span style="color:#e06c75">String</span><span style="color:#56b6c2">[]</span> <span style="color:#e06c75">args</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">LuBuLu</span> <span style="color:#e06c75">cmd</span> <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e06c75">LuBuLu</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">while</span>(<span style="color:#e5c07b">true</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">cmd</span>.<span style="color:#e06c75">command</span>();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>嗯还写了Author，生怕别人不知道这坨屎是谁拉的。</p>
+<p>Main方法里面新建了一个LuBuLu对象，在主循环里调用了他的command()方法。</p>
+<p>进入这个神秘的LuBuLu.java一探究竟。</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#e06c75">Scanner</span> <span style="color:#e06c75">sc</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">String</span> <span style="color:#e06c75">one</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">String</span> <span style="color:#e06c75">two</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">public</span> <span style="color:#e5c07b">int</span> <span style="color:#e06c75">times</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">public</span> <span style="color:#61afef;font-weight:bold">LuBuLu</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">this</span>.<span style="color:#e06c75">sc</span> <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e06c75">Scanner</span>(<span style="color:#e06c75">System</span>.<span style="color:#e06c75">in</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">this</span>.<span style="color:#e06c75">times</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">0</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>在类的开头进行了一些初始化，有点不理解one和two是什么，为什么他们没有权限修饰符。。。</p>
+<p>好的，接下来就到了主方法调用的command()</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#c678dd">public</span> <span style="color:#e5c07b">void</span> <span style="color:#61afef;font-weight:bold">command</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">while</span> (<span style="color:#e5c07b">true</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">if</span> (<span style="color:#c678dd">this</span>.<span style="color:#e06c75">times</span> <span style="color:#56b6c2">==</span> <span style="color:#e06c75">0</span>) {
+</span></span><span style="display:flex;"><span>                <span style="color:#e06c75">System</span>.<span style="color:#e06c75">out</span>.<span style="color:#e06c75">println</span>(<span style="color:#98c379">&#34; __       __    __  .______    __    __   __       __    __                                                                                                                       \n|  |     |  |  |  | |   _  \\  |  |  |  | |  |     |  |  |  |                                                                                                                      \n|  |     |  |  |  | |  |_)  | |  |  |  | |  |     |  |  |  |                                                                                                                      \n|  |     |  |  |  | |   _  &lt;  |  |  |  | |  |     |  |  |  |                                                                                                                      \n|  `----.|  `--&#39;  | |  |_)  | |  `--&#39;  | |  `----.|  `--&#39;  |                                                                                                                      \n|_______| \\______/  |______/   \\______/  |_______| \\______/                                                                                                                       \n                                                                                                                                                                                  \n.___  ___.      ___       _______   _______          .______   ____    ____          ____    ____  __  .__   __.   ___________    ____  __    __   _____     __    _____    ___   \n|   \\/   |     /   \\     |       \\ |   ____|         |   _  \\  \\   \\  /   /          \\   \\  /   / |  | |  \\ |  |  /  _____\\   \\  /   / |  |  |  | | ____|   / /   | ____|  / _ \\  \n|  \\  /  |    /  ^  \\    |  .--.  ||  |__            |  |_)  |  \\   \\/   /            \\   \\/   /  |  | |   \\|  | |  |  __  \\   \\/   /  |  |  |  | | |__    / /_   | |__   | (_) | \n|  |\\/|  |   /  /_\\  \\   |  |  |  ||   __|           |   _  &lt;    \\_    _/              \\_    _/   |  | |  . `  | |  | |_ |  \\_    _/   |  |  |  | |___ \\  | &#39;_ \\  |___ \\   &gt; _ &lt;  \n|  |  |  |  /  _____  \\  |  &#39;--&#39;  ||  |____          |  |_)  |     |  |                  |  |     |  | |  |\\   | |  |__| |    |  |     |  `--&#39;  |  ___) | | (_) |  ___) | | (_) | \n|__|  |__| /__/     \\__\\ |_______/ |_______|         |______/      |__|                  |__|     |__| |__| \\__|  \\______|    |__|      \\______/  |____/   \\___/  |____/   \\___/  \n                                                                                                                                                                                  &#34;</span>);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">System</span>.<span style="color:#e06c75">out</span>.<span style="color:#e06c75">println</span>(<span style="color:#98c379">&#34;卢布卢 v1.4&#34;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">LocalDate</span> <span style="color:#e06c75">date</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">LocalDate</span>.<span style="color:#e06c75">now</span>();
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">DateTimeFormatter</span> <span style="color:#e06c75">formatter</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">DateTimeFormatter</span>.<span style="color:#e06c75">ofPattern</span>(<span style="color:#98c379">&#34;yyyy-MM-dd&#34;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">PrintStream</span> <span style="color:#e06c75">var10000</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">System</span>.<span style="color:#e06c75">out</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">String</span> <span style="color:#e06c75">var10001</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">date</span>.<span style="color:#e06c75">format</span>(<span style="color:#e06c75">formatter</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">var10000</span>.<span style="color:#e06c75">println</span>(<span style="color:#98c379">&#34;你在&#34;</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">var10001</span> <span style="color:#56b6c2">+</span> <span style="color:#98c379">&#34;奇了星雨并打开本软件，来看看老天让不让你卢吧！&#34;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">System</span>.<span style="color:#e06c75">out</span>.<span style="color:#e06c75">println</span>(<span style="color:#98c379">&#34;========================================&#34;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">System</span>.<span style="color:#e06c75">out</span>.<span style="color:#e06c75">println</span>(<span style="color:#98c379">&#34;输入&#39;/help&#39;获取帮助&#34;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">switch</span> (<span style="color:#c678dd">this</span>.<span style="color:#e06c75">sc</span>.<span style="color:#e06c75">nextLine</span>()) {
+</span></span><span style="display:flex;"><span>                <span style="color:#c678dd">case</span> <span style="color:#98c379">&#34;/help&#34;</span>:
+</span></span><span style="display:flex;"><span>                    <span style="color:#c678dd">this</span>.<span style="color:#e06c75">help</span>();
+</span></span><span style="display:flex;"><span>                    <span style="color:#c678dd">break</span>;
+</span></span><span style="display:flex;"><span>                <span style="color:#c678dd">case</span> <span style="color:#98c379">&#34;/lbl&#34;</span>:
+</span></span><span style="display:flex;"><span>                    <span style="color:#c678dd">this</span>.<span style="color:#e06c75">luMa</span>();
+</span></span><span style="display:flex;"><span>                    <span style="color:#c678dd">break</span>;
+</span></span><span style="display:flex;"><span>                <span style="color:#c678dd">case</span> <span style="color:#98c379">&#34;/exit&#34;</span>:
+</span></span><span style="display:flex;"><span>                    <span style="color:#e06c75">System</span>.<span style="color:#e06c75">exit</span>(<span style="color:#e06c75">0</span>);
+</span></span><span style="display:flex;"><span>                    <span style="color:#c678dd">break</span>;
+</span></span><span style="display:flex;"><span>                <span style="color:#c678dd">case</span> <span style="color:#98c379">&#34;/coott&#34;</span>:
+</span></span><span style="display:flex;"><span>                    <span style="color:#c678dd">if</span> (<span style="color:#98c379">&#34;/coott&#34;</span>.<span style="color:#e06c75">equals</span>(<span style="color:#e06c75">sc</span>.<span style="color:#e06c75">nextLine</span>())) {
+</span></span><span style="display:flex;"><span>                        <span style="color:#e06c75">Scanner</span> <span style="color:#e06c75">sc1</span> <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e06c75">Scanner</span>(<span style="color:#e06c75">System</span>.<span style="color:#e06c75">in</span>);
+</span></span><span style="display:flex;"><span>                        <span style="color:#e06c75">System</span>.<span style="color:#e06c75">out</span>.<span style="color:#e06c75">println</span>(<span style="color:#98c379">&#34;请输入您的第一个选项。&#34;</span>);
+</span></span><span style="display:flex;"><span>                        <span style="color:#e06c75">String</span> <span style="color:#e06c75">one</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">sc1</span>.<span style="color:#e06c75">nextLine</span>();
+</span></span><span style="display:flex;"><span>                        <span style="color:#e06c75">System</span>.<span style="color:#e06c75">out</span>.<span style="color:#e06c75">println</span>(<span style="color:#98c379">&#34;请输入您的第二个选项。&#34;</span>);
+</span></span><span style="display:flex;"><span>                        <span style="color:#e06c75">String</span> <span style="color:#e06c75">two</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">sc1</span>.<span style="color:#e06c75">nextLine</span>();
+</span></span><span style="display:flex;"><span>                        <span style="color:#c678dd">this</span>.<span style="color:#e06c75">chooseOneOfTheTwo</span>(<span style="color:#e06c75">one</span>, <span style="color:#e06c75">two</span>);
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>                    <span style="color:#c678dd">break</span>;
+</span></span><span style="display:flex;"><span>                <span style="color:#c678dd">case</span> <span style="color:#98c379">&#34;/cofm&#34;</span>:
+</span></span><span style="display:flex;"><span>                    <span style="color:#e06c75">chooseOneFromMany</span>();
+</span></span><span style="display:flex;"><span>                    <span style="color:#c678dd">break</span>;
+</span></span><span style="display:flex;"><span>                <span style="color:#c678dd">default</span>:
+</span></span><span style="display:flex;"><span>                    <span style="color:#c678dd">this</span>.<span style="color:#e06c75">clear</span>();
+</span></span><span style="display:flex;"><span>                    <span style="color:#e06c75">System</span>.<span style="color:#e06c75">out</span>.<span style="color:#e06c75">println</span>(<span style="color:#98c379">&#34;不存在该指令！将在1000ms后回到主页面。&#34;</span>);
+</span></span><span style="display:flex;"><span>                    <span style="color:#c678dd">this</span>.<span style="color:#e06c75">sleep</span>();
+</span></span><span style="display:flex;"><span>                    <span style="color:#c678dd">return</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            <span style="color:#56b6c2">++</span><span style="color:#e06c75">times</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">System</span>.<span style="color:#e06c75">out</span>.<span style="color:#e06c75">println</span>(<span style="color:#98c379">&#34;*调试信息* 运行轮数： &#34;</span> <span style="color:#56b6c2">+</span> <span style="color:#c678dd">this</span>.<span style="color:#e06c75">times</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>可以看到、个方法内部代码都是在无限循环内执行的，那么为什么要在main方法里又套一层循环呢？？？</p>
+<p>这里的代码是反编译出来的，当时我还不会用git，idea也用不明白，误删了代码。找到以前的版本反编译再重新写。</p>
+<p>命令解析部分则是用了switch，这种方法在命令不多的情况下还可以。但是要输入斜杠是什么鬼啊，玩mc呢？</p>
+<p>那么再来看看伟大的<code>case: &quot;/coott&quot;</code>，前面还在调用函数，这里直接实现？？？这是人能写出来的代码？？</p>
+<p>函数尾部的++times也没看懂，我甚至现在都不理解这个运行轮数存在的意义是什么。</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#7f848e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e">     * 程序休眠，目前仅用于输入命令错误时
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">public</span> <span style="color:#e5c07b">void</span> <span style="color:#61afef;font-weight:bold">sleep</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">long</span> <span style="color:#e06c75">start</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">System</span>.<span style="color:#e06c75">currentTimeMillis</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">try</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">Thread</span>.<span style="color:#e06c75">sleep</span>(<span style="color:#e06c75">1000L</span>);
+</span></span><span style="display:flex;"><span>        } <span style="color:#c678dd">catch</span> (<span style="color:#e06c75">InterruptedException</span> <span style="color:#e06c75">e</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">e</span>.<span style="color:#e06c75">printStackTrace</span>();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">long</span> <span style="color:#e06c75">end</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">System</span>.<span style="color:#e06c75">currentTimeMillis</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>这个功能更令人费解，为什么敲错命令不直接return，还要sleep一下。。。</p>
+<p>OK，下面就是人类有史以来最伟大的发明。</p>
+<p><strong>打印大量空字符串清屏。</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#7f848e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e">     * 清屏方法，一般会在其他功能方法中的第一行首先调用，打印大量空白字符来达到清屏的效果
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">public</span> <span style="color:#e5c07b">void</span> <span style="color:#61afef;font-weight:bold">clear</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">0</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&lt;</span> <span style="color:#e06c75">500</span>; <span style="color:#56b6c2">++</span><span style="color:#e06c75">i</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">System</span>.<span style="color:#e06c75">out</span>.<span style="color:#e06c75">println</span>(<span style="color:#98c379">&#34;&#34;</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>我真的好奇我到底是不是人类了，这么蠢的方法还好意思写在注释里，这么大的IO性能损失还好意思直接写在注释里。</p>
+<p>多选一这个功能更是逆天了，选项和随机数范围严重错位。</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span> <span style="color:#c678dd">public</span> <span style="color:#e5c07b">void</span> <span style="color:#61afef;font-weight:bold">chooseOneFromMany</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">ArrayList</span> <span style="color:#e06c75">choicesList</span> <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e06c75">ArrayList</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">Random</span> <span style="color:#e06c75">r</span> <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e06c75">Random</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">clear</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">System</span>.<span style="color:#e06c75">out</span>.<span style="color:#e06c75">println</span>(<span style="color:#98c379">&#34;===多选一界面===&#34;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">System</span>.<span style="color:#e06c75">out</span>.<span style="color:#e06c75">println</span>(<span style="color:#98c379">&#34;请输入选项总数&#34;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">int</span> <span style="color:#e06c75">choicesCount</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">sc</span>.<span style="color:#e06c75">nextInt</span>(); <span style="color:#7f848e">// 定义变量用于记录选项总数</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">sc</span>.<span style="color:#e06c75">nextLine</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">1</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&lt;</span> <span style="color:#e06c75">choicesCount</span>; <span style="color:#56b6c2">++</span><span style="color:#e06c75">i</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">System</span>.<span style="color:#e06c75">out</span>.<span style="color:#e06c75">println</span>(<span style="color:#98c379">&#34;请输入您的第&#34;</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">+</span> <span style="color:#98c379">&#34;个选项&#34;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">String</span> <span style="color:#e06c75">chices</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">sc</span>.<span style="color:#e06c75">nextLine</span>();
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">choicesList</span>.<span style="color:#e06c75">add</span>(<span style="color:#e06c75">chices</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">int</span> <span style="color:#e06c75">randomIndex</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">r</span>.<span style="color:#e06c75">nextInt</span>((<span style="color:#e06c75">choicesCount</span>));
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">System</span>.<span style="color:#e06c75">out</span>.<span style="color:#e06c75">println</span>(<span style="color:#98c379">&#34;老天帮你选了第&#34;</span> <span style="color:#56b6c2">+</span> (<span style="color:#e06c75">randomIndex</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">1</span>) <span style="color:#56b6c2">+</span> <span style="color:#98c379">&#34;个：&#34;</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">choicesList</span>.<span style="color:#e06c75">get</span>(<span style="color:#e06c75">randomIndex</span>));
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>逆天，，，，除了代码不规范以外，逻辑硬伤更是多的离谱。</p>
+<p>总结，像一头蠢猪用带着粪的猪蹄乱敲键盘敲出来的代码。</p>
+
+        </div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+				<p class="text-tags">Tags: </p>
+                
+				<li><a href='/tags/c' target="_blank">C, </a></li>
+                
+				<li><a href='/tags/java' target="_blank">Java, </a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+<div id="waline"></div>
+<script type="module">
+	import { init } from '/js/waline.js';
+	init({
+		el: '#waline',
+		serverURL: 'waline.yingyu5658.me',
+		placeholder: '不建议使用Outlook邮箱，其过于严格的拦截机制会导致收不到本站发出的跟进回复邮件。',
+	});
+</script>
+</div>
+
+        
+
+
+
+
+<div class="post-archive">
+    <div class="random-post">
+                <h2><a href="/posts/98/">Java面向对象编程快速入门</a></h2>
+        
+            <p class="summary"><h1 id="什么是面向对象编程">什么是面向对象编程</h1>
+<p>通俗易懂的说，就是把一坨一坨的数据放到一起存储
+比如要存储一个学生的语文成绩和数学成绩
+新建一个类</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#c678dd">public</span> <span style="color:#c678dd">class</span> <span style="color:#e5c07b">Student</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">String</span> <span style="color:#e06c75">name</span>;<span style="color:#7f848e">//名字</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">double</span> <span style="color:#e06c75">chinese</span>;<span style="color:#7f848e">//语文成绩</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">double</span> <span style="color:#e06c75">math</span>;<span style="color:#7f848e">//数学成绩</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">public</span> <span style="color:#e5c07b">void</span> <span style="color:#61afef;font-weight:bold">printTotalScore</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">System</span>.<span style="color:#e06c75">out</span>.<span style="color:#e06c75">println</span>(<span style="color:#e06c75">name</span> <span style="color:#56b6c2">+</span> <span style="color:#98c379">&#34;的总成绩是&#34;</span> <span style="color:#56b6c2">+</span> (<span style="color:#e06c75">chinese</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">math</span>));
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">public</span> <span style="color:#e5c07b">void</span> <span style="color:#61afef;font-weight:bold">printAverageScore</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">System</span>.<span style="color:#e06c75">out</span>.<span style="color:#e06c75">println</span>(<span style="color:#e06c75">name</span> <span style="color:#56b6c2">+</span> <span style="color:#98c379">&#34;的平均成绩是&#34;</span> <span style="color:#56b6c2">+</span> (<span style="color:#e06c75">chinese</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">math</span>) <span style="color:#56b6c2">/</span> <span style="color:#e06c75">2</span>.<span style="color:#e06c75">0</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>这样学生的模板就创建好了，但是这个模板还没有指向学生的每一个个体。我们可以再同一个包下再新建一个类。</p></p>
+        
+<h2 style="text-align: right; margin-bottom: 15px; color: #4a4c4d !important;">
+            <i>接下来阅读</i>
+        </h2>
+    </div>
+</div>
+
+
+<footer id="footer">
+  <div>
+    <p><a href="/links">友链</a> · <a href="/atom.xml">订阅</a> · <a href=".sitemap.xml">网站地图</a></p>
+    <hr width="80px" />
+    <p>© 2025 <a href="https://www.yingyu5658.me">映屿</a>. 由<a href="https://gohugo.io/"> Typecho </a>强力驱动.</p>
+     
+    <p>本站已运行<span class="running-time"></span>. 共 0 篇文章.</p>
+
+	<link rel="prefetch" as="image" href="https://www.blogsclub.org/badge/www.yingyu5658.me">
+
+    <script>
+      function initRuntime() {
+        const startDate = new Date('2024-11-03');
+        const now = new Date();
+        const diff = now - startDate;
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        document.querySelector('.running-time').innerText = ` ${days} 天`;
+      }
+      window.addEventListener('load', initRuntime);
+    </script>
+  </div>
+  <br />
+</footer>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+  
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
