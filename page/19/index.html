@@ -54,14 +54,14 @@
     </div>
 </header>
 
- <div id="body"> <div class="container"> <div class="col-group"> <div class="col-8" id="main"> <div class="res-cons">  <article class="post"> <header> <h2 class="post-title"> <a href="https://www.yingyu5658.me/posts/181/">Spigot服务端控制台中文乱码解决方案</a> </h2> </header> <date class="post-meta meta-date"> January 4, 2025 </date>  <div class="post-meta meta-category"> in  <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>  </div>   <div class="post-content summary auto">   <ol>
+ <div id="body"> <div class="container"> <div class="col-group"> <div class="col-8" id="main"> <div class="res-cons">  <article class="post"> <header> <h2 class="post-title"> <a href="https://www.yingyu5658.me/posts/181/">Spigot服务端控制台中文乱码解决方案</a> </h2> </header> <date class="post-meta meta-date"> January 4, 2025 </date>  <div class="post-meta meta-category">&nbsp;in&nbsp; <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>  </div>   <div class="post-content summary auto">   <ol>
 <li>把<code>-Dfile.encoding=UTF-8</code>加在开服脚本文件的<code>-jar</code>前即可。</li>
 <li>在启动脚本第一行加上<code>chcp 65001</code>
 我的启动脚本如下：</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>chcp <span style="color:#d19a66">65001</span>
 </span></span><span style="display:flex;"><span>java -Dfile.encoding<span style="color:#56b6c2">=</span>UTF-8 -jar spigot-1.21.jar
-</span></span></code></pre></div>  </div> <p class="readmore"><a href="https://www.yingyu5658.me/posts/181/">阅读全文 →</a></p> </article>  <article class="post"> <header> <h2 class="post-title"> <a href="https://www.yingyu5658.me/posts/171/">String的注意事项</a> </h2> </header> <date class="post-meta meta-date"> December 19, 2024 </date>  <div class="post-meta meta-category"> in  <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>  </div>   <div class="post-content summary auto">   <h1 id="string的注意事项">String的注意事项</h1>
+</span></span></code></pre></div>  </div> <p class="readmore"><a href="https://www.yingyu5658.me/posts/181/">阅读全文 →</a></p> </article>  <article class="post"> <header> <h2 class="post-title"> <a href="https://www.yingyu5658.me/posts/171/">String的注意事项</a> </h2> </header> <date class="post-meta meta-date"> December 19, 2024 </date>  <div class="post-meta meta-category">&nbsp;in&nbsp; <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>  </div>   <div class="post-content summary auto">   <h1 id="string的注意事项">String的注意事项</h1>
 <ul>
 <li>
 <ol>
@@ -76,16 +76,16 @@
 <li>但通过new方式创建字符串对象，每new一次都会产生一个新的对象放在堆内存中。</li>
 </ul>
 <h1 id="不可变字符串对象">不可变字符串对象</h1>
-<p>不可变？它肯定可变啊，比如</p>  </div> <p class="readmore"><a href="https://www.yingyu5658.me/posts/171/">阅读全文 →</a></p> </article>  <article class="post"> <header> <h2 class="post-title"> <a href="https://www.yingyu5658.me/posts/166/">面向对象编程总结</a> </h2> </header> <date class="post-meta meta-date"> December 18, 2024 </date>  <div class="post-meta meta-category"> in  <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>  </div>   <div class="post-content summary auto">   <p>面向对象（oop）</p>
+<p>不可变？它肯定可变啊，比如</p>  </div> <p class="readmore"><a href="https://www.yingyu5658.me/posts/171/">阅读全文 →</a></p> </article>  <article class="post"> <header> <h2 class="post-title"> <a href="https://www.yingyu5658.me/posts/166/">面向对象编程总结</a> </h2> </header> <date class="post-meta meta-date"> December 18, 2024 </date>  <div class="post-meta meta-category">&nbsp;in&nbsp; <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>  </div>   <div class="post-content summary auto">   <p>面向对象（oop）</p>
 <h2 id="面向对象编程的思想面向拿或者找">面向对象编程的思想：面向。拿或者找。</h2>
 <p>对象：东西
 面向对象编程：拿东西过来编程
 面向对象：把现实世界中的食物看成一个一个对象来解决问题的。（万物皆 对象）
-面向对象的好处：代码更符合人类的思维习惯。编程更简单。看程序更容易理解（？）</p>  </div> <p class="readmore"><a href="https://www.yingyu5658.me/posts/166/">阅读全文 →</a></p> </article>  <article class="post"> <header> <h2 class="post-title"> <a href="https://www.yingyu5658.me/posts/163/">记录配置SSL证书</a> </h2> </header> <date class="post-meta meta-date"> December 17, 2024 </date>  <div class="post-meta meta-category"> in  <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>  </div>   <div class="post-content summary auto">   <p>首先你要有一个SSL证书，建议在阿里云购买或者<a href="https://developer.aliyun.com/article/1595201">免费申请</a>，具体过程阿里云这个页面讲的很详细，在此不过多赘述。</p>
+面向对象的好处：代码更符合人类的思维习惯。编程更简单。看程序更容易理解（？）</p>  </div> <p class="readmore"><a href="https://www.yingyu5658.me/posts/166/">阅读全文 →</a></p> </article>  <article class="post"> <header> <h2 class="post-title"> <a href="https://www.yingyu5658.me/posts/163/">记录配置SSL证书</a> </h2> </header> <date class="post-meta meta-date"> December 17, 2024 </date>  <div class="post-meta meta-category">&nbsp;in&nbsp; <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>  </div>   <div class="post-content summary auto">   <p>首先你要有一个SSL证书，建议在阿里云购买或者<a href="https://developer.aliyun.com/article/1595201">免费申请</a>，具体过程阿里云这个页面讲的很详细，在此不过多赘述。</p>
 <h1 id="配置证书">配置证书</h1>
 <p>由于我的nginx安装了ssl模块，直接进入配置证书。</p>
 <p>解压下载好的证书，然后上传到服务器。位置自己方便找到即可
-我放到了root/card</p>  </div> <p class="readmore"><a href="https://www.yingyu5658.me/posts/163/">阅读全文 →</a></p> </article>  <article class="post"> <header> <h2 class="post-title"> <a href="https://www.yingyu5658.me/posts/156/">Typecho不要用阿里云系统镜像</a> </h2> </header> <date class="post-meta meta-date"> December 15, 2024 </date>  <div class="post-meta meta-category"> in  <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>  </div>   <div class="post-content summary auto">   <p>不要用阿里云的系统镜像，那个是1.1版本的。。。很多插件都没办法正常用。。。比如这两个插件就会这样</p>
+我放到了root/card</p>  </div> <p class="readmore"><a href="https://www.yingyu5658.me/posts/163/">阅读全文 →</a></p> </article>  <article class="post"> <header> <h2 class="post-title"> <a href="https://www.yingyu5658.me/posts/156/">Typecho不要用阿里云系统镜像</a> </h2> </header> <date class="post-meta meta-date"> December 15, 2024 </date>  <div class="post-meta meta-category">&nbsp;in&nbsp; <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>  </div>   <div class="post-content summary auto">   <p>不要用阿里云的系统镜像，那个是1.1版本的。。。很多插件都没办法正常用。。。比如这两个插件就会这样</p>
 <p>
         <a data-fancybox="gallery" href="./4097191903.png">
             <img class="mx-auto" alt="" src="./4097191903.png" />
