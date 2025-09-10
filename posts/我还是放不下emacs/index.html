@@ -82,6 +82,7 @@
     <li><a href="https://www.yingyu5658.me/categories/%E9%9A%8F%E7%AC%94/">随笔 (42)</a></li>
     
 </ul>
+
     </section>
 
 
@@ -130,6 +131,7 @@
     </li>
     
 </ul>
+
 	</section>
 
 	
@@ -142,6 +144,7 @@
                    
 <div class="res-cons">
     
+
     <article class="post">
         
         <script type="application/ld+json">
@@ -374,15 +377,13 @@
 
 <div class="post-archive">
     <div class="random-post">
-                <h2><a href="/posts/wsl-arch-linux-zsh%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">WSL Arch Linux ZSH输入中文输入法乱码解决方法</a></h2>
+                <h2><a href="/posts/emacs%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95-2c-c&#43;&#43;%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">Emacs配置记录 2——C/C&#43;&#43;环境配置</a></h2>
         
-            <p class="summary"><p>没有进行配置的情况下输入中文，一般会显示&lt;0xffffffff&gt;，这是由于没有安装字体造成的。</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo pacman -S noto-fonts-cjk  <span style="color:#7f848e"># 安装中文字体</span>
-</span></span><span style="display:flex;"><span>sudo vi /etc/locale.gen        <span style="color:#7f848e"># 取消注释 zh_CN.UTF-8</span>
-</span></span><span style="display:flex;"><span>sudo locale-gen                <span style="color:#7f848e"># 生成语言环境</span>
-</span></span><span style="display:flex;"><span><span style="color:#e5c07b">echo</span> <span style="color:#98c379">&#34;export LANG=zh_CN.UTF-8&#34;</span> &gt;&gt; ~/.zshrc  <span style="color:#7f848e"># 设置默认中文环境</span>
-</span></span><span style="display:flex;"><span><span style="color:#e5c07b">source</span> ~/.zshrc
-</span></span></code></pre></div><p>source后，再次尝试输入中文，无异常。</p></p>
+            <p class="summary"><h2 id="前言">前言</h2>
+<p>经过<a href="">上一篇</a>的简单调教，Emacs已经勉强变成了一个温顺的文本编辑器，但是离写代码这个宏大的目标还是有一段距离的，今天来解决主要问题：代码补全。由于我要写一点简单的C代码，那么重点就先放到C/CPP环境搭建中。</p>
+<p>站在巨人的肩膀上，在Emacs中的代码补全使用巨硬的LSP协议。</p>
+<h2 id="spacemacs">Spacemacs</h2>
+<p>经过考虑，我还是决定使用Spacemacs，比起原版Emacs，它更适合新手，也更能快速投入开发。避免配置陷阱，过多把时间花在刀把上。唉，也就是说，昨天大部分都白干了。算了，生命的意义就在于折腾，怕折腾我也不会玩Emacs了。来吧！</p></p>
         
 <h2 style="text-align: right; margin-bottom: 15px; color: #4a4c4d !important;">
             <i>接下来阅读</i>

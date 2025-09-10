@@ -78,6 +78,7 @@
     <li><a href="https://www.yingyu5658.me/categories/%E9%9A%8F%E7%AC%94/">随笔 (42)</a></li>
     
 </ul>
+
     </section>
 
 
@@ -126,6 +127,7 @@
     </li>
     
 </ul>
+
 	</section>
 
 	
@@ -137,9 +139,9 @@
                 <div class="col-8" id="main">
                    <div class="res-cons">
     <h3 class="archive-title">
-        Search: 
-        <span class="keyword">Keyword</span>
-        results
+		搜索 
+        <span class="keyword"></span>
+		中的结果
     </h3>
 
     <article class="post">
@@ -150,7 +152,6 @@
         </header>
         
         <div class="post-content">
-            概要……
             <p class="readmore"><a href="链接" target="_blank">- Read more -</a></p>
         </div>
     </article>
@@ -190,7 +191,7 @@
                         var searchItem = `<article class="post"><header><h1 class="post-title"><a href="` + url + `" target="_blank">` + title + `</a></h1></header>`;
                         var pubDate = new Date(item.find("pubDate").text())
                         searchItem += `<time class="post-meta meta-date">` + pubDate.getFullYear() + `-` + (pubDate.getMonth() + 1) + `-` + pubDate.getDate() + `</time>`;
-                        searchItem += `<div class="post-content">` + item.find("description").text() + `……<p class="readmore"><a href="` + url + `" target="_blank">` + "- Read more -" + `</a></p></div></article>`;
+                        searchItem += `<div class="post-content">` + item.find("description").text() + `……<p class="readmore"><a href="` + url + `" target="_blank">` + `- Read more -` + `</a></p></div></article>`;
 
                         $("div.res-cons").append(searchItem);
                     }
