@@ -79,7 +79,7 @@
     
     <li><a href="https://www.yingyu5658.me/categories/%E8%AF%BB%E4%B9%A6/">读书 (2)</a></li>
     
-    <li><a href="https://www.yingyu5658.me/categories/%E9%9A%8F%E7%AC%94/">随笔 (42)</a></li>
+    <li><a href="https://www.yingyu5658.me/categories/%E9%9A%8F%E7%AC%94/">随笔 (43)</a></li>
     
 </ul>
 
@@ -89,6 +89,10 @@
 	<section class="widget">
         <h3 class="widget-title">最近更新</h3>
 <ul class="widget-list">
+    
+    <li>
+        <a href="https://www.yingyu5658.me/posts/electrification-by-friction/" title="摩擦起电" target="_blank">摩擦起电</a>
+    </li>
     
     <li>
         <a href="https://www.yingyu5658.me/posts/guilt/" title="罪恶感" target="_blank">罪恶感</a>
@@ -124,10 +128,6 @@
     
     <li>
         <a href="https://www.yingyu5658.me/posts/%E5%A4%8F%E6%97%A5%E6%AE%8B%E5%BD%B1/" title="夏日残影" target="_blank">夏日残影</a>
-    </li>
-    
-    <li>
-        <a href="https://www.yingyu5658.me/posts/%E7%A7%8B%E5%A4%A9%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A3%B0%E7%8B%97%E5%8F%AB/" title="秋天的第一声狗叫" target="_blank">秋天的第一声狗叫</a>
     </li>
     
 </ul>
@@ -354,25 +354,20 @@
 
 <div class="post-archive">
     <div class="random-post">
-                <h2><a href="/posts/%E9%BB%91%E5%8E%86%E5%8F%B2%E8%AF%BB%E8%87%AA%E5%B7%B1%E4%BB%A5%E5%89%8D%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81/">【黑历史】读自己以前写的代码</a></h2>
+                <h2><a href="/posts/89/">Java方法的基本使用</a></h2>
         
-            <p class="summary"><p>仓库地址就不放出来了，太耻辱了&hellip;&hellip;</p>
-<p>先来看看Main.java</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#c678dd">package</span> <span style="color:#e06c75">cn.yingyu5658.lbl</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#7f848e">/**
-</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"> * @author yingyu5658
-</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"> */</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#c678dd">public</span> <span style="color:#c678dd">class</span> <span style="color:#e5c07b">Main</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">public</span> <span style="color:#c678dd">static</span> <span style="color:#e5c07b">void</span> <span style="color:#61afef;font-weight:bold">main</span>(<span style="color:#e06c75">String</span><span style="color:#56b6c2">[]</span> <span style="color:#e06c75">args</span>) {
-</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">LuBuLu</span> <span style="color:#e06c75">cmd</span> <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e06c75">LuBuLu</span>();
-</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">while</span>(<span style="color:#e5c07b">true</span>) {
-</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">cmd</span>.<span style="color:#e06c75">command</span>();
-</span></span><span style="display:flex;"><span>        }
+            <p class="summary"><h1 id="方法是什么">方法是什么</h1>
+<p>方法是一种语法结构，它可以把代码封装成一段功能，以便重复调用。</p>
+<p>方法的完整格式：</p>
+<p>例子：数字求和</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>    <span style="color:#c678dd">public</span> <span style="color:#c678dd">static</span>  <span style="color:#e5c07b">int</span> <span style="color:#61afef;font-weight:bold">sum</span>(<span style="color:#e5c07b">int</span> <span style="color:#e06c75">a</span>,<span style="color:#e5c07b">int</span> <span style="color:#e06c75">b</span>){
+</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">int</span> <span style="color:#e06c75">c</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">a</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">b</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">return</span> <span style="color:#e06c75">c</span>;
 </span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>嗯还写了Author，生怕别人不知道这坨屎是谁拉的。</p></p>
+</span></span></code></pre></div><p>方法的调用：</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>       <span style="color:#e5c07b">int</span> <span style="color:#e06c75">rs</span><span style="color:#56b6c2">=</span> <span style="color:#e06c75">sum</span>(<span style="color:#e06c75">10</span>,<span style="color:#e06c75">20</span>);
+</span></span></code></pre></div><h2 id="方法使用的注意点">方法使用的注意点：</h2>
+<p>方法申明了具体的返回值类型，内部必须使用return返回对应类型的数据。</p></p>
         
 <h2 style="text-align: right; margin-bottom: 15px; color: #4a4c4d !important;">
             <i>接下来阅读</i>
