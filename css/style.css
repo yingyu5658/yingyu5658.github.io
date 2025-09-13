@@ -1,4 +1,20 @@
 /** * * @package Maupassant * @author cho * @version 1.3 * @link http://pickcho.com */
+p, .post-content p, .widget-list li a{
+	font-size: 17.5px !important;
+}
+
+.post-content h2 {
+	font-size: 1.4rem !important;
+	margin-top: 5px !important;
+}
+
+.post-content h3 {
+	font-size: 1.2rem !important;
+}
+
+.post-content h4 {
+	font-size: 1.0rem !important;
+}
 
 a {
 color: #3354aa;
@@ -23,6 +39,11 @@ color: #3354aa;
 	padding-left: 0;
 } /* ======= 暗色模式实现 ======= */
 @media (prefers-color-scheme: dark) {
+	pre {
+		background-color: #151b23 !important;
+		border-color: grey !important;
+	}
+
 	.post-content a img {
 		position: relative;
 		background-color: #1a1a1c !important;
@@ -129,7 +150,7 @@ color: #3354aa;
 		line-height: 32px;
 	}
 	.post-title a {
-		font-size: 22px;
+		font-size: 2px;
 		color: rgb(193, 193, 193) !important;
 	}
 	.readmore a:hover {
@@ -264,6 +285,7 @@ pre {
 	border: 1px solid #ddd;
 	display: block;
 	margin: 0px;
+	margin-bottom: 15.4px;
 }
 code {
 	display: inline-block;
@@ -464,7 +486,7 @@ textarea {
 	padding-right: 0;
 }
 .post-title a {
-	font-size: 22px;
+	font-size: 24px;
 }
 .post-title {
 	margin: 0;
@@ -723,7 +745,7 @@ textarea.textarea {
 	color: #6e7173;
 	line-height: 2.7;
 	margin-top: 0;
-	font-size: 16px;
+	font-size: 18px;
 	border-bottom: 1px solid #ddd;
 	display: block;
 }
