@@ -363,24 +363,32 @@
 
 <div class="post-archive">
     <div class="random-post">
-                <h2><a href="/posts/%E7%BB%99%E6%AF%94%E6%88%91%E5%B2%81%E6%95%B0%E8%BF%98%E5%A4%A7%E7%9A%84%E7%94%B5%E8%84%91%E8%A3%85fedora/">给比我岁数还大的电脑装Fedora</a></h2>
+                <h2><a href="/posts/%E6%9C%AA%E8%A7%A3%E5%86%B3windows-wsl%E6%8A%A5%E9%94%99error-0x80080005/">【未解决】Windows WSL报错：Error: 0x80080005 ???????</a></h2>
         
-            <p class="summary"><h2 id="前言">前言</h2>
-<p>
-        <a data-fancybox="gallery" href="./ccb6ab92150b3314a3cb09eee8102a56.webp">
-            <img class="mx-auto" alt="" src="./ccb6ab92150b3314a3cb09eee8102a56.webp" />
-        </a>
-    </p>
-<p>印象中，这台电脑在我很小的时候就存在了，我爸的网盘里至今还有我当时用这台电脑播放江南Style，我在床上跳舞的视频。</p>
-<p>这台机子开Powershell都卡，更不用说日常使用。</p>
-<p>
-        <a data-fancybox="gallery" href="./de5fce2eac7705b9df0d9a6e76ebf799.webp">
-            <img class="mx-auto" alt="" src="./de5fce2eac7705b9df0d9a6e76ebf799.webp" />
-        </a>
-    
-我甚至都不想在这台电脑上截图，当拍屏大师吧。</p>
-<p>听说Linux用户有个刻板印象就是，用着十几年前的笔记本，从来不用最新设备，那这不刚好吻合上了吗。</p>
-<p>诶&hellip;&hellip;等等，我<a href="https://www.yingyu5658.me/post/3691550015/">之前</a>好像说过不折腾了？算了，反正Fedora没有Arch那么折腾（吧）。</p></p>
+            <p class="summary"><p>设备环境：</p>
+<pre tabindex="0"><code>操作系统：Windows 10
+安装系统：Arch Linux
+错误日志：
+Installing, this may take a few minutes...
+WslRegisterDistribution failed with error: 0x80080005
+Error: 0x80080005 ???????
+
+Press any key to continue...
+</code></pre><p>网上有一篇<a href="https://ask.csdn.net/questions/7625716">文章</a>提到这个错误，下面的评论回复以管理员权限运行命令提示符并执行<code>sc stop LxssManager</code>和<code>sc start LxssManager</code>
+出现如下报错：</p>
+<pre tabindex="0"><code>C:\Windows\system32&gt;sc stop LxssManager
+[SC] OpenService 失败 1060:
+
+指定的服务未安装。
+</code></pre><p>顺藤摸瓜，在网上寻找<code>LxssManager</code>这个服务要如何安装。
+网上暂时还没有找到相关文章能够解决这个问题，但是CSDN的一篇文章引起了我的注意
+<a href="https://blog.csdn.net/renwudao24/article/details/52061906">[SC] OpenService 失败：1060指定的服务未安装_[sc] openservice 失败 1060: 指定的服务未安装。-CSDN博客</a>
+文章中提到了“服务”，在开始菜单中搜索服务，进入应用找到了一个名为WSL Service的服务。点左上角启动。
+提取关键信息：<strong>1058、被禁用、关联的设备没有启动</strong>。
+检查功能是否开启：按下 <code>Win+S</code> 搜索 <strong>启用或关闭Windows功能</strong>
+勾选<code>适用于Linux的Windows子系统</code>和<code>虚拟机平台</code>这两项，点击确定
+重启电脑。
+回来以后，用管理员身份运行powershell，强制重置WSL服务，依次执行：</p></p>
         
 <h2 style="text-align: right; margin-bottom: 15px; color: #4a4c4d !important;">
             <i>接下来阅读</i>
@@ -391,7 +399,7 @@
 
 <footer id="footer">
   <div>
-    <p><a href="/links">友链</a> · <a href="/atom.xml">订阅</a> · <a href="sitemap.xml">网站地图</a></p>
+    <p><a href="/readings">读书</a> · <a href="/links">友链</a> · <a href="/atom.xml">订阅</a> · <a href="sitemap.xml">网站地图</a></p>
     <hr width="80px" />
     <p>© 2025 <a href="https://www.yingyu5658.me">映屿</a>. 由<a href="https://gohugo.io/"> Typecho </a>强力驱动.</p>
      

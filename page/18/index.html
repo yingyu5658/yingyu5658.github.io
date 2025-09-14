@@ -54,7 +54,30 @@
     </div>
 </header>
 
- <div id="body"> <div class="container"> <div class="col-group"> <div class="col-8" id="main"> <div class="res-cons">  <article class="post"> <header> <h2 class="post-title"> <a href="https://www.yingyu5658.me/posts/css%E9%BC%A0%E6%A0%87%E6%8C%87%E9%92%88%E6%93%8D%E4%BD%9C/">CSS鼠标指针操作</a> </h2> </header> <date class="post-meta meta-date"> March 4, 2025 </date>  <div class="post-meta meta-category">&nbsp;in&nbsp; <a href="/categories/"></a>  </div>   <div class="post-content summary auto">   <p>今天在上网冲浪的时候，看到Github上有一个明日方舟风格的<a href="https://github.com/Yue-plus/hexo-theme-arknights">主题</a>，这个主题让我感到新鲜的一点是网页中的鼠标指针特效
+ <div id="body"> <div class="container"> <div class="col-group"> <div class="col-8" id="main"> <div class="res-cons">  <article class="post"> <header> <h2 class="post-title"> <a href="https://www.yingyu5658.me/posts/%E6%9C%AA%E8%A7%A3%E5%86%B3windows-wsl%E6%8A%A5%E9%94%99error-0x80080005/">【未解决】Windows WSL报错：Error: 0x80080005 ???????</a> </h2> </header> <date class="post-meta meta-date"> March 4, 2025 </date>  <div class="post-meta meta-category">&nbsp;in&nbsp; <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>  </div>   <div class="post-content summary auto">   <p>设备环境：</p>
+<pre tabindex="0"><code>操作系统：Windows 10
+安装系统：Arch Linux
+错误日志：
+Installing, this may take a few minutes...
+WslRegisterDistribution failed with error: 0x80080005
+Error: 0x80080005 ???????
+
+Press any key to continue...
+</code></pre><p>网上有一篇<a href="https://ask.csdn.net/questions/7625716">文章</a>提到这个错误，下面的评论回复以管理员权限运行命令提示符并执行<code>sc stop LxssManager</code>和<code>sc start LxssManager</code>
+出现如下报错：</p>
+<pre tabindex="0"><code>C:\Windows\system32&gt;sc stop LxssManager
+[SC] OpenService 失败 1060:
+
+指定的服务未安装。
+</code></pre><p>顺藤摸瓜，在网上寻找<code>LxssManager</code>这个服务要如何安装。
+网上暂时还没有找到相关文章能够解决这个问题，但是CSDN的一篇文章引起了我的注意
+<a href="https://blog.csdn.net/renwudao24/article/details/52061906">[SC] OpenService 失败：1060指定的服务未安装_[sc] openservice 失败 1060: 指定的服务未安装。-CSDN博客</a>
+文章中提到了“服务”，在开始菜单中搜索服务，进入应用找到了一个名为WSL Service的服务。点左上角启动。
+提取关键信息：<strong>1058、被禁用、关联的设备没有启动</strong>。
+检查功能是否开启：按下 <code>Win+S</code> 搜索 <strong>启用或关闭Windows功能</strong>
+勾选<code>适用于Linux的Windows子系统</code>和<code>虚拟机平台</code>这两项，点击确定
+重启电脑。
+回来以后，用管理员身份运行powershell，强制重置WSL服务，依次执行：</p>  </div> <p class="readmore"><a href="https://www.yingyu5658.me/posts/%E6%9C%AA%E8%A7%A3%E5%86%B3windows-wsl%E6%8A%A5%E9%94%99error-0x80080005/">阅读全文 →</a></p> </article>  <article class="post"> <header> <h2 class="post-title"> <a href="https://www.yingyu5658.me/posts/css%E9%BC%A0%E6%A0%87%E6%8C%87%E9%92%88%E6%93%8D%E4%BD%9C/">CSS鼠标指针操作</a> </h2> </header> <date class="post-meta meta-date"> March 4, 2025 </date>  <div class="post-meta meta-category">&nbsp;in&nbsp; <a href="/categories/"></a>  </div>   <div class="post-content summary auto">   <p>今天在上网冲浪的时候，看到Github上有一个明日方舟风格的<a href="https://github.com/Yue-plus/hexo-theme-arknights">主题</a>，这个主题让我感到新鲜的一点是网页中的鼠标指针特效
 
         <a data-fancybox="gallery" href="./view.gif">
             <img class="mx-auto" alt="" src="./view.gif" />
@@ -101,18 +124,7 @@
 <h3 id="下载链接">下载链接</h3>
 <p><a href="https://yingyu5658.lanzoup.com/iWfXQ2ln6jre">https://yingyu5658.lanzoup.com/iWfXQ2ln6jre</a>
 为了兄弟们下得爽点就不用百度网盘或者夸克了
-代码都有比较详细的注释</p>  </div> <p class="readmore"><a href="https://www.yingyu5658.me/posts/187/">阅读全文 →</a></p> </article>  <article class="post"> <header> <h2 class="post-title"> <a href="https://www.yingyu5658.me/posts/186/">Java面向对象编程——多态、抽象类、接口</a> </h2> </header> <date class="post-meta meta-date"> January 10, 2025 </date>  <div class="post-meta meta-category">&nbsp;in&nbsp; <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>  </div>   <div class="post-content summary auto">   <h2 id="什么是多态">什么是多态</h2>
-<ul>
-<li>在继承/实现情况下的一种现象，表现为：对象多态、行为多态。</li>
-</ul>
-<h3 id="多态的前提">多态的前提</h3>
-<ul>
-<li>有<strong>继承/实</strong>现关系；存在父类引用子类对象；<strong>存在方法重写</strong></li>
-<li>
-<h2 id="多态的注意事项">多态的注意事项</h2>
-</li>
-<li>多态是对象、行为的多态，成员变量不体现多态。</li>
-</ul>  </div> <p class="readmore"><a href="https://www.yingyu5658.me/posts/186/">阅读全文 →</a></p> </article>  
+代码都有比较详细的注释</p>  </div> <p class="readmore"><a href="https://www.yingyu5658.me/posts/187/">阅读全文 →</a></p> </article>  
 
 
 
@@ -189,7 +201,7 @@
         
         
         <li >
-            <a href="https://www.yingyu5658.me/page/22/">22</a>
+            <a href="https://www.yingyu5658.me/page/23/">23</a>
         </li>
         
     
@@ -285,7 +297,7 @@
 	
  </div> </div> </div> </body> <footer id="footer">
   <div>
-    <p><a href="/links">友链</a> · <a href="/atom.xml">订阅</a> · <a href="sitemap.xml">网站地图</a></p>
+    <p><a href="/readings">读书</a> · <a href="/links">友链</a> · <a href="/atom.xml">订阅</a> · <a href="sitemap.xml">网站地图</a></p>
     <hr width="80px" />
     <p>© 2025 <a href="https://www.yingyu5658.me">映屿</a>. 由<a href="https://gohugo.io/"> Typecho </a>强力驱动.</p>
      
