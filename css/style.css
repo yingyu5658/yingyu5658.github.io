@@ -16,6 +16,12 @@ ol li, p, .post-content p, .widget-list li a{
 	font-size: 1.0rem !important;
 }
 
+.post-content h2, .post-content h3, .post-content h4 {
+	font-family:
+	'Droid Serif', Georgia, 'Times New Roman', 'PingFang SC', 'Hiragino Sans GB', 'Source Han Sans CN',
+	'WenQuanYi Micro Hei', 'Microsoft Yahei', serif;
+}
+
 a {
 color: #3354aa;
 }
@@ -487,6 +493,10 @@ textarea {
 }
 .post-title a {
 	font-size: 24px;
+	font-family:
+	'Droid Serif', Georgia, 'Times New Roman', 'PingFang SC', 'Hiragino Sans GB', 'Source Han Sans CN',
+	'WenQuanYi Micro Hei', 'Microsoft Yahei', serif;
+
 }
 .post-title {
 	margin: 0;
@@ -501,7 +511,11 @@ textarea {
 }
 .post-title a,
 .keyword {
-	color: #555;
+	color: #3354aa;
+}
+.post-title a:hover {
+	color: #444;
+	cursor: pointer;
 }
 .post-meta {
 	padding: 0;
@@ -1189,16 +1203,6 @@ img.alignright {
 	background: #f8f8f8;
 	border-bottom-color: #d26911;
 } /* 版权声明 */
-.post-copyright {
-	margin: 2em 0 0;
-	padding: 0.5em 1em;
-	border-left: 3px solid #ff1700;
-	background-color: #f9f9f9;
-	list-style: none;
-}
-.post-copyright a {
-	border-bottom: 1px solid #999;
-} /* table*/
 table {
 	margin: auto auto 15px;
 	background: transparent;
