@@ -216,26 +216,12 @@
         <header>
 			<h1 class="post-title"><a>把主力机系统换成Arch Linux是我这辈子做过的最蠢的决定</a></h1>
         </header>
-        
-  <time datetime="2025-04-06T17:58:48Z" class="post-meta meta-date dt-published">
-    2025-04-06
-  </time>
-
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/categories/%E6%8A%80%E6%9C%AF' target="_blank">技术</a>
-  
-</div>
-
+        <div class="post-meta"> <span>作者: 子纪</span> <span style="border-left: 1px solid #999; margin-left: 1px; padding-left: 5px;">时间: 2025-04-06</span>  <span style="border-left: 1px solid #999; margin-left: 5px; padding-left: 5px;">分类: <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a></span></div>
 
         
         
         
-        
-        
-        
+
         
         
         <div class="post-content">
@@ -354,13 +340,12 @@
 
 <div class="post-archive">
     <div class="random-post">
-                <h2><a href="/posts/emacs-eaf%E6%8F%92%E4%BB%B6%E6%89%93%E5%BC%80%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%AA%E6%98%BE%E7%A4%BAopening-http-xxx-xxx%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">Emacs EAF插件打开浏览器只显示opening http://xxx.xxx的解决方法</a></h2>
+                <h2><a href="/posts/tmux%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/">Tmux配置记录</a></h2>
         
-            <p class="summary"><p>检查是否安装全部依赖，如yay、pip等。我这里是由于没有安装pip导致的。</p>
-<p><code>sudo pacman -S python-pip</code></p>
-<p>安装好后，进入eaf安装目录</p>
-<p><code>cd ~/.emacs.d/site-lisp/emacs-application-framework &amp;&amp; ./install-eaf.py</code></p>
-<p>重新安装eaf。等待脚本运行完成，打开emacs，输入<code>M-x eaf-install-and-update</code>，等待执行完成。</p></p>
+            <p class="summary"><p>TMux 是终端复用神器，让你在一个终端窗口管理多个会话、窗口和窗格。</p>
+<p>基础操作：启动Tmux</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>tmux
+</span></span></code></pre></div><p>所以我选择在<code>~/.bashrc</code>里加上这句，每次打开终端都会自动进入tmux。</p></p>
         
 <h2 style="text-align: right; margin-bottom: 15px; color: #4a4c4d !important;">
             <i>接下来阅读</i>
