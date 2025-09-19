@@ -281,16 +281,10 @@
 
 <div class="post-archive">
     <div class="random-post">
-                <h2><a href="/posts/181/">Spigot服务端控制台中文乱码解决方案</a></h2>
+                <h2><a href="/posts/184/">修复Geyser下基岩版玩家无法在地狱基岩层放置方块</a></h2>
         
-            <p class="summary"><ol>
-<li>把<code>-Dfile.encoding=UTF-8</code>加在开服脚本文件的<code>-jar</code>前即可。</li>
-<li>在启动脚本第一行加上<code>chcp 65001</code>
-我的启动脚本如下：</li>
-</ol>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>chcp <span style="color:#d19a66">65001</span>
-</span></span><span style="display:flex;"><span>java -Dfile.encoding<span style="color:#56b6c2">=</span>UTF-8 -jar spigot-1.21.jar
-</span></span></code></pre></div></p>
+            <p class="summary"><p>在<code>plugins\Geyser-Spigot\config.yml</code>中把第160行的<code>above-bedrock-nether-building: false</code>改为<code>true</code>，重启服务器，问题解决~
+原理：geyser把下界翻译成了末地，会导致下界天空变成末地的样式，不过可以解决基岩版玩家在地狱基岩层的问题。</p></p>
         
 <h2 style="text-align: right; margin-bottom: 15px; color: #4a4c4d !important;">
             <i>接下来阅读</i>
