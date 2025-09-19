@@ -79,7 +79,7 @@
     
     <li><a href="https://www.yingyu5658.me/categories/%E8%AF%BB%E4%B9%A6/">读书 (2)</a></li>
     
-    <li><a href="https://www.yingyu5658.me/categories/%E9%9A%8F%E7%AC%94/">随笔 (44)</a></li>
+    <li><a href="https://www.yingyu5658.me/categories/%E9%9A%8F%E7%AC%94/">随笔 (45)</a></li>
     
 </ul>
 
@@ -89,6 +89,10 @@
 	<section class="widget">
         <h3 class="widget-title">最近更新</h3>
 <ul class="widget-list">
+    
+    <li>
+        <a href="https://www.yingyu5658.me/posts/stand-and-thought/" title="立场与观点" target="_blank">立场与观点</a>
+    </li>
     
     <li>
         <a href="https://www.yingyu5658.me/posts/guide-to-correspondence/" title="给00后和10后的书信来往指南" target="_blank">给00后和10后的书信来往指南</a>
@@ -124,10 +128,6 @@
     
     <li>
         <a href="https://www.yingyu5658.me/posts/overcast/" title="阴云" target="_blank">阴云</a>
-    </li>
-    
-    <li>
-        <a href="https://www.yingyu5658.me/posts/we-are-all-bull-shit/" title="别吵了，大家一样烂" target="_blank">别吵了，大家一样烂</a>
     </li>
     
 </ul>
@@ -385,15 +385,24 @@ bind -n C-Right resize-pane -R 5  # Ctrl+→：向右扩大窗格 5 单位
 
 <div class="post-archive">
     <div class="random-post">
-                <h2><a href="/posts/wsl-arch-linux-zsh%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">WSL Arch Linux ZSH输入中文输入法乱码解决方法</a></h2>
+                <h2><a href="/posts/%E7%BB%99%E6%AF%94%E6%88%91%E5%B2%81%E6%95%B0%E8%BF%98%E5%A4%A7%E7%9A%84%E7%94%B5%E8%84%91%E8%A3%85fedora/">给比我岁数还大的电脑装Fedora</a></h2>
         
-            <p class="summary"><p>没有进行配置的情况下输入中文，一般会显示&lt;0xffffffff&gt;，这是由于没有安装字体造成的。</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo pacman -S noto-fonts-cjk  <span style="color:#7f848e"># 安装中文字体</span>
-</span></span><span style="display:flex;"><span>sudo vi /etc/locale.gen        <span style="color:#7f848e"># 取消注释 zh_CN.UTF-8</span>
-</span></span><span style="display:flex;"><span>sudo locale-gen                <span style="color:#7f848e"># 生成语言环境</span>
-</span></span><span style="display:flex;"><span><span style="color:#e5c07b">echo</span> <span style="color:#98c379">&#34;export LANG=zh_CN.UTF-8&#34;</span> &gt;&gt; ~/.zshrc  <span style="color:#7f848e"># 设置默认中文环境</span>
-</span></span><span style="display:flex;"><span><span style="color:#e5c07b">source</span> ~/.zshrc
-</span></span></code></pre></div><p>source后，再次尝试输入中文，无异常。</p></p>
+            <p class="summary"><h2 id="前言">前言</h2>
+<p>
+        <a data-fancybox="gallery" href="./ccb6ab92150b3314a3cb09eee8102a56.webp">
+            <img class="mx-auto" alt="" src="./ccb6ab92150b3314a3cb09eee8102a56.webp" />
+        </a>
+    </p>
+<p>印象中，这台电脑在我很小的时候就存在了，我爸的网盘里至今还有我当时用这台电脑播放江南Style，我在床上跳舞的视频。</p>
+<p>这台机子开Powershell都卡，更不用说日常使用。</p>
+<p>
+        <a data-fancybox="gallery" href="./de5fce2eac7705b9df0d9a6e76ebf799.webp">
+            <img class="mx-auto" alt="" src="./de5fce2eac7705b9df0d9a6e76ebf799.webp" />
+        </a>
+    
+我甚至都不想在这台电脑上截图，当拍屏大师吧。</p>
+<p>听说Linux用户有个刻板印象就是，用着十几年前的笔记本，从来不用最新设备，那这不刚好吻合上了吗。</p>
+<p>诶&hellip;&hellip;等等，我<a href="https://www.yingyu5658.me/post/3691550015/">之前</a>好像说过不折腾了？算了，反正Fedora没有Arch那么折腾（吧）。</p></p>
         
 <h2 style="text-align: right; margin-bottom: 15px; color: #4a4c4d !important;">
             <i>接下来阅读</i>
