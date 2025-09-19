@@ -351,17 +351,44 @@
 
 <div class="post-archive">
     <div class="random-post">
-                <h2><a href="/posts/%E7%94%A8javascript-tss%E5%92%8Chighlights%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8F%A5%E7%BA%A7%E6%96%87%E6%9C%AC%E9%98%85%E8%AF%BB%E5%99%A8/">使用Javascript TSS和Highlights构建一个文本阅读器</a></h2>
+                <h2><a href="/posts/osu-apiv1%E8%AF%B7%E6%B1%82%E7%A4%BA%E4%BE%8B/">osu!APIv1请求示例</a></h2>
         
-            <p class="summary"><blockquote>
-<p>原文：https://jsdev.space/tts-sentence-reader/
-翻译：yingyu5658 <a href="mailto:yingyu5658@outlook.com">yingyu5658@outlook.com</a></p></blockquote>
-<p>
-        <a data-fancybox="gallery" href="https://jsdev.space/.netlify/images?url=_astro%2Ftts-sentence-reader.hV9whx3I.png&amp;w=800&amp;h=800">
-            <img class="mx-auto" alt="" src="https://jsdev.space/.netlify/images?url=_astro%2Ftts-sentence-reader.hV9whx3I.png&amp;w=800&amp;h=800" />
-        </a>
-    </p>
-<p>在这篇文章中，我们将构建一个简单的Web工具来探究<strong>Text-toSpeech(TTS)<strong>在JavaScript中是如何工作的。我们也将深入研究</strong>句子级高亮</strong>的工作逻辑。这两项功能经常结合在一起使用，以走到浏览器中打造无障碍的动态阅读体验。</p></p>
+            <p class="summary"><h2 id="前言">前言</h2>
+<p>本文章使用Nodejs环境做演示。请求用户数据。代码中的APIKEY要在<a href="https://osu.ppy.sh/home/account/edit">osu官网‬</a>申请。</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">API_URL</span> <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#34;osu.ppy.sh&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">init</span> <span style="color:#56b6c2">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">k</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#34;YOUR_API_KEY&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">type</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">u</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#34;kyzzz5658&#34;</span>,
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">https</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">require</span>(<span style="color:#98c379">&#34;https&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e">// 将参数序列化为查询字符串
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span><span style="color:#c678dd">const</span> <span style="color:#e06c75">query</span> <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e06c75">URLSearchParams</span>(<span style="color:#e06c75">init</span>);
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">options</span> <span style="color:#56b6c2">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">hostname</span><span style="color:#56b6c2">:</span> <span style="color:#e06c75">API_URL</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">method</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#34;GET&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">path</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">`/api/get_user?</span><span style="color:#98c379">${</span><span style="color:#e06c75">query</span><span style="color:#98c379">}</span><span style="color:#98c379">`</span> <span style="color:#7f848e">// 附加参数
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">req</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">https</span>.<span style="color:#e06c75">request</span>(<span style="color:#e06c75">options</span>, (<span style="color:#e06c75">res</span>) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">let</span> <span style="color:#e06c75">data</span> <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#39;&#39;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">res</span>.<span style="color:#e06c75">on</span>(<span style="color:#98c379">&#39;data&#39;</span>, (<span style="color:#e06c75">chunk</span>) =&gt; <span style="color:#e06c75">data</span> <span style="color:#56b6c2">+=</span> <span style="color:#e06c75">chunk</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">res</span>.<span style="color:#e06c75">on</span>(<span style="color:#98c379">&#39;end&#39;</span>, () =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">try</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">console</span>.<span style="color:#e06c75">log</span>(<span style="color:#e06c75">JSON</span>.<span style="color:#e06c75">parse</span>(<span style="color:#e06c75">data</span>[<span style="color:#d19a66">0</span>].<span style="color:#e06c75">username</span>));
+</span></span><span style="display:flex;"><span>        } <span style="color:#c678dd">catch</span> (<span style="color:#e06c75">e</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">console</span>.<span style="color:#e06c75">error</span>(<span style="color:#98c379">&#39;JSON 解析失败:&#39;</span>, <span style="color:#e06c75">e</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e">// 错误处理
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span><span style="color:#e06c75">req</span>.<span style="color:#e06c75">on</span>(<span style="color:#98c379">&#39;error&#39;</span>, (<span style="color:#e06c75">err</span>) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">console</span>.<span style="color:#e06c75">error</span>(<span style="color:#98c379">&#39;请求失败:&#39;</span>, <span style="color:#e06c75">err</span>.<span style="color:#e06c75">code</span>);
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><p>输出：</p></p>
         
 <h2 style="text-align: right; margin-bottom: 15px; color: #4a4c4d !important;">
             <i>接下来阅读</i>
