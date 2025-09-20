@@ -55,100 +55,7 @@
     </div>
 </header>
 
- <div id="body"> <div class="container"> <div class="col-group"> <div class="col-8" id="main"> <div class="res-cons">  <article class="post"> <header> <h2 class="post-title"> <a href="https://www.yingyu5658.me/posts/90/">Java小程序之两数计算器</a> </h2> </header> <div class="post-meta"> <span>作者: yingyu5658</span> <span style="border-left: 1px solid #999; margin-left: 1px; padding-left: 5px;">时间: 2024-11-30</span>  <span style="border-left: 1px solid #999; margin-left: 5px; padding-left: 5px;">分类: <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a></span>  </div>  <div class="post-content summary auto">  <p>这个案例是我练习方法的使用时做的，应该能有更好的方式实现这个功能。
-代码如下</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> <span style="color:#e06c75">org.w3c.dom.ls.LSOutput</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> <span style="color:#e06c75">java.util.Scanner</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#c678dd">public</span> <span style="color:#c678dd">class</span> <span style="color:#e5c07b">Basic</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">public</span> <span style="color:#c678dd">static</span> <span style="color:#e5c07b">void</span> <span style="color:#61afef;font-weight:bold">main</span>(<span style="color:#e06c75">String</span><span style="color:#56b6c2">[]</span> <span style="color:#e06c75">args</span>) {
-</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">for</span> (; ; ) {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">System</span>.<span style="color:#e06c75">out</span>.<span style="color:#e06c75">println</span>(<span style="color:#98c379">&#34;欢迎使用！&#34;</span>);
-</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">System</span>.<span style="color:#e06c75">out</span>.<span style="color:#e06c75">println</span>(<span style="color:#98c379">&#34;按键1 2 3 4分别为加 减 乘 除，输入后请回车&#34;</span>);
-</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">Scanner</span> <span style="color:#e06c75">startSc</span> <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e06c75">Scanner</span>(<span style="color:#e06c75">System</span>.<span style="color:#e06c75">in</span>);
-</span></span><span style="display:flex;"><span>            <span style="color:#e5c07b">int</span> <span style="color:#e06c75">selectNumber</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">startSc</span>.<span style="color:#e06c75">nextInt</span>();
-</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">if</span>(<span style="color:#e06c75">selectNumber</span> <span style="color:#56b6c2">&gt;</span><span style="color:#e06c75">4</span>) {
-</span></span><span style="display:flex;"><span>                <span style="color:#e06c75">System</span>.<span style="color:#e06c75">out</span>.<span style="color:#e06c75">println</span>(<span style="color:#98c379">&#34;请输入正确的数字以选择！&#34;</span>);
-</span></span><span style="display:flex;"><span>            }
-</span></span><span style="display:flex;"><span>            <span style="color:#7f848e">//以下为加法</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">if</span> (<span style="color:#e06c75">selectNumber</span> <span style="color:#56b6c2">==</span> <span style="color:#e06c75">1</span>) {
-</span></span><span style="display:flex;"><span>                <span style="color:#e06c75">System</span>.<span style="color:#e06c75">out</span>.<span style="color:#e06c75">println</span>(<span style="color:#98c379">&#34;请输入您要计算的第一个数字&#34;</span>);
-</span></span><span style="display:flex;"><span>                <span style="color:#e06c75">Scanner</span> <span style="color:#e06c75">jiafaSc</span> <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e06c75">Scanner</span>(<span style="color:#e06c75">System</span>.<span style="color:#e06c75">in</span>);
-</span></span><span style="display:flex;"><span>                <span style="color:#e5c07b">int</span> <span style="color:#e06c75">jiafa1</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">jiafaSc</span>.<span style="color:#e06c75">nextInt</span>();
-</span></span><span style="display:flex;"><span>                <span style="color:#e06c75">System</span>.<span style="color:#e06c75">out</span>.<span style="color:#e06c75">println</span>(<span style="color:#98c379">&#34;请输入您要计算的第二个数字&#34;</span>);
-</span></span><span style="display:flex;"><span>                <span style="color:#e5c07b">int</span> <span style="color:#e06c75">jiafa2</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">jiafaSc</span>.<span style="color:#e06c75">nextInt</span>();
-</span></span><span style="display:flex;"><span>                <span style="color:#e06c75">jiafa</span>(<span style="color:#e06c75">jiafa1</span>, <span style="color:#e06c75">jiafa2</span>);
-</span></span><span style="display:flex;"><span>            }
-</span></span><span style="display:flex;"><span>            <span style="color:#7f848e">//以下为减法</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">if</span> (<span style="color:#e06c75">selectNumber</span> <span style="color:#56b6c2">==</span> <span style="color:#e06c75">2</span>) {
-</span></span><span style="display:flex;"><span>                <span style="color:#e06c75">System</span>.<span style="color:#e06c75">out</span>.<span style="color:#e06c75">println</span>(<span style="color:#98c379">&#34;请输入您要计算的第一个数字&#34;</span>);
-</span></span><span style="display:flex;"><span>                <span style="color:#e06c75">Scanner</span> <span style="color:#e06c75">jianfaSc</span> <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e06c75">Scanner</span>(<span style="color:#e06c75">System</span>.<span style="color:#e06c75">in</span>);
-</span></span><span style="display:flex;"><span>                <span style="color:#e5c07b">int</span> <span style="color:#e06c75">jianfa1</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">jianfaSc</span>.<span style="color:#e06c75">nextInt</span>();
-</span></span><span style="display:flex;"><span>                <span style="color:#e06c75">System</span>.<span style="color:#e06c75">out</span>.<span style="color:#e06c75">println</span>(<span style="color:#98c379">&#34;请输入您要计算的第二个数字&#34;</span>);
-</span></span><span style="display:flex;"><span>                <span style="color:#e5c07b">int</span> <span style="color:#e06c75">jianfa2</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">jianfaSc</span>.<span style="color:#e06c75">nextInt</span>();
-</span></span><span style="display:flex;"><span>                <span style="color:#e06c75">jianfa</span>(<span style="color:#e06c75">jianfa1</span>, <span style="color:#e06c75">jianfa2</span>);
-</span></span><span style="display:flex;"><span>            }
-</span></span><span style="display:flex;"><span>            <span style="color:#7f848e">//以下为乘法</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">if</span> (<span style="color:#e06c75">selectNumber</span> <span style="color:#56b6c2">==</span> <span style="color:#e06c75">3</span>) {
-</span></span><span style="display:flex;"><span>                <span style="color:#e06c75">System</span>.<span style="color:#e06c75">out</span>.<span style="color:#e06c75">println</span>(<span style="color:#98c379">&#34;请输入您要计算的第一个数字&#34;</span>);
-</span></span><span style="display:flex;"><span>                <span style="color:#e06c75">Scanner</span> <span style="color:#e06c75">chengfaSc</span> <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e06c75">Scanner</span>(<span style="color:#e06c75">System</span>.<span style="color:#e06c75">in</span>);
-</span></span><span style="display:flex;"><span>                <span style="color:#e5c07b">int</span> <span style="color:#e06c75">chengfa1</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">chengfaSc</span>.<span style="color:#e06c75">nextInt</span>();
-</span></span><span style="display:flex;"><span>                <span style="color:#e06c75">System</span>.<span style="color:#e06c75">out</span>.<span style="color:#e06c75">println</span>(<span style="color:#98c379">&#34;请输入您要计算的第二个数字&#34;</span>);
-</span></span><span style="display:flex;"><span>                <span style="color:#e5c07b">int</span> <span style="color:#e06c75">chengfa2</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">chengfaSc</span>.<span style="color:#e06c75">nextInt</span>();
-</span></span><span style="display:flex;"><span>                <span style="color:#e06c75">chengfa</span>(<span style="color:#e06c75">chengfa1</span>, <span style="color:#e06c75">chengfa2</span>);
-</span></span><span style="display:flex;"><span>            }
-</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">if</span> (<span style="color:#e06c75">selectNumber</span> <span style="color:#56b6c2">==</span> <span style="color:#e06c75">4</span>) {
-</span></span><span style="display:flex;"><span>                <span style="color:#e06c75">System</span>.<span style="color:#e06c75">out</span>.<span style="color:#e06c75">println</span>(<span style="color:#98c379">&#34;请输入您要计算的第一个数字&#34;</span>);
-</span></span><span style="display:flex;"><span>                <span style="color:#e06c75">Scanner</span> <span style="color:#e06c75">chufaSc</span> <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e06c75">Scanner</span>(<span style="color:#e06c75">System</span>.<span style="color:#e06c75">in</span>);
-</span></span><span style="display:flex;"><span>                <span style="color:#e5c07b">int</span> <span style="color:#e06c75">chufa1</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">chufaSc</span>.<span style="color:#e06c75">nextInt</span>();
-</span></span><span style="display:flex;"><span>                <span style="color:#e06c75">System</span>.<span style="color:#e06c75">out</span>.<span style="color:#e06c75">println</span>(<span style="color:#98c379">&#34;请输入您要计算的第二个数字&#34;</span>);
-</span></span><span style="display:flex;"><span>                <span style="color:#e5c07b">int</span> <span style="color:#e06c75">chufa2</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">chufaSc</span>.<span style="color:#e06c75">nextInt</span>();
-</span></span><span style="display:flex;"><span>                <span style="color:#e06c75">chufa</span>(<span style="color:#e06c75">chufa1</span>, <span style="color:#e06c75">chufa2</span>);
-</span></span><span style="display:flex;"><span>            }
-</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">System</span>.<span style="color:#e06c75">out</span>.<span style="color:#e06c75">println</span>(<span style="color:#98c379">&#34;-----------------------------------------&#34;</span>);
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#7f848e">//加减乘除各项功能的方法，上面直接调用</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">public</span> <span style="color:#c678dd">static</span> <span style="color:#e5c07b">int</span> <span style="color:#61afef;font-weight:bold">jiafa</span>(<span style="color:#e5c07b">int</span> <span style="color:#e06c75">a</span>, <span style="color:#e5c07b">int</span> <span style="color:#e06c75">b</span>) {
-</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">int</span> <span style="color:#e06c75">jieguo</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">a</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">b</span>;
-</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">System</span>.<span style="color:#e06c75">out</span>.<span style="color:#e06c75">println</span>(<span style="color:#e06c75">jieguo</span>);
-</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">return</span> <span style="color:#e06c75">a</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">b</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">public</span> <span style="color:#c678dd">static</span> <span style="color:#e5c07b">int</span> <span style="color:#61afef;font-weight:bold">jianfa</span>(<span style="color:#e5c07b">int</span> <span style="color:#e06c75">a</span>, <span style="color:#e5c07b">int</span> <span style="color:#e06c75">b</span>) {
-</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">int</span> <span style="color:#e06c75">jieguo</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">a</span> <span style="color:#56b6c2">-</span> <span style="color:#e06c75">b</span>;
-</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">System</span>.<span style="color:#e06c75">out</span>.<span style="color:#e06c75">println</span>(<span style="color:#e06c75">jieguo</span>);
-</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">return</span> <span style="color:#e06c75">a</span> <span style="color:#56b6c2">-</span> <span style="color:#e06c75">b</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">public</span> <span style="color:#c678dd">static</span> <span style="color:#e5c07b">int</span> <span style="color:#61afef;font-weight:bold">chengfa</span>(<span style="color:#e5c07b">int</span> <span style="color:#e06c75">a</span>, <span style="color:#e5c07b">int</span> <span style="color:#e06c75">b</span>) {
-</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">int</span> <span style="color:#e06c75">jieguo</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">a</span> <span style="color:#56b6c2">*</span> <span style="color:#e06c75">b</span>;
-</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">System</span>.<span style="color:#e06c75">out</span>.<span style="color:#e06c75">println</span>(<span style="color:#e06c75">jieguo</span>);
-</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">return</span> <span style="color:#e06c75">a</span> <span style="color:#56b6c2">*</span> <span style="color:#e06c75">b</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">public</span> <span style="color:#c678dd">static</span> <span style="color:#e5c07b">int</span> <span style="color:#61afef;font-weight:bold">chufa</span>(<span style="color:#e5c07b">int</span> <span style="color:#e06c75">a</span>, <span style="color:#e5c07b">int</span> <span style="color:#e06c75">b</span>) {
-</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">int</span> <span style="color:#e06c75">jieguo</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">a</span> <span style="color:#56b6c2">/</span> <span style="color:#e06c75">b</span>;
-</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">System</span>.<span style="color:#e06c75">out</span>.<span style="color:#e06c75">println</span>(<span style="color:#e06c75">jieguo</span>);
-</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">return</span> <span style="color:#e06c75">a</span> <span style="color:#56b6c2">/</span> <span style="color:#e06c75">b</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div>  </div> <p class="readmore"><a href="https://www.yingyu5658.me/posts/90/">阅读全文 →</a></p> </article>  <article class="post"> <header> <h2 class="post-title"> <a href="https://www.yingyu5658.me/posts/89/">Java方法的基本使用</a> </h2> </header> <div class="post-meta"> <span>作者: yingyu5658</span> <span style="border-left: 1px solid #999; margin-left: 1px; padding-left: 5px;">时间: 2024-11-29</span>  <span style="border-left: 1px solid #999; margin-left: 5px; padding-left: 5px;">分类: <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a></span>  </div>  <div class="post-content summary auto">  <h1 id="方法是什么">方法是什么</h1>
-<p>方法是一种语法结构，它可以把代码封装成一段功能，以便重复调用。</p>
-<p>方法的完整格式：</p>
-<p>例子：数字求和</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>    <span style="color:#c678dd">public</span> <span style="color:#c678dd">static</span>  <span style="color:#e5c07b">int</span> <span style="color:#61afef;font-weight:bold">sum</span>(<span style="color:#e5c07b">int</span> <span style="color:#e06c75">a</span>,<span style="color:#e5c07b">int</span> <span style="color:#e06c75">b</span>){
-</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">int</span> <span style="color:#e06c75">c</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">a</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">b</span>;
-</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">return</span> <span style="color:#e06c75">c</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span></code></pre></div><p>方法的调用：</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>       <span style="color:#e5c07b">int</span> <span style="color:#e06c75">rs</span><span style="color:#56b6c2">=</span> <span style="color:#e06c75">sum</span>(<span style="color:#e06c75">10</span>,<span style="color:#e06c75">20</span>);
-</span></span></code></pre></div><h2 id="方法使用的注意点">方法使用的注意点：</h2>
-<p>方法申明了具体的返回值类型，内部必须使用return返回对应类型的数据。</p>  </div> <p class="readmore"><a href="https://www.yingyu5658.me/posts/89/">阅读全文 →</a></p> </article>  <article class="post"> <header> <h2 class="post-title"> <a href="https://www.yingyu5658.me/posts/6/">网站迁移</a> </h2> </header> <div class="post-meta"> <span>作者: 子纪</span> <span style="border-left: 1px solid #999; margin-left: 1px; padding-left: 5px;">时间: 2024-11-21</span>  <span style="border-left: 1px solid #999; margin-left: 5px; padding-left: 5px;">分类: <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a></span>  </div>  <div class="post-content summary auto">  <p>原网站</p>
+ <div id="body"> <div class="container"> <div class="col-group"> <div class="col-8" id="main"> <div class="res-cons">  <article class="post"> <header> <h2 class="post-title"> <a href="https://www.yingyu5658.me/posts/6/">网站迁移</a> </h2> </header> <div class="post-meta"> <span>作者: 子纪</span> <span style="border-left: 1px solid #999; margin-left: 1px; padding-left: 5px;">时间: 2024-11-21</span>  <span style="border-left: 1px solid #999; margin-left: 5px; padding-left: 5px;">分类: <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a></span>  </div>  <div class="post-content summary auto">  <p>原网站</p>
 <blockquote>
 <p>yingyu5658.github.io</p></blockquote>
 <p>将会迁移到这里。我会把有价值的文章转过来
@@ -230,20 +137,7 @@
         </li>
         
     
-        
-        
-        <li >
-            <a href="https://www.yingyu5658.me/page/23/">23</a>
-        </li>
-        
-    
 
-    
-
-
-    <li class="next">
-        <a href="https://www.yingyu5658.me/page/23/">&gt;</a>
-    </li>
     
 </ol>
 
@@ -264,11 +158,11 @@
         <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
 <ul class="widget-list">
     
-    <li><a href="https://www.yingyu5658.me/categories/%E6%8A%80%E6%9C%AF/">技术 (57)</a></li>
+    <li><a href="https://www.yingyu5658.me/categories/%E6%8A%80%E6%9C%AF/">技术 (56)</a></li>
     
     <li><a href="https://www.yingyu5658.me/categories/%E8%AF%BB%E4%B9%A6/">读书 (2)</a></li>
     
-    <li><a href="https://www.yingyu5658.me/categories/%E9%9A%8F%E7%AC%94/">随笔 (45)</a></li>
+    <li><a href="https://www.yingyu5658.me/categories/%E9%9A%8F%E7%AC%94/">随笔 (44)</a></li>
     
 </ul>
 
@@ -333,7 +227,7 @@
     <hr width="80px" />
     <p>© 2025 <a href="https://www.yingyu5658.me">映屿</a>. 由<a href="https://gohugo.io/"> Typecho </a>强力驱动.</p>
      
-    <p>本站已运行<span class="running-time"></span>. 共 107 篇文章.</p>
+    <p>本站已运行<span class="running-time"></span>. 共 105 篇文章.</p>
 
 	<link rel="prefetch" as="image" href="https://www.blogsclub.org/badge/www.yingyu5658.me">
 

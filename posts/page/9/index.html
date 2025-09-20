@@ -72,11 +72,11 @@
         <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
 <ul class="widget-list">
     
-    <li><a href="https://www.yingyu5658.me/categories/%E6%8A%80%E6%9C%AF/">技术 (57)</a></li>
+    <li><a href="https://www.yingyu5658.me/categories/%E6%8A%80%E6%9C%AF/">技术 (56)</a></li>
     
     <li><a href="https://www.yingyu5658.me/categories/%E8%AF%BB%E4%B9%A6/">读书 (2)</a></li>
     
-    <li><a href="https://www.yingyu5658.me/categories/%E9%9A%8F%E7%AC%94/">随笔 (45)</a></li>
+    <li><a href="https://www.yingyu5658.me/categories/%E9%9A%8F%E7%AC%94/">随笔 (44)</a></li>
     
 </ul>
 
@@ -145,39 +145,6 @@
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://www.yingyu5658.me/posts/nodejs%E7%8E%AF%E5%A2%83%E4%B8%8B%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%8B%BC%E6%8E%A5%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%87%BA%E6%9C%89undefind/" title="Nodejs环境下控制台拼接字符串输出有undefind" target="_blank">Nodejs环境下控制台拼接字符串输出有undefind</a>
-            </h1>
-        </header>
-        <div class="post-meta"> <span>作者: 子纪</span> <span style="border-left: 1px solid #999; margin-left: 1px; padding-left: 5px;">时间: 2025-03-22</span>  <span style="border-left: 1px solid #999; margin-left: 5px; padding-left: 5px;">分类: <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a></span></div>
-
-        <div class="post-content">
-            <p>今天在Nodejs环境下搓小工具，控制台输出拼接字符串时，发现有<code>undefind</code>，代码如下：</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">date</span> <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">Date</span>();
-</span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">year</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">date</span>.<span style="color:#e06c75">getFullYear</span>();
-</span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">month</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">date</span>.<span style="color:#e06c75">getMonth</span>();
-</span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">day</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">date</span>.<span style="color:#e06c75">getDate</span>();
-</span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">hour</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">date</span>.<span style="color:#e06c75">getHours</span>();
-</span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">minute</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">date</span>.<span style="color:#e06c75">getMinutes</span>();
-</span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">second</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">date</span>.<span style="color:#e06c75">getSeconds</span>();
-</span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">logTime</span> <span style="color:#56b6c2">=</span> <span style="color:#98c379">`[</span><span style="color:#98c379">${</span><span style="color:#e06c75">year</span><span style="color:#98c379">}</span><span style="color:#98c379">-</span><span style="color:#98c379">${</span><span style="color:#e06c75">month</span><span style="color:#98c379">}</span><span style="color:#98c379">-</span><span style="color:#98c379">${</span><span style="color:#e06c75">day</span><span style="color:#98c379">}</span><span style="color:#98c379"> </span><span style="color:#98c379">${</span><span style="color:#e06c75">hour</span><span style="color:#98c379">}</span><span style="color:#98c379">:</span><span style="color:#98c379">${</span><span style="color:#e06c75">minute</span><span style="color:#98c379">}</span><span style="color:#98c379">:</span><span style="color:#98c379">${</span><span style="color:#e06c75">second</span><span style="color:#98c379">}</span><span style="color:#98c379">] `</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#c678dd">class</span> <span style="color:#e06c75">GenerateLog</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">static</span> <span style="color:#e06c75">log</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">process</span>.<span style="color:#e06c75">stdout</span>.<span style="color:#e06c75">write</span>(<span style="color:#e06c75">logTime</span>);
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#e06c75">console</span>.<span style="color:#e06c75">log</span>(<span style="color:#e06c75">GenerateLog</span>.<span style="color:#e06c75">log</span>() <span style="color:#56b6c2">+</span> <span style="color:#98c379">&#34;log output on the console&#34;</span>);
-</span></span></code></pre></div><p>输出确是这样：</p>
-        </div>
-        <p class="readmore"><a href="https://www.yingyu5658.me/posts/nodejs%E7%8E%AF%E5%A2%83%E4%B8%8B%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%8B%BC%E6%8E%A5%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%87%BA%E6%9C%89undefind/" target="_blank">阅读全文 →</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
                 <a href="https://www.yingyu5658.me/posts/kitty%E7%BB%88%E7%AB%AF%E7%BE%8E%E5%8C%96%E8%AE%B0%E5%BD%95/" title="Kitty终端美化记录" target="_blank">Kitty终端美化记录</a>
             </h1>
         </header>
@@ -188,8 +155,8 @@
 <h2 id="选择配色">选择配色</h2>
 <p>运行<code>kitty + kitten themes</code>后会弹出一个选择配色的界面
 
-        <a data-fancybox="gallery" href="./Pasted%20image%2020250309124346.webp">
-            <img class="mx-auto" alt="" src="./Pasted%20image%2020250309124346.webp" />
+        <a data-fancybox="gallery" href="https://images.yingyu5658.me/Pasted%20image%2020250309124346.webp">
+            <img class="mx-auto" alt="" src="https://images.yingyu5658.me/Pasted%20image%2020250309124346.webp" />
         </a>
     
 令我感到非常高兴的是，这个界面支持vim的hjkl键位，也可以用/来搜索。
@@ -228,8 +195,8 @@
         <div class="post-content">
             <p>把Hexo博客根目录用黑曜石打开，如果已经打开了仓库
 
-        <a data-fancybox="gallery" href="./Pasted%20image%2020250305215423.webp">
-            <img class="mx-auto" alt="" src="./Pasted%20image%2020250305215423.webp" />
+        <a data-fancybox="gallery" href="https://images.yingyu5658.me/Pasted%20image%2020250305215423.webp">
+            <img class="mx-auto" alt="" src="https://images.yingyu5658.me/Pasted%20image%2020250305215423.webp" />
         </a>
     
 在弹出的窗口中选第二个。</p>
@@ -238,8 +205,8 @@
 取消使用Wiki链接
 注意。由于我的文件结构是这样的所以这么填写，要<strong>根据自己的文件结构填写相对路径</strong>。
 
-        <a data-fancybox="gallery" href="./Pasted%20image%2020250305215642.webp">
-            <img class="mx-auto" alt="" src="./Pasted%20image%2020250305215642.webp" />
+        <a data-fancybox="gallery" href="https://images.yingyu5658.me/Pasted%20image%2020250305215642.webp">
+            <img class="mx-auto" alt="" src="https://images.yingyu5658.me/Pasted%20image%2020250305215642.webp" />
         </a>
     
 搞定，同时可以在本地编辑环境和博客网站中显示。</p>
@@ -297,67 +264,14 @@ Press any key to continue...
         <div class="post-meta"> <span>作者: 子纪</span> <span style="border-left: 1px solid #999; margin-left: 1px; padding-left: 5px;">时间: 2025-03-04</span>  <span style="border-left: 1px solid #999; margin-left: 5px; padding-left: 5px;">分类: , <a href="/categories/"></a></span></div>
 
         <div class="post-content">
-            <p>今天在上网冲浪的时候，看到Github上有一个明日方舟风格的<a href="https://github.com/Yue-plus/hexo-theme-arknights">主题</a>，这个主题让我感到新鲜的一点是网页中的鼠标指针特效
-
-        <a data-fancybox="gallery" href="./view.gif">
-            <img class="mx-auto" alt="" src="./view.gif" />
-        </a>
-    
-这么舒服的动画效果我必须也要做一个，说干就干，新建个HTML文档。</p>
+            <p>今天在上网冲浪的时候，看到Github上有一个明日方舟风格的<a href="https://github.com/Yue-plus/hexo-theme-arknights">主题</a>，这个主题让我感到新鲜的一点是网页中的鼠标指针特效</p>
+<p>这么舒服的动画效果我必须也要做一个，说干就干，新建个HTML文档。</p>
 <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#56b6c2">*</span> {
 </span></span><span style="display:flex;"><span>  <span style="color:#c678dd">cursor</span>: <span style="color:#e5c07b">pointer</span>;
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>这样，我们整个网页的鼠标指针样式就都变成了小手指的样式，不过这样还是太丑，我们仿照arknights主题的样式，打开PS，画一个指针图标出来看看
-
-        <a data-fancybox="gallery" href="./screen.webp">
-            <img class="mx-auto" alt="" src="./screen.webp" />
-        </a>
-    
-使用url()属性可以替换自己的素材图片</p>
+</span></span></code></pre></div><p>这样，我们整个网页的鼠标指针样式就都变成了小手指的样式，不过这样还是太丑，我们仿照arknights主题的样式，打开PS，画一个指针图标出来看看</p>
         </div>
         <p class="readmore"><a href="https://www.yingyu5658.me/posts/css%E9%BC%A0%E6%A0%87%E6%8C%87%E9%92%88%E6%93%8D%E4%BD%9C/" target="_blank">阅读全文 →</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://www.yingyu5658.me/posts/194/" title="孤独摇滚第二季制作决定发布" target="_blank">孤独摇滚第二季制作决定发布</a>
-            </h1>
-        </header>
-        <div class="post-meta"> <span>作者: yingyu5658</span> <span style="border-left: 1px solid #999; margin-left: 1px; padding-left: 5px;">时间: 2025-02-15</span>  <span style="border-left: 1px solid #999; margin-left: 5px; padding-left: 5px;">分类: <a href="/categories/%E9%9A%8F%E7%AC%94">随笔</a></span></div>
-
-        <div class="post-content">
-            <p>
-        <a data-fancybox="gallery" href="./images/3572161185.jpg">
-            <img class="mx-auto" alt="官号推文截图" src="./images/3572161185.jpg" />
-        </a>
-    </p>
-<p>普天同庆 皆大欢喜 可喜可贺 朝思夜想
-你说的对，但是电视动画片《孤独摇滚！》改编自滨路晶创作的同名漫画作品，于2021年2月19日宣布电视动画化的消息 <a href="./images/3572161185.jpg">1</a>。该片由CloverWorks负责制作，于2022年10月8日至12月24日播出，全12集 [9]。
-2024年3月24日，官方宣布总集篇前篇《电影总集篇孤独摇滚！ Re:》于2024年6月7日上映，后篇《电影总集篇孤独摇滚！ Re:Re:》于2024年8月9日上映 [29]。
-我现在就要看孤独摇滚第二季
-我现在就要看孤独摇滚第二季
-我现在就要看孤独摇滚第二季
-我现在就要看孤独摇滚第二季
-我现在就要看孤独摇滚第二季
-我现在就要看孤独摇滚第二季
-我现在就要看孤独摇滚第二季
-我现在就要看孤独摇滚第二季
-我现在就要看孤独摇滚第二季
-我现在就要看孤独摇滚第二季
-我现在就要看孤独摇滚第二季
-我现在就要看孤独摇滚第二季
-我现在就要看孤独摇滚第二季
-我现在就要看孤独摇滚第二季
-我现在就要看孤独摇滚第二季
-我现在就要看孤独摇滚第二季
-我现在就要看孤独摇滚第二季
-我现在就要看孤独摇滚第二季
-花茶加倍歘白卡激活话，外喜欢吹夕会w吹黑彩hi这到场这到场被挡抄吧活儿底盒到场诶会撮合桌藏偶尔桌号二水哦二徐欧珠说二宝偶尔宝硕二队二队采耳偶尔对裁往外渤海我都被华欧黑东北菜黑比黑波好的啵还菜这报的说说这倒水偶财务桌晒w淬火外催偶得操B偶得催偶红黑炒荷花好舍不苍社上少社囧囧偶，偶尔可劲儿开车悟空烤鹅吃呢惨二餐三儿从哪</p>
-        </div>
-        <p class="readmore"><a href="https://www.yingyu5658.me/posts/194/" target="_blank">阅读全文 →</a></p>
     </article>
     
     
@@ -433,6 +347,46 @@ Press any key to continue...
 </ul>
         </div>
         <p class="readmore"><a href="https://www.yingyu5658.me/posts/185/" target="_blank">阅读全文 →</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://www.yingyu5658.me/posts/184/" title="修复Geyser下基岩版玩家无法在地狱基岩层放置方块" target="_blank">修复Geyser下基岩版玩家无法在地狱基岩层放置方块</a>
+            </h1>
+        </header>
+        <div class="post-meta"> <span>作者: yingyu5658</span> <span style="border-left: 1px solid #999; margin-left: 1px; padding-left: 5px;">时间: 2025-01-08</span>  <span style="border-left: 1px solid #999; margin-left: 5px; padding-left: 5px;">分类: <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a></span></div>
+
+        <div class="post-content">
+            <p>在<code>plugins\Geyser-Spigot\config.yml</code>中把第160行的<code>above-bedrock-nether-building: false</code>改为<code>true</code>，重启服务器，问题解决~
+原理：geyser把下界翻译成了末地，会导致下界天空变成末地的样式，不过可以解决基岩版玩家在地狱基岩层的问题。</p>
+        </div>
+        <p class="readmore"><a href="https://www.yingyu5658.me/posts/184/" target="_blank">阅读全文 →</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://www.yingyu5658.me/posts/181/" title="Spigot服务端控制台中文乱码解决方案" target="_blank">Spigot服务端控制台中文乱码解决方案</a>
+            </h1>
+        </header>
+        <div class="post-meta"> <span>作者: yingyu5658</span> <span style="border-left: 1px solid #999; margin-left: 1px; padding-left: 5px;">时间: 2025-01-04</span>  <span style="border-left: 1px solid #999; margin-left: 5px; padding-left: 5px;">分类: <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a></span></div>
+
+        <div class="post-content">
+            <ol>
+<li>把<code>-Dfile.encoding=UTF-8</code>加在开服脚本文件的<code>-jar</code>前即可。</li>
+<li>在启动脚本第一行加上<code>chcp 65001</code>
+我的启动脚本如下：</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>chcp <span style="color:#d19a66">65001</span>
+</span></span><span style="display:flex;"><span>java -Dfile.encoding<span style="color:#56b6c2">=</span>UTF-8 -jar spigot-1.21.jar
+</span></span></code></pre></div>
+        </div>
+        <p class="readmore"><a href="https://www.yingyu5658.me/posts/181/" target="_blank">阅读全文 →</a></p>
     </article>
     
     
