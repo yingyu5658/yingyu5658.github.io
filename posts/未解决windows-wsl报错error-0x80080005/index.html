@@ -79,7 +79,7 @@
     
     <li><a href="https://www.yingyu5658.me/categories/%E8%AF%BB%E4%B9%A6/">读书 (2)</a></li>
     
-    <li><a href="https://www.yingyu5658.me/categories/%E9%9A%8F%E7%AC%94/">随笔 (44)</a></li>
+    <li><a href="https://www.yingyu5658.me/categories/%E9%9A%8F%E7%AC%94/">随笔 (45)</a></li>
     
 </ul>
 
@@ -89,6 +89,10 @@
 	<section class="widget">
         <h3 class="widget-title">最近更新</h3>
 <ul class="widget-list">
+    
+    <li>
+        <a href="https://www.yingyu5658.me/posts/harmony-in-a-family-makes-everything-successful/" title="家和万事兴" target="_blank">家和万事兴</a>
+    </li>
     
     <li>
         <a href="https://www.yingyu5658.me/posts/stand-and-thought/" title="立场与观点" target="_blank">立场与观点</a>
@@ -126,16 +130,11 @@
         <a href="https://www.yingyu5658.me/posts/izu-no-odoriko/" title="《伊豆的舞女》读后感" target="_blank">《伊豆的舞女》读后感</a>
     </li>
     
-    <li>
-        <a href="https://www.yingyu5658.me/posts/overcast/" title="阴云" target="_blank">阴云</a>
-    </li>
-    
 </ul>
 
 	</section>
 
-	
-    	
+
     </div>
 	
 
@@ -415,7 +414,7 @@ net start LxssManager
 	init({
 		el: '#waline',
 		serverURL: 'waline.yingyu5658.me',
-		placeholder: '不建议使用Outlook邮箱，其过于严格的拦截机制会导致收不到本站发出的跟进回复邮件。',
+		placeholder: '',
 	});
 </script>
 </div>
@@ -427,12 +426,10 @@ net start LxssManager
 
 <div class="post-archive">
     <div class="random-post">
-                <h2><a href="/posts/tmux%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/">Tmux配置记录</a></h2>
+                <h2><a href="/posts/kde%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E6%97%A0%E6%B3%95%E5%9C%A8konsole%E5%88%87%E6%8D%A2%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">KDE桌面环境无法在Konsole切换中文输入法的解决方案</a></h2>
         
-            <p class="summary"><p>TMux 是终端复用神器，让你在一个终端窗口管理多个会话、窗口和窗格。</p>
-<p>基础操作：启动Tmux</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>tmux
-</span></span></code></pre></div><p>所以我选择在<code>~/.bashrc</code>里加上这句，每次打开终端都会自动进入tmux。</p></p>
+            <p class="summary"><h3 id="原因">原因</h3>
+<p>KDE默认使用Wayland会话，而fcitx4不支持Wayland，需升级到fcitx5。若无法升级到fcitx5或升级后仍然无法切换中文输入法，<strong>安装fcitx-qt6</strong></p></p>
         
 <h2 style="text-align: right; margin-bottom: 15px; color: #4a4c4d !important;">
             <i>接下来阅读</i>
