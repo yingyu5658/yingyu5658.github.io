@@ -426,10 +426,15 @@ net start LxssManager
 
 <div class="post-archive">
     <div class="random-post">
-                <h2><a href="/posts/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AErime%E8%BE%93%E5%85%A5%E6%B3%95/">安装配置Rime输入法</a></h2>
+                <h2><a href="/posts/wsl-arch-linux-zsh%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">WSL Arch Linux ZSH输入中文输入法乱码解决方法</a></h2>
         
-            <p class="summary"><h1 id="前言">前言</h1>
-<p>其实我有能用的fcitx5+搜狗输入法的方案，但奈何kitty终端有对这个输入法的兼容性问题，无法启用中文，又奈何kitty的界面多美观舒服，和Konsole比起来简直就不是一个时代的产物。</p></p>
+            <p class="summary"><p>没有进行配置的情况下输入中文，一般会显示&lt;0xffffffff&gt;，这是由于没有安装字体造成的。</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo pacman -S noto-fonts-cjk  <span style="color:#7f848e"># 安装中文字体</span>
+</span></span><span style="display:flex;"><span>sudo vi /etc/locale.gen        <span style="color:#7f848e"># 取消注释 zh_CN.UTF-8</span>
+</span></span><span style="display:flex;"><span>sudo locale-gen                <span style="color:#7f848e"># 生成语言环境</span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">echo</span> <span style="color:#98c379">&#34;export LANG=zh_CN.UTF-8&#34;</span> &gt;&gt; ~/.zshrc  <span style="color:#7f848e"># 设置默认中文环境</span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">source</span> ~/.zshrc
+</span></span></code></pre></div><p>source后，再次尝试输入中文，无异常。</p></p>
         
 <h2 style="text-align: right; margin-bottom: 15px; color: #4a4c4d !important;">
             <i>接下来阅读</i>
