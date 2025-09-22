@@ -77,7 +77,7 @@
     
     <li><a href="https://www.yingyu5658.me/categories/%E6%8A%80%E6%9C%AF/">技术 (56)</a></li>
     
-    <li><a href="https://www.yingyu5658.me/categories/%E8%AF%BB%E4%B9%A6/">读书 (2)</a></li>
+    <li><a href="https://www.yingyu5658.me/categories/%E8%AF%BB%E4%B9%A6/">读书 (3)</a></li>
     
     <li><a href="https://www.yingyu5658.me/categories/%E9%9A%8F%E7%AC%94/">随笔 (45)</a></li>
     
@@ -89,6 +89,10 @@
 	<section class="widget">
         <h3 class="widget-title">最近更新</h3>
 <ul class="widget-list">
+    
+    <li>
+        <a href="https://www.yingyu5658.me/posts/reading-haru-no-yuki-notes/" title="研读《春雪》笔记三则" target="_blank">研读《春雪》笔记三则</a>
+    </li>
     
     <li>
         <a href="https://www.yingyu5658.me/posts/harmony-in-a-family-makes-everything-successful/" title="家和万事兴" target="_blank">家和万事兴</a>
@@ -124,10 +128,6 @@
     
     <li>
         <a href="https://www.yingyu5658.me/posts/what-is-carried-by-words-can-transcend-time-and-space/" title="文字所承载的东西能跨越时空" target="_blank">文字所承载的东西能跨越时空</a>
-    </li>
-    
-    <li>
-        <a href="https://www.yingyu5658.me/posts/izu-no-odoriko/" title="《伊豆的舞女》读后感" target="_blank">《伊豆的舞女》读后感</a>
     </li>
     
 </ul>
@@ -301,20 +301,10 @@
 
 <div class="post-archive">
     <div class="random-post">
-                <h2><a href="/posts/185/">Java面向对象编程——继承</a></h2>
+                <h2><a href="/posts/184/">修复Geyser下基岩版玩家无法在地狱基岩层放置方块</a></h2>
         
-            <p class="summary"><h2 id="什么是继承">什么是继承</h2>
-<ul>
-<li>Java中提供了一个关键字<code>extends</code>，用这个关键字，可以让一个类和另一个类建立起父子关系。</li>
-</ul>
-<h3 id="继承的特点">继承的特点</h3>
-<ul>
-<li>子类能继承父类的非私有成员变量和成员方法。</li>
-</ul>
-<h3 id="继承后对象的创建">继承后对象的创建</h3>
-<ul>
-<li>子类的对象是由子类、父类共同完成的。</li>
-</ul></p>
+            <p class="summary"><p>在<code>plugins\Geyser-Spigot\config.yml</code>中把第160行的<code>above-bedrock-nether-building: false</code>改为<code>true</code>，重启服务器，问题解决~
+原理：geyser把下界翻译成了末地，会导致下界天空变成末地的样式，不过可以解决基岩版玩家在地狱基岩层的问题。</p></p>
         
 <h2 style="text-align: right; margin-bottom: 15px; color: #4a4c4d !important;">
             <i>接下来阅读</i>
