@@ -376,12 +376,16 @@
 
 <div class="post-archive">
     <div class="random-post">
-                <h2><a href="/posts/99/">深刻认识面向对象</a></h2>
+                <h2><a href="/posts/181/">Spigot服务端控制台中文乱码解决方案</a></h2>
         
-            <p class="summary"><p>面向对象编程的好处</p>
-<blockquote>
-<p>按照<strong>詹姆斯·高斯林</strong>的看法，世间万物都是对象。好比要出去旅游，你要找到车这个对象调用他的行驶功能使用来带你出去旅游。</p></blockquote>
-<p>所以面向对象编程的好处就是：<strong>符合人类思维习惯，编程更简单，更直观</strong>。</p></p>
+            <p class="summary"><ol>
+<li>把<code>-Dfile.encoding=UTF-8</code>加在开服脚本文件的<code>-jar</code>前即可。</li>
+<li>在启动脚本第一行加上<code>chcp 65001</code>
+我的启动脚本如下：</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>chcp <span style="color:#d19a66">65001</span>
+</span></span><span style="display:flex;"><span>java -Dfile.encoding<span style="color:#56b6c2">=</span>UTF-8 -jar spigot-1.21.jar
+</span></span></code></pre></div></p>
         
 <h2 style="text-align: right; margin-bottom: 15px; color: #4a4c4d !important;">
             <i>接下来阅读</i>
