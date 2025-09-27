@@ -268,7 +268,7 @@
             
         </div>
     </article>
-	<i><p style="margin-top: 15px;">我会认真阅读每一条评论，如果我没有回复您的评论，<strong>那意味着我认同您的看法</strong>，或<strong>您的观点直击要害</strong>，<strong>我没有要作补充的</strong>。<strong>不代表我对您的评论有任何意见</strong>，请理解！</p></i>
+	<i><p style="margin-top: 15px;">我会认真阅读每一条评论，如果我没有回复您的评论，<strong>那意味着我认同您的看法。不代表我对您的评论有任何不满</strong>，请理解！</p></i>
 	<p style="margin-bottom: 0;">如果您更喜欢单独交流，欢迎发送邮件到<a href="mailto:i@yingyu5658.me"><strong>i@yingyu5658.me</strong></a>.</p><br>
 <div id="waline">
 </div>
@@ -289,13 +289,10 @@
 
 <div class="post-archive">
     <div class="random-post">
-                <h2><a href="/posts/emacs-eaf%E6%8F%92%E4%BB%B6%E6%89%93%E5%BC%80%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%AA%E6%98%BE%E7%A4%BAopening-http-xxx-xxx%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">Emacs EAF插件打开浏览器只显示opening http://xxx.xxx的解决方法</a></h2>
+                <h2><a href="/posts/kde%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E6%97%A0%E6%B3%95%E5%9C%A8konsole%E5%88%87%E6%8D%A2%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">KDE桌面环境无法在Konsole切换中文输入法的解决方案</a></h2>
         
-            <p class="summary"><p>检查是否安装全部依赖，如yay、pip等。我这里是由于没有安装pip导致的。</p>
-<p><code>sudo pacman -S python-pip</code></p>
-<p>安装好后，进入eaf安装目录</p>
-<p><code>cd ~/.emacs.d/site-lisp/emacs-application-framework &amp;&amp; ./install-eaf.py</code></p>
-<p>重新安装eaf。等待脚本运行完成，打开emacs，输入<code>M-x eaf-install-and-update</code>，等待执行完成。</p></p>
+            <p class="summary"><h3 id="原因">原因</h3>
+<p>KDE默认使用Wayland会话，而fcitx4不支持Wayland，需升级到fcitx5。若无法升级到fcitx5或升级后仍然无法切换中文输入法，<strong>安装fcitx-qt6</strong></p></p>
         
 <h2 style="text-align: right; margin-bottom: 15px; color: #4a4c4d !important;">
             <i>接下来阅读</i>
