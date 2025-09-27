@@ -40,7 +40,7 @@
                 
                     <a id="logo" href="https://www.yingyu5658.me/">映屿</a>
                 
-				<em><p class="description">关于互联网、书籍、生活琐事以及那些一闪而过的念头</p></em>
+				<p class="description">关于互联网、书籍、生活琐事以及那些一闪而过的念头</p>
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
@@ -318,9 +318,10 @@
             
         </div>
     </article>
-	<i><p style="margin-top: 15px;">我会认真阅读每一条评论，如果我没有回复您的评论，<strong>那意味着我认同您的看法。不代表我对您的评论有任何不满</strong>，请理解！</p></i>
-	<p style="margin-bottom: 0;">如果您更喜欢单独交流，欢迎发送邮件到<a href="mailto:i@yingyu5658.me"><strong>i@yingyu5658.me</strong></a>.</p><br>
-<div id="waline">
+<p style="margin-bottom: 0; font-size: 15px !important;">如果您更喜欢单独交流，欢迎发送邮件到<a href="mailto:i@yingyu5658.me"><strong>i@yingyu5658.me</strong></a>.</p><br>
+
+<p style="margin-top: 0px; font-size: 15px !important;">我会认真阅读每一条评论，如果我没有回复您的评论，<strong>那意味着我认同您的看法。不代表我对您的评论有任何不满</strong>，请理解！</p>
+	<div id="waline">
 </div>
 <script type="module">
 	import { init } from '/js/waline.js';
@@ -339,13 +340,13 @@
 
 <div class="post-archive">
     <div class="random-post">
-                <h2><a href="/posts/emacs%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95-2c-c&#43;&#43;%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">Emacs配置记录 2——C/C&#43;&#43;环境配置</a></h2>
+                <h2><a href="/posts/emacs-eaf%E6%8F%92%E4%BB%B6%E6%89%93%E5%BC%80%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%AA%E6%98%BE%E7%A4%BAopening-http-xxx-xxx%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">Emacs EAF插件打开浏览器只显示opening http://xxx.xxx的解决方法</a></h2>
         
-            <p class="summary"><h2 id="前言">前言</h2>
-<p>经过<a href="">上一篇</a>的简单调教，Emacs已经勉强变成了一个温顺的文本编辑器，但是离写代码这个宏大的目标还是有一段距离的，今天来解决主要问题：代码补全。由于我要写一点简单的C代码，那么重点就先放到C/CPP环境搭建中。</p>
-<p>站在巨人的肩膀上，在Emacs中的代码补全使用巨硬的LSP协议。</p>
-<h2 id="spacemacs">Spacemacs</h2>
-<p>经过考虑，我还是决定使用Spacemacs，比起原版Emacs，它更适合新手，也更能快速投入开发。避免配置陷阱，过多把时间花在刀把上。唉，也就是说，昨天大部分都白干了。算了，生命的意义就在于折腾，怕折腾我也不会玩Emacs了。来吧！</p></p>
+            <p class="summary"><p>检查是否安装全部依赖，如yay、pip等。我这里是由于没有安装pip导致的。</p>
+<p><code>sudo pacman -S python-pip</code></p>
+<p>安装好后，进入eaf安装目录</p>
+<p><code>cd ~/.emacs.d/site-lisp/emacs-application-framework &amp;&amp; ./install-eaf.py</code></p>
+<p>重新安装eaf。等待脚本运行完成，打开emacs，输入<code>M-x eaf-install-and-update</code>，等待执行完成。</p></p>
         
 <h2 style="text-align: right; margin-bottom: 15px; color: #4a4c4d !important;">
             <i>接下来阅读</i>
@@ -360,7 +361,7 @@
     <hr width="80px" />
     <p>© 2025 <a href="https://www.yingyu5658.me">映屿</a>. 由<a href="https://gohugo.io/"> Typecho </a>强力驱动.</p>
      
-    <p>本站已运行<span class="running-time"></span>. 共 0 篇文章.</p>
+    <p>本站已运行<span class="running-time"></span></p>
 
 	<link rel="prefetch" as="image" href="https://www.blogsclub.org/badge/www.yingyu5658.me">
 

@@ -40,7 +40,7 @@
                 
                     <a id="logo" href="https://www.yingyu5658.me/">映屿</a>
                 
-				<em><p class="description">关于互联网、书籍、生活琐事以及那些一闪而过的念头</p></em>
+				<p class="description">关于互联网、书籍、生活琐事以及那些一闪而过的念头</p>
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
@@ -243,9 +243,10 @@
             
         </div>
     </article>
-	<i><p style="margin-top: 15px;">我会认真阅读每一条评论，如果我没有回复您的评论，<strong>那意味着我认同您的看法。不代表我对您的评论有任何不满</strong>，请理解！</p></i>
-	<p style="margin-bottom: 0;">如果您更喜欢单独交流，欢迎发送邮件到<a href="mailto:i@yingyu5658.me"><strong>i@yingyu5658.me</strong></a>.</p><br>
-<div id="waline">
+<p style="margin-bottom: 0; font-size: 15px !important;">如果您更喜欢单独交流，欢迎发送邮件到<a href="mailto:i@yingyu5658.me"><strong>i@yingyu5658.me</strong></a>.</p><br>
+
+<p style="margin-top: 0px; font-size: 15px !important;">我会认真阅读每一条评论，如果我没有回复您的评论，<strong>那意味着我认同您的看法。不代表我对您的评论有任何不满</strong>，请理解！</p>
+	<div id="waline">
 </div>
 <script type="module">
 	import { init } from '/js/waline.js';
@@ -264,18 +265,13 @@
 
 <div class="post-archive">
     <div class="random-post">
-                <h2><a href="/posts/kitty%E7%BB%88%E7%AB%AF%E7%BE%8E%E5%8C%96%E8%AE%B0%E5%BD%95/">Kitty终端美化记录</a></h2>
+                <h2><a href="/posts/emacs-eaf%E6%8F%92%E4%BB%B6%E6%89%93%E5%BC%80%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%AA%E6%98%BE%E7%A4%BAopening-http-xxx-xxx%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">Emacs EAF插件打开浏览器只显示opening http://xxx.xxx的解决方法</a></h2>
         
-            <p class="summary"><p>Kitty这个终端可谓是兼顾了性能与美观，虽然默认设置很简陋，但是经过一番折腾后也能变得很漂亮。</p>
-<h2 id="选择配色">选择配色</h2>
-<p>运行<code>kitty + kitten themes</code>后会弹出一个选择配色的界面
-
-        <a data-fancybox="gallery" href="https://images.yingyu5658.me/Pasted%20image%2020250309124346.webp">
-            <img class="mx-auto" alt="" src="https://images.yingyu5658.me/Pasted%20image%2020250309124346.webp" />
-        </a>
-    
-令我感到非常高兴的是，这个界面支持vim的hjkl键位，也可以用/来搜索。
-选好后，回车按m，command + ^ + ,重载配置文件。</p></p>
+            <p class="summary"><p>检查是否安装全部依赖，如yay、pip等。我这里是由于没有安装pip导致的。</p>
+<p><code>sudo pacman -S python-pip</code></p>
+<p>安装好后，进入eaf安装目录</p>
+<p><code>cd ~/.emacs.d/site-lisp/emacs-application-framework &amp;&amp; ./install-eaf.py</code></p>
+<p>重新安装eaf。等待脚本运行完成，打开emacs，输入<code>M-x eaf-install-and-update</code>，等待执行完成。</p></p>
         
 <h2 style="text-align: right; margin-bottom: 15px; color: #4a4c4d !important;">
             <i>接下来阅读</i>
@@ -290,7 +286,7 @@
     <hr width="80px" />
     <p>© 2025 <a href="https://www.yingyu5658.me">映屿</a>. 由<a href="https://gohugo.io/"> Typecho </a>强力驱动.</p>
      
-    <p>本站已运行<span class="running-time"></span>. 共 0 篇文章.</p>
+    <p>本站已运行<span class="running-time"></span></p>
 
 	<link rel="prefetch" as="image" href="https://www.blogsclub.org/badge/www.yingyu5658.me">
 
