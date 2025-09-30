@@ -55,13 +55,25 @@
     </div>
 </header>
 
- <div id="body"> <div class="container"> <div class="col-group"> <div class="col-8" id="main"> <div class="res-cons">  <article class="post"> <header> <h2 class="post-title"> <a href="https://www.yingyu5658.me/posts/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E4%B8%8E%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B%E7%BC%96%E7%A8%8B%E7%9A%84%E6%9C%AC%E8%B4%A8%E5%8C%BA%E5%88%AB/">面向对象与面向过程的本质区别</a> </h2> </header> <div class="post-meta"> <span>作者: 子纪</span> <span style="border-left: 1px solid #999; margin-left: 1px; padding-left: 5px;">时间: 2025-05-29</span>  <span style="border-left: 1px solid #999; margin-left: 5px; padding-left: 5px;">分类: <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a></span>  </div>  <div class="post-content summary auto">  <p>面向对象与面向过程这两种编程思想主要体现在一件事上：面向对象关心<strong>谁来做</strong>，而面向过程关心<strong>做什么</strong>。</p>
+ <div id="body"> <div class="container"> <div class="col-group"> <div class="col-8" id="main"> <div class="res-cons">  <article class="post"> <header> <h2 class="post-title"> <a href="https://www.yingyu5658.me/posts/electron-commonjs-require%E8%B8%A9%E5%9D%91/">Electron CommonJS require踩坑</a> </h2> </header> <div class="post-meta"> <span>作者: 子纪</span> <span style="border-left: 1px solid #999; margin-left: 1px; padding-left: 5px;">时间: 2025-05-31</span>  <span style="border-left: 1px solid #999; margin-left: 5px; padding-left: 5px;">分类: <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a></span>  </div>  <div class="post-content summary auto">  <p>最近在开发一个Electron项目，在导入类的时候有以下报错:</p>
+<pre tabindex="0"><code>node:internal/modules/cjs/loader:1411 Uncaught Error: Cannot find module &#39;./File&#39;
+Require stack:
+- E:\Develop\markdown-editor\src\html\index.html
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1408:15)
+    at a._resolveFilename (node:electron/js2c/renderer_init:2:2643)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1064:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1069:22)
+    at Module._load (node:internal/modules/cjs/loader:1218:37)
+    at c._load (node:electron/js2c/node_init:2:17950)
+    at s._load (node:electron/js2c/renderer_init:2:31718)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:242:24)
+    at Module.require (node:internal/modules/cjs/loader:1494:12)
+</code></pre><p>提示找不到模块。</p>  </div> <p class="readmore"><a href="https://www.yingyu5658.me/posts/electron-commonjs-require%E8%B8%A9%E5%9D%91/">阅读全文 →</a></p> </article>  <article class="post"> <header> <h2 class="post-title"> <a href="https://www.yingyu5658.me/posts/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E4%B8%8E%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B%E7%BC%96%E7%A8%8B%E7%9A%84%E6%9C%AC%E8%B4%A8%E5%8C%BA%E5%88%AB/">面向对象与面向过程的本质区别</a> </h2> </header> <div class="post-meta"> <span>作者: 子纪</span> <span style="border-left: 1px solid #999; margin-left: 1px; padding-left: 5px;">时间: 2025-05-29</span>  <span style="border-left: 1px solid #999; margin-left: 5px; padding-left: 5px;">分类: <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a></span>  </div>  <div class="post-content summary auto">  <p>面向对象与面向过程这两种编程思想主要体现在一件事上：面向对象关心<strong>谁来做</strong>，而面向过程关心<strong>做什么</strong>。</p>
 <p>举个例子，如果我现在要开发一个五子棋小游戏，在面向对象的思想中，实现步骤应该是这样的。</p>  </div> <p class="readmore"><a href="https://www.yingyu5658.me/posts/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E4%B8%8E%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B%E7%BC%96%E7%A8%8B%E7%9A%84%E6%9C%AC%E8%B4%A8%E5%8C%BA%E5%88%AB/">阅读全文 →</a></p> </article>  <article class="post"> <header> <h2 class="post-title"> <a href="https://www.yingyu5658.me/posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%93%88%E5%B8%8C%E8%A1%A8/">【数据结构与算法】哈希表</a> </h2> </header> <div class="post-meta"> <span>作者: 子纪</span> <span style="border-left: 1px solid #999; margin-left: 1px; padding-left: 5px;">时间: 2025-05-28</span>  <span style="border-left: 1px solid #999; margin-left: 5px; padding-left: 5px;">分类: <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a></span>  </div>  <div class="post-content summary auto">  <p>哈希表（Hash Table）是一种基于键（Key）直接访问数据的高效数据结构，其核心思想是通过哈希函数将键映射到数组的特定位置，从而实现平均时间复杂度为 O(1)O(1) 的插入、查找和删除操作。</p>  </div> <p class="readmore"><a href="https://www.yingyu5658.me/posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%93%88%E5%B8%8C%E8%A1%A8/">阅读全文 →</a></p> </article>  <article class="post"> <header> <h2 class="post-title"> <a href="https://www.yingyu5658.me/posts/%E6%84%9F%E8%B0%A2%E6%81%A9%E5%B8%88%E5%A4%B8%E5%A5%96/">感谢恩师夸奖</a> </h2> </header> <div class="post-meta"> <span>作者: 子纪</span> <span style="border-left: 1px solid #999; margin-left: 1px; padding-left: 5px;">时间: 2025-05-28</span>  <span style="border-left: 1px solid #999; margin-left: 5px; padding-left: 5px;">分类: <a href="/categories/%E9%9A%8F%E7%AC%94">随笔</a></span>  </div>  <div class="post-content summary manual">  选择、信任、奋斗、感恩、驯化、忠诚、死亡、堙灭。  </div> <p class="readmore"><a href="https://www.yingyu5658.me/posts/%E6%84%9F%E8%B0%A2%E6%81%A9%E5%B8%88%E5%A4%B8%E5%A5%96/">阅读全文 →</a></p> </article>  <article class="post"> <header> <h2 class="post-title"> <a href="https://www.yingyu5658.me/posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%BC%97%E6%95%B0%E4%B8%AD%E4%BD%8D%E6%95%B0/">【数据结构与算法】众数、中位数</a> </h2> </header> <div class="post-meta"> <span>作者: 子纪</span> <span style="border-left: 1px solid #999; margin-left: 1px; padding-left: 5px;">时间: 2025-05-27</span>  <span style="border-left: 1px solid #999; margin-left: 5px; padding-left: 5px;">分类: <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a></span>  </div>  <div class="post-content summary auto">  <p>今天学这个东西的时候，看到这种线性的数据结构加上排序步骤，很难不想写个程序来跑跑。</p>
 <p>先来说说中位数，这个比较有思路。</p>
 <h2 id="中位数">中位数</h2>
-<p>具体的操作步骤应该是：<strong>排序 =&gt; 获得数据元素个数n =&gt; 是奇数 ? (n+1) / 2 : n / 2</strong></p>  </div> <p class="readmore"><a href="https://www.yingyu5658.me/posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%BC%97%E6%95%B0%E4%B8%AD%E4%BD%8D%E6%95%B0/">阅读全文 →</a></p> </article>  <article class="post"> <header> <h2 class="post-title"> <a href="https://www.yingyu5658.me/posts/%E9%AB%98%E6%95%88%E7%8E%87%E7%9A%84%E6%B2%9F%E9%80%9A%E7%BB%9D%E4%B8%8D%E4%BC%9A%E4%BB%8E%E5%9C%A8%E5%90%97%E5%BC%80%E5%A7%8B/">高效率的沟通绝不会从在吗开始</a> </h2> </header> <div class="post-meta"> <span>作者: 子纪</span> <span style="border-left: 1px solid #999; margin-left: 1px; padding-left: 5px;">时间: 2025-05-26</span>  <span style="border-left: 1px solid #999; margin-left: 5px; padding-left: 5px;">分类: <a href="/categories/%E9%9A%8F%E7%AC%94">随笔</a></span>  </div>  <div class="post-content summary auto">  <p>“在吗？”</p>
-<p>据考证，“在吗”发起聊天的起源，是QQ刚盛行的年代，大家都没有手机，升级普遍需要在电脑上挂QQ。<strong>为了确认在线的是不是本人而使用的</strong>。</p>
-<p>那么，现在还真的需要这句话吗？</p>  </div> <p class="readmore"><a href="https://www.yingyu5658.me/posts/%E9%AB%98%E6%95%88%E7%8E%87%E7%9A%84%E6%B2%9F%E9%80%9A%E7%BB%9D%E4%B8%8D%E4%BC%9A%E4%BB%8E%E5%9C%A8%E5%90%97%E5%BC%80%E5%A7%8B/">阅读全文 →</a></p> </article>  
+<p>具体的操作步骤应该是：<strong>排序 =&gt; 获得数据元素个数n =&gt; 是奇数 ? (n+1) / 2 : n / 2</strong></p>  </div> <p class="readmore"><a href="https://www.yingyu5658.me/posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%BC%97%E6%95%B0%E4%B8%AD%E4%BD%8D%E6%95%B0/">阅读全文 →</a></p> </article>  
 
 
 
@@ -169,11 +181,11 @@
         <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
 <ul class="widget-list">
     
-    <li><a href="https://www.yingyu5658.me/categories/%E6%8A%80%E6%9C%AF/">技术 (56)</a></li>
+    <li><a href="https://www.yingyu5658.me/categories/%E6%8A%80%E6%9C%AF/">技术 (55)</a></li>
     
     <li><a href="https://www.yingyu5658.me/categories/%E8%AF%BB%E4%B9%A6/">读书 (4)</a></li>
     
-    <li><a href="https://www.yingyu5658.me/categories/%E9%9A%8F%E7%AC%94/">随笔 (46)</a></li>
+    <li><a href="https://www.yingyu5658.me/categories/%E9%9A%8F%E7%AC%94/">随笔 (47)</a></li>
     
 </ul>
 
@@ -183,6 +195,10 @@
 	<section class="widget">
         <h3 class="widget-title">最近更新</h3>
 <ul class="widget-list">
+    
+    <li>
+        <a href="https://www.yingyu5658.me/posts/the-value-of-blog/" title="个人博客凭什么为你提供价值？" target="_blank">个人博客凭什么为你提供价值？</a>
+    </li>
     
     <li>
         <a href="https://www.yingyu5658.me/posts/spring-snow-mishima-yukio/" title="《春雪》书评：任何美梦都会有结束的时候，没有什么永恒的东西" target="_blank">《春雪》书评：任何美梦都会有结束的时候，没有什么永恒的东西</a>
@@ -220,10 +236,6 @@
         <a href="https://www.yingyu5658.me/posts/yukio-mishima/" title="三岛由纪夫 —— 文化和时代背景塑造的矛盾体" target="_blank">三岛由纪夫 —— 文化和时代背景塑造的矛盾体</a>
     </li>
     
-    <li>
-        <a href="https://www.yingyu5658.me/posts/beginning-of-september/" title="写在九月的开头" target="_blank">写在九月的开头</a>
-    </li>
-    
 </ul>
 
 	</section>
@@ -233,7 +245,7 @@
 	
  </div> </div> </div> </body> <footer id="footer">
   <div>
-    <p><a href="/readings">读书</a> · <a href="/links">友链</a> · <a href="/atom.xml">订阅</a> · <a href="sitemap.xml">网站地图</a></p>
+    <p><a href="/readings">读书</a> · <a href="/links">友链</a> · <a href="/atom.xml">订阅</a> · <a href="https://www.yingyu5658.me/sitemap.xml">网站地图</a></p>
     <hr width="80px" />
     <p>© 2025 <a href="https://www.yingyu5658.me">映屿</a>. 由<a href="https://gohugo.io/"> Typecho </a>强力驱动.</p>
      
