@@ -79,7 +79,7 @@
     
     <li><a href="https://www.yingyu5658.me/categories/%E8%AF%BB%E4%B9%A6/">读书 (4)</a></li>
     
-    <li><a href="https://www.yingyu5658.me/categories/%E9%9A%8F%E7%AC%94/">随笔 (47)</a></li>
+    <li><a href="https://www.yingyu5658.me/categories/%E9%9A%8F%E7%AC%94/">随笔 (48)</a></li>
     
 </ul>
 
@@ -89,6 +89,10 @@
 	<section class="widget">
         <h3 class="widget-title">最近更新</h3>
 <ul class="widget-list">
+    
+    <li>
+        <a href="https://www.yingyu5658.me/posts/book-shopping-sisyphu/" title="逛逛西西弗，买两本书" target="_blank">逛逛西西弗，买两本书</a>
+    </li>
     
     <li>
         <a href="https://www.yingyu5658.me/posts/the-value-of-blog/" title="个人博客凭什么为你提供价值？" target="_blank">个人博客凭什么为你提供价值？</a>
@@ -124,10 +128,6 @@
     
     <li>
         <a href="https://www.yingyu5658.me/posts/guilt/" title="罪恶感" target="_blank">罪恶感</a>
-    </li>
-    
-    <li>
-        <a href="https://www.yingyu5658.me/posts/yukio-mishima/" title="三岛由纪夫 —— 文化和时代背景塑造的矛盾体" target="_blank">三岛由纪夫 —— 文化和时代背景塑造的矛盾体</a>
     </li>
     
 </ul>
@@ -311,12 +311,13 @@ tab_powerline_style   slanted
 
 <div class="post-archive">
     <div class="random-post">
-                <h2><a href="/posts/tmux%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/">Tmux配置记录</a></h2>
+                <h2><a href="/posts/emacs%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95-2c-c&#43;&#43;%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">Emacs配置记录 2——C/C&#43;&#43;环境配置</a></h2>
         
-            <p class="summary"><p>TMux 是终端复用神器，让你在一个终端窗口管理多个会话、窗口和窗格。</p>
-<p>基础操作：启动Tmux</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>tmux
-</span></span></code></pre></div><p>所以我选择在<code>~/.bashrc</code>里加上这句，每次打开终端都会自动进入tmux。</p></p>
+            <p class="summary"><h2 id="前言">前言</h2>
+<p>经过<a href="">上一篇</a>的简单调教，Emacs已经勉强变成了一个温顺的文本编辑器，但是离写代码这个宏大的目标还是有一段距离的，今天来解决主要问题：代码补全。由于我要写一点简单的C代码，那么重点就先放到C/CPP环境搭建中。</p>
+<p>站在巨人的肩膀上，在Emacs中的代码补全使用巨硬的LSP协议。</p>
+<h2 id="spacemacs">Spacemacs</h2>
+<p>经过考虑，我还是决定使用Spacemacs，比起原版Emacs，它更适合新手，也更能快速投入开发。避免配置陷阱，过多把时间花在刀把上。唉，也就是说，昨天大部分都白干了。算了，生命的意义就在于折腾，怕折腾我也不会玩Emacs了。来吧！</p></p>
         
 <h2 style="text-align: right; margin-bottom: 15px; color: #4a4c4d !important;">
             <i>接下来阅读</i>
@@ -325,7 +326,13 @@ tab_powerline_style   slanted
 </div>
 
 
-<footer id="footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+ 	<footer id="footer">
   <div>
     <p><a href="/readings">读书</a> · <a href="/links">友链</a> · <a href="/atom.xml">订阅</a> · <a href="https://www.yingyu5658.me/sitemap.xml">网站地图</a></p>
     <hr width="80px" />
@@ -348,15 +355,23 @@ tab_powerline_style   slanted
   </div>
   <br />
 </footer>
-
+ 
+<script type="text/javascript">
+  window.MathJax = {
+    tex2jax: {
+      inlineMath: [['$', '$']],
+      processEscapes: true,
+    },
+  };
+</script>
+<script
+  src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"
+  async
+></script><script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
 <a id="rocket" href="#top"></a>
 <script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
   
+<script src='/js/'></script>
 
 
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
 </html>
