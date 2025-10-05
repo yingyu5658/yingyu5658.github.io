@@ -74,7 +74,7 @@
     
     <li><a href="https://www.yingyu5658.me/categories/%E6%8A%80%E6%9C%AF/">技术 (55)</a></li>
     
-    <li><a href="https://www.yingyu5658.me/categories/%E8%AF%BB%E4%B9%A6/">读书 (4)</a></li>
+    <li><a href="https://www.yingyu5658.me/categories/%E8%AF%BB%E4%B9%A6/">读书 (5)</a></li>
     
     <li><a href="https://www.yingyu5658.me/categories/%E9%9A%8F%E7%AC%94/">随笔 (48)</a></li>
     
@@ -86,6 +86,10 @@
 	<section class="widget">
         <h3 class="widget-title">最近更新</h3>
 <ul class="widget-list">
+    
+    <li>
+        <a href="https://www.yingyu5658.me/posts/honba-mishima-yukio/" title="《奔马》书评：刀刃突入腹部的瞬间，红日在眼睑内冉冉升起" target="_blank">《奔马》书评：刀刃突入腹部的瞬间，红日在眼睑内冉冉升起</a>
+    </li>
     
     <li>
         <a href="https://www.yingyu5658.me/posts/book-shopping-sisyphu/" title="逛逛西西弗，买两本书" target="_blank">逛逛西西弗，买两本书</a>
@@ -123,10 +127,6 @@
         <a href="https://www.yingyu5658.me/posts/electrification-by-friction/" title="摩擦起电" target="_blank">摩擦起电</a>
     </li>
     
-    <li>
-        <a href="https://www.yingyu5658.me/posts/guilt/" title="罪恶感" target="_blank">罪恶感</a>
-    </li>
-    
 </ul>
 
 	</section>
@@ -139,6 +139,36 @@
                 <div class="col-8" id="main">
                    
 <div class="res-cons">
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://www.yingyu5658.me/posts/electron-commonjs-require%E8%B8%A9%E5%9D%91/" title="Electron CommonJS require踩坑" target="_blank">Electron CommonJS require踩坑</a>
+            </h1>
+        </header>
+        <div class="post-meta"> <span>作者: 子纪</span> <span style="border-left: 1px solid #999; margin-left: 1px; padding-left: 5px;">时间: 2025-05-31</span>  <span style="border-left: 1px solid #999; margin-left: 5px; padding-left: 5px;">分类: <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a></span></div>
+
+        <div class="post-content">
+            <p>最近在开发一个Electron项目，在导入类的时候有以下报错:</p>
+<pre tabindex="0"><code>node:internal/modules/cjs/loader:1411 Uncaught Error: Cannot find module &#39;./File&#39;
+Require stack:
+- E:\Develop\markdown-editor\src\html\index.html
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1408:15)
+    at a._resolveFilename (node:electron/js2c/renderer_init:2:2643)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1064:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1069:22)
+    at Module._load (node:internal/modules/cjs/loader:1218:37)
+    at c._load (node:electron/js2c/node_init:2:17950)
+    at s._load (node:electron/js2c/renderer_init:2:31718)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:242:24)
+    at Module.require (node:internal/modules/cjs/loader:1494:12)
+</code></pre><p>提示找不到模块。</p>
+        </div>
+        <p class="readmore"><a href="https://www.yingyu5658.me/posts/electron-commonjs-require%E8%B8%A9%E5%9D%91/" target="_blank">阅读全文 →</a></p>
+    </article>
+    
     
     
     <article class="post">
@@ -307,64 +337,6 @@
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://www.yingyu5658.me/posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/" title="【数据结构与算法】冒泡排序" target="_blank">【数据结构与算法】冒泡排序</a>
-            </h1>
-        </header>
-        <div class="post-meta"> <span>作者: 子纪</span> <span style="border-left: 1px solid #999; margin-left: 1px; padding-left: 5px;">时间: 2025-05-10</span>  <span style="border-left: 1px solid #999; margin-left: 5px; padding-left: 5px;">分类: <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a></span></div>
-
-        <div class="post-content">
-            <h2 id="核心思想">核心思想</h2>
-<p>通过相邻元素的两两比较，将较大的元素逐步“冒泡”到数组末尾，每轮排序确定一个最大元素的最终位置。</p>
-<h2 id="代码实现">代码实现</h2>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#e5c07b">void</span> <span style="color:#61afef;font-weight:bold">bubble_sort</span>(<span style="color:#e5c07b">int</span> <span style="color:#e06c75">arr</span>[], <span style="color:#e5c07b">int</span> <span style="color:#e06c75">n</span>) {
-</span></span><span style="display:flex;"><span>  <span style="color:#7f848e">// 最外层控制循环轮数 n-1轮
-</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>  <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&lt;</span> <span style="color:#e06c75">n</span> <span style="color:#56b6c2">-</span> <span style="color:#d19a66">1</span>; <span style="color:#e06c75">i</span><span style="color:#56b6c2">++</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#7f848e">// 内层循环处理相邻元素比较和交换
-</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>    <span style="color:#c678dd">for</span>(<span style="color:#e5c07b">int</span> <span style="color:#e06c75">j</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>; <span style="color:#e06c75">j</span> <span style="color:#56b6c2">&lt;</span> <span style="color:#e06c75">n</span><span style="color:#56b6c2">-</span><span style="color:#e06c75">i</span><span style="color:#56b6c2">-</span><span style="color:#d19a66">1</span>; <span style="color:#e06c75">j</span><span style="color:#56b6c2">++</span>) {
-</span></span><span style="display:flex;"><span>      <span style="color:#c678dd">if</span> (<span style="color:#e06c75">arr</span>[<span style="color:#e06c75">j</span>] <span style="color:#56b6c2">&gt;</span> <span style="color:#e06c75">arr</span>[<span style="color:#e06c75">j</span><span style="color:#56b6c2">+</span><span style="color:#d19a66">1</span>]) {
-</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">int</span> <span style="color:#e06c75">temp</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">arr</span>[<span style="color:#e06c75">j</span>];
-</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">arr</span>[<span style="color:#e06c75">j</span>] <span style="color:#56b6c2">=</span> <span style="color:#e06c75">arr</span>[<span style="color:#e06c75">j</span><span style="color:#56b6c2">+</span><span style="color:#d19a66">1</span>];
-</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">arr</span>[<span style="color:#e06c75">j</span><span style="color:#56b6c2">+</span><span style="color:#d19a66">1</span>] <span style="color:#56b6c2">=</span> <span style="color:#e06c75">temp</span>;
-</span></span><span style="display:flex;"><span>      }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#7f848e">// 调用
-</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span><span style="color:#e5c07b">void</span> <span style="color:#61afef;font-weight:bold">print_array</span>(<span style="color:#e5c07b">int</span> <span style="color:#e06c75">arr</span>[], <span style="color:#e5c07b">int</span> <span style="color:#e06c75">size</span>) {
-</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&lt;</span> <span style="color:#e06c75">size</span>; <span style="color:#e06c75">i</span><span style="color:#56b6c2">++</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#61afef;font-weight:bold">printf</span>(<span style="color:#98c379">&#34;%d,&#34;</span>, <span style="color:#e06c75">arr</span>[<span style="color:#e06c75">i</span>]);
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>  <span style="color:#61afef;font-weight:bold">printf</span>(<span style="color:#98c379">&#34;</span><span style="color:#98c379">\n</span><span style="color:#98c379">&#34;</span>);
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#61afef;font-weight:bold">main</span>() {
-</span></span><span style="display:flex;"><span>  <span style="color:#e5c07b">int</span> <span style="color:#e06c75">arr</span>[] <span style="color:#56b6c2">=</span> {<span style="color:#d19a66">23</span>, <span style="color:#d19a66">232</span>, <span style="color:#d19a66">55</span>, <span style="color:#d19a66">2</span>, <span style="color:#d19a66">7</span>, <span style="color:#d19a66">0</span>, <span style="color:#d19a66">576</span>, <span style="color:#d19a66">342</span>};
-</span></span><span style="display:flex;"><span>  <span style="color:#e5c07b">int</span> <span style="color:#e06c75">n</span> <span style="color:#56b6c2">=</span> <span style="color:#c678dd">sizeof</span>(<span style="color:#e06c75">arr</span>) <span style="color:#56b6c2">/</span> <span style="color:#c678dd">sizeof</span>(<span style="color:#e06c75">arr</span>[<span style="color:#d19a66">0</span>]);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#61afef;font-weight:bold">printf</span>(<span style="color:#98c379">&#34;排序前：&#34;</span>);
-</span></span><span style="display:flex;"><span>  <span style="color:#61afef;font-weight:bold">print_array</span>(<span style="color:#e06c75">arr</span>, <span style="color:#e06c75">n</span>);
-</span></span><span style="display:flex;"><span>  <span style="color:#61afef;font-weight:bold">bubble_sort</span>(<span style="color:#e06c75">arr</span>, <span style="color:#e06c75">n</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#61afef;font-weight:bold">printf</span>(<span style="color:#98c379">&#34;排序后&#34;</span>);
-</span></span><span style="display:flex;"><span>  <span style="color:#61afef;font-weight:bold">print_array</span>(<span style="color:#e06c75">arr</span>, <span style="color:#e06c75">n</span>);
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h2 id="原理分析">原理分析</h2>
-<h3 id="外层循环的-i--n---1">外层循环的 i &lt; n - 1</h3>
-<ul>
-<li>n个元素的数组最多需要n-1轮冒泡，如5元素数组需要4轮排序</li>
-<li><strong>数学依据</strong>：每轮将一个最大值“沉底”，当完成n-1轮时，最后一个元素必然有序</li>
-</ul>
-<p>示例验证：</p>
-        </div>
-        <p class="readmore"><a href="https://www.yingyu5658.me/posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/" target="_blank">阅读全文 →</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -441,7 +413,7 @@
         
         
         <li >
-            <a href="https://www.yingyu5658.me/posts/page/11/">11</a>
+            <a href="https://www.yingyu5658.me/posts/page/12/">12</a>
         </li>
         
     

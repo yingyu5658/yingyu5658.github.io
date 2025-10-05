@@ -77,7 +77,7 @@
     
     <li><a href="https://www.yingyu5658.me/categories/%E6%8A%80%E6%9C%AF/">技术 (55)</a></li>
     
-    <li><a href="https://www.yingyu5658.me/categories/%E8%AF%BB%E4%B9%A6/">读书 (4)</a></li>
+    <li><a href="https://www.yingyu5658.me/categories/%E8%AF%BB%E4%B9%A6/">读书 (5)</a></li>
     
     <li><a href="https://www.yingyu5658.me/categories/%E9%9A%8F%E7%AC%94/">随笔 (48)</a></li>
     
@@ -89,6 +89,10 @@
 	<section class="widget">
         <h3 class="widget-title">最近更新</h3>
 <ul class="widget-list">
+    
+    <li>
+        <a href="https://www.yingyu5658.me/posts/honba-mishima-yukio/" title="《奔马》书评：刀刃突入腹部的瞬间，红日在眼睑内冉冉升起" target="_blank">《奔马》书评：刀刃突入腹部的瞬间，红日在眼睑内冉冉升起</a>
+    </li>
     
     <li>
         <a href="https://www.yingyu5658.me/posts/book-shopping-sisyphu/" title="逛逛西西弗，买两本书" target="_blank">逛逛西西弗，买两本书</a>
@@ -124,10 +128,6 @@
     
     <li>
         <a href="https://www.yingyu5658.me/posts/electrification-by-friction/" title="摩擦起电" target="_blank">摩擦起电</a>
-    </li>
-    
-    <li>
-        <a href="https://www.yingyu5658.me/posts/guilt/" title="罪恶感" target="_blank">罪恶感</a>
     </li>
     
 </ul>
@@ -269,16 +269,24 @@
 
 <div class="post-archive">
     <div class="random-post">
-                <h2><a href="/posts/181/">Spigot服务端控制台中文乱码解决方案</a></h2>
+                <h2><a href="/posts/171/">String的注意事项</a></h2>
         
-            <p class="summary"><ol>
-<li>把<code>-Dfile.encoding=UTF-8</code>加在开服脚本文件的<code>-jar</code>前即可。</li>
-<li>在启动脚本第一行加上<code>chcp 65001</code>
-我的启动脚本如下：</li>
+            <p class="summary"><h1 id="string的注意事项">String的注意事项</h1>
+<ul>
+<li>
+<ol>
+<li>String对象的内容不可改变， 被称为不可变字符串对象。</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>chcp <span style="color:#d19a66">65001</span>
-</span></span><span style="display:flex;"><span>java -Dfile.encoding<span style="color:#56b6c2">=</span>UTF-8 -jar spigot-1.21.jar
-</span></span></code></pre></div></p>
+</li>
+<li>
+<ol start="2">
+<li>只要是以“&hellip;”的方式写出的字符串，都会存储到字符串常量池，且相同的字符串只存储一份；</li>
+</ol>
+</li>
+<li>但通过new方式创建字符串对象，每new一次都会产生一个新的对象放在堆内存中。</li>
+</ul>
+<h1 id="不可变字符串对象">不可变字符串对象</h1>
+<p>不可变？它肯定可变啊，比如</p></p>
         
 <h2 style="text-align: right; margin-bottom: 15px; color: #4a4c4d !important;">
             <i>接下来阅读</i>
