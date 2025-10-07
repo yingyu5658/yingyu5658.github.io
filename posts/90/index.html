@@ -343,12 +343,24 @@
 
 <div class="post-archive">
     <div class="random-post">
-                <h2><a href="/posts/99/">深刻认识面向对象</a></h2>
+                <h2><a href="/posts/171/">String的注意事项</a></h2>
         
-            <p class="summary"><p>面向对象编程的好处</p>
-<blockquote>
-<p>按照<strong>詹姆斯·高斯林</strong>的看法，世间万物都是对象。好比要出去旅游，你要找到车这个对象调用他的行驶功能使用来带你出去旅游。</p></blockquote>
-<p>所以面向对象编程的好处就是：<strong>符合人类思维习惯，编程更简单，更直观</strong>。</p></p>
+            <p class="summary"><h1 id="string的注意事项">String的注意事项</h1>
+<ul>
+<li>
+<ol>
+<li>String对象的内容不可改变， 被称为不可变字符串对象。</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>只要是以“&hellip;”的方式写出的字符串，都会存储到字符串常量池，且相同的字符串只存储一份；</li>
+</ol>
+</li>
+<li>但通过new方式创建字符串对象，每new一次都会产生一个新的对象放在堆内存中。</li>
+</ul>
+<h1 id="不可变字符串对象">不可变字符串对象</h1>
+<p>不可变？它肯定可变啊，比如</p></p>
         
 <h2 style="text-align: right; margin-bottom: 15px; color: #4a4c4d !important;">
             <i>接下来阅读</i>

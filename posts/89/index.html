@@ -291,24 +291,10 @@
 
 <div class="post-archive">
     <div class="random-post">
-                <h2><a href="/posts/171/">String的注意事项</a></h2>
+                <h2><a href="/posts/184/">修复Geyser下基岩版玩家无法在地狱基岩层放置方块</a></h2>
         
-            <p class="summary"><h1 id="string的注意事项">String的注意事项</h1>
-<ul>
-<li>
-<ol>
-<li>String对象的内容不可改变， 被称为不可变字符串对象。</li>
-</ol>
-</li>
-<li>
-<ol start="2">
-<li>只要是以“&hellip;”的方式写出的字符串，都会存储到字符串常量池，且相同的字符串只存储一份；</li>
-</ol>
-</li>
-<li>但通过new方式创建字符串对象，每new一次都会产生一个新的对象放在堆内存中。</li>
-</ul>
-<h1 id="不可变字符串对象">不可变字符串对象</h1>
-<p>不可变？它肯定可变啊，比如</p></p>
+            <p class="summary"><p>在<code>plugins\Geyser-Spigot\config.yml</code>中把第160行的<code>above-bedrock-nether-building: false</code>改为<code>true</code>，重启服务器，问题解决~
+原理：geyser把下界翻译成了末地，会导致下界天空变成末地的样式，不过可以解决基岩版玩家在地狱基岩层的问题。</p></p>
         
 <h2 style="text-align: right; margin-bottom: 15px; color: #4a4c4d !important;">
             <i>接下来阅读</i>

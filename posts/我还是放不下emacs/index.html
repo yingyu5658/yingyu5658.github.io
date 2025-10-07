@@ -363,18 +363,32 @@
 
 <div class="post-archive">
     <div class="random-post">
-                <h2><a href="/posts/kitty%E7%BB%88%E7%AB%AF%E7%BE%8E%E5%8C%96%E8%AE%B0%E5%BD%95/">Kitty终端美化记录</a></h2>
+                <h2><a href="/posts/%E6%9C%AA%E8%A7%A3%E5%86%B3windows-wsl%E6%8A%A5%E9%94%99error-0x80080005/">【未解决】Windows WSL报错：Error: 0x80080005 ???????</a></h2>
         
-            <p class="summary"><p>Kitty这个终端可谓是兼顾了性能与美观，虽然默认设置很简陋，但是经过一番折腾后也能变得很漂亮。</p>
-<h2 id="选择配色">选择配色</h2>
-<p>运行<code>kitty + kitten themes</code>后会弹出一个选择配色的界面
+            <p class="summary"><p>设备环境：</p>
+<pre tabindex="0"><code>操作系统：Windows 10
+安装系统：Arch Linux
+错误日志：
+Installing, this may take a few minutes...
+WslRegisterDistribution failed with error: 0x80080005
+Error: 0x80080005 ???????
 
-        <a data-fancybox="gallery" href="https://images.yingyu5658.me/Pasted%20image%2020250309124346.webp">
-            <img class="mx-auto" alt="" src="https://images.yingyu5658.me/Pasted%20image%2020250309124346.webp" />
-        </a>
-    
-令我感到非常高兴的是，这个界面支持vim的hjkl键位，也可以用/来搜索。
-选好后，回车按m，command + ^ + ,重载配置文件。</p></p>
+Press any key to continue...
+</code></pre><p>网上有一篇<a href="https://ask.csdn.net/questions/7625716">文章</a>提到这个错误，下面的评论回复以管理员权限运行命令提示符并执行<code>sc stop LxssManager</code>和<code>sc start LxssManager</code>
+出现如下报错：</p>
+<pre tabindex="0"><code>C:\Windows\system32&gt;sc stop LxssManager
+[SC] OpenService 失败 1060:
+
+指定的服务未安装。
+</code></pre><p>顺藤摸瓜，在网上寻找<code>LxssManager</code>这个服务要如何安装。
+网上暂时还没有找到相关文章能够解决这个问题，但是CSDN的一篇文章引起了我的注意
+<a href="https://blog.csdn.net/renwudao24/article/details/52061906">[SC] OpenService 失败：1060指定的服务未安装_[sc] openservice 失败 1060: 指定的服务未安装。-CSDN博客</a>
+文章中提到了“服务”，在开始菜单中搜索服务，进入应用找到了一个名为WSL Service的服务。点左上角启动。
+提取关键信息：<strong>1058、被禁用、关联的设备没有启动</strong>。
+检查功能是否开启：按下 <code>Win+S</code> 搜索 <strong>启用或关闭Windows功能</strong>
+勾选<code>适用于Linux的Windows子系统</code>和<code>虚拟机平台</code>这两项，点击确定
+重启电脑。
+回来以后，用管理员身份运行powershell，强制重置WSL服务，依次执行：</p></p>
         
 <h2 style="text-align: right; margin-bottom: 15px; color: #4a4c4d !important;">
             <i>接下来阅读</i>
