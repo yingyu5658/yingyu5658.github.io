@@ -411,10 +411,12 @@ textarea {
 	margin-top: 15px;
 	margin-right: 0;
 	border-bottom: 1px solid #eee;
-	padding: 15px 0 15px;
+	padding-top:20px;
+	padding-bottom: 0;
 	padding-right: 0;
 }
 .post-title a {
+	line-height: 30px;
 	font-size: 24px;
 	font-family:
 	'Droid Serif', Georgia, 'Times New Roman', 'PingFang SC', 'Hiragino Sans GB', 'Source Han Sans CN',
@@ -442,10 +444,14 @@ textarea {
 }
 .post-meta {
 	padding: 0;
-	margin: 9px 0 0;
+	margin: 15px 0 0;
 	color: #999;
 	text-align: left;
 	display: inline-block;
+}
+
+.post-content, .summary, .manual {
+	margin: 0 0 1em;
 }
 .meta-category a {
 	position: relative;
@@ -479,7 +485,7 @@ textarea {
 	border-radius: 3px;
 }
 .post-content p {
-	margin: 0 0 1.1em;
+	margin: 0 0 1em;
 }
 .post-content img {
 	padding: 1em 0;
