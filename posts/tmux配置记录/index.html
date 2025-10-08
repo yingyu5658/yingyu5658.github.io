@@ -385,13 +385,15 @@ bind -n C-Right resize-pane -R 5  # Ctrl+→：向右扩大窗格 5 单位
 
 <div class="post-archive">
     <div class="random-post">
-                <h2><a href="/posts/emacs-eaf%E6%8F%92%E4%BB%B6%E6%89%93%E5%BC%80%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%AA%E6%98%BE%E7%A4%BAopening-http-xxx-xxx%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">Emacs EAF插件打开浏览器只显示opening http://xxx.xxx的解决方法</a></h2>
+                <h2><a href="/posts/wsl-arch-linux-zsh%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">WSL Arch Linux ZSH输入中文输入法乱码解决方法</a></h2>
         
-            <p class="summary"><p>检查是否安装全部依赖，如yay、pip等。我这里是由于没有安装pip导致的。</p>
-<p><code>sudo pacman -S python-pip</code></p>
-<p>安装好后，进入eaf安装目录</p>
-<p><code>cd ~/.emacs.d/site-lisp/emacs-application-framework &amp;&amp; ./install-eaf.py</code></p>
-<p>重新安装eaf。等待脚本运行完成，打开emacs，输入<code>M-x eaf-install-and-update</code>，等待执行完成。</p></p>
+            <p class="summary"><p>没有进行配置的情况下输入中文，一般会显示&lt;0xffffffff&gt;，这是由于没有安装字体造成的。</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo pacman -S noto-fonts-cjk  <span style="color:#7f848e"># 安装中文字体</span>
+</span></span><span style="display:flex;"><span>sudo vi /etc/locale.gen        <span style="color:#7f848e"># 取消注释 zh_CN.UTF-8</span>
+</span></span><span style="display:flex;"><span>sudo locale-gen                <span style="color:#7f848e"># 生成语言环境</span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">echo</span> <span style="color:#98c379">&#34;export LANG=zh_CN.UTF-8&#34;</span> &gt;&gt; ~/.zshrc  <span style="color:#7f848e"># 设置默认中文环境</span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">source</span> ~/.zshrc
+</span></span></code></pre></div><p>source后，再次尝试输入中文，无异常。</p></p>
         
 <h2 style="text-align: right; margin-bottom: 15px; color: #4a4c4d !important;">
             <i>接下来阅读</i>

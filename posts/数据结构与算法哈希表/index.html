@@ -364,10 +364,51 @@
 
 <div class="post-archive">
     <div class="random-post">
-                <h2><a href="/posts/4key%E9%9F%B3%E6%B8%B8%E6%AE%B5%E4%BD%8D%E5%8D%95%E6%9B%B2%E6%88%90%E7%BB%A9%E8%AE%A1%E7%AE%97%E7%9A%84%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0/">4Key音游段位单曲成绩计算的程序实现</a></h2>
+                <h2><a href="/posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/">【数据结构与算法】冒泡排序</a></h2>
         
-            <p class="summary"><h2 id="前言">前言</h2>
-<p>其实这个坑我很早以前就想开了，在我刚开始学编程那会就一直想写一个这个东西。但苦于数学进度没达到，要用到加权平均数，这东西我前两天才学到，之前对数学也一直是懒得学的状态，要不然几乎是看不懂那个算法的。</p></p>
+            <p class="summary"><h2 id="核心思想">核心思想</h2>
+<p>通过相邻元素的两两比较，将较大的元素逐步“冒泡”到数组末尾，每轮排序确定一个最大元素的最终位置。</p>
+<h2 id="代码实现">代码实现</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#e5c07b">void</span> <span style="color:#61afef;font-weight:bold">bubble_sort</span>(<span style="color:#e5c07b">int</span> <span style="color:#e06c75">arr</span>[], <span style="color:#e5c07b">int</span> <span style="color:#e06c75">n</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#7f848e">// 最外层控制循环轮数 n-1轮
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>  <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&lt;</span> <span style="color:#e06c75">n</span> <span style="color:#56b6c2">-</span> <span style="color:#d19a66">1</span>; <span style="color:#e06c75">i</span><span style="color:#56b6c2">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#7f848e">// 内层循环处理相邻元素比较和交换
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>    <span style="color:#c678dd">for</span>(<span style="color:#e5c07b">int</span> <span style="color:#e06c75">j</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>; <span style="color:#e06c75">j</span> <span style="color:#56b6c2">&lt;</span> <span style="color:#e06c75">n</span><span style="color:#56b6c2">-</span><span style="color:#e06c75">i</span><span style="color:#56b6c2">-</span><span style="color:#d19a66">1</span>; <span style="color:#e06c75">j</span><span style="color:#56b6c2">++</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#c678dd">if</span> (<span style="color:#e06c75">arr</span>[<span style="color:#e06c75">j</span>] <span style="color:#56b6c2">&gt;</span> <span style="color:#e06c75">arr</span>[<span style="color:#e06c75">j</span><span style="color:#56b6c2">+</span><span style="color:#d19a66">1</span>]) {
+</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">int</span> <span style="color:#e06c75">temp</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">arr</span>[<span style="color:#e06c75">j</span>];
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">arr</span>[<span style="color:#e06c75">j</span>] <span style="color:#56b6c2">=</span> <span style="color:#e06c75">arr</span>[<span style="color:#e06c75">j</span><span style="color:#56b6c2">+</span><span style="color:#d19a66">1</span>];
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">arr</span>[<span style="color:#e06c75">j</span><span style="color:#56b6c2">+</span><span style="color:#d19a66">1</span>] <span style="color:#56b6c2">=</span> <span style="color:#e06c75">temp</span>;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e">// 调用
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span><span style="color:#e5c07b">void</span> <span style="color:#61afef;font-weight:bold">print_array</span>(<span style="color:#e5c07b">int</span> <span style="color:#e06c75">arr</span>[], <span style="color:#e5c07b">int</span> <span style="color:#e06c75">size</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&lt;</span> <span style="color:#e06c75">size</span>; <span style="color:#e06c75">i</span><span style="color:#56b6c2">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#61afef;font-weight:bold">printf</span>(<span style="color:#98c379">&#34;%d,&#34;</span>, <span style="color:#e06c75">arr</span>[<span style="color:#e06c75">i</span>]);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#61afef;font-weight:bold">printf</span>(<span style="color:#98c379">&#34;</span><span style="color:#98c379">\n</span><span style="color:#98c379">&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#61afef;font-weight:bold">main</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#e5c07b">int</span> <span style="color:#e06c75">arr</span>[] <span style="color:#56b6c2">=</span> {<span style="color:#d19a66">23</span>, <span style="color:#d19a66">232</span>, <span style="color:#d19a66">55</span>, <span style="color:#d19a66">2</span>, <span style="color:#d19a66">7</span>, <span style="color:#d19a66">0</span>, <span style="color:#d19a66">576</span>, <span style="color:#d19a66">342</span>};
+</span></span><span style="display:flex;"><span>  <span style="color:#e5c07b">int</span> <span style="color:#e06c75">n</span> <span style="color:#56b6c2">=</span> <span style="color:#c678dd">sizeof</span>(<span style="color:#e06c75">arr</span>) <span style="color:#56b6c2">/</span> <span style="color:#c678dd">sizeof</span>(<span style="color:#e06c75">arr</span>[<span style="color:#d19a66">0</span>]);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#61afef;font-weight:bold">printf</span>(<span style="color:#98c379">&#34;排序前：&#34;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#61afef;font-weight:bold">print_array</span>(<span style="color:#e06c75">arr</span>, <span style="color:#e06c75">n</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#61afef;font-weight:bold">bubble_sort</span>(<span style="color:#e06c75">arr</span>, <span style="color:#e06c75">n</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#61afef;font-weight:bold">printf</span>(<span style="color:#98c379">&#34;排序后&#34;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#61afef;font-weight:bold">print_array</span>(<span style="color:#e06c75">arr</span>, <span style="color:#e06c75">n</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="原理分析">原理分析</h2>
+<h3 id="外层循环的-i--n---1">外层循环的 i &lt; n - 1</h3>
+<ul>
+<li>n个元素的数组最多需要n-1轮冒泡，如5元素数组需要4轮排序</li>
+<li><strong>数学依据</strong>：每轮将一个最大值“沉底”，当完成n-1轮时，最后一个元素必然有序</li>
+</ul>
+<p>示例验证：</p></p>
         
 <h2 style="text-align: right; margin-bottom: 15px; color: #4a4c4d !important;">
             <i>接下来阅读</i>
