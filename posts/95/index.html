@@ -166,7 +166,7 @@
                 "name": "映屿",
                 "logo": {
                     "@type": "ImageObject",
-                    "url": "https://www.yingyu5658.me/avatar.png"
+                    "url": "https://www.glowisle.me/avatar.png"
                 }
             },
             "datePublished": "\"2024-11-30\"",
@@ -298,7 +298,7 @@ main：222
             
         </div>
     </article>
-<p style="margin-bottom: 0; font-size: 15px !important;">如果您更喜欢单独交流，欢迎发送邮件到<a href="mailto:i@yingyu5658.me"><strong>i@yingyu5658.me</strong></a>.</p><br>
+<p style="margin-bottom: 0; font-size: 15px !important;">如果您更喜欢单独交流，欢迎发送邮件到<a href="mailto:i@glowisle.me"><strong>i@glowisle.me</strong></a>.</p><br>
 
 <p style="margin-top: 0px; font-size: 15px !important;">我会认真阅读每一条评论，如果我没有回复您的评论，<strong>那意味着我认同您的看法。不代表我对您的评论有任何不满</strong>，请理解！</p>
 	<div id="waline">
@@ -320,10 +320,16 @@ main：222
 
 <div class="post-archive">
     <div class="random-post">
-                <h2><a href="/posts/184/">修复Geyser下基岩版玩家无法在地狱基岩层放置方块</a></h2>
+                <h2><a href="/posts/181/">Spigot服务端控制台中文乱码解决方案</a></h2>
         
-            <p class="summary"><p>在<code>plugins\Geyser-Spigot\config.yml</code>中把第160行的<code>above-bedrock-nether-building: false</code>改为<code>true</code>，重启服务器，问题解决~
-原理：geyser把下界翻译成了末地，会导致下界天空变成末地的样式，不过可以解决基岩版玩家在地狱基岩层的问题。</p></p>
+            <p class="summary"><ol>
+<li>把<code>-Dfile.encoding=UTF-8</code>加在开服脚本文件的<code>-jar</code>前即可。</li>
+<li>在启动脚本第一行加上<code>chcp 65001</code>
+我的启动脚本如下：</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>chcp <span style="color:#d19a66">65001</span>
+</span></span><span style="display:flex;"><span>java -Dfile.encoding<span style="color:#56b6c2">=</span>UTF-8 -jar spigot-1.21.jar
+</span></span></code></pre></div></p>
         
 <h2 style="text-align: right; margin-bottom: 15px; color: #4a4c4d !important;">
             <i>接下来阅读</i>
@@ -340,13 +346,13 @@ main：222
 </body>
  	<footer id="footer">
   <div>
-    <p><a href="/readings">读书</a> · <a href="/links">友链</a> · <a href="/atom.xml">订阅</a> · <a href="https://www.yingyu5658.me/sitemap.xml">网站地图</a></p>
+    <p><a href="/readings">读书</a> · <a href="/links">友链</a> · <a href="/atom.xml">订阅</a> · <a href="https://www.glowisle.me/sitemap.xml">网站地图</a></p>
     <hr width="80px" />
-    <p>© 2025 <a href="https://www.yingyu5658.me">映屿</a>. 由<a href="https://gohugo.io/"> Typecho </a>强力驱动.</p>
+    <p>© 2025 <a href="https://www.glowisle.me">映屿</a>. 由<a href="https://gohugo.io/"> Typecho </a>强力驱动.</p>
      
     <p>本站已运行<span class="running-time"></span></p>
 
-	<link rel="prefetch" as="image" href="https://www.blogsclub.org/badge/www.yingyu5658.me">
+	<link rel="prefetch" as="image" href="https://www.blogsclub.org/badge/www.glowisle.me">
 
     <script>
       function initRuntime() {

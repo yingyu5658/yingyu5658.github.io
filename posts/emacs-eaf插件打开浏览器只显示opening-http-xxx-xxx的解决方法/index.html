@@ -166,7 +166,7 @@
                 "name": "映屿",
                 "logo": {
                     "@type": "ImageObject",
-                    "url": "https://www.yingyu5658.me/avatar.png"
+                    "url": "https://www.glowisle.me/avatar.png"
                 }
             },
             "datePublished": "\"2025-04-29\"",
@@ -248,7 +248,7 @@
             
         </div>
     </article>
-<p style="margin-bottom: 0; font-size: 15px !important;">如果您更喜欢单独交流，欢迎发送邮件到<a href="mailto:i@yingyu5658.me"><strong>i@yingyu5658.me</strong></a>.</p><br>
+<p style="margin-bottom: 0; font-size: 15px !important;">如果您更喜欢单独交流，欢迎发送邮件到<a href="mailto:i@glowisle.me"><strong>i@glowisle.me</strong></a>.</p><br>
 
 <p style="margin-top: 0px; font-size: 15px !important;">我会认真阅读每一条评论，如果我没有回复您的评论，<strong>那意味着我认同您的看法。不代表我对您的评论有任何不满</strong>，请理解！</p>
 	<div id="waline">
@@ -270,32 +270,20 @@
 
 <div class="post-archive">
     <div class="random-post">
-                <h2><a href="/posts/%E6%9C%AA%E8%A7%A3%E5%86%B3windows-wsl%E6%8A%A5%E9%94%99error-0x80080005/">【未解决】Windows WSL报错：Error: 0x80080005 ???????</a></h2>
+                <h2><a href="/posts/%E6%8A%8A%E4%B8%BB%E5%8A%9B%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%8D%A2%E6%88%90arch-linux%E6%98%AF%E6%88%91%E8%BF%99%E8%BE%88%E5%AD%90%E5%81%9A%E8%BF%87%E7%9A%84%E6%9C%80%E8%A0%A2%E7%9A%84%E5%86%B3%E5%AE%9A/">把主力机系统换成Arch Linux是我这辈子做过的最蠢的决定</a></h2>
         
-            <p class="summary"><p>设备环境：</p>
-<pre tabindex="0"><code>操作系统：Windows 10
-安装系统：Arch Linux
-错误日志：
-Installing, this may take a few minutes...
-WslRegisterDistribution failed with error: 0x80080005
-Error: 0x80080005 ???????
-
-Press any key to continue...
-</code></pre><p>网上有一篇<a href="https://ask.csdn.net/questions/7625716">文章</a>提到这个错误，下面的评论回复以管理员权限运行命令提示符并执行<code>sc stop LxssManager</code>和<code>sc start LxssManager</code>
-出现如下报错：</p>
-<pre tabindex="0"><code>C:\Windows\system32&gt;sc stop LxssManager
-[SC] OpenService 失败 1060:
-
-指定的服务未安装。
-</code></pre><p>顺藤摸瓜，在网上寻找<code>LxssManager</code>这个服务要如何安装。
-网上暂时还没有找到相关文章能够解决这个问题，但是CSDN的一篇文章引起了我的注意
-<a href="https://blog.csdn.net/renwudao24/article/details/52061906">[SC] OpenService 失败：1060指定的服务未安装_[sc] openservice 失败 1060: 指定的服务未安装。-CSDN博客</a>
-文章中提到了“服务”，在开始菜单中搜索服务，进入应用找到了一个名为WSL Service的服务。点左上角启动。
-提取关键信息：<strong>1058、被禁用、关联的设备没有启动</strong>。
-检查功能是否开启：按下 <code>Win+S</code> 搜索 <strong>启用或关闭Windows功能</strong>
-勾选<code>适用于Linux的Windows子系统</code>和<code>虚拟机平台</code>这两项，点击确定
-重启电脑。
-回来以后，用管理员身份运行powershell，强制重置WSL服务，依次执行：</p></p>
+            <p class="summary"><h1 id="前言">前言</h1>
+<p>先说结论。</p>
+<p><strong>我是傻逼！</strong></p>
+<p><strong>我是傻逼！！</strong></p>
+<p><strong>我是傻逼！！！</strong></p>
+<p>本文将讲述</p>
+<ul>
+<li>为什么我放弃了Arch</li>
+<li>为什么我放弃了Linux。</li>
+<li>什么人适合用Linux做主力系统</li>
+</ul>
+<p>本文的所有观点仅仅代表个人观点，我纯菜。你问我为什么要选择Arch，而不是Ubuntu或者其他新手友好的发行版，我不知道，正如上文所说，我是傻逼！</p></p>
         
 <h2 style="text-align: right; margin-bottom: 15px; color: #4a4c4d !important;">
             <i>接下来阅读</i>
@@ -312,13 +300,13 @@ Press any key to continue...
 </body>
  	<footer id="footer">
   <div>
-    <p><a href="/readings">读书</a> · <a href="/links">友链</a> · <a href="/atom.xml">订阅</a> · <a href="https://www.yingyu5658.me/sitemap.xml">网站地图</a></p>
+    <p><a href="/readings">读书</a> · <a href="/links">友链</a> · <a href="/atom.xml">订阅</a> · <a href="https://www.glowisle.me/sitemap.xml">网站地图</a></p>
     <hr width="80px" />
-    <p>© 2025 <a href="https://www.yingyu5658.me">映屿</a>. 由<a href="https://gohugo.io/"> Typecho </a>强力驱动.</p>
+    <p>© 2025 <a href="https://www.glowisle.me">映屿</a>. 由<a href="https://gohugo.io/"> Typecho </a>强力驱动.</p>
      
     <p>本站已运行<span class="running-time"></span></p>
 
-	<link rel="prefetch" as="image" href="https://www.blogsclub.org/badge/www.yingyu5658.me">
+	<link rel="prefetch" as="image" href="https://www.blogsclub.org/badge/www.glowisle.me">
 
     <script>
       function initRuntime() {
