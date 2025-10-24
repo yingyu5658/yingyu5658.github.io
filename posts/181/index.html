@@ -273,14 +273,10 @@
 
 <div class="post-archive">
     <div class="random-post">
-                <h2><a href="/posts/166/">面向对象编程总结</a></h2>
+                <h2><a href="/posts/184/">修复Geyser下基岩版玩家无法在地狱基岩层放置方块</a></h2>
         
-            <p class="summary"><p>面向对象（oop）</p>
-<h2 id="面向对象编程的思想面向拿或者找">面向对象编程的思想：面向。拿或者找。</h2>
-<p>对象：东西
-面向对象编程：拿东西过来编程
-面向对象：把现实世界中的食物看成一个一个对象来解决问题的。（万物皆 对象）
-面向对象的好处：代码更符合人类的思维习惯。编程更简单。看程序更容易理解（？）</p></p>
+            <p class="summary"><p>在<code>plugins\Geyser-Spigot\config.yml</code>中把第160行的<code>above-bedrock-nether-building: false</code>改为<code>true</code>，重启服务器，问题解决~
+原理：geyser把下界翻译成了末地，会导致下界天空变成末地的样式，不过可以解决基岩版玩家在地狱基岩层的问题。</p></p>
         
 <h2 style="text-align: right; margin-bottom: 15px; color: #4a4c4d !important;">
             <i>接下来阅读</i>
@@ -302,6 +298,8 @@
     <p>© 2025 <a href="https://www.glowisle.me">映屿</a>. 由<a href="https://gohugo.io/"> Typecho </a>强力驱动.</p>
      
     <p>本站已运行<span class="running-time"></span></p>
+
+	<img src="/not-by-ai.png" class="not-by-ai">
 
 	<link rel="prefetch" as="image" href="https://www.blogsclub.org/badge/www.glowisle.me">
 
