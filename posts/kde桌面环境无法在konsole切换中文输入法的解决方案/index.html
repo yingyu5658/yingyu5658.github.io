@@ -47,7 +47,9 @@
                 <nav id="nav-menu" class="clearfix">
                     <a class="current" href="https://www.glowisle.me/">首页</a>
                     
-                    <a  href="https://www.glowisle.me/archives" title="归档">归档</a>
+                    <a  href="https://www.glowisle.me/categories" title="分类">分类</a>
+                    
+                    <a  href="https://www.glowisle.me/links" title="友人">友人</a>
                     
                     <a  href="https://www.glowisle.me/about/" title="关于">关于</a>
                     
@@ -72,20 +74,7 @@
 
     </section>
 
-	<section class="widget">
-        <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
-<ul class="widget-list">
-    
-    <li><a href="https://www.glowisle.me/categories/%E6%8A%80%E6%9C%AF/">技术 (55)</a></li>
-    
-    <li><a href="https://www.glowisle.me/categories/%E8%AF%BB%E4%B9%A6/">读书 (6)</a></li>
-    
-    <li><a href="https://www.glowisle.me/categories/%E9%9A%8F%E7%AC%94/">随笔 (49)</a></li>
-    
-</ul>
-
-    </section>
-
+	
 
 	<section class="widget">
         <h3 class="widget-title">最近更新</h3>
@@ -135,6 +124,17 @@
 
 	</section>
 
+	<section class="widget">
+		<h3 class="widget-title">杂项</h3>
+		<a href="/readings">读书</a><br>
+		<a href="/archives">归档</a><br>
+		<a href="/atom.xml">RSS</a><br>
+		<a href="https://www.glowisle.me/sitemap.xml">网站地图</a><br>
+		</ul>
+	</section>
+
+
+
 
     </div>
 	
@@ -175,64 +175,16 @@
             "description": "\"\\u003ch3 id=\\\"原因\\\"\\u003e原因\\u003c/h3\\u003e\\n\\u003cp\\u003eKDE默认使用Wayland会话，而fcitx4不支持Wayland，需升级到fcitx5。若无法升级到fcitx5或升级后仍然无法切换中文输入法，\\u003cstrong\\u003e安装fcitx-qt6\\u003c/strong\\u003e\\u003c/p\\u003e\""
         }
         </script>
-        
-        
-        
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "首页",
-      "item": "https:\/\/www.glowisle.me\/"
-    }
-    
-    
-        
-            ,{
-                "@type": "ListItem",
-                "position":  2 ,
-                "name": "技术",
-                "item": "\/categories\/%E6%8A%80%E6%9C%AF"
-            }
-            
-        
-    
-    ,{
-      "@type": "ListItem",
-      "position":  3 ,
-      "name": "KDE桌面环境无法在Konsole切换中文输入法的解决方案",
-      "item": "https:\/\/www.glowisle.me\/posts\/kde%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E6%97%A0%E6%B3%95%E5%9C%A8konsole%E5%88%87%E6%8D%A2%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88\/"
-    }
-  ]
-}
-</script>
-
-
-        
         <header>
 			<h1 class="post-title"><a>KDE桌面环境无法在Konsole切换中文输入法的解决方案</a></h1>
         </header>
-        <div class="post-meta"> <span>作者: 五葉地錦</span> <span style="border-left: 1px solid #999; margin-left: 1px; padding-left: 5px;">时间: 2025-03-08</span>  <span style="border-left: 1px solid #999; margin-left: 5px; padding-left: 5px;">分类: <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a></span></div>
-
-        
-        
-        
-
-        
-        
-        <div class="post-content">
+                <div class="post-content">
             <h3 id="原因">原因</h3>
 <p>KDE默认使用Wayland会话，而fcitx4不支持Wayland，需升级到fcitx5。若无法升级到fcitx5或升级后仍然无法切换中文输入法，<strong>安装fcitx-qt6</strong></p>
 <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo pacman -S fcitx-qt6
 </span></span></code></pre></div><p>安装后执行<code>sudo reboot now</code>进行重启，问题解决。</p>
 
         </div>
-
-
         <div class="post-meta meta-tags">
             
             <ul class="clearfix">
@@ -244,9 +196,12 @@
             
         </div>
     </article>
-<p style="margin-bottom: 0; font-size: 15px !important;">如果您更喜欢单独交流，欢迎发送邮件到<a href="mailto:i@glowisle.me"><strong>i@glowisle.me</strong></a>.</p><br>
 
 <p style="margin-top: 0px; font-size: 15px !important;">我会认真阅读每一条评论，如果我没有回复您的评论，<strong>那意味着我认同您的看法。不代表我对您的评论有任何不满</strong>，请理解！</p>
+	<div class="comment">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<button><a href="mailto:i@glowisle.me?subject=评论《KDE%e6%a1%8c%e9%9d%a2%e7%8e%af%e5%a2%83%e6%97%a0%e6%b3%95%e5%9c%a8Konsole%e5%88%87%e6%8d%a2%e4%b8%ad%e6%96%87%e8%be%93%e5%85%a5%e6%b3%95%e7%9a%84%e8%a7%a3%e5%86%b3%e6%96%b9%e6%a1%88》"><i class="fa fa-comment" aria-hidden="true"></i> 使用邮件交流</a></button>
+	</div>
 	<div id="waline">
 </div>
 <script type="module">
@@ -259,35 +214,6 @@
 </script>
 </div>
 
-        
-
-
-
-
-<div class="post-archive">
-    <div class="random-post">
-                <h2><a href="/posts/%E6%8A%8A%E4%B8%BB%E5%8A%9B%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%8D%A2%E6%88%90arch-linux%E6%98%AF%E6%88%91%E8%BF%99%E8%BE%88%E5%AD%90%E5%81%9A%E8%BF%87%E7%9A%84%E6%9C%80%E8%A0%A2%E7%9A%84%E5%86%B3%E5%AE%9A/">把主力机系统换成Arch Linux是我这辈子做过的最蠢的决定</a></h2>
-        
-            <p class="summary"><h1 id="前言">前言</h1>
-<p>先说结论。</p>
-<p><strong>我是傻逼！</strong></p>
-<p><strong>我是傻逼！！</strong></p>
-<p><strong>我是傻逼！！！</strong></p>
-<p>本文将讲述</p>
-<ul>
-<li>为什么我放弃了Arch</li>
-<li>为什么我放弃了Linux。</li>
-<li>什么人适合用Linux做主力系统</li>
-</ul>
-<p>本文的所有观点仅仅代表个人观点，我纯菜。你问我为什么要选择Arch，而不是Ubuntu或者其他新手友好的发行版，我不知道，正如上文所说，我是傻逼！</p></p>
-        
-<h2 style="text-align: right; margin-bottom: 15px; color: #4a4c4d !important;">
-            <i>接下来阅读</i>
-        </h2>
-    </div>
-</div>
-
-
 
                 </div>
             </div>
@@ -296,8 +222,6 @@
 </body>
  	<footer id="footer">
   <div>
-    <p><a href="/readings">读书</a> · <a href="/links">友链</a> · <a href="/atom.xml">订阅</a> · <a href="https://www.glowisle.me/sitemap.xml">网站地图</a></p>
-    <hr width="80px" />
     <p>© 2025 <a href="https://www.glowisle.me">映屿</a>. 由<a href="https://gohugo.io/"> Typecho </a>强力驱动.</p>
      
     <p>本站已运行<span class="running-time"></span></p>

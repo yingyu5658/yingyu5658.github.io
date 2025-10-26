@@ -2,6 +2,13 @@
 	width: 8em;
 }
 
+.comment {
+	margin-top: 20px;
+}
+
+.comment a {
+	color: black;
+}
 
 ol li, ul li, p, .post-content p, .widget-list li a, .summary, ul li a, summary{
 	font-size: 17.5px !important;
@@ -182,7 +189,7 @@ color: #3354aa;
 body {
 	background-color: #fff;
 	color: #444;
-	font-size: 15px;
+	font-size: 17.5px;
 	font-family:
 	'Droid Serif', Georgia, 'Times New Roman', 'PingFang SC', 'Hiragino Sans GB', 'Source Han Sans CN',
 	'WenQuanYi Micro Hei', 'Microsoft Yahei', serif;
@@ -452,6 +459,7 @@ textarea {
 	color: #999;
 	text-align: left;
 	display: inline-block;
+	font-size: 14.85px;
 }
 
 .post-content, .summary, .manual {
@@ -708,8 +716,9 @@ textarea.textarea {
 	margin-bottom: 5px;
 	line-height: 1.5;
 }
-.widget-list li a {
+.widget a {
 	border-bottom: 1px solid #eee;
+	line-height: 1.5;
 }
 .widget .tagcloud {
 	margin-top: 10px;
@@ -719,9 +728,8 @@ textarea.textarea {
 	padding: 5px;
 }
 #footer {
-	margin-top: 35px;
+	margin-top: 80px;
 	line-height: 8px;
-	padding: 0.8em 0 3.6em;
 	color: #999;
 	text-align: center;
 }
@@ -1019,26 +1027,6 @@ img.alignright {
 	}
 } /* read more*/
 
-.readmore {
-		text-align: left;
-		margin-bottom: 0;
-		text-decoration: underline 1px;
-		text-align: left !important;
-		text-underline-offset: 0.25em;
-		text-decoration: underline;
-		text-decoration-style: solid;
-		text-decoration-color: currentcolor;
-		text-decoration-style: wavy;
-		text-decoration-color: rgba(255, 255, 255, 0.2);
-}
-
-.readmore a {
-	border: none;
-}
-.readmore a:hover {
-	background: #f8f8f8;
-	border-bottom-color: #d26911;
-} /* 版权声明 */
 table {
 	margin: auto auto 15px;
 	background: transparent;
@@ -1082,6 +1070,7 @@ table tr td {
 table tbody tr td:nth-of-type(1) pre {
 	margin-right: -1px;
 }
+
 :root {
 	--waline-font-size: 1rem;
 	--waline-white: #fff;
@@ -2232,4 +2221,3 @@ table tbody tr td:nth-of-type(1) pre {
 .wl-comment {
 	padding-top: 5px;
 } /*# sourceMappingURL=waline.css.map */
-

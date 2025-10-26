@@ -47,7 +47,9 @@
                 <nav id="nav-menu" class="clearfix">
                     <a class="current" href="https://www.glowisle.me/">首页</a>
                     
-                    <a  href="https://www.glowisle.me/archives" title="归档">归档</a>
+                    <a  href="https://www.glowisle.me/categories" title="分类">分类</a>
+                    
+                    <a  href="https://www.glowisle.me/links" title="友人">友人</a>
                     
                     <a  href="https://www.glowisle.me/about/" title="关于">关于</a>
                     
@@ -72,20 +74,7 @@
 
     </section>
 
-	<section class="widget">
-        <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
-<ul class="widget-list">
-    
-    <li><a href="https://www.glowisle.me/categories/%E6%8A%80%E6%9C%AF/">技术 (55)</a></li>
-    
-    <li><a href="https://www.glowisle.me/categories/%E8%AF%BB%E4%B9%A6/">读书 (6)</a></li>
-    
-    <li><a href="https://www.glowisle.me/categories/%E9%9A%8F%E7%AC%94/">随笔 (49)</a></li>
-    
-</ul>
-
-    </section>
-
+	
 
 	<section class="widget">
         <h3 class="widget-title">最近更新</h3>
@@ -135,6 +124,17 @@
 
 	</section>
 
+	<section class="widget">
+		<h3 class="widget-title">杂项</h3>
+		<a href="/readings">读书</a><br>
+		<a href="/archives">归档</a><br>
+		<a href="/atom.xml">RSS</a><br>
+		<a href="https://www.glowisle.me/sitemap.xml">网站地图</a><br>
+		</ul>
+	</section>
+
+
+
 
     </div>
 	
@@ -175,56 +175,10 @@
             "description": "\"\\u003ch2 id=\\\"什么是上帝类\\\"\\u003e什么是上帝类\\u003c/h2\\u003e\\n\\u003cp\\u003e所谓的上帝类，就是指\\u003cstrong\\u003e一个类承担了过多的职能\\u003c/strong\\u003e，变得过于\\u003cstrong\\u003e臃肿\\u003c/strong\\u003e和\\u003cstrong\\u003e复杂\\u003c/strong\\u003e、\\u003cstrong\\u003e难以维护\\u003c/strong\\u003e。没有遵守单一职责原则。像上帝一样什么都能干，每个功能高度耦合，牵一发而动全身，不利于业务的拓展。\\u003c/p\\u003e\""
         }
         </script>
-        
-        
-        
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "首页",
-      "item": "https:\/\/www.glowisle.me\/"
-    }
-    
-    
-        
-            ,{
-                "@type": "ListItem",
-                "position":  2 ,
-                "name": "技术",
-                "item": "\/categories\/%E6%8A%80%E6%9C%AF"
-            }
-            
-        
-    
-    ,{
-      "@type": "ListItem",
-      "position":  3 ,
-      "name": "上帝类是什么？该如何避免上帝类？",
-      "item": "https:\/\/www.glowisle.me\/posts\/%E4%B8%8A%E5%B8%9D%E7%B1%BB%E6%98%AF%E4%BB%80%E4%B9%88%E8%AF%A5%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E4%B8%8A%E5%B8%9D%E7%B1%BB\/"
-    }
-  ]
-}
-</script>
-
-
-        
         <header>
 			<h1 class="post-title"><a>上帝类是什么？该如何避免上帝类？</a></h1>
         </header>
-        <div class="post-meta"> <span>作者: 五葉地錦</span> <span style="border-left: 1px solid #999; margin-left: 1px; padding-left: 5px;">时间: 2025-03-30</span>  <span style="border-left: 1px solid #999; margin-left: 5px; padding-left: 5px;">分类: <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a></span></div>
-
-        
-        
-        
-
-        
-        
-        <div class="post-content">
+                <div class="post-content">
             <h2 id="什么是上帝类">什么是上帝类</h2>
 <p>所谓的上帝类，就是指<strong>一个类承担了过多的职能</strong>，变得过于<strong>臃肿</strong>和<strong>复杂</strong>、<strong>难以维护</strong>。没有遵守单一职责原则。像上帝一样什么都能干，每个功能高度耦合，牵一发而动全身，不利于业务的拓展。</p>
 <h2 id="上帝类是如何产生的">上帝类是如何产生的</h2>
@@ -246,8 +200,6 @@
 <p>所以，要如何避免上帝类，这个问题的答案已经显而易见了。和上一段相反着做即可。遵守单一职责原则。规划好代码架构。比如，要处理一个压缩包解析和数据展示功能，首先就要拆分职责为不同的类。类中再去写相对应的函数。我们可以把这个功能拆分为解压、读取、展示信息三个类，类中分别编写相应的代码，这样就能做到避免上帝类的产生，从而提高代码的可维护性和可拓展性。</p>
 
         </div>
-
-
         <div class="post-meta meta-tags">
             
             <ul class="clearfix">
@@ -259,9 +211,12 @@
             
         </div>
     </article>
-<p style="margin-bottom: 0; font-size: 15px !important;">如果您更喜欢单独交流，欢迎发送邮件到<a href="mailto:i@glowisle.me"><strong>i@glowisle.me</strong></a>.</p><br>
 
 <p style="margin-top: 0px; font-size: 15px !important;">我会认真阅读每一条评论，如果我没有回复您的评论，<strong>那意味着我认同您的看法。不代表我对您的评论有任何不满</strong>，请理解！</p>
+	<div class="comment">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<button><a href="mailto:i@glowisle.me?subject=评论《%e4%b8%8a%e5%b8%9d%e7%b1%bb%e6%98%af%e4%bb%80%e4%b9%88%ef%bc%9f%e8%af%a5%e5%a6%82%e4%bd%95%e9%81%bf%e5%85%8d%e4%b8%8a%e5%b8%9d%e7%b1%bb%ef%bc%9f》"><i class="fa fa-comment" aria-hidden="true"></i> 使用邮件交流</a></button>
+	</div>
 	<div id="waline">
 </div>
 <script type="module">
@@ -274,12 +229,6 @@
 </script>
 </div>
 
-        
-
-
-
-
-
 
                 </div>
             </div>
@@ -288,8 +237,6 @@
 </body>
  	<footer id="footer">
   <div>
-    <p><a href="/readings">读书</a> · <a href="/links">友链</a> · <a href="/atom.xml">订阅</a> · <a href="https://www.glowisle.me/sitemap.xml">网站地图</a></p>
-    <hr width="80px" />
     <p>© 2025 <a href="https://www.glowisle.me">映屿</a>. 由<a href="https://gohugo.io/"> Typecho </a>强力驱动.</p>
      
     <p>本站已运行<span class="running-time"></span></p>

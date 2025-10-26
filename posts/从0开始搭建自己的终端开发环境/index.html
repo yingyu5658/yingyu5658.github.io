@@ -47,7 +47,9 @@
                 <nav id="nav-menu" class="clearfix">
                     <a class="current" href="https://www.glowisle.me/">首页</a>
                     
-                    <a  href="https://www.glowisle.me/archives" title="归档">归档</a>
+                    <a  href="https://www.glowisle.me/categories" title="分类">分类</a>
+                    
+                    <a  href="https://www.glowisle.me/links" title="友人">友人</a>
                     
                     <a  href="https://www.glowisle.me/about/" title="关于">关于</a>
                     
@@ -72,20 +74,7 @@
 
     </section>
 
-	<section class="widget">
-        <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
-<ul class="widget-list">
-    
-    <li><a href="https://www.glowisle.me/categories/%E6%8A%80%E6%9C%AF/">技术 (55)</a></li>
-    
-    <li><a href="https://www.glowisle.me/categories/%E8%AF%BB%E4%B9%A6/">读书 (6)</a></li>
-    
-    <li><a href="https://www.glowisle.me/categories/%E9%9A%8F%E7%AC%94/">随笔 (49)</a></li>
-    
-</ul>
-
-    </section>
-
+	
 
 	<section class="widget">
         <h3 class="widget-title">最近更新</h3>
@@ -135,6 +124,17 @@
 
 	</section>
 
+	<section class="widget">
+		<h3 class="widget-title">杂项</h3>
+		<a href="/readings">读书</a><br>
+		<a href="/archives">归档</a><br>
+		<a href="/atom.xml">RSS</a><br>
+		<a href="https://www.glowisle.me/sitemap.xml">网站地图</a><br>
+		</ul>
+	</section>
+
+
+
 
     </div>
 	
@@ -175,56 +175,10 @@
             "description": "\"\\u003cp\\u003e\\u003cstrong\\u003e系统\\u003c/strong\\u003e：WSL Arch\\u003c/p\\u003e\\n\\u003ch3 id=\\\"主折腾点\\\"\\u003e主折腾点\\u003c/h3\\u003e\\n\\u003cp\\u003e\\u003cstrong\\u003e代码编辑器\\u003c/strong\\u003e：Vim(Neovim)\\u003c/p\\u003e\\n\\u003cp\\u003e\\u003cstrong\\u003e终端体验优化\\u003c/strong\\u003e：tmux\\u003c/p\\u003e\\n\\u003cp\\u003e\\u003cstrong\\u003e文件管理器\\u003c/strong\\u003e：yazi\\u003c/p\\u003e\\n\\u003ch2 id=\\\"代码编辑器neovim\\\"\\u003e代码编辑器——Neovim\\u003c/h2\\u003e\\n\\u003ch3 id=\\\"前言\\\"\\u003e前言\\u003c/h3\\u003e\\n\\u003cp\\u003eNeovim和Vim相比，在性能和易用性上有很大的提升，在异步任务表现突出；使用更加现代的lua脚本配置，可读性更高。\\u003c/p\\u003e\""
         }
         </script>
-        
-        
-        
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "首页",
-      "item": "https:\/\/www.glowisle.me\/"
-    }
-    
-    
-        
-            ,{
-                "@type": "ListItem",
-                "position":  2 ,
-                "name": "技术",
-                "item": "\/categories\/%E6%8A%80%E6%9C%AF"
-            }
-            
-        
-    
-    ,{
-      "@type": "ListItem",
-      "position":  3 ,
-      "name": "从0开始搭建自己的终端开发环境",
-      "item": "https:\/\/www.glowisle.me\/posts\/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BB%88%E7%AB%AF%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83\/"
-    }
-  ]
-}
-</script>
-
-
-        
         <header>
 			<h1 class="post-title"><a>从0开始搭建自己的终端开发环境</a></h1>
         </header>
-        <div class="post-meta"> <span>作者: 五葉地錦</span> <span style="border-left: 1px solid #999; margin-left: 1px; padding-left: 5px;">时间: 2025-04-15</span>  <span style="border-left: 1px solid #999; margin-left: 5px; padding-left: 5px;">分类: <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a></span></div>
-
-        
-        
-        
-
-        
-        
-        <div class="post-content">
+                <div class="post-content">
             <p><strong>系统</strong>：WSL Arch</p>
 <h3 id="主折腾点">主折腾点</h3>
 <p><strong>代码编辑器</strong>：Vim(Neovim)</p>
@@ -453,8 +407,6 @@ alias gcl = &#34;git clone&#34;
 </code></pre><p>这里根据我的习惯改了几个别名。</p>
 
         </div>
-
-
         <div class="post-meta meta-tags">
             
             <ul class="clearfix">
@@ -468,9 +420,12 @@ alias gcl = &#34;git clone&#34;
             
         </div>
     </article>
-<p style="margin-bottom: 0; font-size: 15px !important;">如果您更喜欢单独交流，欢迎发送邮件到<a href="mailto:i@glowisle.me"><strong>i@glowisle.me</strong></a>.</p><br>
 
 <p style="margin-top: 0px; font-size: 15px !important;">我会认真阅读每一条评论，如果我没有回复您的评论，<strong>那意味着我认同您的看法。不代表我对您的评论有任何不满</strong>，请理解！</p>
+	<div class="comment">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<button><a href="mailto:i@glowisle.me?subject=评论《%e4%bb%8e0%e5%bc%80%e5%a7%8b%e6%90%ad%e5%bb%ba%e8%87%aa%e5%b7%b1%e7%9a%84%e7%bb%88%e7%ab%af%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83》"><i class="fa fa-comment" aria-hidden="true"></i> 使用邮件交流</a></button>
+	</div>
 	<div id="waline">
 </div>
 <script type="module">
@@ -483,29 +438,6 @@ alias gcl = &#34;git clone&#34;
 </script>
 </div>
 
-        
-
-
-
-
-<div class="post-archive">
-    <div class="random-post">
-                <h2><a href="/posts/187/">开箱即用的neovim配置文件</a></h2>
-        
-            <p class="summary"><blockquote>
-<p>2025.8.24二编: 这个蠢货为什么不挂github&hellip;&hellip;</p></blockquote>
-<h3 id="下载链接">下载链接</h3>
-<p><a href="https://yingyu5658.lanzoup.com/iWfXQ2ln6jre">https://yingyu5658.lanzoup.com/iWfXQ2ln6jre</a>
-为了兄弟们下得爽点就不用百度网盘或者夸克了
-代码都有比较详细的注释</p></p>
-        
-<h2 style="text-align: right; margin-bottom: 15px; color: #4a4c4d !important;">
-            <i>接下来阅读</i>
-        </h2>
-    </div>
-</div>
-
-
 
                 </div>
             </div>
@@ -514,8 +446,6 @@ alias gcl = &#34;git clone&#34;
 </body>
  	<footer id="footer">
   <div>
-    <p><a href="/readings">读书</a> · <a href="/links">友链</a> · <a href="/atom.xml">订阅</a> · <a href="https://www.glowisle.me/sitemap.xml">网站地图</a></p>
-    <hr width="80px" />
     <p>© 2025 <a href="https://www.glowisle.me">映屿</a>. 由<a href="https://gohugo.io/"> Typecho </a>强力驱动.</p>
      
     <p>本站已运行<span class="running-time"></span></p>
