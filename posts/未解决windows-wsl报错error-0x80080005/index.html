@@ -1,155 +1,476 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="zh-CN">
+
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="记录日常观察、技术实践、阅读思考与个人成长的网络日志。关于互联网、书籍、生活琐事以及那些一闪而过的念头。记录生活、吐槽见闻、分享阅读。真实，或许还有点拧巴。">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="https://www.glowisle.me/favicon.png" />
+<title>【未解决】Windows WSL报错：Error: 0x80080005 ??????? | 映屿</title>
+<meta name="title" content="【未解决】Windows WSL报错：Error: 0x80080005 ???????" />
+<meta name="description" content="设备环境：
+操作系统：Windows 10
+安装系统：Arch Linux
+错误日志：
+Installing, this may take a few minutes...
+WslRegisterDistribution failed with error: 0x80080005
+Error: 0x80080005 ???????
+
+Press any key to continue...
+网上有一篇文章提到这个错误，下面的评论回复以管理员权限运行命令提示符并执行sc stop LxssManager和sc start LxssManager
+出现如下报错：
+C:\Windows\system32&gt;sc stop LxssManager
+[SC] OpenService 失败 1060:
+
+指定的服务未安装。
+顺藤摸瓜，在网上寻找LxssManager这个服务要如何安装。
+网上暂时还没有找到相关文章能够解决这个问题，但是CSDN的一篇文章引起了我的注意
+[SC] OpenService 失败：1060指定的服务未安装_[sc] openservice 失败 1060: 指定的服务未安装。-CSDN博客
+文章中提到了“服务”，在开始菜单中搜索服务，进入应用找到了一个名为WSL Service的服务。点左上角启动。
+提取关键信息：1058、被禁用、关联的设备没有启动。
+检查功能是否开启：按下 Win&#43;S 搜索 启用或关闭Windows功能
+勾选适用于Linux的Windows子系统和虚拟机平台这两项，点击确定
+重启电脑。
+回来以后，用管理员身份运行powershell，强制重置WSL服务，依次执行：" />
+<meta name="keywords" content="Windows,Linux," />
+
+<link rel="canonical" href="https://www.glowisle.me/posts/%E6%9C%AA%E8%A7%A3%E5%86%B3windows-wsl%E6%8A%A5%E9%94%99error-0x80080005/">
+
+
+<meta property="og:url" content="https://www.glowisle.me/posts/%E6%9C%AA%E8%A7%A3%E5%86%B3windows-wsl%E6%8A%A5%E9%94%99error-0x80080005/">
+  <meta property="og:site_name" content="映屿">
+  <meta property="og:title" content="【未解决】Windows WSL报错：Error: 0x80080005 ???????">
+  <meta property="og:description" content="设备环境：
+操作系统：Windows 10 安装系统：Arch Linux 错误日志： Installing, this may take a few minutes... WslRegisterDistribution failed with error: 0x80080005 Error: 0x80080005 ??????? Press any key to continue... 网上有一篇文章提到这个错误，下面的评论回复以管理员权限运行命令提示符并执行sc stop LxssManager和sc start LxssManager 出现如下报错：
+C:\Windows\system32&gt;sc stop LxssManager [SC] OpenService 失败 1060: 指定的服务未安装。 顺藤摸瓜，在网上寻找LxssManager这个服务要如何安装。 网上暂时还没有找到相关文章能够解决这个问题，但是CSDN的一篇文章引起了我的注意 [SC] OpenService 失败：1060指定的服务未安装_[sc] openservice 失败 1060: 指定的服务未安装。-CSDN博客 文章中提到了“服务”，在开始菜单中搜索服务，进入应用找到了一个名为WSL Service的服务。点左上角启动。 提取关键信息：1058、被禁用、关联的设备没有启动。 检查功能是否开启：按下 Win&#43;S 搜索 启用或关闭Windows功能 勾选适用于Linux的Windows子系统和虚拟机平台这两项，点击确定 重启电脑。 回来以后，用管理员身份运行powershell，强制重置WSL服务，依次执行：">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-03-04T20:58:30+00:00">
+    <meta property="article:modified_time" content="2025-03-04T20:58:30+00:00">
+    <meta property="article:tag" content="Windows">
+    <meta property="article:tag" content="Linux">
+
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="【未解决】Windows WSL报错：Error: 0x80080005 ???????">
+  <meta name="twitter:description" content="设备环境：
+操作系统：Windows 10 安装系统：Arch Linux 错误日志： Installing, this may take a few minutes... WslRegisterDistribution failed with error: 0x80080005 Error: 0x80080005 ??????? Press any key to continue... 网上有一篇文章提到这个错误，下面的评论回复以管理员权限运行命令提示符并执行sc stop LxssManager和sc start LxssManager 出现如下报错：
+C:\Windows\system32&gt;sc stop LxssManager [SC] OpenService 失败 1060: 指定的服务未安装。 顺藤摸瓜，在网上寻找LxssManager这个服务要如何安装。 网上暂时还没有找到相关文章能够解决这个问题，但是CSDN的一篇文章引起了我的注意 [SC] OpenService 失败：1060指定的服务未安装_[sc] openservice 失败 1060: 指定的服务未安装。-CSDN博客 文章中提到了“服务”，在开始菜单中搜索服务，进入应用找到了一个名为WSL Service的服务。点左上角启动。 提取关键信息：1058、被禁用、关联的设备没有启动。 检查功能是否开启：按下 Win&#43;S 搜索 启用或关闭Windows功能 勾选适用于Linux的Windows子系统和虚拟机平台这两项，点击确定 重启电脑。 回来以后，用管理员身份运行powershell，强制重置WSL服务，依次执行：">
+
+
+
+
+  <meta itemprop="name" content="【未解决】Windows WSL报错：Error: 0x80080005 ???????">
+  <meta itemprop="description" content="设备环境：
+操作系统：Windows 10 安装系统：Arch Linux 错误日志： Installing, this may take a few minutes... WslRegisterDistribution failed with error: 0x80080005 Error: 0x80080005 ??????? Press any key to continue... 网上有一篇文章提到这个错误，下面的评论回复以管理员权限运行命令提示符并执行sc stop LxssManager和sc start LxssManager 出现如下报错：
+C:\Windows\system32&gt;sc stop LxssManager [SC] OpenService 失败 1060: 指定的服务未安装。 顺藤摸瓜，在网上寻找LxssManager这个服务要如何安装。 网上暂时还没有找到相关文章能够解决这个问题，但是CSDN的一篇文章引起了我的注意 [SC] OpenService 失败：1060指定的服务未安装_[sc] openservice 失败 1060: 指定的服务未安装。-CSDN博客 文章中提到了“服务”，在开始菜单中搜索服务，进入应用找到了一个名为WSL Service的服务。点左上角启动。 提取关键信息：1058、被禁用、关联的设备没有启动。 检查功能是否开启：按下 Win&#43;S 搜索 启用或关闭Windows功能 勾选适用于Linux的Windows子系统和虚拟机平台这两项，点击确定 重启电脑。 回来以后，用管理员身份运行powershell，强制重置WSL服务，依次执行：">
+  <meta itemprop="datePublished" content="2025-03-04T20:58:30+00:00">
+  <meta itemprop="dateModified" content="2025-03-04T20:58:30+00:00">
+  <meta itemprop="wordCount" content="1827">
+  <meta itemprop="keywords" content="Windows,Linux">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+   
+  :root {
+    --width-max: 720px;
+    --font-primary: Verdana, sans-serif;
+    --font-secondary: monospace;
+    --font-size-primary: 1em;
+    --font-size-secondary: 0.8em;
+    --body-bg-color: #fcfcfc;
+    --bold-text-color: #222;
+    --body-text-color: #444;
+    --link-color: #3273dc;
+    --link-visited-color: #8b6fcb;
+    --table-border-color: #f2f2f2;
+    --table-th-bg-color: #f2f2f2;
+    --img-border-color: #f2f2f2;
+    --code-bg-color: #f2f2f2;
+    --code-text-color: #222;
+    --blockquote-border-color: #666;
+    --blockquote-text-color: #666;
+    --upvoted-color: #FA8072;
+    --caption-text-color: #666;
+    --toc-text-color: #e5e5e5;
+    --toc-hover-color: #655e5e;
+  }
+
+  @media (prefers-color-scheme: dark) {
+     
+    :root {
+      --body-bg-color: #1c1c1c;
+      --bold-text-color: #eee;
+      --body-text-color: #ddd;
+      --link-color: #8cc2dd;
+      --link-visited-color: #c3b1ee;
+      --table-border-color: #999;
+      --table-th-bg-color: #999;
+      --img-border-color: #999;
+      --code-bg-color: #555;
+      --code-text-color: #ddd;
+      --blockquote-border-color: #ccc;
+      --blockquote-text-color: #ccc;
+      --caption-text-color: #aaa;
+      --toc-text-color: #373737;
+      --toc-hover-color: #CAC3C3;
+    }
+  }
+
+  body {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-primary);
+    margin: auto;
+    padding: 20px;
+    max-width: var(--width-max);
+    text-align: left;
+    background-color: var(--body-bg-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: var(--body-text-color);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: var(--bold-text-color);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 16px 0;
+  }
+
+  a {
+    color: var(--link-color);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title:hover {
+    text-decoration: none;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 8px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 14px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid var(--table-border-color);
+    border-radius: 4px;
+  }
+
+  th,
+  td {
+    border: 1px solid var(--table-border-color);
+    padding: 4px;
+  }
+
+  th {
+    background-color: var(--table-th-bg-color);
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px dashed;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid var(--img-border-color);
+    border-radius: 4px;
+    content-visibility: auto;
+    loading: lazy;
+  }
+
+  img[src*="#minipic"] {
+    max-width: 50%;
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  .image-caption figcaption {
+    text-align: center;
+    font-style: italic;
+    font-size: 0.8em;
+    margin-top: 0.6em;
+    color: var(--caption-text-color);
+  }
+
+  .image-caption {
+    margin: auto;
+  }
+
+  i {
+    font-style: normal;
+  }
+
+  time {
+    font-family: var(--font-secondary);
+    font-size: 15px;
+  }
+
+  code {
+    font-family: var(--font-secondary);
+    background-color: var(--code-bg-color);
+    color: var(--code-text-color);
+    padding: 2px;
+    border-radius: 4px;
+  }
+
+  pre code {
+    display: block;
+    padding: 16px;
+    white-space: pre-wrap;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    border-radius: 4px;
+  }
+
+  div.highlight code {
+    background-color: var(--code-bg-color);
+    color: var(--code-text-color);
+  }
+
+  blockquote {
+    border-left: 2px solid var(--blockquote-border-color);
+    color: var(--blockquote-text-color);
+    margin: 0;
+    padding-left: 16px;
+    font-style: normal;
+  }
+
+  blockquote p {
+    margin: 0;
+  }
+
+  footer {
+    padding: 25px 0;
+    text-align: center;
+    font-size: var(--font-size-secondary);
+  }
+
+  ul li:has(input) {
+    list-style-type: none;
+    margin-left: -25.5px;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li span.grouped {
+    flex: 0 0 80px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: var(--link-visited-color);
+  }
+
+   
+    div.toc {
+        position: fixed;  
+        top: 50%;  
+        left: calc((100vw + var(--width-max)) / 2);  
+        transform: translateY(-50%);  
+        width: calc((90vw - var(--width-max)) / 2);  
+        max-height: 80vh;  
+        overflow-y: auto;  
+        border: none;  
+        padding: 0;  
+        margin: 0;  
+        z-index: 99;  
+
+         
+        &::-webkit-scrollbar {  
+            display: none;  
+        }
+
+        -ms-overflow-style: none;  
+        scrollbar-width: none;  
+    }
+
+    .toc-nav {  
+        padding: 1.5rem;  
+    }
+
+    .toc-nav ul {  
+        list-style: none;  
+        padding: 0;  
+        margin: 0;  
+    }
+
+    .toc-nav li {  
+        margin: 8px 0;  
+    }
+
+    .toc-nav a {  
+        display: block;  
+        text-decoration: none;  
+        color: transparent;  
+        padding: 0 12px;  
+        transition: all 0.2s ease;  
+        font-size: 0.9rem;  
+        line-height: 1.4;  
+        text-align: left;  
+        white-space: nowrap;  
+        overflow: hidden;  
+        text-overflow: ellipsis;  
+        max-width: 100%;  
+    }
     
-    
-        <title>【未解决】Windows WSL报错：Error: 0x80080005 ??????? | 映屿</title>
-        <meta property="og:title" content="【未解决】Windows WSL报错：Error: 0x80080005 ??????? - 映屿">
-        <meta property="og:type" content="article">
-        
-        <meta property="article:published_time" content='2025-03-04T20:58:30&#43;08:00'>
-        
-        
-        <meta property="article:modified_time" content='2025-03-04T20:58:30&#43;08:00'>
-        
-        <meta name="Keywords" content="yingyu5658,博客,Web,软件,C语言,Nodejs,阅读,读书,笔记,随笔,计算机">
-        <meta name="description" content="【未解决】Windows WSL报错：Error: 0x80080005 ???????">
-        
-        <meta name="author" content="">
-        
-    
-    <meta property="og:url" content="https://www.glowisle.me/posts/%E6%9C%AA%E8%A7%A3%E5%86%B3windows-wsl%E6%8A%A5%E9%94%99error-0x80080005/"> <link rel="shortcut icon" href='/favicon.ico' type="image/x-icon"> <link rel="icon" href='/favicon.png' type="image/png"> <link rel="alternate icon" href='/favicon.png' type="image/svg+xml"> <link rel="stylesheet" href='/css/normalize.css'> <link rel="stylesheet" href='/css/style.css'> <script type="text/javascript" src="/js/jquery.min.js"></script>
-    
-        <link href="/css/jquery.fancybox.min.css" rel="stylesheet">
-    
-    
-        <link rel="stylesheet" href='/css/'>
-    
+    .toc-nav:hover a {
+        color: var(--toc-text-color);  
+    }
+
+    .toc-nav a::before {  
+        content: '';  
+        display: inline-block;  
+        width: 16px;  
+        height: 4px;  
+        background-color: var(--toc-text-color);  
+        border-radius: 16px;  
+        margin-right: 12px;  
+        vertical-align: middle;  
+    }
+
+    .toc-nav ul ul a::before {  
+        width: 12px;  
+        margin-right: 16px;  
+    }
+
+    .toc-nav ul ul ul a::before {  
+        width: 8px;  
+        margin-right: 20px;  
+    }
+
+    .toc-nav a.active,  
+    .toc-nav a:hover {
+        text-decoration: none;  
+        color: var(--toc-hover-color);  
+    }
+
+    .toc-nav a.active::before,  
+    .toc-nav a:hover::before {
+        background-color: var(--toc-hover-color);  
+    }
+
+   
+  button.upvote-btn {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--body-text-color);
+  }
+
+  button.upvoted {
+    color: var(--upvoted-color);
+  }
+
+  span.upvote-count {
+    margin-top: -4px;
+    font-size: smaller;
+  }
+
+  @media (max-width: 800px) {
+    img[src*="#minipic"] {
+      max-width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    div.toc {
+      display: none;
+    }
+  }
+</style>
+
 </head>
 
-
 <body>
-    <header id="header" class="clearfix">
-    <div class="container">
-        <div class="col-group">
-            <div class="site-name">
-                
-                    <a id="logo" href="https://www.glowisle.me/">映屿</a>
-                
-				<p class="description">关于互联网、书籍、生活琐事以及那些一闪而过的念头</p>
-            </div>
-            <div>
-                <nav id="nav-menu" class="clearfix">
-                    <a class="current" href="https://www.glowisle.me/">首页</a>
-                    
-                    <a  href="https://www.glowisle.me/categories" title="分类">分类</a>
-                    
-                    <a  href="https://www.glowisle.me/links" title="友人">友人</a>
-                    
-                    <a  href="https://www.glowisle.me/about/" title="关于">关于</a>
-                    
-                </nav>
-            </div>
-        </div>
-    </div>
-</header>
-
-
-    <div id="body">
-        <div class="container">
-            <div class="col-group">
- 	<div id="secondary">
-  <link
+  <header><link
     rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-  />
+    href="https://unpkg.com/@waline/client@v3/dist/waline.css"
+/>
+<a href="/" class="title">
+  <h1>映屿</h1>
+</a>
+<nav><a href="/">首页</a>
 
-  <section class="widget"><form id="search" action='https://www.glowisle.me/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
-      
-      <input type="text" name="q" maxlength="20" placeholder="搜索文章标题">
-      <input type="hidden" name="sitesearch" value="https://www.glowisle.me/">
-      <button type="submit" class="submit icon-search"></button>
-</form>
-</section>
+<a href="/posts">文章</a>
 
-  
-  <section class="widget">
-    <div class="author-info">
-      <img
-        class="author-avatar"
-        src="https://images.glowisle.me/avatar-round.png"
-      />
-      <strong> 五葉地錦 </strong>
-      <p>每有会意，便欣然忘食。</p>
-      <div class="social-links">
-        <a href="/atom.xml">
-            <i class="fa fa-rss-square" aria-hidden="true"></i>
-        </a>
-        <a href="mailto:i@glowisle.me">
-            <i class="fa fa-envelope" aria-hidden="true"></i>
-        </a>
-      </div>
-    </div> 
-  </section> 
+<a href="/links">友人</a>
 
-  
-  <section class="widget">
-    <h3 class="widget-title">精选辑</h3>
-    <a href="/tags/%E4%B8%89%E5%B2%9B%E7%94%B1%E7%BA%AA%E5%A4%AB/">• 三岛由纪夫的美学世界</a><br />
-    <a href="/tags/散文/">• 散文</a><br />
-    <a href="/readings">• 我的书单 </a><br />
-  </section> 
-
-  
-</div> 
+<a href="/about">关于</a>
 
 
+</nav>
+</header>
+  <main>
+ 
 
-                <div class="col-8" id="main">
-                   
-<div class="res-cons">
-    <article class="post">
-        
-        <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "BlogPosting",
-            "headline": "\"【未解决】Windows WSL报错：Error: 0x80080005 ???????\"",
-            "image": [
-                
-                    "/default-post-image.jpg" | absURL | jsonify
-                
-            ],
-            "author": {
-                "@type": "Person",
-                "name": "null"
-            },
-            "publisher": {
-                "@type": "Organization",
-                "name": "映屿",
-                "logo": {
-                    "@type": "ImageObject",
-                    "url": "https://www.glowisle.me/avatar.webp"
-                }
-            },
-            "datePublished": "\"2025-03-04\"",
-            "dateModified": "\"2025-03-04\"",
-            "mainEntityOfPage": "\"https://www.glowisle.me/posts/%E6%9C%AA%E8%A7%A3%E5%86%B3windows-wsl%E6%8A%A5%E9%94%99error-0x80080005/\"",
-            "description": "\"\\u003cp\\u003e设备环境：\\u003c/p\\u003e\\n\\u003cpre tabindex=\\\"0\\\"\\u003e\\u003ccode\\u003e操作系统：Windows 10\\n安装系统：Arch Linux\\n错误日志：\\nInstalling, this may take a few minutes...\\nWslRegisterDistribution failed with error: 0x80080005\\nError: …\\u003c/code\\u003e\\u003c/pre\\u003e\""
-        }
-        </script>
-        <header>
-			<h1 class="post-title"><a>【未解决】Windows WSL报错：Error: 0x80080005 ???????</a></h1>
-			<div class="post-meta"> <span>作者: 五葉地錦</span> <span style="border-left: 1px solid #999; margin-left: 1px; padding-left: 5px;">时间: 2025-03-04</span>  <span style="border-left: 1px solid #999; margin-left: 5px; padding-left: 5px;">分类: <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a></span></div>
-
-        </header>
-                <div class="post-content">
-            <p>设备环境：</p>
+<content> <p>设备环境：</p>
 <pre tabindex="0"><code>操作系统：Windows 10
 安装系统：Arch Linux
 错误日志：
@@ -313,92 +634,170 @@ sc create LxssManager binPath= &#34;C:\Windows\System32\lxss\LxssManager.dll&#34
 net start vmcompute
 net start LxssManager
 </code></pre><p>仍然无法启动。使用wsl偶遇神秘怪异bug拼尽全力无法战胜。我都已经浪费这么长时间来研究这个问题，为什么我不直接装个Linux系统呢。周末就把这傻卵系统换成Arch！</p>
+ </content>
 
-        </div>
-        <div class="post-meta meta-tags">
-            
-            <ul class="clearfix">
-				<p class="text-tags">Tags: </p>
-                
-				<li><a href='/tags/windows' target="_blank">Windows, </a></li>
-                
-				<li><a href='/tags/linux' target="_blank">Linux, </a></li>
-                
-            </ul>
-            
-        </div>
-    </article>
-
-<p style="margin-top: 0px; font-size: 15px !important;">我会认真阅读每一条评论，如果我没有回复您的评论，<strong>那意味着我认同您的看法。不代表我对您的评论有任何不满</strong>，请理解！</p>
-	<div class="comment">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<button><a href="mailto:i@glowisle.me?subject=评论《%e3%80%90%e6%9c%aa%e8%a7%a3%e5%86%b3%e3%80%91Windows%20WSL%e6%8a%a5%e9%94%99%ef%bc%9aError%3a%200x80080005%20%3f%3f%3f%3f%3f%3f%3f》"><i class="fa fa-comment" aria-hidden="true"></i> 使用邮件交流</a></button>
-	</div>
-	<div id="waline">
-</div>
-
-  <link
-    rel="stylesheet"
-    href="/css/waline.css"
-  />
-
-<script type="module">
-	import { init } from '/js/waline.js';
-	init({
-		el: '#waline',
-		serverURL: 'waline.glowisle.me',
-		placeholder: '',
-	});
-</script>
-</div>
-
-
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
- 	<footer id="footer">
-  <div>
-	  <p><a href="/archives">归档</a> | <a href="/atom.xml">订阅</a> | <a href="/sitemap.xml">网站地图</a></p>
-    <p>© 2025 <a href="https://www.glowisle.me">映屿</a>. 由<a href="https://gohugo.io/"> Typecho </a>强力驱动.</p>
-     
-    <p>本站已运行<span class="running-time"></span></p>
-
-	<img src="/not-by-ai.png" class="not-by-ai">
-
-	<link rel="prefetch" as="image" href="https://www.blogsclub.org/badge/www.glowisle.me">
-
-    <script>
-      function initRuntime() {
-        const startDate = new Date('2024-11-03');
-        const now = new Date();
-        const diff = now - startDate;
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        document.querySelector('.running-time').innerText = ` ${days} 天`;
-      }
-      window.addEventListener('load', initRuntime);
-    </script>
-  </div>
-  <br />
-</footer>
- 
-<script type="text/javascript">
-  window.MathJax = {
-    tex2jax: {
-      inlineMath: [['$', '$']],
-      processEscapes: true,
-    },
-  };
-</script>
-<script
-  src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"
-  async
-></script><script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
-<a id="rocket" href="#top"></a>
-<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+<p>
   
-<script src='/js/'></script>
+  <a href="https://www.glowisle.me/tags/windows/">#Windows</a>
+  
+  <a href="https://www.glowisle.me/tags/linux/">#Linux</a>
+  
+</p>
 
+
+
+
+
+
+ 
+<div class="toc">
+
+
+<nav class="toc-nav">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#彻底重装wsl"><strong>彻底重装WSL</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</nav>
+
+<script>
+    
+    document.addEventListener('DOMContentLoaded', function () {
+        const tocLinks = document.querySelectorAll('.toc-nav a');
+        const headings = Array.from(tocLinks).map(link => {
+            const id = link.getAttribute('href').replace('#', '');
+            return document.getElementById(id);
+        }).filter(h => h);
+
+        
+        tocLinks.forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').replace('#', '');
+                const target = document.getElementById(targetId);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+
+                    
+                    tocLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                }
+            });
+        });
+
+        
+        function updateActiveLink() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const windowHeight = window.innerHeight;
+
+            for (let i = headings.length - 1; i >= 0; i--) {
+                const heading = headings[i];
+                const rect = heading.getBoundingClientRect();
+
+                if (rect.top <= 100) {
+                    
+                    tocLinks.forEach(link => link.classList.remove('active'));
+                    
+                    
+                    const activeLink = document.querySelector(`.toc-nav a[href="#${heading.id}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('active');
+                        
+                        
+                        let currentLi = activeLink.closest('li');
+                        while (currentLi) {
+                            const parentLi = currentLi.parentElement.closest('li');
+                            if (parentLi) {
+                                const parentLink = parentLi.querySelector('a');
+                                if (parentLink) {
+                                    parentLink.classList.add('active');
+                                }
+                                currentLi = parentLi;
+                            } else {
+                                break;
+                            }
+                        }
+                    }
+                    break;
+                }
+            }
+        }
+
+        
+        let ticking = false;
+        function throttleScroll() {
+            if (!ticking) {
+                requestAnimationFrame(function () {
+                    updateActiveLink();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }
+
+        window.addEventListener('scroll', throttleScroll);
+
+        
+        updateActiveLink();
+    });
+</script>
+
+</div>
+
+
+<div id="waline"></div>
+  <script type="module">
+    import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+
+    init({
+      el: '#waline',
+      serverURL: 'https://waline.glowisle.me',
+    });
+</script>
+
+
+  </main>
+  <footer>
+
+
+Subscribe via <a href="/atom.xml">RSS</a> or just <a href="mailto:i@glowisle.me">say hello</a>.
+<br />
+
+
+
+
+
+Say hello via <a href="mailto:i@glowisle.me">email</a>.
+<br />
+
+
+
+
+Made with
+<a href="https://github.com/rokcso/hugo-bearneo/">Hugo Bear Neo</a>.
+<br />
+
+
+
+
+
+
+
+🗺️ <a href="/sitemap.xml">Sitemap</a>.
+
+</footer>
+
+    
+
+
+</body>
 
 </html>

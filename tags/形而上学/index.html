@@ -1,181 +1,558 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="zh-CN">
+
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="记录日常观察、技术实践、阅读思考与个人成长的网络日志。关于互联网、书籍、生活琐事以及那些一闪而过的念头。记录生活、吐槽见闻、分享阅读。真实，或许还有点拧巴。">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="https://www.glowisle.me/favicon.png" />
+<title>形而上学 | 映屿</title>
+<meta name="title" content="形而上学" />
+<meta name="description" content="关于互联网、书籍、生活琐事以及那些一闪而过的念头" />
+<meta name="keywords" content="arch,b站,c,c语言,electron,emacs,fedora,geyser,gnu,hexo,java,javascript,linux,malody,minecraft,neovim,nodejs,obsidain,osu,seo,terrira,thunderbird,typecho,vim,windows,“厌蠢症”,三岛由纪夫,丰饶之海,书信,书评,二叉树,互联网,人际交往,价值,伊豆的舞女,信息节食,冒泡排序,写作,前端,功利主义,博客,历史,古文,哈希表,哲学,回忆,图书,夏,奔马,婚姻,学业,学校,实用,家庭,小品,川端康成,底层技术,形而上学,怀旧,思考与议论,总结,意识,意识流,感官,感谢恩师夸奖,我,扩列,搜索引擎,教程,散文,散步,数据结构与算法,文字,文学,文章,新闻组,旁观者,日常,日本文学,早睡早起,时政,春雪,暑假总结,月度总结,朋友圈,服务器,未成年人保护,杂文,杂记,死亡,汇编,沟通,游戏,物理,狗叫,猫,生命,知乎,社交,笔记,终端,编程,编译原理,编译器,网络环境,翻译,考试,自搜,西西弗,观察,记事,记忆,读书笔记,读后感,豆瓣,贝斯,购物,软件开发,辨证法,酒,阅读,阅读笔记,阿里云,随笔,韩愈,音乐," />
+
+<link rel="canonical" href="https://www.glowisle.me/tags/%E5%BD%A2%E8%80%8C%E4%B8%8A%E5%AD%A6/">
+
+
+<meta property="og:url" content="https://www.glowisle.me/tags/%E5%BD%A2%E8%80%8C%E4%B8%8A%E5%AD%A6/">
+  <meta property="og:site_name" content="映屿">
+  <meta property="og:title" content="形而上学">
+  <meta property="og:description" content="关于互联网、书籍、生活琐事以及那些一闪而过的念头">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="website">
+
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="形而上学">
+  <meta name="twitter:description" content="关于互联网、书籍、生活琐事以及那些一闪而过的念头">
+
+
+
+
+  <meta itemprop="name" content="形而上学">
+  <meta itemprop="description" content="关于互联网、书籍、生活琐事以及那些一闪而过的念头">
+  <meta itemprop="datePublished" content="2025-07-19T22:42:13+08:00">
+  <meta itemprop="dateModified" content="2025-07-19T22:42:13+08:00">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <link rel="alternate" type="application/rss+xml" href="http://www.glowisle.me/tags/%E5%BD%A2%E8%80%8C%E4%B8%8A%E5%AD%A6/atom.xml" title="映屿" />
+  <style>
+   
+  :root {
+    --width-max: 720px;
+    --font-primary: Verdana, sans-serif;
+    --font-secondary: monospace;
+    --font-size-primary: 1em;
+    --font-size-secondary: 0.8em;
+    --body-bg-color: #fcfcfc;
+    --bold-text-color: #222;
+    --body-text-color: #444;
+    --link-color: #3273dc;
+    --link-visited-color: #8b6fcb;
+    --table-border-color: #f2f2f2;
+    --table-th-bg-color: #f2f2f2;
+    --img-border-color: #f2f2f2;
+    --code-bg-color: #f2f2f2;
+    --code-text-color: #222;
+    --blockquote-border-color: #666;
+    --blockquote-text-color: #666;
+    --upvoted-color: #FA8072;
+    --caption-text-color: #666;
+    --toc-text-color: #e5e5e5;
+    --toc-hover-color: #655e5e;
+  }
+
+  @media (prefers-color-scheme: dark) {
+     
+    :root {
+      --body-bg-color: #1c1c1c;
+      --bold-text-color: #eee;
+      --body-text-color: #ddd;
+      --link-color: #8cc2dd;
+      --link-visited-color: #c3b1ee;
+      --table-border-color: #999;
+      --table-th-bg-color: #999;
+      --img-border-color: #999;
+      --code-bg-color: #555;
+      --code-text-color: #ddd;
+      --blockquote-border-color: #ccc;
+      --blockquote-text-color: #ccc;
+      --caption-text-color: #aaa;
+      --toc-text-color: #373737;
+      --toc-hover-color: #CAC3C3;
+    }
+  }
+
+  body {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-primary);
+    margin: auto;
+    padding: 20px;
+    max-width: var(--width-max);
+    text-align: left;
+    background-color: var(--body-bg-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: var(--body-text-color);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: var(--bold-text-color);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 16px 0;
+  }
+
+  a {
+    color: var(--link-color);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title:hover {
+    text-decoration: none;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 8px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 14px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid var(--table-border-color);
+    border-radius: 4px;
+  }
+
+  th,
+  td {
+    border: 1px solid var(--table-border-color);
+    padding: 4px;
+  }
+
+  th {
+    background-color: var(--table-th-bg-color);
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px dashed;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid var(--img-border-color);
+    border-radius: 4px;
+    content-visibility: auto;
+    loading: lazy;
+  }
+
+  img[src*="#minipic"] {
+    max-width: 50%;
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  .image-caption figcaption {
+    text-align: center;
+    font-style: italic;
+    font-size: 0.8em;
+    margin-top: 0.6em;
+    color: var(--caption-text-color);
+  }
+
+  .image-caption {
+    margin: auto;
+  }
+
+  i {
+    font-style: normal;
+  }
+
+  time {
+    font-family: var(--font-secondary);
+    font-size: 15px;
+  }
+
+  code {
+    font-family: var(--font-secondary);
+    background-color: var(--code-bg-color);
+    color: var(--code-text-color);
+    padding: 2px;
+    border-radius: 4px;
+  }
+
+  pre code {
+    display: block;
+    padding: 16px;
+    white-space: pre-wrap;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    border-radius: 4px;
+  }
+
+  div.highlight code {
+    background-color: var(--code-bg-color);
+    color: var(--code-text-color);
+  }
+
+  blockquote {
+    border-left: 2px solid var(--blockquote-border-color);
+    color: var(--blockquote-text-color);
+    margin: 0;
+    padding-left: 16px;
+    font-style: normal;
+  }
+
+  blockquote p {
+    margin: 0;
+  }
+
+  footer {
+    padding: 25px 0;
+    text-align: center;
+    font-size: var(--font-size-secondary);
+  }
+
+  ul li:has(input) {
+    list-style-type: none;
+    margin-left: -25.5px;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li span.grouped {
+    flex: 0 0 80px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: var(--link-visited-color);
+  }
+
+   
+    div.toc {
+        position: fixed;  
+        top: 50%;  
+        left: calc((100vw + var(--width-max)) / 2);  
+        transform: translateY(-50%);  
+        width: calc((90vw - var(--width-max)) / 2);  
+        max-height: 80vh;  
+        overflow-y: auto;  
+        border: none;  
+        padding: 0;  
+        margin: 0;  
+        z-index: 99;  
+
+         
+        &::-webkit-scrollbar {  
+            display: none;  
+        }
+
+        -ms-overflow-style: none;  
+        scrollbar-width: none;  
+    }
+
+    .toc-nav {  
+        padding: 1.5rem;  
+    }
+
+    .toc-nav ul {  
+        list-style: none;  
+        padding: 0;  
+        margin: 0;  
+    }
+
+    .toc-nav li {  
+        margin: 8px 0;  
+    }
+
+    .toc-nav a {  
+        display: block;  
+        text-decoration: none;  
+        color: transparent;  
+        padding: 0 12px;  
+        transition: all 0.2s ease;  
+        font-size: 0.9rem;  
+        line-height: 1.4;  
+        text-align: left;  
+        white-space: nowrap;  
+        overflow: hidden;  
+        text-overflow: ellipsis;  
+        max-width: 100%;  
+    }
     
-    
-        <title>形而上学 | 映屿</title>
-        <meta property="og:title" content="形而上学 - 映屿">
-        <meta property="og:type" content="article">
-        
-        
-        <meta name="Keywords" content="yingyu5658,博客,Web,软件,C语言,Nodejs,阅读,读书,笔记,随笔,计算机">
-        <meta name="description" content="形而上学">
-        
-        <meta name="author" content="">
-        
-    
-    <meta property="og:url" content="https://www.glowisle.me/tags/%E5%BD%A2%E8%80%8C%E4%B8%8A%E5%AD%A6/"> <link rel="shortcut icon" href='/favicon.ico' type="image/x-icon"> <link rel="icon" href='/favicon.png' type="image/png"> <link rel="alternate icon" href='/favicon.png' type="image/svg+xml"> <link rel="stylesheet" href='/css/normalize.css'> <link rel="stylesheet" href='/css/style.css'> <link rel="alternate" type="application/rss+xml" href="http://www.glowisle.me/tags/%E5%BD%A2%E8%80%8C%E4%B8%8A%E5%AD%A6/atom.xml" title="映屿" />
-    <script type="text/javascript" src="/js/jquery.min.js"></script>
-    
-        <link href="/css/jquery.fancybox.min.css" rel="stylesheet">
-    
-    
-        <link rel="stylesheet" href='/css/'>
-    
+    .toc-nav:hover a {
+        color: var(--toc-text-color);  
+    }
+
+    .toc-nav a::before {  
+        content: '';  
+        display: inline-block;  
+        width: 16px;  
+        height: 4px;  
+        background-color: var(--toc-text-color);  
+        border-radius: 16px;  
+        margin-right: 12px;  
+        vertical-align: middle;  
+    }
+
+    .toc-nav ul ul a::before {  
+        width: 12px;  
+        margin-right: 16px;  
+    }
+
+    .toc-nav ul ul ul a::before {  
+        width: 8px;  
+        margin-right: 20px;  
+    }
+
+    .toc-nav a.active,  
+    .toc-nav a:hover {
+        text-decoration: none;  
+        color: var(--toc-hover-color);  
+    }
+
+    .toc-nav a.active::before,  
+    .toc-nav a:hover::before {
+        background-color: var(--toc-hover-color);  
+    }
+
+   
+  button.upvote-btn {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--body-text-color);
+  }
+
+  button.upvoted {
+    color: var(--upvoted-color);
+  }
+
+  span.upvote-count {
+    margin-top: -4px;
+    font-size: smaller;
+  }
+
+  @media (max-width: 800px) {
+    img[src*="#minipic"] {
+      max-width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    div.toc {
+      display: none;
+    }
+  }
+</style>
+
 </head>
 
-
 <body>
-    <header id="header" class="clearfix">
-    <div class="container">
-        <div class="col-group">
-            <div class="site-name">
-                
-                    <a id="logo" href="https://www.glowisle.me/">映屿</a>
-                
-				<p class="description">关于互联网、书籍、生活琐事以及那些一闪而过的念头</p>
-            </div>
-            <div>
-                <nav id="nav-menu" class="clearfix">
-                    <a class="" href="https://www.glowisle.me/">首页</a>
-                    
-                    <a  href="https://www.glowisle.me/categories" title="分类">分类</a>
-                    
-                    <a  href="https://www.glowisle.me/links" title="友人">友人</a>
-                    
-                    <a  href="https://www.glowisle.me/about/" title="关于">关于</a>
-                    
-                </nav>
-            </div>
-        </div>
-    </div>
-</header>
-
-
-    <div id="body">
-        <div class="container">
-            <div class="col-group">
- 	<div id="secondary">
-  <link
+  <header><link
     rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-  />
+    href="https://unpkg.com/@waline/client@v3/dist/waline.css"
+/>
+<a href="/" class="title">
+  <h1>映屿</h1>
+</a>
+<nav><a href="/">首页</a>
 
-  <section class="widget"><form id="search" action='https://www.glowisle.me/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+<a href="/posts">文章</a>
+
+<a href="/links">友人</a>
+
+<a href="/about">关于</a>
+
+
+</nav>
+</header>
+  <main>
+<content>
+  
+  <h3 style="margin-bottom:0">Filtering for "形而上学"</h3>
+  <small>
+    <a href="/blog">Remove filter</a>
+  </small>
+  
+  
+  <input id="search-input" type="text" placeholder="Search..." style="margin-top: 16px" />
+  <script>
+    
+    document.addEventListener('DOMContentLoaded', function () {
       
-      <input type="text" name="q" maxlength="20" placeholder="搜索文章标题">
-      <input type="hidden" name="sitesearch" value="https://www.glowisle.me/">
-      <button type="submit" class="submit icon-search"></button>
-</form>
-</section>
+      const searchInput = document.getElementById('search-input');
+      const posts = document.querySelectorAll('.blog-posts li');
+      const years = document.querySelectorAll('.blog-posts h3');
 
-  
-  <section class="widget">
-    <div class="author-info">
-      <img
-        class="author-avatar"
-        src="https://images.glowisle.me/avatar-round.png"
-      />
-      <strong> 五葉地錦 </strong>
-      <p>每有会意，便欣然忘食。</p>
-      <div class="social-links">
-        <a href="/atom.xml">
-            <i class="fa fa-rss-square" aria-hidden="true"></i>
-        </a>
-        <a href="mailto:i@glowisle.me">
-            <i class="fa fa-envelope" aria-hidden="true"></i>
-        </a>
-      </div>
-    </div> 
-  </section> 
+      
+      function updateSearchResults(searchTerm) {
+        let visiblePosts = 0;
+        const displayedYears = new Set();
+        posts.forEach(function (post) {
+          const title = post.querySelector('a').textContent.toLowerCase();
+          const year = post.querySelector('time').getAttribute('datetime').split('-')[0];
+          if (title.includes(searchTerm)) {
+            post.style.display = '';
+            visiblePosts++;
+            displayedYears.add(year);
+          } else {
+            post.style.display = 'none';
+          }
+        });
 
-  
-  <section class="widget">
-    <h3 class="widget-title">精选辑</h3>
-    <a href="/tags/%E4%B8%89%E5%B2%9B%E7%94%B1%E7%BA%AA%E5%A4%AB/">• 三岛由纪夫的美学世界</a><br />
-    <a href="/tags/散文/">• 散文</a><br />
-    <a href="/readings">• 我的书单 </a><br />
-  </section> 
-
-  
-</div> 
-
-
-
-                <div class="col-8" id="main">
-                   
-<div class="res-cons">
-    
-    <h3 class="archive-title">
-        包含标签
-        <span class="keyword">形而上学</span>
         
-    </h3>
-    
+        years.forEach(function (y) {
+          const year = y.textContent;
+          y.style.display = displayedYears.has(year) ? '' : 'none';
+        });
+        
 
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://www.glowisle.me/posts/%E5%BD%A2%E8%80%8C%E4%B8%8A%E5%AD%A6%E4%B8%8E%E8%87%AA%E7%84%B6%E8%BE%A8%E8%AF%81/" target="_blank">形而上学与自然辨证</a>
-            </h1>
-        </header>
-        <div class="post-meta"> <span>作者: 五葉地錦</span> <span style="border-left: 1px solid #999; margin-left: 1px; padding-left: 5px;">时间: 2025-07-19</span>  <span style="border-left: 1px solid #999; margin-left: 5px; padding-left: 5px;">分类: <a href="/categories/%E9%9A%8F%E7%AC%94">随笔</a></span></div>
-
-        <div class="post-content">
-            <p>形而上学是哲学的核心分支之一。在哲学体系中，形而上学探讨的是超越经验世界的根本性问题，例如存在的本质、宇宙的本源、实体与属性的关系、自由意志、因果关系等。在自然辩证法（尤其是恩格斯的相关论述）中，形而上学常被批判为一种与辩证法对立的世界观和方法论。</p>
-            <p class="readmore"><a href="https://www.glowisle.me/posts/%E5%BD%A2%E8%80%8C%E4%B8%8A%E5%AD%A6%E4%B8%8E%E8%87%AA%E7%84%B6%E8%BE%A8%E8%AF%81/" target="_blank">- 阅读剩余部分 -</a></p>
-        </div>
-    </article>
-    
-
-    
-
-
-
-
-
-</div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
- 	<footer id="footer">
-  <div>
-	  <p><a href="/archives">归档</a> | <a href="/atom.xml">订阅</a> | <a href="/sitemap.xml">网站地图</a></p>
-    <p>© 2025 <a href="https://www.glowisle.me">映屿</a>. 由<a href="https://gohugo.io/"> Typecho </a>强力驱动.</p>
-     
-    <p>本站已运行<span class="running-time"></span></p>
-
-	<img src="/not-by-ai.png" class="not-by-ai">
-
-	<link rel="prefetch" as="image" href="https://www.blogsclub.org/badge/www.glowisle.me">
-
-    <script>
-      function initRuntime() {
-        const startDate = new Date('2024-11-03');
-        const now = new Date();
-        const diff = now - startDate;
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        document.querySelector('.running-time').innerText = ` ${days} 天`;
+        
+        const countText = `There ${visiblePosts <= 1 ? `is ${visiblePosts} piece.` : `are ${visiblePosts} pieces.`}`;
+        document.getElementById('post-count').innerHTML = countText;
+        
       }
-      window.addEventListener('load', initRuntime);
-    </script>
-  </div>
-  <br />
+
+      searchInput.addEventListener('input', function () {
+        updateSearchResults(this.value.toLowerCase().trim());
+      });
+    });
+  </script>
+  
+  
+  
+  <p id="post-count">There  is 1 piece. </p>
+  
+  <ul class="blog-posts">
+    
+    
+    
+    
+    
+    
+    <h3>2025</h3>
+    
+    
+    
+    <li>
+      <span class=" grouped ">
+        <i>
+          <time datetime='2025-07-19' pubdate>
+            
+            19 Jul.
+            
+          </time>
+        </i>
+      </span>
+      <a href="https://www.glowisle.me/posts/%E5%BD%A2%E8%80%8C%E4%B8%8A%E5%AD%A6%E4%B8%8E%E8%87%AA%E7%84%B6%E8%BE%A8%E8%AF%81/">形而上学与自然辨证</a>
+    </li>
+    
+    
+  </ul>
+  
+  
+</content>
+
+  </main>
+  <footer>
+
+
+Subscribe via <a href="/atom.xml">RSS</a> or just <a href="mailto:i@glowisle.me">say hello</a>.
+<br />
+
+
+
+
+
+Say hello via <a href="mailto:i@glowisle.me">email</a>.
+<br />
+
+
+
+
+Made with
+<a href="https://github.com/rokcso/hugo-bearneo/">Hugo Bear Neo</a>.
+<br />
+
+
+
+
+
+
+
+🗺️ <a href="/sitemap.xml">Sitemap</a>.
+
 </footer>
 
-<a id="rocket" href="#top"></a>
-<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
-  
-<script src='/js/'></script>
+    
 
+
+</body>
 
 </html>
