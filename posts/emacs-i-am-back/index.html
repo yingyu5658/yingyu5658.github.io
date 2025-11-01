@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
   <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="shortcut icon" href="http://localhost:1313/favicon.png" />
+<link rel="shortcut icon" href="https://www.glowisle.me/favicon.png" />
 <title>Emacs，我又回来了！ | 映屿</title>
 <meta name="title" content="Emacs，我又回来了！" />
 <meta name="description" content="前言
@@ -13,10 +13,10 @@
 前几次尝试过自己重新配置 Emacs、Spacemacs。自己配置简直是在堆屎山， Spacemacs 的机制搞不明白而且很卡，听说Doom Emacs 对 Vi/Vim 用户很友好，那就尝试一下吧！" />
 <meta name="keywords" content="Emacs,GNU/Linux," />
 
-<link rel="canonical" href="http://localhost:1313/posts/emacs-i-am-back/">
+<link rel="canonical" href="https://www.glowisle.me/posts/emacs-i-am-back/">
 
 
-<meta property="og:url" content="http://localhost:1313/posts/emacs-i-am-back/">
+<meta property="og:url" content="https://www.glowisle.me/posts/emacs-i-am-back/">
   <meta property="og:site_name" content="映屿">
   <meta property="og:title" content="Emacs，我又回来了！">
   <meta property="og:description" content="前言 这大概已经是我第四次尝试入门 Emacs 了。
@@ -45,7 +45,7 @@
 前几次尝试过自己重新配置 Emacs、Spacemacs。自己配置简直是在堆屎山， Spacemacs 的机制搞不明白而且很卡，听说Doom Emacs 对 Vi/Vim 用户很友好，那就尝试一下吧！">
   <meta itemprop="datePublished" content="2025-11-01T12:01:12+08:00">
   <meta itemprop="dateModified" content="2025-11-01T12:01:12+08:00">
-  <meta itemprop="wordCount" content="481">
+  <meta itemprop="wordCount" content="527">
   <meta itemprop="keywords" content="Emacs,GNU/Linux">
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
@@ -449,9 +449,7 @@
 <p>这大概已经是我第四次尝试入门 Emacs 了。</p>
 <p>前几次尝试过自己重新配置 Emacs、Spacemacs。自己配置简直是在堆屎山， Spacemacs 的机制搞不明白而且很卡，听说<a href="https://github.com/doomemacs/doomemacs">Doom Emacs</a> 对 Vi/Vim 用户很友好，那就尝试一下吧！</p>
 <p>虽然我不能算是个老 Vimer，但是也深受 Vim 操作模式的荼毒，只想用 HJKL 走天下。之前也想玩 Obsidian 。但是<strong>它的 Vim mode 实在是太简陋了！！！</strong> C-d不是向下翻页，而是把整行都删掉！</p>
-<ul>
-<li><input checked="" disabled="" type="checkbox"> 不过手机上的 Ob 还是可以一用，比如 Banyan 插件，用来随时随地写一些碎碎念很方便。至于其他的功能，还是配 Emacs 更好玩吧。</li>
-</ul>
+<p>不过手机上的 Ob 还是可以一用，比如 Banyan 插件，用来随时随地写一些碎碎念很方便。至于其他的功能，还是配 Emacs 更好玩吧。</p>
 <h2 id="安装">安装</h2>
 <p>根据官方仓库的文档，使用以下命令安装：</p>
 <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone --depth <span style="color:#d19a66">1</span> https://github.com/doomemacs/doomemacs ~/.config/emacs
@@ -475,13 +473,23 @@
 Have fun!
 </code></pre><p>其中提到了一个叫<strong>doom</strong>的命令，这是一个在<code>~/.emacs.d/bin/</code>下的二进制文件，可以做个链接到<code>/usr/bin</code>以便在任何地方使用。</p>
 <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo ln -s ~/.emacs.d/bin/doom /usr/bin/doom
-</span></span></code></pre></div> </content>
+</span></span></code></pre></div><h2 id="配置">配置</h2>
+<p>启动时全屏：</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elisp" data-lang="elisp"><span style="display:flex;"><span>(<span style="color:#e06c75">add-hook</span> <span style="color:#98c379">&#39;window-setup-hook</span> <span style="color:#61afef;font-weight:bold">#&#39;</span><span style="color:#e06c75">toggle-frame-maximized</span>)
+</span></span></code></pre></div><p>安装 <a href="https://github.com/emacs-eaf/emacs-application-framework">Eaf</a> 插件：</p>
+<pre tabindex="0"><code>git clone --depth=1 -b master https://github.com/emacs-eaf/emacs-application-framework.git ~/.emacs.d/site-lisp/emacs-application-framework/
+
+cd emacs-application-framework
+chmod +x ./install-eaf.py
+./install-eaf.py
+</code></pre><p>用用看吧，后续有什么需求再折腾。</p>
+ </content>
 
 <p>
   
-  <a href="http://localhost:1313/tags/emacs/">#Emacs</a>
+  <a href="https://www.glowisle.me/tags/emacs/">#Emacs</a>
   
-  <a href="http://localhost:1313/tags/gnu/linux/">#GNU/Linux</a>
+  <a href="https://www.glowisle.me/tags/gnu/linux/">#GNU/Linux</a>
   
 </p>
 
@@ -499,6 +507,7 @@ Have fun!
   <ul>
     <li><a href="#前言">前言</a></li>
     <li><a href="#安装">安装</a></li>
+    <li><a href="#配置">配置</a></li>
   </ul>
 </nav>
 </nav>
