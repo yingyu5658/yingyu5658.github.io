@@ -830,19 +830,5 @@
       <guid>https://www.glowisle.me/posts/4/</guid>
       <description>&lt;h1 id=&#34;前言&#34;&gt;前言&lt;/h1&gt;&#xA;&lt;p&gt;折腾来折腾去，最后发现归宿还是静态博客，安全性高、性能开销小，用Github直接省去服务器费用还差不多永生。每年把域名钱交了就得了，图片的问题再想想办法，总能解决的。&#xA;&lt;del&gt;突然有一种为了躲避战乱带着一家人四处奔波的悲凉感&lt;/del&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;分析&#34;&gt;分析&lt;/h1&gt;&#xA;&lt;p&gt;博客网站的内容，都可以拆分为以下几个点：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;文章&lt;/li&gt;&#xA;&lt;li&gt;评论&lt;/li&gt;&#xA;&lt;li&gt;文章插图&lt;/li&gt;&#xA;&lt;li&gt;网站贴图资源&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;先从最主要的文章开始，想想有没有什么可以用的。&#xA;gitee上有一个&lt;a href=&#34;https://gitcode.com/gh_mirrors/ty/Typecho-Plugin-Tp2MD&#34;&gt;插件&lt;/a&gt;，看起来好像有点用，折腾安装一下试试先。&lt;/p&gt;&#xA;&lt;h1 id=&#34;tp2md插件迁移文章&#34;&gt;Tp2MD插件迁移文章&lt;/h1&gt;&#xA;&lt;p&gt;远程登录服务器，把本地下号的zip传到服务器上并解压。&#xA;cd到插件目录&#xA;&lt;code&gt;/usr/share/nginx/html/usr/plugins&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;解压压缩包&#xA;&lt;code&gt;unzip Typecho-Plugin-Tp2MD-master.zip&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;重命名为插件的自述文件要求的名称&#xA;&lt;code&gt;mv Typecho-Plugin-Tp2MD-master Tp2MD&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;登录网站后台，启用插件。点击插件的设置，保存后按照教程访问。&#xA;这里提示&lt;code&gt;不能写入文件，请检查 cache 文件夹权限！&lt;/code&gt;，我们在插件目录设置一下权限&#xA;&lt;code&gt;sudo chmod -R 777 cache&lt;/code&gt;a&#xA;注意是这个插件目录下的cache！！&lt;/p&gt;&#xA;&lt;p&gt;提示导出成功，cd到这个目录，把文件压缩下载下来查看&#xA;可能是因为我有的文章点了多篇分类，导出文件夹有点问题，无所谓，后期再调，拿到了就行。至此，文章部分搞定！&lt;/p&gt;&#xA;&lt;h1 id=&#34;评论&#34;&gt;评论&lt;/h1&gt;&#xA;&lt;p&gt;评论这里，我折腾了两天，尝试尽了各种方案（Disqus Valine Waline Utterances Twikoo Atalk），最后还是选择了Giscus。我也知道这样读者没有github就没办法发评论，但是其他几种方案都会出现各种奇奇怪怪且无法解决的问题比如Cloudflare拦截、CORS出毛病、服务器被墙以及莫名其妙404、403。我真的尽力了。&lt;/p&gt;&#xA;&lt;h1 id=&#34;文章插图&#34;&gt;文章插图&lt;/h1&gt;&#xA;&lt;h2 id=&#34;转移图片文件&#34;&gt;转移图片文件&lt;/h2&gt;&#xA;&lt;p&gt;进入&lt;code&gt;/usr/uploads/&lt;/code&gt;，压缩下载图片&lt;/p&gt;&#xA;&lt;p&gt;重组Hexo图片目录：复制所有图片到Hexo的&lt;code&gt;source/images/&lt;/code&gt;目录。&lt;/p&gt;&#xA;&lt;p&gt;手动替换图片路径 ，注意，静态资源解析默认以source为根目录，所以直接写以source为根目录的绝对路径就行。&lt;/p&gt;&#xA;&lt;h1 id=&#34;部署到vercel加速访问&#34;&gt;部署到vercel加速访问&lt;/h1&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;注册vercel账号&lt;/li&gt;&#xA;&lt;li&gt;创建项目，关联仓库&lt;/li&gt;&#xA;&lt;li&gt;域名解析&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;2025.3.3，博客全部迁移完毕，粗略累计用时六天，一直没什么时间搞，耗时最长的还是在评论系统上的试错。&lt;/p&gt;&#xA;</description>
     </item>
-    <item>
-      <title>搜索</title>
-      <link>https://www.glowisle.me/search/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>i@glowisle.me (五葉地錦)</author>
-      <guid>https://www.glowisle.me/search/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>文章归档</title>
-      <link>https://www.glowisle.me/archives/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>i@glowisle.me (五葉地錦)</author>
-      <guid>https://www.glowisle.me/archives/</guid>
-      <description></description>
-    </item>
   </channel>
 </rss>

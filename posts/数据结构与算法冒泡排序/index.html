@@ -215,6 +215,7 @@ n个元素的数组最多需要n-1轮冒泡，如5元素数组需要4轮排序
     border-collapse: collapse;
     border: 1px solid var(--table-border-color);
     border-radius: 4px;
+	margin-top: 16px;
   }
 
   th,
@@ -465,10 +466,9 @@ n个元素的数组最多需要n-1轮冒泡，如5元素数组需要4轮排序
 </head>
 
 <body>
-  <header><link
-    rel="stylesheet"
-    href="https://unpkg.com/@waline/client@v3/dist/waline.css"
-/>
+  <header><meta name="msvalidate.01" content="2E1AACF009206F2DDBAAD4B98E881460" />
+<link rel="stylesheet" href="/css/waline.css"/>
+<link rel="prefetch" as="image" href="https://www.blogsclub.org/badge/www.glowisle.me">
 <a href="/" class="title">
   <h1>映屿</h1>
 </a>
@@ -688,10 +688,12 @@ n个元素的数组最多需要n-1轮冒泡，如5元素数组需要4轮排序
 <div id="waline"></div>
   <script type="module">
     import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
-
     init({
       el: '#waline',
       serverURL: 'https://waline.glowisle.me',
+	  emoji: false,
+	  search: false,
+	  dark: true,
     });
 </script>
 

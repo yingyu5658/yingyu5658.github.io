@@ -6,35 +6,36 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="shortcut icon" href="https://www.glowisle.me/favicon.png" />
-<title>文章归档 | 映屿</title>
-<meta name="title" content="文章归档" />
-<meta name="description" content="" />
-<meta name="keywords" content="" />
+<title>Archives | 映屿</title>
+<meta name="title" content="Archives" />
+<meta name="description" content="关于互联网、书籍、生活琐事以及那些一闪而过的念头。计算机技术 &amp; 读书感悟 &amp; 日常随笔。" />
+<meta name="keywords" content="arch,b站,c,c语言,electron,emacs,fedora,geyser,gnu,hexo,java,javascript,linux,malody,minecraft,neovim,nodejs,obsidain,osu,seo,terrira,thunderbird,typecho,vim,windows,“厌蠢症”,三岛由纪夫,丰饶之海,书信,书评,二叉树,互联网,人际交往,价值,伊豆的舞女,信息节食,冒泡排序,写作,前端,功利主义,博客,历史,古文,哈希表,哲学,回忆,图书,夏,奔马,婚姻,学业,学校,实用,家庭,小品,川端康成,底层技术,形而上学,怀旧,思考与议论,总结,意识,意识流,感官,感谢恩师夸奖,我,扩列,搜索引擎,教程,散文,散步,数据结构与算法,文字,文学,文章,新闻组,旁观者,日常,日本文学,早睡早起,时政,春雪,暑假总结,月度总结,朋友圈,服务器,未成年人保护,杂文,杂记,死亡,汇编,沟通,游戏,物理,狗叫,猫,生命,知乎,社交,笔记,终端,编程,编译原理,编译器,网络环境,翻译,考试,自搜,西西弗,观察,记事,记忆,读书笔记,读后感,豆瓣,贝斯,购物,软件开发,辨证法,酒,阅读,阅读笔记,阿里云,随笔,韩愈,音乐," />
 
 <link rel="canonical" href="https://www.glowisle.me/archives/">
 
 
 <meta property="og:url" content="https://www.glowisle.me/archives/">
   <meta property="og:site_name" content="映屿">
-  <meta property="og:title" content="文章归档">
-  <meta property="og:description" content="关于互联网、书籍、生活琐事以及那些一闪而过的念头">
+  <meta property="og:title" content="Archives">
+  <meta property="og:description" content="关于互联网、书籍、生活琐事以及那些一闪而过的念头。计算机技术 &amp; 读书感悟 &amp; 日常随笔。">
   <meta property="og:locale" content="zh_CN">
-  <meta property="og:type" content="article">
+  <meta property="og:type" content="website">
 
 
 
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="文章归档">
-  <meta name="twitter:description" content="关于互联网、书籍、生活琐事以及那些一闪而过的念头">
+  <meta name="twitter:title" content="Archives">
+  <meta name="twitter:description" content="关于互联网、书籍、生活琐事以及那些一闪而过的念头。计算机技术 &amp; 读书感悟 &amp; 日常随笔。">
 
 
 
 
-  <meta itemprop="name" content="文章归档">
-  <meta itemprop="description" content="关于互联网、书籍、生活琐事以及那些一闪而过的念头">
+  <meta itemprop="name" content="Archives">
+  <meta itemprop="description" content="关于互联网、书籍、生活琐事以及那些一闪而过的念头。计算机技术 &amp; 读书感悟 &amp; 日常随笔。">
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
+  <link rel="alternate" type="application/rss+xml" href="http://www.glowisle.me/archives/atom.xml" title="映屿" />
   <style>
    
   :root {
@@ -161,6 +162,7 @@
     border-collapse: collapse;
     border: 1px solid var(--table-border-color);
     border-radius: 4px;
+	margin-top: 16px;
   }
 
   th,
@@ -411,10 +413,9 @@
 </head>
 
 <body>
-  <header><link
-    rel="stylesheet"
-    href="https://unpkg.com/@waline/client@v3/dist/waline.css"
-/>
+  <header><meta name="msvalidate.01" content="2E1AACF009206F2DDBAAD4B98E881460" />
+<link rel="stylesheet" href="/css/waline.css"/>
+<link rel="prefetch" as="image" href="https://www.blogsclub.org/badge/www.glowisle.me">
 <a href="/" class="title">
   <h1>映屿</h1>
 </a>
@@ -430,36 +431,73 @@
 </nav>
 </header>
   <main>
- 
-
-<content>  </content>
-
-<p>
+<content>
   
-</p>
+  <h3 style="margin-bottom:0">Filtering for "Archives"</h3>
+  <small>
+    <a href="/blog">Remove filter</a>
+  </small>
+  
+  
+  <input id="search-input" type="text" placeholder="Search..." style="margin-top: 16px" />
+  <script>
+    
+    document.addEventListener('DOMContentLoaded', function () {
+      
+      const searchInput = document.getElementById('search-input');
+      const posts = document.querySelectorAll('.blog-posts li');
+      const years = document.querySelectorAll('.blog-posts h3');
 
+      
+      function updateSearchResults(searchTerm) {
+        let visiblePosts = 0;
+        const displayedYears = new Set();
+        posts.forEach(function (post) {
+          const title = post.querySelector('a').textContent.toLowerCase();
+          const year = post.querySelector('time').getAttribute('datetime').split('-')[0];
+          if (title.includes(searchTerm)) {
+            post.style.display = '';
+            visiblePosts++;
+            displayedYears.add(year);
+          } else {
+            post.style.display = 'none';
+          }
+        });
 
+        
+        years.forEach(function (y) {
+          const year = y.textContent;
+          y.style.display = displayedYears.has(year) ? '' : 'none';
+        });
+        
 
+        
+        const countText = `There ${visiblePosts <= 1 ? `is ${visiblePosts} piece.` : `are ${visiblePosts} pieces.`}`;
+        document.getElementById('post-count').innerHTML = countText;
+        
+      }
 
-
-
- 
-<div class="toc">
-
-
-</div>
-
-
-<div id="waline"></div>
-  <script type="module">
-    import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
-
-    init({
-      el: '#waline',
-      serverURL: 'https://waline.glowisle.me',
+      searchInput.addEventListener('input', function () {
+        updateSearchResults(this.value.toLowerCase().trim());
+      });
     });
-</script>
-
+  </script>
+  
+  
+  
+  <p id="post-count">There  is 0 piece. </p>
+  
+  <ul class="blog-posts">
+    
+    
+    <li>
+      No posts yet
+    </li>
+    
+  </ul>
+  
+  
+</content>
 
   </main>
   <footer>
