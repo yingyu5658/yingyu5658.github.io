@@ -56,7 +56,7 @@
     --font-secondary: monospace;
     --font-size-primary: 1em;
     --font-size-secondary: 0.8em;
-    --body-bg-color: #fcfcfc;
+    --body-bg-color: #fdfde7;
     --bold-text-color: #222;
     --body-text-color: #444;
     --link-color: #3273dc;
@@ -68,32 +68,32 @@
     --code-text-color: #222;
     --blockquote-border-color: #666;
     --blockquote-text-color: #666;
-    --upvoted-color: #FA8072;
+    --upvoted-color: #fa8072;
     --caption-text-color: #666;
     --toc-text-color: #e5e5e5;
     --toc-hover-color: #655e5e;
   }
 
-  @media (prefers-color-scheme: dark) {
-     
-    :root {
-      --body-bg-color: #1c1c1c;
-      --bold-text-color: #eee;
-      --body-text-color: #ddd;
-      --link-color: #8cc2dd;
-      --link-visited-color: #c3b1ee;
-      --table-border-color: #999;
-      --table-th-bg-color: #999;
-      --img-border-color: #999;
-      --code-bg-color: #555;
-      --code-text-color: #ddd;
-      --blockquote-border-color: #ccc;
-      --blockquote-text-color: #ccc;
-      --caption-text-color: #aaa;
-      --toc-text-color: #373737;
-      --toc-hover-color: #CAC3C3;
-    }
+  .post-date,
+  .post-date-shortcode {
+    margin-left: auto;
+    color: #999;
   }
+
+  .site-name:hover {
+    background-color: transparent;
+    text-decoration: none;
+    color: #fff;
+    background-color: #7e4fa0;
+  }
+
+  .site-name {
+    transition: 0.3s;
+    width: 66px;
+    border-radius: 5px;
+    text-transform: uppercase;
+  }
+   
 
   body {
     font-family: var(--font-primary);
@@ -174,7 +174,7 @@
     border-collapse: collapse;
     border: 1px solid var(--table-border-color);
     border-radius: 4px;
-	margin-top: 16px;
+    margin-top: 16px;
   }
 
   th,
@@ -298,94 +298,103 @@
   ul.blog-posts li a:visited {
     color: var(--link-visited-color);
   }
-
    
-    div.toc {
-        position: fixed;  
-        top: 50%;  
-        left: calc((100vw + var(--width-max)) / 2);  
-        transform: translateY(-50%);  
-        width: calc((90vw - var(--width-max)) / 2);  
-        max-height: 80vh;  
-        overflow-y: auto;  
-        border: none;  
-        padding: 0;  
-        margin: 0;  
-        z-index: 99;  
+  div.toc {
+    position: fixed;  
+    top: 50%;  
+    left: calc(
+      (100vw + var(--width-max)) / 2
+    );  
+    transform: translateY(-50%);  
+    width: calc((90vw - var(--width-max)) / 2);  
+    max-height: 80vh;  
+    overflow-y: auto;  
+    border: none;  
+    padding: 0;  
+    margin: 0;  
+    z-index: 99;  
 
-         
-        &::-webkit-scrollbar {  
-            display: none;  
-        }
-
-        -ms-overflow-style: none;  
-        scrollbar-width: none;  
+     
+    &::-webkit-scrollbar {
+       
+      display: none;  
     }
 
-    .toc-nav {  
-        padding: 1.5rem;  
-    }
+    -ms-overflow-style: none;  
+    scrollbar-width: none;  
+  }
 
-    .toc-nav ul {  
-        list-style: none;  
-        padding: 0;  
-        margin: 0;  
-    }
+  .toc-nav {
+     
+    padding: 1.5rem;  
+  }
 
-    .toc-nav li {  
-        margin: 8px 0;  
-    }
+  .toc-nav ul {
+     
+    list-style: none;  
+    padding: 0;  
+    margin: 0;  
+  }
 
-    .toc-nav a {  
-        display: block;  
-        text-decoration: none;  
-        color: transparent;  
-        padding: 0 12px;  
-        transition: all 0.2s ease;  
-        font-size: 0.9rem;  
-        line-height: 1.4;  
-        text-align: left;  
-        white-space: nowrap;  
-        overflow: hidden;  
-        text-overflow: ellipsis;  
-        max-width: 100%;  
-    }
-    
-    .toc-nav:hover a {
-        color: var(--toc-text-color);  
-    }
+  .toc-nav li {
+     
+    margin: 8px 0;  
+  }
 
-    .toc-nav a::before {  
-        content: '';  
-        display: inline-block;  
-        width: 16px;  
-        height: 4px;  
-        background-color: var(--toc-text-color);  
-        border-radius: 16px;  
-        margin-right: 12px;  
-        vertical-align: middle;  
-    }
+  .toc-nav a {
+     
+    display: block;  
+    text-decoration: none;  
+    color: transparent;  
+    padding: 0 12px;  
+    transition: all 0.2s ease;  
+    font-size: 0.9rem;  
+    line-height: 1.4;  
+    text-align: left;  
+    white-space: nowrap;  
+    overflow: hidden;  
+    text-overflow: ellipsis;  
+    max-width: 100%;  
+  }
 
-    .toc-nav ul ul a::before {  
-        width: 12px;  
-        margin-right: 16px;  
-    }
+  .toc-nav:hover a {
+    color: var(--toc-text-color);  
+  }
 
-    .toc-nav ul ul ul a::before {  
-        width: 8px;  
-        margin-right: 20px;  
-    }
+  .toc-nav a::before {
+     
+    content: "";  
+    display: inline-block;  
+    width: 16px;  
+    height: 4px;  
+    background-color: var(--toc-text-color);  
+    border-radius: 16px;  
+    margin-right: 12px;  
+    vertical-align: middle;  
+  }
 
-    .toc-nav a.active,  
+  .toc-nav ul ul a::before {
+     
+    width: 12px;  
+    margin-right: 16px;  
+  }
+
+  .toc-nav ul ul ul a::before {
+     
+    width: 8px;  
+    margin-right: 20px;  
+  }
+
+  .toc-nav a.active,  
     .toc-nav a:hover {
-        text-decoration: none;  
-        color: var(--toc-hover-color);  
-    }
+    text-decoration: none;  
+    color: var(--toc-hover-color);  
+  }
 
-    .toc-nav a.active::before,  
+  .toc-nav a.active::before,  
     .toc-nav a:hover::before {
-        background-color: var(--toc-hover-color);  
-    }
+    background-color: var(--toc-hover-color);  
+  }
 
    
   button.upvote-btn {
@@ -428,7 +437,7 @@
 
 <body>
   <header><a href="/" class="title">
-  <h1>映屿</h1>
+  <h1 class="site-name">映屿</h1>
 </a>
 <nav><a href="/">首页</a>
 
@@ -441,8 +450,7 @@
 
 </nav>
 </header>
-  <main>
- 
+  <main> 
 
 <content> <p>今日凌晨读完了丰饶之海的第二卷：《奔马》，这是四部曲中最暴烈的一部。全书围绕着上一部的主人公松枝清显的转世 —— 饭沼勋的行动展开。讲述了一个阳刚强健的少年，因不忍政治腐败，天皇的实权丧失，忧国之心驱使他组织刺杀政府企业巨头，失败后，他雄心未泯，最终刺杀了藏原再切腹自尽的故事。重点展现了作者对武士道中「忠」与「勇」的极致追求。</p>
 <p>本部书与上一部《春雪》比起来，又是另一个极端。上一部的主人公松枝清显沉溺在幻想中，优柔寡断；而转生后的饭沼勋则成了一个行动者。如果说松枝清显是作者孱弱一面的投射，那么饭沼勋则是作者暴烈极端的一面和其政治诉求的投射。清显沉溺幻想的虚无，饭沼勋用行动对抗虚无。作者塑造了一个让人印象深刻的少年形象：冲动的、理想的、认知是非黑即白的、尖锐的少年形象。</p>
@@ -479,28 +487,23 @@
   
 </p>
 
-
-
-
+ 
 
 
  
 <div class="toc">
-
-
 </div>
 
 
 <div id="waline"></div>
-  <script type="module">
-    import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
-    init({
-      el: '#waline',
-      serverURL: 'https://waline.glowisle.me',
-	  emoji: false,
-	  search: false,
-	  dark: true,
-    });
+<script type="module">
+  import { init } from "https://unpkg.com/@waline/client@v3/dist/waline.js";
+  init({
+    el: "#waline",
+    serverURL: "https://waline.glowisle.me",
+    emoji: false,
+    search: false,
+  });
 </script>
 
 

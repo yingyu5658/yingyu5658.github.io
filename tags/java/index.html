@@ -46,7 +46,7 @@
     --font-secondary: monospace;
     --font-size-primary: 1em;
     --font-size-secondary: 0.8em;
-    --body-bg-color: #fcfcfc;
+    --body-bg-color: #fdfde7;
     --bold-text-color: #222;
     --body-text-color: #444;
     --link-color: #3273dc;
@@ -58,32 +58,32 @@
     --code-text-color: #222;
     --blockquote-border-color: #666;
     --blockquote-text-color: #666;
-    --upvoted-color: #FA8072;
+    --upvoted-color: #fa8072;
     --caption-text-color: #666;
     --toc-text-color: #e5e5e5;
     --toc-hover-color: #655e5e;
   }
 
-  @media (prefers-color-scheme: dark) {
-     
-    :root {
-      --body-bg-color: #1c1c1c;
-      --bold-text-color: #eee;
-      --body-text-color: #ddd;
-      --link-color: #8cc2dd;
-      --link-visited-color: #c3b1ee;
-      --table-border-color: #999;
-      --table-th-bg-color: #999;
-      --img-border-color: #999;
-      --code-bg-color: #555;
-      --code-text-color: #ddd;
-      --blockquote-border-color: #ccc;
-      --blockquote-text-color: #ccc;
-      --caption-text-color: #aaa;
-      --toc-text-color: #373737;
-      --toc-hover-color: #CAC3C3;
-    }
+  .post-date,
+  .post-date-shortcode {
+    margin-left: auto;
+    color: #999;
   }
+
+  .site-name:hover {
+    background-color: transparent;
+    text-decoration: none;
+    color: #fff;
+    background-color: #7e4fa0;
+  }
+
+  .site-name {
+    transition: 0.3s;
+    width: 66px;
+    border-radius: 5px;
+    text-transform: uppercase;
+  }
+   
 
   body {
     font-family: var(--font-primary);
@@ -164,7 +164,7 @@
     border-collapse: collapse;
     border: 1px solid var(--table-border-color);
     border-radius: 4px;
-	margin-top: 16px;
+    margin-top: 16px;
   }
 
   th,
@@ -288,94 +288,103 @@
   ul.blog-posts li a:visited {
     color: var(--link-visited-color);
   }
-
    
-    div.toc {
-        position: fixed;  
-        top: 50%;  
-        left: calc((100vw + var(--width-max)) / 2);  
-        transform: translateY(-50%);  
-        width: calc((90vw - var(--width-max)) / 2);  
-        max-height: 80vh;  
-        overflow-y: auto;  
-        border: none;  
-        padding: 0;  
-        margin: 0;  
-        z-index: 99;  
+  div.toc {
+    position: fixed;  
+    top: 50%;  
+    left: calc(
+      (100vw + var(--width-max)) / 2
+    );  
+    transform: translateY(-50%);  
+    width: calc((90vw - var(--width-max)) / 2);  
+    max-height: 80vh;  
+    overflow-y: auto;  
+    border: none;  
+    padding: 0;  
+    margin: 0;  
+    z-index: 99;  
 
-         
-        &::-webkit-scrollbar {  
-            display: none;  
-        }
-
-        -ms-overflow-style: none;  
-        scrollbar-width: none;  
+     
+    &::-webkit-scrollbar {
+       
+      display: none;  
     }
 
-    .toc-nav {  
-        padding: 1.5rem;  
-    }
+    -ms-overflow-style: none;  
+    scrollbar-width: none;  
+  }
 
-    .toc-nav ul {  
-        list-style: none;  
-        padding: 0;  
-        margin: 0;  
-    }
+  .toc-nav {
+     
+    padding: 1.5rem;  
+  }
 
-    .toc-nav li {  
-        margin: 8px 0;  
-    }
+  .toc-nav ul {
+     
+    list-style: none;  
+    padding: 0;  
+    margin: 0;  
+  }
 
-    .toc-nav a {  
-        display: block;  
-        text-decoration: none;  
-        color: transparent;  
-        padding: 0 12px;  
-        transition: all 0.2s ease;  
-        font-size: 0.9rem;  
-        line-height: 1.4;  
-        text-align: left;  
-        white-space: nowrap;  
-        overflow: hidden;  
-        text-overflow: ellipsis;  
-        max-width: 100%;  
-    }
-    
-    .toc-nav:hover a {
-        color: var(--toc-text-color);  
-    }
+  .toc-nav li {
+     
+    margin: 8px 0;  
+  }
 
-    .toc-nav a::before {  
-        content: '';  
-        display: inline-block;  
-        width: 16px;  
-        height: 4px;  
-        background-color: var(--toc-text-color);  
-        border-radius: 16px;  
-        margin-right: 12px;  
-        vertical-align: middle;  
-    }
+  .toc-nav a {
+     
+    display: block;  
+    text-decoration: none;  
+    color: transparent;  
+    padding: 0 12px;  
+    transition: all 0.2s ease;  
+    font-size: 0.9rem;  
+    line-height: 1.4;  
+    text-align: left;  
+    white-space: nowrap;  
+    overflow: hidden;  
+    text-overflow: ellipsis;  
+    max-width: 100%;  
+  }
 
-    .toc-nav ul ul a::before {  
-        width: 12px;  
-        margin-right: 16px;  
-    }
+  .toc-nav:hover a {
+    color: var(--toc-text-color);  
+  }
 
-    .toc-nav ul ul ul a::before {  
-        width: 8px;  
-        margin-right: 20px;  
-    }
+  .toc-nav a::before {
+     
+    content: "";  
+    display: inline-block;  
+    width: 16px;  
+    height: 4px;  
+    background-color: var(--toc-text-color);  
+    border-radius: 16px;  
+    margin-right: 12px;  
+    vertical-align: middle;  
+  }
 
-    .toc-nav a.active,  
+  .toc-nav ul ul a::before {
+     
+    width: 12px;  
+    margin-right: 16px;  
+  }
+
+  .toc-nav ul ul ul a::before {
+     
+    width: 8px;  
+    margin-right: 20px;  
+  }
+
+  .toc-nav a.active,  
     .toc-nav a:hover {
-        text-decoration: none;  
-        color: var(--toc-hover-color);  
-    }
+    text-decoration: none;  
+    color: var(--toc-hover-color);  
+  }
 
-    .toc-nav a.active::before,  
+  .toc-nav a.active::before,  
     .toc-nav a:hover::before {
-        background-color: var(--toc-hover-color);  
-    }
+    background-color: var(--toc-hover-color);  
+  }
 
    
   button.upvote-btn {
@@ -418,7 +427,7 @@
 
 <body>
   <header><a href="/" class="title">
-  <h1>映屿</h1>
+  <h1 class="site-name">映屿</h1>
 </a>
 <nav><a href="/">首页</a>
 
@@ -499,95 +508,75 @@
     
     
     
-    <li>
-      <span class=" grouped ">
-        <i>
-          <time datetime='2025-04-19' pubdate>
-            
-            19 Apr.
-            
-          </time>
-        </i>
-      </span>
+ <li>
       <a href="https://www.glowisle.me/posts/%E9%BB%91%E5%8E%86%E5%8F%B2%E8%AF%BB%E8%87%AA%E5%B7%B1%E4%BB%A5%E5%89%8D%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81/">【黑历史】读自己以前写的代码</a>
-    </li>
-    
-    
-    
-    
-    
-    
-    
-    <li>
-      <span class=" grouped ">
-        <i>
-          <time datetime='2025-01-10' pubdate>
-            
-            10 Jan.
-            
-          </time>
-        </i>
+      <span class="post-date"  grouped >
+        <time datetime='2025-04-19' pubdate>
+          &lt;2025-04-19 Sat&gt;
+        </time>
       </span>
+    </li>
+   
+    
+    
+    
+    
+    
+    
+ <li>
       <a href="https://www.glowisle.me/posts/186/">Java面向对象编程——多态、抽象类、接口</a>
-    </li>
-    
-    
-    
-    
-    
-    
-    
-    <li>
-      <span class=" grouped ">
-        <i>
-          <time datetime='2025-01-10' pubdate>
-            
-            10 Jan.
-            
-          </time>
-        </i>
+      <span class="post-date"  grouped >
+        <time datetime='2025-01-10' pubdate>
+          &lt;2025-01-10 Fri&gt;
+        </time>
       </span>
+    </li>
+   
+    
+    
+    
+    
+    
+    
+ <li>
       <a href="https://www.glowisle.me/posts/185/">Java面向对象编程——继承</a>
-    </li>
-    
-    
-    
-    
-    
-    
-    
-    <li>
-      <span class=" grouped ">
-        <i>
-          <time datetime='2025-01-08' pubdate>
-            
-            08 Jan.
-            
-          </time>
-        </i>
+      <span class="post-date"  grouped >
+        <time datetime='2025-01-10' pubdate>
+          &lt;2025-01-10 Fri&gt;
+        </time>
       </span>
+    </li>
+   
+    
+    
+    
+    
+    
+    
+ <li>
       <a href="https://www.glowisle.me/posts/184/">修复Geyser下基岩版玩家无法在地狱基岩层放置方块</a>
-    </li>
-    
-    
-    
-    
-    
-    
-    
-    <li>
-      <span class=" grouped ">
-        <i>
-          <time datetime='2025-01-04' pubdate>
-            
-            04 Jan.
-            
-          </time>
-        </i>
+      <span class="post-date"  grouped >
+        <time datetime='2025-01-08' pubdate>
+          &lt;2025-01-08 Wed&gt;
+        </time>
       </span>
-      <a href="https://www.glowisle.me/posts/181/">Spigot服务端控制台中文乱码解决方案</a>
     </li>
+   
     
+    
+    
+    
+    
+    
+ <li>
+      <a href="https://www.glowisle.me/posts/181/">Spigot服务端控制台中文乱码解决方案</a>
+      <span class="post-date"  grouped >
+        <time datetime='2025-01-04' pubdate>
+          &lt;2025-01-04 Sat&gt;
+        </time>
+      </span>
+    </li>
+   
     
     
     
@@ -597,133 +586,105 @@
     
     
     
-    <li>
-      <span class=" grouped ">
-        <i>
-          <time datetime='2024-12-19' pubdate>
-            
-            19 Dec.
-            
-          </time>
-        </i>
-      </span>
+ <li>
       <a href="https://www.glowisle.me/posts/171/">String的注意事项</a>
-    </li>
-    
-    
-    
-    
-    
-    
-    
-    <li>
-      <span class=" grouped ">
-        <i>
-          <time datetime='2024-12-18' pubdate>
-            
-            18 Dec.
-            
-          </time>
-        </i>
+      <span class="post-date"  grouped >
+        <time datetime='2024-12-19' pubdate>
+          &lt;2024-12-19 Thu&gt;
+        </time>
       </span>
+    </li>
+   
+    
+    
+    
+    
+    
+    
+ <li>
       <a href="https://www.glowisle.me/posts/166/">面向对象编程总结</a>
-    </li>
-    
-    
-    
-    
-    
-    
-    
-    <li>
-      <span class=" grouped ">
-        <i>
-          <time datetime='2024-12-01' pubdate>
-            
-            01 Dec.
-            
-          </time>
-        </i>
+      <span class="post-date"  grouped >
+        <time datetime='2024-12-18' pubdate>
+          &lt;2024-12-18 Wed&gt;
+        </time>
       </span>
+    </li>
+   
+    
+    
+    
+    
+    
+    
+ <li>
       <a href="https://www.glowisle.me/posts/98/">Java面向对象编程快速入门</a>
-    </li>
-    
-    
-    
-    
-    
-    
-    
-    <li>
-      <span class=" grouped ">
-        <i>
-          <time datetime='2024-12-01' pubdate>
-            
-            01 Dec.
-            
-          </time>
-        </i>
+      <span class="post-date"  grouped >
+        <time datetime='2024-12-01' pubdate>
+          &lt;2024-12-01 Sun&gt;
+        </time>
       </span>
+    </li>
+   
+    
+    
+    
+    
+    
+    
+ <li>
       <a href="https://www.glowisle.me/posts/99/">深刻认识面向对象</a>
-    </li>
-    
-    
-    
-    
-    
-    
-    
-    <li>
-      <span class=" grouped ">
-        <i>
-          <time datetime='2024-11-30' pubdate>
-            
-            30 Nov.
-            
-          </time>
-        </i>
+      <span class="post-date"  grouped >
+        <time datetime='2024-12-01' pubdate>
+          &lt;2024-12-01 Sun&gt;
+        </time>
       </span>
+    </li>
+   
+    
+    
+    
+    
+    
+    
+ <li>
       <a href="https://www.glowisle.me/posts/95/">Java方法的传参原理</a>
-    </li>
-    
-    
-    
-    
-    
-    
-    
-    <li>
-      <span class=" grouped ">
-        <i>
-          <time datetime='2024-11-30' pubdate>
-            
-            30 Nov.
-            
-          </time>
-        </i>
+      <span class="post-date"  grouped >
+        <time datetime='2024-11-30' pubdate>
+          &lt;2024-11-30 Sat&gt;
+        </time>
       </span>
+    </li>
+   
+    
+    
+    
+    
+    
+    
+ <li>
       <a href="https://www.glowisle.me/posts/90/">Java小程序之两数计算器</a>
-    </li>
-    
-    
-    
-    
-    
-    
-    
-    <li>
-      <span class=" grouped ">
-        <i>
-          <time datetime='2024-11-29' pubdate>
-            
-            29 Nov.
-            
-          </time>
-        </i>
+      <span class="post-date"  grouped >
+        <time datetime='2024-11-30' pubdate>
+          &lt;2024-11-30 Sat&gt;
+        </time>
       </span>
-      <a href="https://www.glowisle.me/posts/89/">Java方法的基本使用</a>
     </li>
+   
     
+    
+    
+    
+    
+    
+ <li>
+      <a href="https://www.glowisle.me/posts/89/">Java方法的基本使用</a>
+      <span class="post-date"  grouped >
+        <time datetime='2024-11-29' pubdate>
+          &lt;2024-11-29 Fri&gt;
+        </time>
+      </span>
+    </li>
+   
     
   </ul>
   

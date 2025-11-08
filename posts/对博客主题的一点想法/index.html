@@ -49,7 +49,7 @@
     --font-secondary: monospace;
     --font-size-primary: 1em;
     --font-size-secondary: 0.8em;
-    --body-bg-color: #fcfcfc;
+    --body-bg-color: #fdfde7;
     --bold-text-color: #222;
     --body-text-color: #444;
     --link-color: #3273dc;
@@ -61,32 +61,32 @@
     --code-text-color: #222;
     --blockquote-border-color: #666;
     --blockquote-text-color: #666;
-    --upvoted-color: #FA8072;
+    --upvoted-color: #fa8072;
     --caption-text-color: #666;
     --toc-text-color: #e5e5e5;
     --toc-hover-color: #655e5e;
   }
 
-  @media (prefers-color-scheme: dark) {
-     
-    :root {
-      --body-bg-color: #1c1c1c;
-      --bold-text-color: #eee;
-      --body-text-color: #ddd;
-      --link-color: #8cc2dd;
-      --link-visited-color: #c3b1ee;
-      --table-border-color: #999;
-      --table-th-bg-color: #999;
-      --img-border-color: #999;
-      --code-bg-color: #555;
-      --code-text-color: #ddd;
-      --blockquote-border-color: #ccc;
-      --blockquote-text-color: #ccc;
-      --caption-text-color: #aaa;
-      --toc-text-color: #373737;
-      --toc-hover-color: #CAC3C3;
-    }
+  .post-date,
+  .post-date-shortcode {
+    margin-left: auto;
+    color: #999;
   }
+
+  .site-name:hover {
+    background-color: transparent;
+    text-decoration: none;
+    color: #fff;
+    background-color: #7e4fa0;
+  }
+
+  .site-name {
+    transition: 0.3s;
+    width: 66px;
+    border-radius: 5px;
+    text-transform: uppercase;
+  }
+   
 
   body {
     font-family: var(--font-primary);
@@ -167,7 +167,7 @@
     border-collapse: collapse;
     border: 1px solid var(--table-border-color);
     border-radius: 4px;
-	margin-top: 16px;
+    margin-top: 16px;
   }
 
   th,
@@ -291,94 +291,103 @@
   ul.blog-posts li a:visited {
     color: var(--link-visited-color);
   }
-
    
-    div.toc {
-        position: fixed;  
-        top: 50%;  
-        left: calc((100vw + var(--width-max)) / 2);  
-        transform: translateY(-50%);  
-        width: calc((90vw - var(--width-max)) / 2);  
-        max-height: 80vh;  
-        overflow-y: auto;  
-        border: none;  
-        padding: 0;  
-        margin: 0;  
-        z-index: 99;  
+  div.toc {
+    position: fixed;  
+    top: 50%;  
+    left: calc(
+      (100vw + var(--width-max)) / 2
+    );  
+    transform: translateY(-50%);  
+    width: calc((90vw - var(--width-max)) / 2);  
+    max-height: 80vh;  
+    overflow-y: auto;  
+    border: none;  
+    padding: 0;  
+    margin: 0;  
+    z-index: 99;  
 
-         
-        &::-webkit-scrollbar {  
-            display: none;  
-        }
-
-        -ms-overflow-style: none;  
-        scrollbar-width: none;  
+     
+    &::-webkit-scrollbar {
+       
+      display: none;  
     }
 
-    .toc-nav {  
-        padding: 1.5rem;  
-    }
+    -ms-overflow-style: none;  
+    scrollbar-width: none;  
+  }
 
-    .toc-nav ul {  
-        list-style: none;  
-        padding: 0;  
-        margin: 0;  
-    }
+  .toc-nav {
+     
+    padding: 1.5rem;  
+  }
 
-    .toc-nav li {  
-        margin: 8px 0;  
-    }
+  .toc-nav ul {
+     
+    list-style: none;  
+    padding: 0;  
+    margin: 0;  
+  }
 
-    .toc-nav a {  
-        display: block;  
-        text-decoration: none;  
-        color: transparent;  
-        padding: 0 12px;  
-        transition: all 0.2s ease;  
-        font-size: 0.9rem;  
-        line-height: 1.4;  
-        text-align: left;  
-        white-space: nowrap;  
-        overflow: hidden;  
-        text-overflow: ellipsis;  
-        max-width: 100%;  
-    }
-    
-    .toc-nav:hover a {
-        color: var(--toc-text-color);  
-    }
+  .toc-nav li {
+     
+    margin: 8px 0;  
+  }
 
-    .toc-nav a::before {  
-        content: '';  
-        display: inline-block;  
-        width: 16px;  
-        height: 4px;  
-        background-color: var(--toc-text-color);  
-        border-radius: 16px;  
-        margin-right: 12px;  
-        vertical-align: middle;  
-    }
+  .toc-nav a {
+     
+    display: block;  
+    text-decoration: none;  
+    color: transparent;  
+    padding: 0 12px;  
+    transition: all 0.2s ease;  
+    font-size: 0.9rem;  
+    line-height: 1.4;  
+    text-align: left;  
+    white-space: nowrap;  
+    overflow: hidden;  
+    text-overflow: ellipsis;  
+    max-width: 100%;  
+  }
 
-    .toc-nav ul ul a::before {  
-        width: 12px;  
-        margin-right: 16px;  
-    }
+  .toc-nav:hover a {
+    color: var(--toc-text-color);  
+  }
 
-    .toc-nav ul ul ul a::before {  
-        width: 8px;  
-        margin-right: 20px;  
-    }
+  .toc-nav a::before {
+     
+    content: "";  
+    display: inline-block;  
+    width: 16px;  
+    height: 4px;  
+    background-color: var(--toc-text-color);  
+    border-radius: 16px;  
+    margin-right: 12px;  
+    vertical-align: middle;  
+  }
 
-    .toc-nav a.active,  
+  .toc-nav ul ul a::before {
+     
+    width: 12px;  
+    margin-right: 16px;  
+  }
+
+  .toc-nav ul ul ul a::before {
+     
+    width: 8px;  
+    margin-right: 20px;  
+  }
+
+  .toc-nav a.active,  
     .toc-nav a:hover {
-        text-decoration: none;  
-        color: var(--toc-hover-color);  
-    }
+    text-decoration: none;  
+    color: var(--toc-hover-color);  
+  }
 
-    .toc-nav a.active::before,  
+  .toc-nav a.active::before,  
     .toc-nav a:hover::before {
-        background-color: var(--toc-hover-color);  
-    }
+    background-color: var(--toc-hover-color);  
+  }
 
    
   button.upvote-btn {
@@ -421,7 +430,7 @@
 
 <body>
   <header><a href="/" class="title">
-  <h1>映屿</h1>
+  <h1 class="site-name">映屿</h1>
 </a>
 <nav><a href="/">首页</a>
 
@@ -434,8 +443,7 @@
 
 </nav>
 </header>
-  <main>
- 
+  <main> 
 
 <content> <p>简单回顾以下建站历程，博客的内容从“我是谁”转移到了&quot;我想说什么&quot;。从最早开始正式写博客的<strong>Gmeek</strong>，到后来使用<strong>Typecho</strong>，再到<strong>Hexo,Hugo</strong>，这几个不同的时期是我对主题看法的不同阶段。</p>
 <p>Gmeek时期，没有概念，没看过几个人的博客，后来接触得多了，看了很多主题才意识到自己博客的主题有多简陋，换到Typecho，开始折腾主题，经历了一段不堪回首的时期。经典的一些元素：左下角挡字小人、底部音乐播放器、背景樱花飘落特效、点击特效，总之就是各种花里胡哨。文章，没有几篇，但是你可以在网页上找到任何你想找到的东西，除了文章。当时很喜欢Butterfly主题</p>
@@ -452,28 +460,23 @@
   
 </p>
 
-
-
-
+ 
 
 
  
 <div class="toc">
-
-
 </div>
 
 
 <div id="waline"></div>
-  <script type="module">
-    import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
-    init({
-      el: '#waline',
-      serverURL: 'https://waline.glowisle.me',
-	  emoji: false,
-	  search: false,
-	  dark: true,
-    });
+<script type="module">
+  import { init } from "https://unpkg.com/@waline/client@v3/dist/waline.js";
+  init({
+    el: "#waline",
+    serverURL: "https://waline.glowisle.me",
+    emoji: false,
+    search: false,
+  });
 </script>
 
 
