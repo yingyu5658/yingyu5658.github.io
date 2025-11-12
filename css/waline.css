@@ -18,8 +18,8 @@
     --waline-m-avatar-size: calc(var(--waline-avatar-size) * 9 / 13);
     --waline-badge-color: #3498db;
     --waline-badge-font-size: 0.75em;
-    --waline-info-bg-color: #f8f8f8;
-    --waline-info-color: #999;
+    --waline-info-bg-color: none;
+    --waline-info-color: #444;
     --waline-info-font-size: 0.625em;
     --waline-border: 1px solid var(--waline-border-color);
     --waline-avatar-radius: 50%;
@@ -562,6 +562,7 @@
     }
 }
 .wl-cards .wl-user .wl-user-avatar {
+	display: none;
     width: var(--avatar-size);
     height: var(--avatar-size);
     border-radius: var(--waline-avatar-radius);
@@ -579,7 +580,6 @@
 .wl-card-item {
     position: relative;
     display: flex;
-    padding: 0.5em;
 }
 .wl-card-item .wl-card-item {
     padding-inline-end: 0;
@@ -632,6 +632,7 @@
     font-size: 0.75em;
 }
 .wl-card .wl-meta {
+	display: none;
     position: relative;
     line-height: 1;
 }
@@ -683,7 +684,7 @@
 .wl-card .wl-content {
     position: relative;
     margin-bottom: 0.75em;
-    padding-top: 0.625em;
+    padding-top: 0;
     font-size: 0.875em;
     line-height: 2;
     overflow-wrap: break-word;
@@ -752,6 +753,9 @@
 .wl-close-icon {
     color: var(--waline-border-color);
 }
+.wl-content p {
+	margin-left: 15px;
+}
 .wl-content .vemoji,
 .wl-content .wl-emoji {
     display: inline-block;
@@ -816,6 +820,7 @@
     padding: 0.375em;
 }
 .wl-sort {
+	display: none;
     margin: 0;
     list-style-type: none;
 }

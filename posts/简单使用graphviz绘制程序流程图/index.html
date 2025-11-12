@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="https://www.glowisle.me/favicon.png" />
+<title>简单使用Graphviz绘制程序流程图 | 映屿</title>
+<meta name="title" content="简单使用Graphviz绘制程序流程图" />
+<meta name="description" content="Graphviz
+Graphviz 是一个开源的图形可视化软件，主要用于绘制有向图和无向图。
+用途：
+
+
+数据结构可视化：Graphviz 常用于显示数据结构，如抽象语法树或其他编程语言、工具或服务中的数据结构。" />
+<meta name="keywords" content="Graphviz," />
+
+<link rel="canonical" href="https://www.glowisle.me/posts/%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8graphviz%E7%BB%98%E5%88%B6%E7%A8%8B%E5%BA%8F%E6%B5%81%E7%A8%8B%E5%9B%BE/">
+
+
+<meta property="og:url" content="https://www.glowisle.me/posts/%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8graphviz%E7%BB%98%E5%88%B6%E7%A8%8B%E5%BA%8F%E6%B5%81%E7%A8%8B%E5%9B%BE/">
+  <meta property="og:site_name" content="映屿">
+  <meta property="og:title" content="简单使用Graphviz绘制程序流程图">
+  <meta property="og:description" content="Graphviz Graphviz 是一个开源的图形可视化软件，主要用于绘制有向图和无向图。
+用途：
+数据结构可视化：Graphviz 常用于显示数据结构，如抽象语法树或其他编程语言、工具或服务中的数据结构。">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-11-12T11:13:24+08:00">
+    <meta property="article:modified_time" content="2025-11-12T11:13:24+08:00">
+    <meta property="article:tag" content="Graphviz">
+
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="简单使用Graphviz绘制程序流程图">
+  <meta name="twitter:description" content="Graphviz Graphviz 是一个开源的图形可视化软件，主要用于绘制有向图和无向图。
+用途：
+数据结构可视化：Graphviz 常用于显示数据结构，如抽象语法树或其他编程语言、工具或服务中的数据结构。">
+
+
+
+
+  <meta itemprop="name" content="简单使用Graphviz绘制程序流程图">
+  <meta itemprop="description" content="Graphviz Graphviz 是一个开源的图形可视化软件，主要用于绘制有向图和无向图。
+用途：
+数据结构可视化：Graphviz 常用于显示数据结构，如抽象语法树或其他编程语言、工具或服务中的数据结构。">
+  <meta itemprop="datePublished" content="2025-11-12T11:13:24+08:00">
+  <meta itemprop="dateModified" content="2025-11-12T11:13:24+08:00">
+  <meta itemprop="wordCount" content="942">
+  <meta itemprop="keywords" content="Graphviz">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+   
+  :root {
+    --width-max: 720px;
+    --font-primary: Verdana, sans-serif;
+    --font-secondary: monospace;
+    --font-size-primary: 1em;
+    --font-size-secondary: 0.8em;
+    --body-bg-color: #fdfde7;
+    --bold-text-color: #222;
+    --body-text-color: #444;
+    --link-color: #3273dc;
+    --link-visited-color: #8b6fcb;
+    --table-border-color: #f2f2f2;
+    --table-th-bg-color: #f2f2f2;
+    --img-border-color: #f2f2f2;
+    --code-bg-color: #f2f2f2;
+    --code-text-color: #222;
+    --blockquote-border-color: #666;
+    --blockquote-text-color: #666;
+    --upvoted-color: #fa8072;
+    --caption-text-color: #666;
+    --toc-text-color: #e5e5e5;
+    --toc-hover-color: #655e5e;
+  }
+
+  .post-date,
+  .post-date-shortcode {
+    margin-left: auto;
+    color: #999;
+  }
+
+  .site-name:hover {
+    background-color: transparent;
+    text-decoration: none;
+    color: #fff;
+    background-color: #7e4fa0;
+  }
+
+  .site-name {
+    transition: 0.3s;
+    width: 66px;
+    border-radius: 5px;
+    text-transform: uppercase;
+  }
+   
+
+  body {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-primary);
+    margin: auto;
+    padding: 20px;
+    max-width: var(--width-max);
+    text-align: left;
+    background-color: var(--body-bg-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: var(--body-text-color);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: var(--bold-text-color);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 16px 0;
+  }
+
+  a {
+    color: var(--link-color);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title:hover {
+    text-decoration: none;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 8px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 14px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid var(--table-border-color);
+    border-radius: 4px;
+    margin-top: 16px;
+  }
+
+  th,
+  td {
+    border: 1px solid var(--table-border-color);
+    padding: 4px;
+  }
+
+  th {
+    background-color: var(--table-th-bg-color);
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px dashed;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid var(--img-border-color);
+    border-radius: 4px;
+    content-visibility: auto;
+    loading: lazy;
+  }
+
+  img[src*="#minipic"] {
+    max-width: 50%;
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  .image-caption figcaption {
+    text-align: center;
+    font-style: italic;
+    font-size: 0.8em;
+    margin-top: 0.6em;
+    color: var(--caption-text-color);
+  }
+
+  .image-caption {
+    margin: auto;
+  }
+
+  i {
+    font-style: normal;
+  }
+
+  time {
+    font-family: var(--font-secondary);
+    font-size: 15px;
+  }
+
+  code {
+    font-family: var(--font-secondary);
+    background-color: var(--code-bg-color);
+    color: var(--code-text-color);
+    padding: 2px;
+    border-radius: 4px;
+  }
+
+  pre code {
+    display: block;
+    padding: 16px;
+    white-space: pre-wrap;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    border-radius: 4px;
+  }
+
+  div.highlight code {
+    background-color: var(--code-bg-color);
+    color: var(--code-text-color);
+  }
+
+  blockquote {
+    border-left: 2px solid var(--blockquote-border-color);
+    color: var(--blockquote-text-color);
+    margin: 0;
+    padding-left: 16px;
+    font-style: normal;
+  }
+
+  blockquote p {
+    margin: 0;
+  }
+
+  footer {
+    padding: 25px 0;
+    text-align: center;
+    font-size: var(--font-size-secondary);
+  }
+
+  ul li:has(input) {
+    list-style-type: none;
+    margin-left: -25.5px;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li span.grouped {
+    flex: 0 0 80px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: var(--link-visited-color);
+  }
+   
+  div.toc {
+    position: fixed;  
+    top: 50%;  
+    left: calc(
+      (100vw + var(--width-max)) / 2
+    );  
+    transform: translateY(-50%);  
+    width: calc((90vw - var(--width-max)) / 2);  
+    max-height: 80vh;  
+    overflow-y: auto;  
+    border: none;  
+    padding: 0;  
+    margin: 0;  
+    z-index: 99;  
+
+     
+    &::-webkit-scrollbar {
+       
+      display: none;  
+    }
+
+    -ms-overflow-style: none;  
+    scrollbar-width: none;  
+  }
+
+  .toc-nav {
+     
+    padding: 1.5rem;  
+  }
+
+  .toc-nav ul {
+     
+    list-style: none;  
+    padding: 0;  
+    margin: 0;  
+  }
+
+  .toc-nav li {
+     
+    margin: 8px 0;  
+  }
+
+  .toc-nav a {
+     
+    display: block;  
+    text-decoration: none;  
+    color: transparent;  
+    padding: 0 12px;  
+    transition: all 0.2s ease;  
+    font-size: 0.9rem;  
+    line-height: 1.4;  
+    text-align: left;  
+    white-space: nowrap;  
+    overflow: hidden;  
+    text-overflow: ellipsis;  
+    max-width: 100%;  
+  }
+
+  .toc-nav:hover a {
+    color: var(--toc-text-color);  
+  }
+
+  .toc-nav a::before {
+     
+    content: "";  
+    display: inline-block;  
+    width: 16px;  
+    height: 4px;  
+    background-color: var(--toc-text-color);  
+    border-radius: 16px;  
+    margin-right: 12px;  
+    vertical-align: middle;  
+  }
+
+  .toc-nav ul ul a::before {
+     
+    width: 12px;  
+    margin-right: 16px;  
+  }
+
+  .toc-nav ul ul ul a::before {
+     
+    width: 8px;  
+    margin-right: 20px;  
+  }
+
+  .toc-nav a.active,  
+    .toc-nav a:hover {
+    text-decoration: none;  
+    color: var(--toc-hover-color);  
+  }
+
+  .toc-nav a.active::before,  
+    .toc-nav a:hover::before {
+    background-color: var(--toc-hover-color);  
+  }
+
+   
+  button.upvote-btn {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--body-text-color);
+  }
+
+  button.upvoted {
+    color: var(--upvoted-color);
+  }
+
+  span.upvote-count {
+    margin-top: -4px;
+    font-size: smaller;
+  }
+
+  @media (max-width: 800px) {
+    img[src*="#minipic"] {
+      max-width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    div.toc {
+      display: none;
+    }
+  }
+</style>
+<meta name="msvalidate.01" content="2E1AACF009206F2DDBAAD4B98E881460" />
+<link rel="stylesheet" href="/css/waline.css"/>
+<link rel="prefetch" as="image" href="https://www.blogsclub.org/badge/www.glowisle.me">
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h1 class="site-name">映屿</h1>
+</a>
+<nav><a href="/">首页</a>
+
+<a href="/posts">文章</a>
+
+<a href="/links">友人</a>
+
+<a href="/about">关于</a>
+
+
+</nav>
+</header>
+  <main> 
+
+<content> <h2 id="graphviz">Graphviz</h2>
+<p>Graphviz 是一个开源的图形可视化软件，主要用于绘制有向图和无向图。</p>
+<p>用途：</p>
+<ol>
+<li>
+<p>数据结构可视化：Graphviz 常用于显示数据结构，如抽象语法树或其他编程语言、工具或服务中的数据结构。</p>
+</li>
+<li>
+<p>软件设计和架构：通过Graphviz，开发者可以可视化系统组件、依赖关系和交互。</p>
+</li>
+<li>
+<p>网络拓扑图：用于显示网络设备和其连接的物理或逻辑视图。</p>
+</li>
+<li>
+<p>业务流程和工作流程图：描述组织或系统中的工作流程。</p>
+</li>
+<li>
+<p>其他任何需要图形表示的场景，例如状态机、决策树、组织结构图等。</p>
+</li>
+</ol>
+<p>优势：</p>
+<ol>
+<li>
+<p>声明性语言：Graphviz 使用一种称为 DOT 的声明性图形描述语言。用户只需描述图形的元素（如节点和边）及其关系，而无需指定其在屏幕上的确切位置。这使得创建和修改图形变得非常简单。</p>
+</li>
+<li>
+<p>自动布局：Graphviz 的一个显著特点是其强大的自动布局工具，这意味着你不需要手动指定节点的位置；Graphviz 将自动为你找到一个有意义和易于阅读的布局。</p>
+</li>
+<li>
+<p>可扩展性：Graphviz 支持多种输出格式，如 PNG、SVG、PDF 等，这意味着你可以轻松地将其图形集成到其他文档、网页或应用程序中。</p>
+</li>
+<li>
+<p>灵活性：虽然 DOT 语言相对简单，但它提供了丰富的特性和属性，允许用户定制图形的外观，如颜色、形状、大小、标签、箭头样式等。</p>
+</li>
+<li>
+<p>跨平台：Graphviz 可在多种操作系统上运行，如 Windows、Linux 和 macOS。</p>
+</li>
+<li>
+<p>活跃的社区和广泛的应用：由于其开源性质，Graphviz 拥有一个活跃的社区，不断有新的工具和库被开发，以支持更多的用例和集成。</p>
+</li>
+</ol>
+<h2 id="使用">使用</h2>
+<p>Graphviz 使用 DOT 语言来描述图形。在 DOT 中，图分为<strong>有向图</strong>和<strong>无向图</strong>，使用<code>digraph</code>和<code>graph</code>关键字。</p>
+<p>安装：</p>
+<pre tabindex="0"><code>sudo apt install dot
+</code></pre><ul>
+<li>
+<p>Digraph 有一个明确的起点和终点。</p>
+</li>
+<li>
+<p>Graph 没有明确的起点和终点。</p>
+</li>
+</ul>
+<h3 id="节点node">节点(Node)</h3>
+<p>节点表示图中的一个实体，每一个节点都有唯一标识符。</p>
+<h3 id="边">边</h3>
+<p>边连接两个节点。在有向图中显示为一个箭头，在无向图中显示为一条线段。</p>
+<ul>
+<li>
+<p>有向图：<code>nodeA -&gt; nodeB;</code></p>
+</li>
+<li>
+<p>无向图：<code>nodeA -- bodeB;</code></p>
+</li>
+</ul>
+<h3 id="属性">属性</h3>
+<ul>
+<li>
+<p><code>color</code> 元素颜色</p>
+</li>
+<li>
+<p><code>label</code> 附加到元素上的文本标签</p>
+</li>
+<li>
+<p><code>shape</code> 节点形状</p>
+</li>
+<li>
+<p><code>style</code> 元素样式</p>
+</li>
+</ul>
+<pre tabindex="0"><code class="language-dot" data-lang="dot">digraph G {
+	A -&gt; B;
+	B -&gt; C;
+	C -&gt; D;
+	D -&gt; A;
+}
+</code></pre><p>渲染为图片：</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dot -Tpng ./test.dot -o ./test.png
+</span></span></code></pre></div><h2 id="示例">示例</h2>
+<p>一个容易的用户登录验证逻辑</p>
+<pre tabindex="0"><code class="language-dot" data-lang="dot">digraph UserLogin {
+	登录 -&gt; 验证用户名和密码;
+
+	验证用户名和密码 -&gt; 放行 [label=&#34;正确&#34;];
+	验证用户名和密码 -&gt; 重试 [label=&#34;错误&#34;];
+	重试 -&gt; 登录
+}
+</code></pre><p><figure class="image-caption">
+    <img src="https://images.glowisle.me/dot-example-login.png" alt="">
+    <figcaption></figcaption>
+</figure></p>
+<h2 id="参考">参考</h2>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/644358139">https://zhuanlan.zhihu.com/p/644358139</a></li>
+<li><a href="https://graphviz.org/documentation/">https://graphviz.org/documentation/</a></li>
+</ul>
+ </content>
+
+<p>
+  
+  <a href="https://www.glowisle.me/tags/graphviz/">#Graphviz</a>
+  
+</p>
+
+ 
+
+
+ 
+<div class="toc">
+
+<nav class="toc-nav">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#graphviz">Graphviz</a></li>
+    <li><a href="#使用">使用</a>
+      <ul>
+        <li><a href="#节点node">节点(Node)</a></li>
+        <li><a href="#边">边</a></li>
+        <li><a href="#属性">属性</a></li>
+      </ul>
+    </li>
+    <li><a href="#示例">示例</a></li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav>
+</nav>
+
+<script>
+    
+    document.addEventListener('DOMContentLoaded', function () {
+        const tocLinks = document.querySelectorAll('.toc-nav a');
+        const headings = Array.from(tocLinks).map(link => {
+            const id = link.getAttribute('href').replace('#', '');
+            return document.getElementById(id);
+        }).filter(h => h);
+
+        
+        tocLinks.forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').replace('#', '');
+                const target = document.getElementById(targetId);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+
+                    
+                    tocLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                }
+            });
+        });
+
+        
+        function updateActiveLink() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const windowHeight = window.innerHeight;
+
+            for (let i = headings.length - 1; i >= 0; i--) {
+                const heading = headings[i];
+                const rect = heading.getBoundingClientRect();
+
+                if (rect.top <= 100) {
+                    
+                    tocLinks.forEach(link => link.classList.remove('active'));
+                    
+                    
+                    const activeLink = document.querySelector(`.toc-nav a[href="#${heading.id}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('active');
+                        
+                        
+                        let currentLi = activeLink.closest('li');
+                        while (currentLi) {
+                            const parentLi = currentLi.parentElement.closest('li');
+                            if (parentLi) {
+                                const parentLink = parentLi.querySelector('a');
+                                if (parentLink) {
+                                    parentLink.classList.add('active');
+                                }
+                                currentLi = parentLi;
+                            } else {
+                                break;
+                            }
+                        }
+                    }
+                    break;
+                }
+            }
+        }
+
+        
+        let ticking = false;
+        function throttleScroll() {
+            if (!ticking) {
+                requestAnimationFrame(function () {
+                    updateActiveLink();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }
+
+        window.addEventListener('scroll', throttleScroll);
+
+        
+        updateActiveLink();
+    });
+</script>
+</div>
+
+
+<div id="waline"></div>
+<script type="module">
+  import { init } from "https://unpkg.com/@waline/client@v3/dist/waline.js";
+  init({
+    el: "#waline",
+    serverURL: "https://waline.glowisle.me",
+    emoji: false,
+    search: false,
+  });
+</script>
+
+
+  </main>
+  <footer>
+
+
+Subscribe via <a href="/atom.xml">RSS</a> or just <a href="mailto:i@glowisle.me">say hello</a>.
+<br />
+
+
+
+
+
+Say hello via <a href="mailto:i@glowisle.me">email</a>.
+<br />
+
+
+
+
+Made with
+<a href="https://github.com/rokcso/hugo-bearneo/">Hugo Bear Neo</a>.
+<br />
+
+
+
+
+
+
+
+🗺️ <a href="/sitemap.xml">Sitemap</a>.
+
+</footer>
+
+    
+
+
+</body>
+
+</html>

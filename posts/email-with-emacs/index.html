@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="https://www.glowisle.me/favicon.png" />
+<title>使用Emacs收发邮件 | 映屿</title>
+<meta name="title" content="使用Emacs收发邮件" />
+<meta name="description" content="作为一个合格的操作系统，肯定少不了Email. 我的配置很简单，只要实现基础的收发功能即可，每天的邮件量不大。在这里记录一下配置。
+收邮件
+我尝试过 fetchmail，但不知道这个东西拿到的邮件都在哪，所以最后还是选择了 mbsync." />
+<meta name="keywords" content="GNU/Emacs,Linux," />
+
+<link rel="canonical" href="https://www.glowisle.me/posts/email-with-emacs/">
+
+
+<meta property="og:url" content="https://www.glowisle.me/posts/email-with-emacs/">
+  <meta property="og:site_name" content="映屿">
+  <meta property="og:title" content="使用Emacs收发邮件">
+  <meta property="og:description" content="作为一个合格的操作系统，肯定少不了Email. 我的配置很简单，只要实现基础的收发功能即可，每天的邮件量不大。在这里记录一下配置。
+收邮件 我尝试过 fetchmail，但不知道这个东西拿到的邮件都在哪，所以最后还是选择了 mbsync.">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-11-12T16:48:02+08:00">
+    <meta property="article:modified_time" content="2025-11-12T16:48:02+08:00">
+    <meta property="article:tag" content="GNU/Emacs">
+    <meta property="article:tag" content="Linux">
+
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="使用Emacs收发邮件">
+  <meta name="twitter:description" content="作为一个合格的操作系统，肯定少不了Email. 我的配置很简单，只要实现基础的收发功能即可，每天的邮件量不大。在这里记录一下配置。
+收邮件 我尝试过 fetchmail，但不知道这个东西拿到的邮件都在哪，所以最后还是选择了 mbsync.">
+
+
+
+
+  <meta itemprop="name" content="使用Emacs收发邮件">
+  <meta itemprop="description" content="作为一个合格的操作系统，肯定少不了Email. 我的配置很简单，只要实现基础的收发功能即可，每天的邮件量不大。在这里记录一下配置。
+收邮件 我尝试过 fetchmail，但不知道这个东西拿到的邮件都在哪，所以最后还是选择了 mbsync.">
+  <meta itemprop="datePublished" content="2025-11-12T16:48:02+08:00">
+  <meta itemprop="dateModified" content="2025-11-12T16:48:02+08:00">
+  <meta itemprop="wordCount" content="505">
+  <meta itemprop="keywords" content="GNU/Emacs,Linux">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+   
+  :root {
+    --width-max: 720px;
+    --font-primary: Verdana, sans-serif;
+    --font-secondary: monospace;
+    --font-size-primary: 1em;
+    --font-size-secondary: 0.8em;
+    --body-bg-color: #fdfde7;
+    --bold-text-color: #222;
+    --body-text-color: #444;
+    --link-color: #3273dc;
+    --link-visited-color: #8b6fcb;
+    --table-border-color: #f2f2f2;
+    --table-th-bg-color: #f2f2f2;
+    --img-border-color: #f2f2f2;
+    --code-bg-color: #f2f2f2;
+    --code-text-color: #222;
+    --blockquote-border-color: #666;
+    --blockquote-text-color: #666;
+    --upvoted-color: #fa8072;
+    --caption-text-color: #666;
+    --toc-text-color: #e5e5e5;
+    --toc-hover-color: #655e5e;
+  }
+
+  .post-date,
+  .post-date-shortcode {
+    margin-left: auto;
+    color: #999;
+  }
+
+  .site-name:hover {
+    background-color: transparent;
+    text-decoration: none;
+    color: #fff;
+    background-color: #7e4fa0;
+  }
+
+  .site-name {
+    transition: 0.3s;
+    width: 66px;
+    border-radius: 5px;
+    text-transform: uppercase;
+  }
+   
+
+  body {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-primary);
+    margin: auto;
+    padding: 20px;
+    max-width: var(--width-max);
+    text-align: left;
+    background-color: var(--body-bg-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: var(--body-text-color);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: var(--bold-text-color);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 16px 0;
+  }
+
+  a {
+    color: var(--link-color);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title:hover {
+    text-decoration: none;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 8px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 14px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid var(--table-border-color);
+    border-radius: 4px;
+    margin-top: 16px;
+  }
+
+  th,
+  td {
+    border: 1px solid var(--table-border-color);
+    padding: 4px;
+  }
+
+  th {
+    background-color: var(--table-th-bg-color);
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px dashed;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid var(--img-border-color);
+    border-radius: 4px;
+    content-visibility: auto;
+    loading: lazy;
+  }
+
+  img[src*="#minipic"] {
+    max-width: 50%;
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  .image-caption figcaption {
+    text-align: center;
+    font-style: italic;
+    font-size: 0.8em;
+    margin-top: 0.6em;
+    color: var(--caption-text-color);
+  }
+
+  .image-caption {
+    margin: auto;
+  }
+
+  i {
+    font-style: normal;
+  }
+
+  time {
+    font-family: var(--font-secondary);
+    font-size: 15px;
+  }
+
+  code {
+    font-family: var(--font-secondary);
+    background-color: var(--code-bg-color);
+    color: var(--code-text-color);
+    padding: 2px;
+    border-radius: 4px;
+  }
+
+  pre code {
+    display: block;
+    padding: 16px;
+    white-space: pre-wrap;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    border-radius: 4px;
+  }
+
+  div.highlight code {
+    background-color: var(--code-bg-color);
+    color: var(--code-text-color);
+  }
+
+  blockquote {
+    border-left: 2px solid var(--blockquote-border-color);
+    color: var(--blockquote-text-color);
+    margin: 0;
+    padding-left: 16px;
+    font-style: normal;
+  }
+
+  blockquote p {
+    margin: 0;
+  }
+
+  footer {
+    padding: 25px 0;
+    text-align: center;
+    font-size: var(--font-size-secondary);
+  }
+
+  ul li:has(input) {
+    list-style-type: none;
+    margin-left: -25.5px;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li span.grouped {
+    flex: 0 0 80px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: var(--link-visited-color);
+  }
+   
+  div.toc {
+    position: fixed;  
+    top: 50%;  
+    left: calc(
+      (100vw + var(--width-max)) / 2
+    );  
+    transform: translateY(-50%);  
+    width: calc((90vw - var(--width-max)) / 2);  
+    max-height: 80vh;  
+    overflow-y: auto;  
+    border: none;  
+    padding: 0;  
+    margin: 0;  
+    z-index: 99;  
+
+     
+    &::-webkit-scrollbar {
+       
+      display: none;  
+    }
+
+    -ms-overflow-style: none;  
+    scrollbar-width: none;  
+  }
+
+  .toc-nav {
+     
+    padding: 1.5rem;  
+  }
+
+  .toc-nav ul {
+     
+    list-style: none;  
+    padding: 0;  
+    margin: 0;  
+  }
+
+  .toc-nav li {
+     
+    margin: 8px 0;  
+  }
+
+  .toc-nav a {
+     
+    display: block;  
+    text-decoration: none;  
+    color: transparent;  
+    padding: 0 12px;  
+    transition: all 0.2s ease;  
+    font-size: 0.9rem;  
+    line-height: 1.4;  
+    text-align: left;  
+    white-space: nowrap;  
+    overflow: hidden;  
+    text-overflow: ellipsis;  
+    max-width: 100%;  
+  }
+
+  .toc-nav:hover a {
+    color: var(--toc-text-color);  
+  }
+
+  .toc-nav a::before {
+     
+    content: "";  
+    display: inline-block;  
+    width: 16px;  
+    height: 4px;  
+    background-color: var(--toc-text-color);  
+    border-radius: 16px;  
+    margin-right: 12px;  
+    vertical-align: middle;  
+  }
+
+  .toc-nav ul ul a::before {
+     
+    width: 12px;  
+    margin-right: 16px;  
+  }
+
+  .toc-nav ul ul ul a::before {
+     
+    width: 8px;  
+    margin-right: 20px;  
+  }
+
+  .toc-nav a.active,  
+    .toc-nav a:hover {
+    text-decoration: none;  
+    color: var(--toc-hover-color);  
+  }
+
+  .toc-nav a.active::before,  
+    .toc-nav a:hover::before {
+    background-color: var(--toc-hover-color);  
+  }
+
+   
+  button.upvote-btn {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--body-text-color);
+  }
+
+  button.upvoted {
+    color: var(--upvoted-color);
+  }
+
+  span.upvote-count {
+    margin-top: -4px;
+    font-size: smaller;
+  }
+
+  @media (max-width: 800px) {
+    img[src*="#minipic"] {
+      max-width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    div.toc {
+      display: none;
+    }
+  }
+</style>
+<meta name="msvalidate.01" content="2E1AACF009206F2DDBAAD4B98E881460" />
+<link rel="stylesheet" href="/css/waline.css"/>
+<link rel="prefetch" as="image" href="https://www.blogsclub.org/badge/www.glowisle.me">
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h1 class="site-name">映屿</h1>
+</a>
+<nav><a href="/">首页</a>
+
+<a href="/posts">文章</a>
+
+<a href="/links">友人</a>
+
+<a href="/about">关于</a>
+
+
+</nav>
+</header>
+  <main> 
+
+<content> <p>作为一个合格的操作系统，肯定少不了Email. 我的配置很简单，只要实现基础的收发功能即可，每天的邮件量不大。在这里记录一下配置。</p>
+<h2 id="收邮件">收邮件</h2>
+<p>我尝试过 <strong><a href="https://www.fetchmail.info">fetchmail</a></strong>，但不知道这个东西拿到的邮件都在哪，所以最后还是选择了 <strong>mbsync</strong>.</p>
+<pre tabindex="0"><code># ~/.mbsyncrc
+# GlowIsle 账户配置
+IMAPAccount GlowIsle
+Host imap.qiye.aliyun.com
+Port 993
+User i@glowisle.me
+Pass ******
+TLSType IMAPS
+AuthMechs LOGIN
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+# 远程存储
+IMAPStore glowisle-remote
+Account GlowIsle
+
+# 本地存储
+MaildirStore glowisle-local
+Path ~/mail/GlowIsle/
+Inbox ~/mail/GlowIsle/Inbox
+Subfolders Verbatim
+
+# 同步通道
+Channel glowisle
+Far :glowisle-remote:
+Near :glowisle-local:
+Patterns *
+Create Both
+Sync All
+Expunge Both
+SyncState *
+</code></pre><h2 id="发邮件">发邮件</h2>
+<pre tabindex="0"><code># ~/.msmtprc
+# glowisle
+account glowisle 
+host smtp.qiye.aliyun.com
+from i@glowisle.me
+auth login
+port 465
+user i@glowisle.me
+password ******* 
+auth on
+tls on
+tls_starttls off #使用465端口时不能开启
+tls_certcheck  off 
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
+
+account default : glowisle
+</code></pre><h2 id="emacs-配置">Emacs 配置</h2>
+<p>在Doom Emacs的<code>init.el</code>中开启 mu4e</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span> <span style="color:#98c379">:email</span>
+</span></span><span style="display:flex;"><span>    (<span style="color:#e06c75">mu4e</span> <span style="color:#e06c75">+org</span>)
+</span></span><span style="display:flex;"><span> 
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span><span style="color:#7f848e">;; config.el</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#e06c75">after!</span> <span style="color:#e06c75">mu4e</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#7f848e">;; 基本设置</span>
+</span></span><span style="display:flex;"><span>  (<span style="color:#c678dd">setq</span> <span style="color:#e06c75">mu4e-maildir</span> <span style="color:#98c379">&#34;~/mail&#34;</span>     <span style="color:#7f848e">; 邮件目录</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">mu4e-get-mail-command</span> <span style="color:#98c379">&#34;mbsync -a&#34;</span>  <span style="color:#7f848e">; 接收邮件命令</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">mu4e-update-interval</span> <span style="color:#d19a66">300</span>  <span style="color:#7f848e">; 自动更新间隔（秒）</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">mu4e-view-show-images</span> <span style="color:#e06c75">t</span>   <span style="color:#7f848e">; 显示图片</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">mu4e-compose-signature</span> <span style="color:#98c379">&#34;Best regards.\nVerdant&#34;</span>) <span style="color:#7f848e">; 邮件签名</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#7f848e">;; 使用 msmtp 发送邮件</span>
+</span></span><span style="display:flex;"><span>  (<span style="color:#c678dd">setq</span> <span style="color:#e06c75">message-send-mail-function</span> <span style="color:#98c379">&#39;message-send-mail-with-sendmail</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">sendmail-program</span> <span style="color:#98c379">&#34;/usr/bin/msmtp&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">sendmail-arguments</span> <span style="color:#56b6c2">&#39;</span>(<span style="color:#98c379">&#34;--read-envelope-from&#34;</span> <span style="color:#98c379">&#34;--read-recipients&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  (<span style="color:#c678dd">setq</span> <span style="color:#e06c75">mu4e-contexts</span>
+</span></span><span style="display:flex;"><span>        (<span style="color:#e5c07b">list</span>
+</span></span><span style="display:flex;"><span>         (<span style="color:#e06c75">make-mu4e-context</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#98c379">:name</span> <span style="color:#98c379">&#34;GlowIsle&#34;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#98c379">:match-func</span> (<span style="color:#e5c07b">lambda</span> (<span style="color:#e06c75">msg</span>)
+</span></span><span style="display:flex;"><span>                        (<span style="color:#e5c07b">when</span> <span style="color:#e06c75">msg</span>
+</span></span><span style="display:flex;"><span>                          (<span style="color:#e06c75">string-match-p</span> <span style="color:#98c379">&#34;^/GlowIsle&#34;</span> (<span style="color:#e06c75">mu4e-message-field</span> <span style="color:#e06c75">msg</span> <span style="color:#98c379">:maildir</span>))))
+</span></span><span style="display:flex;"><span>          <span style="color:#98c379">:vars</span> <span style="color:#56b6c2">&#39;</span>((<span style="color:#e06c75">user-mail-address</span> <span style="color:#56b6c2">.</span> <span style="color:#98c379">&#34;i@glowisle.me&#34;</span>)
+</span></span><span style="display:flex;"><span>                  (<span style="color:#e06c75">user-full-name</span>    <span style="color:#56b6c2">.</span> <span style="color:#98c379">&#34;Verdant&#34;</span>)
+</span></span><span style="display:flex;"><span>                  (<span style="color:#e06c75">smtpmail-smtp-server</span> <span style="color:#56b6c2">.</span> <span style="color:#98c379">&#34;smtp.qiye.aliyun.com&#34;</span>)
+</span></span><span style="display:flex;"><span>                  (<span style="color:#e06c75">smtpmail-smtp-service</span> <span style="color:#56b6c2">.</span> <span style="color:#d19a66">465</span>)
+</span></span><span style="display:flex;"><span>                  (<span style="color:#e06c75">smtpmail-stream-type</span> <span style="color:#56b6c2">.</span> <span style="color:#e06c75">starttls</span>)))))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  )
+</span></span></code></pre></div><h2 id="基本使用">基本使用</h2>
+<ul>
+<li><code>SPC o m</code> 进入 mu4e 主页面</li>
+</ul>
+<pre tabindex="0"><code>Basics
+
+    * [J]ump to some maildir
+    * enter a [s]earch query
+    * [C]ompose a new message
+
+Bookmarks
+
+    * [bu] Unread messages      (0/0)
+    * [bt] Today&#39;s messages     (0/14)
+    * [bw] Last 7 days
+    * [bp] Messages with images (0/0)
+    * [bf] Flagged messages     (0/1)
+
+Misc
+
+    * [;]Switch focus
+    * [u]pdate email &amp; database
+
+    * [N]ews
+    * [A]bout mu4e
+    * [H]elp
+    * [q]uit
+</code></pre><hr>
+<p>微软的Outlook邮箱使用OAuth2.0认证，我暂时没找到成功的解决方案能在Emacs上使用，如果有哪位路过的好哥们知道方法请留言或<a href="mailto:i@glowisle.me">发个邮件</a>探讨一下！</p>
+ </content>
+
+<p>
+  
+  <a href="https://www.glowisle.me/tags/gnu/emacs/">#GNU/Emacs</a>
+  
+  <a href="https://www.glowisle.me/tags/linux/">#Linux</a>
+  
+</p>
+
+ 
+
+
+ 
+<div class="toc">
+
+<nav class="toc-nav">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#收邮件">收邮件</a></li>
+    <li><a href="#发邮件">发邮件</a></li>
+    <li><a href="#emacs-配置">Emacs 配置</a></li>
+    <li><a href="#基本使用">基本使用</a></li>
+  </ul>
+</nav>
+</nav>
+
+<script>
+    
+    document.addEventListener('DOMContentLoaded', function () {
+        const tocLinks = document.querySelectorAll('.toc-nav a');
+        const headings = Array.from(tocLinks).map(link => {
+            const id = link.getAttribute('href').replace('#', '');
+            return document.getElementById(id);
+        }).filter(h => h);
+
+        
+        tocLinks.forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').replace('#', '');
+                const target = document.getElementById(targetId);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+
+                    
+                    tocLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                }
+            });
+        });
+
+        
+        function updateActiveLink() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const windowHeight = window.innerHeight;
+
+            for (let i = headings.length - 1; i >= 0; i--) {
+                const heading = headings[i];
+                const rect = heading.getBoundingClientRect();
+
+                if (rect.top <= 100) {
+                    
+                    tocLinks.forEach(link => link.classList.remove('active'));
+                    
+                    
+                    const activeLink = document.querySelector(`.toc-nav a[href="#${heading.id}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('active');
+                        
+                        
+                        let currentLi = activeLink.closest('li');
+                        while (currentLi) {
+                            const parentLi = currentLi.parentElement.closest('li');
+                            if (parentLi) {
+                                const parentLink = parentLi.querySelector('a');
+                                if (parentLink) {
+                                    parentLink.classList.add('active');
+                                }
+                                currentLi = parentLi;
+                            } else {
+                                break;
+                            }
+                        }
+                    }
+                    break;
+                }
+            }
+        }
+
+        
+        let ticking = false;
+        function throttleScroll() {
+            if (!ticking) {
+                requestAnimationFrame(function () {
+                    updateActiveLink();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }
+
+        window.addEventListener('scroll', throttleScroll);
+
+        
+        updateActiveLink();
+    });
+</script>
+</div>
+
+
+<div id="waline"></div>
+<script type="module">
+  import { init } from "https://unpkg.com/@waline/client@v3/dist/waline.js";
+  init({
+    el: "#waline",
+    serverURL: "https://waline.glowisle.me",
+    emoji: false,
+    search: false,
+  });
+</script>
+
+
+  </main>
+  <footer>
+
+
+Subscribe via <a href="/atom.xml">RSS</a> or just <a href="mailto:i@glowisle.me">say hello</a>.
+<br />
+
+
+
+
+
+Say hello via <a href="mailto:i@glowisle.me">email</a>.
+<br />
+
+
+
+
+Made with
+<a href="https://github.com/rokcso/hugo-bearneo/">Hugo Bear Neo</a>.
+<br />
+
+
+
+
+
+
+
+🗺️ <a href="/sitemap.xml">Sitemap</a>.
+
+</footer>
+
+    
+
+
+</body>
+
+</html>
