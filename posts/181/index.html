@@ -449,6 +449,8 @@ java -Dfile.encoding=UTF-8 -jar spigot-1.21.jar
 
 <a href="/links">友人</a>
 
+<a href="/readings">读书</a>
+
 <a href="/about">关于</a>
 
 
@@ -456,7 +458,11 @@ java -Dfile.encoding=UTF-8 -jar spigot-1.21.jar
 </header>
   <main> 
 
-<content> <ol>
+<content>
+   
+<h2><a href="/posts/181/" style="color:#222222;">Spigot服务端控制台中文乱码解决方案</a></h2>
+
+	<ol>
 <li>把<code>-Dfile.encoding=UTF-8</code>加在开服脚本文件的<code>-jar</code>前即可。</li>
 <li>在启动脚本第一行加上<code>chcp 65001</code>
 我的启动脚本如下：</li>
@@ -475,7 +481,7 @@ java -Dfile.encoding=UTF-8 -jar spigot-1.21.jar
   
 </p>
 
- 
+
 
 
  

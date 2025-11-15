@@ -440,6 +440,8 @@
 
 <a href="/links">友人</a>
 
+<a href="/readings">读书</a>
+
 <a href="/about">关于</a>
 
 
@@ -447,7 +449,11 @@
 </header>
   <main> 
 
-<content> <p>没有进行配置的情况下输入中文，一般会显示&lt;0xffffffff&gt;，这是由于没有安装字体造成的。</p>
+<content>
+   
+<h2><a href="/posts/wsl-arch-linux-zsh%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" style="color:#222222;">WSL Arch Linux ZSH输入中文输入法乱码解决方法</a></h2>
+
+	<p>没有进行配置的情况下输入中文，一般会显示&lt;0xffffffff&gt;，这是由于没有安装字体造成的。</p>
 <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo pacman -S noto-fonts-cjk  <span style="color:#7f848e"># 安装中文字体</span>
 </span></span><span style="display:flex;"><span>sudo vi /etc/locale.gen        <span style="color:#7f848e"># 取消注释 zh_CN.UTF-8</span>
 </span></span><span style="display:flex;"><span>sudo locale-gen                <span style="color:#7f848e"># 生成语言环境</span>
@@ -462,7 +468,7 @@
   
 </p>
 
- 
+
 
 
  

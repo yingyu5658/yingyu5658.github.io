@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta name="generator" content="Hugo 0.148.2">
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="https://www.glowisle.me/favicon.png" />
+<title>首页 | 映屿</title>
+<meta name="title" content="首页" />
+<meta name="description" content="关于互联网、书籍、生活琐事以及那些一闪而过的念头。计算机技术 &amp; 读书感悟 &amp; 日常随笔。" />
+<meta name="keywords" content="arch,b站,c,c语言,electron,emacs,fedora,geyser,gnu,gnu/emacs,gnu/linux,graphviz,hexo,java,javascript,linux,malody,minecraft,neovim,nodejs,obsidain,osu,seo,terrira,thunderbird,typecho,vim,windows,“厌蠢症”,三岛由纪夫,丰饶之海,书评,互联网,人际交往,价值,伊豆的舞女,信息节食,写作,前端,博客,古文,哲学,回忆,图书,夏,奔马,婚姻,学业,学校,家庭,小品,川端康成,底层技术,形而上学,怀旧,思考与议论,总结,意识流,感官,感谢恩师夸奖,我,扩列,搜索引擎,教程,散文,散步,数据结构与算法,文字,文学,文库本,文章,新闻组,旁观者,日常,日本文学,早睡早起,时政,春雪,暑假总结,月度总结,朋友圈,服务器,未成年人保护,杂文,杂记,汇编,沟通,游戏,物理,狗叫,猫,生命,知乎,社交,笔记,素描,终端,编程,编译原理,编译器,网络环境,美术,翻译,考试,自搜,西西弗,观察,记事,记忆,读书笔记,读后感,豆瓣,贝斯,购物,软件开发,辨证法,酒,阅读,阅读笔记,阿里云,随笔,韩愈,音乐," />
+
+<link rel="canonical" href="https://www.glowisle.me/">
+
+
+<meta property="og:url" content="https://www.glowisle.me/">
+  <meta property="og:site_name" content="映屿">
+  <meta property="og:title" content="首页">
+  <meta property="og:description" content="关于互联网、书籍、生活琐事以及那些一闪而过的念头。计算机技术 &amp; 读书感悟 &amp; 日常随笔。">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="website">
+
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="首页">
+  <meta name="twitter:description" content="关于互联网、书籍、生活琐事以及那些一闪而过的念头。计算机技术 &amp; 读书感悟 &amp; 日常随笔。">
+
+
+
+
+  <meta itemprop="name" content="首页">
+  <meta itemprop="description" content="关于互联网、书籍、生活琐事以及那些一闪而过的念头。计算机技术 &amp; 读书感悟 &amp; 日常随笔。">
+  <meta itemprop="datePublished" content="2025-11-15T19:24:14+08:00">
+  <meta itemprop="dateModified" content="2025-11-15T19:24:14+08:00">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <link rel="alternate" type="application/rss+xml" href="http://www.glowisle.me/atom.xml" title="映屿" />
+  <style>
+   
+  :root {
+    --width-max: 720px;
+    --font-primary: Verdana, sans-serif;
+    --font-secondary: monospace;
+    --font-size-primary: 1em;
+    --font-size-secondary: 0.8em;
+    --body-bg-color: #fdfde7;
+    --bold-text-color: #222;
+    --body-text-color: #444;
+    --link-color: #3273dc;
+    --link-visited-color: #8b6fcb;
+    --table-border-color: #f2f2f2;
+    --table-th-bg-color: #f2f2f2;
+    --img-border-color: #f2f2f2;
+    --code-bg-color: #f2f2f2;
+    --code-text-color: #222;
+    --blockquote-border-color: #666;
+    --blockquote-text-color: #666;
+    --upvoted-color: #fa8072;
+    --caption-text-color: #666;
+    --toc-text-color: #e5e5e5;
+    --toc-hover-color: #655e5e;
+  }
+
+  .post-date,
+  .post-date-shortcode {
+    margin-left: auto;
+    color: #999;
+  }
+
+  .site-name:hover {
+    background-color: transparent;
+    text-decoration: none;
+    color: #fff;
+    background-color: #7e4fa0;
+  }
+
+  .site-name {
+    transition: 0.3s;
+    width: 66px;
+    border-radius: 5px;
+    text-transform: uppercase;
+  }
+   
+
+  body {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-primary);
+    margin: auto;
+    padding: 20px;
+    max-width: var(--width-max);
+    text-align: left;
+    background-color: var(--body-bg-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: var(--body-text-color);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: var(--bold-text-color);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 16px 0;
+  }
+
+  a {
+    color: var(--link-color);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title:hover {
+    text-decoration: none;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 8px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 14px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid var(--table-border-color);
+    border-radius: 4px;
+    margin-top: 16px;
+  }
+
+  th,
+  td {
+    border: 1px solid var(--table-border-color);
+    padding: 4px;
+  }
+
+  th {
+    background-color: var(--table-th-bg-color);
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px dashed;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid var(--img-border-color);
+    border-radius: 4px;
+    content-visibility: auto;
+    loading: lazy;
+  }
+
+  img[src*="#minipic"] {
+    max-width: 50%;
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  .image-caption figcaption {
+    text-align: center;
+    font-style: italic;
+    font-size: 0.8em;
+    margin-top: 0.6em;
+    color: var(--caption-text-color);
+  }
+
+  .image-caption {
+    margin: auto;
+  }
+
+  i {
+    font-style: normal;
+  }
+
+  time {
+    font-family: var(--font-secondary);
+    font-size: 15px;
+  }
+
+  code {
+    font-family: var(--font-secondary);
+    background-color: var(--code-bg-color);
+    color: var(--code-text-color);
+    padding: 2px;
+    border-radius: 4px;
+  }
+
+  pre code {
+    display: block;
+    padding: 16px;
+    white-space: pre-wrap;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    border-radius: 4px;
+  }
+
+  div.highlight code {
+    background-color: var(--code-bg-color);
+    color: var(--code-text-color);
+  }
+
+  blockquote {
+    border-left: 2px solid var(--blockquote-border-color);
+    color: var(--blockquote-text-color);
+    margin: 0;
+    padding-left: 16px;
+    font-style: normal;
+  }
+
+  blockquote p {
+    margin: 0;
+  }
+
+  footer {
+    padding: 25px 0;
+    text-align: center;
+    font-size: var(--font-size-secondary);
+  }
+
+  ul li:has(input) {
+    list-style-type: none;
+    margin-left: -25.5px;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li span.grouped {
+    flex: 0 0 80px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: var(--link-visited-color);
+  }
+   
+  div.toc {
+    position: fixed;  
+    top: 50%;  
+    left: calc(
+      (100vw + var(--width-max)) / 2
+    );  
+    transform: translateY(-50%);  
+    width: calc((90vw - var(--width-max)) / 2);  
+    max-height: 80vh;  
+    overflow-y: auto;  
+    border: none;  
+    padding: 0;  
+    margin: 0;  
+    z-index: 99;  
+
+     
+    &::-webkit-scrollbar {
+       
+      display: none;  
+    }
+
+    -ms-overflow-style: none;  
+    scrollbar-width: none;  
+  }
+
+  .toc-nav {
+     
+    padding: 1.5rem;  
+  }
+
+  .toc-nav ul {
+     
+    list-style: none;  
+    padding: 0;  
+    margin: 0;  
+  }
+
+  .toc-nav li {
+     
+    margin: 8px 0;  
+  }
+
+  .toc-nav a {
+     
+    display: block;  
+    text-decoration: none;  
+    color: transparent;  
+    padding: 0 12px;  
+    transition: all 0.2s ease;  
+    font-size: 0.9rem;  
+    line-height: 1.4;  
+    text-align: left;  
+    white-space: nowrap;  
+    overflow: hidden;  
+    text-overflow: ellipsis;  
+    max-width: 100%;  
+  }
+
+  .toc-nav:hover a {
+    color: var(--toc-text-color);  
+  }
+
+  .toc-nav a::before {
+     
+    content: "";  
+    display: inline-block;  
+    width: 16px;  
+    height: 4px;  
+    background-color: var(--toc-text-color);  
+    border-radius: 16px;  
+    margin-right: 12px;  
+    vertical-align: middle;  
+  }
+
+  .toc-nav ul ul a::before {
+     
+    width: 12px;  
+    margin-right: 16px;  
+  }
+
+  .toc-nav ul ul ul a::before {
+     
+    width: 8px;  
+    margin-right: 20px;  
+  }
+
+  .toc-nav a.active,  
+    .toc-nav a:hover {
+    text-decoration: none;  
+    color: var(--toc-hover-color);  
+  }
+
+  .toc-nav a.active::before,  
+    .toc-nav a:hover::before {
+    background-color: var(--toc-hover-color);  
+  }
+
+   
+  button.upvote-btn {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--body-text-color);
+  }
+
+  button.upvoted {
+    color: var(--upvoted-color);
+  }
+
+  span.upvote-count {
+    margin-top: -4px;
+    font-size: smaller;
+  }
+
+  @media (max-width: 800px) {
+    img[src*="#minipic"] {
+      max-width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    div.toc {
+      display: none;
+    }
+  }
+</style>
+<meta name="msvalidate.01" content="2E1AACF009206F2DDBAAD4B98E881460" />
+<link rel="stylesheet" href="/css/waline.css"/>
+<link rel="prefetch" as="image" href="https://www.blogsclub.org/badge/www.glowisle.me">
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h1 class="site-name">映屿</h1>
+</a>
+<nav><a href="/">首页</a>
+
+<a href="/posts">文章</a>
+
+<a href="/links">友人</a>
+
+<a href="/readings">读书</a>
+
+<a href="/about">关于</a>
+
+
+</nav>
+</header>
+  <main> 
+
+
+ 
+<div class="recent-posts">
+  
+  <div class="posts-list">
+    
+    <article class="post-item">
+      <div class="post-header">
+        <h3 class="post-title">
+          <a href="/posts/beginning-of-november/">写在十一月的开头</a>
+        </h3>
+        <time class="post-date" datetime="2025-11-01T19:54:36&#43;08:00">
+          2025年11月1日
+        </time>
+      </div>
+      <div class="post-summary">
+        
+          十月的总结忘写了，原来现在已经十一月了吗！
+我在九月总结的结尾，天真地以为开学后我也能保持那种心情或心态：
+希望开学以后，依然能保持现在这种心态吧。
+事实证明，开学后的精神状态比较差，也没有动力写东西，重要的是，可写的事也不多，所以这篇就当流水帐，想到什么就写什么吧。
+
+        
+      </div>
+    </article>
+    
+    <article class="post-item">
+      <div class="post-header">
+        <h3 class="post-title">
+          <a href="/posts/emacs-i-am-back/">Emacs，我又回来了！</a>
+        </h3>
+        <time class="post-date" datetime="2025-11-01T12:01:12&#43;08:00">
+          2025年11月1日
+        </time>
+      </div>
+      <div class="post-summary">
+        
+          前言 这大概已经是我第四次尝试入门 Emacs 了。
+前几次尝试过自己重新配置 Emacs、Spacemacs。自己配置简直是在堆屎山， Spacemacs 的机制搞不明白而且很卡，听说Doom Emacs 对 Vi/Vim 用户很友好，那就尝试一下吧！
+
+        
+      </div>
+    </article>
+    
+    <article class="post-item">
+      <div class="post-header">
+        <h3 class="post-title">
+          <a href="/posts/%E5%B8%82%E4%BA%95%E6%BC%AB%E6%AD%A5/">市井漫步</a>
+        </h3>
+        <time class="post-date" datetime="2025-10-26T22:10:45&#43;08:00">
+          2025年10月26日
+        </time>
+      </div>
+      <div class="post-summary">
+        
+          我很喜欢随便坐上一路公交车，一边听歌一边看窗外的风景，想在哪站下就在哪站下，想往哪走就往哪走。这是自己出去玩最经济实惠的方案。
+
+        
+      </div>
+    </article>
+    
+    <article class="post-item">
+      <div class="post-header">
+        <h3 class="post-title">
+          <a href="/posts/%E7%BA%A2%E5%8F%B6%E6%94%80%E5%A2%99%E7%A7%8B%E8%90%A7%E8%90%A7/">红叶攀墙秋萧萧</a>
+        </h3>
+        <time class="post-date" datetime="2025-10-16T22:40:26&#43;08:00">
+          2025年10月16日
+        </time>
+      </div>
+      <div class="post-summary">
+        
+          学校操场的围栏上，长满了爬墙虎。自开学起，每次和它们见面，一回比一回红。是夏季烈日残留的一角把它们引燃了吧？
+能见到它们，只有在体育课和做操的时间。上次运动会时还是绿绿的一簇，挂在操场大门上方，几支茎垂下来，稚嫩的绿叶在一阵微风吹过后，它娇妍地摆头。有几片叶子从格子缝隙里探出头，生锈的围栏高墙点缀着 …
+        
+      </div>
+    </article>
+    
+    <article class="post-item">
+      <div class="post-header">
+        <h3 class="post-title">
+          <a href="/posts/%E9%9F%A9%E6%84%88%E5%B8%88%E8%AF%B4/">韩愈《师说》</a>
+        </h3>
+        <time class="post-date" datetime="2025-10-08T20:32:04&#43;08:00">
+          2025年10月8日
+        </time>
+      </div>
+      <div class="post-summary">
+        
+          在视频【“你这是学生思维”】 中，有一个评论引用了《师说》中的一句话：「是故无贵无贱，无长无少，道之所存，师之所存也。」记一篇原文及翻译。用白话翻译出来就很浅显，甚至是老生常谈的大道理，可能这就是文言文的距离之美和留白之美吧。
+
+        
+      </div>
+    </article>
+    
+  </div>
+  
+  
+  <div class="pagination">
+    
+      <a href="/" class="pagination-link pagination-prev">NEWER</a>
+    
+    
+    
+      <a href="/page/3/" class="pagination-link pagination-next">OLDER</a>
+    
+  </div>
+  
+  
+</div>
+
+<style>
+  .posts-list {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .post-item {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.2s ease;
+  }
+  
+  .post-header {
+    margin-bottom: 0.75rem;
+  }
+  
+  .post-title {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.4rem;
+    line-height: 1.3;
+  }
+  
+  .post-title a {
+    text-decoration: none;
+    transition: color 0.2s ease;
+    color: #222222;
+  }
+  
+  .post-title a:hover {
+    color: #3498db;
+  }
+  
+  .post-date {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+  }
+  
+  .post-summary {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+  }
+  
+  .recent-empty {
+    text-align: center;
+    font-style: italic;
+    color: #7f8c8d;
+    padding: 2rem;
+  }
+  
+   
+  .pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem 0;
+  }
+  
+  .pagination-link {
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: #3498db;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    min-width: 50px;
+    text-align: center;
+  }
+
+  .pagination-link:hover {
+	text-decoration: none;
+  }
+  
+  
+  .pagination-link.disabled {
+    color: #bdc3c7;
+    border-color: #ecf0f1;
+	display: none;
+  }
+  
+  .pagination-link.disabled:hover {
+    background-color: transparent;
+    border-color: #ecf0f1;
+  }
+  
+   
+  @media (max-width: 768px) {
+    .posts-list {
+      padding: 0 1rem;
+    }
+    
+    .post-item {
+      padding: 1.25rem 0;
+    }
+    
+    .post-title {
+      font-size: 1.25rem;
+    }
+    
+    .pagination {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .pagination-prev,
+    .pagination-next {
+      width: 100%;
+    }
+  }
+</style>
+ 
+
+  </main>
+  <footer>
+
+
+Subscribe via <a href="/atom.xml">RSS</a> or just <a href="mailto:i@glowisle.me">say hello</a>.
+<br />
+
+
+
+
+
+Say hello via <a href="mailto:i@glowisle.me">email</a>.
+<br />
+
+
+
+
+Made with
+<a href="https://github.com/rokcso/hugo-bearneo/">Hugo Bear Neo</a>.
+<br />
+
+
+
+
+
+
+
+🗺️ <a href="/sitemap.xml">Sitemap</a>.
+
+</footer>
+
+    
+
+
+</body>
+
+</html>
