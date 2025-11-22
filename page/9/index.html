@@ -18,7 +18,8 @@
 <meta property="og:url" content="https://www.glowisle.me/">
   <meta property="og:site_name" content="映屿">
   <meta property="og:title" content="首页">
-  <meta property="og:description" content="关于互联网、书籍、生活琐事以及那些一闪而过的念头。计算机技术 &amp; 读书感悟 &amp; 日常随笔。">
+  <meta property="og:description" content="写点生活随笔、读书感悟、技术实践和幼稚观点。
+不花里胡哨、不迎合大众、不随波逐流、不投放广告，专注自己想写的内容。">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:type" content="website">
 
@@ -27,15 +28,18 @@
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="首页">
-  <meta name="twitter:description" content="关于互联网、书籍、生活琐事以及那些一闪而过的念头。计算机技术 &amp; 读书感悟 &amp; 日常随笔。">
+  <meta name="twitter:description" content="写点生活随笔、读书感悟、技术实践和幼稚观点。
+不花里胡哨、不迎合大众、不随波逐流、不投放广告，专注自己想写的内容。">
 
 
 
 
   <meta itemprop="name" content="首页">
-  <meta itemprop="description" content="关于互联网、书籍、生活琐事以及那些一闪而过的念头。计算机技术 &amp; 读书感悟 &amp; 日常随笔。">
+  <meta itemprop="description" content="写点生活随笔、读书感悟、技术实践和幼稚观点。
+不花里胡哨、不迎合大众、不随波逐流、不投放广告，专注自己想写的内容。">
   <meta itemprop="datePublished" content="2025-11-15T19:24:14+08:00">
   <meta itemprop="dateModified" content="2025-11-15T19:24:14+08:00">
+  <meta itemprop="wordCount" content="56">
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
   <link rel="alternate" type="application/rss+xml" href="http://www.glowisle.me/atom.xml" title="映屿" />
@@ -47,7 +51,7 @@
     --font-secondary: monospace;
     --font-size-primary: 1em;
     --font-size-secondary: 0.8em;
-    --body-bg-color: #fdfde7;
+    --body-bg-color: #ffffff;
     --bold-text-color: #222;
     --body-text-color: #444;
     --link-color: #3273dc;
@@ -65,6 +69,15 @@
     --toc-hover-color: #655e5e;
   }
 
+  .post-categories,
+  .category-link {
+    display: inline;
+    color: #7f8c8d;
+  }
+
+  .post-categories {
+    font-size: 0.9em;
+  }
   .post-date,
   .post-date-shortcode {
     margin-left: auto;
@@ -84,7 +97,41 @@
     border-radius: 5px;
     text-transform: uppercase;
   }
-   
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --body-bg-color: #1c1c1c;
+      --bold-text-color: #eee;
+      --body-text-color: #ddd;
+      --link-color: #8cc2dd;
+      --link-visited-color: #c3b1ee;
+      --table-border-color: #999;
+      --table-th-bg-color: #999;
+      --img-border-color: #999;
+      --code-bg-color: #555;
+      --code-text-color: #ddd;
+      --blockquote-border-color: #ccc;
+      --blockquote-text-color: #ccc;
+      --caption-text-color: #aaa;
+      --toc-text-color: #373737;
+      --toc-hover-color: #cac3c3;
+    }
+
+    .post-title a {
+      color: #fff !important;
+    }
+
+    .post-summary {
+      color: var(--text-color-primary) !important;
+    }
+
+    .post-item {
+      border-bottom: 1px solid #414141 !important;
+    }
+
+    .pagination-link {
+      border: 1px solid #414141 !important;
+    }
+  }
 
   body {
     font-family: var(--font-primary);
@@ -259,7 +306,7 @@
 
   footer {
     padding: 25px 0;
-    text-align: center;
+    text-align: left;
     font-size: var(--font-size-secondary);
   }
 
@@ -422,8 +469,15 @@
   }
 </style>
 <meta name="msvalidate.01" content="2E1AACF009206F2DDBAAD4B98E881460" />
-<link rel="stylesheet" href="/css/waline.css"/>
-<link rel="prefetch" as="image" href="https://www.blogsclub.org/badge/www.glowisle.me">
+<link
+  rel="prefetch"
+  as="image"
+  href="https://www.blogsclub.org/badge/www.glowisle.me"
+/>
+<script
+  src="https://kit.fontawesome.com/2f4edcb5b6.js"
+  crossorigin="anonymous"
+></script>
 </head>
 
 <body>
@@ -432,7 +486,7 @@
 </a>
 <nav><a href="/">首页</a>
 
-<a href="/posts">文章</a>
+<a href="/posts">归档</a>
 
 <a href="/links">友人</a>
 
@@ -443,103 +497,144 @@
 
 </nav>
 </header>
-  <main> 
+  <main>
+
+<p>写点生活随笔、读书感悟、技术实践和幼稚观点。</p>
+<p><strong>不花里胡哨、不迎合大众、不随波逐流、不投放广告</strong>，专注自己想写的内容。</p>
+<hr>
 
 
  
 <div class="recent-posts">
-  
-  <div class="posts-list">
     
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/kuo-lie/">基于身边扩列者行为观察的结论</a>
-        </h3>
-        <time class="post-date" datetime="2025-07-12T16:13:14&#43;08:00">
-          2025年7月12日
-        </time>
-      </div>
-      <div class="post-summary">
+    <div class="posts-list">
         
-           本文描绘的群体画像仅代表个人在社交媒体上所见，尤其是音游圈的行为，不代表所有人。观点包含个人主观推测，谨慎甄别。
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/kuo-lie/">基于身边扩列者行为观察的结论</a>
+                </h3>
+                <time class="post-date" datetime=" 2025-07-12T16:13:14&#43;08:00">
+                    2025年7月12日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">随笔</p>
+                    
+                </div>
+
+
+            </div>
+            <div class="post-summary">
+                
+                 本文描绘的群体画像仅代表个人在社交媒体上所见，尤其是音游圈的行为，不代表所有人。观点包含个人主观推测，谨慎甄别。
 我把朋友圈和QQ空间关闭的原因之一就是有很多扩列的。一直很不解，扩列的意义到底是什么？
 
+                
+            </div>
+        </article>
         
-      </div>
-    </article>
-    
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/c%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6io/">C语言下的二进制文件IO踩坑</a>
-        </h3>
-        <time class="post-date" datetime="2025-07-12T00:26:59&#43;08:00">
-          2025年7月12日
-        </time>
-      </div>
-      <div class="post-summary">
-        
-          C语言下的二进制文件读写有个坑，就是一定要按存储的顺序读取。例：
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/c%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6io/">C语言下的二进制文件IO踩坑</a>
+                </h3>
+                <time class="post-date" datetime=" 2025-07-12T00:26:59&#43;08:00">
+                    2025年7月12日
+                </time>
+                <div class="post-categories">
+                    
+                </div>
+
+
+            </div>
+            <div class="post-summary">
+                
+                C语言下的二进制文件读写有个坑，就是一定要按存储的顺序读取。例：
 typedef struct player { int id; double XP; double MP; }player; 这里有一个玩家的数据结构，我们创建变量并初始化。
 int b_i[32] = {1, 233, 2453, …
+                
+            </div>
+        </article>
         
-      </div>
-    </article>
-    
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/%E5%AF%B9%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E7%9A%84%E4%B8%80%E7%82%B9%E6%83%B3%E6%B3%95/">对博客主题的一点想法</a>
-        </h3>
-        <time class="post-date" datetime="2025-07-10T21:12:51&#43;08:00">
-          2025年7月10日
-        </time>
-      </div>
-      <div class="post-summary">
-        
-          简单回顾以下建站历程，博客的内容从“我是谁”转移到了&quot;我想说什么&quot;。从最早开始正式写博客的Gmeek，到后来使用Typecho，再到Hexo,Hugo，这几个不同的时期是我对主题看法的不同阶段。
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/%E5%AF%B9%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E7%9A%84%E4%B8%80%E7%82%B9%E6%83%B3%E6%B3%95/">对博客主题的一点想法</a>
+                </h3>
+                <time class="post-date" datetime=" 2025-07-10T21:12:51&#43;08:00">
+                    2025年7月10日
+                </time>
+                <div class="post-categories">
+                    
+                </div>
 
+
+            </div>
+            <div class="post-summary">
+                
+                简单回顾以下建站历程，博客的内容从“我是谁”转移到了&quot;我想说什么&quot;。从最早开始正式写博客的Gmeek，到后来使用Typecho，再到Hexo,Hugo，这几个不同的时期是我对主题看法的不同阶段。
+
+                
+            </div>
+        </article>
         
-      </div>
-    </article>
-    
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/c%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E7%AE%80%E6%98%93shell/">C语言实现简易Shell</a>
-        </h3>
-        <time class="post-date" datetime="2025-07-10T00:09:36&#43;08:00">
-          2025年7月10日
-        </time>
-      </div>
-      <div class="post-summary">
-        
-          实现一个Shell，需要的功能有：
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/c%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E7%AE%80%E6%98%93shell/">C语言实现简易Shell</a>
+                </h3>
+                <time class="post-date" datetime=" 2025-07-10T00:09:36&#43;08:00">
+                    2025年7月10日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">技术</p>
+                    
+                </div>
+
+
+            </div>
+            <div class="post-summary">
+                
+                实现一个Shell，需要的功能有：
 循环读取用户输入 输出提示符 创建子进程执行命令 等待回收子进程 shell中的大多数命令都是通过创建子进程来执行的，可以使用fork()创建子进程，然后替换主进程执行命令。 创建 常用函数原型
 
+                
+            </div>
+        </article>
         
-      </div>
-    </article>
-    
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/c%E8%AF%AD%E8%A8%80%E7%9A%84%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0/">C语言的可变参数</a>
-        </h3>
-        <time class="post-date" datetime="2025-07-05T18:32:52Z">
-          2025年7月5日
-        </time>
-      </div>
-      <div class="post-summary">
-        
-          介绍 C语言中，printf()和scanf()函数就是典型的变参函数，其优点是灵活处理参数。
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/c%E8%AF%AD%E8%A8%80%E7%9A%84%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0/">C语言的可变参数</a>
+                </h3>
+                <time class="post-date" datetime=" 2025-07-05T18:32:52Z">
+                    2025年7月5日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">技术</p>
+                    
+                </div>
+
+
+            </div>
+            <div class="post-summary">
+                
+                介绍 C语言中，printf()和scanf()函数就是典型的变参函数，其优点是灵活处理参数。
 想要创建变参函数需引入头文件stdarg.h，它有一些宏：
 
+                
+            </div>
+        </article>
         
-      </div>
-    </article>
-    
   </div>
   
   
@@ -564,7 +659,7 @@ int b_i[32] = {1, 233, 2453, …
   
   .post-item {
     padding: 1.5rem 0;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #dcdcdc;
     transition: background-color 0.2s ease;
   }
   
@@ -574,7 +669,7 @@ int b_i[32] = {1, 233, 2453, …
   
   .post-title {
     margin: 0 0 0.5rem 0;
-    font-size: 1.4rem;
+    font-size: 24px;
     line-height: 1.3;
   }
   
@@ -668,37 +763,13 @@ int b_i[32] = {1, 233, 2453, …
     }
   }
 </style>
- 
 
   </main>
-  <footer>
-
-
-Subscribe via <a href="/atom.xml">RSS</a> or just <a href="mailto:i@glowisle.me">say hello</a>.
-<br />
-
-
-
-
-
-Say hello via <a href="mailto:i@glowisle.me">email</a>.
-<br />
-
-
-
-
-Made with
-<a href="https://github.com/rokcso/hugo-bearneo/">Hugo Bear Neo</a>.
-<br />
-
-
-
-
-
-
-
-🗺️ <a href="/sitemap.xml">Sitemap</a>.
-
+  <footer><p>
+  © 2024 - 2025 | <a href="/atom.xml">RSS</a> |
+  <a href="https://www.github.com/yingyu5658">Github</a> |
+  <a href="mailto:i@glowisle.me">Email</a> | <a href="/sitemap.xml">Sitemap</a>
+</p>
 </footer>
 
     

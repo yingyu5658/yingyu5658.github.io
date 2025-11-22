@@ -18,7 +18,8 @@
 <meta property="og:url" content="https://www.glowisle.me/">
   <meta property="og:site_name" content="映屿">
   <meta property="og:title" content="首页">
-  <meta property="og:description" content="关于互联网、书籍、生活琐事以及那些一闪而过的念头。计算机技术 &amp; 读书感悟 &amp; 日常随笔。">
+  <meta property="og:description" content="写点生活随笔、读书感悟、技术实践和幼稚观点。
+不花里胡哨、不迎合大众、不随波逐流、不投放广告，专注自己想写的内容。">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:type" content="website">
 
@@ -27,15 +28,18 @@
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="首页">
-  <meta name="twitter:description" content="关于互联网、书籍、生活琐事以及那些一闪而过的念头。计算机技术 &amp; 读书感悟 &amp; 日常随笔。">
+  <meta name="twitter:description" content="写点生活随笔、读书感悟、技术实践和幼稚观点。
+不花里胡哨、不迎合大众、不随波逐流、不投放广告，专注自己想写的内容。">
 
 
 
 
   <meta itemprop="name" content="首页">
-  <meta itemprop="description" content="关于互联网、书籍、生活琐事以及那些一闪而过的念头。计算机技术 &amp; 读书感悟 &amp; 日常随笔。">
+  <meta itemprop="description" content="写点生活随笔、读书感悟、技术实践和幼稚观点。
+不花里胡哨、不迎合大众、不随波逐流、不投放广告，专注自己想写的内容。">
   <meta itemprop="datePublished" content="2025-11-15T19:24:14+08:00">
   <meta itemprop="dateModified" content="2025-11-15T19:24:14+08:00">
+  <meta itemprop="wordCount" content="56">
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
   <link rel="alternate" type="application/rss+xml" href="http://www.glowisle.me/atom.xml" title="映屿" />
@@ -47,7 +51,7 @@
     --font-secondary: monospace;
     --font-size-primary: 1em;
     --font-size-secondary: 0.8em;
-    --body-bg-color: #fdfde7;
+    --body-bg-color: #ffffff;
     --bold-text-color: #222;
     --body-text-color: #444;
     --link-color: #3273dc;
@@ -65,6 +69,15 @@
     --toc-hover-color: #655e5e;
   }
 
+  .post-categories,
+  .category-link {
+    display: inline;
+    color: #7f8c8d;
+  }
+
+  .post-categories {
+    font-size: 0.9em;
+  }
   .post-date,
   .post-date-shortcode {
     margin-left: auto;
@@ -84,7 +97,41 @@
     border-radius: 5px;
     text-transform: uppercase;
   }
-   
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --body-bg-color: #1c1c1c;
+      --bold-text-color: #eee;
+      --body-text-color: #ddd;
+      --link-color: #8cc2dd;
+      --link-visited-color: #c3b1ee;
+      --table-border-color: #999;
+      --table-th-bg-color: #999;
+      --img-border-color: #999;
+      --code-bg-color: #555;
+      --code-text-color: #ddd;
+      --blockquote-border-color: #ccc;
+      --blockquote-text-color: #ccc;
+      --caption-text-color: #aaa;
+      --toc-text-color: #373737;
+      --toc-hover-color: #cac3c3;
+    }
+
+    .post-title a {
+      color: #fff !important;
+    }
+
+    .post-summary {
+      color: var(--text-color-primary) !important;
+    }
+
+    .post-item {
+      border-bottom: 1px solid #414141 !important;
+    }
+
+    .pagination-link {
+      border: 1px solid #414141 !important;
+    }
+  }
 
   body {
     font-family: var(--font-primary);
@@ -259,7 +306,7 @@
 
   footer {
     padding: 25px 0;
-    text-align: center;
+    text-align: left;
     font-size: var(--font-size-secondary);
   }
 
@@ -422,8 +469,15 @@
   }
 </style>
 <meta name="msvalidate.01" content="2E1AACF009206F2DDBAAD4B98E881460" />
-<link rel="stylesheet" href="/css/waline.css"/>
-<link rel="prefetch" as="image" href="https://www.blogsclub.org/badge/www.glowisle.me">
+<link
+  rel="prefetch"
+  as="image"
+  href="https://www.blogsclub.org/badge/www.glowisle.me"
+/>
+<script
+  src="https://kit.fontawesome.com/2f4edcb5b6.js"
+  crossorigin="anonymous"
+></script>
 </head>
 
 <body>
@@ -432,7 +486,7 @@
 </a>
 <nav><a href="/">首页</a>
 
-<a href="/posts">文章</a>
+<a href="/posts">归档</a>
 
 <a href="/links">友人</a>
 
@@ -443,99 +497,148 @@
 
 </nav>
 </header>
-  <main> 
+  <main>
+
+<p>写点生活随笔、读书感悟、技术实践和幼稚观点。</p>
+<p><strong>不花里胡哨、不迎合大众、不随波逐流、不投放广告</strong>，专注自己想写的内容。</p>
+<hr>
 
 
  
 <div class="recent-posts">
-  
-  <div class="posts-list">
     
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/184/">修复Geyser下基岩版玩家无法在地狱基岩层放置方块</a>
-        </h3>
-        <time class="post-date" datetime="2025-01-08T17:26:00Z">
-          2025年1月8日
-        </time>
-      </div>
-      <div class="post-summary">
+    <div class="posts-list">
         
-          在plugins\Geyser-Spigot\config.yml中把第160行的above-bedrock-nether-building: false改为true，重启服务器，问题解决~ 原理：geyser把下界翻译成了末地，会导致下界天空变成末地的样式，不过可以解决基岩版玩家在地狱基岩层的问 …
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/184/">修复Geyser下基岩版玩家无法在地狱基岩层放置方块</a>
+                </h3>
+                <time class="post-date" datetime=" 2025-01-08T17:26:00Z">
+                    2025年1月8日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">技术</p>
+                    
+                </div>
+
+
+            </div>
+            <div class="post-summary">
+                
+                在plugins\Geyser-Spigot\config.yml中把第160行的above-bedrock-nether-building: false改为true，重启服务器，问题解决~ 原理：geyser把下界翻译成了末地，会导致下界天空变成末地的样式，不过可以解决基岩版玩家在地狱基岩层的问 …
+                
+            </div>
+        </article>
         
-      </div>
-    </article>
-    
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/181/">Spigot服务端控制台中文乱码解决方案</a>
-        </h3>
-        <time class="post-date" datetime="2025-01-04T08:35:00Z">
-          2025年1月4日
-        </time>
-      </div>
-      <div class="post-summary">
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/181/">Spigot服务端控制台中文乱码解决方案</a>
+                </h3>
+                <time class="post-date" datetime=" 2025-01-04T08:35:00Z">
+                    2025年1月4日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">技术</p>
+                    
+                </div>
+
+
+            </div>
+            <div class="post-summary">
+                
+                 把-Dfile.encoding=UTF-8加在开服脚本文件的-jar前即可。 在启动脚本第一行加上chcp 65001 我的启动脚本如下： chcp 65001 java -Dfile.encoding=UTF-8 -jar spigot-1.21.jar 
+                
+            </div>
+        </article>
         
-           把-Dfile.encoding=UTF-8加在开服脚本文件的-jar前即可。 在启动脚本第一行加上chcp 65001 我的启动脚本如下： chcp 65001 java -Dfile.encoding=UTF-8 -jar spigot-1.21.jar 
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/171/">String的注意事项</a>
+                </h3>
+                <time class="post-date" datetime=" 2024-12-19T22:28:15Z">
+                    2024年12月19日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">技术</p>
+                    
+                </div>
+
+
+            </div>
+            <div class="post-summary">
+                
+                String的注意事项 String对象的内容不可改变， 被称为不可变字符串对象。 只要是以“&hellip;”的方式写出的字符串，都会存储到字符串常量池，且相同的字符串只存储一份； 但通过new方式创建字符串对象，每new一次都会产生一个新的对象放在堆内存中。 不可变字符串对象 不可变？它肯定可变 …
+                
+            </div>
+        </article>
         
-      </div>
-    </article>
-    
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/171/">String的注意事项</a>
-        </h3>
-        <time class="post-date" datetime="2024-12-19T22:28:15Z">
-          2024年12月19日
-        </time>
-      </div>
-      <div class="post-summary">
-        
-          String的注意事项 String对象的内容不可改变， 被称为不可变字符串对象。 只要是以“&hellip;”的方式写出的字符串，都会存储到字符串常量池，且相同的字符串只存储一份； 但通过new方式创建字符串对象，每new一次都会产生一个新的对象放在堆内存中。 不可变字符串对象 不可变？它肯定可变 …
-        
-      </div>
-    </article>
-    
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/166/">面向对象编程总结</a>
-        </h3>
-        <time class="post-date" datetime="2024-12-18T16:30:00Z">
-          2024年12月18日
-        </time>
-      </div>
-      <div class="post-summary">
-        
-          面向对象（oop）
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/166/">面向对象编程总结</a>
+                </h3>
+                <time class="post-date" datetime=" 2024-12-18T16:30:00Z">
+                    2024年12月18日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">技术</p>
+                    
+                </div>
+
+
+            </div>
+            <div class="post-summary">
+                
+                面向对象（oop）
 面向对象编程的思想：面向。拿或者找。 对象：东西 面向对象编程：拿东西过来编程 面向对象：把现实世界中的食物看成一个一个对象来解决问题的。（万物皆 对象） 面向对象的好处：代码更符合人类的思维习惯。编程更简单。看程序更容易理解（？）
 
+                
+            </div>
+        </article>
         
-      </div>
-    </article>
-    
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/163/">记录配置SSL证书</a>
-        </h3>
-        <time class="post-date" datetime="2024-12-17T11:46:07Z">
-          2024年12月17日
-        </time>
-      </div>
-      <div class="post-summary">
-        
-          首先你要有一个SSL证书，建议在阿里云购买或者免费申请，具体过程阿里云这个页面讲的很详细，在此不过多赘述。
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/163/">记录配置SSL证书</a>
+                </h3>
+                <time class="post-date" datetime=" 2024-12-17T11:46:07Z">
+                    2024年12月17日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">技术</p>
+                    
+                </div>
+
+
+            </div>
+            <div class="post-summary">
+                
+                首先你要有一个SSL证书，建议在阿里云购买或者免费申请，具体过程阿里云这个页面讲的很详细，在此不过多赘述。
 配置证书 由于我的nginx安装了ssl模块，直接进入配置证书。
 解压下载好的证书，然后上传到服务器。位置自己方便找到即可 我放到了root/card
 
+                
+            </div>
+        </article>
         
-      </div>
-    </article>
-    
   </div>
   
   
@@ -560,7 +663,7 @@
   
   .post-item {
     padding: 1.5rem 0;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #dcdcdc;
     transition: background-color 0.2s ease;
   }
   
@@ -570,7 +673,7 @@
   
   .post-title {
     margin: 0 0 0.5rem 0;
-    font-size: 1.4rem;
+    font-size: 24px;
     line-height: 1.3;
   }
   
@@ -664,37 +767,13 @@
     }
   }
 </style>
- 
 
   </main>
-  <footer>
-
-
-Subscribe via <a href="/atom.xml">RSS</a> or just <a href="mailto:i@glowisle.me">say hello</a>.
-<br />
-
-
-
-
-
-Say hello via <a href="mailto:i@glowisle.me">email</a>.
-<br />
-
-
-
-
-Made with
-<a href="https://github.com/rokcso/hugo-bearneo/">Hugo Bear Neo</a>.
-<br />
-
-
-
-
-
-
-
-🗺️ <a href="/sitemap.xml">Sitemap</a>.
-
+  <footer><p>
+  © 2024 - 2025 | <a href="/atom.xml">RSS</a> |
+  <a href="https://www.github.com/yingyu5658">Github</a> |
+  <a href="mailto:i@glowisle.me">Email</a> | <a href="/sitemap.xml">Sitemap</a>
+</p>
 </footer>
 
     

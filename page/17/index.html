@@ -18,7 +18,8 @@
 <meta property="og:url" content="https://www.glowisle.me/">
   <meta property="og:site_name" content="映屿">
   <meta property="og:title" content="首页">
-  <meta property="og:description" content="关于互联网、书籍、生活琐事以及那些一闪而过的念头。计算机技术 &amp; 读书感悟 &amp; 日常随笔。">
+  <meta property="og:description" content="写点生活随笔、读书感悟、技术实践和幼稚观点。
+不花里胡哨、不迎合大众、不随波逐流、不投放广告，专注自己想写的内容。">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:type" content="website">
 
@@ -27,15 +28,18 @@
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="首页">
-  <meta name="twitter:description" content="关于互联网、书籍、生活琐事以及那些一闪而过的念头。计算机技术 &amp; 读书感悟 &amp; 日常随笔。">
+  <meta name="twitter:description" content="写点生活随笔、读书感悟、技术实践和幼稚观点。
+不花里胡哨、不迎合大众、不随波逐流、不投放广告，专注自己想写的内容。">
 
 
 
 
   <meta itemprop="name" content="首页">
-  <meta itemprop="description" content="关于互联网、书籍、生活琐事以及那些一闪而过的念头。计算机技术 &amp; 读书感悟 &amp; 日常随笔。">
+  <meta itemprop="description" content="写点生活随笔、读书感悟、技术实践和幼稚观点。
+不花里胡哨、不迎合大众、不随波逐流、不投放广告，专注自己想写的内容。">
   <meta itemprop="datePublished" content="2025-11-15T19:24:14+08:00">
   <meta itemprop="dateModified" content="2025-11-15T19:24:14+08:00">
+  <meta itemprop="wordCount" content="56">
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
   <link rel="alternate" type="application/rss+xml" href="http://www.glowisle.me/atom.xml" title="映屿" />
@@ -47,7 +51,7 @@
     --font-secondary: monospace;
     --font-size-primary: 1em;
     --font-size-secondary: 0.8em;
-    --body-bg-color: #fdfde7;
+    --body-bg-color: #ffffff;
     --bold-text-color: #222;
     --body-text-color: #444;
     --link-color: #3273dc;
@@ -65,6 +69,15 @@
     --toc-hover-color: #655e5e;
   }
 
+  .post-categories,
+  .category-link {
+    display: inline;
+    color: #7f8c8d;
+  }
+
+  .post-categories {
+    font-size: 0.9em;
+  }
   .post-date,
   .post-date-shortcode {
     margin-left: auto;
@@ -84,7 +97,41 @@
     border-radius: 5px;
     text-transform: uppercase;
   }
-   
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --body-bg-color: #1c1c1c;
+      --bold-text-color: #eee;
+      --body-text-color: #ddd;
+      --link-color: #8cc2dd;
+      --link-visited-color: #c3b1ee;
+      --table-border-color: #999;
+      --table-th-bg-color: #999;
+      --img-border-color: #999;
+      --code-bg-color: #555;
+      --code-text-color: #ddd;
+      --blockquote-border-color: #ccc;
+      --blockquote-text-color: #ccc;
+      --caption-text-color: #aaa;
+      --toc-text-color: #373737;
+      --toc-hover-color: #cac3c3;
+    }
+
+    .post-title a {
+      color: #fff !important;
+    }
+
+    .post-summary {
+      color: var(--text-color-primary) !important;
+    }
+
+    .post-item {
+      border-bottom: 1px solid #414141 !important;
+    }
+
+    .pagination-link {
+      border: 1px solid #414141 !important;
+    }
+  }
 
   body {
     font-family: var(--font-primary);
@@ -259,7 +306,7 @@
 
   footer {
     padding: 25px 0;
-    text-align: center;
+    text-align: left;
     font-size: var(--font-size-secondary);
   }
 
@@ -422,8 +469,15 @@
   }
 </style>
 <meta name="msvalidate.01" content="2E1AACF009206F2DDBAAD4B98E881460" />
-<link rel="stylesheet" href="/css/waline.css"/>
-<link rel="prefetch" as="image" href="https://www.blogsclub.org/badge/www.glowisle.me">
+<link
+  rel="prefetch"
+  as="image"
+  href="https://www.blogsclub.org/badge/www.glowisle.me"
+/>
+<script
+  src="https://kit.fontawesome.com/2f4edcb5b6.js"
+  crossorigin="anonymous"
+></script>
 </head>
 
 <body>
@@ -432,7 +486,7 @@
 </a>
 <nav><a href="/">首页</a>
 
-<a href="/posts">文章</a>
+<a href="/posts">归档</a>
 
 <a href="/links">友人</a>
 
@@ -443,102 +497,151 @@
 
 </nav>
 </header>
-  <main> 
+  <main>
+
+<p>写点生活随笔、读书感悟、技术实践和幼稚观点。</p>
+<p><strong>不花里胡哨、不迎合大众、不随波逐流、不投放广告</strong>，专注自己想写的内容。</p>
+<hr>
 
 
  
 <div class="recent-posts">
-  
-  <div class="posts-list">
     
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/">【数据结构与算法】冒泡排序</a>
-        </h3>
-        <time class="post-date" datetime="2025-05-10T20:06:05Z">
-          2025年5月10日
-        </time>
-      </div>
-      <div class="post-summary">
+    <div class="posts-list">
         
-          核心思想 通过相邻元素的两两比较，将较大的元素逐步“冒泡”到数组末尾，每轮排序确定一个最大元素的最终位置。
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/">【数据结构与算法】冒泡排序</a>
+                </h3>
+                <time class="post-date" datetime=" 2025-05-10T20:06:05Z">
+                    2025年5月10日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">技术</p>
+                    
+                </div>
+
+
+            </div>
+            <div class="post-summary">
+                
+                核心思想 通过相邻元素的两两比较，将较大的元素逐步“冒泡”到数组末尾，每轮排序确定一个最大元素的最终位置。
 代码实现 void bubble_sort(int arr[], int n) { // 最外层控制循环轮数 n-1轮 for (int i = 0; i &lt; n - 1; i++) { …
+                
+            </div>
+        </article>
         
-      </div>
-    </article>
-    
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/x86-64%E6%B1%87%E7%BC%96%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">x86-64汇编学习笔记</a>
-        </h3>
-        <time class="post-date" datetime="2025-04-29T13:44:13Z">
-          2025年4月29日
-        </time>
-      </div>
-      <div class="post-summary">
-        
-          机器指令和机器语言 机器指令，二进制数字，机器语言全局机器指令的集合，CPU通过执行一系列的机器指令完成计算工作。
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/x86-64%E6%B1%87%E7%BC%96%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">x86-64汇编学习笔记</a>
+                </h3>
+                <time class="post-date" datetime=" 2025-04-29T13:44:13Z">
+                    2025年4月29日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">技术</p>
+                    
+                </div>
+
+
+            </div>
+            <div class="post-summary">
+                
+                机器指令和机器语言 机器指令，二进制数字，机器语言全局机器指令的集合，CPU通过执行一系列的机器指令完成计算工作。
 汇编语言就是为了代替机器指令，使人类能够更加简单地编写程序而诞生的。汇编语言就是机器码的助记符。
 
+                
+            </div>
+        </article>
         
-      </div>
-    </article>
-    
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/wsl-arch-linux-zsh%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">WSL Arch Linux ZSH输入中文输入法乱码解决方法</a>
-        </h3>
-        <time class="post-date" datetime="2025-04-29T10:31:26Z">
-          2025年4月29日
-        </time>
-      </div>
-      <div class="post-summary">
-        
-          没有进行配置的情况下输入中文，一般会显示&lt;0xffffffff&gt;，这是由于没有安装字体造成的。
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/wsl-arch-linux-zsh%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">WSL Arch Linux ZSH输入中文输入法乱码解决方法</a>
+                </h3>
+                <time class="post-date" datetime=" 2025-04-29T10:31:26Z">
+                    2025年4月29日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">技术</p>
+                    
+                </div>
+
+
+            </div>
+            <div class="post-summary">
+                
+                没有进行配置的情况下输入中文，一般会显示&lt;0xffffffff&gt;，这是由于没有安装字体造成的。
 sudo pacman -S noto-fonts-cjk # 安装中文字体 sudo vi /etc/locale.gen # 取消注释 zh_CN.UTF-8 sudo …
+                
+            </div>
+        </article>
         
-      </div>
-    </article>
-    
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/emacs-eaf%E6%8F%92%E4%BB%B6%E6%89%93%E5%BC%80%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%AA%E6%98%BE%E7%A4%BAopening-http-xxx-xxx%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">Emacs EAF插件打开浏览器只显示opening http://xxx.xxx的解决方法</a>
-        </h3>
-        <time class="post-date" datetime="2025-04-29T10:02:49Z">
-          2025年4月29日
-        </time>
-      </div>
-      <div class="post-summary">
-        
-          检查是否安装全部依赖，如yay、pip等。我这里是由于没有安装pip导致的。
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/emacs-eaf%E6%8F%92%E4%BB%B6%E6%89%93%E5%BC%80%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%AA%E6%98%BE%E7%A4%BAopening-http-xxx-xxx%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">Emacs EAF插件打开浏览器只显示opening http://xxx.xxx的解决方法</a>
+                </h3>
+                <time class="post-date" datetime=" 2025-04-29T10:02:49Z">
+                    2025年4月29日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">技术</p>
+                    
+                </div>
+
+
+            </div>
+            <div class="post-summary">
+                
+                检查是否安装全部依赖，如yay、pip等。我这里是由于没有安装pip导致的。
 sudo pacman -S python-pip
 安装好后，进入eaf安装目录
 cd ~/.emacs.d/site-lisp/emacs-application-framework &amp;&amp; …
+                
+            </div>
+        </article>
         
-      </div>
-    </article>
-    
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/%E9%9A%90%E5%B1%85/">隐居</a>
-        </h3>
-        <time class="post-date" datetime="2025-04-26T18:42:46Z">
-          2025年4月26日
-        </time>
-      </div>
-      <div class="post-summary">
-        
-          此隐居非彼隐居。残酷的是，人是社会性动物，脱离了社会根本没法生存。既然无法与现实的是是非非一刀两断，那就至少让自己在网络世界耳根清净点。
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/%E9%9A%90%E5%B1%85/">隐居</a>
+                </h3>
+                <time class="post-date" datetime=" 2025-04-26T18:42:46Z">
+                    2025年4月26日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">随笔</p>
+                    
+                </div>
+
+
+            </div>
+            <div class="post-summary">
+                
+                此隐居非彼隐居。残酷的是，人是社会性动物，脱离了社会根本没法生存。既然无法与现实的是是非非一刀两断，那就至少让自己在网络世界耳根清净点。
 自从前几个月退坑音游后，基本就与游戏没了什么交际。周末空闲时间就听听歌，写写代码，画点画。五一假期也要开始认真练琴了。这么说来还颇有几分文气，琴棋书画几样都有沾 …
+                
+            </div>
+        </article>
         
-      </div>
-    </article>
-    
   </div>
   
   
@@ -563,7 +666,7 @@ cd ~/.emacs.d/site-lisp/emacs-application-framework &amp;&amp; …
   
   .post-item {
     padding: 1.5rem 0;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #dcdcdc;
     transition: background-color 0.2s ease;
   }
   
@@ -573,7 +676,7 @@ cd ~/.emacs.d/site-lisp/emacs-application-framework &amp;&amp; …
   
   .post-title {
     margin: 0 0 0.5rem 0;
-    font-size: 1.4rem;
+    font-size: 24px;
     line-height: 1.3;
   }
   
@@ -667,37 +770,13 @@ cd ~/.emacs.d/site-lisp/emacs-application-framework &amp;&amp; …
     }
   }
 </style>
- 
 
   </main>
-  <footer>
-
-
-Subscribe via <a href="/atom.xml">RSS</a> or just <a href="mailto:i@glowisle.me">say hello</a>.
-<br />
-
-
-
-
-
-Say hello via <a href="mailto:i@glowisle.me">email</a>.
-<br />
-
-
-
-
-Made with
-<a href="https://github.com/rokcso/hugo-bearneo/">Hugo Bear Neo</a>.
-<br />
-
-
-
-
-
-
-
-🗺️ <a href="/sitemap.xml">Sitemap</a>.
-
+  <footer><p>
+  © 2024 - 2025 | <a href="/atom.xml">RSS</a> |
+  <a href="https://www.github.com/yingyu5658">Github</a> |
+  <a href="mailto:i@glowisle.me">Email</a> | <a href="/sitemap.xml">Sitemap</a>
+</p>
 </footer>
 
     

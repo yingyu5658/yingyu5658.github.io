@@ -18,7 +18,8 @@
 <meta property="og:url" content="https://www.glowisle.me/">
   <meta property="og:site_name" content="映屿">
   <meta property="og:title" content="首页">
-  <meta property="og:description" content="关于互联网、书籍、生活琐事以及那些一闪而过的念头。计算机技术 &amp; 读书感悟 &amp; 日常随笔。">
+  <meta property="og:description" content="写点生活随笔、读书感悟、技术实践和幼稚观点。
+不花里胡哨、不迎合大众、不随波逐流、不投放广告，专注自己想写的内容。">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:type" content="website">
 
@@ -27,15 +28,18 @@
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="首页">
-  <meta name="twitter:description" content="关于互联网、书籍、生活琐事以及那些一闪而过的念头。计算机技术 &amp; 读书感悟 &amp; 日常随笔。">
+  <meta name="twitter:description" content="写点生活随笔、读书感悟、技术实践和幼稚观点。
+不花里胡哨、不迎合大众、不随波逐流、不投放广告，专注自己想写的内容。">
 
 
 
 
   <meta itemprop="name" content="首页">
-  <meta itemprop="description" content="关于互联网、书籍、生活琐事以及那些一闪而过的念头。计算机技术 &amp; 读书感悟 &amp; 日常随笔。">
+  <meta itemprop="description" content="写点生活随笔、读书感悟、技术实践和幼稚观点。
+不花里胡哨、不迎合大众、不随波逐流、不投放广告，专注自己想写的内容。">
   <meta itemprop="datePublished" content="2025-11-15T19:24:14+08:00">
   <meta itemprop="dateModified" content="2025-11-15T19:24:14+08:00">
+  <meta itemprop="wordCount" content="56">
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
   <link rel="alternate" type="application/rss+xml" href="http://www.glowisle.me/atom.xml" title="映屿" />
@@ -47,7 +51,7 @@
     --font-secondary: monospace;
     --font-size-primary: 1em;
     --font-size-secondary: 0.8em;
-    --body-bg-color: #fdfde7;
+    --body-bg-color: #ffffff;
     --bold-text-color: #222;
     --body-text-color: #444;
     --link-color: #3273dc;
@@ -65,6 +69,15 @@
     --toc-hover-color: #655e5e;
   }
 
+  .post-categories,
+  .category-link {
+    display: inline;
+    color: #7f8c8d;
+  }
+
+  .post-categories {
+    font-size: 0.9em;
+  }
   .post-date,
   .post-date-shortcode {
     margin-left: auto;
@@ -84,7 +97,41 @@
     border-radius: 5px;
     text-transform: uppercase;
   }
-   
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --body-bg-color: #1c1c1c;
+      --bold-text-color: #eee;
+      --body-text-color: #ddd;
+      --link-color: #8cc2dd;
+      --link-visited-color: #c3b1ee;
+      --table-border-color: #999;
+      --table-th-bg-color: #999;
+      --img-border-color: #999;
+      --code-bg-color: #555;
+      --code-text-color: #ddd;
+      --blockquote-border-color: #ccc;
+      --blockquote-text-color: #ccc;
+      --caption-text-color: #aaa;
+      --toc-text-color: #373737;
+      --toc-hover-color: #cac3c3;
+    }
+
+    .post-title a {
+      color: #fff !important;
+    }
+
+    .post-summary {
+      color: var(--text-color-primary) !important;
+    }
+
+    .post-item {
+      border-bottom: 1px solid #414141 !important;
+    }
+
+    .pagination-link {
+      border: 1px solid #414141 !important;
+    }
+  }
 
   body {
     font-family: var(--font-primary);
@@ -259,7 +306,7 @@
 
   footer {
     padding: 25px 0;
-    text-align: center;
+    text-align: left;
     font-size: var(--font-size-secondary);
   }
 
@@ -422,8 +469,15 @@
   }
 </style>
 <meta name="msvalidate.01" content="2E1AACF009206F2DDBAAD4B98E881460" />
-<link rel="stylesheet" href="/css/waline.css"/>
-<link rel="prefetch" as="image" href="https://www.blogsclub.org/badge/www.glowisle.me">
+<link
+  rel="prefetch"
+  as="image"
+  href="https://www.blogsclub.org/badge/www.glowisle.me"
+/>
+<script
+  src="https://kit.fontawesome.com/2f4edcb5b6.js"
+  crossorigin="anonymous"
+></script>
 </head>
 
 <body>
@@ -432,7 +486,7 @@
 </a>
 <nav><a href="/">首页</a>
 
-<a href="/posts">文章</a>
+<a href="/posts">归档</a>
 
 <a href="/links">友人</a>
 
@@ -443,103 +497,152 @@
 
 </nav>
 </header>
-  <main> 
+  <main>
+
+<p>写点生活随笔、读书感悟、技术实践和幼稚观点。</p>
+<p><strong>不花里胡哨、不迎合大众、不随波逐流、不投放广告</strong>，专注自己想写的内容。</p>
+<hr>
 
 
  
 <div class="recent-posts">
-  
-  <div class="posts-list">
     
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/electron-commonjs-require%E8%B8%A9%E5%9D%91/">Electron CommonJS require踩坑</a>
-        </h3>
-        <time class="post-date" datetime="2025-05-31T09:07:36&#43;08:00">
-          2025年5月31日
-        </time>
-      </div>
-      <div class="post-summary">
+    <div class="posts-list">
         
-          最近在开发一个Electron项目，在导入类的时候有以下报错:
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/electron-commonjs-require%E8%B8%A9%E5%9D%91/">Electron CommonJS require踩坑</a>
+                </h3>
+                <time class="post-date" datetime=" 2025-05-31T09:07:36&#43;08:00">
+                    2025年5月31日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">技术</p>
+                    
+                </div>
+
+
+            </div>
+            <div class="post-summary">
+                
+                最近在开发一个Electron项目，在导入类的时候有以下报错:
 node:internal/modules/cjs/loader:1411 Uncaught Error: Cannot find module &#39;./File&#39; Require stack: - …
+                
+            </div>
+        </article>
         
-      </div>
-    </article>
-    
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E4%B8%8E%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B%E7%BC%96%E7%A8%8B%E7%9A%84%E6%9C%AC%E8%B4%A8%E5%8C%BA%E5%88%AB/">面向对象与面向过程的本质区别</a>
-        </h3>
-        <time class="post-date" datetime="2025-05-29T21:21:36Z">
-          2025年5月29日
-        </time>
-      </div>
-      <div class="post-summary">
-        
-          面向对象与面向过程这两种编程思想主要体现在一件事上：面向对象关心谁来做，而面向过程关心做什么。
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E4%B8%8E%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B%E7%BC%96%E7%A8%8B%E7%9A%84%E6%9C%AC%E8%B4%A8%E5%8C%BA%E5%88%AB/">面向对象与面向过程的本质区别</a>
+                </h3>
+                <time class="post-date" datetime=" 2025-05-29T21:21:36Z">
+                    2025年5月29日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">技术</p>
+                    
+                </div>
+
+
+            </div>
+            <div class="post-summary">
+                
+                面向对象与面向过程这两种编程思想主要体现在一件事上：面向对象关心谁来做，而面向过程关心做什么。
 举个例子，如果我现在要开发一个五子棋小游戏，在面向对象的思想中，实现步骤应该是这样的。
 
+                
+            </div>
+        </article>
         
-      </div>
-    </article>
-    
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%93%88%E5%B8%8C%E8%A1%A8/">【数据结构与算法】哈希表</a>
-        </h3>
-        <time class="post-date" datetime="2025-05-28T21:44:28Z">
-          2025年5月28日
-        </time>
-      </div>
-      <div class="post-summary">
-        
-          哈希表（Hash Table）是一种基于键（Key）直接访问数据的高效数据结构，其核心思想是通过哈希函数将键映射到数组的特定位置，从而实现平均时间复杂度为 O(1)O(1) 的插入、查找和删除操作。
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%93%88%E5%B8%8C%E8%A1%A8/">【数据结构与算法】哈希表</a>
+                </h3>
+                <time class="post-date" datetime=" 2025-05-28T21:44:28Z">
+                    2025年5月28日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">技术</p>
+                    
+                </div>
 
+
+            </div>
+            <div class="post-summary">
+                
+                哈希表（Hash Table）是一种基于键（Key）直接访问数据的高效数据结构，其核心思想是通过哈希函数将键映射到数组的特定位置，从而实现平均时间复杂度为 O(1)O(1) 的插入、查找和删除操作。
+
+                
+            </div>
+        </article>
         
-      </div>
-    </article>
-    
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/%E6%84%9F%E8%B0%A2%E6%81%A9%E5%B8%88%E5%A4%B8%E5%A5%96/">感谢恩师夸奖</a>
-        </h3>
-        <time class="post-date" datetime="2025-05-28T20:27:55Z">
-          2025年5月28日
-        </time>
-      </div>
-      <div class="post-summary">
-        
-          课上没能回答出某个问题，遂借势挖苦批评，其中几个句子记忆犹新：“你主意太正”、“成绩不上不下”、“回家不知道是研究问题了还是学习了”。
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/%E6%84%9F%E8%B0%A2%E6%81%A9%E5%B8%88%E5%A4%B8%E5%A5%96/">感谢恩师夸奖</a>
+                </h3>
+                <time class="post-date" datetime=" 2025-05-28T20:27:55Z">
+                    2025年5月28日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">随笔</p>
+                    
+                </div>
+
+
+            </div>
+            <div class="post-summary">
+                
+                课上没能回答出某个问题，遂借势挖苦批评，其中几个句子记忆犹新：“你主意太正”、“成绩不上不下”、“回家不知道是研究问题了还是学习了”。
 感谢恩师夸奖。我就是主意正。
 
+                
+            </div>
+        </article>
         
-      </div>
-    </article>
-    
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%BC%97%E6%95%B0%E4%B8%AD%E4%BD%8D%E6%95%B0/">【数据结构与算法】众数、中位数</a>
-        </h3>
-        <time class="post-date" datetime="2025-05-27T19:41:53Z">
-          2025年5月27日
-        </time>
-      </div>
-      <div class="post-summary">
-        
-          今天学这个东西的时候，看到这种线性的数据结构加上排序步骤，很难不想写个程序来跑跑。
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%BC%97%E6%95%B0%E4%B8%AD%E4%BD%8D%E6%95%B0/">【数据结构与算法】众数、中位数</a>
+                </h3>
+                <time class="post-date" datetime=" 2025-05-27T19:41:53Z">
+                    2025年5月27日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">技术</p>
+                    
+                </div>
+
+
+            </div>
+            <div class="post-summary">
+                
+                今天学这个东西的时候，看到这种线性的数据结构加上排序步骤，很难不想写个程序来跑跑。
 先来说说中位数，这个比较有思路。
 中位数 具体的操作步骤应该是：排序 =&gt; 获得数据元素个数n =&gt; 是奇数 ? (n+1) / 2 : n / 2
 
+                
+            </div>
+        </article>
         
-      </div>
-    </article>
-    
   </div>
   
   
@@ -564,7 +667,7 @@ node:internal/modules/cjs/loader:1411 Uncaught Error: Cannot find module &#39;./
   
   .post-item {
     padding: 1.5rem 0;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #dcdcdc;
     transition: background-color 0.2s ease;
   }
   
@@ -574,7 +677,7 @@ node:internal/modules/cjs/loader:1411 Uncaught Error: Cannot find module &#39;./
   
   .post-title {
     margin: 0 0 0.5rem 0;
-    font-size: 1.4rem;
+    font-size: 24px;
     line-height: 1.3;
   }
   
@@ -668,37 +771,13 @@ node:internal/modules/cjs/loader:1411 Uncaught Error: Cannot find module &#39;./
     }
   }
 </style>
- 
 
   </main>
-  <footer>
-
-
-Subscribe via <a href="/atom.xml">RSS</a> or just <a href="mailto:i@glowisle.me">say hello</a>.
-<br />
-
-
-
-
-
-Say hello via <a href="mailto:i@glowisle.me">email</a>.
-<br />
-
-
-
-
-Made with
-<a href="https://github.com/rokcso/hugo-bearneo/">Hugo Bear Neo</a>.
-<br />
-
-
-
-
-
-
-
-🗺️ <a href="/sitemap.xml">Sitemap</a>.
-
+  <footer><p>
+  © 2024 - 2025 | <a href="/atom.xml">RSS</a> |
+  <a href="https://www.github.com/yingyu5658">Github</a> |
+  <a href="mailto:i@glowisle.me">Email</a> | <a href="/sitemap.xml">Sitemap</a>
+</p>
 </footer>
 
     

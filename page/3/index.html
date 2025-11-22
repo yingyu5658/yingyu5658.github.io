@@ -18,7 +18,8 @@
 <meta property="og:url" content="https://www.glowisle.me/">
   <meta property="og:site_name" content="映屿">
   <meta property="og:title" content="首页">
-  <meta property="og:description" content="关于互联网、书籍、生活琐事以及那些一闪而过的念头。计算机技术 &amp; 读书感悟 &amp; 日常随笔。">
+  <meta property="og:description" content="写点生活随笔、读书感悟、技术实践和幼稚观点。
+不花里胡哨、不迎合大众、不随波逐流、不投放广告，专注自己想写的内容。">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:type" content="website">
 
@@ -27,15 +28,18 @@
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="首页">
-  <meta name="twitter:description" content="关于互联网、书籍、生活琐事以及那些一闪而过的念头。计算机技术 &amp; 读书感悟 &amp; 日常随笔。">
+  <meta name="twitter:description" content="写点生活随笔、读书感悟、技术实践和幼稚观点。
+不花里胡哨、不迎合大众、不随波逐流、不投放广告，专注自己想写的内容。">
 
 
 
 
   <meta itemprop="name" content="首页">
-  <meta itemprop="description" content="关于互联网、书籍、生活琐事以及那些一闪而过的念头。计算机技术 &amp; 读书感悟 &amp; 日常随笔。">
+  <meta itemprop="description" content="写点生活随笔、读书感悟、技术实践和幼稚观点。
+不花里胡哨、不迎合大众、不随波逐流、不投放广告，专注自己想写的内容。">
   <meta itemprop="datePublished" content="2025-11-15T19:24:14+08:00">
   <meta itemprop="dateModified" content="2025-11-15T19:24:14+08:00">
+  <meta itemprop="wordCount" content="56">
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
   <link rel="alternate" type="application/rss+xml" href="http://www.glowisle.me/atom.xml" title="映屿" />
@@ -47,7 +51,7 @@
     --font-secondary: monospace;
     --font-size-primary: 1em;
     --font-size-secondary: 0.8em;
-    --body-bg-color: #fdfde7;
+    --body-bg-color: #ffffff;
     --bold-text-color: #222;
     --body-text-color: #444;
     --link-color: #3273dc;
@@ -65,6 +69,15 @@
     --toc-hover-color: #655e5e;
   }
 
+  .post-categories,
+  .category-link {
+    display: inline;
+    color: #7f8c8d;
+  }
+
+  .post-categories {
+    font-size: 0.9em;
+  }
   .post-date,
   .post-date-shortcode {
     margin-left: auto;
@@ -84,7 +97,41 @@
     border-radius: 5px;
     text-transform: uppercase;
   }
-   
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --body-bg-color: #1c1c1c;
+      --bold-text-color: #eee;
+      --body-text-color: #ddd;
+      --link-color: #8cc2dd;
+      --link-visited-color: #c3b1ee;
+      --table-border-color: #999;
+      --table-th-bg-color: #999;
+      --img-border-color: #999;
+      --code-bg-color: #555;
+      --code-text-color: #ddd;
+      --blockquote-border-color: #ccc;
+      --blockquote-text-color: #ccc;
+      --caption-text-color: #aaa;
+      --toc-text-color: #373737;
+      --toc-hover-color: #cac3c3;
+    }
+
+    .post-title a {
+      color: #fff !important;
+    }
+
+    .post-summary {
+      color: var(--text-color-primary) !important;
+    }
+
+    .post-item {
+      border-bottom: 1px solid #414141 !important;
+    }
+
+    .pagination-link {
+      border: 1px solid #414141 !important;
+    }
+  }
 
   body {
     font-family: var(--font-primary);
@@ -259,7 +306,7 @@
 
   footer {
     padding: 25px 0;
-    text-align: center;
+    text-align: left;
     font-size: var(--font-size-secondary);
   }
 
@@ -422,8 +469,15 @@
   }
 </style>
 <meta name="msvalidate.01" content="2E1AACF009206F2DDBAAD4B98E881460" />
-<link rel="stylesheet" href="/css/waline.css"/>
-<link rel="prefetch" as="image" href="https://www.blogsclub.org/badge/www.glowisle.me">
+<link
+  rel="prefetch"
+  as="image"
+  href="https://www.blogsclub.org/badge/www.glowisle.me"
+/>
+<script
+  src="https://kit.fontawesome.com/2f4edcb5b6.js"
+  crossorigin="anonymous"
+></script>
 </head>
 
 <body>
@@ -432,7 +486,7 @@
 </a>
 <nav><a href="/">首页</a>
 
-<a href="/posts">文章</a>
+<a href="/posts">归档</a>
 
 <a href="/links">友人</a>
 
@@ -443,101 +497,150 @@
 
 </nav>
 </header>
-  <main> 
+  <main>
+
+<p>写点生活随笔、读书感悟、技术实践和幼稚观点。</p>
+<p><strong>不花里胡哨、不迎合大众、不随波逐流、不投放广告</strong>，专注自己想写的内容。</p>
+<hr>
 
 
  
 <div class="recent-posts">
-  
-  <div class="posts-list">
     
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/honba-mishima-yukio/">《奔马》书评：刀刃突入腹部的瞬间，红日在眼睑内冉冉升起</a>
-        </h3>
-        <time class="post-date" datetime="2025-10-05T11:35:41&#43;08:00">
-          2025年10月5日
-        </time>
-      </div>
-      <div class="post-summary">
+    <div class="posts-list">
         
-          今日凌晨读完了丰饶之海的第二卷：《奔马》，这是四部曲中最暴烈的一部。全书围绕着上一部的主人公松枝清显的转世 —— 饭沼勋的行动展开。讲述了一个阳刚强健的少年，因不忍政治腐败，天皇的实权丧失，忧国之心驱使他组织刺杀政府企业巨头，失败后，他雄心未泯，最终刺杀了藏原再切腹自尽的故事。重点展现了作者对武士道 …
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/honba-mishima-yukio/">《奔马》书评：刀刃突入腹部的瞬间，红日在眼睑内冉冉升起</a>
+                </h3>
+                <time class="post-date" datetime=" 2025-10-05T11:35:41&#43;08:00">
+                    2025年10月5日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">读书</p>
+                    
+                </div>
+
+
+            </div>
+            <div class="post-summary">
+                
+                今日凌晨读完了丰饶之海的第二卷：《奔马》，这是四部曲中最暴烈的一部。全书围绕着上一部的主人公松枝清显的转世 —— 饭沼勋的行动展开。讲述了一个阳刚强健的少年，因不忍政治腐败，天皇的实权丧失，忧国之心驱使他组织刺杀政府企业巨头，失败后，他雄心未泯，最终刺杀了藏原再切腹自尽的故事。重点展现了作者对武士道 …
+                
+            </div>
+        </article>
         
-      </div>
-    </article>
-    
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/book-shopping-sisyphu/">逛逛西西弗，买两本书</a>
-        </h3>
-        <time class="post-date" datetime="2025-10-04T11:16:21&#43;08:00">
-          2025年10月4日
-        </time>
-      </div>
-      <div class="post-summary">
-        
-          昨天去了海信广场 B1 层的西西弗。
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/book-shopping-sisyphu/">逛逛西西弗，买两本书</a>
+                </h3>
+                <time class="post-date" datetime=" 2025-10-04T11:16:21&#43;08:00">
+                    2025年10月4日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">随笔</p>
+                    
+                </div>
+
+
+            </div>
+            <div class="post-summary">
+                
+                昨天去了海信广场 B1 层的西西弗。
 进门左手边有一些钥匙扣之类的小礼品，也有儿童玩具之类，感觉带小孩子来要很麻烦。
 
+                
+            </div>
+        </article>
         
-      </div>
-    </article>
-    
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/the-value-of-blog/">个人博客凭什么为你提供价值？</a>
-        </h3>
-        <time class="post-date" datetime="2025-09-30T22:25:35&#43;08:00">
-          2025年9月30日
-        </time>
-      </div>
-      <div class="post-summary">
-        
-          今天我在网上冲浪的时候，看见了一个收录博客的网站。收录的所有网站都是手动整理而来，并且对所谓博客的「价值」颇有一番见解，断章取义地引用了一段知乎用户的回答。原问题是回应关于个人博客的前途的，其中对博客的价值作出了一些判断。以下是原回答：
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/the-value-of-blog/">个人博客凭什么为你提供价值？</a>
+                </h3>
+                <time class="post-date" datetime=" 2025-09-30T22:25:35&#43;08:00">
+                    2025年9月30日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">随笔</p>
+                    
+                </div>
 
+
+            </div>
+            <div class="post-summary">
+                
+                今天我在网上冲浪的时候，看见了一个收录博客的网站。收录的所有网站都是手动整理而来，并且对所谓博客的「价值」颇有一番见解，断章取义地引用了一段知乎用户的回答。原问题是回应关于个人博客的前途的，其中对博客的价值作出了一些判断。以下是原回答：
+
+                
+            </div>
+        </article>
         
-      </div>
-    </article>
-    
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/spring-snow-mishima-yukio/">《春雪》书评：任何美梦都会有结束的时候，没有什么永恒的东西</a>
-        </h3>
-        <time class="post-date" datetime="2025-09-28T21:18:43&#43;08:00">
-          2025年9月28日
-        </time>
-      </div>
-      <div class="post-summary">
-        
-          于今日正式结束了三岛由纪夫的绝笔之作《丰饶之海》四部曲的第一卷 —— 《春雪》的阅读。刚开始读，它给我一种「很不三岛」的感觉，语言风格细腻柔美，甚至有几分古典韵味，对景物的描写细致入微，但处处洋溢着一丝哀愁，我还以为自己在阅读川端康成的作品。可以理解为三岛对恩师的致敬吧？
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/spring-snow-mishima-yukio/">《春雪》书评：任何美梦都会有结束的时候，没有什么永恒的东西</a>
+                </h3>
+                <time class="post-date" datetime=" 2025-09-28T21:18:43&#43;08:00">
+                    2025年9月28日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">读书</p>
+                    
+                </div>
+
+
+            </div>
+            <div class="post-summary">
+                
+                于今日正式结束了三岛由纪夫的绝笔之作《丰饶之海》四部曲的第一卷 —— 《春雪》的阅读。刚开始读，它给我一种「很不三岛」的感觉，语言风格细腻柔美，甚至有几分古典韵味，对景物的描写细致入微，但处处洋溢着一丝哀愁，我还以为自己在阅读川端康成的作品。可以理解为三岛对恩师的致敬吧？
 故事围绕着松枝清显与绫仓聪 …
+                
+            </div>
+        </article>
         
-      </div>
-    </article>
-    
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/the-unfounded-cloud/">一文不值的疑云</a>
-        </h3>
-        <time class="post-date" datetime="2025-09-27T13:15:25&#43;08:00">
-          2025年9月27日
-        </time>
-      </div>
-      <div class="post-summary">
-        
-          周三，老师提醒我们，明天有一个测评，需要记住自己的身份证号。放学后又在班级群发了一条通知提醒，看来是很重要的事。
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/the-unfounded-cloud/">一文不值的疑云</a>
+                </h3>
+                <time class="post-date" datetime=" 2025-09-27T13:15:25&#43;08:00">
+                    2025年9月27日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">随笔</p>
+                    
+                </div>
+
+
+            </div>
+            <div class="post-summary">
+                
+                周三，老师提醒我们，明天有一个测评，需要记住自己的身份证号。放学后又在班级群发了一条通知提醒，看来是很重要的事。
 转天上午的一个大课间，班主任要带我们去参加那个测评了，正当我准备起身去楼道里站队，老师跟我说：
 「你妈说你不参加，你在屋里待着就行了。」
 我有点懵了，旁边几个人围着我问为什么我不参加，我 …
+                
+            </div>
+        </article>
         
-      </div>
-    </article>
-    
   </div>
   
   
@@ -562,7 +665,7 @@
   
   .post-item {
     padding: 1.5rem 0;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #dcdcdc;
     transition: background-color 0.2s ease;
   }
   
@@ -572,7 +675,7 @@
   
   .post-title {
     margin: 0 0 0.5rem 0;
-    font-size: 1.4rem;
+    font-size: 24px;
     line-height: 1.3;
   }
   
@@ -666,37 +769,13 @@
     }
   }
 </style>
- 
 
   </main>
-  <footer>
-
-
-Subscribe via <a href="/atom.xml">RSS</a> or just <a href="mailto:i@glowisle.me">say hello</a>.
-<br />
-
-
-
-
-
-Say hello via <a href="mailto:i@glowisle.me">email</a>.
-<br />
-
-
-
-
-Made with
-<a href="https://github.com/rokcso/hugo-bearneo/">Hugo Bear Neo</a>.
-<br />
-
-
-
-
-
-
-
-🗺️ <a href="/sitemap.xml">Sitemap</a>.
-
+  <footer><p>
+  © 2024 - 2025 | <a href="/atom.xml">RSS</a> |
+  <a href="https://www.github.com/yingyu5658">Github</a> |
+  <a href="mailto:i@glowisle.me">Email</a> | <a href="/sitemap.xml">Sitemap</a>
+</p>
 </footer>
 
     

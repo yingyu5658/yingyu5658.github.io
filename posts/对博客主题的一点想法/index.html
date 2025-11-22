@@ -49,7 +49,7 @@
     --font-secondary: monospace;
     --font-size-primary: 1em;
     --font-size-secondary: 0.8em;
-    --body-bg-color: #fdfde7;
+    --body-bg-color: #ffffff;
     --bold-text-color: #222;
     --body-text-color: #444;
     --link-color: #3273dc;
@@ -67,6 +67,15 @@
     --toc-hover-color: #655e5e;
   }
 
+  .post-categories,
+  .category-link {
+    display: inline;
+    color: #7f8c8d;
+  }
+
+  .post-categories {
+    font-size: 0.9em;
+  }
   .post-date,
   .post-date-shortcode {
     margin-left: auto;
@@ -86,7 +95,41 @@
     border-radius: 5px;
     text-transform: uppercase;
   }
-   
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --body-bg-color: #1c1c1c;
+      --bold-text-color: #eee;
+      --body-text-color: #ddd;
+      --link-color: #8cc2dd;
+      --link-visited-color: #c3b1ee;
+      --table-border-color: #999;
+      --table-th-bg-color: #999;
+      --img-border-color: #999;
+      --code-bg-color: #555;
+      --code-text-color: #ddd;
+      --blockquote-border-color: #ccc;
+      --blockquote-text-color: #ccc;
+      --caption-text-color: #aaa;
+      --toc-text-color: #373737;
+      --toc-hover-color: #cac3c3;
+    }
+
+    .post-title a {
+      color: #fff !important;
+    }
+
+    .post-summary {
+      color: var(--text-color-primary) !important;
+    }
+
+    .post-item {
+      border-bottom: 1px solid #414141 !important;
+    }
+
+    .pagination-link {
+      border: 1px solid #414141 !important;
+    }
+  }
 
   body {
     font-family: var(--font-primary);
@@ -261,7 +304,7 @@
 
   footer {
     padding: 25px 0;
-    text-align: center;
+    text-align: left;
     font-size: var(--font-size-secondary);
   }
 
@@ -424,8 +467,15 @@
   }
 </style>
 <meta name="msvalidate.01" content="2E1AACF009206F2DDBAAD4B98E881460" />
-<link rel="stylesheet" href="/css/waline.css"/>
-<link rel="prefetch" as="image" href="https://www.blogsclub.org/badge/www.glowisle.me">
+<link
+  rel="prefetch"
+  as="image"
+  href="https://www.blogsclub.org/badge/www.glowisle.me"
+/>
+<script
+  src="https://kit.fontawesome.com/2f4edcb5b6.js"
+  crossorigin="anonymous"
+></script>
 </head>
 
 <body>
@@ -434,7 +484,7 @@
 </a>
 <nav><a href="/">首页</a>
 
-<a href="/posts">文章</a>
+<a href="/posts">归档</a>
 
 <a href="/links">友人</a>
 
@@ -449,7 +499,7 @@
 
 <content>
    
-<h2><a href="/posts/%E5%AF%B9%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E7%9A%84%E4%B8%80%E7%82%B9%E6%83%B3%E6%B3%95/" style="color:#222222;">对博客主题的一点想法</a></h2>
+<h2 class="post-title"><a href="/posts/%E5%AF%B9%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E7%9A%84%E4%B8%80%E7%82%B9%E6%83%B3%E6%B3%95/" style="color:#222222;">对博客主题的一点想法</a></h2>
 
 	<p>简单回顾以下建站历程，博客的内容从“我是谁”转移到了&quot;我想说什么&quot;。从最早开始正式写博客的<strong>Gmeek</strong>，到后来使用<strong>Typecho</strong>，再到<strong>Hexo,Hugo</strong>，这几个不同的时期是我对主题看法的不同阶段。</p>
 <p>Gmeek时期，没有概念，没看过几个人的博客，后来接触得多了，看了很多主题才意识到自己博客的主题有多简陋，换到Typecho，开始折腾主题，经历了一段不堪回首的时期。经典的一些元素：左下角挡字小人、底部音乐播放器、背景樱花飘落特效、点击特效，总之就是各种花里胡哨。文章，没有几篇，但是你可以在网页上找到任何你想找到的东西，除了文章。当时很喜欢Butterfly主题</p>
@@ -461,7 +511,6 @@
 <p>所以很多人博客的关于页面，我就当看个乐呵就过去了，仔细看每一篇文章，从ta的文字、观点、立场、价值观和认知来建立起ta的形象。有些人宏伟庄严，有些人冷漠麻木，有些人用平实朴素的语言记录，有些人用各种<strong>恶心到家的语气词和括号里补充的动作描写</strong>，绞尽脑汁想怎么把自己表现得多可爱。想可爱，先从<strong>扮演人类</strong>开始吧。这么在意别人怎么看自己，我替你感到疲惫。</p>
 <p>好吧，我承认我有点冒犯了，一些朋友看到标题是关于主题的点进来还躺枪，那对不起，我冒犯的就是你。</p>
  </content>
-
 <p>
   
 </p>
@@ -469,52 +518,65 @@
 
 
 
+
  
 <div class="toc">
 </div>
+<hr />
+<details>
+    <summary>
+    <p style="display: inline">评论</p>
+    </summary>
+    <div id="giscus-container"></div>
+    <script>
+     
 
 
-<div id="waline"></div>
-<script type="module">
-  import { init } from "https://unpkg.com/@waline/client@v3/dist/waline.js";
-  init({
-    el: "#waline",
-    serverURL: "https://waline.glowisle.me",
-    emoji: false,
-    search: false,
-  });
+    function getInitialTheme() {
+  
+  if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+    return localStorage.getItem('theme');
+  }
+  
+  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    return 'dark';
+  }
+  
+  return 'light';
+}
+
+const currentTheme = getInitialTheme();
+const giscusTheme = currentTheme === 'dark' ? 'dark' : 'light';
+
+const giscusScript = document.createElement('script');
+giscusScript.src = 'https://giscus.app/client.js';
+giscusScript.setAttribute('data-repo', 'yingyu5658/yingyu5658.github.io');
+giscusScript.setAttribute('data-repo-id', 'R_kgDOOBetsA');
+giscusScript.setAttribute('data-category', 'Announcements');
+giscusScript.setAttribute('data-category-id', 'DIC_kwDOOBetsM4CoF_Z');
+giscusScript.setAttribute('data-mapping', 'title');
+giscusScript.setAttribute('data-strict', '0');
+giscusScript.setAttribute('data-reactions-enabled', '1');
+giscusScript.setAttribute('data-emit-metadata', '0');
+giscusScript.setAttribute('data-input-position', 'bottom');
+giscusScript.setAttribute('data-theme', giscusTheme);
+giscusScript.setAttribute('data-lang', 'zh-CN');
+giscusScript.crossOrigin = 'anonymous';
+giscusScript.async = true;
+
+document.getElementById('giscus-container').appendChild(giscusScript);
 </script>
+<p>或发送<a href="mailto:i@glowisle.me?subject=%E5%AF%B9%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E7%9A%84%E4%B8%80%E7%82%B9%E6%83%B3%E6%B3%95">邮件</a>评论。</p>
+</details>
+
 
 
   </main>
-  <footer>
-
-
-Subscribe via <a href="/atom.xml">RSS</a> or just <a href="mailto:i@glowisle.me">say hello</a>.
-<br />
-
-
-
-
-
-Say hello via <a href="mailto:i@glowisle.me">email</a>.
-<br />
-
-
-
-
-Made with
-<a href="https://github.com/rokcso/hugo-bearneo/">Hugo Bear Neo</a>.
-<br />
-
-
-
-
-
-
-
-🗺️ <a href="/sitemap.xml">Sitemap</a>.
-
+  <footer><p>
+  © 2024 - 2025 | <a href="/atom.xml">RSS</a> |
+  <a href="https://www.github.com/yingyu5658">Github</a> |
+  <a href="mailto:i@glowisle.me">Email</a> | <a href="/sitemap.xml">Sitemap</a>
+</p>
 </footer>
 
     

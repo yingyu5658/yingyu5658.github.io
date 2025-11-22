@@ -18,7 +18,8 @@
 <meta property="og:url" content="https://www.glowisle.me/">
   <meta property="og:site_name" content="映屿">
   <meta property="og:title" content="首页">
-  <meta property="og:description" content="关于互联网、书籍、生活琐事以及那些一闪而过的念头。计算机技术 &amp; 读书感悟 &amp; 日常随笔。">
+  <meta property="og:description" content="写点生活随笔、读书感悟、技术实践和幼稚观点。
+不花里胡哨、不迎合大众、不随波逐流、不投放广告，专注自己想写的内容。">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:type" content="website">
 
@@ -27,15 +28,18 @@
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="首页">
-  <meta name="twitter:description" content="关于互联网、书籍、生活琐事以及那些一闪而过的念头。计算机技术 &amp; 读书感悟 &amp; 日常随笔。">
+  <meta name="twitter:description" content="写点生活随笔、读书感悟、技术实践和幼稚观点。
+不花里胡哨、不迎合大众、不随波逐流、不投放广告，专注自己想写的内容。">
 
 
 
 
   <meta itemprop="name" content="首页">
-  <meta itemprop="description" content="关于互联网、书籍、生活琐事以及那些一闪而过的念头。计算机技术 &amp; 读书感悟 &amp; 日常随笔。">
+  <meta itemprop="description" content="写点生活随笔、读书感悟、技术实践和幼稚观点。
+不花里胡哨、不迎合大众、不随波逐流、不投放广告，专注自己想写的内容。">
   <meta itemprop="datePublished" content="2025-11-15T19:24:14+08:00">
   <meta itemprop="dateModified" content="2025-11-15T19:24:14+08:00">
+  <meta itemprop="wordCount" content="56">
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
   <link rel="alternate" type="application/rss+xml" href="http://www.glowisle.me/atom.xml" title="映屿" />
@@ -47,7 +51,7 @@
     --font-secondary: monospace;
     --font-size-primary: 1em;
     --font-size-secondary: 0.8em;
-    --body-bg-color: #fdfde7;
+    --body-bg-color: #ffffff;
     --bold-text-color: #222;
     --body-text-color: #444;
     --link-color: #3273dc;
@@ -65,6 +69,15 @@
     --toc-hover-color: #655e5e;
   }
 
+  .post-categories,
+  .category-link {
+    display: inline;
+    color: #7f8c8d;
+  }
+
+  .post-categories {
+    font-size: 0.9em;
+  }
   .post-date,
   .post-date-shortcode {
     margin-left: auto;
@@ -84,7 +97,41 @@
     border-radius: 5px;
     text-transform: uppercase;
   }
-   
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --body-bg-color: #1c1c1c;
+      --bold-text-color: #eee;
+      --body-text-color: #ddd;
+      --link-color: #8cc2dd;
+      --link-visited-color: #c3b1ee;
+      --table-border-color: #999;
+      --table-th-bg-color: #999;
+      --img-border-color: #999;
+      --code-bg-color: #555;
+      --code-text-color: #ddd;
+      --blockquote-border-color: #ccc;
+      --blockquote-text-color: #ccc;
+      --caption-text-color: #aaa;
+      --toc-text-color: #373737;
+      --toc-hover-color: #cac3c3;
+    }
+
+    .post-title a {
+      color: #fff !important;
+    }
+
+    .post-summary {
+      color: var(--text-color-primary) !important;
+    }
+
+    .post-item {
+      border-bottom: 1px solid #414141 !important;
+    }
+
+    .pagination-link {
+      border: 1px solid #414141 !important;
+    }
+  }
 
   body {
     font-family: var(--font-primary);
@@ -259,7 +306,7 @@
 
   footer {
     padding: 25px 0;
-    text-align: center;
+    text-align: left;
     font-size: var(--font-size-secondary);
   }
 
@@ -422,8 +469,15 @@
   }
 </style>
 <meta name="msvalidate.01" content="2E1AACF009206F2DDBAAD4B98E881460" />
-<link rel="stylesheet" href="/css/waline.css"/>
-<link rel="prefetch" as="image" href="https://www.blogsclub.org/badge/www.glowisle.me">
+<link
+  rel="prefetch"
+  as="image"
+  href="https://www.blogsclub.org/badge/www.glowisle.me"
+/>
+<script
+  src="https://kit.fontawesome.com/2f4edcb5b6.js"
+  crossorigin="anonymous"
+></script>
 </head>
 
 <body>
@@ -432,7 +486,7 @@
 </a>
 <nav><a href="/">首页</a>
 
-<a href="/posts">文章</a>
+<a href="/posts">归档</a>
 
 <a href="/links">友人</a>
 
@@ -443,101 +497,150 @@
 
 </nav>
 </header>
-  <main> 
+  <main>
+
+<p>写点生活随笔、读书感悟、技术实践和幼稚观点。</p>
+<p><strong>不花里胡哨、不迎合大众、不随波逐流、不投放广告</strong>，专注自己想写的内容。</p>
+<hr>
 
 
  
 <div class="recent-posts">
-  
-  <div class="posts-list">
     
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/reading-haru-no-yuki-notes/">研读《春雪》笔记三则</a>
-        </h3>
-        <time class="post-date" datetime="2025-09-22T19:39:35&#43;08:00">
-          2025年9月22日
-        </time>
-      </div>
-      <div class="post-summary">
+    <div class="posts-list">
         
-          淫乱与优雅 聪子仿佛在教导清显，让他明白真正的优雅是不会害怕任何的淫乱的。 —— 《春雪（上）》（一页文库） P175
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/reading-haru-no-yuki-notes/">研读《春雪》笔记三则</a>
+                </h3>
+                <time class="post-date" datetime=" 2025-09-22T19:39:35&#43;08:00">
+                    2025年9月22日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">读书</p>
+                    
+                </div>
+
+
+            </div>
+            <div class="post-summary">
+                
+                淫乱与优雅 聪子仿佛在教导清显，让他明白真正的优雅是不会害怕任何的淫乱的。 —— 《春雪（上）》（一页文库） P175
 这段话运用了两个抽象的概念：「优雅」和「淫乱」。
 清显和聪子的爱情发生在聪子被天皇许给亲王后，这使他们之间的爱情变成了一种对至高无上的光圈的冒犯，使他们认为自己的感情超凡脱俗。
 三 …
+                
+            </div>
+        </article>
         
-      </div>
-    </article>
-    
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/harmony-in-a-family-makes-everything-successful/">家和万事兴</a>
-        </h3>
-        <time class="post-date" datetime="2025-09-21T21:29:22&#43;08:00">
-          2025年9月21日
-        </time>
-      </div>
-      <div class="post-summary">
-        
-          有一种感觉，父母要不是因为生了两个孩子，早就离了。
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/harmony-in-a-family-makes-everything-successful/">家和万事兴</a>
+                </h3>
+                <time class="post-date" datetime=" 2025-09-21T21:29:22&#43;08:00">
+                    2025年9月21日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">随笔</p>
+                    
+                </div>
+
+
+            </div>
+            <div class="post-summary">
+                
+                有一种感觉，父母要不是因为生了两个孩子，早就离了。
 总是因为各种各样的小事，小到不能再小的事吵来吵去，吵架也不能痛痛快快地吵一场，打架也下不去手，情感永远压抑在一个中间点，上不去下不来。
 客观地来讲，弟弟的出生正值疫情，经济不景气，父亲公司裁员减薪，我的父亲被贬谪到了一个小维护站，从站长变成站员了。 …
+                
+            </div>
+        </article>
         
-      </div>
-    </article>
-    
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/stand-and-thought/">立场与观点</a>
-        </h3>
-        <time class="post-date" datetime="2025-09-19T20:49:24&#43;08:00">
-          2025年9月19日
-        </time>
-      </div>
-      <div class="post-summary">
-        
-           最近我们班的英语老师崴脚了，有另一位老师来代课，一些同学对这位老师的评价极负面，我对这个现象很感兴趣，借此次机会来聊聊观点和立场的话题。
-首先，任何一门学科，学生都会因为各种原因，对它持有不同的看法。对于一位老师的评价，主观上除了自认为的「老师的水平」，还有一个很大的元素是老师教的学科。而学科有强 …
-        
-      </div>
-    </article>
-    
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/guide-to-correspondence/">给00后和10后的书信来往指南</a>
-        </h3>
-        <time class="post-date" datetime="2025-09-13T13:37:33&#43;08:00">
-          2025年9月13日
-        </time>
-      </div>
-      <div class="post-summary">
-        
-          0.前言 现代社会，网络发达，书信这种原始的联系方式近乎销声匿迹，但仍有爱好者使用书信与朋友交流。为延续这份笔尖上的情谊，特撰此篇，供对书信有兴趣的年轻朋友们参考。本文将从格式、用语、用纸、信封、邮寄六个维度拆解，供示例均为书面用语，书信的魅力不仅在于死板的格式和用语，更在于「专属感」，可根据实际情 …
-        
-      </div>
-    </article>
-    
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/electrification-by-friction/">摩擦起电</a>
-        </h3>
-        <time class="post-date" datetime="2025-09-12T19:52:04&#43;08:00">
-          2025年9月12日
-        </time>
-      </div>
-      <div class="post-summary">
-        
-          物理课讲电荷，一个实验用丝绸摩擦玻璃棒、毛皮摩擦橡胶棒，将其一放在底托上，另一个去靠近，根据吸附或排斥的现象，引出同种电荷互相排斥，异种电荷互相吸引的定律。
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/stand-and-thought/">立场与观点</a>
+                </h3>
+                <time class="post-date" datetime=" 2025-09-19T20:49:24&#43;08:00">
+                    2025年9月19日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">随笔</p>
+                    
+                </div>
 
+
+            </div>
+            <div class="post-summary">
+                
+                 最近我们班的英语老师崴脚了，有另一位老师来代课，一些同学对这位老师的评价极负面，我对这个现象很感兴趣，借此次机会来聊聊观点和立场的话题。
+首先，任何一门学科，学生都会因为各种原因，对它持有不同的看法。对于一位老师的评价，主观上除了自认为的「老师的水平」，还有一个很大的元素是老师教的学科。而学科有强 …
+                
+            </div>
+        </article>
         
-      </div>
-    </article>
-    
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/guide-to-correspondence/">给00后和10后的书信来往指南</a>
+                </h3>
+                <time class="post-date" datetime=" 2025-09-13T13:37:33&#43;08:00">
+                    2025年9月13日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">随笔</p>
+                    
+                </div>
+
+
+            </div>
+            <div class="post-summary">
+                
+                0.前言 现代社会，网络发达，书信这种原始的联系方式近乎销声匿迹，但仍有爱好者使用书信与朋友交流。为延续这份笔尖上的情谊，特撰此篇，供对书信有兴趣的年轻朋友们参考。本文将从格式、用语、用纸、信封、邮寄六个维度拆解，供示例均为书面用语，书信的魅力不仅在于死板的格式和用语，更在于「专属感」，可根据实际情 …
+                
+            </div>
+        </article>
+        
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/electrification-by-friction/">摩擦起电</a>
+                </h3>
+                <time class="post-date" datetime=" 2025-09-12T19:52:04&#43;08:00">
+                    2025年9月12日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">随笔</p>
+                    
+                </div>
+
+
+            </div>
+            <div class="post-summary">
+                
+                物理课讲电荷，一个实验用丝绸摩擦玻璃棒、毛皮摩擦橡胶棒，将其一放在底托上，另一个去靠近，根据吸附或排斥的现象，引出同种电荷互相排斥，异种电荷互相吸引的定律。
+
+                
+            </div>
+        </article>
+        
   </div>
   
   
@@ -562,7 +665,7 @@
   
   .post-item {
     padding: 1.5rem 0;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #dcdcdc;
     transition: background-color 0.2s ease;
   }
   
@@ -572,7 +675,7 @@
   
   .post-title {
     margin: 0 0 0.5rem 0;
-    font-size: 1.4rem;
+    font-size: 24px;
     line-height: 1.3;
   }
   
@@ -666,37 +769,13 @@
     }
   }
 </style>
- 
 
   </main>
-  <footer>
-
-
-Subscribe via <a href="/atom.xml">RSS</a> or just <a href="mailto:i@glowisle.me">say hello</a>.
-<br />
-
-
-
-
-
-Say hello via <a href="mailto:i@glowisle.me">email</a>.
-<br />
-
-
-
-
-Made with
-<a href="https://github.com/rokcso/hugo-bearneo/">Hugo Bear Neo</a>.
-<br />
-
-
-
-
-
-
-
-🗺️ <a href="/sitemap.xml">Sitemap</a>.
-
+  <footer><p>
+  © 2024 - 2025 | <a href="/atom.xml">RSS</a> |
+  <a href="https://www.github.com/yingyu5658">Github</a> |
+  <a href="mailto:i@glowisle.me">Email</a> | <a href="/sitemap.xml">Sitemap</a>
+</p>
 </footer>
 
     

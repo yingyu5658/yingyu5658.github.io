@@ -49,7 +49,7 @@
     --font-secondary: monospace;
     --font-size-primary: 1em;
     --font-size-secondary: 0.8em;
-    --body-bg-color: #fdfde7;
+    --body-bg-color: #ffffff;
     --bold-text-color: #222;
     --body-text-color: #444;
     --link-color: #3273dc;
@@ -67,6 +67,15 @@
     --toc-hover-color: #655e5e;
   }
 
+  .post-categories,
+  .category-link {
+    display: inline;
+    color: #7f8c8d;
+  }
+
+  .post-categories {
+    font-size: 0.9em;
+  }
   .post-date,
   .post-date-shortcode {
     margin-left: auto;
@@ -86,7 +95,41 @@
     border-radius: 5px;
     text-transform: uppercase;
   }
-   
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --body-bg-color: #1c1c1c;
+      --bold-text-color: #eee;
+      --body-text-color: #ddd;
+      --link-color: #8cc2dd;
+      --link-visited-color: #c3b1ee;
+      --table-border-color: #999;
+      --table-th-bg-color: #999;
+      --img-border-color: #999;
+      --code-bg-color: #555;
+      --code-text-color: #ddd;
+      --blockquote-border-color: #ccc;
+      --blockquote-text-color: #ccc;
+      --caption-text-color: #aaa;
+      --toc-text-color: #373737;
+      --toc-hover-color: #cac3c3;
+    }
+
+    .post-title a {
+      color: #fff !important;
+    }
+
+    .post-summary {
+      color: var(--text-color-primary) !important;
+    }
+
+    .post-item {
+      border-bottom: 1px solid #414141 !important;
+    }
+
+    .pagination-link {
+      border: 1px solid #414141 !important;
+    }
+  }
 
   body {
     font-family: var(--font-primary);
@@ -261,7 +304,7 @@
 
   footer {
     padding: 25px 0;
-    text-align: center;
+    text-align: left;
     font-size: var(--font-size-secondary);
   }
 
@@ -424,8 +467,15 @@
   }
 </style>
 <meta name="msvalidate.01" content="2E1AACF009206F2DDBAAD4B98E881460" />
-<link rel="stylesheet" href="/css/waline.css"/>
-<link rel="prefetch" as="image" href="https://www.blogsclub.org/badge/www.glowisle.me">
+<link
+  rel="prefetch"
+  as="image"
+  href="https://www.blogsclub.org/badge/www.glowisle.me"
+/>
+<script
+  src="https://kit.fontawesome.com/2f4edcb5b6.js"
+  crossorigin="anonymous"
+></script>
 </head>
 
 <body>
@@ -434,7 +484,7 @@
 </a>
 <nav><a href="/">首页</a>
 
-<a href="/posts">文章</a>
+<a href="/posts">归档</a>
 
 <a href="/links">友人</a>
 
@@ -449,7 +499,7 @@
 
 <content>
    
-<h2><a href="/posts/%E5%A4%8F%E6%97%A5%E6%AE%8B%E5%BD%B1/" style="color:#222222;">夏日残影</a></h2>
+<h2 class="post-title"><a href="/posts/%E5%A4%8F%E6%97%A5%E6%AE%8B%E5%BD%B1/" style="color:#222222;">夏日残影</a></h2>
 
 	<h2 id="一">一</h2>
 <p>“请各位勇士们扣好胸前的安全带。”</p>
@@ -476,10 +526,10 @@
 <p>它立在楼梯的栏杆下边，还睁着眼。见人不跑，我断定它是死了，母亲呵斥我不许动“人家”，我当然没有那么缺德，只是看看。等父亲走上来了，我跟他说了这件事，他用脚碰了一下那只鸟，翅膀挣扎着扇动了一下，但没有飞走。</p>
 <p>楼道里昏暗的灯光一个劲儿地倾洒在这只鸟的身体，一片潦草的羽毛插在背上清晰可见。在那惨白灯光映衬下的无神的双眼更显呆滞和诡异，我又想起车上的那只蛾子。</p>
  </content>
-
 <p>
   
 </p>
+
 
 
 
@@ -581,49 +631,61 @@
     });
 </script>
 </div>
+<hr />
+<details>
+    <summary>
+    <p style="display: inline">评论</p>
+    </summary>
+    <div id="giscus-container"></div>
+    <script>
+     
 
 
-<div id="waline"></div>
-<script type="module">
-  import { init } from "https://unpkg.com/@waline/client@v3/dist/waline.js";
-  init({
-    el: "#waline",
-    serverURL: "https://waline.glowisle.me",
-    emoji: false,
-    search: false,
-  });
+    function getInitialTheme() {
+  
+  if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+    return localStorage.getItem('theme');
+  }
+  
+  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    return 'dark';
+  }
+  
+  return 'light';
+}
+
+const currentTheme = getInitialTheme();
+const giscusTheme = currentTheme === 'dark' ? 'dark' : 'light';
+
+const giscusScript = document.createElement('script');
+giscusScript.src = 'https://giscus.app/client.js';
+giscusScript.setAttribute('data-repo', 'yingyu5658/yingyu5658.github.io');
+giscusScript.setAttribute('data-repo-id', 'R_kgDOOBetsA');
+giscusScript.setAttribute('data-category', 'Announcements');
+giscusScript.setAttribute('data-category-id', 'DIC_kwDOOBetsM4CoF_Z');
+giscusScript.setAttribute('data-mapping', 'title');
+giscusScript.setAttribute('data-strict', '0');
+giscusScript.setAttribute('data-reactions-enabled', '1');
+giscusScript.setAttribute('data-emit-metadata', '0');
+giscusScript.setAttribute('data-input-position', 'bottom');
+giscusScript.setAttribute('data-theme', giscusTheme);
+giscusScript.setAttribute('data-lang', 'zh-CN');
+giscusScript.crossOrigin = 'anonymous';
+giscusScript.async = true;
+
+document.getElementById('giscus-container').appendChild(giscusScript);
 </script>
+<p>或发送<a href="mailto:i@glowisle.me?subject=%E5%A4%8F%E6%97%A5%E6%AE%8B%E5%BD%B1">邮件</a>评论。</p>
+</details>
+
 
 
   </main>
-  <footer>
-
-
-Subscribe via <a href="/atom.xml">RSS</a> or just <a href="mailto:i@glowisle.me">say hello</a>.
-<br />
-
-
-
-
-
-Say hello via <a href="mailto:i@glowisle.me">email</a>.
-<br />
-
-
-
-
-Made with
-<a href="https://github.com/rokcso/hugo-bearneo/">Hugo Bear Neo</a>.
-<br />
-
-
-
-
-
-
-
-🗺️ <a href="/sitemap.xml">Sitemap</a>.
-
+  <footer><p>
+  © 2024 - 2025 | <a href="/atom.xml">RSS</a> |
+  <a href="https://www.github.com/yingyu5658">Github</a> |
+  <a href="mailto:i@glowisle.me">Email</a> | <a href="/sitemap.xml">Sitemap</a>
+</p>
 </footer>
 
     

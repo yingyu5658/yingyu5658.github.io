@@ -18,7 +18,8 @@
 <meta property="og:url" content="https://www.glowisle.me/">
   <meta property="og:site_name" content="映屿">
   <meta property="og:title" content="首页">
-  <meta property="og:description" content="关于互联网、书籍、生活琐事以及那些一闪而过的念头。计算机技术 &amp; 读书感悟 &amp; 日常随笔。">
+  <meta property="og:description" content="写点生活随笔、读书感悟、技术实践和幼稚观点。
+不花里胡哨、不迎合大众、不随波逐流、不投放广告，专注自己想写的内容。">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:type" content="website">
 
@@ -27,15 +28,18 @@
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="首页">
-  <meta name="twitter:description" content="关于互联网、书籍、生活琐事以及那些一闪而过的念头。计算机技术 &amp; 读书感悟 &amp; 日常随笔。">
+  <meta name="twitter:description" content="写点生活随笔、读书感悟、技术实践和幼稚观点。
+不花里胡哨、不迎合大众、不随波逐流、不投放广告，专注自己想写的内容。">
 
 
 
 
   <meta itemprop="name" content="首页">
-  <meta itemprop="description" content="关于互联网、书籍、生活琐事以及那些一闪而过的念头。计算机技术 &amp; 读书感悟 &amp; 日常随笔。">
+  <meta itemprop="description" content="写点生活随笔、读书感悟、技术实践和幼稚观点。
+不花里胡哨、不迎合大众、不随波逐流、不投放广告，专注自己想写的内容。">
   <meta itemprop="datePublished" content="2025-11-15T19:24:14+08:00">
   <meta itemprop="dateModified" content="2025-11-15T19:24:14+08:00">
+  <meta itemprop="wordCount" content="56">
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
   <link rel="alternate" type="application/rss+xml" href="http://www.glowisle.me/atom.xml" title="映屿" />
@@ -47,7 +51,7 @@
     --font-secondary: monospace;
     --font-size-primary: 1em;
     --font-size-secondary: 0.8em;
-    --body-bg-color: #fdfde7;
+    --body-bg-color: #ffffff;
     --bold-text-color: #222;
     --body-text-color: #444;
     --link-color: #3273dc;
@@ -65,6 +69,15 @@
     --toc-hover-color: #655e5e;
   }
 
+  .post-categories,
+  .category-link {
+    display: inline;
+    color: #7f8c8d;
+  }
+
+  .post-categories {
+    font-size: 0.9em;
+  }
   .post-date,
   .post-date-shortcode {
     margin-left: auto;
@@ -84,7 +97,41 @@
     border-radius: 5px;
     text-transform: uppercase;
   }
-   
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --body-bg-color: #1c1c1c;
+      --bold-text-color: #eee;
+      --body-text-color: #ddd;
+      --link-color: #8cc2dd;
+      --link-visited-color: #c3b1ee;
+      --table-border-color: #999;
+      --table-th-bg-color: #999;
+      --img-border-color: #999;
+      --code-bg-color: #555;
+      --code-text-color: #ddd;
+      --blockquote-border-color: #ccc;
+      --blockquote-text-color: #ccc;
+      --caption-text-color: #aaa;
+      --toc-text-color: #373737;
+      --toc-hover-color: #cac3c3;
+    }
+
+    .post-title a {
+      color: #fff !important;
+    }
+
+    .post-summary {
+      color: var(--text-color-primary) !important;
+    }
+
+    .post-item {
+      border-bottom: 1px solid #414141 !important;
+    }
+
+    .pagination-link {
+      border: 1px solid #414141 !important;
+    }
+  }
 
   body {
     font-family: var(--font-primary);
@@ -259,7 +306,7 @@
 
   footer {
     padding: 25px 0;
-    text-align: center;
+    text-align: left;
     font-size: var(--font-size-secondary);
   }
 
@@ -422,8 +469,15 @@
   }
 </style>
 <meta name="msvalidate.01" content="2E1AACF009206F2DDBAAD4B98E881460" />
-<link rel="stylesheet" href="/css/waline.css"/>
-<link rel="prefetch" as="image" href="https://www.blogsclub.org/badge/www.glowisle.me">
+<link
+  rel="prefetch"
+  as="image"
+  href="https://www.blogsclub.org/badge/www.glowisle.me"
+/>
+<script
+  src="https://kit.fontawesome.com/2f4edcb5b6.js"
+  crossorigin="anonymous"
+></script>
 </head>
 
 <body>
@@ -432,7 +486,7 @@
 </a>
 <nav><a href="/">首页</a>
 
-<a href="/posts">文章</a>
+<a href="/posts">归档</a>
 
 <a href="/links">友人</a>
 
@@ -443,104 +497,153 @@
 
 </nav>
 </header>
-  <main> 
+  <main>
+
+<p>写点生活随笔、读书感悟、技术实践和幼稚观点。</p>
+<p><strong>不花里胡哨、不迎合大众、不随波逐流、不投放广告</strong>，专注自己想写的内容。</p>
+<hr>
 
 
  
 <div class="recent-posts">
-  
-  <div class="posts-list">
     
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/95/">Java方法的传参原理</a>
-        </h3>
-        <time class="post-date" datetime="2024-11-30T20:14:00Z">
-          2024年11月30日
-        </time>
-      </div>
-      <div class="post-summary">
+    <div class="posts-list">
         
-          Java方法的参数传递机制-基本类型 值传递
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/95/">Java方法的传参原理</a>
+                </h3>
+                <time class="post-date" datetime=" 2024-11-30T20:14:00Z">
+                    2024年11月30日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">技术</p>
+                    
+                </div>
+
+
+            </div>
+            <div class="post-summary">
+                
+                Java方法的参数传递机制-基本类型 值传递
 值传递是什么 在传输实参给方法的形参的时候，传输的是实参变量中存储的副本 说人话，把实参里面的东西赋值了一部分扔了给形参
 值传递具体理解案例 public class prameter { public static void main(String[] …
+                
+            </div>
+        </article>
         
-      </div>
-    </article>
-    
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/90/">Java小程序之两数计算器</a>
-        </h3>
-        <time class="post-date" datetime="2024-11-30T18:51:07Z">
-          2024年11月30日
-        </time>
-      </div>
-      <div class="post-summary">
-        
-          这个案例是我练习方法的使用时做的，应该能有更好的方式实现这个功能。 代码如下
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/90/">Java小程序之两数计算器</a>
+                </h3>
+                <time class="post-date" datetime=" 2024-11-30T18:51:07Z">
+                    2024年11月30日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">技术</p>
+                    
+                </div>
+
+
+            </div>
+            <div class="post-summary">
+                
+                这个案例是我练习方法的使用时做的，应该能有更好的方式实现这个功能。 代码如下
 import org.w3c.dom.ls.LSOutput; import java.util.Scanner; public class Basic { public static void main(String[] …
+                
+            </div>
+        </article>
         
-      </div>
-    </article>
-    
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/89/">Java方法的基本使用</a>
-        </h3>
-        <time class="post-date" datetime="2024-11-29T20:45:20&#43;08:00">
-          2024年11月29日
-        </time>
-      </div>
-      <div class="post-summary">
-        
-          方法是什么 方法是一种语法结构，它可以把代码封装成一段功能，以便重复调用。
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/89/">Java方法的基本使用</a>
+                </h3>
+                <time class="post-date" datetime=" 2024-11-29T20:45:20&#43;08:00">
+                    2024年11月29日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">技术</p>
+                    
+                </div>
+
+
+            </div>
+            <div class="post-summary">
+                
+                方法是什么 方法是一种语法结构，它可以把代码封装成一段功能，以便重复调用。
 方法的完整格式：
 例子：数字求和
 public static int sum(int a,int b){ int c = a + b; return c; } 方法的调用：
 int rs= sum(10,20); 方法使用的 …
+                
+            </div>
+        </article>
         
-      </div>
-    </article>
-    
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/6/">网站迁移</a>
-        </h3>
-        <time class="post-date" datetime="2024-11-21T22:59:00Z">
-          2024年11月21日
-        </time>
-      </div>
-      <div class="post-summary">
-        
-          原网站
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/6/">网站迁移</a>
+                </h3>
+                <time class="post-date" datetime=" 2024-11-21T22:59:00Z">
+                    2024年11月21日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">技术</p>
+                    
+                </div>
+
+
+            </div>
+            <div class="post-summary">
+                
+                原网站
 yingyu5658.github.io
 将会迁移到这里。我会把有价值的文章转过来 原因仅仅是gmeek有点太简陋了，虽然typecho也差不多，不过他可以折腾一下主题之类的，并且我每个月还多花出去九十大洋。但是总比gmeek逼格高点吧。 不得不说，Linux绝对是世界上最麻烦的玩意，解压下 …
+                
+            </div>
+        </article>
         
-      </div>
-    </article>
-    
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/4/">我的4k进步史</a>
-        </h3>
-        <time class="post-date" datetime="2024-11-13T03:41:00&#43;08:00">
-          2024年11月13日
-        </time>
-      </div>
-      <div class="post-summary">
-        
-          截止到目前玩4k也有一年多了，整理一下我的进步历程，给迷茫中的各位一点参考
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/4/">我的4k进步史</a>
+                </h3>
+                <time class="post-date" datetime=" 2024-11-13T03:41:00&#43;08:00">
+                    2024年11月13日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">随笔</p>
+                    
+                </div>
+
+
+            </div>
+            <div class="post-summary">
+                
+                截止到目前玩4k也有一年多了，整理一下我的进步历程，给迷茫中的各位一点参考
 常规段 2023.5.20 一个别人在和女人亲亲抱抱的日子，我孤身一人在玩4k并且pass掉0dan，开启了漫长的4k之路&hellip;&hellip; 2023.6.4 Regular 1 pass 2023.6.22 …
+                
+            </div>
+        </article>
         
-      </div>
-    </article>
-    
   </div>
   
   
@@ -565,7 +668,7 @@ yingyu5658.github.io
   
   .post-item {
     padding: 1.5rem 0;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #dcdcdc;
     transition: background-color 0.2s ease;
   }
   
@@ -575,7 +678,7 @@ yingyu5658.github.io
   
   .post-title {
     margin: 0 0 0.5rem 0;
-    font-size: 1.4rem;
+    font-size: 24px;
     line-height: 1.3;
   }
   
@@ -669,37 +772,13 @@ yingyu5658.github.io
     }
   }
 </style>
- 
 
   </main>
-  <footer>
-
-
-Subscribe via <a href="/atom.xml">RSS</a> or just <a href="mailto:i@glowisle.me">say hello</a>.
-<br />
-
-
-
-
-
-Say hello via <a href="mailto:i@glowisle.me">email</a>.
-<br />
-
-
-
-
-Made with
-<a href="https://github.com/rokcso/hugo-bearneo/">Hugo Bear Neo</a>.
-<br />
-
-
-
-
-
-
-
-🗺️ <a href="/sitemap.xml">Sitemap</a>.
-
+  <footer><p>
+  © 2024 - 2025 | <a href="/atom.xml">RSS</a> |
+  <a href="https://www.github.com/yingyu5658">Github</a> |
+  <a href="mailto:i@glowisle.me">Email</a> | <a href="/sitemap.xml">Sitemap</a>
+</p>
 </footer>
 
     

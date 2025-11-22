@@ -18,7 +18,8 @@
 <meta property="og:url" content="https://www.glowisle.me/">
   <meta property="og:site_name" content="映屿">
   <meta property="og:title" content="首页">
-  <meta property="og:description" content="关于互联网、书籍、生活琐事以及那些一闪而过的念头。计算机技术 &amp; 读书感悟 &amp; 日常随笔。">
+  <meta property="og:description" content="写点生活随笔、读书感悟、技术实践和幼稚观点。
+不花里胡哨、不迎合大众、不随波逐流、不投放广告，专注自己想写的内容。">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:type" content="website">
 
@@ -27,15 +28,18 @@
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="首页">
-  <meta name="twitter:description" content="关于互联网、书籍、生活琐事以及那些一闪而过的念头。计算机技术 &amp; 读书感悟 &amp; 日常随笔。">
+  <meta name="twitter:description" content="写点生活随笔、读书感悟、技术实践和幼稚观点。
+不花里胡哨、不迎合大众、不随波逐流、不投放广告，专注自己想写的内容。">
 
 
 
 
   <meta itemprop="name" content="首页">
-  <meta itemprop="description" content="关于互联网、书籍、生活琐事以及那些一闪而过的念头。计算机技术 &amp; 读书感悟 &amp; 日常随笔。">
+  <meta itemprop="description" content="写点生活随笔、读书感悟、技术实践和幼稚观点。
+不花里胡哨、不迎合大众、不随波逐流、不投放广告，专注自己想写的内容。">
   <meta itemprop="datePublished" content="2025-11-15T19:24:14+08:00">
   <meta itemprop="dateModified" content="2025-11-15T19:24:14+08:00">
+  <meta itemprop="wordCount" content="56">
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
   <link rel="alternate" type="application/rss+xml" href="http://www.glowisle.me/atom.xml" title="映屿" />
@@ -47,7 +51,7 @@
     --font-secondary: monospace;
     --font-size-primary: 1em;
     --font-size-secondary: 0.8em;
-    --body-bg-color: #fdfde7;
+    --body-bg-color: #ffffff;
     --bold-text-color: #222;
     --body-text-color: #444;
     --link-color: #3273dc;
@@ -65,6 +69,15 @@
     --toc-hover-color: #655e5e;
   }
 
+  .post-categories,
+  .category-link {
+    display: inline;
+    color: #7f8c8d;
+  }
+
+  .post-categories {
+    font-size: 0.9em;
+  }
   .post-date,
   .post-date-shortcode {
     margin-left: auto;
@@ -84,7 +97,41 @@
     border-radius: 5px;
     text-transform: uppercase;
   }
-   
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --body-bg-color: #1c1c1c;
+      --bold-text-color: #eee;
+      --body-text-color: #ddd;
+      --link-color: #8cc2dd;
+      --link-visited-color: #c3b1ee;
+      --table-border-color: #999;
+      --table-th-bg-color: #999;
+      --img-border-color: #999;
+      --code-bg-color: #555;
+      --code-text-color: #ddd;
+      --blockquote-border-color: #ccc;
+      --blockquote-text-color: #ccc;
+      --caption-text-color: #aaa;
+      --toc-text-color: #373737;
+      --toc-hover-color: #cac3c3;
+    }
+
+    .post-title a {
+      color: #fff !important;
+    }
+
+    .post-summary {
+      color: var(--text-color-primary) !important;
+    }
+
+    .post-item {
+      border-bottom: 1px solid #414141 !important;
+    }
+
+    .pagination-link {
+      border: 1px solid #414141 !important;
+    }
+  }
 
   body {
     font-family: var(--font-primary);
@@ -259,7 +306,7 @@
 
   footer {
     padding: 25px 0;
-    text-align: center;
+    text-align: left;
     font-size: var(--font-size-secondary);
   }
 
@@ -422,8 +469,15 @@
   }
 </style>
 <meta name="msvalidate.01" content="2E1AACF009206F2DDBAAD4B98E881460" />
-<link rel="stylesheet" href="/css/waline.css"/>
-<link rel="prefetch" as="image" href="https://www.blogsclub.org/badge/www.glowisle.me">
+<link
+  rel="prefetch"
+  as="image"
+  href="https://www.blogsclub.org/badge/www.glowisle.me"
+/>
+<script
+  src="https://kit.fontawesome.com/2f4edcb5b6.js"
+  crossorigin="anonymous"
+></script>
 </head>
 
 <body>
@@ -432,7 +486,7 @@
 </a>
 <nav><a href="/">首页</a>
 
-<a href="/posts">文章</a>
+<a href="/posts">归档</a>
 
 <a href="/links">友人</a>
 
@@ -443,101 +497,150 @@
 
 </nav>
 </header>
-  <main> 
+  <main>
+
+<p>写点生活随笔、读书感悟、技术实践和幼稚观点。</p>
+<p><strong>不花里胡哨、不迎合大众、不随波逐流、不投放广告</strong>，专注自己想写的内容。</p>
+<hr>
 
 
  
 <div class="recent-posts">
-  
-  <div class="posts-list">
     
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E9%80%89%E6%8B%A9github-issues%E8%80%8C%E4%B8%8D%E6%98%AF%E6%9C%8B%E5%8F%8B%E5%9C%88/">为什么我选择Github issues，而不是朋友圈</a>
-        </h3>
-        <time class="post-date" datetime="2025-07-05T09:09:48Z">
-          2025年7月5日
-        </time>
-      </div>
-      <div class="post-summary">
+    <div class="posts-list">
         
-           本页面内容来自Moments
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E9%80%89%E6%8B%A9github-issues%E8%80%8C%E4%B8%8D%E6%98%AF%E6%9C%8B%E5%8F%8B%E5%9C%88/">为什么我选择Github issues，而不是朋友圈</a>
+                </h3>
+                <time class="post-date" datetime=" 2025-07-05T09:09:48Z">
+                    2025年7月5日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">随笔</p>
+                    
+                </div>
+
+
+            </div>
+            <div class="post-summary">
+                
+                 本页面内容来自Moments
 概述 把GitHub issues当朋友圈发。
 我厌倦朋友圈浓重的装逼气味和虚假社交属性，打造一个纸糊的人设并不好玩，专门发出来某些东西给某人看也非常恶心，所以我选择逃避。
 
+                
+            </div>
+        </article>
         
-      </div>
-    </article>
-    
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/%E7%94%A8javascript-tss%E5%92%8Chighlights%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8F%A5%E7%BA%A7%E6%96%87%E6%9C%AC%E9%98%85%E8%AF%BB%E5%99%A8/">使用Javascript TSS和Highlights构建一个文本阅读器</a>
-        </h3>
-        <time class="post-date" datetime="2025-07-04T10:46:53Z">
-          2025年7月4日
-        </time>
-      </div>
-      <div class="post-summary">
-        
-           原文：https://jsdev.space/tts-sentence-reader/
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/%E7%94%A8javascript-tss%E5%92%8Chighlights%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8F%A5%E7%BA%A7%E6%96%87%E6%9C%AC%E9%98%85%E8%AF%BB%E5%99%A8/">使用Javascript TSS和Highlights构建一个文本阅读器</a>
+                </h3>
+                <time class="post-date" datetime=" 2025-07-04T10:46:53Z">
+                    2025年7月4日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">技术</p>
+                    
+                </div>
+
+
+            </div>
+            <div class="post-summary">
+                
+                 原文：https://jsdev.space/tts-sentence-reader/
 翻译：yingyu5658 i@glowisle.me
 在这篇文章中，我们将构建一个简单的Web工具来探究Text-toSpeech(TTS)在JavaScript中是如何工作的。我们也将深入研究句子级高亮的工 …
+                
+            </div>
+        </article>
         
-      </div>
-    </article>
-    
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/%E4%BF%A1%E6%81%AF%E8%8A%82%E9%A3%9F/">信息节食</a>
-        </h3>
-        <time class="post-date" datetime="2025-07-03T21:22:44Z">
-          2025年7月3日
-        </time>
-      </div>
-      <div class="post-summary">
-        
-          起因 信息节食这个概念，大概是我初一的时候在政治课本听说的。当时还不以为然，现在越来越觉得信息节食很重要。
-行动 我是个注意力比较涣散的人，可能是因为我常年熬夜等不健康的生活习惯，在家的时候注意力只能维持四十分钟左右，想持续一个小时的高效学习非常困难。其原因就在于我非常喜欢看QQ群，经过层层筛选后 …
-        
-      </div>
-    </article>
-    
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/%E5%AE%85/">宅</a>
-        </h3>
-        <time class="post-date" datetime="2025-06-30T19:47:00Z">
-          2025年6月30日
-        </time>
-      </div>
-      <div class="post-summary">
-        
-          朋友上周几次约我出去打羽毛球，都被我婉拒了。那个周末刚刚考完期末，又是我最爱的阴雨天，很难不趁着大好时光不在家修养身心，而是冒着雨出去打羽毛球几个小时，大汗淋漓，虚弱疲惫地走回家，做什么事都提不起精神，睡觉也觉得浪费时间。在家里并没有什么很想干的事，我没有打游戏的习惯，很早之前就已经戒掉电子游戏。在 …
-        
-      </div>
-    </article>
-    
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/%E7%A7%81%E5%AF%86%E6%9C%8B%E5%8F%8B%E5%9C%88/">私密朋友圈</a>
-        </h3>
-        <time class="post-date" datetime="2025-06-29T21:13:43Z">
-          2025年6月29日
-        </time>
-      </div>
-      <div class="post-summary">
-        
-          四天前，我发了自我的微信号注册以来，第一个私密朋友圈。九年了，从我五岁开始我就在用这个微信号，一个私密朋友圈都没有发过。
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/%E4%BF%A1%E6%81%AF%E8%8A%82%E9%A3%9F/">信息节食</a>
+                </h3>
+                <time class="post-date" datetime=" 2025-07-03T21:22:44Z">
+                    2025年7月3日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">随笔</p>
+                    
+                </div>
 
+
+            </div>
+            <div class="post-summary">
+                
+                起因 信息节食这个概念，大概是我初一的时候在政治课本听说的。当时还不以为然，现在越来越觉得信息节食很重要。
+行动 我是个注意力比较涣散的人，可能是因为我常年熬夜等不健康的生活习惯，在家的时候注意力只能维持四十分钟左右，想持续一个小时的高效学习非常困难。其原因就在于我非常喜欢看QQ群，经过层层筛选后 …
+                
+            </div>
+        </article>
         
-      </div>
-    </article>
-    
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/%E5%AE%85/">宅</a>
+                </h3>
+                <time class="post-date" datetime=" 2025-06-30T19:47:00Z">
+                    2025年6月30日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">随笔</p>
+                    
+                </div>
+
+
+            </div>
+            <div class="post-summary">
+                
+                朋友上周几次约我出去打羽毛球，都被我婉拒了。那个周末刚刚考完期末，又是我最爱的阴雨天，很难不趁着大好时光不在家修养身心，而是冒着雨出去打羽毛球几个小时，大汗淋漓，虚弱疲惫地走回家，做什么事都提不起精神，睡觉也觉得浪费时间。在家里并没有什么很想干的事，我没有打游戏的习惯，很早之前就已经戒掉电子游戏。在 …
+                
+            </div>
+        </article>
+        
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/%E7%A7%81%E5%AF%86%E6%9C%8B%E5%8F%8B%E5%9C%88/">私密朋友圈</a>
+                </h3>
+                <time class="post-date" datetime=" 2025-06-29T21:13:43Z">
+                    2025年6月29日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">随笔</p>
+                    
+                </div>
+
+
+            </div>
+            <div class="post-summary">
+                
+                四天前，我发了自我的微信号注册以来，第一个私密朋友圈。九年了，从我五岁开始我就在用这个微信号，一个私密朋友圈都没有发过。
+
+                
+            </div>
+        </article>
+        
   </div>
   
   
@@ -562,7 +665,7 @@
   
   .post-item {
     padding: 1.5rem 0;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #dcdcdc;
     transition: background-color 0.2s ease;
   }
   
@@ -572,7 +675,7 @@
   
   .post-title {
     margin: 0 0 0.5rem 0;
-    font-size: 1.4rem;
+    font-size: 24px;
     line-height: 1.3;
   }
   
@@ -666,37 +769,13 @@
     }
   }
 </style>
- 
 
   </main>
-  <footer>
-
-
-Subscribe via <a href="/atom.xml">RSS</a> or just <a href="mailto:i@glowisle.me">say hello</a>.
-<br />
-
-
-
-
-
-Say hello via <a href="mailto:i@glowisle.me">email</a>.
-<br />
-
-
-
-
-Made with
-<a href="https://github.com/rokcso/hugo-bearneo/">Hugo Bear Neo</a>.
-<br />
-
-
-
-
-
-
-
-🗺️ <a href="/sitemap.xml">Sitemap</a>.
-
+  <footer><p>
+  © 2024 - 2025 | <a href="/atom.xml">RSS</a> |
+  <a href="https://www.github.com/yingyu5658">Github</a> |
+  <a href="mailto:i@glowisle.me">Email</a> | <a href="/sitemap.xml">Sitemap</a>
+</p>
 </footer>
 
     

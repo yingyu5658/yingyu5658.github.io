@@ -55,7 +55,7 @@
     --font-secondary: monospace;
     --font-size-primary: 1em;
     --font-size-secondary: 0.8em;
-    --body-bg-color: #fdfde7;
+    --body-bg-color: #ffffff;
     --bold-text-color: #222;
     --body-text-color: #444;
     --link-color: #3273dc;
@@ -73,6 +73,15 @@
     --toc-hover-color: #655e5e;
   }
 
+  .post-categories,
+  .category-link {
+    display: inline;
+    color: #7f8c8d;
+  }
+
+  .post-categories {
+    font-size: 0.9em;
+  }
   .post-date,
   .post-date-shortcode {
     margin-left: auto;
@@ -92,7 +101,41 @@
     border-radius: 5px;
     text-transform: uppercase;
   }
-   
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --body-bg-color: #1c1c1c;
+      --bold-text-color: #eee;
+      --body-text-color: #ddd;
+      --link-color: #8cc2dd;
+      --link-visited-color: #c3b1ee;
+      --table-border-color: #999;
+      --table-th-bg-color: #999;
+      --img-border-color: #999;
+      --code-bg-color: #555;
+      --code-text-color: #ddd;
+      --blockquote-border-color: #ccc;
+      --blockquote-text-color: #ccc;
+      --caption-text-color: #aaa;
+      --toc-text-color: #373737;
+      --toc-hover-color: #cac3c3;
+    }
+
+    .post-title a {
+      color: #fff !important;
+    }
+
+    .post-summary {
+      color: var(--text-color-primary) !important;
+    }
+
+    .post-item {
+      border-bottom: 1px solid #414141 !important;
+    }
+
+    .pagination-link {
+      border: 1px solid #414141 !important;
+    }
+  }
 
   body {
     font-family: var(--font-primary);
@@ -267,7 +310,7 @@
 
   footer {
     padding: 25px 0;
-    text-align: center;
+    text-align: left;
     font-size: var(--font-size-secondary);
   }
 
@@ -430,8 +473,15 @@
   }
 </style>
 <meta name="msvalidate.01" content="2E1AACF009206F2DDBAAD4B98E881460" />
-<link rel="stylesheet" href="/css/waline.css"/>
-<link rel="prefetch" as="image" href="https://www.blogsclub.org/badge/www.glowisle.me">
+<link
+  rel="prefetch"
+  as="image"
+  href="https://www.blogsclub.org/badge/www.glowisle.me"
+/>
+<script
+  src="https://kit.fontawesome.com/2f4edcb5b6.js"
+  crossorigin="anonymous"
+></script>
 </head>
 
 <body>
@@ -440,7 +490,7 @@
 </a>
 <nav><a href="/">首页</a>
 
-<a href="/posts">文章</a>
+<a href="/posts">归档</a>
 
 <a href="/links">友人</a>
 
@@ -455,7 +505,7 @@
 
 <content>
    
-<h2><a href="/posts/%E6%80%AA%E7%99%96/" style="color:#222222;">怪癖</a></h2>
+<h2 class="post-title"><a href="/posts/%E6%80%AA%E7%99%96/" style="color:#222222;">怪癖</a></h2>
 
 	<p>我这人怪癖挺多的，屋子里不能拉开窗帘，我讨厌被别人看到；屋子里只留一盏台灯和电子设备的光，很有安全感；电脑桌面上不能有任何图标，我爱干净。</p>
 <p>屋子里静静的，只有空调运转和电脑硬盘读写的机械声。暖黄色的台灯灯光不会分散太多注意力，在学校喧闹一天后，这是最快的“回血”方法。很难想象那些住宿学校的学生是什么支撑着他们活下去，如果是我，我大概率会跳楼。我喜欢雨天，也跟这个有点关系，非常有安全感，非常舒适，望着天上的云，总有种熟悉的感觉，说不上来是什么，是在梦里，又或许是小时候见到过类似的场景，冷白色调的阴天光线总是有种熟悉感。</p>
@@ -466,7 +516,6 @@
 <p>高考最后一天，我们学校是考点，我在家休假。实在无聊，就去镜子前看自己，盯着看，镜子里的世界太真实了，哪一个才是真正的我？看得出神，感觉下一秒就能冲破镜框，搂到对方的后背。看着镜子里的自己，一种陌生感和恐惧感油然而生。我真的活着，我真的是我，镜子里这个人是谁？会不会他才是真正的我？</p>
 <p>又是一段东拼西扯的意识流文字。</p>
  </content>
-
 <p>
   
   <a href="https://www.glowisle.me/tags/%E6%88%91/">#我</a>
@@ -476,52 +525,65 @@
 
 
 
+
  
 <div class="toc">
 </div>
+<hr />
+<details>
+    <summary>
+    <p style="display: inline">评论</p>
+    </summary>
+    <div id="giscus-container"></div>
+    <script>
+     
 
 
-<div id="waline"></div>
-<script type="module">
-  import { init } from "https://unpkg.com/@waline/client@v3/dist/waline.js";
-  init({
-    el: "#waline",
-    serverURL: "https://waline.glowisle.me",
-    emoji: false,
-    search: false,
-  });
+    function getInitialTheme() {
+  
+  if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+    return localStorage.getItem('theme');
+  }
+  
+  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    return 'dark';
+  }
+  
+  return 'light';
+}
+
+const currentTheme = getInitialTheme();
+const giscusTheme = currentTheme === 'dark' ? 'dark' : 'light';
+
+const giscusScript = document.createElement('script');
+giscusScript.src = 'https://giscus.app/client.js';
+giscusScript.setAttribute('data-repo', 'yingyu5658/yingyu5658.github.io');
+giscusScript.setAttribute('data-repo-id', 'R_kgDOOBetsA');
+giscusScript.setAttribute('data-category', 'Announcements');
+giscusScript.setAttribute('data-category-id', 'DIC_kwDOOBetsM4CoF_Z');
+giscusScript.setAttribute('data-mapping', 'title');
+giscusScript.setAttribute('data-strict', '0');
+giscusScript.setAttribute('data-reactions-enabled', '1');
+giscusScript.setAttribute('data-emit-metadata', '0');
+giscusScript.setAttribute('data-input-position', 'bottom');
+giscusScript.setAttribute('data-theme', giscusTheme);
+giscusScript.setAttribute('data-lang', 'zh-CN');
+giscusScript.crossOrigin = 'anonymous';
+giscusScript.async = true;
+
+document.getElementById('giscus-container').appendChild(giscusScript);
 </script>
+<p>或发送<a href="mailto:i@glowisle.me?subject=%E6%80%AA%E7%99%96">邮件</a>评论。</p>
+</details>
+
 
 
   </main>
-  <footer>
-
-
-Subscribe via <a href="/atom.xml">RSS</a> or just <a href="mailto:i@glowisle.me">say hello</a>.
-<br />
-
-
-
-
-
-Say hello via <a href="mailto:i@glowisle.me">email</a>.
-<br />
-
-
-
-
-Made with
-<a href="https://github.com/rokcso/hugo-bearneo/">Hugo Bear Neo</a>.
-<br />
-
-
-
-
-
-
-
-🗺️ <a href="/sitemap.xml">Sitemap</a>.
-
+  <footer><p>
+  © 2024 - 2025 | <a href="/atom.xml">RSS</a> |
+  <a href="https://www.github.com/yingyu5658">Github</a> |
+  <a href="mailto:i@glowisle.me">Email</a> | <a href="/sitemap.xml">Sitemap</a>
+</p>
 </footer>
 
     

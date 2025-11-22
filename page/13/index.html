@@ -18,7 +18,8 @@
 <meta property="og:url" content="https://www.glowisle.me/">
   <meta property="og:site_name" content="映屿">
   <meta property="og:title" content="首页">
-  <meta property="og:description" content="关于互联网、书籍、生活琐事以及那些一闪而过的念头。计算机技术 &amp; 读书感悟 &amp; 日常随笔。">
+  <meta property="og:description" content="写点生活随笔、读书感悟、技术实践和幼稚观点。
+不花里胡哨、不迎合大众、不随波逐流、不投放广告，专注自己想写的内容。">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:type" content="website">
 
@@ -27,15 +28,18 @@
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="首页">
-  <meta name="twitter:description" content="关于互联网、书籍、生活琐事以及那些一闪而过的念头。计算机技术 &amp; 读书感悟 &amp; 日常随笔。">
+  <meta name="twitter:description" content="写点生活随笔、读书感悟、技术实践和幼稚观点。
+不花里胡哨、不迎合大众、不随波逐流、不投放广告，专注自己想写的内容。">
 
 
 
 
   <meta itemprop="name" content="首页">
-  <meta itemprop="description" content="关于互联网、书籍、生活琐事以及那些一闪而过的念头。计算机技术 &amp; 读书感悟 &amp; 日常随笔。">
+  <meta itemprop="description" content="写点生活随笔、读书感悟、技术实践和幼稚观点。
+不花里胡哨、不迎合大众、不随波逐流、不投放广告，专注自己想写的内容。">
   <meta itemprop="datePublished" content="2025-11-15T19:24:14+08:00">
   <meta itemprop="dateModified" content="2025-11-15T19:24:14+08:00">
+  <meta itemprop="wordCount" content="56">
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
   <link rel="alternate" type="application/rss+xml" href="http://www.glowisle.me/atom.xml" title="映屿" />
@@ -47,7 +51,7 @@
     --font-secondary: monospace;
     --font-size-primary: 1em;
     --font-size-secondary: 0.8em;
-    --body-bg-color: #fdfde7;
+    --body-bg-color: #ffffff;
     --bold-text-color: #222;
     --body-text-color: #444;
     --link-color: #3273dc;
@@ -65,6 +69,15 @@
     --toc-hover-color: #655e5e;
   }
 
+  .post-categories,
+  .category-link {
+    display: inline;
+    color: #7f8c8d;
+  }
+
+  .post-categories {
+    font-size: 0.9em;
+  }
   .post-date,
   .post-date-shortcode {
     margin-left: auto;
@@ -84,7 +97,41 @@
     border-radius: 5px;
     text-transform: uppercase;
   }
-   
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --body-bg-color: #1c1c1c;
+      --bold-text-color: #eee;
+      --body-text-color: #ddd;
+      --link-color: #8cc2dd;
+      --link-visited-color: #c3b1ee;
+      --table-border-color: #999;
+      --table-th-bg-color: #999;
+      --img-border-color: #999;
+      --code-bg-color: #555;
+      --code-text-color: #ddd;
+      --blockquote-border-color: #ccc;
+      --blockquote-text-color: #ccc;
+      --caption-text-color: #aaa;
+      --toc-text-color: #373737;
+      --toc-hover-color: #cac3c3;
+    }
+
+    .post-title a {
+      color: #fff !important;
+    }
+
+    .post-summary {
+      color: var(--text-color-primary) !important;
+    }
+
+    .post-item {
+      border-bottom: 1px solid #414141 !important;
+    }
+
+    .pagination-link {
+      border: 1px solid #414141 !important;
+    }
+  }
 
   body {
     font-family: var(--font-primary);
@@ -259,7 +306,7 @@
 
   footer {
     padding: 25px 0;
-    text-align: center;
+    text-align: left;
     font-size: var(--font-size-secondary);
   }
 
@@ -422,8 +469,15 @@
   }
 </style>
 <meta name="msvalidate.01" content="2E1AACF009206F2DDBAAD4B98E881460" />
-<link rel="stylesheet" href="/css/waline.css"/>
-<link rel="prefetch" as="image" href="https://www.blogsclub.org/badge/www.glowisle.me">
+<link
+  rel="prefetch"
+  as="image"
+  href="https://www.blogsclub.org/badge/www.glowisle.me"
+/>
+<script
+  src="https://kit.fontawesome.com/2f4edcb5b6.js"
+  crossorigin="anonymous"
+></script>
 </head>
 
 <body>
@@ -432,7 +486,7 @@
 </a>
 <nav><a href="/">首页</a>
 
-<a href="/posts">文章</a>
+<a href="/posts">归档</a>
 
 <a href="/links">友人</a>
 
@@ -443,60 +497,91 @@
 
 </nav>
 </header>
-  <main> 
+  <main>
+
+<p>写点生活随笔、读书感悟、技术实践和幼稚观点。</p>
+<p><strong>不花里胡哨、不迎合大众、不随波逐流、不投放广告</strong>，专注自己想写的内容。</p>
+<hr>
 
 
  
 <div class="recent-posts">
-  
-  <div class="posts-list">
     
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/%E6%80%AA%E7%99%96/">怪癖</a>
-        </h3>
-        <time class="post-date" datetime="2025-06-12T21:16:01Z">
-          2025年6月12日
-        </time>
-      </div>
-      <div class="post-summary">
+    <div class="posts-list">
         
-          我这人怪癖挺多的，屋子里不能拉开窗帘，我讨厌被别人看到；屋子里只留一盏台灯和电子设备的光，很有安全感；电脑桌面上不能有任何图标，我爱干净。
-屋子里静静的，只有空调运转和电脑硬盘读写的机械声。暖黄色的台灯灯光不会分散太多注意力，在学校喧闹一天后，这是最快的“回血”方法。很难想象那些住宿学校的学生是什么 …
-        
-      </div>
-    </article>
-    
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/%E7%BD%91%E7%BB%9C%E6%AD%BB%E4%BA%A1%E8%AE%A1%E5%88%92/">网络死亡计划</a>
-        </h3>
-        <time class="post-date" datetime="2025-06-11T23:24:42Z">
-          2025年6月11日
-        </time>
-      </div>
-      <div class="post-summary">
-        
-          最近要把生活重心和精力再往学业上分配更多，打算逐步减少社交软件的使用。因此产生了些许对自己在社交软件的某些群组上是否需要存在的焦虑。所以有了这个想法：在网络上死亡。
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/%E6%80%AA%E7%99%96/">怪癖</a>
+                </h3>
+                <time class="post-date" datetime=" 2025-06-12T21:16:01Z">
+                    2025年6月12日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">随笔</p>
+                    
+                </div>
 
+
+            </div>
+            <div class="post-summary">
+                
+                我这人怪癖挺多的，屋子里不能拉开窗帘，我讨厌被别人看到；屋子里只留一盏台灯和电子设备的光，很有安全感；电脑桌面上不能有任何图标，我爱干净。
+屋子里静静的，只有空调运转和电脑硬盘读写的机械声。暖黄色的台灯灯光不会分散太多注意力，在学校喧闹一天后，这是最快的“回血”方法。很难想象那些住宿学校的学生是什么 …
+                
+            </div>
+        </article>
         
-      </div>
-    </article>
-    
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/%E6%88%91%E8%AF%B4%E8%BF%87%E5%90%97/">我说过吗？</a>
-        </h3>
-        <time class="post-date" datetime="2025-06-11T23:11:50Z">
-          2025年6月11日
-        </time>
-      </div>
-      <div class="post-summary">
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/%E7%BD%91%E7%BB%9C%E6%AD%BB%E4%BA%A1%E8%AE%A1%E5%88%92/">网络死亡计划</a>
+                </h3>
+                <time class="post-date" datetime=" 2025-06-11T23:24:42Z">
+                    2025年6月11日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">随笔</p>
+                    
+                </div>
+
+
+            </div>
+            <div class="post-summary">
+                
+                最近要把生活重心和精力再往学业上分配更多，打算逐步减少社交软件的使用。因此产生了些许对自己在社交软件的某些群组上是否需要存在的焦虑。所以有了这个想法：在网络上死亡。
+
+                
+            </div>
+        </article>
         
-          我见到了一个口齿不清又爱自言自语的人。
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/%E6%88%91%E8%AF%B4%E8%BF%87%E5%90%97/">我说过吗？</a>
+                </h3>
+                <time class="post-date" datetime=" 2025-06-11T23:11:50Z">
+                    2025年6月11日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">随笔</p>
+                    
+                </div>
+
+
+            </div>
+            <div class="post-summary">
+                
+                我见到了一个口齿不清又爱自言自语的人。
 “我说过这个吗？”
 “没说过啊？”
 “哦哦对的对的哦不对不对哦对的对的。”
@@ -504,44 +589,62 @@
 “没说过啊？”
 “这个不说了。”
 
+                
+            </div>
+        </article>
         
-      </div>
-    </article>
-    
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/4key%E9%9F%B3%E6%B8%B8%E6%AE%B5%E4%BD%8D%E5%8D%95%E6%9B%B2%E6%88%90%E7%BB%A9%E8%AE%A1%E7%AE%97%E7%9A%84%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0/">4Key音游段位单曲成绩计算的程序实现</a>
-        </h3>
-        <time class="post-date" datetime="2025-06-07T13:08:07Z">
-          2025年6月7日
-        </time>
-      </div>
-      <div class="post-summary">
-        
-          前言 其实这个坑我很早以前就想开了，在我刚开始学编程那会就一直想写一个这个东西。但苦于数学进度没达到，要用到加权平均数，这东西我前两天才学到，之前对数学也一直是懒得学的状态，要不然几乎是看不懂那个算法的。
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/4key%E9%9F%B3%E6%B8%B8%E6%AE%B5%E4%BD%8D%E5%8D%95%E6%9B%B2%E6%88%90%E7%BB%A9%E8%AE%A1%E7%AE%97%E7%9A%84%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0/">4Key音游段位单曲成绩计算的程序实现</a>
+                </h3>
+                <time class="post-date" datetime=" 2025-06-07T13:08:07Z">
+                    2025年6月7日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">技术</p>
+                    
+                </div>
 
-        
-      </div>
-    </article>
-    
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/%E6%9D%82%E8%AE%B0-2025-06-06/">杂记#2025-06-06</a>
-        </h3>
-        <time class="post-date" datetime="2025-06-06T23:19:56Z">
-          2025年6月6日
-        </time>
-      </div>
-      <div class="post-summary">
-        
-          纠结了很长时间，这篇文章命名的事。我是典型的选择困难，出于文章内容组织的形式，就把他命名为杂记了。不过应该也没什么人看，我就~~（梦）~~想到什么写什么了
 
+            </div>
+            <div class="post-summary">
+                
+                前言 其实这个坑我很早以前就想开了，在我刚开始学编程那会就一直想写一个这个东西。但苦于数学进度没达到，要用到加权平均数，这东西我前两天才学到，之前对数学也一直是懒得学的状态，要不然几乎是看不懂那个算法的。
+
+                
+            </div>
+        </article>
         
-      </div>
-    </article>
-    
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/%E6%9D%82%E8%AE%B0-2025-06-06/">杂记#2025-06-06</a>
+                </h3>
+                <time class="post-date" datetime=" 2025-06-06T23:19:56Z">
+                    2025年6月6日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">随笔</p>
+                    
+                </div>
+
+
+            </div>
+            <div class="post-summary">
+                
+                纠结了很长时间，这篇文章命名的事。我是典型的选择困难，出于文章内容组织的形式，就把他命名为杂记了。不过应该也没什么人看，我就~~（梦）~~想到什么写什么了
+
+                
+            </div>
+        </article>
+        
   </div>
   
   
@@ -566,7 +669,7 @@
   
   .post-item {
     padding: 1.5rem 0;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #dcdcdc;
     transition: background-color 0.2s ease;
   }
   
@@ -576,7 +679,7 @@
   
   .post-title {
     margin: 0 0 0.5rem 0;
-    font-size: 1.4rem;
+    font-size: 24px;
     line-height: 1.3;
   }
   
@@ -670,37 +773,13 @@
     }
   }
 </style>
- 
 
   </main>
-  <footer>
-
-
-Subscribe via <a href="/atom.xml">RSS</a> or just <a href="mailto:i@glowisle.me">say hello</a>.
-<br />
-
-
-
-
-
-Say hello via <a href="mailto:i@glowisle.me">email</a>.
-<br />
-
-
-
-
-Made with
-<a href="https://github.com/rokcso/hugo-bearneo/">Hugo Bear Neo</a>.
-<br />
-
-
-
-
-
-
-
-🗺️ <a href="/sitemap.xml">Sitemap</a>.
-
+  <footer><p>
+  © 2024 - 2025 | <a href="/atom.xml">RSS</a> |
+  <a href="https://www.github.com/yingyu5658">Github</a> |
+  <a href="mailto:i@glowisle.me">Email</a> | <a href="/sitemap.xml">Sitemap</a>
+</p>
 </footer>
 
     

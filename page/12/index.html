@@ -18,7 +18,8 @@
 <meta property="og:url" content="https://www.glowisle.me/">
   <meta property="og:site_name" content="映屿">
   <meta property="og:title" content="首页">
-  <meta property="og:description" content="关于互联网、书籍、生活琐事以及那些一闪而过的念头。计算机技术 &amp; 读书感悟 &amp; 日常随笔。">
+  <meta property="og:description" content="写点生活随笔、读书感悟、技术实践和幼稚观点。
+不花里胡哨、不迎合大众、不随波逐流、不投放广告，专注自己想写的内容。">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:type" content="website">
 
@@ -27,15 +28,18 @@
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="首页">
-  <meta name="twitter:description" content="关于互联网、书籍、生活琐事以及那些一闪而过的念头。计算机技术 &amp; 读书感悟 &amp; 日常随笔。">
+  <meta name="twitter:description" content="写点生活随笔、读书感悟、技术实践和幼稚观点。
+不花里胡哨、不迎合大众、不随波逐流、不投放广告，专注自己想写的内容。">
 
 
 
 
   <meta itemprop="name" content="首页">
-  <meta itemprop="description" content="关于互联网、书籍、生活琐事以及那些一闪而过的念头。计算机技术 &amp; 读书感悟 &amp; 日常随笔。">
+  <meta itemprop="description" content="写点生活随笔、读书感悟、技术实践和幼稚观点。
+不花里胡哨、不迎合大众、不随波逐流、不投放广告，专注自己想写的内容。">
   <meta itemprop="datePublished" content="2025-11-15T19:24:14+08:00">
   <meta itemprop="dateModified" content="2025-11-15T19:24:14+08:00">
+  <meta itemprop="wordCount" content="56">
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
   <link rel="alternate" type="application/rss+xml" href="http://www.glowisle.me/atom.xml" title="映屿" />
@@ -47,7 +51,7 @@
     --font-secondary: monospace;
     --font-size-primary: 1em;
     --font-size-secondary: 0.8em;
-    --body-bg-color: #fdfde7;
+    --body-bg-color: #ffffff;
     --bold-text-color: #222;
     --body-text-color: #444;
     --link-color: #3273dc;
@@ -65,6 +69,15 @@
     --toc-hover-color: #655e5e;
   }
 
+  .post-categories,
+  .category-link {
+    display: inline;
+    color: #7f8c8d;
+  }
+
+  .post-categories {
+    font-size: 0.9em;
+  }
   .post-date,
   .post-date-shortcode {
     margin-left: auto;
@@ -84,7 +97,41 @@
     border-radius: 5px;
     text-transform: uppercase;
   }
-   
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --body-bg-color: #1c1c1c;
+      --bold-text-color: #eee;
+      --body-text-color: #ddd;
+      --link-color: #8cc2dd;
+      --link-visited-color: #c3b1ee;
+      --table-border-color: #999;
+      --table-th-bg-color: #999;
+      --img-border-color: #999;
+      --code-bg-color: #555;
+      --code-text-color: #ddd;
+      --blockquote-border-color: #ccc;
+      --blockquote-text-color: #ccc;
+      --caption-text-color: #aaa;
+      --toc-text-color: #373737;
+      --toc-hover-color: #cac3c3;
+    }
+
+    .post-title a {
+      color: #fff !important;
+    }
+
+    .post-summary {
+      color: var(--text-color-primary) !important;
+    }
+
+    .post-item {
+      border-bottom: 1px solid #414141 !important;
+    }
+
+    .pagination-link {
+      border: 1px solid #414141 !important;
+    }
+  }
 
   body {
     font-family: var(--font-primary);
@@ -259,7 +306,7 @@
 
   footer {
     padding: 25px 0;
-    text-align: center;
+    text-align: left;
     font-size: var(--font-size-secondary);
   }
 
@@ -422,8 +469,15 @@
   }
 </style>
 <meta name="msvalidate.01" content="2E1AACF009206F2DDBAAD4B98E881460" />
-<link rel="stylesheet" href="/css/waline.css"/>
-<link rel="prefetch" as="image" href="https://www.blogsclub.org/badge/www.glowisle.me">
+<link
+  rel="prefetch"
+  as="image"
+  href="https://www.blogsclub.org/badge/www.glowisle.me"
+/>
+<script
+  src="https://kit.fontawesome.com/2f4edcb5b6.js"
+  crossorigin="anonymous"
+></script>
 </head>
 
 <body>
@@ -432,7 +486,7 @@
 </a>
 <nav><a href="/">首页</a>
 
-<a href="/posts">文章</a>
+<a href="/posts">归档</a>
 
 <a href="/links">友人</a>
 
@@ -443,62 +497,93 @@
 
 </nav>
 </header>
-  <main> 
+  <main>
+
+<p>写点生活随笔、读书感悟、技术实践和幼稚观点。</p>
+<p><strong>不花里胡哨、不迎合大众、不随波逐流、不投放广告</strong>，专注自己想写的内容。</p>
+<hr>
 
 
  
 <div class="recent-posts">
-  
-  <div class="posts-list">
     
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/%E8%B6%85%E5%B8%82%E8%A7%81%E9%97%BB/">超市见闻</a>
-        </h3>
-        <time class="post-date" datetime="2025-06-20T20:24:57Z">
-          2025年6月20日
-        </time>
-      </div>
-      <div class="post-summary">
+    <div class="posts-list">
         
-          今天中考布置考场，只上半天课。下周一就是地生会考了，看完考场回来，已经接近一点，早点没吃，去便利店买点面包垫肚子，看到了两个其他学校的学生一人拿着一瓶酒，在台前结账。
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/%E8%B6%85%E5%B8%82%E8%A7%81%E9%97%BB/">超市见闻</a>
+                </h3>
+                <time class="post-date" datetime=" 2025-06-20T20:24:57Z">
+                    2025年6月20日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">随笔</p>
+                    
+                </div>
 
+
+            </div>
+            <div class="post-summary">
+                
+                今天中考布置考场，只上半天课。下周一就是地生会考了，看完考场回来，已经接近一点，早点没吃，去便利店买点面包垫肚子，看到了两个其他学校的学生一人拿着一瓶酒，在台前结账。
+
+                
+            </div>
+        </article>
         
-      </div>
-    </article>
-    
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/%E7%AC%AC%E4%B8%89%E6%AC%A1%E4%B8%96%E7%95%8C%E5%A4%A7%E6%88%98/">第三次世界大战</a>
-        </h3>
-        <time class="post-date" datetime="2025-06-19T23:09:59Z">
-          2025年6月19日
-        </time>
-      </div>
-      <div class="post-summary">
-        
-          我始终坚信，也能深刻体会到一句话——林子大了什么鸟都有。
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/%E7%AC%AC%E4%B8%89%E6%AC%A1%E4%B8%96%E7%95%8C%E5%A4%A7%E6%88%98/">第三次世界大战</a>
+                </h3>
+                <time class="post-date" datetime=" 2025-06-19T23:09:59Z">
+                    2025年6月19日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">随笔</p>
+                    
+                </div>
+
+
+            </div>
+            <div class="post-summary">
+                
+                我始终坚信，也能深刻体会到一句话——林子大了什么鸟都有。
 最近两天伊以冲突闹得很大，工厂停运、百姓流亡，民不聊生，当地居民都处于恐慌和焦虑中。
 我不对局势做点评，也不站队有立场。我发现了身边有一些人，对战争非常感兴趣，甚至期盼战争。
 
+                
+            </div>
+        </article>
         
-      </div>
-    </article>
-    
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/%E9%AB%98%E8%B6%85%E7%9A%84%E8%A1%A8%E8%BE%BE%E8%83%BD%E5%8A%9B/">高超的表达能力</a>
-        </h3>
-        <time class="post-date" datetime="2025-06-19T23:05:24Z">
-          2025年6月19日
-        </time>
-      </div>
-      <div class="post-summary">
-        
-          “帮我拿个东西。”
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/%E9%AB%98%E8%B6%85%E7%9A%84%E8%A1%A8%E8%BE%BE%E8%83%BD%E5%8A%9B/">高超的表达能力</a>
+                </h3>
+                <time class="post-date" datetime=" 2025-06-19T23:05:24Z">
+                    2025年6月19日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">随笔</p>
+                    
+                </div>
+
+
+            </div>
+            <div class="post-summary">
+                
+                “帮我拿个东西。”
 “拿什么东西？”
 “就是那个。”
 “在哪里？”
@@ -506,45 +591,63 @@
 “到底在哪里？”
 “就是在那里！”
 
+                
+            </div>
+        </article>
         
-      </div>
-    </article>
-    
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/%E5%A5%BD%E6%96%87%E7%AB%A0/">好文章</a>
-        </h3>
-        <time class="post-date" datetime="2025-06-18T21:53:51Z">
-          2025年6月18日
-        </time>
-      </div>
-      <div class="post-summary">
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/%E5%A5%BD%E6%96%87%E7%AB%A0/">好文章</a>
+                </h3>
+                <time class="post-date" datetime=" 2025-06-18T21:53:51Z">
+                    2025年6月18日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">随笔</p>
+                    
+                </div>
+
+
+            </div>
+            <div class="post-summary">
+                
+                心灵小语 我们的语文作业从初一开始就偶尔留一项叫“心灵小语“的作业，文风可以和博客比较相似。但毕竟是要给老师看的，措辞还是要严谨一点。前两天的语文课老师读了两篇文章，巧了，我最受不了这种文章————用力堆砌耀眼夺目的辞藻，如青春、奋斗、阳光、生活。这就是老师眼中的好文章，扮演一个老师喜欢的性格，讲写 …
+                
+            </div>
+        </article>
         
-          心灵小语 我们的语文作业从初一开始就偶尔留一项叫“心灵小语“的作业，文风可以和博客比较相似。但毕竟是要给老师看的，措辞还是要严谨一点。前两天的语文课老师读了两篇文章，巧了，我最受不了这种文章————用力堆砌耀眼夺目的辞藻，如青春、奋斗、阳光、生活。这就是老师眼中的好文章，扮演一个老师喜欢的性格，讲写 …
-        
-      </div>
-    </article>
-    
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/%E7%BB%99%E6%AF%94%E6%88%91%E5%B2%81%E6%95%B0%E8%BF%98%E5%A4%A7%E7%9A%84%E7%94%B5%E8%84%91%E8%A3%85fedora/">给比我岁数还大的电脑装Fedora</a>
-        </h3>
-        <time class="post-date" datetime="2025-06-13T20:11:49Z">
-          2025年6月13日
-        </time>
-      </div>
-      <div class="post-summary">
-        
-          前言 印象中，这台电脑在我很小的时候就存在了，我爸的网盘里至今还有我当时用这台电脑播放江南Style，我在床上跳舞的视频。
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/%E7%BB%99%E6%AF%94%E6%88%91%E5%B2%81%E6%95%B0%E8%BF%98%E5%A4%A7%E7%9A%84%E7%94%B5%E8%84%91%E8%A3%85fedora/">给比我岁数还大的电脑装Fedora</a>
+                </h3>
+                <time class="post-date" datetime=" 2025-06-13T20:11:49Z">
+                    2025年6月13日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">技术</p>
+                    
+                </div>
+
+
+            </div>
+            <div class="post-summary">
+                
+                前言 印象中，这台电脑在我很小的时候就存在了，我爸的网盘里至今还有我当时用这台电脑播放江南Style，我在床上跳舞的视频。
 这台机子开Powershell都卡，更不用说日常使用。
 我甚至都不想在这台电脑上截图，当拍屏大师吧。
 听说Linux用户有个刻板印象就是，用着十几年前的笔记本，从来不用最新设 …
+                
+            </div>
+        </article>
         
-      </div>
-    </article>
-    
   </div>
   
   
@@ -569,7 +672,7 @@
   
   .post-item {
     padding: 1.5rem 0;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #dcdcdc;
     transition: background-color 0.2s ease;
   }
   
@@ -579,7 +682,7 @@
   
   .post-title {
     margin: 0 0 0.5rem 0;
-    font-size: 1.4rem;
+    font-size: 24px;
     line-height: 1.3;
   }
   
@@ -673,37 +776,13 @@
     }
   }
 </style>
- 
 
   </main>
-  <footer>
-
-
-Subscribe via <a href="/atom.xml">RSS</a> or just <a href="mailto:i@glowisle.me">say hello</a>.
-<br />
-
-
-
-
-
-Say hello via <a href="mailto:i@glowisle.me">email</a>.
-<br />
-
-
-
-
-Made with
-<a href="https://github.com/rokcso/hugo-bearneo/">Hugo Bear Neo</a>.
-<br />
-
-
-
-
-
-
-
-🗺️ <a href="/sitemap.xml">Sitemap</a>.
-
+  <footer><p>
+  © 2024 - 2025 | <a href="/atom.xml">RSS</a> |
+  <a href="https://www.github.com/yingyu5658">Github</a> |
+  <a href="mailto:i@glowisle.me">Email</a> | <a href="/sitemap.xml">Sitemap</a>
+</p>
 </footer>
 
     

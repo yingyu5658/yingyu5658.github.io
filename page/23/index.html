@@ -18,7 +18,8 @@
 <meta property="og:url" content="https://www.glowisle.me/">
   <meta property="og:site_name" content="映屿">
   <meta property="og:title" content="首页">
-  <meta property="og:description" content="关于互联网、书籍、生活琐事以及那些一闪而过的念头。计算机技术 &amp; 读书感悟 &amp; 日常随笔。">
+  <meta property="og:description" content="写点生活随笔、读书感悟、技术实践和幼稚观点。
+不花里胡哨、不迎合大众、不随波逐流、不投放广告，专注自己想写的内容。">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:type" content="website">
 
@@ -27,15 +28,18 @@
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="首页">
-  <meta name="twitter:description" content="关于互联网、书籍、生活琐事以及那些一闪而过的念头。计算机技术 &amp; 读书感悟 &amp; 日常随笔。">
+  <meta name="twitter:description" content="写点生活随笔、读书感悟、技术实践和幼稚观点。
+不花里胡哨、不迎合大众、不随波逐流、不投放广告，专注自己想写的内容。">
 
 
 
 
   <meta itemprop="name" content="首页">
-  <meta itemprop="description" content="关于互联网、书籍、生活琐事以及那些一闪而过的念头。计算机技术 &amp; 读书感悟 &amp; 日常随笔。">
+  <meta itemprop="description" content="写点生活随笔、读书感悟、技术实践和幼稚观点。
+不花里胡哨、不迎合大众、不随波逐流、不投放广告，专注自己想写的内容。">
   <meta itemprop="datePublished" content="2025-11-15T19:24:14+08:00">
   <meta itemprop="dateModified" content="2025-11-15T19:24:14+08:00">
+  <meta itemprop="wordCount" content="56">
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
   <link rel="alternate" type="application/rss+xml" href="http://www.glowisle.me/atom.xml" title="映屿" />
@@ -47,7 +51,7 @@
     --font-secondary: monospace;
     --font-size-primary: 1em;
     --font-size-secondary: 0.8em;
-    --body-bg-color: #fdfde7;
+    --body-bg-color: #ffffff;
     --bold-text-color: #222;
     --body-text-color: #444;
     --link-color: #3273dc;
@@ -65,6 +69,15 @@
     --toc-hover-color: #655e5e;
   }
 
+  .post-categories,
+  .category-link {
+    display: inline;
+    color: #7f8c8d;
+  }
+
+  .post-categories {
+    font-size: 0.9em;
+  }
   .post-date,
   .post-date-shortcode {
     margin-left: auto;
@@ -84,7 +97,41 @@
     border-radius: 5px;
     text-transform: uppercase;
   }
-   
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --body-bg-color: #1c1c1c;
+      --bold-text-color: #eee;
+      --body-text-color: #ddd;
+      --link-color: #8cc2dd;
+      --link-visited-color: #c3b1ee;
+      --table-border-color: #999;
+      --table-th-bg-color: #999;
+      --img-border-color: #999;
+      --code-bg-color: #555;
+      --code-text-color: #ddd;
+      --blockquote-border-color: #ccc;
+      --blockquote-text-color: #ccc;
+      --caption-text-color: #aaa;
+      --toc-text-color: #373737;
+      --toc-hover-color: #cac3c3;
+    }
+
+    .post-title a {
+      color: #fff !important;
+    }
+
+    .post-summary {
+      color: var(--text-color-primary) !important;
+    }
+
+    .post-item {
+      border-bottom: 1px solid #414141 !important;
+    }
+
+    .pagination-link {
+      border: 1px solid #414141 !important;
+    }
+  }
 
   body {
     font-family: var(--font-primary);
@@ -259,7 +306,7 @@
 
   footer {
     padding: 25px 0;
-    text-align: center;
+    text-align: left;
     font-size: var(--font-size-secondary);
   }
 
@@ -422,8 +469,15 @@
   }
 </style>
 <meta name="msvalidate.01" content="2E1AACF009206F2DDBAAD4B98E881460" />
-<link rel="stylesheet" href="/css/waline.css"/>
-<link rel="prefetch" as="image" href="https://www.blogsclub.org/badge/www.glowisle.me">
+<link
+  rel="prefetch"
+  as="image"
+  href="https://www.blogsclub.org/badge/www.glowisle.me"
+/>
+<script
+  src="https://kit.fontawesome.com/2f4edcb5b6.js"
+  crossorigin="anonymous"
+></script>
 </head>
 
 <body>
@@ -432,7 +486,7 @@
 </a>
 <nav><a href="/">首页</a>
 
-<a href="/posts">文章</a>
+<a href="/posts">归档</a>
 
 <a href="/links">友人</a>
 
@@ -443,102 +497,151 @@
 
 </nav>
 </header>
-  <main> 
+  <main>
+
+<p>写点生活随笔、读书感悟、技术实践和幼稚观点。</p>
+<p><strong>不花里胡哨、不迎合大众、不随波逐流、不投放广告</strong>，专注自己想写的内容。</p>
+<hr>
 
 
  
 <div class="recent-posts">
-  
-  <div class="posts-list">
     
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/156/">Typecho不要用阿里云系统镜像</a>
-        </h3>
-        <time class="post-date" datetime="2024-12-15T21:45:47Z">
-          2024年12月15日
-        </time>
-      </div>
-      <div class="post-summary">
+    <div class="posts-list">
         
-          不要用阿里云的系统镜像，那个是1.1版本的。。。很多插件都没办法正常用。。。比如这两个插件就会这样
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/156/">Typecho不要用阿里云系统镜像</a>
+                </h3>
+                <time class="post-date" datetime=" 2024-12-15T21:45:47Z">
+                    2024年12月15日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">技术</p>
+                    
+                </div>
+
+
+            </div>
+            <div class="post-summary">
+                
+                不要用阿里云的系统镜像，那个是1.1版本的。。。很多插件都没办法正常用。。。比如这两个插件就会这样
 还有很多主题和插件都犯这样的毛病，在此不多提，我会想办法升级版本的（又挖了个坑）
 
+                
+            </div>
+        </article>
         
-      </div>
-    </article>
-    
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/147/">Vim基础操作快速入门</a>
-        </h3>
-        <time class="post-date" datetime="2024-12-13T16:13:36Z">
-          2024年12月13日
-        </time>
-      </div>
-      <div class="post-summary">
-        
-          前言 各种鼠标操作让我有点抓狂，vim或许是一个很适合我的东西，全键盘操作听起来就很方便快捷，除了上手难度有点高以外，vim看起来似乎没有任何的缺点。在下载安装好了vim后，我开始学习了快捷键。然后我们就可以直接把鼠标扔了。
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/147/">Vim基础操作快速入门</a>
+                </h3>
+                <time class="post-date" datetime=" 2024-12-13T16:13:36Z">
+                    2024年12月13日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">技术</p>
+                    
+                </div>
 
-        
-      </div>
-    </article>
-    
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/%E6%B8%B8%E6%88%8F%E8%B5%84%E6%BA%90%E4%B8%8B%E8%BD%BD%E5%8F%8A%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%B8%E5%85%B3%E6%95%99%E7%A8%8B/">游戏资源下载及连接服务器相关教程</a>
-        </h3>
-        <time class="post-date" datetime="2024-12-13T20:26:00&#43;08:00">
-          2024年12月13日
-        </time>
-      </div>
-      <div class="post-summary">
-        
-          前言 为了避免不必要的麻烦和纠纷，也是为了打造一个纯粹干净高质量的社区，我们需要对想要参与的人员提出一些条件，请确保你自身可以满足这些条件后再来愉快的玩耍。 所有的条件都是最基本的，一点也不苛刻，大部分要求仅仅是一些应该具备的能力。
 
+            </div>
+            <div class="post-summary">
+                
+                前言 各种鼠标操作让我有点抓狂，vim或许是一个很适合我的东西，全键盘操作听起来就很方便快捷，除了上手难度有点高以外，vim看起来似乎没有任何的缺点。在下载安装好了vim后，我开始学习了快捷键。然后我们就可以直接把鼠标扔了。
+
+                
+            </div>
+        </article>
         
-      </div>
-    </article>
-    
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/98/">Java面向对象编程快速入门</a>
-        </h3>
-        <time class="post-date" datetime="2024-12-01T13:05:00Z">
-          2024年12月1日
-        </time>
-      </div>
-      <div class="post-summary">
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/%E6%B8%B8%E6%88%8F%E8%B5%84%E6%BA%90%E4%B8%8B%E8%BD%BD%E5%8F%8A%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%B8%E5%85%B3%E6%95%99%E7%A8%8B/">游戏资源下载及连接服务器相关教程</a>
+                </h3>
+                <time class="post-date" datetime=" 2024-12-13T20:26:00&#43;08:00">
+                    2024年12月13日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">随笔</p>
+                    
+                </div>
+
+
+            </div>
+            <div class="post-summary">
+                
+                前言 为了避免不必要的麻烦和纠纷，也是为了打造一个纯粹干净高质量的社区，我们需要对想要参与的人员提出一些条件，请确保你自身可以满足这些条件后再来愉快的玩耍。 所有的条件都是最基本的，一点也不苛刻，大部分要求仅仅是一些应该具备的能力。
+
+                
+            </div>
+        </article>
         
-          什么是面向对象编程 通俗易懂的说，就是把一坨一坨的数据放到一起存储 比如要存储一个学生的语文成绩和数学成绩 新建一个类
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/98/">Java面向对象编程快速入门</a>
+                </h3>
+                <time class="post-date" datetime=" 2024-12-01T13:05:00Z">
+                    2024年12月1日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">技术</p>
+                    
+                </div>
+
+
+            </div>
+            <div class="post-summary">
+                
+                什么是面向对象编程 通俗易懂的说，就是把一坨一坨的数据放到一起存储 比如要存储一个学生的语文成绩和数学成绩 新建一个类
 public class Student { String name;//名字 double chinese;//语文成绩 double math;//数学成绩 public …
+                
+            </div>
+        </article>
         
-      </div>
-    </article>
-    
-    <article class="post-item">
-      <div class="post-header">
-        <h3 class="post-title">
-          <a href="/posts/99/">深刻认识面向对象</a>
-        </h3>
-        <time class="post-date" datetime="2024-12-01T13:31:00&#43;08:00">
-          2024年12月1日
-        </time>
-      </div>
-      <div class="post-summary">
-        
-          面向对象编程的好处
+        <article class="post-item">
+            <div class="post-header">
+                <h3 class="post-title">
+                    <a href="/posts/99/">深刻认识面向对象</a>
+                </h3>
+                <time class="post-date" datetime=" 2024-12-01T13:31:00&#43;08:00">
+                    2024年12月1日
+                </time>
+                <div class="post-categories">
+                    
+                    
+<i class="fa-solid fa-folder"></i>
+                    <p href="#" class="category-link">技术</p>
+                    
+                </div>
+
+
+            </div>
+            <div class="post-summary">
+                
+                面向对象编程的好处
 按照詹姆斯·高斯林的看法，世间万物都是对象。好比要出去旅游，你要找到车这个对象调用他的行驶功能使用来带你出去旅游。
 所以面向对象编程的好处就是：符合人类思维习惯，编程更简单，更直观。
 
+                
+            </div>
+        </article>
         
-      </div>
-    </article>
-    
   </div>
   
   
@@ -563,7 +666,7 @@ public class Student { String name;//名字 double chinese;//语文成绩 double
   
   .post-item {
     padding: 1.5rem 0;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #dcdcdc;
     transition: background-color 0.2s ease;
   }
   
@@ -573,7 +676,7 @@ public class Student { String name;//名字 double chinese;//语文成绩 double
   
   .post-title {
     margin: 0 0 0.5rem 0;
-    font-size: 1.4rem;
+    font-size: 24px;
     line-height: 1.3;
   }
   
@@ -667,37 +770,13 @@ public class Student { String name;//名字 double chinese;//语文成绩 double
     }
   }
 </style>
- 
 
   </main>
-  <footer>
-
-
-Subscribe via <a href="/atom.xml">RSS</a> or just <a href="mailto:i@glowisle.me">say hello</a>.
-<br />
-
-
-
-
-
-Say hello via <a href="mailto:i@glowisle.me">email</a>.
-<br />
-
-
-
-
-Made with
-<a href="https://github.com/rokcso/hugo-bearneo/">Hugo Bear Neo</a>.
-<br />
-
-
-
-
-
-
-
-🗺️ <a href="/sitemap.xml">Sitemap</a>.
-
+  <footer><p>
+  © 2024 - 2025 | <a href="/atom.xml">RSS</a> |
+  <a href="https://www.github.com/yingyu5658">Github</a> |
+  <a href="mailto:i@glowisle.me">Email</a> | <a href="/sitemap.xml">Sitemap</a>
+</p>
 </footer>
 
     

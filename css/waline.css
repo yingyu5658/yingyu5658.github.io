@@ -26,7 +26,7 @@
     --waline-box-shadow: none;
 }
 #wl-edit:focus {
-    background-color: #fdfde7;
+    background-color: var(--waline-bg-color);
 }
 [data-waline] {
     font-size: var(--waline-font-size);
@@ -1151,4 +1151,119 @@
 .wl-user-wall .wl-user-item img {
     width: var(--waline-user-avatar-size, 48px);
     height: var(--waline-user-avatar-size, 48px);
-} /*# sourceMappingURL=waline.css.map */
+}
+
+.wl-comment-actions .wl-like,
+.wl-power,
+.wl-action
+{
+		display: none;
+}
+
+.wl-editor:focus {
+	background-color: none;
+}
+@media (prefers-color-scheme: dark) {
+	
+  :root {
+    /* Waline 暗色模式变量 */
+    --waline-white: #1c1c1c;
+    --waline-light-grey: #aaa;
+    --waline-dark-grey: #ddd;
+    --waline-theme-color: #8cc2dd;
+    --waline-active-color: #6ba8c9;
+    --waline-color: #ddd;
+    --waline-bg-color: none;
+    --waline-bg-color-light: #373737;
+    --waline-bg-color-hover: #444;
+    --waline-border-color: #555;
+    --waline-disable-bg-color: #444;
+    --waline-disable-color: #999;
+    --waline-code-bg-color: #555;
+    --waline-bq-color: #373737;
+    --waline-badge-color: #8cc2dd;
+    --waline-info-color: #aaa;
+  }
+
+  /* 额外样式优化 */
+  .wl-panel {
+    background: var(--body-bg-color) !important;
+  }
+
+  .wl-card {
+    background: var(--waline-bg-color) !important;
+    border-color: var(--table-border-color) !important;
+  }
+
+  .wl-header {
+    border-bottom-color: var(--table-border-color) !important;
+  }
+
+  .wl-comment {
+    border-bottom-color: var(--table-border-color) !important;
+  }
+
+  .wl-nick {
+    color: var(--bold-text-color) !important;
+  }
+
+  .wl-time {
+    color: var(--caption-text-color) !important;
+  }
+
+  .wl-content {
+    color: var(--body-text-color) !important;
+  }
+
+  .wl-meta {
+    border-top-color: var(--table-border-color) !important;
+  }
+
+  .wl-action {
+    color: var(--waline-light-grey) !important;
+  }
+
+  .wl-action:hover {
+    color: var(--waline-theme-color) !important;
+  }
+
+  /* 输入框样式 */
+  .wl-input {
+    background: var(--waline-bg-color) !important;
+    border-color: var(--table-border-color) !important;
+    color: var(--body-text-color) !important;
+  }
+
+  .wl-input:focus {
+    border-color: var(--waline-theme-color) !important;
+  }
+
+  /* 按钮样式 */
+  .wl-btn:hover {
+    background: var(--waline-active-color) !important;
+  }
+
+  /* 代码块样式 */
+  .wl-content pre,
+  .wl-content code {
+    background: var(--code-bg-color) !important;
+    color: var(--code-text-color) !important;
+    border-color: var(--img-border-color) !important;
+  }
+
+  /* 引用样式 */
+  .wl-content blockquote {
+    border-left-color: var(--blockquote-border-color) !important;
+    color: var(--blockquote-text-color) !important;
+    background: var(--waline-bq-color) !important;
+  }
+
+  /* 链接样式 */
+  .wl-content a {
+    color: var(--link-color) !important;
+  }
+
+  .wl-content a:visited {
+    color: var(--link-visited-color) !important;
+  }
+}

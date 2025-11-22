@@ -52,7 +52,7 @@
     --font-secondary: monospace;
     --font-size-primary: 1em;
     --font-size-secondary: 0.8em;
-    --body-bg-color: #fdfde7;
+    --body-bg-color: #ffffff;
     --bold-text-color: #222;
     --body-text-color: #444;
     --link-color: #3273dc;
@@ -70,6 +70,15 @@
     --toc-hover-color: #655e5e;
   }
 
+  .post-categories,
+  .category-link {
+    display: inline;
+    color: #7f8c8d;
+  }
+
+  .post-categories {
+    font-size: 0.9em;
+  }
   .post-date,
   .post-date-shortcode {
     margin-left: auto;
@@ -89,7 +98,41 @@
     border-radius: 5px;
     text-transform: uppercase;
   }
-   
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --body-bg-color: #1c1c1c;
+      --bold-text-color: #eee;
+      --body-text-color: #ddd;
+      --link-color: #8cc2dd;
+      --link-visited-color: #c3b1ee;
+      --table-border-color: #999;
+      --table-th-bg-color: #999;
+      --img-border-color: #999;
+      --code-bg-color: #555;
+      --code-text-color: #ddd;
+      --blockquote-border-color: #ccc;
+      --blockquote-text-color: #ccc;
+      --caption-text-color: #aaa;
+      --toc-text-color: #373737;
+      --toc-hover-color: #cac3c3;
+    }
+
+    .post-title a {
+      color: #fff !important;
+    }
+
+    .post-summary {
+      color: var(--text-color-primary) !important;
+    }
+
+    .post-item {
+      border-bottom: 1px solid #414141 !important;
+    }
+
+    .pagination-link {
+      border: 1px solid #414141 !important;
+    }
+  }
 
   body {
     font-family: var(--font-primary);
@@ -264,7 +307,7 @@
 
   footer {
     padding: 25px 0;
-    text-align: center;
+    text-align: left;
     font-size: var(--font-size-secondary);
   }
 
@@ -427,8 +470,15 @@
   }
 </style>
 <meta name="msvalidate.01" content="2E1AACF009206F2DDBAAD4B98E881460" />
-<link rel="stylesheet" href="/css/waline.css"/>
-<link rel="prefetch" as="image" href="https://www.blogsclub.org/badge/www.glowisle.me">
+<link
+  rel="prefetch"
+  as="image"
+  href="https://www.blogsclub.org/badge/www.glowisle.me"
+/>
+<script
+  src="https://kit.fontawesome.com/2f4edcb5b6.js"
+  crossorigin="anonymous"
+></script>
 </head>
 
 <body>
@@ -437,7 +487,7 @@
 </a>
 <nav><a href="/">首页</a>
 
-<a href="/posts">文章</a>
+<a href="/posts">归档</a>
 
 <a href="/links">友人</a>
 
@@ -452,7 +502,7 @@
 
 <content>
    
-<h2><a href="/posts/%E9%9F%A9%E6%84%88%E5%B8%88%E8%AF%B4/" style="color:#222222;">韩愈《师说》</a></h2>
+<h2 class="post-title"><a href="/posts/%E9%9F%A9%E6%84%88%E5%B8%88%E8%AF%B4/" style="color:#222222;">韩愈《师说》</a></h2>
 
 	<p>在视频<a href="https://www.bilibili.com/video/BV1bQWPzqEwx/?share_source=copy_web&amp;vd_source=237678275b58b6262a1c529cd96bdc59">【“你这是学生思维”】 </a>中，有一个评论引用了《师说》中的一句话：「是故无贵无贱，无长无少，道之所存，师之所存也。」记一篇原文及翻译。用白话翻译出来就很浅显，甚至是老生常谈的大道理，可能这就是文言文的距离之美和留白之美吧。</p>
 <blockquote>
@@ -467,7 +517,6 @@
 <blockquote>
 <p>李氏子蟠，年十七，好古文，六艺经传皆通习之，不拘于时，学于余。余嘉其能行古道，作《师说》以贻之。</p></blockquote>
 <p>李家孩子名叫蟠的，今年十七岁，喜爱古文，六经的经文和传文都已广泛学习，不受当时（耻于从师）风气的拘束，向我求学。我赞许他能够遵行古人（从师）的正道，写了这篇《师说》来赠给他。</p> </content>
-
 <p>
   
   <a href="https://www.glowisle.me/tags/%E5%8F%A4%E6%96%87/">#古文</a>
@@ -479,52 +528,65 @@
 
 
 
+
  
 <div class="toc">
 </div>
+<hr />
+<details>
+    <summary>
+    <p style="display: inline">评论</p>
+    </summary>
+    <div id="giscus-container"></div>
+    <script>
+     
 
 
-<div id="waline"></div>
-<script type="module">
-  import { init } from "https://unpkg.com/@waline/client@v3/dist/waline.js";
-  init({
-    el: "#waline",
-    serverURL: "https://waline.glowisle.me",
-    emoji: false,
-    search: false,
-  });
+    function getInitialTheme() {
+  
+  if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+    return localStorage.getItem('theme');
+  }
+  
+  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    return 'dark';
+  }
+  
+  return 'light';
+}
+
+const currentTheme = getInitialTheme();
+const giscusTheme = currentTheme === 'dark' ? 'dark' : 'light';
+
+const giscusScript = document.createElement('script');
+giscusScript.src = 'https://giscus.app/client.js';
+giscusScript.setAttribute('data-repo', 'yingyu5658/yingyu5658.github.io');
+giscusScript.setAttribute('data-repo-id', 'R_kgDOOBetsA');
+giscusScript.setAttribute('data-category', 'Announcements');
+giscusScript.setAttribute('data-category-id', 'DIC_kwDOOBetsM4CoF_Z');
+giscusScript.setAttribute('data-mapping', 'title');
+giscusScript.setAttribute('data-strict', '0');
+giscusScript.setAttribute('data-reactions-enabled', '1');
+giscusScript.setAttribute('data-emit-metadata', '0');
+giscusScript.setAttribute('data-input-position', 'bottom');
+giscusScript.setAttribute('data-theme', giscusTheme);
+giscusScript.setAttribute('data-lang', 'zh-CN');
+giscusScript.crossOrigin = 'anonymous';
+giscusScript.async = true;
+
+document.getElementById('giscus-container').appendChild(giscusScript);
 </script>
+<p>或发送<a href="mailto:i@glowisle.me?subject=%E9%9F%A9%E6%84%88%E3%80%8A%E5%B8%88%E8%AF%B4%E3%80%8B">邮件</a>评论。</p>
+</details>
+
 
 
   </main>
-  <footer>
-
-
-Subscribe via <a href="/atom.xml">RSS</a> or just <a href="mailto:i@glowisle.me">say hello</a>.
-<br />
-
-
-
-
-
-Say hello via <a href="mailto:i@glowisle.me">email</a>.
-<br />
-
-
-
-
-Made with
-<a href="https://github.com/rokcso/hugo-bearneo/">Hugo Bear Neo</a>.
-<br />
-
-
-
-
-
-
-
-🗺️ <a href="/sitemap.xml">Sitemap</a>.
-
+  <footer><p>
+  © 2024 - 2025 | <a href="/atom.xml">RSS</a> |
+  <a href="https://www.github.com/yingyu5658">Github</a> |
+  <a href="mailto:i@glowisle.me">Email</a> | <a href="/sitemap.xml">Sitemap</a>
+</p>
 </footer>
 
     

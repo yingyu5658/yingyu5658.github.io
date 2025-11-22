@@ -56,7 +56,7 @@
     --font-secondary: monospace;
     --font-size-primary: 1em;
     --font-size-secondary: 0.8em;
-    --body-bg-color: #fdfde7;
+    --body-bg-color: #ffffff;
     --bold-text-color: #222;
     --body-text-color: #444;
     --link-color: #3273dc;
@@ -74,6 +74,15 @@
     --toc-hover-color: #655e5e;
   }
 
+  .post-categories,
+  .category-link {
+    display: inline;
+    color: #7f8c8d;
+  }
+
+  .post-categories {
+    font-size: 0.9em;
+  }
   .post-date,
   .post-date-shortcode {
     margin-left: auto;
@@ -93,7 +102,41 @@
     border-radius: 5px;
     text-transform: uppercase;
   }
-   
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --body-bg-color: #1c1c1c;
+      --bold-text-color: #eee;
+      --body-text-color: #ddd;
+      --link-color: #8cc2dd;
+      --link-visited-color: #c3b1ee;
+      --table-border-color: #999;
+      --table-th-bg-color: #999;
+      --img-border-color: #999;
+      --code-bg-color: #555;
+      --code-text-color: #ddd;
+      --blockquote-border-color: #ccc;
+      --blockquote-text-color: #ccc;
+      --caption-text-color: #aaa;
+      --toc-text-color: #373737;
+      --toc-hover-color: #cac3c3;
+    }
+
+    .post-title a {
+      color: #fff !important;
+    }
+
+    .post-summary {
+      color: var(--text-color-primary) !important;
+    }
+
+    .post-item {
+      border-bottom: 1px solid #414141 !important;
+    }
+
+    .pagination-link {
+      border: 1px solid #414141 !important;
+    }
+  }
 
   body {
     font-family: var(--font-primary);
@@ -268,7 +311,7 @@
 
   footer {
     padding: 25px 0;
-    text-align: center;
+    text-align: left;
     font-size: var(--font-size-secondary);
   }
 
@@ -431,8 +474,15 @@
   }
 </style>
 <meta name="msvalidate.01" content="2E1AACF009206F2DDBAAD4B98E881460" />
-<link rel="stylesheet" href="/css/waline.css"/>
-<link rel="prefetch" as="image" href="https://www.blogsclub.org/badge/www.glowisle.me">
+<link
+  rel="prefetch"
+  as="image"
+  href="https://www.blogsclub.org/badge/www.glowisle.me"
+/>
+<script
+  src="https://kit.fontawesome.com/2f4edcb5b6.js"
+  crossorigin="anonymous"
+></script>
 </head>
 
 <body>
@@ -441,7 +491,7 @@
 </a>
 <nav><a href="/">首页</a>
 
-<a href="/posts">文章</a>
+<a href="/posts">归档</a>
 
 <a href="/links">友人</a>
 
@@ -456,7 +506,7 @@
 
 <content>
    
-<h2><a href="/posts/honba-mishima-yukio/" style="color:#222222;">《奔马》书评：刀刃突入腹部的瞬间，红日在眼睑内冉冉升起</a></h2>
+<h2 class="post-title"><a href="/posts/honba-mishima-yukio/" style="color:#222222;">《奔马》书评：刀刃突入腹部的瞬间，红日在眼睑内冉冉升起</a></h2>
 
 	<p>今日凌晨读完了丰饶之海的第二卷：《奔马》，这是四部曲中最暴烈的一部。全书围绕着上一部的主人公松枝清显的转世 —— 饭沼勋的行动展开。讲述了一个阳刚强健的少年，因不忍政治腐败，天皇的实权丧失，忧国之心驱使他组织刺杀政府企业巨头，失败后，他雄心未泯，最终刺杀了藏原再切腹自尽的故事。重点展现了作者对武士道中「忠」与「勇」的极致追求。</p>
 <p>本部书与上一部《春雪》比起来，又是另一个极端。上一部的主人公松枝清显沉溺在幻想中，优柔寡断；而转生后的饭沼勋则成了一个行动者。如果说松枝清显是作者孱弱一面的投射，那么饭沼勋则是作者暴烈极端的一面和其政治诉求的投射。清显沉溺幻想的虚无，饭沼勋用行动对抗虚无。作者塑造了一个让人印象深刻的少年形象：冲动的、理想的、认知是非黑即白的、尖锐的少年形象。</p>
@@ -474,7 +524,6 @@
 <p>但同样需要思考的是，勋的自杀，除了在他个人的精神意义上的高潮，对外在的世界，对国家的影响又如何呢？如此极端的行动，执着和病态，又有什么意义呢？杀死了藏原（或其他暗杀名单中的人），国家就真的复兴了吗？军国主义和天皇掌权的失败已经证明了其荒谬和不可行性。因此勋的自杀，以及藏原之死，都如同从奔腾的洪流中取走一滴水，在宏观历史进程中的影响微乎其微。</p>
 <p>饭沼勋的少年气，是对世界理想化、对动机单纯化、对结果美学化的自我陶醉的品质。他一生所追求的，正是这种「纯粹」。在勋眼中，现实世界已被污染，任何妥协或苟活都意味着对理想的背叛，是对「纯粹性」的玷污。只有通过<strong>壮烈的、仪式性的死亡</strong>（尤其是切腹），才能<strong>保持精神的绝对纯洁</strong>，避免被污浊的现实世界所腐蚀。死亡成为守卫纯粹精神的最后堡垒和唯一途径。所以从这个角度看作者本身，三岛的自杀并不能单纯定性为政治表演，也是一次知行合一的为美学殉教的实践。</p>
 <p>本书虽尽显武士道精神的极端、对个体生命的漠视，以及日本军国主义和天皇绝对权威下的偏执与疯狂，但其文学和美学上的暴烈和阳刚的价值不可忽视，作者将日本文化中最纤美的一面在上一部发展到极致再毁灭，又在本部书中将日本文化中最刚烈的一面推向巅峰再毁灭，由衷钦佩作者笔下波谲云诡的文字氛围，期待下一卷《晓寺》带来的震撼。</p> </content>
-
 <p>
   
   <a href="https://www.glowisle.me/tags/%E4%B8%89%E5%B2%9B%E7%94%B1%E7%BA%AA%E5%A4%AB/">#三岛由纪夫</a>
@@ -496,52 +545,65 @@
 
 
 
+
  
 <div class="toc">
 </div>
+<hr />
+<details>
+    <summary>
+    <p style="display: inline">评论</p>
+    </summary>
+    <div id="giscus-container"></div>
+    <script>
+     
 
 
-<div id="waline"></div>
-<script type="module">
-  import { init } from "https://unpkg.com/@waline/client@v3/dist/waline.js";
-  init({
-    el: "#waline",
-    serverURL: "https://waline.glowisle.me",
-    emoji: false,
-    search: false,
-  });
+    function getInitialTheme() {
+  
+  if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+    return localStorage.getItem('theme');
+  }
+  
+  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    return 'dark';
+  }
+  
+  return 'light';
+}
+
+const currentTheme = getInitialTheme();
+const giscusTheme = currentTheme === 'dark' ? 'dark' : 'light';
+
+const giscusScript = document.createElement('script');
+giscusScript.src = 'https://giscus.app/client.js';
+giscusScript.setAttribute('data-repo', 'yingyu5658/yingyu5658.github.io');
+giscusScript.setAttribute('data-repo-id', 'R_kgDOOBetsA');
+giscusScript.setAttribute('data-category', 'Announcements');
+giscusScript.setAttribute('data-category-id', 'DIC_kwDOOBetsM4CoF_Z');
+giscusScript.setAttribute('data-mapping', 'title');
+giscusScript.setAttribute('data-strict', '0');
+giscusScript.setAttribute('data-reactions-enabled', '1');
+giscusScript.setAttribute('data-emit-metadata', '0');
+giscusScript.setAttribute('data-input-position', 'bottom');
+giscusScript.setAttribute('data-theme', giscusTheme);
+giscusScript.setAttribute('data-lang', 'zh-CN');
+giscusScript.crossOrigin = 'anonymous';
+giscusScript.async = true;
+
+document.getElementById('giscus-container').appendChild(giscusScript);
 </script>
+<p>或发送<a href="mailto:i@glowisle.me?subject=%E3%80%8A%E5%A5%94%E9%A9%AC%E3%80%8B%E4%B9%A6%E8%AF%84%EF%BC%9A%E5%88%80%E5%88%83%E7%AA%81%E5%85%A5%E8%85%B9%E9%83%A8%E7%9A%84%E7%9E%AC%E9%97%B4%EF%BC%8C%E7%BA%A2%E6%97%A5%E5%9C%A8%E7%9C%BC%E7%9D%91%E5%86%85%E5%86%89%E5%86%89%E5%8D%87%E8%B5%B7">邮件</a>评论。</p>
+</details>
+
 
 
   </main>
-  <footer>
-
-
-Subscribe via <a href="/atom.xml">RSS</a> or just <a href="mailto:i@glowisle.me">say hello</a>.
-<br />
-
-
-
-
-
-Say hello via <a href="mailto:i@glowisle.me">email</a>.
-<br />
-
-
-
-
-Made with
-<a href="https://github.com/rokcso/hugo-bearneo/">Hugo Bear Neo</a>.
-<br />
-
-
-
-
-
-
-
-🗺️ <a href="/sitemap.xml">Sitemap</a>.
-
+  <footer><p>
+  © 2024 - 2025 | <a href="/atom.xml">RSS</a> |
+  <a href="https://www.github.com/yingyu5658">Github</a> |
+  <a href="mailto:i@glowisle.me">Email</a> | <a href="/sitemap.xml">Sitemap</a>
+</p>
 </footer>
 
     
