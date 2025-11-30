@@ -50,15 +50,15 @@
    
   :root {
     --width-max: 720px;
-    --font-primary: Verdana, sans-serif;
+    --font-primary: "Noto Serif SC", "Source Han Serif SC", serif;
     --font-secondary: monospace;
     --font-size-primary: 1em;
     --font-size-secondary: 0.8em;
     --body-bg-color: #ffffff;
     --bold-text-color: #222;
     --body-text-color: #444;
-    --link-color: #3273dc;
-    --link-visited-color: #8b6fcb;
+    --link-color: #222;
+    --link-visited-color: #222;
     --table-border-color: #f2f2f2;
     --table-th-bg-color: #f2f2f2;
     --img-border-color: #f2f2f2;
@@ -72,25 +72,49 @@
     --toc-hover-color: #655e5e;
   }
 
-  .post-categories,
+  .item-link {
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .post-info {
+    text-align: center;
+    margin-bottom: 3vh;
+  }
   .category-link {
+    color: #999;
+  }
+
+  h2.post-title {
+    margin-top: 5vh;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  h2.post-title a {
+    font-weight: 700;
+  }
+
+  .recent-list {
+    padding-left: 2vw;
+  }
+
+  .recent-item {
+    list-style-type: none;
+  }
+
+  .post-date {
     display: inline;
-    color: #7f8c8d;
-  }
-
-  .post-categories {
-    font-size: 0.9em;
-    margin-left: 8px;
-  }
-
-  .category-link {
-    padding-left: 2px;
   }
 
   .post-date,
   .post-date-shortcode {
     margin-left: auto;
     color: #999;
+  }
+
+  content .post-date::after {
+    content: "/";
   }
 
   .site-name:hover {
@@ -106,41 +130,8 @@
     border-radius: 5px;
     text-transform: uppercase;
   }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --body-bg-color: #1c1c1c;
-      --bold-text-color: #eee;
-      --body-text-color: #ddd;
-      --link-color: #8cc2dd;
-      --link-visited-color: #c3b1ee;
-      --table-border-color: #999;
-      --table-th-bg-color: #999;
-      --img-border-color: #999;
-      --code-bg-color: #555;
-      --code-text-color: #ddd;
-      --blockquote-border-color: #ccc;
-      --blockquote-text-color: #ccc;
-      --caption-text-color: #aaa;
-      --toc-text-color: #373737;
-      --toc-hover-color: #cac3c3;
-    }
 
-    .post-title a {
-      color: #fff !important;
-    }
-
-    .post-summary {
-      color: var(--text-color-primary) !important;
-    }
-
-    .post-item {
-      border-bottom: 1px solid #414141 !important;
-    }
-
-    .pagination-link {
-      border: 1px solid #414141 !important;
-    }
-  }
+   
 
   body {
     font-family: var(--font-primary);
@@ -152,7 +143,7 @@
     background-color: var(--body-bg-color);
     word-wrap: break-word;
     overflow-wrap: break-word;
-    line-height: 1.5;
+    line-height: 1.6;
     color: var(--body-text-color);
   }
 
@@ -179,11 +170,13 @@
   a {
     color: var(--link-color);
     cursor: pointer;
-    text-decoration: none;
+    text-decoration: underline 0.2px #d4d4d4;
+    transition-duration: 0.3s;
+    font-weight: 500;
   }
 
   a:hover {
-    text-decoration: underline;
+    color: #3273dc;
   }
 
   .title {
@@ -275,6 +268,7 @@
   time {
     font-family: var(--font-secondary);
     font-size: 15px;
+    color: rgb(163, 163, 163);
   }
 
   code {
@@ -332,6 +326,7 @@
 
   ul.blog-posts li {
     display: flex;
+    margin-bottom: 8px;
   }
 
   ul.blog-posts li span {
@@ -344,6 +339,13 @@
 
   ul.blog-posts li a:visited {
     color: var(--link-visited-color);
+  }
+
+  ul.blog-posts a {
+    margin-left: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
    
   div.toc {
@@ -433,19 +435,20 @@
   }
 
   .toc-nav a.active,  
-    .toc-nav a:hover {
+     .toc-nav a:hover {
     text-decoration: none;  
     color: var(--toc-hover-color);  
   }
 
   .toc-nav a.active::before,  
-    .toc-nav a:hover::before {
+     .toc-nav a:hover::before {
     background-color: var(--toc-hover-color);  
   }
 
    
   button.upvote-btn {
     margin: 0;
+    margin-left: auto;
     padding: 0;
     border: none;
     background: none;
@@ -510,10 +513,20 @@
   <main> 
 
 <content>
-   
-<h2 class="post-title"><a href="/posts/4key%E9%9F%B3%E6%B8%B8%E6%AE%B5%E4%BD%8D%E5%8D%95%E6%9B%B2%E6%88%90%E7%BB%A9%E8%AE%A1%E7%AE%97%E7%9A%84%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0/" style="color:#222222;">4Key音游段位单曲成绩计算的程序实现</a></h2>
+    <h2 class="post-title"><a href="/posts/4key%E9%9F%B3%E6%B8%B8%E6%AE%B5%E4%BD%8D%E5%8D%95%E6%9B%B2%E6%88%90%E7%BB%A9%E8%AE%A1%E7%AE%97%E7%9A%84%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0/" style="color:#222222;">4Key音游段位单曲成绩计算的程序实现</a></h2>
 
-	<h2 id="前言">前言</h2>
+
+<div class="post-info">
+    <time class="post-date" datetime="2025-06-07T13:08:07Z">
+        2025年6月7日
+    </time>
+        
+            
+            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-link">技术</a>
+        
+</div>
+
+    <h2 id="前言">前言</h2>
 <p>其实这个坑我很早以前就想开了，在我刚开始学编程那会就一直想写一个这个东西。但苦于数学进度没达到，要用到加权平均数，这东西我前两天才学到，之前对数学也一直是懒得学的状态，要不然几乎是看不懂那个算法的。</p>
 <p>我手头有一个<a href="https://github.com/Special-Week">Special-Week</a>写的网页版的单曲成绩计算器，就以这个为研究样本吧。以下简称原作者为sw（如有冒犯请联系修改）</p>
 <h2 id="数据结构设计">数据结构设计</h2>
@@ -765,18 +778,121 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#c678dd">return</span> <span style="color:#e06c75">result</span>;
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>然后就是主函数处理用户输入了，没什么含金量，不水了。</p>
- </content>
+
+</content>
+
 <p>
-  
-  <a href="https://www.glowisle.me/tags/malody/">#Malody</a>
-  
-  <a href="https://www.glowisle.me/tags/osu/">#Osu</a>
-  
-  <a href="https://www.glowisle.me/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">#数据结构与算法</a>
-  
+    
+    <a href="https://www.glowisle.me/tags/malody/">#Malody</a>
+    
+    <a href="https://www.glowisle.me/tags/osu/">#Osu</a>
+    
+    <a href="https://www.glowisle.me/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">#数据结构与算法</a>
+    
 </p>
 
 
+
+<div class="upvote-container">
+<small class="upvote">
+  <button class="upvote-btn" id="upvote-btn">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
+    <polyline points="17 11 12 6 7 11"></polyline>
+    <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+    <span class="upvote-count" id="upvote-count">0</span>
+  </button>
+</small>
+</div>
+
+<script>
+  let hasUpvoted = false;
+  let upvoteBtn;
+  let upvoteCount;
+
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    const slug = '';
+    upvoteBtn = document.getElementById('upvote-btn');
+    upvoteCount = document.getElementById('upvote-count');
+    getCount(slug);
+
+    
+    upvoteBtn.addEventListener('click', handleUpvote);
+  });
+
+  
+  async function handleUpvote() {
+    if (hasUpvoted) {
+      console.log('You have already upvoted this post!');
+      return;
+    }
+    const slug = '';
+
+    
+    upvoteBtn.disabled = true;
+    
+    upvoteBtn.classList.add('upvoted');
+    
+    upvoteCount.innerText = parseInt(upvoteCount.innerText) + 1;
+
+    try {
+      const response = await fetch('https:\/\/upvote.glowisle.me\/upvote', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ postId: slug, diff: 1 }),
+      });
+
+      if (response.ok) {
+        console.log('Upvote successful!');
+        hasUpvoted = true;
+        await getCount(slug, 3);
+      } else {
+        console.log('Upvote failed!');
+      }
+    } catch (error) {
+      console.error('Error: ', error);
+    } finally {
+      upvoteBtn.disabled = false;
+    }
+  }
+
+  
+  async function getCount(slug, retryCount = 0) {
+    try {
+      const response = await fetch('https:\/\/upvote.glowisle.me\/count?post=' + slug, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      const data = await response.json();
+
+      if (data.code === 0) {
+        const count = data.data.count;
+        upvoteCount.innerText = count;
+        hasUpvoted = data.data.hasUpvoted;
+        if (hasUpvoted) {
+          upvoteBtn.classList.add('upvoted');
+        } else {
+          upvoteBtn.classList.remove('upvoted');
+        }
+      } else {
+        console.error('Failed to get upvote count: ', data.msg);
+      }
+    } catch (error) {
+      console.error('Error: ', error);
+      if (retryCount > 0) {
+        setTimeout(() => {
+          getCount(slug, retryCount - 1);
+        }, 1000);
+      }
+    }
+  }
+</script>
 
 
 
@@ -890,6 +1006,8 @@
     <p style="display: inline">评论</p>
     </summary>
     <div id="giscus-container"></div>
+
+
     <script>
      
 

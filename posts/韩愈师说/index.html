@@ -48,15 +48,15 @@
    
   :root {
     --width-max: 720px;
-    --font-primary: Verdana, sans-serif;
+    --font-primary: "Noto Serif SC", "Source Han Serif SC", serif;
     --font-secondary: monospace;
     --font-size-primary: 1em;
     --font-size-secondary: 0.8em;
     --body-bg-color: #ffffff;
     --bold-text-color: #222;
     --body-text-color: #444;
-    --link-color: #3273dc;
-    --link-visited-color: #8b6fcb;
+    --link-color: #222;
+    --link-visited-color: #222;
     --table-border-color: #f2f2f2;
     --table-th-bg-color: #f2f2f2;
     --img-border-color: #f2f2f2;
@@ -70,25 +70,49 @@
     --toc-hover-color: #655e5e;
   }
 
-  .post-categories,
+  .item-link {
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .post-info {
+    text-align: center;
+    margin-bottom: 3vh;
+  }
   .category-link {
+    color: #999;
+  }
+
+  h2.post-title {
+    margin-top: 5vh;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  h2.post-title a {
+    font-weight: 700;
+  }
+
+  .recent-list {
+    padding-left: 2vw;
+  }
+
+  .recent-item {
+    list-style-type: none;
+  }
+
+  .post-date {
     display: inline;
-    color: #7f8c8d;
-  }
-
-  .post-categories {
-    font-size: 0.9em;
-    margin-left: 8px;
-  }
-
-  .category-link {
-    padding-left: 2px;
   }
 
   .post-date,
   .post-date-shortcode {
     margin-left: auto;
     color: #999;
+  }
+
+  content .post-date::after {
+    content: "/";
   }
 
   .site-name:hover {
@@ -104,41 +128,8 @@
     border-radius: 5px;
     text-transform: uppercase;
   }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --body-bg-color: #1c1c1c;
-      --bold-text-color: #eee;
-      --body-text-color: #ddd;
-      --link-color: #8cc2dd;
-      --link-visited-color: #c3b1ee;
-      --table-border-color: #999;
-      --table-th-bg-color: #999;
-      --img-border-color: #999;
-      --code-bg-color: #555;
-      --code-text-color: #ddd;
-      --blockquote-border-color: #ccc;
-      --blockquote-text-color: #ccc;
-      --caption-text-color: #aaa;
-      --toc-text-color: #373737;
-      --toc-hover-color: #cac3c3;
-    }
 
-    .post-title a {
-      color: #fff !important;
-    }
-
-    .post-summary {
-      color: var(--text-color-primary) !important;
-    }
-
-    .post-item {
-      border-bottom: 1px solid #414141 !important;
-    }
-
-    .pagination-link {
-      border: 1px solid #414141 !important;
-    }
-  }
+   
 
   body {
     font-family: var(--font-primary);
@@ -150,7 +141,7 @@
     background-color: var(--body-bg-color);
     word-wrap: break-word;
     overflow-wrap: break-word;
-    line-height: 1.5;
+    line-height: 1.6;
     color: var(--body-text-color);
   }
 
@@ -177,11 +168,13 @@
   a {
     color: var(--link-color);
     cursor: pointer;
-    text-decoration: none;
+    text-decoration: underline 0.2px #d4d4d4;
+    transition-duration: 0.3s;
+    font-weight: 500;
   }
 
   a:hover {
-    text-decoration: underline;
+    color: #3273dc;
   }
 
   .title {
@@ -273,6 +266,7 @@
   time {
     font-family: var(--font-secondary);
     font-size: 15px;
+    color: rgb(163, 163, 163);
   }
 
   code {
@@ -330,6 +324,7 @@
 
   ul.blog-posts li {
     display: flex;
+    margin-bottom: 8px;
   }
 
   ul.blog-posts li span {
@@ -342,6 +337,13 @@
 
   ul.blog-posts li a:visited {
     color: var(--link-visited-color);
+  }
+
+  ul.blog-posts a {
+    margin-left: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
    
   div.toc {
@@ -431,19 +433,20 @@
   }
 
   .toc-nav a.active,  
-    .toc-nav a:hover {
+     .toc-nav a:hover {
     text-decoration: none;  
     color: var(--toc-hover-color);  
   }
 
   .toc-nav a.active::before,  
-    .toc-nav a:hover::before {
+     .toc-nav a:hover::before {
     background-color: var(--toc-hover-color);  
   }
 
    
   button.upvote-btn {
     margin: 0;
+    margin-left: auto;
     padding: 0;
     border: none;
     background: none;
@@ -508,10 +511,20 @@
   <main> 
 
 <content>
-   
-<h2 class="post-title"><a href="/posts/%E9%9F%A9%E6%84%88%E5%B8%88%E8%AF%B4/" style="color:#222222;">韩愈《师说》</a></h2>
+    <h2 class="post-title"><a href="/posts/%E9%9F%A9%E6%84%88%E5%B8%88%E8%AF%B4/" style="color:#222222;">韩愈《师说》</a></h2>
 
-	<p>在视频<a href="https://www.bilibili.com/video/BV1bQWPzqEwx/?share_source=copy_web&amp;vd_source=237678275b58b6262a1c529cd96bdc59">【“你这是学生思维”】 </a>中，有一个评论引用了《师说》中的一句话：「是故无贵无贱，无长无少，道之所存，师之所存也。」记一篇原文及翻译。用白话翻译出来就很浅显，甚至是老生常谈的大道理，可能这就是文言文的距离之美和留白之美吧。</p>
+
+<div class="post-info">
+    <time class="post-date" datetime="2025-10-08T20:32:04&#43;08:00">
+        2025年10月8日
+    </time>
+        
+            
+            <a href="/categories/%E8%AF%BB%E4%B9%A6/" class="category-link">读书</a>
+        
+</div>
+
+    <p>在视频<a href="https://www.bilibili.com/video/BV1bQWPzqEwx/?share_source=copy_web&amp;vd_source=237678275b58b6262a1c529cd96bdc59">【“你这是学生思维”】 </a>中，有一个评论引用了《师说》中的一句话：「是故无贵无贱，无长无少，道之所存，师之所存也。」记一篇原文及翻译。用白话翻译出来就很浅显，甚至是老生常谈的大道理，可能这就是文言文的距离之美和留白之美吧。</p>
 <blockquote>
 <p>古之学者必有师。师者，所以传道受业解惑也。人非生而知之者，孰能无惑？惑而不从师，其为惑也，终不解矣。生乎吾前，其闻道也固先乎吾，吾从而师之；生乎吾后，其闻道也亦先乎吾，吾从而师之。<strong>吾师道也，夫庸知其年之先后生于吾乎？是故无贵无贱，无长无少，道之所存，师之所存也。</strong></p></blockquote>
 <p>古代求学的人必定有老师。老师，是靠他来传授道理、教授学业、解答问题的。人不是一生下来就懂得知识的，谁能没有疑惑？有了疑惑而不跟从老师学习，那些成为疑难的问题，就始终不能解开。出生在我之前的人，他知道道理本来比我早，我跟从他学习，把他当作老师；出生在我之后的人，如果他得知道理也比我早，我也跟从他学习，把他当作老师。<strong>我是学习道理的，哪关心他的年龄比我大还比我小呢？因此无论地位高低，年龄大小，道理存在的地方，就是老师存在的地方。</strong></p>
@@ -523,16 +536,119 @@
 <p>圣人没有固定的老师。孔子曾以郯子、苌弘、师襄、老聃为师。郯子这些人，他们的贤能都比不上孔子。孔子说：&ldquo;几个人一起走，其中就一定有可以做我老师的人。&ldquo;因此学生不一定不如老师，老师也不一定比学生贤明，接受道理的时间有早有晚，学问技艺各有专长，不过是这样罢了。</p>
 <blockquote>
 <p>李氏子蟠，年十七，好古文，六艺经传皆通习之，不拘于时，学于余。余嘉其能行古道，作《师说》以贻之。</p></blockquote>
-<p>李家孩子名叫蟠的，今年十七岁，喜爱古文，六经的经文和传文都已广泛学习，不受当时（耻于从师）风气的拘束，向我求学。我赞许他能够遵行古人（从师）的正道，写了这篇《师说》来赠给他。</p> </content>
+<p>李家孩子名叫蟠的，今年十七岁，喜爱古文，六经的经文和传文都已广泛学习，不受当时（耻于从师）风气的拘束，向我求学。我赞许他能够遵行古人（从师）的正道，写了这篇《师说》来赠给他。</p>
+</content>
+
 <p>
-  
-  <a href="https://www.glowisle.me/tags/%E5%8F%A4%E6%96%87/">#古文</a>
-  
-  <a href="https://www.glowisle.me/tags/%E9%9F%A9%E6%84%88/">#韩愈</a>
-  
+    
+    <a href="https://www.glowisle.me/tags/%E5%8F%A4%E6%96%87/">#古文</a>
+    
+    <a href="https://www.glowisle.me/tags/%E9%9F%A9%E6%84%88/">#韩愈</a>
+    
 </p>
 
 
+
+<div class="upvote-container">
+<small class="upvote">
+  <button class="upvote-btn" id="upvote-btn">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
+    <polyline points="17 11 12 6 7 11"></polyline>
+    <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+    <span class="upvote-count" id="upvote-count">0</span>
+  </button>
+</small>
+</div>
+
+<script>
+  let hasUpvoted = false;
+  let upvoteBtn;
+  let upvoteCount;
+
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    const slug = '';
+    upvoteBtn = document.getElementById('upvote-btn');
+    upvoteCount = document.getElementById('upvote-count');
+    getCount(slug);
+
+    
+    upvoteBtn.addEventListener('click', handleUpvote);
+  });
+
+  
+  async function handleUpvote() {
+    if (hasUpvoted) {
+      console.log('You have already upvoted this post!');
+      return;
+    }
+    const slug = '';
+
+    
+    upvoteBtn.disabled = true;
+    
+    upvoteBtn.classList.add('upvoted');
+    
+    upvoteCount.innerText = parseInt(upvoteCount.innerText) + 1;
+
+    try {
+      const response = await fetch('https:\/\/upvote.glowisle.me\/upvote', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ postId: slug, diff: 1 }),
+      });
+
+      if (response.ok) {
+        console.log('Upvote successful!');
+        hasUpvoted = true;
+        await getCount(slug, 3);
+      } else {
+        console.log('Upvote failed!');
+      }
+    } catch (error) {
+      console.error('Error: ', error);
+    } finally {
+      upvoteBtn.disabled = false;
+    }
+  }
+
+  
+  async function getCount(slug, retryCount = 0) {
+    try {
+      const response = await fetch('https:\/\/upvote.glowisle.me\/count?post=' + slug, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      const data = await response.json();
+
+      if (data.code === 0) {
+        const count = data.data.count;
+        upvoteCount.innerText = count;
+        hasUpvoted = data.data.hasUpvoted;
+        if (hasUpvoted) {
+          upvoteBtn.classList.add('upvoted');
+        } else {
+          upvoteBtn.classList.remove('upvoted');
+        }
+      } else {
+        console.error('Failed to get upvote count: ', data.msg);
+      }
+    } catch (error) {
+      console.error('Error: ', error);
+      if (retryCount > 0) {
+        setTimeout(() => {
+          getCount(slug, retryCount - 1);
+        }, 1000);
+      }
+    }
+  }
+</script>
 
 
 
@@ -545,6 +661,8 @@
     <p style="display: inline">评论</p>
     </summary>
     <div id="giscus-container"></div>
+
+
     <script>
      
 

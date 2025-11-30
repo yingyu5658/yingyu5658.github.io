@@ -55,15 +55,15 @@
    
   :root {
     --width-max: 720px;
-    --font-primary: Verdana, sans-serif;
+    --font-primary: "Noto Serif SC", "Source Han Serif SC", serif;
     --font-secondary: monospace;
     --font-size-primary: 1em;
     --font-size-secondary: 0.8em;
     --body-bg-color: #ffffff;
     --bold-text-color: #222;
     --body-text-color: #444;
-    --link-color: #3273dc;
-    --link-visited-color: #8b6fcb;
+    --link-color: #222;
+    --link-visited-color: #222;
     --table-border-color: #f2f2f2;
     --table-th-bg-color: #f2f2f2;
     --img-border-color: #f2f2f2;
@@ -77,25 +77,49 @@
     --toc-hover-color: #655e5e;
   }
 
-  .post-categories,
+  .item-link {
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .post-info {
+    text-align: center;
+    margin-bottom: 3vh;
+  }
   .category-link {
+    color: #999;
+  }
+
+  h2.post-title {
+    margin-top: 5vh;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  h2.post-title a {
+    font-weight: 700;
+  }
+
+  .recent-list {
+    padding-left: 2vw;
+  }
+
+  .recent-item {
+    list-style-type: none;
+  }
+
+  .post-date {
     display: inline;
-    color: #7f8c8d;
-  }
-
-  .post-categories {
-    font-size: 0.9em;
-    margin-left: 8px;
-  }
-
-  .category-link {
-    padding-left: 2px;
   }
 
   .post-date,
   .post-date-shortcode {
     margin-left: auto;
     color: #999;
+  }
+
+  content .post-date::after {
+    content: "/";
   }
 
   .site-name:hover {
@@ -111,41 +135,8 @@
     border-radius: 5px;
     text-transform: uppercase;
   }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --body-bg-color: #1c1c1c;
-      --bold-text-color: #eee;
-      --body-text-color: #ddd;
-      --link-color: #8cc2dd;
-      --link-visited-color: #c3b1ee;
-      --table-border-color: #999;
-      --table-th-bg-color: #999;
-      --img-border-color: #999;
-      --code-bg-color: #555;
-      --code-text-color: #ddd;
-      --blockquote-border-color: #ccc;
-      --blockquote-text-color: #ccc;
-      --caption-text-color: #aaa;
-      --toc-text-color: #373737;
-      --toc-hover-color: #cac3c3;
-    }
 
-    .post-title a {
-      color: #fff !important;
-    }
-
-    .post-summary {
-      color: var(--text-color-primary) !important;
-    }
-
-    .post-item {
-      border-bottom: 1px solid #414141 !important;
-    }
-
-    .pagination-link {
-      border: 1px solid #414141 !important;
-    }
-  }
+   
 
   body {
     font-family: var(--font-primary);
@@ -157,7 +148,7 @@
     background-color: var(--body-bg-color);
     word-wrap: break-word;
     overflow-wrap: break-word;
-    line-height: 1.5;
+    line-height: 1.6;
     color: var(--body-text-color);
   }
 
@@ -184,11 +175,13 @@
   a {
     color: var(--link-color);
     cursor: pointer;
-    text-decoration: none;
+    text-decoration: underline 0.2px #d4d4d4;
+    transition-duration: 0.3s;
+    font-weight: 500;
   }
 
   a:hover {
-    text-decoration: underline;
+    color: #3273dc;
   }
 
   .title {
@@ -280,6 +273,7 @@
   time {
     font-family: var(--font-secondary);
     font-size: 15px;
+    color: rgb(163, 163, 163);
   }
 
   code {
@@ -337,6 +331,7 @@
 
   ul.blog-posts li {
     display: flex;
+    margin-bottom: 8px;
   }
 
   ul.blog-posts li span {
@@ -349,6 +344,13 @@
 
   ul.blog-posts li a:visited {
     color: var(--link-visited-color);
+  }
+
+  ul.blog-posts a {
+    margin-left: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
    
   div.toc {
@@ -438,19 +440,20 @@
   }
 
   .toc-nav a.active,  
-    .toc-nav a:hover {
+     .toc-nav a:hover {
     text-decoration: none;  
     color: var(--toc-hover-color);  
   }
 
   .toc-nav a.active::before,  
-    .toc-nav a:hover::before {
+     .toc-nav a:hover::before {
     background-color: var(--toc-hover-color);  
   }
 
    
   button.upvote-btn {
     margin: 0;
+    margin-left: auto;
     padding: 0;
     border: none;
     background: none;
@@ -515,10 +518,20 @@
   <main> 
 
 <content>
-   
-<h2 class="post-title"><a href="/posts/dissipation-of-consciousness-after-death/" style="color:#222222;">「我害怕死」</a></h2>
+    <h2 class="post-title"><a href="/posts/dissipation-of-consciousness-after-death/" style="color:#222222;">「我害怕死」</a></h2>
 
-	<p>我十三岁那年和父母说，以后就不过生日了。</p>
+
+<div class="post-info">
+    <time class="post-date" datetime="2025-08-30T21:31:26&#43;08:00">
+        2025年8月30日
+    </time>
+        
+            
+            <a href="/categories/%E9%9A%8F%E7%AC%94/" class="category-link">随笔</a>
+        
+</div>
+
+    <p>我十三岁那年和父母说，以后就不过生日了。</p>
 <p>那时候我惊奇地发现，每过一次生日，就代表那可怜的生命正式少了一年。又向终点迈出了蹒跚的一步。</p>
 <p>最近有一个朋友一直在和我聊他对死亡的恐惧，特别是对死亡后意识消散的恐惧。我能理解这种作为动物，对死亡最原始最本能的恐惧，被时间推着走向死亡的无力感。随着阅历的增加，出现对存在和死亡的思考是正常的。</p>
 <p>但我不是很能理解，小小年纪，九月份就上高中了，想这个干嘛？</p>
@@ -557,14 +570,117 @@
 <p>他可能缺失对生命的除必然走向死亡的额外感受，生命对他来说可能是一个泛泛抽象的概念。如此恐惧死亡，恐惧意识的消散，用人话讲就是「没活够」，这种情绪多数源于<strong>时间和生命如此真实，但自己却没有掌握住的空虚感</strong>。所以我主张找点事做，把时间和生命从游戏和视频手中夺回来。进行长时间有深度的活动后，获得的成就感，就是意义所在。有意义感，就是存在的意义，就是「做那么多事的意义」。</p>
 <p>所以开头的问题，显然有一个错误，那就是：<strong>站在终点回头看</strong>。</p>
 <p>我觉得，一个七八十岁的老人这么想是没有问题的，因为他们已经有了足够的阅历，支撑的起这种回望。但一个十五六岁的小伙子，这么想就会<strong>走火入魔</strong>。当你试图站在终点回望，你就会发现大段大段的空白，无法找到真正可供观赏的，有价值东西，从而就会生出这种疑问，引发思辩。甚至由于当前的思想境界无法完成这样的思辩，引发无意义的<strong>内耗</strong>。</p>
- </content>
+
+</content>
+
 <p>
-  
-  <a href="https://www.glowisle.me/tags/%E7%94%9F%E5%91%BD/">#生命</a>
-  
+    
+    <a href="https://www.glowisle.me/tags/%E7%94%9F%E5%91%BD/">#生命</a>
+    
 </p>
 
 
+
+<div class="upvote-container">
+<small class="upvote">
+  <button class="upvote-btn" id="upvote-btn">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
+    <polyline points="17 11 12 6 7 11"></polyline>
+    <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+    <span class="upvote-count" id="upvote-count">0</span>
+  </button>
+</small>
+</div>
+
+<script>
+  let hasUpvoted = false;
+  let upvoteBtn;
+  let upvoteCount;
+
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    const slug = 'dissipation-of-consciousness-after-death';
+    upvoteBtn = document.getElementById('upvote-btn');
+    upvoteCount = document.getElementById('upvote-count');
+    getCount(slug);
+
+    
+    upvoteBtn.addEventListener('click', handleUpvote);
+  });
+
+  
+  async function handleUpvote() {
+    if (hasUpvoted) {
+      console.log('You have already upvoted this post!');
+      return;
+    }
+    const slug = 'dissipation-of-consciousness-after-death';
+
+    
+    upvoteBtn.disabled = true;
+    
+    upvoteBtn.classList.add('upvoted');
+    
+    upvoteCount.innerText = parseInt(upvoteCount.innerText) + 1;
+
+    try {
+      const response = await fetch('https:\/\/upvote.glowisle.me\/upvote', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ postId: slug, diff: 1 }),
+      });
+
+      if (response.ok) {
+        console.log('Upvote successful!');
+        hasUpvoted = true;
+        await getCount(slug, 3);
+      } else {
+        console.log('Upvote failed!');
+      }
+    } catch (error) {
+      console.error('Error: ', error);
+    } finally {
+      upvoteBtn.disabled = false;
+    }
+  }
+
+  
+  async function getCount(slug, retryCount = 0) {
+    try {
+      const response = await fetch('https:\/\/upvote.glowisle.me\/count?post=' + slug, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      const data = await response.json();
+
+      if (data.code === 0) {
+        const count = data.data.count;
+        upvoteCount.innerText = count;
+        hasUpvoted = data.data.hasUpvoted;
+        if (hasUpvoted) {
+          upvoteBtn.classList.add('upvoted');
+        } else {
+          upvoteBtn.classList.remove('upvoted');
+        }
+      } else {
+        console.error('Failed to get upvote count: ', data.msg);
+      }
+    } catch (error) {
+      console.error('Error: ', error);
+      if (retryCount > 0) {
+        setTimeout(() => {
+          getCount(slug, retryCount - 1);
+        }, 1000);
+      }
+    }
+  }
+</script>
 
 
 
@@ -577,6 +693,8 @@
     <p style="display: inline">评论</p>
     </summary>
     <div id="giscus-container"></div>
+
+
     <script>
      
 

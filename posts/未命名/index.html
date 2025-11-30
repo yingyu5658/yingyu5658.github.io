@@ -39,21 +39,22 @@
   <meta itemprop="datePublished" content="2025-08-08T15:36:41+08:00">
   <meta itemprop="dateModified" content="2025-08-08T15:36:41+08:00">
   <meta itemprop="wordCount" content="736">
+  <meta itemprop="keywords" content="随笔">
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
   <style>
    
   :root {
     --width-max: 720px;
-    --font-primary: Verdana, sans-serif;
+    --font-primary: "Noto Serif SC", "Source Han Serif SC", serif;
     --font-secondary: monospace;
     --font-size-primary: 1em;
     --font-size-secondary: 0.8em;
     --body-bg-color: #ffffff;
     --bold-text-color: #222;
     --body-text-color: #444;
-    --link-color: #3273dc;
-    --link-visited-color: #8b6fcb;
+    --link-color: #222;
+    --link-visited-color: #222;
     --table-border-color: #f2f2f2;
     --table-th-bg-color: #f2f2f2;
     --img-border-color: #f2f2f2;
@@ -67,25 +68,49 @@
     --toc-hover-color: #655e5e;
   }
 
-  .post-categories,
+  .item-link {
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .post-info {
+    text-align: center;
+    margin-bottom: 3vh;
+  }
   .category-link {
+    color: #999;
+  }
+
+  h2.post-title {
+    margin-top: 5vh;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  h2.post-title a {
+    font-weight: 700;
+  }
+
+  .recent-list {
+    padding-left: 2vw;
+  }
+
+  .recent-item {
+    list-style-type: none;
+  }
+
+  .post-date {
     display: inline;
-    color: #7f8c8d;
-  }
-
-  .post-categories {
-    font-size: 0.9em;
-    margin-left: 8px;
-  }
-
-  .category-link {
-    padding-left: 2px;
   }
 
   .post-date,
   .post-date-shortcode {
     margin-left: auto;
     color: #999;
+  }
+
+  content .post-date::after {
+    content: "/";
   }
 
   .site-name:hover {
@@ -101,41 +126,8 @@
     border-radius: 5px;
     text-transform: uppercase;
   }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --body-bg-color: #1c1c1c;
-      --bold-text-color: #eee;
-      --body-text-color: #ddd;
-      --link-color: #8cc2dd;
-      --link-visited-color: #c3b1ee;
-      --table-border-color: #999;
-      --table-th-bg-color: #999;
-      --img-border-color: #999;
-      --code-bg-color: #555;
-      --code-text-color: #ddd;
-      --blockquote-border-color: #ccc;
-      --blockquote-text-color: #ccc;
-      --caption-text-color: #aaa;
-      --toc-text-color: #373737;
-      --toc-hover-color: #cac3c3;
-    }
 
-    .post-title a {
-      color: #fff !important;
-    }
-
-    .post-summary {
-      color: var(--text-color-primary) !important;
-    }
-
-    .post-item {
-      border-bottom: 1px solid #414141 !important;
-    }
-
-    .pagination-link {
-      border: 1px solid #414141 !important;
-    }
-  }
+   
 
   body {
     font-family: var(--font-primary);
@@ -147,7 +139,7 @@
     background-color: var(--body-bg-color);
     word-wrap: break-word;
     overflow-wrap: break-word;
-    line-height: 1.5;
+    line-height: 1.6;
     color: var(--body-text-color);
   }
 
@@ -174,11 +166,13 @@
   a {
     color: var(--link-color);
     cursor: pointer;
-    text-decoration: none;
+    text-decoration: underline 0.2px #d4d4d4;
+    transition-duration: 0.3s;
+    font-weight: 500;
   }
 
   a:hover {
-    text-decoration: underline;
+    color: #3273dc;
   }
 
   .title {
@@ -270,6 +264,7 @@
   time {
     font-family: var(--font-secondary);
     font-size: 15px;
+    color: rgb(163, 163, 163);
   }
 
   code {
@@ -327,6 +322,7 @@
 
   ul.blog-posts li {
     display: flex;
+    margin-bottom: 8px;
   }
 
   ul.blog-posts li span {
@@ -339,6 +335,13 @@
 
   ul.blog-posts li a:visited {
     color: var(--link-visited-color);
+  }
+
+  ul.blog-posts a {
+    margin-left: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
    
   div.toc {
@@ -428,19 +431,20 @@
   }
 
   .toc-nav a.active,  
-    .toc-nav a:hover {
+     .toc-nav a:hover {
     text-decoration: none;  
     color: var(--toc-hover-color);  
   }
 
   .toc-nav a.active::before,  
-    .toc-nav a:hover::before {
+     .toc-nav a:hover::before {
     background-color: var(--toc-hover-color);  
   }
 
    
   button.upvote-btn {
     margin: 0;
+    margin-left: auto;
     padding: 0;
     border: none;
     background: none;
@@ -505,10 +509,20 @@
   <main> 
 
 <content>
-   
-<h2 class="post-title"><a href="/posts/%E6%9C%AA%E5%91%BD%E5%90%8D/" style="color:#222222;">未命名</a></h2>
+    <h2 class="post-title"><a href="/posts/%E6%9C%AA%E5%91%BD%E5%90%8D/" style="color:#222222;">未命名</a></h2>
 
-	<p>在家太闲，穿着一双比自己脚大的拖鞋，在两个屋子间踱步，想走到窗台边欣赏外面的云时，瞥见父母的结婚照。</p>
+
+<div class="post-info">
+    <time class="post-date" datetime="2025-08-08T15:36:41&#43;08:00">
+        2025年8月8日
+    </time>
+        
+            
+            <a href="/categories/%E9%9A%8F%E7%AC%94/" class="category-link">随笔</a>
+        
+</div>
+
+    <p>在家太闲，穿着一双比自己脚大的拖鞋，在两个屋子间踱步，想走到窗台边欣赏外面的云时，瞥见父母的结婚照。</p>
 <p>那张巨大的照片垂挂在床头正中间，仔细一看，歪了。这很危险，尤其平常睡在床中间的一般是一个不到五岁的儿童——我的弟弟，发消息通知家人照片歪了后，我踩上床仔细端详这张照片。</p>
 <p>小时候我一直非常害怕这张照片，尤其是之中的母亲，那邪魅的紫色眼影与眯成一条缝的眼，和夸张的惨白脸色互相映衬，展现出那代人低劣却朴实的修图水平之外，又添了不少令人毛骨悚然的气氛。有一段时间，这张大照片被拿下来，倒摆着靠在墙上，至于为什么又挂起来，已经不记得了，挂起来很长时间了。</p>
 <p>如今我又仔细观察起这张令我半夜做噩梦的照片，妆容诡异依旧。父母那时非常年轻，即使窗外透进的阴雨天独有的凄蓝色调的光影打在他们脸上，也丝毫不挡青春的男女散射出闪耀着金黄色的生气与活力。</p>
@@ -518,12 +532,115 @@
 <p>虽然修图技术低劣，但照片中飘逸的、喷薄、溢出的幸福是最可贵且高洁的。</p>
 <p>如今我仍然害怕着这张照片。它太真了，伸手好像能触摸到父亲脸颊的温度，能触摸到母亲洁白如雪的肌肤，能感受到洋溢在空气中的幸福与爱。</p>
 <p>它又太假了，如今我只能看到熟悉又陌生的，养育我十余年的父母的沧桑。</p>
-<p>照片中的两个人真的是我的父母吗？</p> </content>
+<p>照片中的两个人真的是我的父母吗？</p>
+</content>
+
 <p>
-  
+    
 </p>
 
 
+
+<div class="upvote-container">
+<small class="upvote">
+  <button class="upvote-btn" id="upvote-btn">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
+    <polyline points="17 11 12 6 7 11"></polyline>
+    <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+    <span class="upvote-count" id="upvote-count">0</span>
+  </button>
+</small>
+</div>
+
+<script>
+  let hasUpvoted = false;
+  let upvoteBtn;
+  let upvoteCount;
+
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    const slug = '';
+    upvoteBtn = document.getElementById('upvote-btn');
+    upvoteCount = document.getElementById('upvote-count');
+    getCount(slug);
+
+    
+    upvoteBtn.addEventListener('click', handleUpvote);
+  });
+
+  
+  async function handleUpvote() {
+    if (hasUpvoted) {
+      console.log('You have already upvoted this post!');
+      return;
+    }
+    const slug = '';
+
+    
+    upvoteBtn.disabled = true;
+    
+    upvoteBtn.classList.add('upvoted');
+    
+    upvoteCount.innerText = parseInt(upvoteCount.innerText) + 1;
+
+    try {
+      const response = await fetch('https:\/\/upvote.glowisle.me\/upvote', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ postId: slug, diff: 1 }),
+      });
+
+      if (response.ok) {
+        console.log('Upvote successful!');
+        hasUpvoted = true;
+        await getCount(slug, 3);
+      } else {
+        console.log('Upvote failed!');
+      }
+    } catch (error) {
+      console.error('Error: ', error);
+    } finally {
+      upvoteBtn.disabled = false;
+    }
+  }
+
+  
+  async function getCount(slug, retryCount = 0) {
+    try {
+      const response = await fetch('https:\/\/upvote.glowisle.me\/count?post=' + slug, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      const data = await response.json();
+
+      if (data.code === 0) {
+        const count = data.data.count;
+        upvoteCount.innerText = count;
+        hasUpvoted = data.data.hasUpvoted;
+        if (hasUpvoted) {
+          upvoteBtn.classList.add('upvoted');
+        } else {
+          upvoteBtn.classList.remove('upvoted');
+        }
+      } else {
+        console.error('Failed to get upvote count: ', data.msg);
+      }
+    } catch (error) {
+      console.error('Error: ', error);
+      if (retryCount > 0) {
+        setTimeout(() => {
+          getCount(slug, retryCount - 1);
+        }, 1000);
+      }
+    }
+  }
+</script>
 
 
 
@@ -536,6 +653,8 @@
     <p style="display: inline">评论</p>
     </summary>
     <div id="giscus-container"></div>
+
+
     <script>
      
 

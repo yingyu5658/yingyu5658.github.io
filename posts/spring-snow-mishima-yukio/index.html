@@ -55,15 +55,15 @@
    
   :root {
     --width-max: 720px;
-    --font-primary: Verdana, sans-serif;
+    --font-primary: "Noto Serif SC", "Source Han Serif SC", serif;
     --font-secondary: monospace;
     --font-size-primary: 1em;
     --font-size-secondary: 0.8em;
     --body-bg-color: #ffffff;
     --bold-text-color: #222;
     --body-text-color: #444;
-    --link-color: #3273dc;
-    --link-visited-color: #8b6fcb;
+    --link-color: #222;
+    --link-visited-color: #222;
     --table-border-color: #f2f2f2;
     --table-th-bg-color: #f2f2f2;
     --img-border-color: #f2f2f2;
@@ -77,25 +77,49 @@
     --toc-hover-color: #655e5e;
   }
 
-  .post-categories,
+  .item-link {
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .post-info {
+    text-align: center;
+    margin-bottom: 3vh;
+  }
   .category-link {
+    color: #999;
+  }
+
+  h2.post-title {
+    margin-top: 5vh;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  h2.post-title a {
+    font-weight: 700;
+  }
+
+  .recent-list {
+    padding-left: 2vw;
+  }
+
+  .recent-item {
+    list-style-type: none;
+  }
+
+  .post-date {
     display: inline;
-    color: #7f8c8d;
-  }
-
-  .post-categories {
-    font-size: 0.9em;
-    margin-left: 8px;
-  }
-
-  .category-link {
-    padding-left: 2px;
   }
 
   .post-date,
   .post-date-shortcode {
     margin-left: auto;
     color: #999;
+  }
+
+  content .post-date::after {
+    content: "/";
   }
 
   .site-name:hover {
@@ -111,41 +135,8 @@
     border-radius: 5px;
     text-transform: uppercase;
   }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --body-bg-color: #1c1c1c;
-      --bold-text-color: #eee;
-      --body-text-color: #ddd;
-      --link-color: #8cc2dd;
-      --link-visited-color: #c3b1ee;
-      --table-border-color: #999;
-      --table-th-bg-color: #999;
-      --img-border-color: #999;
-      --code-bg-color: #555;
-      --code-text-color: #ddd;
-      --blockquote-border-color: #ccc;
-      --blockquote-text-color: #ccc;
-      --caption-text-color: #aaa;
-      --toc-text-color: #373737;
-      --toc-hover-color: #cac3c3;
-    }
 
-    .post-title a {
-      color: #fff !important;
-    }
-
-    .post-summary {
-      color: var(--text-color-primary) !important;
-    }
-
-    .post-item {
-      border-bottom: 1px solid #414141 !important;
-    }
-
-    .pagination-link {
-      border: 1px solid #414141 !important;
-    }
-  }
+   
 
   body {
     font-family: var(--font-primary);
@@ -157,7 +148,7 @@
     background-color: var(--body-bg-color);
     word-wrap: break-word;
     overflow-wrap: break-word;
-    line-height: 1.5;
+    line-height: 1.6;
     color: var(--body-text-color);
   }
 
@@ -184,11 +175,13 @@
   a {
     color: var(--link-color);
     cursor: pointer;
-    text-decoration: none;
+    text-decoration: underline 0.2px #d4d4d4;
+    transition-duration: 0.3s;
+    font-weight: 500;
   }
 
   a:hover {
-    text-decoration: underline;
+    color: #3273dc;
   }
 
   .title {
@@ -280,6 +273,7 @@
   time {
     font-family: var(--font-secondary);
     font-size: 15px;
+    color: rgb(163, 163, 163);
   }
 
   code {
@@ -337,6 +331,7 @@
 
   ul.blog-posts li {
     display: flex;
+    margin-bottom: 8px;
   }
 
   ul.blog-posts li span {
@@ -349,6 +344,13 @@
 
   ul.blog-posts li a:visited {
     color: var(--link-visited-color);
+  }
+
+  ul.blog-posts a {
+    margin-left: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
    
   div.toc {
@@ -438,19 +440,20 @@
   }
 
   .toc-nav a.active,  
-    .toc-nav a:hover {
+     .toc-nav a:hover {
     text-decoration: none;  
     color: var(--toc-hover-color);  
   }
 
   .toc-nav a.active::before,  
-    .toc-nav a:hover::before {
+     .toc-nav a:hover::before {
     background-color: var(--toc-hover-color);  
   }
 
    
   button.upvote-btn {
     margin: 0;
+    margin-left: auto;
     padding: 0;
     border: none;
     background: none;
@@ -515,10 +518,20 @@
   <main> 
 
 <content>
-   
-<h2 class="post-title"><a href="/posts/spring-snow-mishima-yukio/" style="color:#222222;">《春雪》书评：任何美梦都会有结束的时候，没有什么永恒的东西</a></h2>
+    <h2 class="post-title"><a href="/posts/spring-snow-mishima-yukio/" style="color:#222222;">《春雪》书评：任何美梦都会有结束的时候，没有什么永恒的东西</a></h2>
 
-	<p>于今日正式结束了三岛由纪夫的绝笔之作《丰饶之海》四部曲的第一卷 —— 《春雪》的阅读。刚开始读，它给我一种「很不三岛」的感觉，语言风格细腻柔美，甚至有几分古典韵味，对景物的描写细致入微，但处处洋溢着一丝哀愁，我还以为自己在阅读川端康成的作品。可以理解为三岛对恩师的致敬吧？</p>
+
+<div class="post-info">
+    <time class="post-date" datetime="2025-09-28T21:18:43&#43;08:00">
+        2025年9月28日
+    </time>
+        
+            
+            <a href="/categories/%E8%AF%BB%E4%B9%A6/" class="category-link">读书</a>
+        
+</div>
+
+    <p>于今日正式结束了三岛由纪夫的绝笔之作《丰饶之海》四部曲的第一卷 —— 《春雪》的阅读。刚开始读，它给我一种「很不三岛」的感觉，语言风格细腻柔美，甚至有几分古典韵味，对景物的描写细致入微，但处处洋溢着一丝哀愁，我还以为自己在阅读川端康成的作品。可以理解为三岛对恩师的致敬吧？</p>
 <p>故事围绕着松枝清显与绫仓聪子的爱情悲剧展开，互为对方青梅竹马的两人试探猜忌，始终没有发展。聪子始终深爱着清显，但清显一直维护着他的孤傲，给人一种非常「拧巴」的感觉。直到聪子与治典亲王订婚，清显才意识到自己的确深爱着聪子，于是一场短暂禁忌之恋开始，最终聪子怀孕，被迫堕胎后，面对皇室和家族的巨大压力，她削发为尼，遁入空门。清显相思成疾，因肺病夭折，令人哀惋。</p>
 <p>令我感受最深的，还是聪子这个角色的遭遇。被迫堕胎，清显和她爱情的结晶被彻底的物理意义上的抹除，也没有任何回头路留给聪子，她才走投无路做了尼姑，世俗已经没有任何可以让她留恋的东西了，而在事情刚刚发生的时候，松枝和绫仓两家还在商量如何瞒天过海，提出了一个佩戴假发参加纳彩的主意。</p>
 <blockquote>
@@ -530,22 +543,125 @@
 <p>另一个让我非常震撼，也钦佩的点是本书的名字：「春雪」、「春の雪」。春天落下的雪。不合时宜，短暂易逝，是对主角二人爱情的完美隐喻，同时也体现日本文学的风格：对短暂之美的细腻感受，哀而不伤，以及对不完美的接纳甚至美化，而本书确实是一本将唯美推向巅峰之作，也是将三岛心目中对柔弱纤美风格追求的毁灭之作。也对日本文学中力图传达的美学意识 —— 物哀 、幽玄 、侘寂三者融合达到巅峰，读完却怅然若失，如同自己亲身经历了一场凄美的爱情。</p>
 <p>而「春雪」与「丰饶之海」这两个词，都有一种虚无的意境美，想起「丰饶之海」这个词取自月球上的「丰富海」，并且作者解释有讽刺意味，是「干枯的谎言之海」，震撼之情难以言表，深入想想一种恐惧感袭上心头，又一股颤栗般的感动将它冲散，却余韵悠长。</p>
 <blockquote>
-<p>任何美梦都会有结束的时候，没有什么永恒的东西。</p></blockquote> </content>
+<p>任何美梦都会有结束的时候，没有什么永恒的东西。</p></blockquote>
+</content>
+
 <p>
-  
-  <a href="https://www.glowisle.me/tags/%E4%B8%89%E5%B2%9B%E7%94%B1%E7%BA%AA%E5%A4%AB/">#三岛由纪夫</a>
-  
-  <a href="https://www.glowisle.me/tags/%E6%98%A5%E9%9B%AA/">#春雪</a>
-  
-  <a href="https://www.glowisle.me/tags/%E4%B8%B0%E9%A5%B6%E4%B9%8B%E6%B5%B7/">#丰饶之海</a>
-  
-  <a href="https://www.glowisle.me/tags/%E6%97%A5%E6%9C%AC%E6%96%87%E5%AD%A6/">#日本文学</a>
-  
-  <a href="https://www.glowisle.me/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/">#读后感</a>
-  
+    
+    <a href="https://www.glowisle.me/tags/%E4%B8%89%E5%B2%9B%E7%94%B1%E7%BA%AA%E5%A4%AB/">#三岛由纪夫</a>
+    
+    <a href="https://www.glowisle.me/tags/%E6%98%A5%E9%9B%AA/">#春雪</a>
+    
+    <a href="https://www.glowisle.me/tags/%E4%B8%B0%E9%A5%B6%E4%B9%8B%E6%B5%B7/">#丰饶之海</a>
+    
+    <a href="https://www.glowisle.me/tags/%E6%97%A5%E6%9C%AC%E6%96%87%E5%AD%A6/">#日本文学</a>
+    
+    <a href="https://www.glowisle.me/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/">#读后感</a>
+    
 </p>
 
 
+
+<div class="upvote-container">
+<small class="upvote">
+  <button class="upvote-btn" id="upvote-btn">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
+    <polyline points="17 11 12 6 7 11"></polyline>
+    <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+    <span class="upvote-count" id="upvote-count">0</span>
+  </button>
+</small>
+</div>
+
+<script>
+  let hasUpvoted = false;
+  let upvoteBtn;
+  let upvoteCount;
+
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    const slug = 'spring-snow-mishima-yukio';
+    upvoteBtn = document.getElementById('upvote-btn');
+    upvoteCount = document.getElementById('upvote-count');
+    getCount(slug);
+
+    
+    upvoteBtn.addEventListener('click', handleUpvote);
+  });
+
+  
+  async function handleUpvote() {
+    if (hasUpvoted) {
+      console.log('You have already upvoted this post!');
+      return;
+    }
+    const slug = 'spring-snow-mishima-yukio';
+
+    
+    upvoteBtn.disabled = true;
+    
+    upvoteBtn.classList.add('upvoted');
+    
+    upvoteCount.innerText = parseInt(upvoteCount.innerText) + 1;
+
+    try {
+      const response = await fetch('https:\/\/upvote.glowisle.me\/upvote', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ postId: slug, diff: 1 }),
+      });
+
+      if (response.ok) {
+        console.log('Upvote successful!');
+        hasUpvoted = true;
+        await getCount(slug, 3);
+      } else {
+        console.log('Upvote failed!');
+      }
+    } catch (error) {
+      console.error('Error: ', error);
+    } finally {
+      upvoteBtn.disabled = false;
+    }
+  }
+
+  
+  async function getCount(slug, retryCount = 0) {
+    try {
+      const response = await fetch('https:\/\/upvote.glowisle.me\/count?post=' + slug, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      const data = await response.json();
+
+      if (data.code === 0) {
+        const count = data.data.count;
+        upvoteCount.innerText = count;
+        hasUpvoted = data.data.hasUpvoted;
+        if (hasUpvoted) {
+          upvoteBtn.classList.add('upvoted');
+        } else {
+          upvoteBtn.classList.remove('upvoted');
+        }
+      } else {
+        console.error('Failed to get upvote count: ', data.msg);
+      }
+    } catch (error) {
+      console.error('Error: ', error);
+      if (retryCount > 0) {
+        setTimeout(() => {
+          getCount(slug, retryCount - 1);
+        }, 1000);
+      }
+    }
+  }
+</script>
 
 
 
@@ -558,6 +674,8 @@
     <p style="display: inline">评论</p>
     </summary>
     <div id="giscus-container"></div>
+
+
     <script>
      
 
