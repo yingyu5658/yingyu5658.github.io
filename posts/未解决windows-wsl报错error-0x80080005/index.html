@@ -158,7 +158,48 @@ C:\Windows\system32&gt;sc stop LxssManager [SC] OpenService 失败 1060: 指定�
     text-transform: uppercase;
   }
 
-   
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --body-bg-color: #1c1c1c;
+      --bold-text-color: #eee;
+      --body-text-color: #ddd;
+      --link-color: #ddd;
+      --link-visited-color: #c3b1ee;
+      --table-border-color: #999;
+      --table-th-bg-color: #999;
+      --img-border-color: #999;
+      --code-bg-color: #555;
+      --code-text-color: #ddd;
+      --blockquote-border-color: #ccc;
+      --blockquote-text-color: #ccc;
+      --caption-text-color: #aaa;
+      --toc-text-color: #373737;
+      --toc-hover-color: #cac3c3;
+    }
+
+    .post-title a {
+      color: #fff !important;
+    }
+
+    .post-summary {
+      color: var(--text-color-primary) !important;
+    }
+
+    .post-item {
+      border-bottom: 1px solid #414141 !important;
+    }
+
+    .pagination-link {
+      border: 1px solid #414141 !important;
+    }
+
+    nav a {
+      text-decoration: underline 0.2px #646464;
+    }
+
+    a:hover {
+    }
+  }
 
   body {
     font-family: var(--font-primary);
@@ -517,6 +558,7 @@ C:\Windows\system32&gt;sc stop LxssManager [SC] OpenService 失败 1060: 指定�
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 />
+<a href="https://github.com/yingyu5658" rel="me">github.com/yingyu5658</a>
 </head>
 
 <body>
@@ -526,11 +568,13 @@ C:\Windows\system32&gt;sc stop LxssManager [SC] OpenService 失败 1060: 指定�
 </a>
 <nav><a href="/">首页</a>
 
-<a href="/archives">归档</a>
+<a href="/readings">读书</a>
+
+<a href="/categories">分类</a>
 
 <a href="/links">友人</a>
 
-<a href="/readings">读书</a>
+<a href="/archives">归档</a>
 
 <a href="/about">关于</a>
 
