@@ -116,6 +116,19 @@
     --toc-hover-color: #655e5e;
   }
 
+  .wm {
+    border: 1px #d0d7de solid;
+    border-radius: 0.25em;
+    padding-top: 0;
+    padding: 1.5vw;
+    background-color: #f6f8fa;
+    margin-top: 1vh;
+  }
+
+  .wm p {
+    margin-top: 1px;
+  }
+
   .item-link {
     white-space: nowrap;
     overflow: hidden;
@@ -185,13 +198,39 @@
       --table-border-color: #999;
       --table-th-bg-color: #999;
       --img-border-color: #999;
-      --code-bg-color: #555;
+      --code-bg-color: #141414;
       --code-text-color: #ddd;
       --blockquote-border-color: #ccc;
       --blockquote-text-color: #ccc;
       --caption-text-color: #aaa;
       --toc-text-color: #373737;
       --toc-hover-color: #cac3c3;
+    }
+
+    .wm {
+      background-color: #161b22;
+      border-color: #30363d;
+      color: var(--body-text-color);
+      padding: 10px;
+    }
+
+    .wm input {
+      background-color: #010409;
+      border: #30363d 1px solid;
+      color: var(--body-text-color);
+      outline: none;
+      transition: border-color 0.2s ease-in-out;
+    }
+
+    #webmention-source:focus {
+      border-color: var(--color-accent-fg, #0969da);
+      box-shadow: 0 0 0 3px rgba(9, 105, 218, 0.1);
+    }
+
+    .wm button {
+      color: var(--body-text-color);
+      background-color: #161b22;
+      border: #30363d 1px solid;
     }
 
     .post-title a {
@@ -257,7 +296,7 @@
     cursor: pointer;
     text-decoration: underline 0.2px #d4d4d4;
     transition-duration: 0.3s;
-    font-weight: 500;
+    font-weight: 600;
   }
 
   a:hover {

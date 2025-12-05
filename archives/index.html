@@ -61,6 +61,19 @@
     --toc-hover-color: #655e5e;
   }
 
+  .wm {
+    border: 1px #d0d7de solid;
+    border-radius: 0.25em;
+    padding-top: 0;
+    padding: 1.5vw;
+    background-color: #f6f8fa;
+    margin-top: 1vh;
+  }
+
+  .wm p {
+    margin-top: 1px;
+  }
+
   .item-link {
     white-space: nowrap;
     overflow: hidden;
@@ -130,13 +143,39 @@
       --table-border-color: #999;
       --table-th-bg-color: #999;
       --img-border-color: #999;
-      --code-bg-color: #555;
+      --code-bg-color: #141414;
       --code-text-color: #ddd;
       --blockquote-border-color: #ccc;
       --blockquote-text-color: #ccc;
       --caption-text-color: #aaa;
       --toc-text-color: #373737;
       --toc-hover-color: #cac3c3;
+    }
+
+    .wm {
+      background-color: #161b22;
+      border-color: #30363d;
+      color: var(--body-text-color);
+      padding: 10px;
+    }
+
+    .wm input {
+      background-color: #010409;
+      border: #30363d 1px solid;
+      color: var(--body-text-color);
+      outline: none;
+      transition: border-color 0.2s ease-in-out;
+    }
+
+    #webmention-source:focus {
+      border-color: var(--color-accent-fg, #0969da);
+      box-shadow: 0 0 0 3px rgba(9, 105, 218, 0.1);
+    }
+
+    .wm button {
+      color: var(--body-text-color);
+      background-color: #161b22;
+      border: #30363d 1px solid;
     }
 
     .post-title a {
@@ -202,7 +241,7 @@
     cursor: pointer;
     text-decoration: underline 0.2px #d4d4d4;
     transition-duration: 0.3s;
-    font-weight: 500;
+    font-weight: 600;
   }
 
   a:hover {
@@ -555,7 +594,7 @@
   
 
   
-  <p id="post-count">共有 122 篇文章</p>
+  <p id="post-count">共有 123 篇文章</p>
     
   
   
@@ -570,6 +609,22 @@
           
             <h3>2025</h3>
             
+          
+        
+        
+        <li>
+          <span class="grouped">
+            <i>
+              <time datetime='2025-12-05' pubdate>
+                2025-12-05
+              </time>
+            </i>
+          </span>
+          <a href="https://www.glowisle.me/posts/exploring-webmention/">一次对Webmention的探索</a>
+        </li>
+      
+        
+          
           
         
         
@@ -2588,6 +2643,8 @@
         
         <a href="https://www.glowisle.me/tags/waline/">#Waline</a>&nbsp;
         
+        <a href="https://www.glowisle.me/tags/webmention/">#Webmention</a>&nbsp;
+        
         <a href="https://www.glowisle.me/tags/windows/">#Windows</a>&nbsp;
         
         <a href="https://www.glowisle.me/tags/%E5%8E%8C%E8%A0%A2%E7%97%87/">#“厌蠢症”</a>&nbsp;
@@ -2619,6 +2676,8 @@
         <a href="https://www.glowisle.me/tags/%E5%89%8D%E7%AB%AF/">#前端</a>&nbsp;
         
         <a href="https://www.glowisle.me/tags/%E5%8D%9A%E5%AE%A2/">#博客</a>&nbsp;
+        
+        <a href="https://www.glowisle.me/tags/%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96/">#去中心化</a>&nbsp;
         
         <a href="https://www.glowisle.me/tags/%E5%8F%A4%E6%96%87/">#古文</a>&nbsp;
         

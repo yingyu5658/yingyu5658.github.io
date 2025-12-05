@@ -69,6 +69,19 @@
     --toc-hover-color: #655e5e;
   }
 
+  .wm {
+    border: 1px #d0d7de solid;
+    border-radius: 0.25em;
+    padding-top: 0;
+    padding: 1.5vw;
+    background-color: #f6f8fa;
+    margin-top: 1vh;
+  }
+
+  .wm p {
+    margin-top: 1px;
+  }
+
   .item-link {
     white-space: nowrap;
     overflow: hidden;
@@ -138,13 +151,39 @@
       --table-border-color: #999;
       --table-th-bg-color: #999;
       --img-border-color: #999;
-      --code-bg-color: #555;
+      --code-bg-color: #141414;
       --code-text-color: #ddd;
       --blockquote-border-color: #ccc;
       --blockquote-text-color: #ccc;
       --caption-text-color: #aaa;
       --toc-text-color: #373737;
       --toc-hover-color: #cac3c3;
+    }
+
+    .wm {
+      background-color: #161b22;
+      border-color: #30363d;
+      color: var(--body-text-color);
+      padding: 10px;
+    }
+
+    .wm input {
+      background-color: #010409;
+      border: #30363d 1px solid;
+      color: var(--body-text-color);
+      outline: none;
+      transition: border-color 0.2s ease-in-out;
+    }
+
+    #webmention-source:focus {
+      border-color: var(--color-accent-fg, #0969da);
+      box-shadow: 0 0 0 3px rgba(9, 105, 218, 0.1);
+    }
+
+    .wm button {
+      color: var(--body-text-color);
+      background-color: #161b22;
+      border: #30363d 1px solid;
     }
 
     .post-title a {
@@ -210,7 +249,7 @@
     cursor: pointer;
     text-decoration: underline 0.2px #d4d4d4;
     transition-duration: 0.3s;
-    font-weight: 500;
+    font-weight: 600;
   }
 
   a:hover {
@@ -703,6 +742,8 @@
     <p style="display: inline">评论 与 Webmentions</p>
     </summary>
     <div id="giscus-container"></div>
+
+    <div class="wm">
 <div id="webmentions"></div>
 <script src="/js/webmention.min.js"
     data-id="webmentions"
@@ -714,24 +755,31 @@
     async>
 </script>
 
-
-
-<details class="wm-guide">
+<details>
     <summary>如何参与 Webmentions 互动？</summary>
     <div class="wm-guide-content">
-        <p>本文支持 <a href="https://indieweb.org/Webmention" target="_blank">Webmention</a> 协议。您可以通过以下方式与我互动：</p>
-        <ol>
-            <li>
-                <strong>如果您有自己的网站</strong>：在您的网站发布文章，并包含指向本文的链接。然后，请您使用 <a href="https://webmention.io/" target="_blank">webmention.io</a> 等工具告知。
-           </li>
-            <li>
-                <strong>如果您没有个人网站</strong>：您也可以在 Twitter 或 Mastodon 上发布一条包含本文的永久链接的动态，并按照上述步骤操作。或者可以直接<a href="mailto:i@glowisle.me?subject=评论：%e7%a7%8b%e5%a4%a9%e7%9a%84%e7%ac%ac%e4%b8%80%e5%a3%b0%e7%8b%97%e5%8f%ab">发送邮件</a>给我，我会将您的想法添加到评论区。
-            </li>
-        </ol>
-        <p>期待与您的交流！</p>
-    </div>
-</details>
+<div class="webmention-form">
+    <p>如果你想回应这篇文章，请在你的博客或社交媒体中链接本页面，然后在下面的表单中提交你的页面链接。</p>
+    <form id="webmention-submit-form" action="https://webmention.io/www.glowisle.me/webmention" method="post">
+        
+        <input type="hidden" name="target" value="https://www.glowisle.me/posts/%E7%A7%8B%E5%A4%A9%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A3%B0%E7%8B%97%E5%8F%AB/">
 
+        <div>
+            <label for="webmention-source">你的文章链接：</label>
+            <input
+                type="url"
+                id="webmention-source"
+                name="source"
+                required
+                pattern="https?://.+"
+            >
+        <button type="submit" id="webmention-submit-btn">提交</button>
+        </div>
+        <div id="webmention-form-feedback"></div>
+    </form>
+    <br>
+<a href="https://indieweb.org/webmention">关于 Webmention 的更多信息</a> 以及 <a href="https://www.glowisle.me/posts/tear-hypocrisy-apart/">为什么要这么做？</a>
+</details>
 
 
 
@@ -772,10 +820,64 @@ giscusScript.async = true;
 
 document.getElementById('giscus-container').appendChild(giscusScript);
 
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('webmention-submit-form');
+    const submitBtn = document.getElementById('webmention-submit-btn');
+    const feedbackEl = document.getElementById('webmention-form-feedback');
+
+    if (!form) return;
+
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        
+        const originalBtnText = submitBtn.textContent;
+        submitBtn.disabled = true;
+        submitBtn.textContent = '发送中...';
+
+        
+        feedbackEl.textContent = '';
+
+        try {
+            
+            const formData = new FormData(form);
+
+            
+            const response = await fetch(form.action, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                },
+                body: new URLSearchParams(formData)
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                
+                feedbackEl.textContent = '✅ 提交成功！Webmention 正在处理中。';
+                form.reset();
+            } else {
+                
+                let errorMsg = '提交失败：';
+                if (result.error || result.summary) {
+                    errorMsg += result.error || result.summary;
+                }
+                feedbackEl.textContent = errorMsg;
+            }
+        } catch (error) {
+            
+            feedbackEl.textContent = '❌ 提交过程中出现网络错误，请稍后重试。';
+        } finally {
+            
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalBtnText;
+        }
+    });
+});
+
+
 </script>
-
-
-
 
 
   </main>
