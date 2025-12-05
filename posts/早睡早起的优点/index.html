@@ -110,7 +110,7 @@
     color: #999;
   }
 
-  content .post-date::after {
+  article .post-date::after {
     content: "/";
   }
 
@@ -243,7 +243,7 @@
     font-size: 14px;
   }
 
-  content {
+  article {
     line-height: 1.6;
   }
 
@@ -557,8 +557,8 @@
 </header>
   <main> 
 
-<content class="h-entry">
-    <h2 class="post-title"><a href="/posts/%E6%97%A9%E7%9D%A1%E6%97%A9%E8%B5%B7%E7%9A%84%E4%BC%98%E7%82%B9/" style="color:#222222;">早睡早起的优点</a></h2>
+<article class="h-entry">
+    <h2 class="post-title p-name"><a href="/posts/%E6%97%A9%E7%9D%A1%E6%97%A9%E8%B5%B7%E7%9A%84%E4%BC%98%E7%82%B9/" style="color:#222222;">早睡早起的优点</a></h2>
 
 
 <div class="post-info">
@@ -583,8 +583,7 @@
 <p>上次熬夜的记录是四点，那时七月，四点天就蒙蒙亮了，这次在五点才有差不多的亮度，可见夏日的生命力正在衰退，逐渐滑向死亡。</p>
 <p>最近正在考虑写一个Android上的新闻组客户端，NNTP协议看起来并不难，做到基础的通信，不会耗费太大功夫。但我不熟悉Android开发。只能尝试用Web套壳写了，比起HTML, CSS, JavaScript，我宁愿去写C。为什么C语言不能直接在Android上运行？哦，可以用Termux，好主意。我会让我内存泄漏得遍地都是的程序污染每一个人的设备的。</p>
 </div>
-</content>
-
+</article>
 <a class="u-url" href="https://www.glowisle.me/posts/%E6%97%A9%E7%9D%A1%E6%97%A9%E8%B5%B7%E7%9A%84%E4%BC%98%E7%82%B9/" style="display:none;">Permalink</a>
 
 <p>
@@ -706,9 +705,39 @@
 <hr />
 <details>
     <summary>
-    <p style="display: inline">评论</p>
+    <p style="display: inline">评论 与 Webmentions</p>
     </summary>
     <div id="giscus-container"></div>
+<div id="webmentions"></div>
+<script src="/js/webmention.min.js"
+    data-id="webmentions"
+    data-page-url="https://www.glowisle.me/posts/%E6%97%A9%E7%9D%A1%E6%97%A9%E8%B5%B7%E7%9A%84%E4%BC%98%E7%82%B9/"
+    data-max-webmentions="50"
+    data-wordcount="30"
+    data-sort-by="published"
+    data-sort-dir="up"
+    async>
+</script>
+
+
+
+<details class="wm-guide">
+    <summary>如何参与 Webmentions 互动？</summary>
+    <div class="wm-guide-content">
+        <p>本文支持 <a href="https://indieweb.org/Webmention" target="_blank">Webmention</a> 协议。您可以通过以下方式与我互动：</p>
+        <ol>
+            <li>
+                <strong>如果您有自己的网站</strong>：在您的网站发布文章，并包含指向本文的链接。然后，请您使用 <a href="https://webmention.io/" target="_blank">webmention.io</a> 等工具告知。
+           </li>
+            <li>
+                <strong>如果您没有个人网站</strong>：您也可以在 Twitter 或 Mastodon 上发布一条包含本文的永久链接的动态，并按照上述步骤操作。或者可以直接<a href="mailto:i@glowisle.me?subject=评论：%e6%97%a9%e7%9d%a1%e6%97%a9%e8%b5%b7%e7%9a%84%e4%bc%98%e7%82%b9">发送邮件</a>给我，我会将您的想法添加到评论区。
+            </li>
+        </ol>
+        <p>期待与您的交流！</p>
+    </div>
+</details>
+
+
 
 
     <script>
@@ -750,20 +779,8 @@ document.getElementById('giscus-container').appendChild(giscusScript);
 
 </script>
 
-<div id="webmentions"></div>
-<script src="/js/webmention.min.js"
-    data-id="webmentions"
-    data-page-url="https://www.glowisle.me/posts/%E6%97%A9%E7%9D%A1%E6%97%A9%E8%B5%B7%E7%9A%84%E4%BC%98%E7%82%B9/"
-    data-max-webmentions="50"
-    data-wordcount="30"
-    data-sort-by="published"
-    data-sort-dir="up"
-    async>
-</script>
 
 
-<p>或发送<a href="mailto:i@glowisle.me?subject=%E6%97%A9%E7%9D%A1%E6%97%A9%E8%B5%B7%E7%9A%84%E4%BC%98%E7%82%B9">邮件</a>评论。</p>
-</details>
 
 
   </main>

@@ -116,7 +116,7 @@
     color: #999;
   }
 
-  content .post-date::after {
+  article .post-date::after {
     content: "/";
   }
 
@@ -249,7 +249,7 @@
     font-size: 14px;
   }
 
-  content {
+  article {
     line-height: 1.6;
   }
 
@@ -563,8 +563,8 @@
 </header>
   <main> 
 
-<content class="h-entry">
-    <h2 class="post-title"><a href="/posts/kuo-lie/" style="color:#222222;">基于身边扩列者行为观察的结论</a></h2>
+<article class="h-entry">
+    <h2 class="post-title p-name"><a href="/posts/kuo-lie/" style="color:#222222;">基于身边扩列者行为观察的结论</a></h2>
 
 
 <div class="post-info">
@@ -603,8 +603,7 @@
 <p>包括MBTI、属性图等主观上容易被判断为贴标签的行为，也是在寻找归属感。</p>
 
 </div>
-</content>
-
+</article>
 <a class="u-url" href="https://www.glowisle.me/posts/kuo-lie/" style="display:none;">Permalink</a>
 
 <p>
@@ -728,9 +727,39 @@
 <hr />
 <details>
     <summary>
-    <p style="display: inline">评论</p>
+    <p style="display: inline">评论 与 Webmentions</p>
     </summary>
     <div id="giscus-container"></div>
+<div id="webmentions"></div>
+<script src="/js/webmention.min.js"
+    data-id="webmentions"
+    data-page-url="https://www.glowisle.me/posts/kuo-lie/"
+    data-max-webmentions="50"
+    data-wordcount="30"
+    data-sort-by="published"
+    data-sort-dir="up"
+    async>
+</script>
+
+
+
+<details class="wm-guide">
+    <summary>如何参与 Webmentions 互动？</summary>
+    <div class="wm-guide-content">
+        <p>本文支持 <a href="https://indieweb.org/Webmention" target="_blank">Webmention</a> 协议。您可以通过以下方式与我互动：</p>
+        <ol>
+            <li>
+                <strong>如果您有自己的网站</strong>：在您的网站发布文章，并包含指向本文的链接。然后，请您使用 <a href="https://webmention.io/" target="_blank">webmention.io</a> 等工具告知。
+           </li>
+            <li>
+                <strong>如果您没有个人网站</strong>：您也可以在 Twitter 或 Mastodon 上发布一条包含本文的永久链接的动态，并按照上述步骤操作。或者可以直接<a href="mailto:i@glowisle.me?subject=评论：%e5%9f%ba%e4%ba%8e%e8%ba%ab%e8%be%b9%e6%89%a9%e5%88%97%e8%80%85%e8%a1%8c%e4%b8%ba%e8%a7%82%e5%af%9f%e7%9a%84%e7%bb%93%e8%ae%ba">发送邮件</a>给我，我会将您的想法添加到评论区。
+            </li>
+        </ol>
+        <p>期待与您的交流！</p>
+    </div>
+</details>
+
+
 
 
     <script>
@@ -772,20 +801,8 @@ document.getElementById('giscus-container').appendChild(giscusScript);
 
 </script>
 
-<div id="webmentions"></div>
-<script src="/js/webmention.min.js"
-    data-id="webmentions"
-    data-page-url="https://www.glowisle.me/posts/kuo-lie/"
-    data-max-webmentions="50"
-    data-wordcount="30"
-    data-sort-by="published"
-    data-sort-dir="up"
-    async>
-</script>
 
 
-<p>或发送<a href="mailto:i@glowisle.me?subject=%E5%9F%BA%E4%BA%8E%E8%BA%AB%E8%BE%B9%E6%89%A9%E5%88%97%E8%80%85%E8%A1%8C%E4%B8%BA%E8%A7%82%E5%AF%9F%E7%9A%84%E7%BB%93%E8%AE%BA">邮件</a>评论。</p>
-</details>
 
 
   </main>

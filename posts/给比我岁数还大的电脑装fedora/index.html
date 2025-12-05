@@ -136,7 +136,7 @@
     color: #999;
   }
 
-  content .post-date::after {
+  article .post-date::after {
     content: "/";
   }
 
@@ -269,7 +269,7 @@
     font-size: 14px;
   }
 
-  content {
+  article {
     line-height: 1.6;
   }
 
@@ -583,8 +583,8 @@
 </header>
   <main> 
 
-<content class="h-entry">
-    <h2 class="post-title"><a href="/posts/%E7%BB%99%E6%AF%94%E6%88%91%E5%B2%81%E6%95%B0%E8%BF%98%E5%A4%A7%E7%9A%84%E7%94%B5%E8%84%91%E8%A3%85fedora/" style="color:#222222;">给比我岁数还大的电脑装Fedora</a></h2>
+<article class="h-entry">
+    <h2 class="post-title p-name"><a href="/posts/%E7%BB%99%E6%AF%94%E6%88%91%E5%B2%81%E6%95%B0%E8%BF%98%E5%A4%A7%E7%9A%84%E7%94%B5%E8%84%91%E8%A3%85fedora/" style="color:#222222;">给比我岁数还大的电脑装Fedora</a></h2>
 
 
 <div class="post-info">
@@ -657,8 +657,7 @@
     <figcaption></figcaption>
 </figure></p>
 </div>
-</content>
-
+</article>
 <a class="u-url" href="https://www.glowisle.me/posts/%E7%BB%99%E6%AF%94%E6%88%91%E5%B2%81%E6%95%B0%E8%BF%98%E5%A4%A7%E7%9A%84%E7%94%B5%E8%84%91%E8%A3%85fedora/" style="display:none;">Permalink</a>
 
 <p>
@@ -876,9 +875,39 @@
 <hr />
 <details>
     <summary>
-    <p style="display: inline">评论</p>
+    <p style="display: inline">评论 与 Webmentions</p>
     </summary>
     <div id="giscus-container"></div>
+<div id="webmentions"></div>
+<script src="/js/webmention.min.js"
+    data-id="webmentions"
+    data-page-url="https://www.glowisle.me/posts/%E7%BB%99%E6%AF%94%E6%88%91%E5%B2%81%E6%95%B0%E8%BF%98%E5%A4%A7%E7%9A%84%E7%94%B5%E8%84%91%E8%A3%85fedora/"
+    data-max-webmentions="50"
+    data-wordcount="30"
+    data-sort-by="published"
+    data-sort-dir="up"
+    async>
+</script>
+
+
+
+<details class="wm-guide">
+    <summary>如何参与 Webmentions 互动？</summary>
+    <div class="wm-guide-content">
+        <p>本文支持 <a href="https://indieweb.org/Webmention" target="_blank">Webmention</a> 协议。您可以通过以下方式与我互动：</p>
+        <ol>
+            <li>
+                <strong>如果您有自己的网站</strong>：在您的网站发布文章，并包含指向本文的链接。然后，请您使用 <a href="https://webmention.io/" target="_blank">webmention.io</a> 等工具告知。
+           </li>
+            <li>
+                <strong>如果您没有个人网站</strong>：您也可以在 Twitter 或 Mastodon 上发布一条包含本文的永久链接的动态，并按照上述步骤操作。或者可以直接<a href="mailto:i@glowisle.me?subject=评论：%e7%bb%99%e6%af%94%e6%88%91%e5%b2%81%e6%95%b0%e8%bf%98%e5%a4%a7%e7%9a%84%e7%94%b5%e8%84%91%e8%a3%85Fedora">发送邮件</a>给我，我会将您的想法添加到评论区。
+            </li>
+        </ol>
+        <p>期待与您的交流！</p>
+    </div>
+</details>
+
+
 
 
     <script>
@@ -920,20 +949,8 @@ document.getElementById('giscus-container').appendChild(giscusScript);
 
 </script>
 
-<div id="webmentions"></div>
-<script src="/js/webmention.min.js"
-    data-id="webmentions"
-    data-page-url="https://www.glowisle.me/posts/%E7%BB%99%E6%AF%94%E6%88%91%E5%B2%81%E6%95%B0%E8%BF%98%E5%A4%A7%E7%9A%84%E7%94%B5%E8%84%91%E8%A3%85fedora/"
-    data-max-webmentions="50"
-    data-wordcount="30"
-    data-sort-by="published"
-    data-sort-dir="up"
-    async>
-</script>
 
 
-<p>或发送<a href="mailto:i@glowisle.me?subject=%E7%BB%99%E6%AF%94%E6%88%91%E5%B2%81%E6%95%B0%E8%BF%98%E5%A4%A7%E7%9A%84%E7%94%B5%E8%84%91%E8%A3%85Fedora">邮件</a>评论。</p>
-</details>
 
 
   </main>

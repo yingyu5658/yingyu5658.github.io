@@ -113,7 +113,7 @@
     color: #999;
   }
 
-  content .post-date::after {
+  article .post-date::after {
     content: "/";
   }
 
@@ -246,7 +246,7 @@
     font-size: 14px;
   }
 
-  content {
+  article {
     line-height: 1.6;
   }
 
@@ -560,8 +560,8 @@
 </header>
   <main> 
 
-<content class="h-entry">
-    <h2 class="post-title"><a href="/posts/tear-hypocrisy-apart/" style="color:#222222;">那种虚伪的互动和友善，赶快把它撕破吧！</a></h2>
+<article class="h-entry">
+    <h2 class="post-title p-name"><a href="/posts/tear-hypocrisy-apart/" style="color:#222222;">那种虚伪的互动和友善，赶快把它撕破吧！</a></h2>
 
 
 <div class="post-info">
@@ -629,8 +629,7 @@
 <p>所以无论是Q群聊天还是博客<strong>为了外链</strong>的「互访」，为了自己和他人考虑，为了让自己不再苦恼于如何应对根本没有留下话茬的评论，为了让别人不再绞尽脑汁填写自己博客的链接，如果你也厌倦了廉价的温情，那就来吧，<strong>那种虚伪的互动和友善，赶快把它撕破吧！</strong></p>
 
 </div>
-</content>
-
+</article>
 <a class="u-url" href="https://www.glowisle.me/posts/tear-hypocrisy-apart/" style="display:none;">Permalink</a>
 
 <p>
@@ -854,9 +853,39 @@
 <hr />
 <details>
     <summary>
-    <p style="display: inline">评论</p>
+    <p style="display: inline">评论 与 Webmentions</p>
     </summary>
     <div id="giscus-container"></div>
+<div id="webmentions"></div>
+<script src="/js/webmention.min.js"
+    data-id="webmentions"
+    data-page-url="https://www.glowisle.me/posts/tear-hypocrisy-apart/"
+    data-max-webmentions="50"
+    data-wordcount="30"
+    data-sort-by="published"
+    data-sort-dir="up"
+    async>
+</script>
+
+
+
+<details class="wm-guide">
+    <summary>如何参与 Webmentions 互动？</summary>
+    <div class="wm-guide-content">
+        <p>本文支持 <a href="https://indieweb.org/Webmention" target="_blank">Webmention</a> 协议。您可以通过以下方式与我互动：</p>
+        <ol>
+            <li>
+                <strong>如果您有自己的网站</strong>：在您的网站发布文章，并包含指向本文的链接。然后，请您使用 <a href="https://webmention.io/" target="_blank">webmention.io</a> 等工具告知。
+           </li>
+            <li>
+                <strong>如果您没有个人网站</strong>：您也可以在 Twitter 或 Mastodon 上发布一条包含本文的永久链接的动态，并按照上述步骤操作。或者可以直接<a href="mailto:i@glowisle.me?subject=评论：%e9%82%a3%e7%a7%8d%e8%99%9a%e4%bc%aa%e7%9a%84%e4%ba%92%e5%8a%a8%e5%92%8c%e5%8f%8b%e5%96%84%ef%bc%8c%e8%b5%b6%e5%bf%ab%e6%8a%8a%e5%ae%83%e6%92%95%e7%a0%b4%e5%90%a7%ef%bc%81">发送邮件</a>给我，我会将您的想法添加到评论区。
+            </li>
+        </ol>
+        <p>期待与您的交流！</p>
+    </div>
+</details>
+
+
 
 
     <script>
@@ -898,20 +927,8 @@ document.getElementById('giscus-container').appendChild(giscusScript);
 
 </script>
 
-<div id="webmentions"></div>
-<script src="/js/webmention.min.js"
-    data-id="webmentions"
-    data-page-url="https://www.glowisle.me/posts/tear-hypocrisy-apart/"
-    data-max-webmentions="50"
-    data-wordcount="30"
-    data-sort-by="published"
-    data-sort-dir="up"
-    async>
-</script>
 
 
-<p>或发送<a href="mailto:i@glowisle.me?subject=%E9%82%A3%E7%A7%8D%E8%99%9A%E4%BC%AA%E7%9A%84%E4%BA%92%E5%8A%A8%E5%92%8C%E5%8F%8B%E5%96%84%EF%BC%8C%E8%B5%B6%E5%BF%AB%E6%8A%8A%E5%AE%83%E6%92%95%E7%A0%B4%E5%90%A7%EF%BC%81">邮件</a>评论。</p>
-</details>
 
 
   </main>

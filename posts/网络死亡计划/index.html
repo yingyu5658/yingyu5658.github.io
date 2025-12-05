@@ -110,7 +110,7 @@
     color: #999;
   }
 
-  content .post-date::after {
+  article .post-date::after {
     content: "/";
   }
 
@@ -243,7 +243,7 @@
     font-size: 14px;
   }
 
-  content {
+  article {
     line-height: 1.6;
   }
 
@@ -557,8 +557,8 @@
 </header>
   <main> 
 
-<content class="h-entry">
-    <h2 class="post-title"><a href="/posts/%E7%BD%91%E7%BB%9C%E6%AD%BB%E4%BA%A1%E8%AE%A1%E5%88%92/" style="color:#222222;">网络死亡计划</a></h2>
+<article class="h-entry">
+    <h2 class="post-title p-name"><a href="/posts/%E7%BD%91%E7%BB%9C%E6%AD%BB%E4%BA%A1%E8%AE%A1%E5%88%92/" style="color:#222222;">网络死亡计划</a></h2>
 
 
 <div class="post-info">
@@ -585,8 +585,7 @@
 <p>今后会把大部分生活琐事记录和观点表达转移到博客而非朋友圈和QQ空间。后者总是被动接受信息，不一定能找到共鸣，而前者是主动选择文章阅读，而且博客的性质能让人组织起完整的语言，客观地记录和表达；在QQ空间和微信发表出来总是有一种为了给某人看或为了给某些人看的味道，有些不舒服，也影响言语措辞。我这人变得越来越怪。</p>
 
 </div>
-</content>
-
+</article>
 <a class="u-url" href="https://www.glowisle.me/posts/%E7%BD%91%E7%BB%9C%E6%AD%BB%E4%BA%A1%E8%AE%A1%E5%88%92/" style="display:none;">Permalink</a>
 
 <p>
@@ -708,9 +707,39 @@
 <hr />
 <details>
     <summary>
-    <p style="display: inline">评论</p>
+    <p style="display: inline">评论 与 Webmentions</p>
     </summary>
     <div id="giscus-container"></div>
+<div id="webmentions"></div>
+<script src="/js/webmention.min.js"
+    data-id="webmentions"
+    data-page-url="https://www.glowisle.me/posts/%E7%BD%91%E7%BB%9C%E6%AD%BB%E4%BA%A1%E8%AE%A1%E5%88%92/"
+    data-max-webmentions="50"
+    data-wordcount="30"
+    data-sort-by="published"
+    data-sort-dir="up"
+    async>
+</script>
+
+
+
+<details class="wm-guide">
+    <summary>如何参与 Webmentions 互动？</summary>
+    <div class="wm-guide-content">
+        <p>本文支持 <a href="https://indieweb.org/Webmention" target="_blank">Webmention</a> 协议。您可以通过以下方式与我互动：</p>
+        <ol>
+            <li>
+                <strong>如果您有自己的网站</strong>：在您的网站发布文章，并包含指向本文的链接。然后，请您使用 <a href="https://webmention.io/" target="_blank">webmention.io</a> 等工具告知。
+           </li>
+            <li>
+                <strong>如果您没有个人网站</strong>：您也可以在 Twitter 或 Mastodon 上发布一条包含本文的永久链接的动态，并按照上述步骤操作。或者可以直接<a href="mailto:i@glowisle.me?subject=评论：%e7%bd%91%e7%bb%9c%e6%ad%bb%e4%ba%a1%e8%ae%a1%e5%88%92">发送邮件</a>给我，我会将您的想法添加到评论区。
+            </li>
+        </ol>
+        <p>期待与您的交流！</p>
+    </div>
+</details>
+
+
 
 
     <script>
@@ -752,20 +781,8 @@ document.getElementById('giscus-container').appendChild(giscusScript);
 
 </script>
 
-<div id="webmentions"></div>
-<script src="/js/webmention.min.js"
-    data-id="webmentions"
-    data-page-url="https://www.glowisle.me/posts/%E7%BD%91%E7%BB%9C%E6%AD%BB%E4%BA%A1%E8%AE%A1%E5%88%92/"
-    data-max-webmentions="50"
-    data-wordcount="30"
-    data-sort-by="published"
-    data-sort-dir="up"
-    async>
-</script>
 
 
-<p>或发送<a href="mailto:i@glowisle.me?subject=%E7%BD%91%E7%BB%9C%E6%AD%BB%E4%BA%A1%E8%AE%A1%E5%88%92">邮件</a>评论。</p>
-</details>
 
 
   </main>

@@ -121,7 +121,7 @@ Java中提供了一个关键字extends，用这个关键字，可以让一个类
     color: #999;
   }
 
-  content .post-date::after {
+  article .post-date::after {
     content: "/";
   }
 
@@ -254,7 +254,7 @@ Java中提供了一个关键字extends，用这个关键字，可以让一个类
     font-size: 14px;
   }
 
-  content {
+  article {
     line-height: 1.6;
   }
 
@@ -568,8 +568,8 @@ Java中提供了一个关键字extends，用这个关键字，可以让一个类
 </header>
   <main> 
 
-<content class="h-entry">
-    <h2 class="post-title"><a href="/posts/185/" style="color:#222222;">Java面向对象编程——继承</a></h2>
+<article class="h-entry">
+    <h2 class="post-title p-name"><a href="/posts/185/" style="color:#222222;">Java面向对象编程——继承</a></h2>
 
 
 <div class="post-info">
@@ -700,8 +700,7 @@ Java中提供了一个关键字extends，用这个关键字，可以让一个类
 <li>如果父类没有无参数构造器，我们必须在子类构造器的第一行手写<code>super();</code>，指定去调用父类的构造器。</li>
 </ul>
 </div>
-</content>
-
+</article>
 <a class="u-url" href="https://www.glowisle.me/posts/185/" style="display:none;">Permalink</a>
 
 <p>
@@ -942,9 +941,39 @@ Java中提供了一个关键字extends，用这个关键字，可以让一个类
 <hr />
 <details>
     <summary>
-    <p style="display: inline">评论</p>
+    <p style="display: inline">评论 与 Webmentions</p>
     </summary>
     <div id="giscus-container"></div>
+<div id="webmentions"></div>
+<script src="/js/webmention.min.js"
+    data-id="webmentions"
+    data-page-url="https://www.glowisle.me/posts/185/"
+    data-max-webmentions="50"
+    data-wordcount="30"
+    data-sort-by="published"
+    data-sort-dir="up"
+    async>
+</script>
+
+
+
+<details class="wm-guide">
+    <summary>如何参与 Webmentions 互动？</summary>
+    <div class="wm-guide-content">
+        <p>本文支持 <a href="https://indieweb.org/Webmention" target="_blank">Webmention</a> 协议。您可以通过以下方式与我互动：</p>
+        <ol>
+            <li>
+                <strong>如果您有自己的网站</strong>：在您的网站发布文章，并包含指向本文的链接。然后，请您使用 <a href="https://webmention.io/" target="_blank">webmention.io</a> 等工具告知。
+           </li>
+            <li>
+                <strong>如果您没有个人网站</strong>：您也可以在 Twitter 或 Mastodon 上发布一条包含本文的永久链接的动态，并按照上述步骤操作。或者可以直接<a href="mailto:i@glowisle.me?subject=评论：Java%e9%9d%a2%e5%90%91%e5%af%b9%e8%b1%a1%e7%bc%96%e7%a8%8b%e2%80%94%e2%80%94%e7%bb%a7%e6%89%bf">发送邮件</a>给我，我会将您的想法添加到评论区。
+            </li>
+        </ol>
+        <p>期待与您的交流！</p>
+    </div>
+</details>
+
+
 
 
     <script>
@@ -986,20 +1015,8 @@ document.getElementById('giscus-container').appendChild(giscusScript);
 
 </script>
 
-<div id="webmentions"></div>
-<script src="/js/webmention.min.js"
-    data-id="webmentions"
-    data-page-url="https://www.glowisle.me/posts/185/"
-    data-max-webmentions="50"
-    data-wordcount="30"
-    data-sort-by="published"
-    data-sort-dir="up"
-    async>
-</script>
 
 
-<p>或发送<a href="mailto:i@glowisle.me?subject=Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E2%80%94%E2%80%94%E7%BB%A7%E6%89%BF">邮件</a>评论。</p>
-</details>
 
 
   </main>

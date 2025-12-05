@@ -111,7 +111,7 @@
     color: #999;
   }
 
-  content .post-date::after {
+  article .post-date::after {
     content: "/";
   }
 
@@ -244,7 +244,7 @@
     font-size: 14px;
   }
 
-  content {
+  article {
     line-height: 1.6;
   }
 
@@ -558,8 +558,8 @@
 </header>
   <main> 
 
-<content class="h-entry">
-    <h2 class="post-title"><a href="/posts/%E9%9F%A9%E6%84%88%E5%B8%88%E8%AF%B4/" style="color:#222222;">韩愈《师说》</a></h2>
+<article class="h-entry">
+    <h2 class="post-title p-name"><a href="/posts/%E9%9F%A9%E6%84%88%E5%B8%88%E8%AF%B4/" style="color:#222222;">韩愈《师说》</a></h2>
 
 
 <div class="post-info">
@@ -586,8 +586,7 @@
 <p>李氏子蟠，年十七，好古文，六艺经传皆通习之，不拘于时，学于余。余嘉其能行古道，作《师说》以贻之。</p></blockquote>
 <p>李家孩子名叫蟠的，今年十七岁，喜爱古文，六经的经文和传文都已广泛学习，不受当时（耻于从师）风气的拘束，向我求学。我赞许他能够遵行古人（从师）的正道，写了这篇《师说》来赠给他。</p>
 </div>
-</content>
-
+</article>
 <a class="u-url" href="https://www.glowisle.me/posts/%E9%9F%A9%E6%84%88%E5%B8%88%E8%AF%B4/" style="display:none;">Permalink</a>
 
 <p>
@@ -711,9 +710,39 @@
 <hr />
 <details>
     <summary>
-    <p style="display: inline">评论</p>
+    <p style="display: inline">评论 与 Webmentions</p>
     </summary>
     <div id="giscus-container"></div>
+<div id="webmentions"></div>
+<script src="/js/webmention.min.js"
+    data-id="webmentions"
+    data-page-url="https://www.glowisle.me/posts/%E9%9F%A9%E6%84%88%E5%B8%88%E8%AF%B4/"
+    data-max-webmentions="50"
+    data-wordcount="30"
+    data-sort-by="published"
+    data-sort-dir="up"
+    async>
+</script>
+
+
+
+<details class="wm-guide">
+    <summary>如何参与 Webmentions 互动？</summary>
+    <div class="wm-guide-content">
+        <p>本文支持 <a href="https://indieweb.org/Webmention" target="_blank">Webmention</a> 协议。您可以通过以下方式与我互动：</p>
+        <ol>
+            <li>
+                <strong>如果您有自己的网站</strong>：在您的网站发布文章，并包含指向本文的链接。然后，请您使用 <a href="https://webmention.io/" target="_blank">webmention.io</a> 等工具告知。
+           </li>
+            <li>
+                <strong>如果您没有个人网站</strong>：您也可以在 Twitter 或 Mastodon 上发布一条包含本文的永久链接的动态，并按照上述步骤操作。或者可以直接<a href="mailto:i@glowisle.me?subject=评论：%e9%9f%a9%e6%84%88%e3%80%8a%e5%b8%88%e8%af%b4%e3%80%8b">发送邮件</a>给我，我会将您的想法添加到评论区。
+            </li>
+        </ol>
+        <p>期待与您的交流！</p>
+    </div>
+</details>
+
+
 
 
     <script>
@@ -755,20 +784,8 @@ document.getElementById('giscus-container').appendChild(giscusScript);
 
 </script>
 
-<div id="webmentions"></div>
-<script src="/js/webmention.min.js"
-    data-id="webmentions"
-    data-page-url="https://www.glowisle.me/posts/%E9%9F%A9%E6%84%88%E5%B8%88%E8%AF%B4/"
-    data-max-webmentions="50"
-    data-wordcount="30"
-    data-sort-by="published"
-    data-sort-dir="up"
-    async>
-</script>
 
 
-<p>或发送<a href="mailto:i@glowisle.me?subject=%E9%9F%A9%E6%84%88%E3%80%8A%E5%B8%88%E8%AF%B4%E3%80%8B">邮件</a>评论。</p>
-</details>
 
 
   </main>

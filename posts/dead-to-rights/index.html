@@ -115,7 +115,7 @@
     color: #999;
   }
 
-  content .post-date::after {
+  article .post-date::after {
     content: "/";
   }
 
@@ -248,7 +248,7 @@
     font-size: 14px;
   }
 
-  content {
+  article {
     line-height: 1.6;
   }
 
@@ -562,8 +562,8 @@
 </header>
   <main> 
 
-<content class="h-entry">
-    <h2 class="post-title"><a href="/posts/dead-to-rights/" style="color:#222222;">不喊口号，不搞煽情：《南京照相馆》才是抗日题材该有的样子</a></h2>
+<article class="h-entry">
+    <h2 class="post-title p-name"><a href="/posts/dead-to-rights/" style="color:#222222;">不喊口号，不搞煽情：《南京照相馆》才是抗日题材该有的样子</a></h2>
 
 
 <div class="post-info">
@@ -628,8 +628,7 @@
 </div>
 
 </div>
-</content>
-
+</article>
 <a class="u-url" href="https://www.glowisle.me/posts/dead-to-rights/" style="display:none;">Permalink</a>
 
 <p>
@@ -847,9 +846,39 @@
 <hr />
 <details>
     <summary>
-    <p style="display: inline">评论</p>
+    <p style="display: inline">评论 与 Webmentions</p>
     </summary>
     <div id="giscus-container"></div>
+<div id="webmentions"></div>
+<script src="/js/webmention.min.js"
+    data-id="webmentions"
+    data-page-url="https://www.glowisle.me/posts/dead-to-rights/"
+    data-max-webmentions="50"
+    data-wordcount="30"
+    data-sort-by="published"
+    data-sort-dir="up"
+    async>
+</script>
+
+
+
+<details class="wm-guide">
+    <summary>如何参与 Webmentions 互动？</summary>
+    <div class="wm-guide-content">
+        <p>本文支持 <a href="https://indieweb.org/Webmention" target="_blank">Webmention</a> 协议。您可以通过以下方式与我互动：</p>
+        <ol>
+            <li>
+                <strong>如果您有自己的网站</strong>：在您的网站发布文章，并包含指向本文的链接。然后，请您使用 <a href="https://webmention.io/" target="_blank">webmention.io</a> 等工具告知。
+           </li>
+            <li>
+                <strong>如果您没有个人网站</strong>：您也可以在 Twitter 或 Mastodon 上发布一条包含本文的永久链接的动态，并按照上述步骤操作。或者可以直接<a href="mailto:i@glowisle.me?subject=评论：%e4%b8%8d%e5%96%8a%e5%8f%a3%e5%8f%b7%ef%bc%8c%e4%b8%8d%e6%90%9e%e7%85%bd%e6%83%85%ef%bc%9a%e3%80%8a%e5%8d%97%e4%ba%ac%e7%85%a7%e7%9b%b8%e9%a6%86%e3%80%8b%e6%89%8d%e6%98%af%e6%8a%97%e6%97%a5%e9%a2%98%e6%9d%90%e8%af%a5%e6%9c%89%e7%9a%84%e6%a0%b7%e5%ad%90">发送邮件</a>给我，我会将您的想法添加到评论区。
+            </li>
+        </ol>
+        <p>期待与您的交流！</p>
+    </div>
+</details>
+
+
 
 
     <script>
@@ -891,20 +920,8 @@ document.getElementById('giscus-container').appendChild(giscusScript);
 
 </script>
 
-<div id="webmentions"></div>
-<script src="/js/webmention.min.js"
-    data-id="webmentions"
-    data-page-url="https://www.glowisle.me/posts/dead-to-rights/"
-    data-max-webmentions="50"
-    data-wordcount="30"
-    data-sort-by="published"
-    data-sort-dir="up"
-    async>
-</script>
 
 
-<p>或发送<a href="mailto:i@glowisle.me?subject=%E4%B8%8D%E5%96%8A%E5%8F%A3%E5%8F%B7%EF%BC%8C%E4%B8%8D%E6%90%9E%E7%85%BD%E6%83%85%EF%BC%9A%E3%80%8A%E5%8D%97%E4%BA%AC%E7%85%A7%E7%9B%B8%E9%A6%86%E3%80%8B%E6%89%8D%E6%98%AF%E6%8A%97%E6%97%A5%E9%A2%98%E6%9D%90%E8%AF%A5%E6%9C%89%E7%9A%84%E6%A0%B7%E5%AD%90">邮件</a>评论。</p>
-</details>
 
 
   </main>
