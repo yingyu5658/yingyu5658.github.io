@@ -839,6 +839,7 @@
     try {
       const response = await fetch('https:\/\/upvote.glowisle.me\/upvote', {
         method: 'POST',
+		mode: 'cors',
         headers: {
           'Content-Type': 'application/json',
         },
@@ -1000,6 +1001,7 @@
     });
 </script>
 </div>
+
 <hr />
 <details>
     <summary>
@@ -1009,8 +1011,7 @@
 
 
     <script>
-     
-
+		
 
     function getInitialTheme() {
   
@@ -1039,16 +1040,16 @@ giscusScript.setAttribute('data-strict', '0');
 giscusScript.setAttribute('data-reactions-enabled', '1');
 giscusScript.setAttribute('data-emit-metadata', '0');
 giscusScript.setAttribute('data-input-position', 'bottom');
-giscusScript.setAttribute('data-theme', giscusTheme);
+giscusScript.setAttribute('data-theme', "light");
 giscusScript.setAttribute('data-lang', 'zh-CN');
 giscusScript.crossOrigin = 'anonymous';
 giscusScript.async = true;
 
 document.getElementById('giscus-container').appendChild(giscusScript);
+
 </script>
 <p>或发送<a href="mailto:i@glowisle.me?subject=4Key%E9%9F%B3%E6%B8%B8%E6%AE%B5%E4%BD%8D%E5%8D%95%E6%9B%B2%E6%88%90%E7%BB%A9%E8%AE%A1%E7%AE%97%E7%9A%84%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0">邮件</a>评论。</p>
 </details>
-
 
 
   </main>

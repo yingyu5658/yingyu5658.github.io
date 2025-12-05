@@ -707,6 +707,7 @@ Java中提供了一个关键字extends，用这个关键字，可以让一个类
     try {
       const response = await fetch('https:\/\/upvote.glowisle.me\/upvote', {
         method: 'POST',
+		mode: 'cors',
         headers: {
           'Content-Type': 'application/json',
         },
@@ -886,6 +887,7 @@ Java中提供了一个关键字extends，用这个关键字，可以让一个类
     });
 </script>
 </div>
+
 <hr />
 <details>
     <summary>
@@ -895,8 +897,7 @@ Java中提供了一个关键字extends，用这个关键字，可以让一个类
 
 
     <script>
-     
-
+		
 
     function getInitialTheme() {
   
@@ -925,16 +926,16 @@ giscusScript.setAttribute('data-strict', '0');
 giscusScript.setAttribute('data-reactions-enabled', '1');
 giscusScript.setAttribute('data-emit-metadata', '0');
 giscusScript.setAttribute('data-input-position', 'bottom');
-giscusScript.setAttribute('data-theme', giscusTheme);
+giscusScript.setAttribute('data-theme', "light");
 giscusScript.setAttribute('data-lang', 'zh-CN');
 giscusScript.crossOrigin = 'anonymous';
 giscusScript.async = true;
 
 document.getElementById('giscus-container').appendChild(giscusScript);
+
 </script>
 <p>或发送<a href="mailto:i@glowisle.me?subject=Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E2%80%94%E2%80%94%E7%BB%A7%E6%89%BF">邮件</a>评论。</p>
 </details>
-
 
 
   </main>

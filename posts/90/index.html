@@ -747,6 +747,7 @@ import org.w3c.dom.ls.LSOutput; import java.util.Scanner; public class Basic { p
     try {
       const response = await fetch('https:\/\/upvote.glowisle.me\/upvote', {
         method: 'POST',
+		mode: 'cors',
         headers: {
           'Content-Type': 'application/json',
         },
@@ -807,6 +808,7 @@ import org.w3c.dom.ls.LSOutput; import java.util.Scanner; public class Basic { p
  
 <div class="toc">
 </div>
+
 <hr />
 <details>
     <summary>
@@ -816,8 +818,7 @@ import org.w3c.dom.ls.LSOutput; import java.util.Scanner; public class Basic { p
 
 
     <script>
-     
-
+		
 
     function getInitialTheme() {
   
@@ -846,16 +847,16 @@ giscusScript.setAttribute('data-strict', '0');
 giscusScript.setAttribute('data-reactions-enabled', '1');
 giscusScript.setAttribute('data-emit-metadata', '0');
 giscusScript.setAttribute('data-input-position', 'bottom');
-giscusScript.setAttribute('data-theme', giscusTheme);
+giscusScript.setAttribute('data-theme', "light");
 giscusScript.setAttribute('data-lang', 'zh-CN');
 giscusScript.crossOrigin = 'anonymous';
 giscusScript.async = true;
 
 document.getElementById('giscus-container').appendChild(giscusScript);
+
 </script>
 <p>或发送<a href="mailto:i@glowisle.me?subject=Java%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%B9%8B%E4%B8%A4%E6%95%B0%E8%AE%A1%E7%AE%97%E5%99%A8">邮件</a>评论。</p>
 </details>
-
 
 
   </main>
