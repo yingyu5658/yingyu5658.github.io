@@ -531,6 +531,10 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 />
 <link href="https://github.com/yingyu5658" rel="me" />
+<link
+  rel="webmention"
+  href="https://webmention.io/www.glowisle.me/webmention"
+/>
 </head>
 
 <body>
@@ -555,12 +559,12 @@
 </header>
   <main> 
 
-<content>
+<content class="h-entry">
     <h2 class="post-title"><a href="/posts/set-up-newsgroup/" style="color:#222222;">在2025年，搭建新闻组</a></h2>
 
 
 <div class="post-info">
-    <time class="post-date" datetime="2025-07-26T12:05:39&#43;08:00">
+    <time class="post-date dt-published" datetime="2025-07-26T12:05:39&#43;08:00">
         2025年7月26日
     </time>
         
@@ -568,7 +572,7 @@
             <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-link">技术</a>
         
 </div>
-
+<div class="e-content">
     <h2 id="介绍">介绍</h2>
 <p>新闻组(英文名Usenet或NewsGroup)，简单地说就是一个基于网络的计算机组合，这些计算机被称为新闻服务器，不同的用户通过一些软件可连接到新闻服务器上，阅读其他人的消息并可以参与讨论。新闻组是一个完全交互式的超级电子论坛，是任何一个网络用户都能进行相互交流的工具。现在已经没落，1990年前后是新闻组的鼎盛时期。很可惜，我晚了20年。</p>
 <p>新闻组基于古老的NNTP协议，又名Usenet，类似一个巨大的论坛，用户可以在不同的组中发表内容，其他用户也可以回复内容，一切基于Email。</p>
@@ -643,7 +647,10 @@ Sat Jul 26 12:28:48 2025 newsd[38895]: -- end config summary --
 <li>inn 文档（英文）：<a href="https://www.eyrie.org/~eagle/software/inn/">https://www.eyrie.org/~eagle/software/inn/</a></li>
 </ul>
 
+</div>
 </content>
+
+<a class="u-url" href="https://www.glowisle.me/posts/set-up-newsgroup/" style="display:none;">Permalink</a>
 
 <p>
     
@@ -902,7 +909,7 @@ giscusScript.setAttribute('data-strict', '0');
 giscusScript.setAttribute('data-reactions-enabled', '1');
 giscusScript.setAttribute('data-emit-metadata', '0');
 giscusScript.setAttribute('data-input-position', 'bottom');
-giscusScript.setAttribute('data-theme', "light");
+giscusScript.setAttribute('data-theme', giscusTheme);
 giscusScript.setAttribute('data-lang', 'zh-CN');
 giscusScript.crossOrigin = 'anonymous';
 giscusScript.async = true;
@@ -910,6 +917,19 @@ giscusScript.async = true;
 document.getElementById('giscus-container').appendChild(giscusScript);
 
 </script>
+
+<div id="webmentions"></div>
+<script src="/js/webmention.min.js"
+    data-id="webmentions"
+    data-page-url="https://www.glowisle.me/posts/set-up-newsgroup/"
+    data-max-webmentions="50"
+    data-wordcount="30"
+    data-sort-by="published"
+    data-sort-dir="up"
+    async>
+</script>
+
+
 <p>或发送<a href="mailto:i@glowisle.me?subject=%E5%9C%A82025%E5%B9%B4%EF%BC%8C%E6%90%AD%E5%BB%BA%E6%96%B0%E9%97%BB%E7%BB%84">邮件</a>评论。</p>
 </details>
 

@@ -550,6 +550,10 @@ const date = new Date(); const year = date.getFullYear(); const month = date.get
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 />
 <link href="https://github.com/yingyu5658" rel="me" />
+<link
+  rel="webmention"
+  href="https://webmention.io/www.glowisle.me/webmention"
+/>
 </head>
 
 <body>
@@ -574,12 +578,12 @@ const date = new Date(); const year = date.getFullYear(); const month = date.get
 </header>
   <main> 
 
-<content>
+<content class="h-entry">
     <h2 class="post-title"><a href="/posts/nodejs%E7%8E%AF%E5%A2%83%E4%B8%8B%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%8B%BC%E6%8E%A5%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%87%BA%E6%9C%89undefind/" style="color:#222222;">Nodejs环境下控制台拼接字符串输出有undefind</a></h2>
 
 
 <div class="post-info">
-    <time class="post-date" datetime="2025-03-22T18:56:33Z">
+    <time class="post-date dt-published" datetime="2025-03-22T18:56:33Z">
         2025年3月22日
     </time>
         
@@ -587,7 +591,7 @@ const date = new Date(); const year = date.getFullYear(); const month = date.get
             <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-link">技术</a>
         
 </div>
-
+<div class="e-content">
     <p>今天在Nodejs环境下搓小工具，控制台输出拼接字符串时，发现有<code>undefind</code>，代码如下：</p>
 <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">date</span> <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">Date</span>();
 </span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">year</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">date</span>.<span style="color:#e06c75">getFullYear</span>();
@@ -623,7 +627,10 @@ Javascript中，如果方法没有返回值，那么输出的就是<code>undefin
 <p>为什么 console.log() 本身会返回 undefined？
 在 REPL 环境（如 Node.js 命令行或浏览器控制台）中，每条语句的执行结果会被隐式打印。由于 console.log() 函数本身没有返回值（即返回 undefined），因此会显示 undefined。但在脚本执行时，这一行为不会发生，因为脚本模式不自动打印返回值</p>
 
+</div>
 </content>
+
+<a class="u-url" href="https://www.glowisle.me/posts/nodejs%E7%8E%AF%E5%A2%83%E4%B8%8B%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%8B%BC%E6%8E%A5%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%87%BA%E6%9C%89undefind/" style="display:none;">Permalink</a>
 
 <p>
     
@@ -878,7 +885,7 @@ giscusScript.setAttribute('data-strict', '0');
 giscusScript.setAttribute('data-reactions-enabled', '1');
 giscusScript.setAttribute('data-emit-metadata', '0');
 giscusScript.setAttribute('data-input-position', 'bottom');
-giscusScript.setAttribute('data-theme', "light");
+giscusScript.setAttribute('data-theme', giscusTheme);
 giscusScript.setAttribute('data-lang', 'zh-CN');
 giscusScript.crossOrigin = 'anonymous';
 giscusScript.async = true;
@@ -886,6 +893,19 @@ giscusScript.async = true;
 document.getElementById('giscus-container').appendChild(giscusScript);
 
 </script>
+
+<div id="webmentions"></div>
+<script src="/js/webmention.min.js"
+    data-id="webmentions"
+    data-page-url="https://www.glowisle.me/posts/nodejs%E7%8E%AF%E5%A2%83%E4%B8%8B%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%8B%BC%E6%8E%A5%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%87%BA%E6%9C%89undefind/"
+    data-max-webmentions="50"
+    data-wordcount="30"
+    data-sort-by="published"
+    data-sort-dir="up"
+    async>
+</script>
+
+
 <p>或发送<a href="mailto:i@glowisle.me?subject=Nodejs%E7%8E%AF%E5%A2%83%E4%B8%8B%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%8B%BC%E6%8E%A5%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%87%BA%E6%9C%89undefind">邮件</a>评论。</p>
 </details>
 

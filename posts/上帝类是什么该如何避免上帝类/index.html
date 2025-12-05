@@ -530,6 +530,10 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 />
 <link href="https://github.com/yingyu5658" rel="me" />
+<link
+  rel="webmention"
+  href="https://webmention.io/www.glowisle.me/webmention"
+/>
 </head>
 
 <body>
@@ -554,12 +558,12 @@
 </header>
   <main> 
 
-<content>
+<content class="h-entry">
     <h2 class="post-title"><a href="/posts/%E4%B8%8A%E5%B8%9D%E7%B1%BB%E6%98%AF%E4%BB%80%E4%B9%88%E8%AF%A5%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E4%B8%8A%E5%B8%9D%E7%B1%BB/" style="color:#222222;">上帝类是什么？该如何避免上帝类？</a></h2>
 
 
 <div class="post-info">
-    <time class="post-date" datetime="2025-03-30T10:47:35Z">
+    <time class="post-date dt-published" datetime="2025-03-30T10:47:35Z">
         2025年3月30日
     </time>
         
@@ -567,7 +571,7 @@
             <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-link">技术</a>
         
 </div>
-
+<div class="e-content">
     <h2 id="什么是上帝类">什么是上帝类</h2>
 <p>所谓的上帝类，就是指<strong>一个类承担了过多的职能</strong>，变得过于<strong>臃肿</strong>和<strong>复杂</strong>、<strong>难以维护</strong>。没有遵守单一职责原则。像上帝一样什么都能干，每个功能高度耦合，牵一发而动全身，不利于业务的拓展。</p>
 <h2 id="上帝类是如何产生的">上帝类是如何产生的</h2>
@@ -588,7 +592,10 @@
 <h2 id="如何避免上帝类">如何避免上帝类</h2>
 <p>所以，要如何避免上帝类，这个问题的答案已经显而易见了。和上一段相反着做即可。遵守单一职责原则。规划好代码架构。比如，要处理一个压缩包解析和数据展示功能，首先就要拆分职责为不同的类。类中再去写相对应的函数。我们可以把这个功能拆分为解压、读取、展示信息三个类，类中分别编写相应的代码，这样就能做到避免上帝类的产生，从而提高代码的可维护性和可拓展性。</p>
 
+</div>
 </content>
+
+<a class="u-url" href="https://www.glowisle.me/posts/%E4%B8%8A%E5%B8%9D%E7%B1%BB%E6%98%AF%E4%BB%80%E4%B9%88%E8%AF%A5%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E4%B8%8A%E5%B8%9D%E7%B1%BB/" style="display:none;">Permalink</a>
 
 <p>
     
@@ -841,7 +848,7 @@ giscusScript.setAttribute('data-strict', '0');
 giscusScript.setAttribute('data-reactions-enabled', '1');
 giscusScript.setAttribute('data-emit-metadata', '0');
 giscusScript.setAttribute('data-input-position', 'bottom');
-giscusScript.setAttribute('data-theme', "light");
+giscusScript.setAttribute('data-theme', giscusTheme);
 giscusScript.setAttribute('data-lang', 'zh-CN');
 giscusScript.crossOrigin = 'anonymous';
 giscusScript.async = true;
@@ -849,6 +856,19 @@ giscusScript.async = true;
 document.getElementById('giscus-container').appendChild(giscusScript);
 
 </script>
+
+<div id="webmentions"></div>
+<script src="/js/webmention.min.js"
+    data-id="webmentions"
+    data-page-url="https://www.glowisle.me/posts/%E4%B8%8A%E5%B8%9D%E7%B1%BB%E6%98%AF%E4%BB%80%E4%B9%88%E8%AF%A5%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E4%B8%8A%E5%B8%9D%E7%B1%BB/"
+    data-max-webmentions="50"
+    data-wordcount="30"
+    data-sort-by="published"
+    data-sort-dir="up"
+    async>
+</script>
+
+
 <p>或发送<a href="mailto:i@glowisle.me?subject=%E4%B8%8A%E5%B8%9D%E7%B1%BB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E8%AF%A5%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E4%B8%8A%E5%B8%9D%E7%B1%BB%EF%BC%9F">邮件</a>评论。</p>
 </details>
 

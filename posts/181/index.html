@@ -538,6 +538,10 @@ java -Dfile.encoding=UTF-8 -jar spigot-1.21.jar
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 />
 <link href="https://github.com/yingyu5658" rel="me" />
+<link
+  rel="webmention"
+  href="https://webmention.io/www.glowisle.me/webmention"
+/>
 </head>
 
 <body>
@@ -562,12 +566,12 @@ java -Dfile.encoding=UTF-8 -jar spigot-1.21.jar
 </header>
   <main> 
 
-<content>
+<content class="h-entry">
     <h2 class="post-title"><a href="/posts/181/" style="color:#222222;">Spigot服务端控制台中文乱码解决方案</a></h2>
 
 
 <div class="post-info">
-    <time class="post-date" datetime="2025-01-04T08:35:00Z">
+    <time class="post-date dt-published" datetime="2025-01-04T08:35:00Z">
         2025年1月4日
     </time>
         
@@ -575,7 +579,7 @@ java -Dfile.encoding=UTF-8 -jar spigot-1.21.jar
             <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-link">技术</a>
         
 </div>
-
+<div class="e-content">
     <ol>
 <li>把<code>-Dfile.encoding=UTF-8</code>加在开服脚本文件的<code>-jar</code>前即可。</li>
 <li>在启动脚本第一行加上<code>chcp 65001</code>
@@ -584,7 +588,10 @@ java -Dfile.encoding=UTF-8 -jar spigot-1.21.jar
 <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>chcp <span style="color:#d19a66">65001</span>
 </span></span><span style="display:flex;"><span>java -Dfile.encoding<span style="color:#56b6c2">=</span>UTF-8 -jar spigot-1.21.jar
 </span></span></code></pre></div>
+</div>
 </content>
+
+<a class="u-url" href="https://www.glowisle.me/posts/181/" style="display:none;">Permalink</a>
 
 <p>
     
@@ -744,7 +751,7 @@ giscusScript.setAttribute('data-strict', '0');
 giscusScript.setAttribute('data-reactions-enabled', '1');
 giscusScript.setAttribute('data-emit-metadata', '0');
 giscusScript.setAttribute('data-input-position', 'bottom');
-giscusScript.setAttribute('data-theme', "light");
+giscusScript.setAttribute('data-theme', giscusTheme);
 giscusScript.setAttribute('data-lang', 'zh-CN');
 giscusScript.crossOrigin = 'anonymous';
 giscusScript.async = true;
@@ -752,6 +759,19 @@ giscusScript.async = true;
 document.getElementById('giscus-container').appendChild(giscusScript);
 
 </script>
+
+<div id="webmentions"></div>
+<script src="/js/webmention.min.js"
+    data-id="webmentions"
+    data-page-url="https://www.glowisle.me/posts/181/"
+    data-max-webmentions="50"
+    data-wordcount="30"
+    data-sort-by="published"
+    data-sort-dir="up"
+    async>
+</script>
+
+
 <p>或发送<a href="mailto:i@glowisle.me?subject=Spigot%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%8E%A7%E5%88%B6%E5%8F%B0%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88">邮件</a>评论。</p>
 </details>
 

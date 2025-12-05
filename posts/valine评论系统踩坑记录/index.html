@@ -529,6 +529,10 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 />
 <link href="https://github.com/yingyu5658" rel="me" />
+<link
+  rel="webmention"
+  href="https://webmention.io/www.glowisle.me/webmention"
+/>
 </head>
 
 <body>
@@ -553,12 +557,12 @@
 </header>
   <main> 
 
-<content>
+<content class="h-entry">
     <h2 class="post-title"><a href="/posts/valine%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/" style="color:#222222;">Valine评论系统踩坑记录</a></h2>
 
 
 <div class="post-info">
-    <time class="post-date" datetime="2025-04-23T21:54:03Z">
+    <time class="post-date dt-published" datetime="2025-04-23T21:54:03Z">
         2025年4月23日
     </time>
         
@@ -566,7 +570,7 @@
             <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-link">技术</a>
         
 </div>
-
+<div class="e-content">
     <p>我个人很早以前就惦记着换上这个评论系统，曾经使用Butterfly主题的时候就有折腾过Valine，当时是浏览器缓存策略和CORS跨域拦截的问题。网上能找到的教程都比较老，几年以前的情况不再适用于现在了，所以现在去折腾的话，大概率要踩非常多的坑。本文主要讲述我个人踩到的坑和解决方法。</p>
 <p>本文内容是我自己试错出来的，不要问为什么要这么做，我也不清楚，但是这么做可以正常使用！</p>
 <p>首先你要有一个自己的域名，不要用.github.io。LeanCloud中设置-域名绑定-API访问域名要绑定你自己的二级域。</p>
@@ -581,7 +585,10 @@
 </span></span></code></pre></div><p>一定要加协议头，否则将会在你的博客域名下构建请求，比如我的<code>www.yingyu5658.me/comment.yingyu5658.me/</code>，这将导致报错。即使你使用国际版也要填写这一项！Leancloud请求不到。</p>
 <p>现在Valine的教程都有过时，遇到问题还需结合具体情况分析。我看LeanCloud的各种API结构变更还挺多的，太久远的教程就不建议看了。</p>
 
+</div>
 </content>
+
+<a class="u-url" href="https://www.glowisle.me/posts/valine%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/" style="display:none;">Permalink</a>
 
 <p>
     
@@ -737,7 +744,7 @@ giscusScript.setAttribute('data-strict', '0');
 giscusScript.setAttribute('data-reactions-enabled', '1');
 giscusScript.setAttribute('data-emit-metadata', '0');
 giscusScript.setAttribute('data-input-position', 'bottom');
-giscusScript.setAttribute('data-theme', "light");
+giscusScript.setAttribute('data-theme', giscusTheme);
 giscusScript.setAttribute('data-lang', 'zh-CN');
 giscusScript.crossOrigin = 'anonymous';
 giscusScript.async = true;
@@ -745,6 +752,19 @@ giscusScript.async = true;
 document.getElementById('giscus-container').appendChild(giscusScript);
 
 </script>
+
+<div id="webmentions"></div>
+<script src="/js/webmention.min.js"
+    data-id="webmentions"
+    data-page-url="https://www.glowisle.me/posts/valine%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/"
+    data-max-webmentions="50"
+    data-wordcount="30"
+    data-sort-by="published"
+    data-sort-dir="up"
+    async>
+</script>
+
+
 <p>或发送<a href="mailto:i@glowisle.me?subject=Valine%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95">邮件</a>评论。</p>
 </details>
 

@@ -540,6 +540,10 @@ Java中提供了一个关键字extends，用这个关键字，可以让一个类
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 />
 <link href="https://github.com/yingyu5658" rel="me" />
+<link
+  rel="webmention"
+  href="https://webmention.io/www.glowisle.me/webmention"
+/>
 </head>
 
 <body>
@@ -564,12 +568,12 @@ Java中提供了一个关键字extends，用这个关键字，可以让一个类
 </header>
   <main> 
 
-<content>
+<content class="h-entry">
     <h2 class="post-title"><a href="/posts/185/" style="color:#222222;">Java面向对象编程——继承</a></h2>
 
 
 <div class="post-info">
-    <time class="post-date" datetime="2025-01-10T13:19:11Z">
+    <time class="post-date dt-published" datetime="2025-01-10T13:19:11Z">
         2025年1月10日
     </time>
         
@@ -577,7 +581,7 @@ Java中提供了一个关键字extends，用这个关键字，可以让一个类
             <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-link">技术</a>
         
 </div>
-
+<div class="e-content">
     <h2 id="什么是继承">什么是继承</h2>
 <ul>
 <li>Java中提供了一个关键字<code>extends</code>，用这个关键字，可以让一个类和另一个类建立起父子关系。</li>
@@ -695,7 +699,10 @@ Java中提供了一个关键字extends，用这个关键字，可以让一个类
 <li>默认情况下，子类全部构造器的第一行代码是<code>super();</code>（写不写都有），他会调用父类的无参数构造器。</li>
 <li>如果父类没有无参数构造器，我们必须在子类构造器的第一行手写<code>super();</code>，指定去调用父类的构造器。</li>
 </ul>
+</div>
 </content>
+
+<a class="u-url" href="https://www.glowisle.me/posts/185/" style="display:none;">Permalink</a>
 
 <p>
     
@@ -970,7 +977,7 @@ giscusScript.setAttribute('data-strict', '0');
 giscusScript.setAttribute('data-reactions-enabled', '1');
 giscusScript.setAttribute('data-emit-metadata', '0');
 giscusScript.setAttribute('data-input-position', 'bottom');
-giscusScript.setAttribute('data-theme', "light");
+giscusScript.setAttribute('data-theme', giscusTheme);
 giscusScript.setAttribute('data-lang', 'zh-CN');
 giscusScript.crossOrigin = 'anonymous';
 giscusScript.async = true;
@@ -978,6 +985,19 @@ giscusScript.async = true;
 document.getElementById('giscus-container').appendChild(giscusScript);
 
 </script>
+
+<div id="webmentions"></div>
+<script src="/js/webmention.min.js"
+    data-id="webmentions"
+    data-page-url="https://www.glowisle.me/posts/185/"
+    data-max-webmentions="50"
+    data-wordcount="30"
+    data-sort-by="published"
+    data-sort-dir="up"
+    async>
+</script>
+
+
 <p>或发送<a href="mailto:i@glowisle.me?subject=Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E2%80%94%E2%80%94%E7%BB%A7%E6%89%BF">邮件</a>评论。</p>
 </details>
 

@@ -534,6 +534,10 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 />
 <link href="https://github.com/yingyu5658" rel="me" />
+<link
+  rel="webmention"
+  href="https://webmention.io/www.glowisle.me/webmention"
+/>
 </head>
 
 <body>
@@ -558,12 +562,12 @@
 </header>
   <main> 
 
-<content>
+<content class="h-entry">
     <h2 class="post-title"><a href="/posts/x86-64%E6%B1%87%E7%BC%96%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="color:#222222;">x86-64汇编学习笔记</a></h2>
 
 
 <div class="post-info">
-    <time class="post-date" datetime="2025-04-29T13:44:13Z">
+    <time class="post-date dt-published" datetime="2025-04-29T13:44:13Z">
         2025年4月29日
     </time>
         
@@ -571,7 +575,7 @@
             <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-link">技术</a>
         
 </div>
-
+<div class="e-content">
     <h2 id="机器指令和机器语言">机器指令和机器语言</h2>
 <p>机器指令，二进制数字，机器语言全局机器指令的集合，CPU通过执行一系列的机器指令完成计算工作。</p>
 <p>汇编语言就是为了代替机器指令，使人类能够更加简单地编写程序而诞生的。汇编语言就是机器码的助记符。</p>
@@ -683,7 +687,10 @@
 <pre tabindex="0"><code>MOV RAX, RCX
 </code></pre><p>意思是，把RCX寄存器的值赋值给RAX</p>
 
+</div>
 </content>
+
+<a class="u-url" href="https://www.glowisle.me/posts/x86-64%E6%B1%87%E7%BC%96%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="display:none;">Permalink</a>
 
 <p>
     
@@ -950,7 +957,7 @@ giscusScript.setAttribute('data-strict', '0');
 giscusScript.setAttribute('data-reactions-enabled', '1');
 giscusScript.setAttribute('data-emit-metadata', '0');
 giscusScript.setAttribute('data-input-position', 'bottom');
-giscusScript.setAttribute('data-theme', "light");
+giscusScript.setAttribute('data-theme', giscusTheme);
 giscusScript.setAttribute('data-lang', 'zh-CN');
 giscusScript.crossOrigin = 'anonymous';
 giscusScript.async = true;
@@ -958,6 +965,19 @@ giscusScript.async = true;
 document.getElementById('giscus-container').appendChild(giscusScript);
 
 </script>
+
+<div id="webmentions"></div>
+<script src="/js/webmention.min.js"
+    data-id="webmentions"
+    data-page-url="https://www.glowisle.me/posts/x86-64%E6%B1%87%E7%BC%96%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+    data-max-webmentions="50"
+    data-wordcount="30"
+    data-sort-by="published"
+    data-sort-dir="up"
+    async>
+</script>
+
+
 <p>或发送<a href="mailto:i@glowisle.me?subject=x86-64%E6%B1%87%E7%BC%96%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">邮件</a>评论。</p>
 </details>
 

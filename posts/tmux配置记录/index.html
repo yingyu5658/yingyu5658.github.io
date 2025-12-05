@@ -538,6 +538,10 @@ tmux 所以我选择在~/.bashrc里加上这句，每次打开终端都会自动
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 />
 <link href="https://github.com/yingyu5658" rel="me" />
+<link
+  rel="webmention"
+  href="https://webmention.io/www.glowisle.me/webmention"
+/>
 </head>
 
 <body>
@@ -562,12 +566,12 @@ tmux 所以我选择在~/.bashrc里加上这句，每次打开终端都会自动
 </header>
   <main> 
 
-<content>
+<content class="h-entry">
     <h2 class="post-title"><a href="/posts/tmux%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/" style="color:#222222;">Tmux配置记录</a></h2>
 
 
 <div class="post-info">
-    <time class="post-date" datetime="2025-06-21T14:19:36Z">
+    <time class="post-date dt-published" datetime="2025-06-21T14:19:36Z">
         2025年6月21日
     </time>
         
@@ -575,7 +579,7 @@ tmux 所以我选择在~/.bashrc里加上这句，每次打开终端都会自动
             <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-link">技术</a>
         
 </div>
-
+<div class="e-content">
     <p>TMux 是终端复用神器，让你在一个终端窗口管理多个会话、窗口和窗格。</p>
 <p>基础操作：启动Tmux</p>
 <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>tmux
@@ -701,7 +705,10 @@ bind -n C-Right resize-pane -R 5  # Ctrl+→：向右扩大窗格 5 单位
                 ||----w |
                 ||     ||
 </code></pre>
+</div>
 </content>
+
+<a class="u-url" href="https://www.glowisle.me/posts/tmux%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/" style="display:none;">Permalink</a>
 
 <p>
     
@@ -857,7 +864,7 @@ giscusScript.setAttribute('data-strict', '0');
 giscusScript.setAttribute('data-reactions-enabled', '1');
 giscusScript.setAttribute('data-emit-metadata', '0');
 giscusScript.setAttribute('data-input-position', 'bottom');
-giscusScript.setAttribute('data-theme', "light");
+giscusScript.setAttribute('data-theme', giscusTheme);
 giscusScript.setAttribute('data-lang', 'zh-CN');
 giscusScript.crossOrigin = 'anonymous';
 giscusScript.async = true;
@@ -865,6 +872,19 @@ giscusScript.async = true;
 document.getElementById('giscus-container').appendChild(giscusScript);
 
 </script>
+
+<div id="webmentions"></div>
+<script src="/js/webmention.min.js"
+    data-id="webmentions"
+    data-page-url="https://www.glowisle.me/posts/tmux%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"
+    data-max-webmentions="50"
+    data-wordcount="30"
+    data-sort-by="published"
+    data-sort-dir="up"
+    async>
+</script>
+
+
 <p>或发送<a href="mailto:i@glowisle.me?subject=Tmux%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95">邮件</a>评论。</p>
 </details>
 

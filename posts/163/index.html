@@ -539,6 +539,10 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 />
 <link href="https://github.com/yingyu5658" rel="me" />
+<link
+  rel="webmention"
+  href="https://webmention.io/www.glowisle.me/webmention"
+/>
 </head>
 
 <body>
@@ -563,12 +567,12 @@
 </header>
   <main> 
 
-<content>
+<content class="h-entry">
     <h2 class="post-title"><a href="/posts/163/" style="color:#222222;">记录配置SSL证书</a></h2>
 
 
 <div class="post-info">
-    <time class="post-date" datetime="2024-12-17T11:46:07Z">
+    <time class="post-date dt-published" datetime="2024-12-17T11:46:07Z">
         2024年12月17日
     </time>
         
@@ -576,7 +580,7 @@
             <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-link">技术</a>
         
 </div>
-
+<div class="e-content">
     <p>首先你要有一个SSL证书，建议在阿里云购买或者<a href="https://developer.aliyun.com/article/1595201">免费申请</a>，具体过程阿里云这个页面讲的很详细，在此不过多赘述。</p>
 <h1 id="配置证书">配置证书</h1>
 <p>由于我的nginx安装了ssl模块，直接进入配置证书。</p>
@@ -672,7 +676,10 @@ http {
 </code></pre><h1 id="重新加载nginx">重新加载Nginx</h1>
 <p><code>sudo systemctl reload nginx</code></p>
 
+</div>
 </content>
+
+<a class="u-url" href="https://www.glowisle.me/posts/163/" style="display:none;">Permalink</a>
 
 <p>
     
@@ -828,7 +835,7 @@ giscusScript.setAttribute('data-strict', '0');
 giscusScript.setAttribute('data-reactions-enabled', '1');
 giscusScript.setAttribute('data-emit-metadata', '0');
 giscusScript.setAttribute('data-input-position', 'bottom');
-giscusScript.setAttribute('data-theme', "light");
+giscusScript.setAttribute('data-theme', giscusTheme);
 giscusScript.setAttribute('data-lang', 'zh-CN');
 giscusScript.crossOrigin = 'anonymous';
 giscusScript.async = true;
@@ -836,6 +843,19 @@ giscusScript.async = true;
 document.getElementById('giscus-container').appendChild(giscusScript);
 
 </script>
+
+<div id="webmentions"></div>
+<script src="/js/webmention.min.js"
+    data-id="webmentions"
+    data-page-url="https://www.glowisle.me/posts/163/"
+    data-max-webmentions="50"
+    data-wordcount="30"
+    data-sort-by="published"
+    data-sort-dir="up"
+    async>
+</script>
+
+
 <p>或发送<a href="mailto:i@glowisle.me?subject=%E8%AE%B0%E5%BD%95%E9%85%8D%E7%BD%AESSL%E8%AF%81%E4%B9%A6">邮件</a>评论。</p>
 </details>
 

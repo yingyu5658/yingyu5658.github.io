@@ -547,6 +547,10 @@ node:internal/modules/cjs/loader:1411 Uncaught Error: Cannot find module &#39;./
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 />
 <link href="https://github.com/yingyu5658" rel="me" />
+<link
+  rel="webmention"
+  href="https://webmention.io/www.glowisle.me/webmention"
+/>
 </head>
 
 <body>
@@ -571,12 +575,12 @@ node:internal/modules/cjs/loader:1411 Uncaught Error: Cannot find module &#39;./
 </header>
   <main> 
 
-<content>
+<content class="h-entry">
     <h2 class="post-title"><a href="/posts/electron-commonjs-require%E8%B8%A9%E5%9D%91/" style="color:#222222;">Electron CommonJS require踩坑</a></h2>
 
 
 <div class="post-info">
-    <time class="post-date" datetime="2025-05-31T09:07:36&#43;08:00">
+    <time class="post-date dt-published" datetime="2025-05-31T09:07:36&#43;08:00">
         2025年5月31日
     </time>
         
@@ -584,7 +588,7 @@ node:internal/modules/cjs/loader:1411 Uncaught Error: Cannot find module &#39;./
             <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-link">技术</a>
         
 </div>
-
+<div class="e-content">
     <p>最近在开发一个Electron项目，在导入类的时候有以下报错:</p>
 <pre tabindex="0"><code>node:internal/modules/cjs/loader:1411 Uncaught Error: Cannot find module &#39;./File&#39;
 Require stack:
@@ -620,7 +624,10 @@ Require stack:
 <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">File</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">require</span>(<span style="color:#e06c75">path</span>.<span style="color:#e06c75">join</span>(<span style="color:#e06c75">__dirname</span>, <span style="color:#98c379">&#34;../js/File.js&#34;</span>));
 </span></span></code></pre></div><p>经过测试，只能用这种方法导入，太怪了</p>
 
+</div>
 </content>
+
+<a class="u-url" href="https://www.glowisle.me/posts/electron-commonjs-require%E8%B8%A9%E5%9D%91/" style="display:none;">Permalink</a>
 
 <p>
     
@@ -871,7 +878,7 @@ giscusScript.setAttribute('data-strict', '0');
 giscusScript.setAttribute('data-reactions-enabled', '1');
 giscusScript.setAttribute('data-emit-metadata', '0');
 giscusScript.setAttribute('data-input-position', 'bottom');
-giscusScript.setAttribute('data-theme', "light");
+giscusScript.setAttribute('data-theme', giscusTheme);
 giscusScript.setAttribute('data-lang', 'zh-CN');
 giscusScript.crossOrigin = 'anonymous';
 giscusScript.async = true;
@@ -879,6 +886,19 @@ giscusScript.async = true;
 document.getElementById('giscus-container').appendChild(giscusScript);
 
 </script>
+
+<div id="webmentions"></div>
+<script src="/js/webmention.min.js"
+    data-id="webmentions"
+    data-page-url="https://www.glowisle.me/posts/electron-commonjs-require%E8%B8%A9%E5%9D%91/"
+    data-max-webmentions="50"
+    data-wordcount="30"
+    data-sort-by="published"
+    data-sort-dir="up"
+    async>
+</script>
+
+
 <p>或发送<a href="mailto:i@glowisle.me?subject=Electron&#43;CommonJS&#43;require%E8%B8%A9%E5%9D%91">邮件</a>评论。</p>
 </details>
 

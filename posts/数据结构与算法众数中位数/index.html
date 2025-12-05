@@ -538,6 +538,10 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 />
 <link href="https://github.com/yingyu5658" rel="me" />
+<link
+  rel="webmention"
+  href="https://webmention.io/www.glowisle.me/webmention"
+/>
 </head>
 
 <body>
@@ -562,12 +566,12 @@
 </header>
   <main> 
 
-<content>
+<content class="h-entry">
     <h2 class="post-title"><a href="/posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%BC%97%E6%95%B0%E4%B8%AD%E4%BD%8D%E6%95%B0/" style="color:#222222;">【数据结构与算法】众数、中位数</a></h2>
 
 
 <div class="post-info">
-    <time class="post-date" datetime="2025-05-27T19:41:53Z">
+    <time class="post-date dt-published" datetime="2025-05-27T19:41:53Z">
         2025年5月27日
     </time>
         
@@ -575,7 +579,7 @@
             <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-link">技术</a>
         
 </div>
-
+<div class="e-content">
     <p>今天学这个东西的时候，看到这种线性的数据结构加上排序步骤，很难不想写个程序来跑跑。</p>
 <p>先来说说中位数，这个比较有思路。</p>
 <h2 id="中位数">中位数</h2>
@@ -677,7 +681,10 @@
 </span></span></code></pre></div><pre tabindex="0"><code>result = 4
 </code></pre><p><del>这个办法实在是有点蠢，找时间仔细学学哈希表，应该能更快。</del></p>
 
+</div>
 </content>
+
+<a class="u-url" href="https://www.glowisle.me/posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%BC%97%E6%95%B0%E4%B8%AD%E4%BD%8D%E6%95%B0/" style="display:none;">Permalink</a>
 
 <p>
     
@@ -927,7 +934,7 @@ giscusScript.setAttribute('data-strict', '0');
 giscusScript.setAttribute('data-reactions-enabled', '1');
 giscusScript.setAttribute('data-emit-metadata', '0');
 giscusScript.setAttribute('data-input-position', 'bottom');
-giscusScript.setAttribute('data-theme', "light");
+giscusScript.setAttribute('data-theme', giscusTheme);
 giscusScript.setAttribute('data-lang', 'zh-CN');
 giscusScript.crossOrigin = 'anonymous';
 giscusScript.async = true;
@@ -935,6 +942,19 @@ giscusScript.async = true;
 document.getElementById('giscus-container').appendChild(giscusScript);
 
 </script>
+
+<div id="webmentions"></div>
+<script src="/js/webmention.min.js"
+    data-id="webmentions"
+    data-page-url="https://www.glowisle.me/posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%BC%97%E6%95%B0%E4%B8%AD%E4%BD%8D%E6%95%B0/"
+    data-max-webmentions="50"
+    data-wordcount="30"
+    data-sort-by="published"
+    data-sort-dir="up"
+    async>
+</script>
+
+
 <p>或发送<a href="mailto:i@glowisle.me?subject=%E3%80%90%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E3%80%91%E4%BC%97%E6%95%B0%E3%80%81%E4%B8%AD%E4%BD%8D%E6%95%B0">邮件</a>评论。</p>
 </details>
 

@@ -540,6 +540,10 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 />
 <link href="https://github.com/yingyu5658" rel="me" />
+<link
+  rel="webmention"
+  href="https://webmention.io/www.glowisle.me/webmention"
+/>
 </head>
 
 <body>
@@ -564,12 +568,12 @@
 </header>
   <main> 
 
-<content>
+<content class="h-entry">
     <h2 class="post-title"><a href="/posts/186/" style="color:#222222;">Java面向对象编程——多态、抽象类、接口</a></h2>
 
 
 <div class="post-info">
-    <time class="post-date" datetime="2025-01-10T15:05:00Z">
+    <time class="post-date dt-published" datetime="2025-01-10T15:05:00Z">
         2025年1月10日
     </time>
         
@@ -577,7 +581,7 @@
             <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-link">技术</a>
         
 </div>
-
+<div class="e-content">
     <h2 id="什么是多态">什么是多态</h2>
 <ul>
 <li>在继承/实现情况下的一种现象，表现为：对象多态、行为多态。</li>
@@ -658,7 +662,10 @@
 <li>注意：接口不能创建对象；接口是用来被类实现（implements）的，实现接口的类被称为实现类。</li>
 <li>一个类可以实现多个接口，实现类实现多个接口必须重写完全部接口的全部抽象方法，否则实现类需要定义成抽象类。</li>
 </ul>
+</div>
 </content>
+
+<a class="u-url" href="https://www.glowisle.me/posts/186/" style="display:none;">Permalink</a>
 
 <p>
     
@@ -937,7 +944,7 @@ giscusScript.setAttribute('data-strict', '0');
 giscusScript.setAttribute('data-reactions-enabled', '1');
 giscusScript.setAttribute('data-emit-metadata', '0');
 giscusScript.setAttribute('data-input-position', 'bottom');
-giscusScript.setAttribute('data-theme', "light");
+giscusScript.setAttribute('data-theme', giscusTheme);
 giscusScript.setAttribute('data-lang', 'zh-CN');
 giscusScript.crossOrigin = 'anonymous';
 giscusScript.async = true;
@@ -945,6 +952,19 @@ giscusScript.async = true;
 document.getElementById('giscus-container').appendChild(giscusScript);
 
 </script>
+
+<div id="webmentions"></div>
+<script src="/js/webmention.min.js"
+    data-id="webmentions"
+    data-page-url="https://www.glowisle.me/posts/186/"
+    data-max-webmentions="50"
+    data-wordcount="30"
+    data-sort-by="published"
+    data-sort-dir="up"
+    async>
+</script>
+
+
 <p>或发送<a href="mailto:i@glowisle.me?subject=Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E2%80%94%E2%80%94%E5%A4%9A%E6%80%81%E3%80%81%E6%8A%BD%E8%B1%A1%E7%B1%BB%E3%80%81%E6%8E%A5%E5%8F%A3">邮件</a>评论。</p>
 </details>
 

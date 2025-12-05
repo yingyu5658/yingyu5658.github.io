@@ -568,6 +568,10 @@ const API_URL = &#34;osu.ppy.sh&#34;; const init = { k: &#34;YOUR_API_KEY&#34;, 
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 />
 <link href="https://github.com/yingyu5658" rel="me" />
+<link
+  rel="webmention"
+  href="https://webmention.io/www.glowisle.me/webmention"
+/>
 </head>
 
 <body>
@@ -592,12 +596,12 @@ const API_URL = &#34;osu.ppy.sh&#34;; const init = { k: &#34;YOUR_API_KEY&#34;, 
 </header>
   <main> 
 
-<content>
+<content class="h-entry">
     <h2 class="post-title"><a href="/posts/osu-apiv1%E8%AF%B7%E6%B1%82%E7%A4%BA%E4%BE%8B/" style="color:#222222;">osu!APIv1请求示例</a></h2>
 
 
 <div class="post-info">
-    <time class="post-date" datetime="2025-04-11T22:29:23Z">
+    <time class="post-date dt-published" datetime="2025-04-11T22:29:23Z">
         2025年4月11日
     </time>
         
@@ -605,7 +609,7 @@ const API_URL = &#34;osu.ppy.sh&#34;; const init = { k: &#34;YOUR_API_KEY&#34;, 
             <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-link">技术</a>
         
 </div>
-
+<div class="e-content">
     <h2 id="前言">前言</h2>
 <p>本文章使用Nodejs环境做演示。请求用户数据。代码中的APIKEY要在<a href="https://osu.ppy.sh/home/account/edit">osu官网‬</a>申请。</p>
 <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">API_URL</span> <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#34;osu.ppy.sh&#34;</span>;
@@ -670,7 +674,10 @@ const API_URL = &#34;osu.ppy.sh&#34;; const init = { k: &#34;YOUR_API_KEY&#34;, 
 ]
 </code></pre><p>​	<a href="https://github.com/ppy/osu-api/wiki">首页 ·ppy/osu-api 维基</a></p>
 
+</div>
 </content>
+
+<a class="u-url" href="https://www.glowisle.me/posts/osu-apiv1%E8%AF%B7%E6%B1%82%E7%A4%BA%E4%BE%8B/" style="display:none;">Permalink</a>
 
 <p>
     
@@ -921,7 +928,7 @@ giscusScript.setAttribute('data-strict', '0');
 giscusScript.setAttribute('data-reactions-enabled', '1');
 giscusScript.setAttribute('data-emit-metadata', '0');
 giscusScript.setAttribute('data-input-position', 'bottom');
-giscusScript.setAttribute('data-theme', "light");
+giscusScript.setAttribute('data-theme', giscusTheme);
 giscusScript.setAttribute('data-lang', 'zh-CN');
 giscusScript.crossOrigin = 'anonymous';
 giscusScript.async = true;
@@ -929,6 +936,19 @@ giscusScript.async = true;
 document.getElementById('giscus-container').appendChild(giscusScript);
 
 </script>
+
+<div id="webmentions"></div>
+<script src="/js/webmention.min.js"
+    data-id="webmentions"
+    data-page-url="https://www.glowisle.me/posts/osu-apiv1%E8%AF%B7%E6%B1%82%E7%A4%BA%E4%BE%8B/"
+    data-max-webmentions="50"
+    data-wordcount="30"
+    data-sort-by="published"
+    data-sort-dir="up"
+    async>
+</script>
+
+
 <p>或发送<a href="mailto:i@glowisle.me?subject=osu%21APIv1%E8%AF%B7%E6%B1%82%E7%A4%BA%E4%BE%8B">邮件</a>评论。</p>
 </details>
 

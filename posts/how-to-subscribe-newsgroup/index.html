@@ -531,6 +531,10 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 />
 <link href="https://github.com/yingyu5658" rel="me" />
+<link
+  rel="webmention"
+  href="https://webmention.io/www.glowisle.me/webmention"
+/>
 </head>
 
 <body>
@@ -555,12 +559,12 @@
 </header>
   <main> 
 
-<content>
+<content class="h-entry">
     <h2 class="post-title"><a href="/posts/how-to-subscribe-newsgroup/" style="color:#222222;">如何订阅新闻组</a></h2>
 
 
 <div class="post-info">
-    <time class="post-date" datetime="2025-08-07T11:52:23&#43;08:00">
+    <time class="post-date dt-published" datetime="2025-08-07T11:52:23&#43;08:00">
         2025年8月7日
     </time>
         
@@ -568,7 +572,7 @@
             <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-link">技术</a>
         
 </div>
-
+<div class="e-content">
     <h2 id="新闻组简介">新闻组简介</h2>
 <p>新闻组（Usenet） 是互联网早期最重要、最具影响力的分布式讨论系统之一，可以把它理解为现代网络论坛（BBS）、社交媒体群组或Reddit版块的前身。它的核心特点是去中心化，提供一个平台，让用户可以在不同的主题分类（新闻组） 中发表文章（类似于帖子）。</p>
 <h2 id="订阅">订阅</h2>
@@ -606,7 +610,10 @@
     <img src="https://images.glowisle.me/subscribe-newsgroup-7.webp" alt="">
     <figcaption></figcaption>
 </figure></p>
+</div>
 </content>
+
+<a class="u-url" href="https://www.glowisle.me/posts/how-to-subscribe-newsgroup/" style="display:none;">Permalink</a>
 
 <p>
     
@@ -858,7 +865,7 @@ giscusScript.setAttribute('data-strict', '0');
 giscusScript.setAttribute('data-reactions-enabled', '1');
 giscusScript.setAttribute('data-emit-metadata', '0');
 giscusScript.setAttribute('data-input-position', 'bottom');
-giscusScript.setAttribute('data-theme', "light");
+giscusScript.setAttribute('data-theme', giscusTheme);
 giscusScript.setAttribute('data-lang', 'zh-CN');
 giscusScript.crossOrigin = 'anonymous';
 giscusScript.async = true;
@@ -866,6 +873,19 @@ giscusScript.async = true;
 document.getElementById('giscus-container').appendChild(giscusScript);
 
 </script>
+
+<div id="webmentions"></div>
+<script src="/js/webmention.min.js"
+    data-id="webmentions"
+    data-page-url="https://www.glowisle.me/posts/how-to-subscribe-newsgroup/"
+    data-max-webmentions="50"
+    data-wordcount="30"
+    data-sort-by="published"
+    data-sort-dir="up"
+    async>
+</script>
+
+
 <p>或发送<a href="mailto:i@glowisle.me?subject=%E5%A6%82%E4%BD%95%E8%AE%A2%E9%98%85%E6%96%B0%E9%97%BB%E7%BB%84">邮件</a>评论。</p>
 </details>
 

@@ -531,6 +531,10 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 />
 <link href="https://github.com/yingyu5658" rel="me" />
+<link
+  rel="webmention"
+  href="https://webmention.io/www.glowisle.me/webmention"
+/>
 </head>
 
 <body>
@@ -555,12 +559,12 @@
 </header>
   <main> 
 
-<content>
+<content class="h-entry">
     <h2 class="post-title"><a href="/posts/first-blog-anniversary/" style="color:#222222;">博客一周年：我的表达、自由与偏见 —— 当一个「反流行」写作者</a></h2>
 
 
 <div class="post-info">
-    <time class="post-date" datetime="2025-11-08T22:18:05&#43;08:00">
+    <time class="post-date dt-published" datetime="2025-11-08T22:18:05&#43;08:00">
         2025年11月8日
     </time>
         
@@ -568,7 +572,7 @@
             <a href="/categories/%E9%9A%8F%E7%AC%94/" class="category-link">随笔</a>
         
 </div>
-
+<div class="e-content">
     <h2 id="搭建">搭建</h2>
 <h3 id="探索时期">探索时期</h3>
 <p>在2023年9月16日，我在腾讯云注册了第一个域名，使用一台轻量服务器搭建了WordPress博客，但也仅限于此，我只是搭建好了服务，并没有在上面写点什么，只是觉得有一个自己的网站很酷，这并不能作为我开始写博客的准确日期。实际上在这之前，我就用 <a href="https://kslabs.ru/">Ksweb</a> 尝试搭建过自己的网站，并且Typecho和WordPress都尝试过，但当时没有做内网穿透，所以也不能算作正式开始写博客。</p>
@@ -615,7 +619,10 @@
 <h2 id="总结">总结</h2>
 <p>写了这么长时间博客，其实一开始只是抱着玩玩的心态，后来变得越来越认真了。表达和写作能力有提升吗？我感觉不到，但看到别人写得文章很好，一种奇妙的胜负欲和攀比心就会促使我学习得更多更深，继续写下去，既然做了，就做到底，做得更好吧！</p>
 
+</div>
 </content>
+
+<a class="u-url" href="https://www.glowisle.me/posts/first-blog-anniversary/" style="display:none;">Permalink</a>
 
 <p>
     
@@ -876,7 +883,7 @@ giscusScript.setAttribute('data-strict', '0');
 giscusScript.setAttribute('data-reactions-enabled', '1');
 giscusScript.setAttribute('data-emit-metadata', '0');
 giscusScript.setAttribute('data-input-position', 'bottom');
-giscusScript.setAttribute('data-theme', "light");
+giscusScript.setAttribute('data-theme', giscusTheme);
 giscusScript.setAttribute('data-lang', 'zh-CN');
 giscusScript.crossOrigin = 'anonymous';
 giscusScript.async = true;
@@ -884,6 +891,19 @@ giscusScript.async = true;
 document.getElementById('giscus-container').appendChild(giscusScript);
 
 </script>
+
+<div id="webmentions"></div>
+<script src="/js/webmention.min.js"
+    data-id="webmentions"
+    data-page-url="https://www.glowisle.me/posts/first-blog-anniversary/"
+    data-max-webmentions="50"
+    data-wordcount="30"
+    data-sort-by="published"
+    data-sort-dir="up"
+    async>
+</script>
+
+
 <p>或发送<a href="mailto:i@glowisle.me?subject=%E5%8D%9A%E5%AE%A2%E4%B8%80%E5%91%A8%E5%B9%B4%EF%BC%9A%E6%88%91%E7%9A%84%E8%A1%A8%E8%BE%BE%E3%80%81%E8%87%AA%E7%94%B1%E4%B8%8E%E5%81%8F%E8%A7%81&#43;%E2%80%94%E2%80%94&#43;%E5%BD%93%E4%B8%80%E4%B8%AA%E3%80%8C%E5%8F%8D%E6%B5%81%E8%A1%8C%E3%80%8D%E5%86%99%E4%BD%9C%E8%80%85">邮件</a>评论。</p>
 </details>
 

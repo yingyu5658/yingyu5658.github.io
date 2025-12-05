@@ -535,6 +535,10 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 />
 <link href="https://github.com/yingyu5658" rel="me" />
+<link
+  rel="webmention"
+  href="https://webmention.io/www.glowisle.me/webmention"
+/>
 </head>
 
 <body>
@@ -559,12 +563,12 @@
 </header>
   <main> 
 
-<content>
+<content class="h-entry">
     <h2 class="post-title"><a href="/posts/email-with-emacs/" style="color:#222222;">使用Emacs收发邮件</a></h2>
 
 
 <div class="post-info">
-    <time class="post-date" datetime="2025-11-12T16:48:02&#43;08:00">
+    <time class="post-date dt-published" datetime="2025-11-12T16:48:02&#43;08:00">
         2025年11月12日
     </time>
         
@@ -572,7 +576,7 @@
             <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-link">技术</a>
         
 </div>
-
+<div class="e-content">
     <p>作为一个合格的操作系统，肯定少不了Email. 我的配置很简单，只要实现基础的收发功能即可，每天的邮件量不大。在这里记录一下配置。</p>
 <h2 id="收邮件">收邮件</h2>
 <p>我尝试过 <strong><a href="https://www.fetchmail.info">fetchmail</a></strong>，但不知道这个东西拿到的邮件都在哪，所以最后还是选择了 <strong>mbsync</strong>.</p>
@@ -687,7 +691,10 @@ Misc
 </code></pre><hr>
 <p>微软的Outlook邮箱使用OAuth2.0认证，我暂时没找到成功的解决方案能在Emacs上使用，如果有哪位路过的好哥们知道方法请留言或<a href="mailto:i@glowisle.me">发个邮件</a>探讨一下！</p>
 
+</div>
 </content>
+
+<a class="u-url" href="https://www.glowisle.me/posts/email-with-emacs/" style="display:none;">Permalink</a>
 
 <p>
     
@@ -941,7 +948,7 @@ giscusScript.setAttribute('data-strict', '0');
 giscusScript.setAttribute('data-reactions-enabled', '1');
 giscusScript.setAttribute('data-emit-metadata', '0');
 giscusScript.setAttribute('data-input-position', 'bottom');
-giscusScript.setAttribute('data-theme', "light");
+giscusScript.setAttribute('data-theme', giscusTheme);
 giscusScript.setAttribute('data-lang', 'zh-CN');
 giscusScript.crossOrigin = 'anonymous';
 giscusScript.async = true;
@@ -949,6 +956,19 @@ giscusScript.async = true;
 document.getElementById('giscus-container').appendChild(giscusScript);
 
 </script>
+
+<div id="webmentions"></div>
+<script src="/js/webmention.min.js"
+    data-id="webmentions"
+    data-page-url="https://www.glowisle.me/posts/email-with-emacs/"
+    data-max-webmentions="50"
+    data-wordcount="30"
+    data-sort-by="published"
+    data-sort-dir="up"
+    async>
+</script>
+
+
 <p>或发送<a href="mailto:i@glowisle.me?subject=%E4%BD%BF%E7%94%A8Emacs%E6%94%B6%E5%8F%91%E9%82%AE%E4%BB%B6">邮件</a>评论。</p>
 </details>
 

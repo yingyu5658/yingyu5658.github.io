@@ -540,6 +540,10 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 />
 <link href="https://github.com/yingyu5658" rel="me" />
+<link
+  rel="webmention"
+  href="https://webmention.io/www.glowisle.me/webmention"
+/>
 </head>
 
 <body>
@@ -564,12 +568,12 @@
 </header>
   <main> 
 
-<content>
+<content class="h-entry">
     <h2 class="post-title"><a href="/posts/kitty%E7%BB%88%E7%AB%AF%E7%BE%8E%E5%8C%96%E8%AE%B0%E5%BD%95/" style="color:#222222;">Kitty终端美化记录</a></h2>
 
 
 <div class="post-info">
-    <time class="post-date" datetime="2025-03-09T12:41:10Z">
+    <time class="post-date dt-published" datetime="2025-03-09T12:41:10Z">
         2025年3月9日
     </time>
         
@@ -577,7 +581,7 @@
             <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-link">技术</a>
         
 </div>
-
+<div class="e-content">
     <p>Kitty这个终端可谓是兼顾了性能与美观，虽然默认设置很简陋，但是经过一番折腾后也能变得很漂亮。</p>
 <h2 id="选择配色">选择配色</h2>
 <p>运行<code>kitty + kitten themes</code>后会弹出一个选择配色的界面
@@ -625,7 +629,10 @@ tab_powerline_style   slanted
     <figcaption></figcaption>
 </figure></p>
 
+</div>
 </content>
+
+<a class="u-url" href="https://www.glowisle.me/posts/kitty%E7%BB%88%E7%AB%AF%E7%BE%8E%E5%8C%96%E8%AE%B0%E5%BD%95/" style="display:none;">Permalink</a>
 
 <p>
     
@@ -879,7 +886,7 @@ giscusScript.setAttribute('data-strict', '0');
 giscusScript.setAttribute('data-reactions-enabled', '1');
 giscusScript.setAttribute('data-emit-metadata', '0');
 giscusScript.setAttribute('data-input-position', 'bottom');
-giscusScript.setAttribute('data-theme', "light");
+giscusScript.setAttribute('data-theme', giscusTheme);
 giscusScript.setAttribute('data-lang', 'zh-CN');
 giscusScript.crossOrigin = 'anonymous';
 giscusScript.async = true;
@@ -887,6 +894,19 @@ giscusScript.async = true;
 document.getElementById('giscus-container').appendChild(giscusScript);
 
 </script>
+
+<div id="webmentions"></div>
+<script src="/js/webmention.min.js"
+    data-id="webmentions"
+    data-page-url="https://www.glowisle.me/posts/kitty%E7%BB%88%E7%AB%AF%E7%BE%8E%E5%8C%96%E8%AE%B0%E5%BD%95/"
+    data-max-webmentions="50"
+    data-wordcount="30"
+    data-sort-by="published"
+    data-sort-dir="up"
+    async>
+</script>
+
+
 <p>或发送<a href="mailto:i@glowisle.me?subject=Kitty%E7%BB%88%E7%AB%AF%E7%BE%8E%E5%8C%96%E8%AE%B0%E5%BD%95">邮件</a>评论。</p>
 </details>
 

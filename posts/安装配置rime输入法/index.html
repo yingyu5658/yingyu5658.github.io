@@ -530,6 +530,10 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 />
 <link href="https://github.com/yingyu5658" rel="me" />
+<link
+  rel="webmention"
+  href="https://webmention.io/www.glowisle.me/webmention"
+/>
 </head>
 
 <body>
@@ -554,12 +558,12 @@
 </header>
   <main> 
 
-<content>
+<content class="h-entry">
     <h2 class="post-title"><a href="/posts/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AErime%E8%BE%93%E5%85%A5%E6%B3%95/" style="color:#222222;">安装配置Rime输入法</a></h2>
 
 
 <div class="post-info">
-    <time class="post-date" datetime="2025-03-24T20:37:38Z">
+    <time class="post-date dt-published" datetime="2025-03-24T20:37:38Z">
         2025年3月24日
     </time>
         
@@ -567,7 +571,7 @@
             <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-link">技术</a>
         
 </div>
-
+<div class="e-content">
     <h1 id="前言">前言</h1>
 <p>其实我有能用的fcitx5+搜狗输入法的方案，但奈何kitty终端有对这个输入法的兼容性问题，无法启用中文，又奈何kitty的界面多美观舒服，和Konsole比起来简直就不是一个时代的产物。</p>
 <h1 id="安装ibus框架和rime输入法引擎">安装Ibus框架和Rime输入法引擎</h1>
@@ -598,7 +602,10 @@
 <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#7f848e"># 安装 plum 工具</span>
 </span></span><span style="display:flex;"><span>curl -fsSL https://git.io/rime-install | bash -s -- double-pinyin flypy
 </span></span></code></pre></div>
+</div>
 </content>
+
+<a class="u-url" href="https://www.glowisle.me/posts/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AErime%E8%BE%93%E5%85%A5%E6%B3%95/" style="display:none;">Permalink</a>
 
 <p>
     
@@ -849,7 +856,7 @@ giscusScript.setAttribute('data-strict', '0');
 giscusScript.setAttribute('data-reactions-enabled', '1');
 giscusScript.setAttribute('data-emit-metadata', '0');
 giscusScript.setAttribute('data-input-position', 'bottom');
-giscusScript.setAttribute('data-theme', "light");
+giscusScript.setAttribute('data-theme', giscusTheme);
 giscusScript.setAttribute('data-lang', 'zh-CN');
 giscusScript.crossOrigin = 'anonymous';
 giscusScript.async = true;
@@ -857,6 +864,19 @@ giscusScript.async = true;
 document.getElementById('giscus-container').appendChild(giscusScript);
 
 </script>
+
+<div id="webmentions"></div>
+<script src="/js/webmention.min.js"
+    data-id="webmentions"
+    data-page-url="https://www.glowisle.me/posts/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AErime%E8%BE%93%E5%85%A5%E6%B3%95/"
+    data-max-webmentions="50"
+    data-wordcount="30"
+    data-sort-by="published"
+    data-sort-dir="up"
+    async>
+</script>
+
+
 <p>或发送<a href="mailto:i@glowisle.me?subject=%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AERime%E8%BE%93%E5%85%A5%E6%B3%95">邮件</a>评论。</p>
 </details>
 

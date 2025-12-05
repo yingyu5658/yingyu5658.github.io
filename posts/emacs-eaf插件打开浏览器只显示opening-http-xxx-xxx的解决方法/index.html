@@ -546,6 +546,10 @@ cd ~/.emacs.d/site-lisp/emacs-application-framework &amp;&amp; ./install-eaf.py
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 />
 <link href="https://github.com/yingyu5658" rel="me" />
+<link
+  rel="webmention"
+  href="https://webmention.io/www.glowisle.me/webmention"
+/>
 </head>
 
 <body>
@@ -570,12 +574,12 @@ cd ~/.emacs.d/site-lisp/emacs-application-framework &amp;&amp; ./install-eaf.py
 </header>
   <main> 
 
-<content>
+<content class="h-entry">
     <h2 class="post-title"><a href="/posts/emacs-eaf%E6%8F%92%E4%BB%B6%E6%89%93%E5%BC%80%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%AA%E6%98%BE%E7%A4%BAopening-http-xxx-xxx%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" style="color:#222222;">Emacs EAF插件打开浏览器只显示opening http://xxx.xxx的解决方法</a></h2>
 
 
 <div class="post-info">
-    <time class="post-date" datetime="2025-04-29T10:02:49Z">
+    <time class="post-date dt-published" datetime="2025-04-29T10:02:49Z">
         2025年4月29日
     </time>
         
@@ -583,7 +587,7 @@ cd ~/.emacs.d/site-lisp/emacs-application-framework &amp;&amp; ./install-eaf.py
             <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-link">技术</a>
         
 </div>
-
+<div class="e-content">
     <p>检查是否安装全部依赖，如yay、pip等。我这里是由于没有安装pip导致的。</p>
 <p><code>sudo pacman -S python-pip</code></p>
 <p>安装好后，进入eaf安装目录</p>
@@ -591,7 +595,10 @@ cd ~/.emacs.d/site-lisp/emacs-application-framework &amp;&amp; ./install-eaf.py
 <p>重新安装eaf。等待脚本运行完成，打开emacs，输入<code>M-x eaf-install-and-update</code>，等待执行完成。</p>
 <p>重新输入<code>M-x eaf-open-browser</code>，输入网址，即可正常访问网页。</p>
 
+</div>
 </content>
+
+<a class="u-url" href="https://www.glowisle.me/posts/emacs-eaf%E6%8F%92%E4%BB%B6%E6%89%93%E5%BC%80%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%AA%E6%98%BE%E7%A4%BAopening-http-xxx-xxx%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" style="display:none;">Permalink</a>
 
 <p>
     
@@ -749,7 +756,7 @@ giscusScript.setAttribute('data-strict', '0');
 giscusScript.setAttribute('data-reactions-enabled', '1');
 giscusScript.setAttribute('data-emit-metadata', '0');
 giscusScript.setAttribute('data-input-position', 'bottom');
-giscusScript.setAttribute('data-theme', "light");
+giscusScript.setAttribute('data-theme', giscusTheme);
 giscusScript.setAttribute('data-lang', 'zh-CN');
 giscusScript.crossOrigin = 'anonymous';
 giscusScript.async = true;
@@ -757,6 +764,19 @@ giscusScript.async = true;
 document.getElementById('giscus-container').appendChild(giscusScript);
 
 </script>
+
+<div id="webmentions"></div>
+<script src="/js/webmention.min.js"
+    data-id="webmentions"
+    data-page-url="https://www.glowisle.me/posts/emacs-eaf%E6%8F%92%E4%BB%B6%E6%89%93%E5%BC%80%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%AA%E6%98%BE%E7%A4%BAopening-http-xxx-xxx%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"
+    data-max-webmentions="50"
+    data-wordcount="30"
+    data-sort-by="published"
+    data-sort-dir="up"
+    async>
+</script>
+
+
 <p>或发送<a href="mailto:i@glowisle.me?subject=Emacs&#43;EAF%E6%8F%92%E4%BB%B6%E6%89%93%E5%BC%80%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%AA%E6%98%BE%E7%A4%BAopening&#43;http%3A%2F%2Fxxx.xxx%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95">邮件</a>评论。</p>
 </details>
 
