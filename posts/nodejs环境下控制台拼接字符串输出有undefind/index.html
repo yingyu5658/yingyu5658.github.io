@@ -116,13 +116,14 @@ const date = new Date(); const year = date.getFullYear(); const month = date.get
     color: #999;
   }
 
-  h2.post-title {
+  h1.post-title {
     margin-top: 5vh;
     margin-bottom: 10px;
     text-align: center;
   }
 
-  h2.post-title a {
+  h1.post-title a {
+    font-size: 30px;
     font-weight: 700;
   }
 
@@ -164,7 +165,7 @@ const date = new Date(); const year = date.getFullYear(); const month = date.get
 
   @media (prefers-color-scheme: dark) {
     :root {
-      --body-bg-color: #1c1c1c;
+      --body-bg-color: #121212;
       --bold-text-color: #eee;
       --body-text-color: #ddd;
       --link-color: #ddd;
@@ -223,11 +224,12 @@ const date = new Date(); const year = date.getFullYear(); const month = date.get
       border: 1px solid #414141 !important;
     }
 
-    nav a {
-      text-decoration: underline 0.2px #646464;
+    a {
+      text-decoration: none !important;
     }
 
     a:hover {
+      color: #ddd !important;
     }
   }
 
@@ -618,8 +620,7 @@ const date = new Date(); const year = date.getFullYear(); const month = date.get
   <main> 
 
 <article class="h-entry">
-    <h2 class="post-title p-name"><a href="/posts/nodejs%E7%8E%AF%E5%A2%83%E4%B8%8B%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%8B%BC%E6%8E%A5%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%87%BA%E6%9C%89undefind/" style="color:#222222;">Nodejs环境下控制台拼接字符串输出有undefind</a></h2>
-
+    <h1 class="post-title p-name"><a href="/posts/nodejs%E7%8E%AF%E5%A2%83%E4%B8%8B%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%8B%BC%E6%8E%A5%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%87%BA%E6%9C%89undefind/" style="color:#222222;">Nodejs环境下控制台拼接字符串输出有undefind</a></h1>
 
 <div class="post-info">
     <time class="post-date dt-published" datetime="2025-03-22T18:56:33Z">
@@ -1030,12 +1031,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
   </main>
-  <footer><p>
-  © 2024 - 2025 | <a href="/atom.xml">RSS</a> |
-  <a href="https://www.github.com/yingyu5658" rel="me">Github</a> |
-  <a href="https://c7.io/home">Mastodon</a> |
-  <a href="mailto:i@glowisle.me">Email</a> | <a href="/sitemap.xml">Sitemap</a>
-</p>
+  <footer><p>© 2024 - 2025 | Made with ❤️ by Verdant.</p>
 </footer>
 
     

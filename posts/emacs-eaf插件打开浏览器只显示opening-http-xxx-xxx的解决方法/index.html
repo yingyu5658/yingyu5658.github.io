@@ -112,13 +112,14 @@ cd ~/.emacs.d/site-lisp/emacs-application-framework &amp;&amp; ./install-eaf.py
     color: #999;
   }
 
-  h2.post-title {
+  h1.post-title {
     margin-top: 5vh;
     margin-bottom: 10px;
     text-align: center;
   }
 
-  h2.post-title a {
+  h1.post-title a {
+    font-size: 30px;
     font-weight: 700;
   }
 
@@ -160,7 +161,7 @@ cd ~/.emacs.d/site-lisp/emacs-application-framework &amp;&amp; ./install-eaf.py
 
   @media (prefers-color-scheme: dark) {
     :root {
-      --body-bg-color: #1c1c1c;
+      --body-bg-color: #121212;
       --bold-text-color: #eee;
       --body-text-color: #ddd;
       --link-color: #ddd;
@@ -219,11 +220,12 @@ cd ~/.emacs.d/site-lisp/emacs-application-framework &amp;&amp; ./install-eaf.py
       border: 1px solid #414141 !important;
     }
 
-    nav a {
-      text-decoration: underline 0.2px #646464;
+    a {
+      text-decoration: none !important;
     }
 
     a:hover {
+      color: #ddd !important;
     }
   }
 
@@ -614,8 +616,7 @@ cd ~/.emacs.d/site-lisp/emacs-application-framework &amp;&amp; ./install-eaf.py
   <main> 
 
 <article class="h-entry">
-    <h2 class="post-title p-name"><a href="/posts/emacs-eaf%E6%8F%92%E4%BB%B6%E6%89%93%E5%BC%80%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%AA%E6%98%BE%E7%A4%BAopening-http-xxx-xxx%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" style="color:#222222;">Emacs EAF插件打开浏览器只显示opening http://xxx.xxx的解决方法</a></h2>
-
+    <h1 class="post-title p-name"><a href="/posts/emacs-eaf%E6%8F%92%E4%BB%B6%E6%89%93%E5%BC%80%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%AA%E6%98%BE%E7%A4%BAopening-http-xxx-xxx%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" style="color:#222222;">Emacs EAF插件打开浏览器只显示opening http://xxx.xxx的解决方法</a></h1>
 
 <div class="post-info">
     <time class="post-date dt-published" datetime="2025-04-29T10:02:49Z">
@@ -901,12 +902,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
   </main>
-  <footer><p>
-  © 2024 - 2025 | <a href="/atom.xml">RSS</a> |
-  <a href="https://www.github.com/yingyu5658" rel="me">Github</a> |
-  <a href="https://c7.io/home">Mastodon</a> |
-  <a href="mailto:i@glowisle.me">Email</a> | <a href="/sitemap.xml">Sitemap</a>
-</p>
+  <footer><p>© 2024 - 2025 | Made with ❤️ by Verdant.</p>
 </footer>
 
     

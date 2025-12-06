@@ -122,13 +122,14 @@
     color: #999;
   }
 
-  h2.post-title {
+  h1.post-title {
     margin-top: 5vh;
     margin-bottom: 10px;
     text-align: center;
   }
 
-  h2.post-title a {
+  h1.post-title a {
+    font-size: 30px;
     font-weight: 700;
   }
 
@@ -170,7 +171,7 @@
 
   @media (prefers-color-scheme: dark) {
     :root {
-      --body-bg-color: #1c1c1c;
+      --body-bg-color: #121212;
       --bold-text-color: #eee;
       --body-text-color: #ddd;
       --link-color: #ddd;
@@ -229,11 +230,12 @@
       border: 1px solid #414141 !important;
     }
 
-    nav a {
-      text-decoration: underline 0.2px #646464;
+    a {
+      text-decoration: none !important;
     }
 
     a:hover {
+      color: #ddd !important;
     }
   }
 
@@ -624,8 +626,7 @@
   <main> 
 
 <article class="h-entry">
-    <h2 class="post-title p-name"><a href="/posts/%E6%8A%8A%E4%B8%BB%E5%8A%9B%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%8D%A2%E6%88%90arch-linux%E6%98%AF%E6%88%91%E8%BF%99%E8%BE%88%E5%AD%90%E5%81%9A%E8%BF%87%E7%9A%84%E6%9C%80%E8%A0%A2%E7%9A%84%E5%86%B3%E5%AE%9A/" style="color:#222222;">把主力机系统换成Arch Linux是我这辈子做过的最蠢的决定</a></h2>
-
+    <h1 class="post-title p-name"><a href="/posts/%E6%8A%8A%E4%B8%BB%E5%8A%9B%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%8D%A2%E6%88%90arch-linux%E6%98%AF%E6%88%91%E8%BF%99%E8%BE%88%E5%AD%90%E5%81%9A%E8%BF%87%E7%9A%84%E6%9C%80%E8%A0%A2%E7%9A%84%E5%86%B3%E5%AE%9A/" style="color:#222222;">把主力机系统换成Arch Linux是我这辈子做过的最蠢的决定</a></h1>
 
 <div class="post-info">
     <time class="post-date dt-published" datetime="2025-04-06T17:58:48Z">
@@ -1085,12 +1086,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
   </main>
-  <footer><p>
-  © 2024 - 2025 | <a href="/atom.xml">RSS</a> |
-  <a href="https://www.github.com/yingyu5658" rel="me">Github</a> |
-  <a href="https://c7.io/home">Mastodon</a> |
-  <a href="mailto:i@glowisle.me">Email</a> | <a href="/sitemap.xml">Sitemap</a>
-</p>
+  <footer><p>© 2024 - 2025 | Made with ❤️ by Verdant.</p>
 </footer>
 
     

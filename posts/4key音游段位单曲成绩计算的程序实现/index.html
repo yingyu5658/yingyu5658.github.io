@@ -98,13 +98,14 @@
     color: #999;
   }
 
-  h2.post-title {
+  h1.post-title {
     margin-top: 5vh;
     margin-bottom: 10px;
     text-align: center;
   }
 
-  h2.post-title a {
+  h1.post-title a {
+    font-size: 30px;
     font-weight: 700;
   }
 
@@ -146,7 +147,7 @@
 
   @media (prefers-color-scheme: dark) {
     :root {
-      --body-bg-color: #1c1c1c;
+      --body-bg-color: #121212;
       --bold-text-color: #eee;
       --body-text-color: #ddd;
       --link-color: #ddd;
@@ -205,11 +206,12 @@
       border: 1px solid #414141 !important;
     }
 
-    nav a {
-      text-decoration: underline 0.2px #646464;
+    a {
+      text-decoration: none !important;
     }
 
     a:hover {
+      color: #ddd !important;
     }
   }
 
@@ -600,8 +602,7 @@
   <main> 
 
 <article class="h-entry">
-    <h2 class="post-title p-name"><a href="/posts/4key%E9%9F%B3%E6%B8%B8%E6%AE%B5%E4%BD%8D%E5%8D%95%E6%9B%B2%E6%88%90%E7%BB%A9%E8%AE%A1%E7%AE%97%E7%9A%84%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0/" style="color:#222222;">4Key音游段位单曲成绩计算的程序实现</a></h2>
-
+    <h1 class="post-title p-name"><a href="/posts/4key%E9%9F%B3%E6%B8%B8%E6%AE%B5%E4%BD%8D%E5%8D%95%E6%9B%B2%E6%88%90%E7%BB%A9%E8%AE%A1%E7%AE%97%E7%9A%84%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0/" style="color:#222222;">4Key音游段位单曲成绩计算的程序实现</a></h1>
 
 <div class="post-info">
     <time class="post-date dt-published" datetime="2025-06-07T13:08:07Z">
@@ -1236,12 +1237,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
   </main>
-  <footer><p>
-  © 2024 - 2025 | <a href="/atom.xml">RSS</a> |
-  <a href="https://www.github.com/yingyu5658" rel="me">Github</a> |
-  <a href="https://c7.io/home">Mastodon</a> |
-  <a href="mailto:i@glowisle.me">Email</a> | <a href="/sitemap.xml">Sitemap</a>
-</p>
+  <footer><p>© 2024 - 2025 | Made with ❤️ by Verdant.</p>
 </footer>
 
     

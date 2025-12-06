@@ -106,13 +106,14 @@ Webmention 是一种开放网络标准（W3C推荐标准），用于在链接到
     color: #999;
   }
 
-  h2.post-title {
+  h1.post-title {
     margin-top: 5vh;
     margin-bottom: 10px;
     text-align: center;
   }
 
-  h2.post-title a {
+  h1.post-title a {
+    font-size: 30px;
     font-weight: 700;
   }
 
@@ -154,7 +155,7 @@ Webmention 是一种开放网络标准（W3C推荐标准），用于在链接到
 
   @media (prefers-color-scheme: dark) {
     :root {
-      --body-bg-color: #1c1c1c;
+      --body-bg-color: #121212;
       --bold-text-color: #eee;
       --body-text-color: #ddd;
       --link-color: #ddd;
@@ -213,11 +214,12 @@ Webmention 是一种开放网络标准（W3C推荐标准），用于在链接到
       border: 1px solid #414141 !important;
     }
 
-    nav a {
-      text-decoration: underline 0.2px #646464;
+    a {
+      text-decoration: none !important;
     }
 
     a:hover {
+      color: #ddd !important;
     }
   }
 
@@ -608,8 +610,7 @@ Webmention 是一种开放网络标准（W3C推荐标准），用于在链接到
   <main> 
 
 <article class="h-entry">
-    <h2 class="post-title p-name"><a href="/posts/exploring-webmention/" style="color:#222222;">一次对Webmention的探索</a></h2>
-
+    <h1 class="post-title p-name"><a href="/posts/exploring-webmention/" style="color:#222222;">一次对Webmention的探索</a></h1>
 
 <div class="post-info">
     <time class="post-date dt-published" datetime="2025-12-05T17:22:22&#43;08:00">
@@ -1025,12 +1026,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
   </main>
-  <footer><p>
-  © 2024 - 2025 | <a href="/atom.xml">RSS</a> |
-  <a href="https://www.github.com/yingyu5658" rel="me">Github</a> |
-  <a href="https://c7.io/home">Mastodon</a> |
-  <a href="mailto:i@glowisle.me">Email</a> | <a href="/sitemap.xml">Sitemap</a>
-</p>
+  <footer><p>© 2024 - 2025 | Made with ❤️ by Verdant.</p>
 </footer>
 
     

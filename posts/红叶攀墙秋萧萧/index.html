@@ -99,13 +99,14 @@
     color: #999;
   }
 
-  h2.post-title {
+  h1.post-title {
     margin-top: 5vh;
     margin-bottom: 10px;
     text-align: center;
   }
 
-  h2.post-title a {
+  h1.post-title a {
+    font-size: 30px;
     font-weight: 700;
   }
 
@@ -147,7 +148,7 @@
 
   @media (prefers-color-scheme: dark) {
     :root {
-      --body-bg-color: #1c1c1c;
+      --body-bg-color: #121212;
       --bold-text-color: #eee;
       --body-text-color: #ddd;
       --link-color: #ddd;
@@ -206,11 +207,12 @@
       border: 1px solid #414141 !important;
     }
 
-    nav a {
-      text-decoration: underline 0.2px #646464;
+    a {
+      text-decoration: none !important;
     }
 
     a:hover {
+      color: #ddd !important;
     }
   }
 
@@ -601,8 +603,7 @@
   <main> 
 
 <article class="h-entry">
-    <h2 class="post-title p-name"><a href="/posts/%E7%BA%A2%E5%8F%B6%E6%94%80%E5%A2%99%E7%A7%8B%E8%90%A7%E8%90%A7/" style="color:#222222;">红叶攀墙秋萧萧</a></h2>
-
+    <h1 class="post-title p-name"><a href="/posts/%E7%BA%A2%E5%8F%B6%E6%94%80%E5%A2%99%E7%A7%8B%E8%90%A7%E8%90%A7/" style="color:#222222;">红叶攀墙秋萧萧</a></h1>
 
 <div class="post-info">
     <time class="post-date dt-published" datetime="2025-10-16T22:40:26&#43;08:00">
@@ -887,12 +888,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
   </main>
-  <footer><p>
-  © 2024 - 2025 | <a href="/atom.xml">RSS</a> |
-  <a href="https://www.github.com/yingyu5658" rel="me">Github</a> |
-  <a href="https://c7.io/home">Mastodon</a> |
-  <a href="mailto:i@glowisle.me">Email</a> | <a href="/sitemap.xml">Sitemap</a>
-</p>
+  <footer><p>© 2024 - 2025 | Made with ❤️ by Verdant.</p>
 </footer>
 
     
