@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>软件开发 on 映屿</title>
+    <link>http://localhost:1313/tags/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/</link>
+    <description>Recent content in 软件开发 on 映屿</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    
+      <managingEditor>i@glowisle.me (五葉地錦)</managingEditor>
+    
+    
+      <webMaster>i@glowisle.me (五葉地錦)</webMaster>
+    
+    
+    
+    <lastBuildDate>Sun, 30 Mar 2025 10:47:35 +0000</lastBuildDate>
+    
+    
+    <atom:link href="http://localhost:1313/tags/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/atom.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>上帝类是什么？该如何避免上帝类？</title>
+      <link>http://localhost:1313/posts/%E4%B8%8A%E5%B8%9D%E7%B1%BB%E6%98%AF%E4%BB%80%E4%B9%88%E8%AF%A5%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E4%B8%8A%E5%B8%9D%E7%B1%BB/</link>
+      <pubDate>Sun, 30 Mar 2025 10:47:35 +0000</pubDate><author>i@glowisle.me (五葉地錦)</author>
+      <guid>http://localhost:1313/posts/%E4%B8%8A%E5%B8%9D%E7%B1%BB%E6%98%AF%E4%BB%80%E4%B9%88%E8%AF%A5%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E4%B8%8A%E5%B8%9D%E7%B1%BB/</guid>
+      <description>&lt;h2 id=&#34;什么是上帝类&#34;&gt;什么是上帝类&lt;/h2&gt;&#xA;&lt;p&gt;所谓的上帝类，就是指&lt;strong&gt;一个类承担了过多的职能&lt;/strong&gt;，变得过于&lt;strong&gt;臃肿&lt;/strong&gt;和&lt;strong&gt;复杂&lt;/strong&gt;、&lt;strong&gt;难以维护&lt;/strong&gt;。没有遵守单一职责原则。像上帝一样什么都能干，每个功能高度耦合，牵一发而动全身，不利于业务的拓展。&lt;/p&gt;&#xA;&lt;h2 id=&#34;上帝类是如何产生的&#34;&gt;上帝类是如何产生的&lt;/h2&gt;&#xA;&lt;p&gt;上帝类的产生，通常是由于需要快速实现功能而做出的妥协，长期积累就变成繁重的技术债务。或是缺乏规划经验，功能不断地被加到类中。依旧长期积累，上帝类产生了。&lt;/p&gt;&#xA;&lt;h2 id=&#34;上帝类的优缺点&#34;&gt;上帝类的优缺点&lt;/h2&gt;&#xA;&lt;p&gt;上帝类虽然在上文被冠以臃肿、难维护的帽子，但并不代表他没有优点，要辨证地看待。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;优点：上帝类适用于一些较小的、逻辑简单的任务或工具类，逻辑不复杂，也不需要长时间维护，即拿即用。不用过多地考虑职责和颗粒度的划分，也能提高开发效率&lt;/li&gt;&#xA;&lt;li&gt;缺点：即上文中所提到的。臃肿、复杂、难以维护、测试麻烦、缺乏可读性、耦合度高，不可拓展同时违反SRP和OCP原则&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;上帝类的判定&#34;&gt;上帝类的判定&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;代码行数判定法：代码行数很多的有可能是上帝类，注意是有可能。如果是上帝类，应当进行适当重构&lt;/li&gt;&#xA;&lt;li&gt;依赖关系判定法：通过分析类的依赖关系来判定其是否与其他类高度关联，如果是，他有可能是上帝类。&lt;/li&gt;&#xA;&lt;li&gt;职责判定法：如果一个类承担了过多的职责，他该干的也干了，不该干的也干了，那么毫无疑问，他是上帝类。&lt;/li&gt;&#xA;&lt;li&gt;测试覆盖率判定法： 如果一个类难以单元测试，或覆盖率低或总是出现奇奇怪怪的不可预测的问题，那么他有可能是上帝类。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;如何避免上帝类&#34;&gt;如何避免上帝类&lt;/h2&gt;&#xA;&lt;p&gt;所以，要如何避免上帝类，这个问题的答案已经显而易见了。和上一段相反着做即可。遵守单一职责原则。规划好代码架构。比如，要处理一个压缩包解析和数据展示功能，首先就要拆分职责为不同的类。类中再去写相对应的函数。我们可以把这个功能拆分为解压、读取、展示信息三个类，类中分别编写相应的代码，这样就能做到避免上帝类的产生，从而提高代码的可维护性和可拓展性。&lt;/p&gt;&#xA;</description>
+    </item>
+  </channel>
+</rss>

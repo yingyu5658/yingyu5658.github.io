@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Minecraft on 映屿</title>
+    <link>http://localhost:1313/tags/minecraft/</link>
+    <description>Recent content in Minecraft on 映屿</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    
+      <managingEditor>i@glowisle.me (五葉地錦)</managingEditor>
+    
+    
+      <webMaster>i@glowisle.me (五葉地錦)</webMaster>
+    
+    
+    
+    <lastBuildDate>Wed, 08 Jan 2025 17:26:00 +0000</lastBuildDate>
+    
+    
+    <atom:link href="http://localhost:1313/tags/minecraft/atom.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>修复Geyser下基岩版玩家无法在地狱基岩层放置方块</title>
+      <link>http://localhost:1313/posts/184/</link>
+      <pubDate>Wed, 08 Jan 2025 17:26:00 +0000</pubDate><author>i@glowisle.me (五葉地錦)</author>
+      <guid>http://localhost:1313/posts/184/</guid>
+      <description>&lt;p&gt;在&lt;code&gt;plugins\Geyser-Spigot\config.yml&lt;/code&gt;中把第160行的&lt;code&gt;above-bedrock-nether-building: false&lt;/code&gt;改为&lt;code&gt;true&lt;/code&gt;，重启服务器，问题解决~&#xA;原理：geyser把下界翻译成了末地，会导致下界天空变成末地的样式，不过可以解决基岩版玩家在地狱基岩层的问题。&lt;/p&gt;&#xA;</description>
+    </item>
+    <item>
+      <title>Spigot服务端控制台中文乱码解决方案</title>
+      <link>http://localhost:1313/posts/181/</link>
+      <pubDate>Sat, 04 Jan 2025 08:35:00 +0000</pubDate><author>i@glowisle.me (五葉地錦)</author>
+      <guid>http://localhost:1313/posts/181/</guid>
+      <description>&lt;ol&gt;&#xA;&lt;li&gt;把&lt;code&gt;-Dfile.encoding=UTF-8&lt;/code&gt;加在开服脚本文件的&lt;code&gt;-jar&lt;/code&gt;前即可。&lt;/li&gt;&#xA;&lt;li&gt;在启动脚本第一行加上&lt;code&gt;chcp 65001&lt;/code&gt;&#xA;我的启动脚本如下：&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;chcp &lt;span style=&#34;color:#d19a66&#34;&gt;65001&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;java -Dfile.encoding&lt;span style=&#34;color:#56b6c2&#34;&gt;=&lt;/span&gt;UTF-8 -jar spigot-1.21.jar&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+  </channel>
+</rss>

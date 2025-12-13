@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="http://localhost:1313/favicon.png" />
+<title>【数据结构与算法】冒泡排序</title>
+<meta name="title" content="【数据结构与算法】冒泡排序" />
+<meta name="description" content="核心思想
+通过相邻元素的两两比较，将较大的元素逐步“冒泡”到数组末尾，每轮排序确定一个最大元素的最终位置。
+代码实现
+void bubble_sort(int arr[], int n) {
+  // 最外层控制循环轮数 n-1轮
+  for (int i = 0; i &lt; n - 1; i&#43;&#43;) {
+    // 内层循环处理相邻元素比较和交换
+    for(int j = 0; j &lt; n-i-1; j&#43;&#43;) {
+      if (arr[j] &gt; arr[j&#43;1]) {
+        int temp = arr[j];
+        arr[j] = arr[j&#43;1];
+        arr[j&#43;1] = temp;
+      }
+    }
+  }
+}
+
+// 调用
+void print_array(int arr[], int size) {
+  for (int i = 0; i &lt; size; i&#43;&#43;) {
+    printf(&#34;%d,&#34;, arr[i]);
+  }
+  printf(&#34;\n&#34;);
+}
+
+int main() {
+  int arr[] = {23, 232, 55, 2, 7, 0, 576, 342};
+  int n = sizeof(arr) / sizeof(arr[0]);
+
+  printf(&#34;排序前：&#34;);
+  print_array(arr, n);
+  bubble_sort(arr, n);
+
+  printf(&#34;排序后&#34;);
+  print_array(arr, n);
+}
+原理分析
+外层循环的 i &lt; n - 1
+
+n个元素的数组最多需要n-1轮冒泡，如5元素数组需要4轮排序
+数学依据：每轮将一个最大值“沉底”，当完成n-1轮时，最后一个元素必然有序
+
+示例验证：" />
+<meta name="keywords" content="数据结构与算法," />
+
+<link rel="canonical" href="http://localhost:1313/posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/">
+
+
+<meta property="og:url" content="http://localhost:1313/posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/">
+  <meta property="og:site_name" content="映屿">
+  <meta property="og:title" content="【数据结构与算法】冒泡排序">
+  <meta property="og:description" content="核心思想 通过相邻元素的两两比较，将较大的元素逐步“冒泡”到数组末尾，每轮排序确定一个最大元素的最终位置。
+代码实现 void bubble_sort(int arr[], int n) { // 最外层控制循环轮数 n-1轮 for (int i = 0; i &lt; n - 1; i&#43;&#43;) { // 内层循环处理相邻元素比较和交换 for(int j = 0; j &lt; n-i-1; j&#43;&#43;) { if (arr[j] &gt; arr[j&#43;1]) { int temp = arr[j]; arr[j] = arr[j&#43;1]; arr[j&#43;1] = temp; } } } } // 调用 void print_array(int arr[], int size) { for (int i = 0; i &lt; size; i&#43;&#43;) { printf(&#34;%d,&#34;, arr[i]); } printf(&#34;\n&#34;); } int main() { int arr[] = {23, 232, 55, 2, 7, 0, 576, 342}; int n = sizeof(arr) / sizeof(arr[0]); printf(&#34;排序前：&#34;); print_array(arr, n); bubble_sort(arr, n); printf(&#34;排序后&#34;); print_array(arr, n); } 原理分析 外层循环的 i &lt; n - 1 n个元素的数组最多需要n-1轮冒泡，如5元素数组需要4轮排序 数学依据：每轮将一个最大值“沉底”，当完成n-1轮时，最后一个元素必然有序 示例验证：">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-05-10T20:06:05+00:00">
+    <meta property="article:modified_time" content="2025-05-10T20:06:05+00:00">
+    <meta property="article:tag" content="数据结构与算法">
+
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="【数据结构与算法】冒泡排序">
+  <meta name="twitter:description" content="核心思想 通过相邻元素的两两比较，将较大的元素逐步“冒泡”到数组末尾，每轮排序确定一个最大元素的最终位置。
+代码实现 void bubble_sort(int arr[], int n) { // 最外层控制循环轮数 n-1轮 for (int i = 0; i &lt; n - 1; i&#43;&#43;) { // 内层循环处理相邻元素比较和交换 for(int j = 0; j &lt; n-i-1; j&#43;&#43;) { if (arr[j] &gt; arr[j&#43;1]) { int temp = arr[j]; arr[j] = arr[j&#43;1]; arr[j&#43;1] = temp; } } } } // 调用 void print_array(int arr[], int size) { for (int i = 0; i &lt; size; i&#43;&#43;) { printf(&#34;%d,&#34;, arr[i]); } printf(&#34;\n&#34;); } int main() { int arr[] = {23, 232, 55, 2, 7, 0, 576, 342}; int n = sizeof(arr) / sizeof(arr[0]); printf(&#34;排序前：&#34;); print_array(arr, n); bubble_sort(arr, n); printf(&#34;排序后&#34;); print_array(arr, n); } 原理分析 外层循环的 i &lt; n - 1 n个元素的数组最多需要n-1轮冒泡，如5元素数组需要4轮排序 数学依据：每轮将一个最大值“沉底”，当完成n-1轮时，最后一个元素必然有序 示例验证：">
+
+
+
+
+  <meta itemprop="name" content="【数据结构与算法】冒泡排序">
+  <meta itemprop="description" content="核心思想 通过相邻元素的两两比较，将较大的元素逐步“冒泡”到数组末尾，每轮排序确定一个最大元素的最终位置。
+代码实现 void bubble_sort(int arr[], int n) { // 最外层控制循环轮数 n-1轮 for (int i = 0; i &lt; n - 1; i&#43;&#43;) { // 内层循环处理相邻元素比较和交换 for(int j = 0; j &lt; n-i-1; j&#43;&#43;) { if (arr[j] &gt; arr[j&#43;1]) { int temp = arr[j]; arr[j] = arr[j&#43;1]; arr[j&#43;1] = temp; } } } } // 调用 void print_array(int arr[], int size) { for (int i = 0; i &lt; size; i&#43;&#43;) { printf(&#34;%d,&#34;, arr[i]); } printf(&#34;\n&#34;); } int main() { int arr[] = {23, 232, 55, 2, 7, 0, 576, 342}; int n = sizeof(arr) / sizeof(arr[0]); printf(&#34;排序前：&#34;); print_array(arr, n); bubble_sort(arr, n); printf(&#34;排序后&#34;); print_array(arr, n); } 原理分析 外层循环的 i &lt; n - 1 n个元素的数组最多需要n-1轮冒泡，如5元素数组需要4轮排序 数学依据：每轮将一个最大值“沉底”，当完成n-1轮时，最后一个元素必然有序 示例验证：">
+  <meta itemprop="datePublished" content="2025-05-10T20:06:05+00:00">
+  <meta itemprop="dateModified" content="2025-05-10T20:06:05+00:00">
+  <meta itemprop="wordCount" content="938">
+  <meta itemprop="keywords" content="数据结构与算法">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+   
+  :root {
+    --width-max: 720px;
+    --font-primary: "Noto Serif SC", "Source Han Serif SC", serif;
+    --font-secondary: monospace;
+    --font-size-primary: 1em;
+    --font-size-secondary: 0.8em;
+    --body-bg-color: #ffffff;
+    --bold-text-color: #222;
+    --body-text-color: #444;
+    --link-color: #222;
+    --link-visited-color: #222;
+    --table-border-color: #f2f2f2;
+    --table-th-bg-color: #f2f2f2;
+    --img-border-color: #f2f2f2;
+    --code-bg-color: #f2f2f2;
+    --code-text-color: #222;
+    --blockquote-border-color: #666;
+    --blockquote-text-color: #666;
+    --upvoted-color: #fa8072;
+    --caption-text-color: #666;
+    --toc-text-color: #e5e5e5;
+    --toc-hover-color: #655e5e;
+  }
+
+  .wm {
+    border: 1px #d0d7de solid;
+    border-radius: 0.25em;
+    padding-top: 0;
+    padding: 1.5vw;
+    background-color: #f6f8fa;
+    margin-top: 1vh;
+  }
+
+  .wm p {
+    margin-top: 1px;
+  }
+
+  .item-link {
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .post-info {
+    text-align: center;
+    margin-bottom: 3vh;
+  }
+  .category-link {
+    color: #999;
+  }
+
+  h1.post-title {
+    margin-top: 5vh;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  h1.post-title a {
+    font-size: 30px;
+    font-weight: 700;
+  }
+
+  .recent-list {
+    padding-left: 2vw;
+  }
+
+  .recent-item {
+    list-style-type: none;
+  }
+
+  .post-date {
+    display: inline;
+  }
+
+  .post-date,
+  .post-date-shortcode {
+    margin-left: auto;
+    color: #999;
+  }
+
+  article .post-date::after {
+    content: "/";
+  }
+
+  .site-name:hover {
+    background-color: transparent;
+    text-decoration: none;
+    color: #fff;
+    background-color: #7e4fa0;
+  }
+
+  .site-name {
+    transition: 0.3s;
+    width: 66px;
+    border-radius: 5px;
+    text-transform: uppercase;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --body-bg-color: #121212;
+      --bold-text-color: #eee;
+      --body-text-color: #ddd;
+      --link-color: #ddd;
+      --link-visited-color: #c3b1ee;
+      --table-border-color: #999;
+      --table-th-bg-color: #999;
+      --img-border-color: #999;
+      --code-bg-color: #141414;
+      --code-text-color: #ddd;
+      --blockquote-border-color: #ccc;
+      --blockquote-text-color: #ccc;
+      --caption-text-color: #aaa;
+      --toc-text-color: #373737;
+      --toc-hover-color: #cac3c3;
+    }
+
+    .wm {
+      background-color: #161b22;
+      border-color: #30363d;
+      color: var(--body-text-color);
+      padding: 10px;
+    }
+
+    .wm input {
+      background-color: #010409;
+      border: #30363d 1px solid;
+      color: var(--body-text-color);
+      outline: none;
+      transition: border-color 0.2s ease-in-out;
+    }
+
+    #webmention-source:focus {
+      border-color: var(--color-accent-fg, #0969da);
+      box-shadow: 0 0 0 3px rgba(9, 105, 218, 0.1);
+    }
+
+    .wm button {
+      color: var(--body-text-color);
+      background-color: #161b22;
+      border: #30363d 1px solid;
+    }
+
+    .post-title a {
+      color: #fff !important;
+    }
+
+    .post-summary {
+      color: var(--text-color-primary) !important;
+    }
+
+    .post-item {
+      border-bottom: 1px solid #414141 !important;
+    }
+
+    .pagination-link {
+      border: 1px solid #414141 !important;
+    }
+
+    nav a,
+    h1.post-title a,
+    .category-link,
+    .blog-posts li a {
+      text-decoration: none !important;
+    }
+
+    a {
+      font-weight: 700 !important;
+    }
+
+    a:hover {
+      color: #ddd !important;
+    }
+  }
+
+  body {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-primary);
+    margin: auto;
+    padding: 20px;
+    max-width: var(--width-max);
+    text-align: left;
+    background-color: var(--body-bg-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.6;
+    color: var(--body-text-color);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: var(--bold-text-color);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 16px 0;
+  }
+
+  a {
+    color: var(--link-color);
+    cursor: pointer;
+    text-decoration: underline 0.2px #d4d4d4;
+    transition-duration: 0.3s;
+    font-weight: 600;
+  }
+
+  a:hover {
+    color: #3273dc;
+  }
+
+  .posts-list li {
+    margin-bottom: 12px;
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title:hover {
+    text-decoration: none;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav {
+    margin-bottom: 15px;
+  }
+
+  nav a {
+    margin-right: 8px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 14px;
+  }
+
+  article {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid var(--table-border-color);
+    border-radius: 4px;
+    margin-top: 16px;
+  }
+
+  th,
+  td {
+    border: 1px solid var(--table-border-color);
+    padding: 4px;
+  }
+
+  th {
+    background-color: var(--table-th-bg-color);
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px dashed;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid var(--img-border-color);
+    border-radius: 4px;
+    content-visibility: auto;
+    loading: lazy;
+  }
+
+  img[src*="#minipic"] {
+    max-width: 50%;
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  .image-caption figcaption {
+    text-align: center;
+    font-style: italic;
+    font-size: 0.8em;
+    margin-top: 0.6em;
+    color: var(--caption-text-color);
+  }
+
+  .image-caption {
+    margin: auto;
+  }
+
+  i {
+    font-style: normal;
+  }
+
+  time {
+    font-family: var(--font-secondary);
+    font-size: 15px;
+    color: rgb(163, 163, 163);
+  }
+
+  code {
+    font-family: var(--font-secondary);
+    background-color: var(--code-bg-color);
+    color: var(--code-text-color);
+    padding: 2px;
+    border-radius: 4px;
+  }
+
+  pre code {
+    display: block;
+    padding: 16px;
+    white-space: pre-wrap;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    border-radius: 4px;
+  }
+
+  div.highlight code {
+    background-color: var(--code-bg-color);
+    color: var(--code-text-color);
+  }
+
+  blockquote {
+    border-left: 2px solid var(--blockquote-border-color);
+    color: var(--blockquote-text-color);
+    margin: 0;
+    padding-left: 16px;
+    font-style: normal;
+  }
+
+  blockquote p {
+    margin: 0;
+  }
+
+  footer {
+    padding: 25px 0;
+    text-align: left;
+    font-size: var(--font-size-secondary);
+  }
+
+  ul li:has(input) {
+    list-style-type: none;
+    margin-left: -25.5px;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+    margin-bottom: 8px;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li span.grouped {
+    flex: 0 0 80px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: var(--link-visited-color);
+  }
+
+  ul.blog-posts a {
+    margin-left: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+   
+  div.toc {
+    position: fixed;  
+    top: 50%;  
+    left: calc(
+      (100vw + var(--width-max)) / 2
+    );  
+    transform: translateY(-50%);  
+    width: calc((90vw - var(--width-max)) / 2);  
+    max-height: 80vh;  
+    overflow-y: auto;  
+    border: none;  
+    padding: 0;  
+    margin: 0;  
+    z-index: 99;  
+
+     
+    &::-webkit-scrollbar {
+       
+      display: none;  
+    }
+
+    -ms-overflow-style: none;  
+    scrollbar-width: none;  
+  }
+
+  .toc-nav {
+     
+    padding: 1.5rem;  
+  }
+
+  .toc-nav ul {
+     
+    list-style: none;  
+    padding: 0;  
+    margin: 0;  
+  }
+
+  .toc-nav li {
+     
+    margin: 8px 0;  
+  }
+
+  .toc-nav a {
+     
+    display: block;  
+    text-decoration: none;  
+    color: transparent;  
+    padding: 0 12px;  
+    transition: all 0.2s ease;  
+    font-size: 0.9rem;  
+    line-height: 1.4;  
+    text-align: left;  
+    white-space: nowrap;  
+    overflow: hidden;  
+    text-overflow: ellipsis;  
+    max-width: 100%;  
+  }
+
+  .toc-nav:hover a {
+    color: var(--toc-text-color);  
+  }
+
+  .toc-nav a::before {
+     
+    content: "";  
+    display: inline-block;  
+    width: 16px;  
+    height: 4px;  
+    background-color: var(--toc-text-color);  
+    border-radius: 16px;  
+    margin-right: 12px;  
+    vertical-align: middle;  
+  }
+
+  .toc-nav ul ul a::before {
+     
+    width: 12px;  
+    margin-right: 16px;  
+  }
+
+  .toc-nav ul ul ul a::before {
+     
+    width: 8px;  
+    margin-right: 20px;  
+  }
+
+  .toc-nav a.active,  
+     .toc-nav a:hover {
+    text-decoration: none;  
+    color: var(--toc-hover-color);  
+  }
+
+  .toc-nav a.active::before,  
+     .toc-nav a:hover::before {
+    background-color: var(--toc-hover-color);  
+  }
+
+   
+  button.upvote-btn {
+    margin: 0;
+    margin-left: auto;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--body-text-color);
+  }
+
+  button.upvoted {
+    color: var(--upvoted-color);
+  }
+
+  span.upvote-count {
+    margin-top: -4px;
+    font-size: smaller;
+  }
+
+  @media (max-width: 800px) {
+    img[src*="#minipic"] {
+      max-width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    div.toc {
+      display: none;
+    }
+  }
+</style>
+<meta name="msvalidate.01" content="2E1AACF009206F2DDBAAD4B98E881460" />
+<link
+  rel="prefetch"
+  as="image"
+  href="https://www.blogsclub.org/badge/www.glowisle.me"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
+<link href="https://github.com/yingyu5658" rel="me" />
+<link
+  rel="webmention"
+  href="https://webmention.io/www.glowisle.me/webmention"
+/>
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h1 class="site-name">映屿</h1>
+</a>
+<nav><a href="/">首页</a>
+
+<a href="/categories">分类</a>
+
+<a href="/links">友人</a>
+
+<a href="/archives">归档</a>
+
+<a href="/about">关于</a>
+
+
+</nav>
+</header>
+  <main> 
+
+<article class="h-entry">
+    <h1 class="post-title p-name"><a href="/posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/" style="color:#222222;">【数据结构与算法】冒泡排序</a></h1>
+
+<div class="post-info">
+    <time class="post-date dt-published" datetime="2025-05-10T20:06:05Z">
+        2025年5月10日
+    </time>
+        
+            
+            <a href="/categories/%E5%BE%80%E6%98%94/" class="category-link">往昔</a>
+        
+</div>
+<div class="e-content">
+    <h2 id="核心思想">核心思想</h2>
+<p>通过相邻元素的两两比较，将较大的元素逐步“冒泡”到数组末尾，每轮排序确定一个最大元素的最终位置。</p>
+<h2 id="代码实现">代码实现</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#e5c07b">void</span> <span style="color:#61afef;font-weight:bold">bubble_sort</span>(<span style="color:#e5c07b">int</span> <span style="color:#e06c75">arr</span>[], <span style="color:#e5c07b">int</span> <span style="color:#e06c75">n</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#7f848e">// 最外层控制循环轮数 n-1轮
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>  <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&lt;</span> <span style="color:#e06c75">n</span> <span style="color:#56b6c2">-</span> <span style="color:#d19a66">1</span>; <span style="color:#e06c75">i</span><span style="color:#56b6c2">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#7f848e">// 内层循环处理相邻元素比较和交换
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>    <span style="color:#c678dd">for</span>(<span style="color:#e5c07b">int</span> <span style="color:#e06c75">j</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>; <span style="color:#e06c75">j</span> <span style="color:#56b6c2">&lt;</span> <span style="color:#e06c75">n</span><span style="color:#56b6c2">-</span><span style="color:#e06c75">i</span><span style="color:#56b6c2">-</span><span style="color:#d19a66">1</span>; <span style="color:#e06c75">j</span><span style="color:#56b6c2">++</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#c678dd">if</span> (<span style="color:#e06c75">arr</span>[<span style="color:#e06c75">j</span>] <span style="color:#56b6c2">&gt;</span> <span style="color:#e06c75">arr</span>[<span style="color:#e06c75">j</span><span style="color:#56b6c2">+</span><span style="color:#d19a66">1</span>]) {
+</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">int</span> <span style="color:#e06c75">temp</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">arr</span>[<span style="color:#e06c75">j</span>];
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">arr</span>[<span style="color:#e06c75">j</span>] <span style="color:#56b6c2">=</span> <span style="color:#e06c75">arr</span>[<span style="color:#e06c75">j</span><span style="color:#56b6c2">+</span><span style="color:#d19a66">1</span>];
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">arr</span>[<span style="color:#e06c75">j</span><span style="color:#56b6c2">+</span><span style="color:#d19a66">1</span>] <span style="color:#56b6c2">=</span> <span style="color:#e06c75">temp</span>;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e">// 调用
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span><span style="color:#e5c07b">void</span> <span style="color:#61afef;font-weight:bold">print_array</span>(<span style="color:#e5c07b">int</span> <span style="color:#e06c75">arr</span>[], <span style="color:#e5c07b">int</span> <span style="color:#e06c75">size</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&lt;</span> <span style="color:#e06c75">size</span>; <span style="color:#e06c75">i</span><span style="color:#56b6c2">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#61afef;font-weight:bold">printf</span>(<span style="color:#98c379">&#34;%d,&#34;</span>, <span style="color:#e06c75">arr</span>[<span style="color:#e06c75">i</span>]);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#61afef;font-weight:bold">printf</span>(<span style="color:#98c379">&#34;</span><span style="color:#98c379">\n</span><span style="color:#98c379">&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#61afef;font-weight:bold">main</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#e5c07b">int</span> <span style="color:#e06c75">arr</span>[] <span style="color:#56b6c2">=</span> {<span style="color:#d19a66">23</span>, <span style="color:#d19a66">232</span>, <span style="color:#d19a66">55</span>, <span style="color:#d19a66">2</span>, <span style="color:#d19a66">7</span>, <span style="color:#d19a66">0</span>, <span style="color:#d19a66">576</span>, <span style="color:#d19a66">342</span>};
+</span></span><span style="display:flex;"><span>  <span style="color:#e5c07b">int</span> <span style="color:#e06c75">n</span> <span style="color:#56b6c2">=</span> <span style="color:#c678dd">sizeof</span>(<span style="color:#e06c75">arr</span>) <span style="color:#56b6c2">/</span> <span style="color:#c678dd">sizeof</span>(<span style="color:#e06c75">arr</span>[<span style="color:#d19a66">0</span>]);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#61afef;font-weight:bold">printf</span>(<span style="color:#98c379">&#34;排序前：&#34;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#61afef;font-weight:bold">print_array</span>(<span style="color:#e06c75">arr</span>, <span style="color:#e06c75">n</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#61afef;font-weight:bold">bubble_sort</span>(<span style="color:#e06c75">arr</span>, <span style="color:#e06c75">n</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#61afef;font-weight:bold">printf</span>(<span style="color:#98c379">&#34;排序后&#34;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#61afef;font-weight:bold">print_array</span>(<span style="color:#e06c75">arr</span>, <span style="color:#e06c75">n</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="原理分析">原理分析</h2>
+<h3 id="外层循环的-i--n---1">外层循环的 i &lt; n - 1</h3>
+<ul>
+<li>n个元素的数组最多需要n-1轮冒泡，如5元素数组需要4轮排序</li>
+<li><strong>数学依据</strong>：每轮将一个最大值“沉底”，当完成n-1轮时，最后一个元素必然有序</li>
+</ul>
+<p>示例验证：</p>
+<pre tabindex="0"><code>原始数组：[3, 1, 4, 2]
+第一轮：[1, 3, 2, 4] （确定最大值4）
+第二轮：[1, 2, 3, 4]
+</code></pre><p>用文字解释上面的函数，原理就是在循环中对比数组第i个元素和i+1（即后一位）元素的大小，若i &gt; i +1 则把两者交换位置，随着循环的进行，数组就会被排序。</p>
+<h3 id="内层循环的-j--n---i---1">内层循环的 j &lt; n - i - 1</h3>
+<ul>
+<li>动态缩小范围：每轮结束后末尾i个元素已有序</li>
+<li>比较次数：第i轮需要比较(n-1)-i次相邻元素</li>
+</ul>
+<p>想象一下数组的线性结构，实际上就是在计算排序后的一位的前一位，这样就不会处理已经排序好的元素，进入下一轮循环时可正常排序。</p>
+<h3 id="数组长度n的计算机制">数组长度n的计算机制</h3>
+<p>在main函数中，对于n的计算，采用了<code>sizeof(arr) / sizeof(arr[0])</code>的方式。可以这么理解。</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#e06c75">arr</span>[] <span style="color:#56b6c2">=</span> {<span style="color:#d19a66">6</span>,<span style="color:#d19a66">4</span>,<span style="color:#d19a66">8</span>,<span style="color:#d19a66">2</span>};
+</span></span><span style="display:flex;"><span>假设<span style="color:#e06c75">int占用4字节</span>，计算整个数组的内存占用
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">sizeof</span>(<span style="color:#e06c75">arr</span>) <span style="color:#56b6c2">=</span> <span style="color:#d19a66">5</span> <span style="color:#56b6c2">*</span> <span style="color:#d19a66">4</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">20</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">sizeof</span>(<span style="color:#e06c75">arr</span>[<span style="color:#d19a66">0</span>]) <span style="color:#56b6c2">=</span> <span style="color:#d19a66">4</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">n</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">20</span> <span style="color:#56b6c2">/</span> <span style="color:#d19a66">4</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">5</span>
+</span></span></code></pre></div><p>计算出数组的总占用，再除以单个占用，就可以得到元素个数了。</p>
+<h3 id="参数n的作用">参数n的作用</h3>
+<ul>
+<li>循环控制：确定外层循环次数n-1次</li>
+<li>边界保护，防止越界</li>
+<li>效率优化：避免无效比较，如j&lt;n-i-1</li>
+</ul>
+<h2 id="最坏情况">最坏情况</h2>
+<p>冒泡排序的最坏情况发生在<strong>输入数组完全逆序情况下</strong>，此时算法需要进行最大次数的比较和交换操作，时间复杂度达到最高。</p>
+<p>当待排序数组的初始状态为完全逆序，如[5,4,3,2,1]，每一轮外层循环都要将当前为排序部分的最大元素冒泡到正确位置，而且每次比较都会发生交换，此时：</p>
+<ul>
+<li><strong>比较次数</strong>： 共需要进行*(n - 1) + (n - 2) + &hellip;*（等差数列求和）。</li>
+<li><strong>交换次数</strong>： 每次比较均需要交换，总交换次数也为上式结果。</li>
+</ul>
+
+</div>
+</article>
+<a class="u-url" href="http://localhost:1313/posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/" style="display:none;">Permalink</a>
+
+<p>
+    
+    <a href="http://localhost:1313/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">#数据结构与算法</a>
+    
+</p>
+
+
+
+<div class="upvote-container">
+<small class="upvote">
+  <button class="upvote-btn" id="upvote-btn">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
+    <polyline points="17 11 12 6 7 11"></polyline>
+    <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+    <span class="upvote-count" id="upvote-count">0</span>
+  </button>
+</small>
+</div>
+
+<script>
+  let hasUpvoted = false;
+  let upvoteBtn;
+  let upvoteCount;
+
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    const slug = '';
+    upvoteBtn = document.getElementById('upvote-btn');
+    upvoteCount = document.getElementById('upvote-count');
+    getCount(slug);
+
+    
+    upvoteBtn.addEventListener('click', handleUpvote);
+  });
+
+  
+  async function handleUpvote() {
+    if (hasUpvoted) {
+      console.log('You have already upvoted this post!');
+      return;
+    }
+    const slug = '';
+
+    
+    upvoteBtn.disabled = true;
+    
+    upvoteBtn.classList.add('upvoted');
+    
+    upvoteCount.innerText = parseInt(upvoteCount.innerText) + 1;
+
+    try {
+      const response = await fetch('https:\/\/upvote.glowisle.me\/upvote', {
+        method: 'POST',
+		mode: 'cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ postId: slug, diff: 1 }),
+      });
+
+      if (response.ok) {
+        console.log('Upvote successful!');
+        hasUpvoted = true;
+        await getCount(slug, 3);
+      } else {
+        console.log('Upvote failed!');
+      }
+    } catch (error) {
+      console.error('Error: ', error);
+    } finally {
+      upvoteBtn.disabled = false;
+    }
+  }
+
+  
+  async function getCount(slug, retryCount = 0) {
+    try {
+      const response = await fetch('https:\/\/upvote.glowisle.me\/count?post=' + slug, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      const data = await response.json();
+
+      if (data.code === 0) {
+        const count = data.data.count;
+        upvoteCount.innerText = count;
+        hasUpvoted = data.data.hasUpvoted;
+        if (hasUpvoted) {
+          upvoteBtn.classList.add('upvoted');
+        } else {
+          upvoteBtn.classList.remove('upvoted');
+        }
+      } else {
+        console.error('Failed to get upvote count: ', data.msg);
+      }
+    } catch (error) {
+      console.error('Error: ', error);
+      if (retryCount > 0) {
+        setTimeout(() => {
+          getCount(slug, retryCount - 1);
+        }, 1000);
+      }
+    }
+  }
+</script>
+
+
+
+ 
+<div class="toc">
+
+<nav class="toc-nav">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#核心思想">核心思想</a></li>
+    <li><a href="#代码实现">代码实现</a></li>
+    <li><a href="#原理分析">原理分析</a>
+      <ul>
+        <li><a href="#外层循环的-i--n---1">外层循环的 i &lt; n - 1</a></li>
+        <li><a href="#内层循环的-j--n---i---1">内层循环的 j &lt; n - i - 1</a></li>
+        <li><a href="#数组长度n的计算机制">数组长度n的计算机制</a></li>
+        <li><a href="#参数n的作用">参数n的作用</a></li>
+      </ul>
+    </li>
+    <li><a href="#最坏情况">最坏情况</a></li>
+  </ul>
+</nav>
+</nav>
+
+<script>
+    
+    document.addEventListener('DOMContentLoaded', function () {
+        const tocLinks = document.querySelectorAll('.toc-nav a');
+        const headings = Array.from(tocLinks).map(link => {
+            const id = link.getAttribute('href').replace('#', '');
+            return document.getElementById(id);
+        }).filter(h => h);
+
+        
+        tocLinks.forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').replace('#', '');
+                const target = document.getElementById(targetId);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+
+                    
+                    tocLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                }
+            });
+        });
+
+        
+        function updateActiveLink() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const windowHeight = window.innerHeight;
+
+            for (let i = headings.length - 1; i >= 0; i--) {
+                const heading = headings[i];
+                const rect = heading.getBoundingClientRect();
+
+                if (rect.top <= 100) {
+                    
+                    tocLinks.forEach(link => link.classList.remove('active'));
+                    
+                    
+                    const activeLink = document.querySelector(`.toc-nav a[href="#${heading.id}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('active');
+                        
+                        
+                        let currentLi = activeLink.closest('li');
+                        while (currentLi) {
+                            const parentLi = currentLi.parentElement.closest('li');
+                            if (parentLi) {
+                                const parentLink = parentLi.querySelector('a');
+                                if (parentLink) {
+                                    parentLink.classList.add('active');
+                                }
+                                currentLi = parentLi;
+                            } else {
+                                break;
+                            }
+                        }
+                    }
+                    break;
+                }
+            }
+        }
+
+        
+        let ticking = false;
+        function throttleScroll() {
+            if (!ticking) {
+                requestAnimationFrame(function () {
+                    updateActiveLink();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }
+
+        window.addEventListener('scroll', throttleScroll);
+
+        
+        updateActiveLink();
+    });
+</script>
+</div>
+
+<hr />
+<details>
+    <summary>
+    <p style="display: inline">评论 与 Webmentions</p>
+    </summary>
+    <div id="giscus-container"></div>
+
+    <div class="wm">
+<div id="webmentions"></div>
+<script src="/js/webmention.min.js"
+    data-id="webmentions"
+    data-page-url="https://www.glowisle.me/posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/"
+    data-max-webmentions="50"
+    data-wordcount="30"
+    data-sort-by="published"
+    data-sort-dir="up"
+    async>
+</script>
+
+<details>
+    <summary>如何参与 Webmentions 互动？</summary>
+    <div class="wm-guide-content">
+<div class="webmention-form">
+    <p>如果你想回应这篇文章，请在你的博客或社交媒体中链接本页面，然后在下面的表单中提交你的页面链接。</p>
+    <form id="webmention-submit-form" action="https://webmention.io/www.glowisle.me/webmention" method="post">
+        
+        <input type="hidden" name="target" value="https://www.glowisle.me/posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/">
+
+        <div>
+            <label for="webmention-source">你的文章链接：</label>
+            <input
+                type="url"
+                id="webmention-source"
+                name="source"
+                required
+                pattern="https?://.+"
+            >
+        <button type="submit" id="webmention-submit-btn">提交</button>
+        </div>
+        <div id="webmention-form-feedback"></div>
+    </form>
+    <br>
+<a href="https://indieweb.org/webmention">关于 Webmention 的更多信息</a> 以及 <a href="https://www.glowisle.me/posts/tear-hypocrisy-apart/">为什么要这么做？</a>
+</details>
+
+
+
+    <script>
+		
+
+    function getInitialTheme() {
+  
+  if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+    return localStorage.getItem('theme');
+  }
+  
+  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    return 'dark';
+  }
+  
+  return 'light';
+}
+
+const currentTheme = getInitialTheme();
+const giscusTheme = currentTheme === 'dark' ? 'dark' : 'light';
+
+const giscusScript = document.createElement('script');
+giscusScript.src = 'https://giscus.app/client.js';
+giscusScript.setAttribute('data-repo', 'yingyu5658/yingyu5658.github.io');
+giscusScript.setAttribute('data-repo-id', 'R_kgDOOBetsA');
+giscusScript.setAttribute('data-category', 'Announcements');
+giscusScript.setAttribute('data-category-id', 'DIC_kwDOOBetsM4CoF_Z');
+giscusScript.setAttribute('data-mapping', 'title');
+giscusScript.setAttribute('data-strict', '0');
+giscusScript.setAttribute('data-reactions-enabled', '1');
+giscusScript.setAttribute('data-emit-metadata', '0');
+giscusScript.setAttribute('data-input-position', 'bottom');
+giscusScript.setAttribute('data-theme', giscusTheme);
+giscusScript.setAttribute('data-lang', 'zh-CN');
+giscusScript.crossOrigin = 'anonymous';
+giscusScript.async = true;
+
+document.getElementById('giscus-container').appendChild(giscusScript);
+
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('webmention-submit-form');
+    const submitBtn = document.getElementById('webmention-submit-btn');
+    const feedbackEl = document.getElementById('webmention-form-feedback');
+
+    if (!form) return;
+
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        
+        const originalBtnText = submitBtn.textContent;
+        submitBtn.disabled = true;
+        submitBtn.textContent = '发送中...';
+
+        
+        feedbackEl.textContent = '';
+
+        try {
+            
+            const formData = new FormData(form);
+
+            
+            const response = await fetch(form.action, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                },
+                body: new URLSearchParams(formData)
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                
+                feedbackEl.textContent = '✅ 提交成功！Webmention 正在处理中。';
+                form.reset();
+            } else {
+                
+                let errorMsg = '提交失败：';
+                if (result.error || result.summary) {
+                    errorMsg += result.error || result.summary;
+                }
+                feedbackEl.textContent = errorMsg;
+            }
+        } catch (error) {
+            
+            feedbackEl.textContent = '❌ 提交过程中出现网络错误，请稍后重试。';
+        } finally {
+            
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalBtnText;
+        }
+    });
+});
+
+
+</script>
+
+
+  </main>
+  <footer><p>© 2024 - 2025 | Made with ❤️ by Verdant.</p>
+</footer>
+
+    
+
+
+</body>
+
+</html>
