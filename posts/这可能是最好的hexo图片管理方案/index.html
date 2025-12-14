@@ -76,6 +76,12 @@
     --caption-text-color: #666;
     --toc-text-color: #e5e5e5;
     --toc-hover-color: #655e5e;
+
+    --music-bg-hover-light: #e5e5e5;  
+    --music-bg-light: rgba(229, 229, 229, 0.5);  
+    --music-text-secondary: #666;
+    --music-shadow:
+      0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   }
 
   .wm {
@@ -149,6 +155,147 @@
     width: 66px;
     border-radius: 5px;
     text-transform: uppercase;
+  }
+
+  .music-card img {
+    border: none !important;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --music-bg-hover-dark: #525252;  
+      --music-bg-dark: rgba(82, 82, 82, 0.5);  
+      --music-text-secondary: #a3a3a3;
+    }
+  }
+
+   
+   
+  .music-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+   
+   
+  .music-info {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+   
+   
+  .music-cover {
+    width: 3.75rem;  
+    height: 3.75rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--music-shadow);
+    margin: 0 !important;
+    object-fit: cover;
+  }
+
+   
+  .music-title {
+    margin: 0;
+    font-size: 1rem;  
+    font-weight: bold;
+    line-height: 1.2;
+  }
+
+  .music-artist {
+    margin: 0;
+    font-size: 0.875rem;  
+    color: var(--music-text-secondary);
+  }
+
+   
+   
+  .music-links {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+   
+   
+  .music-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0 0.75rem;  
+    height: 2rem;  
+    border-radius: 9999px;  
+    text-decoration: none !important;
+    font-size: 0.75rem;  
+    transition: background-color 0.3s ease;
+
+     
+    background-color: var(--music-bg-light);
+    color: inherit;
+  }
+
+  .music-btn:hover {
+    background-color: var(--music-bg-hover-light);
+  }
+
+   
+   
+  .music-icon {
+    display: block;
+    width: 0.75rem;
+    height: 0.75rem;
+    margin: 0 !important;
+  }
+
+   
+  .music-btn-text {
+    display: inline;
+  }
+
+   
+  @media (prefers-color-scheme: dark) {
+    .music-btn {
+      background-color: var(--music-bg-dark);
+    }
+    .music-btn:hover {
+      background-color: var(--music-bg-hover-dark);
+    }
+  }
+
+   
+  @media (min-width: 768px) {
+     
+     
+    .music-card {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+     
+     
+    .music-btn {
+      padding: 1rem;
+      justify-content: center;
+      width: auto;
+      height: auto;
+    }
+
+     
+     
+    .music-icon {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+
+     
+     
+    .music-btn-text {
+      display: none;
+    }
   }
 
   @media (prefers-color-scheme: dark) {
@@ -588,10 +735,6 @@
   rel="prefetch"
   as="image"
   href="https://www.blogsclub.org/badge/www.glowisle.me"
-/>
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 />
 <link href="https://github.com/yingyu5658" rel="me" />
 <link

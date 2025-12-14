@@ -42,7 +42,7 @@
 若不方便使用Telegram，也可以访问 网页版的央山常量池。">
   <meta itemprop="datePublished" content="2025-02-26T20:31:14+08:00">
   <meta itemprop="dateModified" content="2025-02-26T20:31:14+08:00">
-  <meta itemprop="wordCount" content="633">
+  <meta itemprop="wordCount" content="614">
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
   <style>
@@ -51,7 +51,7 @@
     --width-max: 720px;
     --font-primary: "Noto Serif SC", "Source Han Serif SC", serif;
     --font-secondary: monospace;
-    --font-size-primary: 1em;
+    --font-size-primary: 1.105em;
     --font-size-secondary: 0.8em;
     --body-bg-color: #ffffff;
     --bold-text-color: #222;
@@ -69,6 +69,26 @@
     --caption-text-color: #666;
     --toc-text-color: #e5e5e5;
     --toc-hover-color: #655e5e;
+
+    --music-bg-hover-light: #e5e5e5;  
+    --music-bg-light: rgba(229, 229, 229, 0.5);  
+    --music-text-secondary: #666;
+    --music-shadow:
+      0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+
+  nav a,
+  h1.post-title a,
+  .category-link,
+  .blog-posts li a {
+    text-decoration: none !important;
+  }
+
+  nav a:hover,
+  .post-title a:hover,
+  a.item-link:hover,
+  .blog-posts a:hover {
+    text-decoration: underline 0.5px !important;
   }
 
   .wm {
@@ -82,6 +102,10 @@
 
   .wm p {
     margin-top: 1px;
+  }
+
+  article p {
+    line-height: 40px;
   }
 
   .item-link {
@@ -130,18 +154,147 @@
     content: "/";
   }
 
-  .site-name:hover {
-    background-color: transparent;
-    text-decoration: none;
-    color: #fff;
-    background-color: #7e4fa0;
+  .music-card img {
+    border: none !important;
   }
 
-  .site-name {
-    transition: 0.3s;
-    width: 66px;
-    border-radius: 5px;
-    text-transform: uppercase;
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --music-bg-hover-dark: #525252;  
+      --music-bg-dark: rgba(82, 82, 82, 0.5);  
+      --music-text-secondary: #a3a3a3;
+    }
+  }
+
+   
+
+   
+   
+  .music-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+   
+   
+  .music-info {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+   
+   
+  .music-cover {
+    width: 3.75rem;  
+    height: 3.75rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--music-shadow);
+    margin: 0 !important;
+    object-fit: cover;
+  }
+
+   
+  .music-title {
+    margin: 0;
+    font-size: 1rem;  
+    font-weight: bold;
+    line-height: 1.2;
+  }
+
+  .music-artist {
+    margin: 0;
+    font-size: 0.875rem;  
+    color: var(--music-text-secondary);
+  }
+
+   
+   
+  .music-links {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+   
+   
+  .music-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0 0.75rem;  
+    height: 2rem;
+    border-radius: 9999px;  
+    text-decoration: none !important;
+    font-size: 0.75rem;  
+    transition: background-color 0.3s ease;
+
+     
+    background-color: var(--music-bg-light);
+    color: inherit;
+  }
+
+  .music-btn:hover {
+    background-color: var(--music-bg-hover-light);
+  }
+
+   
+   
+  .music-icon {
+    display: block;
+    width: 0.75rem;
+    height: 0.75rem;
+    margin: 0 !important;
+  }
+
+   
+  .music-btn-text {
+    display: inline;
+  }
+
+   
+  @media (prefers-color-scheme: dark) {
+    .music-btn {
+      background-color: var(--music-bg-dark);
+    }
+    .music-btn:hover {
+      background-color: var(--music-bg-hover-dark);
+    }
+  }
+
+   
+  @media (min-width: 768px) {
+     
+     
+    .music-card {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+     
+     
+    .music-btn {
+      padding: 1rem;
+      justify-content: center;
+      width: auto;
+      height: auto;
+    }
+
+     
+     
+    .music-icon {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+
+     
+     
+    .music-btn-text {
+      display: none;
+    }
   }
 
   @media (prefers-color-scheme: dark) {
@@ -189,7 +342,8 @@
       border: #30363d 1px solid;
     }
 
-    .post-title a {
+    .post-title a,
+    .blog-posts a {
       color: #fff !important;
     }
 
@@ -205,19 +359,8 @@
       border: 1px solid #414141 !important;
     }
 
-    nav a,
-    h1.post-title a,
-    .category-link,
-    .blog-posts li a {
-      text-decoration: none !important;
-    }
-
     a {
-      font-weight: 700 !important;
-    }
-
-    a:hover {
-      color: #ddd !important;
+      font-weight: 500 !important;
     }
   }
 
@@ -261,10 +404,6 @@
     text-decoration: underline 0.2px #d4d4d4;
     transition-duration: 0.3s;
     font-weight: 600;
-  }
-
-  a:hover {
-    color: #3273dc;
   }
 
   .posts-list li {
@@ -582,10 +721,6 @@
   as="image"
   href="https://www.blogsclub.org/badge/www.glowisle.me"
 />
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-/>
 <link href="https://github.com/yingyu5658" rel="me" />
 <link
   rel="webmention"
@@ -886,11 +1021,13 @@
   
     
   
+    
+  
 
 
 
 
-  124567 字，
+  126915 字，
 
   
   
@@ -975,21 +1112,34 @@
 
 </li>
 </ul>
-<h2 id="这个博客是如何搭建的">这个博客是如何搭建的</h2>
-<p>本博客使用快速、易用的静态博客生成程序 <a href="https://gohugo.io/">Hugo</a>，在 <a href="https://github.com/rokcso/hugo-bearneo">hugo-bearneo</a> 主题的基础上进行修改，静态文件托管在Github Pages，图床使用Cloudflare R2对象存储。我使用 Emacs 撰写文章，并推送到远程仓库构建部署。</p>
-<h2 id="在哪找到我">在哪找到我</h2>
+<h2 id="订阅">订阅</h2>
+<p>如果你喜欢我的文字，可以用以下链接订阅：</p>
+<ul>
+<li>
+<p><a href="https://www.glowisle.me/atom.xml/">订阅全部文章</a></p>
+</li>
+<li>
+<p><a href="https://www.glowisle.me/categories/%E5%9B%9E%E5%A3%B0%E5%91%A8%E5%88%8A/atom.xml">订阅周刊</a></p>
+</li>
+<li>
+<p><a href="https://channel.glowisle.me/rss.xml/">订阅Telegram频道的消息</a></p>
+</li>
+</ul>
+<p>订阅某个分类：</p>
+<pre tabindex="0"><code>https://www.glowisle.me/categories/分类名/atom.xml
+</code></pre><h2 id="在哪找到我">在哪找到我</h2>
 <ul>
 <li>Email: <a href="mailto:i@glowisle.me/">i@glowisle.me</a></li>
 <li>即时通讯: <a href="https://t.me/VerdantIO/">Verdant</a>（Telegram）</li>
 <li>Mastodon: <a href="https://c7.io/@Verdant/">c7.io/@Verdant</a></li>
 <li>Github: <a href="https://github.com/yingyu5658/">Verdant</a></li>
 </ul>
-<h2 id="订阅">订阅</h2>
-<p>如果你喜欢我的文字，可以用以下链接订阅：</p>
-<pre tabindex="0"><code>https://www.glowisle.me/atom.xml/
-</code></pre><p>订阅Telegram频道的消息：</p>
-<pre tabindex="0"><code>https://channel.glowisle.me/rss.xml/
-</code></pre> </content>
+<h2 id="鸣谢">鸣谢</h2>
+<ul>
+<li>本站样式基于 <a href="https://github.com/rokcso/hugo-bearneo/">Hugo Bear Neo</a> 主题修改</li>
+<li>音乐卡片的修改自 <a href="https://github.com/BigCoke233/geek-death-project">極客死亡計劃</a></li>
+</ul>
+ </content>
 
 <p>
   
@@ -1110,9 +1260,9 @@
   <ul>
     <li><a href="#我是谁">我是谁</a></li>
     <li><a href="#关于这里">关于这里</a></li>
-    <li><a href="#这个博客是如何搭建的">这个博客是如何搭建的</a></li>
-    <li><a href="#在哪找到我">在哪找到我</a></li>
     <li><a href="#订阅">订阅</a></li>
+    <li><a href="#在哪找到我">在哪找到我</a></li>
+    <li><a href="#鸣谢">鸣谢</a></li>
   </ul>
 </nav>
 </nav>

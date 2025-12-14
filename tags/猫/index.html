@@ -9,7 +9,7 @@
 <title>猫</title>
 <meta name="title" content="猫" />
 <meta name="description" content="关于互联网、书籍、生活琐事以及那些一闪而过的念头。计算机技术 &amp; 读书感悟 &amp; 日常随笔。映屿(GlowIsle)" />
-<meta name="keywords" content="往昔,技术,观影,读书,随笔,ai,arch,b站,c语言,electron,emacs,fedora,geyser,gnu,gnu/emacs,gnu/linux,graphviz,hexo,java,javascript,kilo,linux,malody,minecraft,neovim,nodejs,obsidain,osu,seo,terrira,thunderbird,typecho,vim,waline,webmention,windows,“厌蠢症”,《南京照相馆》,三岛由纪夫,丰饶之海,书评,互联网,人工智能,人际交往,价值,伊豆的舞女,信息节食,内容创作,写作,前端,博客,去中心化,古文,回忆,图书,夏,奔马,婚姻,学业,学校,家庭,小品,川端康成,底层技术,怀旧,思考与议论,总结,意识流,感官,感谢恩师夸奖,我,扩列,搜索引擎,教程,散文,散步,数据结构与算法,文字,文学,文库本,文本编辑器,文章,新闻组,旁观者,日常,日本文学,早睡早起,时政,春雪,暑假总结,月度总结,朋友圈,服务器,未成年人保护,杂文,杂记,汇编,沟通,游戏,物理,狗叫,猫,生命,电影,知乎,社交,笔记,素描,终端,编程,编译原理,编译器,网络环境,美术,翻译,考试,自媒体,自搜,西西弗,观察,记事,记忆,评论区,读书笔记,读后感,豆瓣,贝斯,购物,软件开发,酒,阅读,阿里云,随笔,韩愈,音乐," />
+<meta name="keywords" content="回声周刊,往昔,技术,观影,读书,随笔,ai,arch,b站,c语言,electron,emacs,fedora,geyser,gnu,gnu/emacs,gnu/linux,graphviz,hexo,java,javascript,kilo,linux,malody,minecraft,neovim,nodejs,obsidain,osu,seo,terrira,thunderbird,typecho,vim,waline,webmention,windows,“厌蠢症”,《南京照相馆》,三岛由纪夫,上岸,丰饶之海,书评,互联网,人工智能,人际交往,价值,伊豆的舞女,信息节食,内容创作,写作,前端,博客,去中心化,古文,回忆,图书,夏,奔马,婚姻,学业,学校,家庭,小品,川端康成,底层技术,怀旧,思考与议论,总结,意识流,感官,感谢恩师夸奖,我,扩列,搜索引擎,教程,散文,散步,数据结构与算法,文字,文学,文库本,文本编辑器,文章,新闻组,旁观者,日常,日本文学,早睡早起,时政,春雪,暑假总结,月度总结,朋友圈,服务器,未成年人保护,杂文,杂记,汇编,沟通,游戏,物理,狗叫,猫,生命,电影,知乎,社交,笔记,素描,终端,编程,编译原理,编译器,网络环境,美术,翻译,考试,自媒体,自搜,西西弗,观察,记事,记忆,评论区,读书,读书笔记,读后感,豆瓣,贝斯,购物,软件开发,酒,阅读,阿里云,随笔,韩愈,音乐," />
 
 <link rel="canonical" href="http://localhost:1313/tags/%E7%8C%AB/">
 
@@ -62,6 +62,12 @@
     --caption-text-color: #666;
     --toc-text-color: #e5e5e5;
     --toc-hover-color: #655e5e;
+
+    --music-bg-hover-light: #e5e5e5;  
+    --music-bg-light: rgba(229, 229, 229, 0.5);  
+    --music-text-secondary: #666;
+    --music-shadow:
+      0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   }
 
   .wm {
@@ -135,6 +141,147 @@
     width: 66px;
     border-radius: 5px;
     text-transform: uppercase;
+  }
+
+  .music-card img {
+    border: none !important;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --music-bg-hover-dark: #525252;  
+      --music-bg-dark: rgba(82, 82, 82, 0.5);  
+      --music-text-secondary: #a3a3a3;
+    }
+  }
+
+   
+   
+  .music-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+   
+   
+  .music-info {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+   
+   
+  .music-cover {
+    width: 3.75rem;  
+    height: 3.75rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--music-shadow);
+    margin: 0 !important;
+    object-fit: cover;
+  }
+
+   
+  .music-title {
+    margin: 0;
+    font-size: 1rem;  
+    font-weight: bold;
+    line-height: 1.2;
+  }
+
+  .music-artist {
+    margin: 0;
+    font-size: 0.875rem;  
+    color: var(--music-text-secondary);
+  }
+
+   
+   
+  .music-links {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+   
+   
+  .music-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0 0.75rem;  
+    height: 2rem;  
+    border-radius: 9999px;  
+    text-decoration: none !important;
+    font-size: 0.75rem;  
+    transition: background-color 0.3s ease;
+
+     
+    background-color: var(--music-bg-light);
+    color: inherit;
+  }
+
+  .music-btn:hover {
+    background-color: var(--music-bg-hover-light);
+  }
+
+   
+   
+  .music-icon {
+    display: block;
+    width: 0.75rem;
+    height: 0.75rem;
+    margin: 0 !important;
+  }
+
+   
+  .music-btn-text {
+    display: inline;
+  }
+
+   
+  @media (prefers-color-scheme: dark) {
+    .music-btn {
+      background-color: var(--music-bg-dark);
+    }
+    .music-btn:hover {
+      background-color: var(--music-bg-hover-dark);
+    }
+  }
+
+   
+  @media (min-width: 768px) {
+     
+     
+    .music-card {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+     
+     
+    .music-btn {
+      padding: 1rem;
+      justify-content: center;
+      width: auto;
+      height: auto;
+    }
+
+     
+     
+    .music-icon {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+
+     
+     
+    .music-btn-text {
+      display: none;
+    }
   }
 
   @media (prefers-color-scheme: dark) {
@@ -574,10 +721,6 @@
   rel="prefetch"
   as="image"
   href="https://www.blogsclub.org/badge/www.glowisle.me"
-/>
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 />
 <link href="https://github.com/yingyu5658" rel="me" />
 <link
