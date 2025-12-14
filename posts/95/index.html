@@ -75,7 +75,7 @@ public class prameter {
     --width-max: 720px;
     --font-primary: "Noto Serif SC", "Source Han Serif SC", serif;
     --font-secondary: monospace;
-    --font-size-primary: 1em;
+    --font-size-primary: 1.105em;
     --font-size-secondary: 0.8em;
     --body-bg-color: #ffffff;
     --bold-text-color: #222;
@@ -101,6 +101,20 @@ public class prameter {
       0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   }
 
+  nav a,
+  h1.post-title a,
+  .category-link,
+  .blog-posts li a {
+    text-decoration: none !important;
+  }
+
+  nav a:hover,
+  .post-title a:hover,
+  a.item-link:hover,
+  .blog-posts a:hover {
+    text-decoration: underline 0.5px !important;
+  }
+
   .wm {
     border: 1px #d0d7de solid;
     border-radius: 0.25em;
@@ -112,6 +126,10 @@ public class prameter {
 
   .wm p {
     margin-top: 1px;
+  }
+
+  article p {
+    line-height: 40px;
   }
 
   .item-link {
@@ -160,20 +178,6 @@ public class prameter {
     content: "/";
   }
 
-  .site-name:hover {
-    background-color: transparent;
-    text-decoration: none;
-    color: #fff;
-    background-color: #7e4fa0;
-  }
-
-  .site-name {
-    transition: 0.3s;
-    width: 66px;
-    border-radius: 5px;
-    text-transform: uppercase;
-  }
-
   .music-card img {
     border: none !important;
   }
@@ -185,6 +189,8 @@ public class prameter {
       --music-text-secondary: #a3a3a3;
     }
   }
+
+   
 
    
    
@@ -243,7 +249,7 @@ public class prameter {
     align-items: center;
     gap: 0.25rem;
     padding: 0 0.75rem;  
-    height: 2rem;  
+    height: 2rem;
     border-radius: 9999px;  
     text-decoration: none !important;
     font-size: 0.75rem;  
@@ -360,7 +366,8 @@ public class prameter {
       border: #30363d 1px solid;
     }
 
-    .post-title a {
+    .post-title a,
+    .blog-posts a {
       color: #fff !important;
     }
 
@@ -376,19 +383,8 @@ public class prameter {
       border: 1px solid #414141 !important;
     }
 
-    nav a,
-    h1.post-title a,
-    .category-link,
-    .blog-posts li a {
-      text-decoration: none !important;
-    }
-
     a {
-      font-weight: 700 !important;
-    }
-
-    a:hover {
-      color: #ddd !important;
+      font-weight: 500 !important;
     }
   }
 
@@ -432,10 +428,6 @@ public class prameter {
     text-decoration: underline 0.2px #d4d4d4;
     transition-duration: 0.3s;
     font-weight: 600;
-  }
-
-  a:hover {
-    color: #3273dc;
   }
 
   .posts-list li {
@@ -1216,7 +1208,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
   </main>
-  <footer><p>© 2024 - 2025 | Made with ❤️ by Verdant.</p>
+  <footer><p class="copyright">© 2024 - 2025 | Made with ❤️ by Verdant.</p>
 </footer>
 
     
