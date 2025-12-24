@@ -57,7 +57,7 @@ n个元素的数组最多需要n-1轮冒泡，如5元素数组需要4轮排序
 
 
 <meta property="og:url" content="https://www.glowisle.me/posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/">
-  <meta property="og:site_name" content="映屿">
+  <meta property="og:site_name" content="🎄 映屿">
   <meta property="og:title" content="【数据结构与算法】冒泡排序">
   <meta property="og:description" content="核心思想 通过相邻元素的两两比较，将较大的元素逐步“冒泡”到数组末尾，每轮排序确定一个最大元素的最终位置。
 代码实现 void bubble_sort(int arr[], int n) { // 最外层控制循环轮数 n-1轮 for (int i = 0; i &lt; n - 1; i&#43;&#43;) { // 内层循环处理相邻元素比较和交换 for(int j = 0; j &lt; n-i-1; j&#43;&#43;) { if (arr[j] &gt; arr[j&#43;1]) { int temp = arr[j]; arr[j] = arr[j&#43;1]; arr[j&#43;1] = temp; } } } } // 调用 void print_array(int arr[], int size) { for (int i = 0; i &lt; size; i&#43;&#43;) { printf(&#34;%d,&#34;, arr[i]); } printf(&#34;\n&#34;); } int main() { int arr[] = {23, 232, 55, 2, 7, 0, 576, 342}; int n = sizeof(arr) / sizeof(arr[0]); printf(&#34;排序前：&#34;); print_array(arr, n); bubble_sort(arr, n); printf(&#34;排序后&#34;); print_array(arr, n); } 原理分析 外层循环的 i &lt; n - 1 n个元素的数组最多需要n-1轮冒泡，如5元素数组需要4轮排序 数学依据：每轮将一个最大值“沉底”，当完成n-1轮时，最后一个元素必然有序 示例验证：">
@@ -777,7 +777,7 @@ n个元素的数组最多需要n-1轮冒泡，如5元素数组需要4轮排序
 
 <body>
   <header><a href="/" class="title">
-  <h1 class="site-name">映屿</h1>
+  <h1 class="site-name">🎄 映屿</h1>
 </a>
 <nav><a href="/">首页</a>
 
@@ -1179,7 +1179,7 @@ giscusScript.setAttribute('data-category', 'Announcements');
 giscusScript.setAttribute('data-category-id', 'DIC_kwDOOBetsM4CoF_Z');
 giscusScript.setAttribute('data-mapping', 'title');
 giscusScript.setAttribute('data-strict', '0');
-giscusScript.setAttribute('data-reactions-enabled', '1');
+giscusScript.setAttribute('data-reactions-enabled', '0');
 giscusScript.setAttribute('data-emit-metadata', '0');
 giscusScript.setAttribute('data-input-position', 'bottom');
 giscusScript.setAttribute('data-theme', giscusTheme);

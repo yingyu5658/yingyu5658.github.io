@@ -50,7 +50,7 @@ req.on(&#39;error&#39;, (err) =&gt; {
 
 
 <meta property="og:url" content="https://www.glowisle.me/posts/osu-apiv1%E8%AF%B7%E6%B1%82%E7%A4%BA%E4%BE%8B/">
-  <meta property="og:site_name" content="映屿">
+  <meta property="og:site_name" content="🎄 映屿">
   <meta property="og:title" content="osu!APIv1请求示例">
   <meta property="og:description" content="前言 本文章使用Nodejs环境做演示。请求用户数据。代码中的APIKEY要在osu官网‬申请。
 const API_URL = &#34;osu.ppy.sh&#34;; const init = { k: &#34;YOUR_API_KEY&#34;, type: &#34;string&#34;, u: &#34;kyzzz5658&#34;, }; const https = require(&#34;https&#34;); // 将参数序列化为查询字符串 const query = new URLSearchParams(init); const options = { hostname: API_URL, method: &#34;GET&#34;, path: `/api/get_user?${query}` // 附加参数 }; const req = https.request(options, (res) =&gt; { let data = &#39;&#39;; res.on(&#39;data&#39;, (chunk) =&gt; data &#43;= chunk); res.on(&#39;end&#39;, () =&gt; { try { console.log(JSON.parse(data[0].username)); } catch (e) { console.error(&#39;JSON 解析失败:&#39;, e); } }); }); // 错误处理 req.on(&#39;error&#39;, (err) =&gt; { console.error(&#39;请求失败:&#39;, err.code); }); 输出：">
@@ -771,7 +771,7 @@ const API_URL = &#34;osu.ppy.sh&#34;; const init = { k: &#34;YOUR_API_KEY&#34;, 
 
 <body>
   <header><a href="/" class="title">
-  <h1 class="site-name">映屿</h1>
+  <h1 class="site-name">🎄 映屿</h1>
 </a>
 <nav><a href="/">首页</a>
 
@@ -1154,7 +1154,7 @@ giscusScript.setAttribute('data-category', 'Announcements');
 giscusScript.setAttribute('data-category-id', 'DIC_kwDOOBetsM4CoF_Z');
 giscusScript.setAttribute('data-mapping', 'title');
 giscusScript.setAttribute('data-strict', '0');
-giscusScript.setAttribute('data-reactions-enabled', '1');
+giscusScript.setAttribute('data-reactions-enabled', '0');
 giscusScript.setAttribute('data-emit-metadata', '0');
 giscusScript.setAttribute('data-input-position', 'bottom');
 giscusScript.setAttribute('data-theme', giscusTheme);
