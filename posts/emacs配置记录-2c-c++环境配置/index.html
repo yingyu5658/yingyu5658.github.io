@@ -1,10 +1,9 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
-
-<head>
-  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="shortcut icon" href="https://www.glowisle.me/favicon.png" />
 <title>Emacs配置记录 2——C/C&#43;&#43;环境配置</title>
 <meta name="title" content="Emacs配置记录 2——C/C&#43;&#43;环境配置" />
@@ -19,7 +18,7 @@ Spacemacs
 
 
 <meta property="og:url" content="https://www.glowisle.me/posts/emacs%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95-2c-c&#43;&#43;%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">
-  <meta property="og:site_name" content="🎄 映屿">
+  <meta property="og:site_name" content="映屿">
   <meta property="og:title" content="Emacs配置记录 2——C/C&#43;&#43;环境配置">
   <meta property="og:description" content="前言 经过上一篇的简单调教，Emacs已经勉强变成了一个温顺的文本编辑器，但是离写代码这个宏大的目标还是有一段距离的，今天来解决主要问题：代码补全。由于我要写一点简单的C代码，那么重点就先放到C/CPP环境搭建中。
 站在巨人的肩膀上，在Emacs中的代码补全使用巨硬的LSP协议。
@@ -54,10 +53,10 @@ Spacemacs 经过考虑，我还是决定使用Spacemacs，比起原版Emacs，�
   <meta itemprop="keywords" content="Emacs,Linux">
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
-  <style>
+    <style>
    
   :root {
-    --width-max: 720px;
+    --width-max: 700px;
     --font-primary: "Noto Serif SC", "Source Han Serif SC", serif;
     --font-secondary: monospace;
     --font-size-primary: 1.105em;
@@ -92,8 +91,8 @@ Spacemacs 经过考虑，我还是决定使用Spacemacs，比起原版Emacs，�
 
   nav a,
   h1.post-title a,
-  .category-link,
-  .blog-posts li a {
+  .blog-posts li a,
+  a.category-link {
     text-decoration: none !important;
   }
 
@@ -101,6 +100,10 @@ Spacemacs 经过考虑，我还是决定使用Spacemacs，比起原版Emacs，�
   .post-title a:hover,
   a.item-link:hover,
   .blog-posts a:hover {
+    text-decoration: underline 0.5px !important;
+  }
+
+  a.category-link:hover {
     text-decoration: underline 0.5px !important;
   }
 
@@ -118,7 +121,7 @@ Spacemacs 经过考虑，我还是决定使用Spacemacs，比起原版Emacs，�
   }
 
   article p {
-    line-height: 40px;
+    line-height: 35px;
   }
 
   .item-link {
@@ -131,7 +134,7 @@ Spacemacs 经过考虑，我还是决定使用Spacemacs，比起原版Emacs，�
     margin-bottom: 3vh;
   }
   .category-link {
-    color: #999;
+    color: #444;
   }
 
   h1.post-title {
@@ -329,6 +332,10 @@ Spacemacs 经过考虑，我还是决定使用Spacemacs，比起原版Emacs，�
       --toc-hover-color: #cac3c3;
     }
 
+    .category-link {
+      color: #dbdbdb;
+    }
+
     .wm {
       background-color: #161b22;
       border-color: #30363d;
@@ -428,6 +435,11 @@ Spacemacs 经过考虑，我还是决定使用Spacemacs，比起原版Emacs，�
     border: 0;
   }
 
+  header {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
   .title:hover {
     text-decoration: none;
   }
@@ -516,7 +528,7 @@ Spacemacs 经过考虑，我还是决定使用Spacemacs，比起原版Emacs，�
   time {
     font-family: var(--font-secondary);
     font-size: 15px;
-    color: rgb(163, 163, 163);
+    color: rgb(139, 139, 139);
   }
 
   code {
@@ -741,9 +753,9 @@ Spacemacs 经过考虑，我还是决定使用Spacemacs，比起原版Emacs，�
 />
 </head>
 
-<body>
-  <header><a href="/" class="title">
-  <h1 class="site-name">🎄 映屿</h1>
+  <body>
+    <header><a href="/" class="title">
+  <h1>映屿</h1>
 </a>
 <nav><a href="/">首页</a>
 
@@ -757,8 +769,9 @@ Spacemacs 经过考虑，我还是决定使用Spacemacs，比起原版Emacs，�
 
 
 </nav>
+<hr>
 </header>
-  <main> 
+    <main> 
 
 <article class="h-entry">
     <h1 class="post-title p-name"><a href="/posts/emacs%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95-2c-c&#43;&#43;%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" style="color:#222222;">Emacs配置记录 2——C/C&#43;&#43;环境配置</a></h1>
@@ -1225,17 +1238,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </script>
 
-
-  </main>
-  <footer><p class="copyright">
+</main>
+    <footer><p class="copyright">
   © 2024 - 2025 | Made with ❤️ by
   <a href="https://github.com/yingyu5658">Verdant</a>.
 </p>
 </footer>
 
-    
+      
 
 
 </body>
-
 </html>

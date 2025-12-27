@@ -1,10 +1,9 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
-
-<head>
-  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="shortcut icon" href="https://www.glowisle.me/favicon.png" />
 <title>别闲着没事自搜，黑历史啊</title>
 <meta name="title" content="别闲着没事自搜，黑历史啊" />
@@ -17,7 +16,7 @@
 
 
 <meta property="og:url" content="https://www.glowisle.me/posts/%E5%88%AB%E9%97%B2%E7%9D%80%E6%B2%A1%E4%BA%8B%E8%87%AA%E6%90%9C%E9%BB%91%E5%8E%86%E5%8F%B2%E5%95%8A/">
-  <meta property="og:site_name" content="🎄 映屿">
+  <meta property="og:site_name" content="映屿">
   <meta property="og:title" content="别闲着没事自搜，黑历史啊">
   <meta property="og:description" content="在Bing自搜 今天实在是太闲了，在bing搜了一下我自己的id，结果看到了早期刚建站时的各种黑历史。搜索引擎的缓存还没有消失，已经快一年了。甚至连最早用的第一个域名都挂在上面，但是那个域名现在已经易主了，现在是一个卖赌博机器的网站。估计站长看到有一个很蠢的中文页面还被搜索引擎收录也是很困惑。
 这么说来，我这一年的成长倒是挺多，证据就是看到这些东西就像看到自己四五年前发的朋友圈和QQ空间一样羞耻。可是前者能删，但搜索引擎也不是我家开的，只能保证不要经常更换域名和永久链接格式，等着搜索引擎自己移除了，以前分享自己Vim的配置，甚至传网盘，现在都想穿越回去给自己一巴掌。">
@@ -50,10 +49,10 @@
   <meta itemprop="keywords" content="自搜,搜索引擎,SEO">
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
-  <style>
+    <style>
    
   :root {
-    --width-max: 720px;
+    --width-max: 700px;
     --font-primary: "Noto Serif SC", "Source Han Serif SC", serif;
     --font-secondary: monospace;
     --font-size-primary: 1.105em;
@@ -88,8 +87,8 @@
 
   nav a,
   h1.post-title a,
-  .category-link,
-  .blog-posts li a {
+  .blog-posts li a,
+  a.category-link {
     text-decoration: none !important;
   }
 
@@ -97,6 +96,10 @@
   .post-title a:hover,
   a.item-link:hover,
   .blog-posts a:hover {
+    text-decoration: underline 0.5px !important;
+  }
+
+  a.category-link:hover {
     text-decoration: underline 0.5px !important;
   }
 
@@ -114,7 +117,7 @@
   }
 
   article p {
-    line-height: 40px;
+    line-height: 35px;
   }
 
   .item-link {
@@ -127,7 +130,7 @@
     margin-bottom: 3vh;
   }
   .category-link {
-    color: #999;
+    color: #444;
   }
 
   h1.post-title {
@@ -325,6 +328,10 @@
       --toc-hover-color: #cac3c3;
     }
 
+    .category-link {
+      color: #dbdbdb;
+    }
+
     .wm {
       background-color: #161b22;
       border-color: #30363d;
@@ -424,6 +431,11 @@
     border: 0;
   }
 
+  header {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
   .title:hover {
     text-decoration: none;
   }
@@ -512,7 +524,7 @@
   time {
     font-family: var(--font-secondary);
     font-size: 15px;
-    color: rgb(163, 163, 163);
+    color: rgb(139, 139, 139);
   }
 
   code {
@@ -737,9 +749,9 @@
 />
 </head>
 
-<body>
-  <header><a href="/" class="title">
-  <h1 class="site-name">🎄 映屿</h1>
+  <body>
+    <header><a href="/" class="title">
+  <h1>映屿</h1>
 </a>
 <nav><a href="/">首页</a>
 
@@ -753,8 +765,9 @@
 
 
 </nav>
+<hr>
 </header>
-  <main> 
+    <main> 
 
 <article class="h-entry">
     <h1 class="post-title p-name"><a href="/posts/%E5%88%AB%E9%97%B2%E7%9D%80%E6%B2%A1%E4%BA%8B%E8%87%AA%E6%90%9C%E9%BB%91%E5%8E%86%E5%8F%B2%E5%95%8A/" style="color:#222222;">别闲着没事自搜，黑历史啊</a></h1>
@@ -1177,17 +1190,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </script>
 
-
-  </main>
-  <footer><p class="copyright">
+</main>
+    <footer><p class="copyright">
   © 2024 - 2025 | Made with ❤️ by
   <a href="https://github.com/yingyu5658">Verdant</a>.
 </p>
 </footer>
 
-    
+      
 
 
 </body>
-
 </html>

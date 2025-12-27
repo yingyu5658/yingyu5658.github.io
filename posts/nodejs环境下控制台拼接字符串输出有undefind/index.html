@@ -1,10 +1,9 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
-
-<head>
-  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="shortcut icon" href="https://www.glowisle.me/favicon.png" />
 <title>Nodejs环境下控制台拼接字符串输出有undefind</title>
 <meta name="title" content="Nodejs环境下控制台拼接字符串输出有undefind" />
@@ -32,7 +31,7 @@ console.log(GenerateLog.log() &#43; &#34;log output on the console&#34;);
 
 
 <meta property="og:url" content="https://www.glowisle.me/posts/nodejs%E7%8E%AF%E5%A2%83%E4%B8%8B%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%8B%BC%E6%8E%A5%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%87%BA%E6%9C%89undefind/">
-  <meta property="og:site_name" content="🎄 映屿">
+  <meta property="og:site_name" content="映屿">
   <meta property="og:title" content="Nodejs环境下控制台拼接字符串输出有undefind">
   <meta property="og:description" content="今天在Nodejs环境下搓小工具，控制台输出拼接字符串时，发现有undefind，代码如下：
 const date = new Date(); const year = date.getFullYear(); const month = date.getMonth(); const day = date.getDate(); const hour = date.getHours(); const minute = date.getMinutes(); const second = date.getSeconds(); const logTime = `[${year}-${month}-${day} ${hour}:${minute}:${second}] `; class GenerateLog { static log() { process.stdout.write(logTime); } } console.log(GenerateLog.log() &#43; &#34;log output on the console&#34;); 输出确是这样：">
@@ -64,10 +63,10 @@ const date = new Date(); const year = date.getFullYear(); const month = date.get
   <meta itemprop="keywords" content="JavaScript,NodeJS">
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
-  <style>
+    <style>
    
   :root {
-    --width-max: 720px;
+    --width-max: 700px;
     --font-primary: "Noto Serif SC", "Source Han Serif SC", serif;
     --font-secondary: monospace;
     --font-size-primary: 1.105em;
@@ -102,8 +101,8 @@ const date = new Date(); const year = date.getFullYear(); const month = date.get
 
   nav a,
   h1.post-title a,
-  .category-link,
-  .blog-posts li a {
+  .blog-posts li a,
+  a.category-link {
     text-decoration: none !important;
   }
 
@@ -111,6 +110,10 @@ const date = new Date(); const year = date.getFullYear(); const month = date.get
   .post-title a:hover,
   a.item-link:hover,
   .blog-posts a:hover {
+    text-decoration: underline 0.5px !important;
+  }
+
+  a.category-link:hover {
     text-decoration: underline 0.5px !important;
   }
 
@@ -128,7 +131,7 @@ const date = new Date(); const year = date.getFullYear(); const month = date.get
   }
 
   article p {
-    line-height: 40px;
+    line-height: 35px;
   }
 
   .item-link {
@@ -141,7 +144,7 @@ const date = new Date(); const year = date.getFullYear(); const month = date.get
     margin-bottom: 3vh;
   }
   .category-link {
-    color: #999;
+    color: #444;
   }
 
   h1.post-title {
@@ -339,6 +342,10 @@ const date = new Date(); const year = date.getFullYear(); const month = date.get
       --toc-hover-color: #cac3c3;
     }
 
+    .category-link {
+      color: #dbdbdb;
+    }
+
     .wm {
       background-color: #161b22;
       border-color: #30363d;
@@ -438,6 +445,11 @@ const date = new Date(); const year = date.getFullYear(); const month = date.get
     border: 0;
   }
 
+  header {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
   .title:hover {
     text-decoration: none;
   }
@@ -526,7 +538,7 @@ const date = new Date(); const year = date.getFullYear(); const month = date.get
   time {
     font-family: var(--font-secondary);
     font-size: 15px;
-    color: rgb(163, 163, 163);
+    color: rgb(139, 139, 139);
   }
 
   code {
@@ -751,9 +763,9 @@ const date = new Date(); const year = date.getFullYear(); const month = date.get
 />
 </head>
 
-<body>
-  <header><a href="/" class="title">
-  <h1 class="site-name">🎄 映屿</h1>
+  <body>
+    <header><a href="/" class="title">
+  <h1>映屿</h1>
 </a>
 <nav><a href="/">首页</a>
 
@@ -767,8 +779,9 @@ const date = new Date(); const year = date.getFullYear(); const month = date.get
 
 
 </nav>
+<hr>
 </header>
-  <main> 
+    <main> 
 
 <article class="h-entry">
     <h1 class="post-title p-name"><a href="/posts/nodejs%E7%8E%AF%E5%A2%83%E4%B8%8B%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%8B%BC%E6%8E%A5%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%87%BA%E6%9C%89undefind/" style="color:#222222;">Nodejs环境下控制台拼接字符串输出有undefind</a></h1>
@@ -1180,17 +1193,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </script>
 
-
-  </main>
-  <footer><p class="copyright">
+</main>
+    <footer><p class="copyright">
   © 2024 - 2025 | Made with ❤️ by
   <a href="https://github.com/yingyu5658">Verdant</a>.
 </p>
 </footer>
 
-    
+      
 
 
 </body>
-
 </html>

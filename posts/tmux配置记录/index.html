@@ -1,10 +1,9 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
-
-<head>
-  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="shortcut icon" href="https://www.glowisle.me/favicon.png" />
 <title>Tmux配置记录</title>
 <meta name="title" content="Tmux配置记录" />
@@ -18,7 +17,7 @@ tmux
 
 
 <meta property="og:url" content="https://www.glowisle.me/posts/tmux%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/">
-  <meta property="og:site_name" content="🎄 映屿">
+  <meta property="og:site_name" content="映屿">
   <meta property="og:title" content="Tmux配置记录">
   <meta property="og:description" content="TMux 是终端复用神器，让你在一个终端窗口管理多个会话、窗口和窗格。
 基础操作：启动Tmux
@@ -52,10 +51,10 @@ tmux 所以我选择在~/.bashrc里加上这句，每次打开终端都会自动
   <meta itemprop="keywords" content="Linux">
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
-  <style>
+    <style>
    
   :root {
-    --width-max: 720px;
+    --width-max: 700px;
     --font-primary: "Noto Serif SC", "Source Han Serif SC", serif;
     --font-secondary: monospace;
     --font-size-primary: 1.105em;
@@ -90,8 +89,8 @@ tmux 所以我选择在~/.bashrc里加上这句，每次打开终端都会自动
 
   nav a,
   h1.post-title a,
-  .category-link,
-  .blog-posts li a {
+  .blog-posts li a,
+  a.category-link {
     text-decoration: none !important;
   }
 
@@ -99,6 +98,10 @@ tmux 所以我选择在~/.bashrc里加上这句，每次打开终端都会自动
   .post-title a:hover,
   a.item-link:hover,
   .blog-posts a:hover {
+    text-decoration: underline 0.5px !important;
+  }
+
+  a.category-link:hover {
     text-decoration: underline 0.5px !important;
   }
 
@@ -116,7 +119,7 @@ tmux 所以我选择在~/.bashrc里加上这句，每次打开终端都会自动
   }
 
   article p {
-    line-height: 40px;
+    line-height: 35px;
   }
 
   .item-link {
@@ -129,7 +132,7 @@ tmux 所以我选择在~/.bashrc里加上这句，每次打开终端都会自动
     margin-bottom: 3vh;
   }
   .category-link {
-    color: #999;
+    color: #444;
   }
 
   h1.post-title {
@@ -327,6 +330,10 @@ tmux 所以我选择在~/.bashrc里加上这句，每次打开终端都会自动
       --toc-hover-color: #cac3c3;
     }
 
+    .category-link {
+      color: #dbdbdb;
+    }
+
     .wm {
       background-color: #161b22;
       border-color: #30363d;
@@ -426,6 +433,11 @@ tmux 所以我选择在~/.bashrc里加上这句，每次打开终端都会自动
     border: 0;
   }
 
+  header {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
   .title:hover {
     text-decoration: none;
   }
@@ -514,7 +526,7 @@ tmux 所以我选择在~/.bashrc里加上这句，每次打开终端都会自动
   time {
     font-family: var(--font-secondary);
     font-size: 15px;
-    color: rgb(163, 163, 163);
+    color: rgb(139, 139, 139);
   }
 
   code {
@@ -739,9 +751,9 @@ tmux 所以我选择在~/.bashrc里加上这句，每次打开终端都会自动
 />
 </head>
 
-<body>
-  <header><a href="/" class="title">
-  <h1 class="site-name">🎄 映屿</h1>
+  <body>
+    <header><a href="/" class="title">
+  <h1>映屿</h1>
 </a>
 <nav><a href="/">首页</a>
 
@@ -755,8 +767,9 @@ tmux 所以我选择在~/.bashrc里加上这句，每次打开终端都会自动
 
 
 </nav>
+<hr>
 </header>
-  <main> 
+    <main> 
 
 <article class="h-entry">
     <h1 class="post-title p-name"><a href="/posts/tmux%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/" style="color:#222222;">Tmux配置记录</a></h1>
@@ -1159,17 +1172,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </script>
 
-
-  </main>
-  <footer><p class="copyright">
+</main>
+    <footer><p class="copyright">
   © 2024 - 2025 | Made with ❤️ by
   <a href="https://github.com/yingyu5658">Verdant</a>.
 </p>
 </footer>
 
-    
+      
 
 
 </body>
-
 </html>

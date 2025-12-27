@@ -1,10 +1,9 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
-
-<head>
-  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="shortcut icon" href="https://www.glowisle.me/favicon.png" />
 <title>宅</title>
 <meta name="title" content="宅" />
@@ -15,7 +14,7 @@
 
 
 <meta property="og:url" content="https://www.glowisle.me/posts/%E5%AE%85/">
-  <meta property="og:site_name" content="🎄 映屿">
+  <meta property="og:site_name" content="映屿">
   <meta property="og:title" content="宅">
   <meta property="og:description" content="朋友上周几次约我出去打羽毛球，都被我婉拒了。那个周末刚刚考完期末，又是我最爱的阴雨天，很难不趁着大好时光不在家修养身心，而是冒着雨出去打羽毛球几个小时，大汗淋漓，虚弱疲惫地走回家，做什么事都提不起精神，睡觉也觉得浪费时间。在家里并没有什么很想干的事，我没有打游戏的习惯，很早之前就已经戒掉电子游戏。在家里的娱乐活动无非就是看书、听歌、画画、练琴，写代码折磨一下自己应该也能凑个数。我非常依赖在家里独处时的充电，只要远离人群的嘈杂即可。">
   <meta property="og:locale" content="zh_CN">
@@ -43,10 +42,10 @@
   <meta itemprop="keywords" content="随笔">
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
-  <style>
+    <style>
    
   :root {
-    --width-max: 720px;
+    --width-max: 700px;
     --font-primary: "Noto Serif SC", "Source Han Serif SC", serif;
     --font-secondary: monospace;
     --font-size-primary: 1.105em;
@@ -81,8 +80,8 @@
 
   nav a,
   h1.post-title a,
-  .category-link,
-  .blog-posts li a {
+  .blog-posts li a,
+  a.category-link {
     text-decoration: none !important;
   }
 
@@ -90,6 +89,10 @@
   .post-title a:hover,
   a.item-link:hover,
   .blog-posts a:hover {
+    text-decoration: underline 0.5px !important;
+  }
+
+  a.category-link:hover {
     text-decoration: underline 0.5px !important;
   }
 
@@ -107,7 +110,7 @@
   }
 
   article p {
-    line-height: 40px;
+    line-height: 35px;
   }
 
   .item-link {
@@ -120,7 +123,7 @@
     margin-bottom: 3vh;
   }
   .category-link {
-    color: #999;
+    color: #444;
   }
 
   h1.post-title {
@@ -318,6 +321,10 @@
       --toc-hover-color: #cac3c3;
     }
 
+    .category-link {
+      color: #dbdbdb;
+    }
+
     .wm {
       background-color: #161b22;
       border-color: #30363d;
@@ -417,6 +424,11 @@
     border: 0;
   }
 
+  header {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
   .title:hover {
     text-decoration: none;
   }
@@ -505,7 +517,7 @@
   time {
     font-family: var(--font-secondary);
     font-size: 15px;
-    color: rgb(163, 163, 163);
+    color: rgb(139, 139, 139);
   }
 
   code {
@@ -730,9 +742,9 @@
 />
 </head>
 
-<body>
-  <header><a href="/" class="title">
-  <h1 class="site-name">🎄 映屿</h1>
+  <body>
+    <header><a href="/" class="title">
+  <h1>映屿</h1>
 </a>
 <nav><a href="/">首页</a>
 
@@ -746,8 +758,9 @@
 
 
 </nav>
+<hr>
 </header>
-  <main> 
+    <main> 
 
 <article class="h-entry">
     <h1 class="post-title p-name"><a href="/posts/%E5%AE%85/" style="color:#222222;">宅</a></h1>
@@ -1034,17 +1047,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </script>
 
-
-  </main>
-  <footer><p class="copyright">
+</main>
+    <footer><p class="copyright">
   © 2024 - 2025 | Made with ❤️ by
   <a href="https://github.com/yingyu5658">Verdant</a>.
 </p>
 </footer>
 
-    
+      
 
 
 </body>
-
 </html>

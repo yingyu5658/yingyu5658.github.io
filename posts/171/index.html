@@ -1,10 +1,9 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
-
-<head>
-  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="shortcut icon" href="https://www.glowisle.me/favicon.png" />
 <title>String的注意事项</title>
 <meta name="title" content="String的注意事项" />
@@ -30,7 +29,7 @@ String对象的内容不可改变， 被称为不可变字符串对象。
 
 
 <meta property="og:url" content="https://www.glowisle.me/posts/171/">
-  <meta property="og:site_name" content="🎄 映屿">
+  <meta property="og:site_name" content="映屿">
   <meta property="og:title" content="String的注意事项">
   <meta property="og:description" content="String的注意事项 String对象的内容不可改变， 被称为不可变字符串对象。 只要是以“…”的方式写出的字符串，都会存储到字符串常量池，且相同的字符串只存储一份； 但通过new方式创建字符串对象，每new一次都会产生一个新的对象放在堆内存中。 不可变字符串对象 不可变？它肯定可变啊，比如">
   <meta property="og:locale" content="zh_CN">
@@ -58,10 +57,10 @@ String对象的内容不可改变， 被称为不可变字符串对象。
   <meta itemprop="keywords" content="Java">
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
-  <style>
+    <style>
    
   :root {
-    --width-max: 720px;
+    --width-max: 700px;
     --font-primary: "Noto Serif SC", "Source Han Serif SC", serif;
     --font-secondary: monospace;
     --font-size-primary: 1.105em;
@@ -96,8 +95,8 @@ String对象的内容不可改变， 被称为不可变字符串对象。
 
   nav a,
   h1.post-title a,
-  .category-link,
-  .blog-posts li a {
+  .blog-posts li a,
+  a.category-link {
     text-decoration: none !important;
   }
 
@@ -105,6 +104,10 @@ String对象的内容不可改变， 被称为不可变字符串对象。
   .post-title a:hover,
   a.item-link:hover,
   .blog-posts a:hover {
+    text-decoration: underline 0.5px !important;
+  }
+
+  a.category-link:hover {
     text-decoration: underline 0.5px !important;
   }
 
@@ -122,7 +125,7 @@ String对象的内容不可改变， 被称为不可变字符串对象。
   }
 
   article p {
-    line-height: 40px;
+    line-height: 35px;
   }
 
   .item-link {
@@ -135,7 +138,7 @@ String对象的内容不可改变， 被称为不可变字符串对象。
     margin-bottom: 3vh;
   }
   .category-link {
-    color: #999;
+    color: #444;
   }
 
   h1.post-title {
@@ -333,6 +336,10 @@ String对象的内容不可改变， 被称为不可变字符串对象。
       --toc-hover-color: #cac3c3;
     }
 
+    .category-link {
+      color: #dbdbdb;
+    }
+
     .wm {
       background-color: #161b22;
       border-color: #30363d;
@@ -432,6 +439,11 @@ String对象的内容不可改变， 被称为不可变字符串对象。
     border: 0;
   }
 
+  header {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
   .title:hover {
     text-decoration: none;
   }
@@ -520,7 +532,7 @@ String对象的内容不可改变， 被称为不可变字符串对象。
   time {
     font-family: var(--font-secondary);
     font-size: 15px;
-    color: rgb(163, 163, 163);
+    color: rgb(139, 139, 139);
   }
 
   code {
@@ -745,9 +757,9 @@ String对象的内容不可改变， 被称为不可变字符串对象。
 />
 </head>
 
-<body>
-  <header><a href="/" class="title">
-  <h1 class="site-name">🎄 映屿</h1>
+  <body>
+    <header><a href="/" class="title">
+  <h1>映屿</h1>
 </a>
 <nav><a href="/">首页</a>
 
@@ -761,8 +773,9 @@ String对象的内容不可改变， 被称为不可变字符串对象。
 
 
 </nav>
+<hr>
 </header>
-  <main> 
+    <main> 
 
 <article class="h-entry">
     <h1 class="post-title p-name"><a href="/posts/171/" style="color:#222222;">String的注意事项</a></h1>
@@ -1191,17 +1204,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </script>
 
-
-  </main>
-  <footer><p class="copyright">
+</main>
+    <footer><p class="copyright">
   © 2024 - 2025 | Made with ❤️ by
   <a href="https://github.com/yingyu5658">Verdant</a>.
 </p>
 </footer>
 
-    
+      
 
 
 </body>
-
 </html>

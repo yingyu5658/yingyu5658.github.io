@@ -1,10 +1,9 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
-
-<head>
-  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="shortcut icon" href="https://www.glowisle.me/favicon.png" />
 <title>从四年前的夏天说起。</title>
 <meta name="title" content="从四年前的夏天说起。" />
@@ -16,7 +15,7 @@
 
 
 <meta property="og:url" content="https://www.glowisle.me/posts/%E4%BB%8E%E5%9B%9B%E5%B9%B4%E5%89%8D%E7%9A%84%E5%A4%8F%E5%A4%A9%E8%AF%B4%E8%B5%B7/">
-  <meta property="og:site_name" content="🎄 映屿">
+  <meta property="og:site_name" content="映屿">
   <meta property="og:title" content="从四年前的夏天说起。">
   <meta property="og:description" content="那时候还不懂人事，记忆似乎还没有形成一条流畅的线性结构，只是几个简陋的画面拼凑。大概是在二零二一年，我开始学习素描。
 那时候机构就在家楼下，甚至从窗户就能望到那里落地窗后的人影，每周六下午两点，我带着电话手表去上课，明明就在小区里，到地方后还是要拍上一张自拍证明自己安全到达目的地。那里只有四五间教室，其它的教室都关着门，只有走廊尽头的那间时常开着。屋子里摆着一排笨重的木质画架，墙中央有一台挂壁电视，老师用一根HDMI线将自己的笔记本电脑和那台电视连接上，放着幻灯片。第一节课讲很基础的内容，比如坐姿、握笔方式。">
@@ -49,10 +48,10 @@
   <meta itemprop="keywords" content="散文,美术,素描">
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
-  <style>
+    <style>
    
   :root {
-    --width-max: 720px;
+    --width-max: 700px;
     --font-primary: "Noto Serif SC", "Source Han Serif SC", serif;
     --font-secondary: monospace;
     --font-size-primary: 1.105em;
@@ -87,8 +86,8 @@
 
   nav a,
   h1.post-title a,
-  .category-link,
-  .blog-posts li a {
+  .blog-posts li a,
+  a.category-link {
     text-decoration: none !important;
   }
 
@@ -96,6 +95,10 @@
   .post-title a:hover,
   a.item-link:hover,
   .blog-posts a:hover {
+    text-decoration: underline 0.5px !important;
+  }
+
+  a.category-link:hover {
     text-decoration: underline 0.5px !important;
   }
 
@@ -113,7 +116,7 @@
   }
 
   article p {
-    line-height: 40px;
+    line-height: 35px;
   }
 
   .item-link {
@@ -126,7 +129,7 @@
     margin-bottom: 3vh;
   }
   .category-link {
-    color: #999;
+    color: #444;
   }
 
   h1.post-title {
@@ -324,6 +327,10 @@
       --toc-hover-color: #cac3c3;
     }
 
+    .category-link {
+      color: #dbdbdb;
+    }
+
     .wm {
       background-color: #161b22;
       border-color: #30363d;
@@ -423,6 +430,11 @@
     border: 0;
   }
 
+  header {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
   .title:hover {
     text-decoration: none;
   }
@@ -511,7 +523,7 @@
   time {
     font-family: var(--font-secondary);
     font-size: 15px;
-    color: rgb(163, 163, 163);
+    color: rgb(139, 139, 139);
   }
 
   code {
@@ -736,9 +748,9 @@
 />
 </head>
 
-<body>
-  <header><a href="/" class="title">
-  <h1 class="site-name">🎄 映屿</h1>
+  <body>
+    <header><a href="/" class="title">
+  <h1>映屿</h1>
 </a>
 <nav><a href="/">首页</a>
 
@@ -752,8 +764,9 @@
 
 
 </nav>
+<hr>
 </header>
-  <main> 
+    <main> 
 
 <article class="h-entry">
     <h1 class="post-title p-name"><a href="/posts/%E4%BB%8E%E5%9B%9B%E5%B9%B4%E5%89%8D%E7%9A%84%E5%A4%8F%E5%A4%A9%E8%AF%B4%E8%B5%B7/" style="color:#222222;">从四年前的夏天说起。</a></h1>
@@ -1060,17 +1073,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </script>
 
-
-  </main>
-  <footer><p class="copyright">
+</main>
+    <footer><p class="copyright">
   © 2024 - 2025 | Made with ❤️ by
   <a href="https://github.com/yingyu5658">Verdant</a>.
 </p>
 </footer>
 
-    
+      
 
 
 </body>
-
 </html>

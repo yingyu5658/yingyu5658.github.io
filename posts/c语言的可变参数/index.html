@@ -1,10 +1,9 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
-
-<head>
-  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="shortcut icon" href="https://www.glowisle.me/favicon.png" />
 <title>C语言的可变参数</title>
 <meta name="title" content="C语言的可变参数" />
@@ -17,7 +16,7 @@ C语言中，printf()和scanf()函数就是典型的变参函数，其优点是�
 
 
 <meta property="og:url" content="https://www.glowisle.me/posts/c%E8%AF%AD%E8%A8%80%E7%9A%84%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0/">
-  <meta property="og:site_name" content="🎄 映屿">
+  <meta property="og:site_name" content="映屿">
   <meta property="og:title" content="C语言的可变参数">
   <meta property="og:description" content="介绍 C语言中，printf()和scanf()函数就是典型的变参函数，其优点是灵活处理参数。
 想要创建变参函数需引入头文件stdarg.h，它有一些宏：">
@@ -49,10 +48,10 @@ C语言中，printf()和scanf()函数就是典型的变参函数，其优点是�
   <meta itemprop="keywords" content="C语言,编程">
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
-  <style>
+    <style>
    
   :root {
-    --width-max: 720px;
+    --width-max: 700px;
     --font-primary: "Noto Serif SC", "Source Han Serif SC", serif;
     --font-secondary: monospace;
     --font-size-primary: 1.105em;
@@ -87,8 +86,8 @@ C语言中，printf()和scanf()函数就是典型的变参函数，其优点是�
 
   nav a,
   h1.post-title a,
-  .category-link,
-  .blog-posts li a {
+  .blog-posts li a,
+  a.category-link {
     text-decoration: none !important;
   }
 
@@ -96,6 +95,10 @@ C语言中，printf()和scanf()函数就是典型的变参函数，其优点是�
   .post-title a:hover,
   a.item-link:hover,
   .blog-posts a:hover {
+    text-decoration: underline 0.5px !important;
+  }
+
+  a.category-link:hover {
     text-decoration: underline 0.5px !important;
   }
 
@@ -113,7 +116,7 @@ C语言中，printf()和scanf()函数就是典型的变参函数，其优点是�
   }
 
   article p {
-    line-height: 40px;
+    line-height: 35px;
   }
 
   .item-link {
@@ -126,7 +129,7 @@ C语言中，printf()和scanf()函数就是典型的变参函数，其优点是�
     margin-bottom: 3vh;
   }
   .category-link {
-    color: #999;
+    color: #444;
   }
 
   h1.post-title {
@@ -324,6 +327,10 @@ C语言中，printf()和scanf()函数就是典型的变参函数，其优点是�
       --toc-hover-color: #cac3c3;
     }
 
+    .category-link {
+      color: #dbdbdb;
+    }
+
     .wm {
       background-color: #161b22;
       border-color: #30363d;
@@ -423,6 +430,11 @@ C语言中，printf()和scanf()函数就是典型的变参函数，其优点是�
     border: 0;
   }
 
+  header {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
   .title:hover {
     text-decoration: none;
   }
@@ -511,7 +523,7 @@ C语言中，printf()和scanf()函数就是典型的变参函数，其优点是�
   time {
     font-family: var(--font-secondary);
     font-size: 15px;
-    color: rgb(163, 163, 163);
+    color: rgb(139, 139, 139);
   }
 
   code {
@@ -736,9 +748,9 @@ C语言中，printf()和scanf()函数就是典型的变参函数，其优点是�
 />
 </head>
 
-<body>
-  <header><a href="/" class="title">
-  <h1 class="site-name">🎄 映屿</h1>
+  <body>
+    <header><a href="/" class="title">
+  <h1>映屿</h1>
 </a>
 <nav><a href="/">首页</a>
 
@@ -752,8 +764,9 @@ C语言中，printf()和scanf()函数就是典型的变参函数，其优点是�
 
 
 </nav>
+<hr>
 </header>
-  <main> 
+    <main> 
 
 <article class="h-entry">
     <h1 class="post-title p-name"><a href="/posts/c%E8%AF%AD%E8%A8%80%E7%9A%84%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0/" style="color:#222222;">C语言的可变参数</a></h1>
@@ -1215,17 +1228,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </script>
 
-
-  </main>
-  <footer><p class="copyright">
+</main>
+    <footer><p class="copyright">
   © 2024 - 2025 | Made with ❤️ by
   <a href="https://github.com/yingyu5658">Verdant</a>.
 </p>
 </footer>
 
-    
+      
 
 
 </body>
-
 </html>

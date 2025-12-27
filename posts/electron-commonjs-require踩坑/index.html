@@ -1,10 +1,9 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
-
-<head>
-  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="shortcut icon" href="https://www.glowisle.me/favicon.png" />
 <title>Electron CommonJS require踩坑</title>
 <meta name="title" content="Electron CommonJS require踩坑" />
@@ -29,7 +28,7 @@ Require stack:
 
 
 <meta property="og:url" content="https://www.glowisle.me/posts/electron-commonjs-require%E8%B8%A9%E5%9D%91/">
-  <meta property="og:site_name" content="🎄 映屿">
+  <meta property="og:site_name" content="映屿">
   <meta property="og:title" content="Electron CommonJS require踩坑">
   <meta property="og:description" content="最近在开发一个Electron项目，在导入类的时候有以下报错:
 node:internal/modules/cjs/loader:1411 Uncaught Error: Cannot find module &#39;./File&#39; Require stack: - E:\Develop\markdown-editor\src\html\index.html at Module._resolveFilename (node:internal/modules/cjs/loader:1408:15) at a._resolveFilename (node:electron/js2c/renderer_init:2:2643) at defaultResolveImpl (node:internal/modules/cjs/loader:1064:19) at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1069:22) at Module._load (node:internal/modules/cjs/loader:1218:37) at c._load (node:electron/js2c/node_init:2:17950) at s._load (node:electron/js2c/renderer_init:2:31718) at TracingChannel.traceSync (node:diagnostics_channel:322:14) at wrapModuleLoad (node:internal/modules/cjs/loader:242:24) at Module.require (node:internal/modules/cjs/loader:1494:12) 提示找不到模块。">
@@ -61,10 +60,10 @@ node:internal/modules/cjs/loader:1411 Uncaught Error: Cannot find module &#39;./
   <meta itemprop="keywords" content="前端,Electron">
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
-  <style>
+    <style>
    
   :root {
-    --width-max: 720px;
+    --width-max: 700px;
     --font-primary: "Noto Serif SC", "Source Han Serif SC", serif;
     --font-secondary: monospace;
     --font-size-primary: 1.105em;
@@ -99,8 +98,8 @@ node:internal/modules/cjs/loader:1411 Uncaught Error: Cannot find module &#39;./
 
   nav a,
   h1.post-title a,
-  .category-link,
-  .blog-posts li a {
+  .blog-posts li a,
+  a.category-link {
     text-decoration: none !important;
   }
 
@@ -108,6 +107,10 @@ node:internal/modules/cjs/loader:1411 Uncaught Error: Cannot find module &#39;./
   .post-title a:hover,
   a.item-link:hover,
   .blog-posts a:hover {
+    text-decoration: underline 0.5px !important;
+  }
+
+  a.category-link:hover {
     text-decoration: underline 0.5px !important;
   }
 
@@ -125,7 +128,7 @@ node:internal/modules/cjs/loader:1411 Uncaught Error: Cannot find module &#39;./
   }
 
   article p {
-    line-height: 40px;
+    line-height: 35px;
   }
 
   .item-link {
@@ -138,7 +141,7 @@ node:internal/modules/cjs/loader:1411 Uncaught Error: Cannot find module &#39;./
     margin-bottom: 3vh;
   }
   .category-link {
-    color: #999;
+    color: #444;
   }
 
   h1.post-title {
@@ -336,6 +339,10 @@ node:internal/modules/cjs/loader:1411 Uncaught Error: Cannot find module &#39;./
       --toc-hover-color: #cac3c3;
     }
 
+    .category-link {
+      color: #dbdbdb;
+    }
+
     .wm {
       background-color: #161b22;
       border-color: #30363d;
@@ -435,6 +442,11 @@ node:internal/modules/cjs/loader:1411 Uncaught Error: Cannot find module &#39;./
     border: 0;
   }
 
+  header {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
   .title:hover {
     text-decoration: none;
   }
@@ -523,7 +535,7 @@ node:internal/modules/cjs/loader:1411 Uncaught Error: Cannot find module &#39;./
   time {
     font-family: var(--font-secondary);
     font-size: 15px;
-    color: rgb(163, 163, 163);
+    color: rgb(139, 139, 139);
   }
 
   code {
@@ -748,9 +760,9 @@ node:internal/modules/cjs/loader:1411 Uncaught Error: Cannot find module &#39;./
 />
 </head>
 
-<body>
-  <header><a href="/" class="title">
-  <h1 class="site-name">🎄 映屿</h1>
+  <body>
+    <header><a href="/" class="title">
+  <h1>映屿</h1>
 </a>
 <nav><a href="/">首页</a>
 
@@ -764,8 +776,9 @@ node:internal/modules/cjs/loader:1411 Uncaught Error: Cannot find module &#39;./
 
 
 </nav>
+<hr>
 </header>
-  <main> 
+    <main> 
 
 <article class="h-entry">
     <h1 class="post-title p-name"><a href="/posts/electron-commonjs-require%E8%B8%A9%E5%9D%91/" style="color:#222222;">Electron CommonJS require踩坑</a></h1>
@@ -1173,17 +1186,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </script>
 
-
-  </main>
-  <footer><p class="copyright">
+</main>
+    <footer><p class="copyright">
   © 2024 - 2025 | Made with ❤️ by
   <a href="https://github.com/yingyu5658">Verdant</a>.
 </p>
 </footer>
 
-    
+      
 
 
 </body>
-
 </html>
