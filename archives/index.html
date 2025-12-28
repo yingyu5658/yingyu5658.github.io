@@ -66,6 +66,13 @@
       0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   }
 
+  .social-icons {
+    display: inline;
+    font-size: 16px;
+    float: right;
+    font-family: var(--font-primary);
+  }
+
   img.missing {
     display: none;
   }
@@ -732,6 +739,10 @@
   rel="webmention"
   href="https://webmention.io/www.glowisle.me/webmention"
 />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
 </head>
 
   <body>
@@ -755,13 +766,27 @@
     <main>
 <content>
       
-  <p id="post-count">共有 29 篇文章</p>
+  <p id="post-count">共有 30 篇文章</p>
   
 
   <ul class="blog-posts">
           
     <h3>2025</h3>
       
+
+    <li>
+      <span
+        class="grouped"
+      >
+        <i>
+          <time datetime='2025-12-28' pubdate>
+            2025-12-28
+          </time>
+        </i>
+      </span>
+      <a href="https://www.glowisle.me/posts/weekly/3/">回声周刊 Vol.3：为不折腾而折腾，才是折腾的终极目标</a>
+    </li>
+        
 
     <li>
       <span
@@ -1172,10 +1197,15 @@
 </content>
 <hr />
 </main>
-    <footer><p class="copyright">
+    <footer><div class="copyright">
   © 2024 - 2025 | Made with ❤️ by
-  <a href="https://github.com/yingyu5658">Verdant</a>.
-</p>
+  <a href="https://github.com/yingyu5658">Verdant</a>. | &nbsp;
+  <div class="social-icons">
+    <a href="/atom.xml">
+      <i class="fa fa-rss"></i>
+    </a>
+  </div>
+</div>
 </footer>
 
       

@@ -97,6 +97,13 @@ int rs= sum(10,20); 方法使用的注意点： 方法申明了具体的返回�
       0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   }
 
+  .social-icons {
+    display: inline;
+    font-size: 16px;
+    float: right;
+    font-family: var(--font-primary);
+  }
+
   img.missing {
     display: none;
   }
@@ -763,6 +770,10 @@ int rs= sum(10,20); 方法使用的注意点： 方法申明了具体的返回�
   rel="webmention"
   href="https://webmention.io/www.glowisle.me/webmention"
 />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
 </head>
 
   <body>
@@ -1188,10 +1199,15 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 </main>
-    <footer><p class="copyright">
+    <footer><div class="copyright">
   © 2024 - 2025 | Made with ❤️ by
-  <a href="https://github.com/yingyu5658">Verdant</a>.
-</p>
+  <a href="https://github.com/yingyu5658">Verdant</a>. | &nbsp;
+  <div class="social-icons">
+    <a href="/atom.xml">
+      <i class="fa fa-rss"></i>
+    </a>
+  </div>
+</div>
 </footer>
 
       
