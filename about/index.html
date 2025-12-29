@@ -773,10 +773,13 @@
 </nav>
 <hr>
 </header>
-    <main>
- 
+    <main> 
 
-<content> <blockquote>
+<article class="h-entry">
+    <h1 class="post-title p-name"><a href="/about/" style="color:#222222;">关于</a></h1>
+
+<div class="e-content">
+    <blockquote>
 <p>📌 如果想获得最新动态，可以加入本博客的Telegram频道<a href="https://t.me/glowisle/">「🌊 央山常量池」</a>，有博客选题、观察思考，还有我的碎碎念。</p>
 <p>若不方便使用Telegram，也可以访问 <a href="https://channel.glowisle.me/">网页版的央山常量池</a>。</p></blockquote>
 <h2 id="我是谁">我是谁</h2>
@@ -832,10 +835,13 @@
 <li>本站样式基于 <a href="https://github.com/rokcso/hugo-bearneo/">Hugo Bear Neo</a> 主题修改</li>
 <li>音乐卡片修改自 <a href="https://github.com/BigCoke233/geek-death-project">極客死亡計劃</a></li>
 </ul>
- </content>
+
+</div>
+</article>
+<a class="u-url" href="https://www.glowisle.me/about/" style="display:none;">Permalink</a>
 
 <p>
-  
+    
 </p>
 
 
@@ -886,6 +892,7 @@
     try {
       const response = await fetch('https:\/\/upvote.glowisle.me\/upvote', {
         method: 'POST',
+		mode: 'cors',
         headers: {
           'Content-Type': 'application/json',
         },
@@ -943,114 +950,12 @@
 
 
 
-
  
-<div class="toc">
 
-
-<nav class="toc-nav">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#我是谁">我是谁</a></li>
-    <li><a href="#关于这里">关于这里</a></li>
-    <li><a href="#订阅">订阅</a></li>
-    <li><a href="#在哪找到我">在哪找到我</a></li>
-    <li><a href="#鸣谢">鸣谢</a></li>
-  </ul>
-</nav>
-</nav>
-
-<script>
-    
-    document.addEventListener('DOMContentLoaded', function () {
-        const tocLinks = document.querySelectorAll('.toc-nav a');
-        const headings = Array.from(tocLinks).map(link => {
-            const id = link.getAttribute('href').replace('#', '');
-            return document.getElementById(id);
-        }).filter(h => h);
-
-        
-        tocLinks.forEach(link => {
-            link.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href').replace('#', '');
-                const target = document.getElementById(targetId);
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-
-                    
-                    tocLinks.forEach(l => l.classList.remove('active'));
-                    this.classList.add('active');
-                }
-            });
-        });
-
-        
-        function updateActiveLink() {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const windowHeight = window.innerHeight;
-
-            for (let i = headings.length - 1; i >= 0; i--) {
-                const heading = headings[i];
-                const rect = heading.getBoundingClientRect();
-
-                if (rect.top <= 100) {
-                    
-                    tocLinks.forEach(link => link.classList.remove('active'));
-                    
-                    
-                    const activeLink = document.querySelector(`.toc-nav a[href="#${heading.id}"]`);
-                    if (activeLink) {
-                        activeLink.classList.add('active');
-                        
-                        
-                        let currentLi = activeLink.closest('li');
-                        while (currentLi) {
-                            const parentLi = currentLi.parentElement.closest('li');
-                            if (parentLi) {
-                                const parentLink = parentLi.querySelector('a');
-                                if (parentLink) {
-                                    parentLink.classList.add('active');
-                                }
-                                currentLi = parentLi;
-                            } else {
-                                break;
-                            }
-                        }
-                    }
-                    break;
-                }
-            }
-        }
-
-        
-        let ticking = false;
-        function throttleScroll() {
-            if (!ticking) {
-                requestAnimationFrame(function () {
-                    updateActiveLink();
-                    ticking = false;
-                });
-                ticking = true;
-            }
-        }
-
-        window.addEventListener('scroll', throttleScroll);
-
-        
-        updateActiveLink();
-    });
-</script>
-
-</div>
 
 </main>
     <footer><div class="copyright">
-  © 2024 - 2025 | Made with ❤️ by
-  <a href="https://github.com/yingyu5658">Verdant</a>. | &nbsp;
+  © 2024 - 2025 | Made with ❤️ by Verdant
   <div class="social-icons">
     <a href="/atom.xml">
       <i class="fa fa-rss"></i>
@@ -1059,8 +964,6 @@
 </div>
 </footer>
 
-      
-
-
+    
 </body>
 </html>

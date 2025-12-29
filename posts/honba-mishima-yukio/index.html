@@ -790,6 +790,7 @@
             <a href="/categories/%E8%AF%BB%E4%B9%A6/" class="category-link">读书</a>
         
 </div>
+
 <div class="e-content">
     <p>今日凌晨读完了丰饶之海的第二卷：《奔马》，这是四部曲中最暴烈的一部。全书围绕着上一部的主人公松枝清显的转世 —— 饭沼勋的行动展开。讲述了一个阳刚强健的少年，因不忍政治腐败，天皇的实权丧失，忧国之心驱使他组织刺杀政府企业巨头，失败后，他雄心未泯，最终刺杀了藏原再切腹自尽的故事。重点展现了作者对武士道中「忠」与「勇」的极致追求。</p>
 <p>本部书与上一部《春雪》比起来，又是另一个极端。上一部的主人公松枝清显沉溺在幻想中，优柔寡断；而转生后的饭沼勋则成了一个行动者。如果说松枝清显是作者孱弱一面的投射，那么饭沼勋则是作者暴烈极端的一面和其政治诉求的投射。清显沉溺幻想的虚无，饭沼勋用行动对抗虚无。作者塑造了一个让人印象深刻的少年形象：冲动的、理想的、认知是非黑即白的、尖锐的少年形象。</p>
@@ -936,156 +937,11 @@
 
 
  
-<div class="toc">
-</div>
 
-<hr />
-<details>
-    <summary>
-    <p style="display: inline">评论 与 Webmentions</p>
-    </summary>
-    <div id="giscus-container"></div>
-
-    <div class="wm">
-<div id="webmentions"></div>
-<script src="/js/webmention.min.js"
-    data-id="webmentions"
-    data-page-url="https://www.glowisle.me/posts/honba-mishima-yukio/"
-    data-max-webmentions="50"
-    data-wordcount="30"
-    data-sort-by="published"
-    data-sort-dir="up"
-    async>
-</script>
-
-<details>
-    <summary>如何参与 Webmentions 互动？</summary>
-    <div class="wm-guide-content">
-<div class="webmention-form">
-    <p>如果你想回应这篇文章，请在你的博客或社交媒体中链接本页面，然后在下面的表单中提交你的页面链接。</p>
-    <form id="webmention-submit-form" action="https://webmention.io/www.glowisle.me/webmention" method="post">
-        
-        <input type="hidden" name="target" value="https://www.glowisle.me/posts/honba-mishima-yukio/">
-
-        <div>
-            <label for="webmention-source">你的文章链接：</label>
-            <input
-                type="url"
-                id="webmention-source"
-                name="source"
-                required
-                pattern="https?://.+"
-            >
-        <button type="submit" id="webmention-submit-btn">提交</button>
-        </div>
-        <div id="webmention-form-feedback"></div>
-    </form>
-    <br>
-<a href="https://indieweb.org/webmention">关于 Webmention 的更多信息</a> 以及 <a href="https://www.glowisle.me/posts/tear-hypocrisy-apart/">为什么要这么做？</a>
-</details>
-
-
-
-    <script>
-		
-
-    function getInitialTheme() {
-  
-  if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-    return localStorage.getItem('theme');
-  }
-  
-  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    return 'dark';
-  }
-  
-  return 'light';
-}
-
-const currentTheme = getInitialTheme();
-const giscusTheme = currentTheme === 'dark' ? 'dark' : 'light';
-
-const giscusScript = document.createElement('script');
-giscusScript.src = 'https://giscus.app/client.js';
-giscusScript.setAttribute('data-repo', 'yingyu5658/yingyu5658.github.io');
-giscusScript.setAttribute('data-repo-id', 'R_kgDOOBetsA');
-giscusScript.setAttribute('data-category', 'Announcements');
-giscusScript.setAttribute('data-category-id', 'DIC_kwDOOBetsM4CoF_Z');
-giscusScript.setAttribute('data-mapping', 'title');
-giscusScript.setAttribute('data-strict', '0');
-giscusScript.setAttribute('data-reactions-enabled', '0');
-giscusScript.setAttribute('data-emit-metadata', '0');
-giscusScript.setAttribute('data-input-position', 'bottom');
-giscusScript.setAttribute('data-theme', giscusTheme);
-giscusScript.setAttribute('data-lang', 'zh-CN');
-giscusScript.crossOrigin = 'anonymous';
-giscusScript.async = true;
-
-document.getElementById('giscus-container').appendChild(giscusScript);
-
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('webmention-submit-form');
-    const submitBtn = document.getElementById('webmention-submit-btn');
-    const feedbackEl = document.getElementById('webmention-form-feedback');
-
-    if (!form) return;
-
-    form.addEventListener('submit', async function(e) {
-        e.preventDefault();
-
-        
-        const originalBtnText = submitBtn.textContent;
-        submitBtn.disabled = true;
-        submitBtn.textContent = '发送中...';
-
-        
-        feedbackEl.textContent = '';
-
-        try {
-            
-            const formData = new FormData(form);
-
-            
-            const response = await fetch(form.action, {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                },
-                body: new URLSearchParams(formData)
-            });
-
-            const result = await response.json();
-
-            if (response.ok) {
-                
-                feedbackEl.textContent = '✅ 提交成功！Webmention 正在处理中。';
-                form.reset();
-            } else {
-                
-                let errorMsg = '提交失败：';
-                if (result.error || result.summary) {
-                    errorMsg += result.error || result.summary;
-                }
-                feedbackEl.textContent = errorMsg;
-            }
-        } catch (error) {
-            
-            feedbackEl.textContent = '❌ 提交过程中出现网络错误，请稍后重试。';
-        } finally {
-            
-            submitBtn.disabled = false;
-            submitBtn.textContent = originalBtnText;
-        }
-    });
-});
-
-
-</script>
 
 </main>
     <footer><div class="copyright">
-  © 2024 - 2025 | Made with ❤️ by
-  <a href="https://github.com/yingyu5658">Verdant</a>. | &nbsp;
+  © 2024 - 2025 | Made with ❤️ by Verdant
   <div class="social-icons">
     <a href="/atom.xml">
       <i class="fa fa-rss"></i>
@@ -1094,8 +950,6 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 </footer>
 
-      
-
-
+    
 </body>
 </html>

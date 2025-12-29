@@ -842,10 +842,13 @@
 </nav>
 <hr>
 </header>
-    <main>
- 
+    <main> 
 
-<content> <table>
+<article class="h-entry">
+    <h1 class="post-title p-name"><a href="/links/" style="color:#222222;">友人</a></h1>
+
+<div class="e-content">
+    <table>
   <thead>
       <tr>
           <th>Link</th>
@@ -940,10 +943,13 @@
 ```
 
 -->
- </content>
+
+</div>
+</article>
+<a class="u-url" href="https://www.glowisle.me/links/" style="display:none;">Permalink</a>
 
 <p>
-  
+    
 </p>
 
 
@@ -994,6 +1000,7 @@
     try {
       const response = await fetch('https:\/\/upvote.glowisle.me\/upvote', {
         method: 'POST',
+		mode: 'cors',
         headers: {
           'Content-Type': 'application/json',
         },
@@ -1051,17 +1058,12 @@
 
 
 
-
  
-<div class="toc">
 
-
-</div>
 
 </main>
     <footer><div class="copyright">
-  © 2024 - 2025 | Made with ❤️ by
-  <a href="https://github.com/yingyu5658">Verdant</a>. | &nbsp;
+  © 2024 - 2025 | Made with ❤️ by Verdant
   <div class="social-icons">
     <a href="/atom.xml">
       <i class="fa fa-rss"></i>
@@ -1070,8 +1072,6 @@
 </div>
 </footer>
 
-      
-
-
+    
 </body>
 </html>

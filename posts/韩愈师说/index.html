@@ -786,6 +786,7 @@
             <a href="/categories/%E5%BE%80%E6%98%94/" class="category-link">往昔</a>
         
 </div>
+
 <div class="e-content">
     <p>在视频<a href="https://www.bilibili.com/video/BV1bQWPzqEwx/?share_source=copy_web&amp;vd_source=237678275b58b6262a1c529cd96bdc59">【“你这是学生思维”】 </a>中，有一个评论引用了《师说》中的一句话：「是故无贵无贱，无长无少，道之所存，师之所存也。」记一篇原文及翻译。用白话翻译出来就很浅显，甚至是老生常谈的大道理，可能这就是文言文的距离之美和留白之美吧。</p>
 <blockquote>
@@ -919,156 +920,11 @@
 
 
  
-<div class="toc">
-</div>
 
-<hr />
-<details>
-    <summary>
-    <p style="display: inline">评论 与 Webmentions</p>
-    </summary>
-    <div id="giscus-container"></div>
-
-    <div class="wm">
-<div id="webmentions"></div>
-<script src="/js/webmention.min.js"
-    data-id="webmentions"
-    data-page-url="https://www.glowisle.me/posts/%E9%9F%A9%E6%84%88%E5%B8%88%E8%AF%B4/"
-    data-max-webmentions="50"
-    data-wordcount="30"
-    data-sort-by="published"
-    data-sort-dir="up"
-    async>
-</script>
-
-<details>
-    <summary>如何参与 Webmentions 互动？</summary>
-    <div class="wm-guide-content">
-<div class="webmention-form">
-    <p>如果你想回应这篇文章，请在你的博客或社交媒体中链接本页面，然后在下面的表单中提交你的页面链接。</p>
-    <form id="webmention-submit-form" action="https://webmention.io/www.glowisle.me/webmention" method="post">
-        
-        <input type="hidden" name="target" value="https://www.glowisle.me/posts/%E9%9F%A9%E6%84%88%E5%B8%88%E8%AF%B4/">
-
-        <div>
-            <label for="webmention-source">你的文章链接：</label>
-            <input
-                type="url"
-                id="webmention-source"
-                name="source"
-                required
-                pattern="https?://.+"
-            >
-        <button type="submit" id="webmention-submit-btn">提交</button>
-        </div>
-        <div id="webmention-form-feedback"></div>
-    </form>
-    <br>
-<a href="https://indieweb.org/webmention">关于 Webmention 的更多信息</a> 以及 <a href="https://www.glowisle.me/posts/tear-hypocrisy-apart/">为什么要这么做？</a>
-</details>
-
-
-
-    <script>
-		
-
-    function getInitialTheme() {
-  
-  if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-    return localStorage.getItem('theme');
-  }
-  
-  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    return 'dark';
-  }
-  
-  return 'light';
-}
-
-const currentTheme = getInitialTheme();
-const giscusTheme = currentTheme === 'dark' ? 'dark' : 'light';
-
-const giscusScript = document.createElement('script');
-giscusScript.src = 'https://giscus.app/client.js';
-giscusScript.setAttribute('data-repo', 'yingyu5658/yingyu5658.github.io');
-giscusScript.setAttribute('data-repo-id', 'R_kgDOOBetsA');
-giscusScript.setAttribute('data-category', 'Announcements');
-giscusScript.setAttribute('data-category-id', 'DIC_kwDOOBetsM4CoF_Z');
-giscusScript.setAttribute('data-mapping', 'title');
-giscusScript.setAttribute('data-strict', '0');
-giscusScript.setAttribute('data-reactions-enabled', '0');
-giscusScript.setAttribute('data-emit-metadata', '0');
-giscusScript.setAttribute('data-input-position', 'bottom');
-giscusScript.setAttribute('data-theme', giscusTheme);
-giscusScript.setAttribute('data-lang', 'zh-CN');
-giscusScript.crossOrigin = 'anonymous';
-giscusScript.async = true;
-
-document.getElementById('giscus-container').appendChild(giscusScript);
-
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('webmention-submit-form');
-    const submitBtn = document.getElementById('webmention-submit-btn');
-    const feedbackEl = document.getElementById('webmention-form-feedback');
-
-    if (!form) return;
-
-    form.addEventListener('submit', async function(e) {
-        e.preventDefault();
-
-        
-        const originalBtnText = submitBtn.textContent;
-        submitBtn.disabled = true;
-        submitBtn.textContent = '发送中...';
-
-        
-        feedbackEl.textContent = '';
-
-        try {
-            
-            const formData = new FormData(form);
-
-            
-            const response = await fetch(form.action, {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                },
-                body: new URLSearchParams(formData)
-            });
-
-            const result = await response.json();
-
-            if (response.ok) {
-                
-                feedbackEl.textContent = '✅ 提交成功！Webmention 正在处理中。';
-                form.reset();
-            } else {
-                
-                let errorMsg = '提交失败：';
-                if (result.error || result.summary) {
-                    errorMsg += result.error || result.summary;
-                }
-                feedbackEl.textContent = errorMsg;
-            }
-        } catch (error) {
-            
-            feedbackEl.textContent = '❌ 提交过程中出现网络错误，请稍后重试。';
-        } finally {
-            
-            submitBtn.disabled = false;
-            submitBtn.textContent = originalBtnText;
-        }
-    });
-});
-
-
-</script>
 
 </main>
     <footer><div class="copyright">
-  © 2024 - 2025 | Made with ❤️ by
-  <a href="https://github.com/yingyu5658">Verdant</a>. | &nbsp;
+  © 2024 - 2025 | Made with ❤️ by Verdant
   <div class="social-icons">
     <a href="/atom.xml">
       <i class="fa fa-rss"></i>
@@ -1077,8 +933,6 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 </footer>
 
-      
-
-
+    
 </body>
 </html>
