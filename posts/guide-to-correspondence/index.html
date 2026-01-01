@@ -45,7 +45,6 @@
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
     <style>
-   
   :root {
     --width-max: 700px;
     --font-primary: "Noto Serif SC", "Source Han Serif SC", serif;
@@ -172,16 +171,6 @@
     border: none !important;
   }
 
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --music-bg-hover-dark: #525252;  
-      --music-bg-dark: rgba(82, 82, 82, 0.5);  
-      --music-text-secondary: #a3a3a3;
-    }
-  }
-
-   
-
    
    
   .music-card {
@@ -269,16 +258,6 @@
   }
 
    
-  @media (prefers-color-scheme: dark) {
-    .music-btn {
-      background-color: var(--music-bg-dark);
-    }
-    .music-btn:hover {
-      background-color: var(--music-bg-hover-dark);
-    }
-  }
-
-   
   @media (min-width: 768px) {
      
      
@@ -311,6 +290,7 @@
     }
   }
 
+   
   @media (prefers-color-scheme: dark) {
     :root {
       --body-bg-color: #121212;
@@ -328,6 +308,16 @@
       --caption-text-color: #aaa;
       --toc-text-color: #373737;
       --toc-hover-color: #cac3c3;
+      --music-bg-hover-dark: #525252;  
+      --music-bg-dark: rgba(82, 82, 82, 0.5);  
+      --music-text-secondary: #a3a3a3;
+    }
+
+    .music-btn {
+      background-color: var(--music-bg-dark);
+    }
+    .music-btn:hover {
+      background-color: var(--music-bg-hover-dark);
     }
 
     .category-link {
@@ -977,6 +967,7 @@
  
 
 
+<div class="comments-and-webmentions">
 <hr />
 <details>
     <summary>
@@ -996,15 +987,12 @@
     async>
 </script>
 
-<details>
-    <summary>如何参与 Webmentions 互动？</summary>
+    <p>若想回复本文，请在你的博客或社媒发布含有本文链接的帖子，然后在下方表单提交链接。</p>
     <div class="wm-guide-content">
 <div class="webmention-form">
-    <p>如果你想回应这篇文章，请在你的博客或社交媒体中链接本页面，然后在下面的表单中提交你的页面链接。</p>
     <form id="webmention-submit-form" action="https://webmention.io/www.glowisle.me/webmention" method="post">
         
         <input type="hidden" name="target" value="https://www.glowisle.me/posts/guide-to-correspondence/">
-
         <div>
             <label for="webmention-source">你的文章链接：</label>
             <input
@@ -1018,9 +1006,9 @@
         </div>
         <div id="webmention-form-feedback"></div>
     </form>
-    <br>
+<p>也可以加入 <a href="https://t.me/glowisle">Telegram 频道</a> 或 <a href="mailto:i@glowisle.me?subject=回复《%e7%bb%9900%e5%90%8e%e5%92%8c10%e5%90%8e%e7%9a%84%e4%b9%a6%e4%bf%a1%e6%9d%a5%e5%be%80%e6%8c%87%e5%8d%97》">发送邮件</a> 评论。</p>
 <a href="https://indieweb.org/webmention">关于 Webmention 的更多信息</a> 以及 <a href="https://www.glowisle.me/posts/tear-hypocrisy-apart/">为什么要这么做？</a>
-</details>
+</div>
 
 
 
@@ -1125,7 +1113,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </main>
     <footer><div class="copyright">
-  © 2024 - 2025 | Made with ❤️ by Verdant.
+  © 2024 - 2026 | Made with ❤️ by Verdant.
   <div class="social-icons">
     <a href="/atom.xml">
       <i class="fa fa-rss"></i>

@@ -88,7 +88,6 @@ n个元素的数组最多需要n-1轮冒泡，如5元素数组需要4轮排序
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
     <style>
-   
   :root {
     --width-max: 700px;
     --font-primary: "Noto Serif SC", "Source Han Serif SC", serif;
@@ -215,16 +214,6 @@ n个元素的数组最多需要n-1轮冒泡，如5元素数组需要4轮排序
     border: none !important;
   }
 
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --music-bg-hover-dark: #525252;  
-      --music-bg-dark: rgba(82, 82, 82, 0.5);  
-      --music-text-secondary: #a3a3a3;
-    }
-  }
-
-   
-
    
    
   .music-card {
@@ -312,16 +301,6 @@ n个元素的数组最多需要n-1轮冒泡，如5元素数组需要4轮排序
   }
 
    
-  @media (prefers-color-scheme: dark) {
-    .music-btn {
-      background-color: var(--music-bg-dark);
-    }
-    .music-btn:hover {
-      background-color: var(--music-bg-hover-dark);
-    }
-  }
-
-   
   @media (min-width: 768px) {
      
      
@@ -354,6 +333,7 @@ n个元素的数组最多需要n-1轮冒泡，如5元素数组需要4轮排序
     }
   }
 
+   
   @media (prefers-color-scheme: dark) {
     :root {
       --body-bg-color: #121212;
@@ -371,6 +351,16 @@ n个元素的数组最多需要n-1轮冒泡，如5元素数组需要4轮排序
       --caption-text-color: #aaa;
       --toc-text-color: #373737;
       --toc-hover-color: #cac3c3;
+      --music-bg-hover-dark: #525252;  
+      --music-bg-dark: rgba(82, 82, 82, 0.5);  
+      --music-text-secondary: #a3a3a3;
+    }
+
+    .music-btn {
+      background-color: var(--music-bg-dark);
+    }
+    .music-btn:hover {
+      background-color: var(--music-bg-hover-dark);
     }
 
     .category-link {
@@ -1026,6 +1016,7 @@ n个元素的数组最多需要n-1轮冒泡，如5元素数组需要4轮排序
  
 
 
+<div class="comments-and-webmentions">
 <hr />
 <details>
     <summary>
@@ -1045,15 +1036,12 @@ n个元素的数组最多需要n-1轮冒泡，如5元素数组需要4轮排序
     async>
 </script>
 
-<details>
-    <summary>如何参与 Webmentions 互动？</summary>
+    <p>若想回复本文，请在你的博客或社媒发布含有本文链接的帖子，然后在下方表单提交链接。</p>
     <div class="wm-guide-content">
 <div class="webmention-form">
-    <p>如果你想回应这篇文章，请在你的博客或社交媒体中链接本页面，然后在下面的表单中提交你的页面链接。</p>
     <form id="webmention-submit-form" action="https://webmention.io/www.glowisle.me/webmention" method="post">
         
         <input type="hidden" name="target" value="https://www.glowisle.me/posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/">
-
         <div>
             <label for="webmention-source">你的文章链接：</label>
             <input
@@ -1067,9 +1055,9 @@ n个元素的数组最多需要n-1轮冒泡，如5元素数组需要4轮排序
         </div>
         <div id="webmention-form-feedback"></div>
     </form>
-    <br>
+<p>也可以加入 <a href="https://t.me/glowisle">Telegram 频道</a> 或 <a href="mailto:i@glowisle.me?subject=回复《%e3%80%90%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84%e4%b8%8e%e7%ae%97%e6%b3%95%e3%80%91%e5%86%92%e6%b3%a1%e6%8e%92%e5%ba%8f》">发送邮件</a> 评论。</p>
 <a href="https://indieweb.org/webmention">关于 Webmention 的更多信息</a> 以及 <a href="https://www.glowisle.me/posts/tear-hypocrisy-apart/">为什么要这么做？</a>
-</details>
+</div>
 
 
 
@@ -1174,7 +1162,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </main>
     <footer><div class="copyright">
-  © 2024 - 2025 | Made with ❤️ by Verdant.
+  © 2024 - 2026 | Made with ❤️ by Verdant.
   <div class="social-icons">
     <a href="/atom.xml">
       <i class="fa fa-rss"></i>

@@ -114,7 +114,6 @@
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
     <style>
-   
   :root {
     --width-max: 700px;
     --font-primary: "Noto Serif SC", "Source Han Serif SC", serif;
@@ -241,16 +240,6 @@
     border: none !important;
   }
 
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --music-bg-hover-dark: #525252;  
-      --music-bg-dark: rgba(82, 82, 82, 0.5);  
-      --music-text-secondary: #a3a3a3;
-    }
-  }
-
-   
-
    
    
   .music-card {
@@ -338,16 +327,6 @@
   }
 
    
-  @media (prefers-color-scheme: dark) {
-    .music-btn {
-      background-color: var(--music-bg-dark);
-    }
-    .music-btn:hover {
-      background-color: var(--music-bg-hover-dark);
-    }
-  }
-
-   
   @media (min-width: 768px) {
      
      
@@ -380,6 +359,7 @@
     }
   }
 
+   
   @media (prefers-color-scheme: dark) {
     :root {
       --body-bg-color: #121212;
@@ -397,6 +377,16 @@
       --caption-text-color: #aaa;
       --toc-text-color: #373737;
       --toc-hover-color: #cac3c3;
+      --music-bg-hover-dark: #525252;  
+      --music-bg-dark: rgba(82, 82, 82, 0.5);  
+      --music-text-secondary: #a3a3a3;
+    }
+
+    .music-btn {
+      background-color: var(--music-bg-dark);
+    }
+    .music-btn:hover {
+      background-color: var(--music-bg-hover-dark);
     }
 
     .category-link {
@@ -1063,7 +1053,7 @@
 
 </main>
     <footer><div class="copyright">
-  © 2024 - 2025 | Made with ❤️ by Verdant.
+  © 2024 - 2026 | Made with ❤️ by Verdant.
   <div class="social-icons">
     <a href="/atom.xml">
       <i class="fa fa-rss"></i>

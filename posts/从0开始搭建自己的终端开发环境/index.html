@@ -63,7 +63,6 @@ Neovim和Vim相比，在性能和易用性上有很大的提升，在异步任�
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
     <style>
-   
   :root {
     --width-max: 700px;
     --font-primary: "Noto Serif SC", "Source Han Serif SC", serif;
@@ -190,16 +189,6 @@ Neovim和Vim相比，在性能和易用性上有很大的提升，在异步任�
     border: none !important;
   }
 
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --music-bg-hover-dark: #525252;  
-      --music-bg-dark: rgba(82, 82, 82, 0.5);  
-      --music-text-secondary: #a3a3a3;
-    }
-  }
-
-   
-
    
    
   .music-card {
@@ -287,16 +276,6 @@ Neovim和Vim相比，在性能和易用性上有很大的提升，在异步任�
   }
 
    
-  @media (prefers-color-scheme: dark) {
-    .music-btn {
-      background-color: var(--music-bg-dark);
-    }
-    .music-btn:hover {
-      background-color: var(--music-bg-hover-dark);
-    }
-  }
-
-   
   @media (min-width: 768px) {
      
      
@@ -329,6 +308,7 @@ Neovim和Vim相比，在性能和易用性上有很大的提升，在异步任�
     }
   }
 
+   
   @media (prefers-color-scheme: dark) {
     :root {
       --body-bg-color: #121212;
@@ -346,6 +326,16 @@ Neovim和Vim相比，在性能和易用性上有很大的提升，在异步任�
       --caption-text-color: #aaa;
       --toc-text-color: #373737;
       --toc-hover-color: #cac3c3;
+      --music-bg-hover-dark: #525252;  
+      --music-bg-dark: rgba(82, 82, 82, 0.5);  
+      --music-text-secondary: #a3a3a3;
+    }
+
+    .music-btn {
+      background-color: var(--music-bg-dark);
+    }
+    .music-btn:hover {
+      background-color: var(--music-bg-hover-dark);
     }
 
     .category-link {
@@ -1155,6 +1145,7 @@ alias gcl = &#34;git clone&#34;
  
 
 
+<div class="comments-and-webmentions">
 <hr />
 <details>
     <summary>
@@ -1174,15 +1165,12 @@ alias gcl = &#34;git clone&#34;
     async>
 </script>
 
-<details>
-    <summary>如何参与 Webmentions 互动？</summary>
+    <p>若想回复本文，请在你的博客或社媒发布含有本文链接的帖子，然后在下方表单提交链接。</p>
     <div class="wm-guide-content">
 <div class="webmention-form">
-    <p>如果你想回应这篇文章，请在你的博客或社交媒体中链接本页面，然后在下面的表单中提交你的页面链接。</p>
     <form id="webmention-submit-form" action="https://webmention.io/www.glowisle.me/webmention" method="post">
         
         <input type="hidden" name="target" value="https://www.glowisle.me/posts/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BB%88%E7%AB%AF%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">
-
         <div>
             <label for="webmention-source">你的文章链接：</label>
             <input
@@ -1196,9 +1184,9 @@ alias gcl = &#34;git clone&#34;
         </div>
         <div id="webmention-form-feedback"></div>
     </form>
-    <br>
+<p>也可以加入 <a href="https://t.me/glowisle">Telegram 频道</a> 或 <a href="mailto:i@glowisle.me?subject=回复《%e4%bb%8e0%e5%bc%80%e5%a7%8b%e6%90%ad%e5%bb%ba%e8%87%aa%e5%b7%b1%e7%9a%84%e7%bb%88%e7%ab%af%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83》">发送邮件</a> 评论。</p>
 <a href="https://indieweb.org/webmention">关于 Webmention 的更多信息</a> 以及 <a href="https://www.glowisle.me/posts/tear-hypocrisy-apart/">为什么要这么做？</a>
-</details>
+</div>
 
 
 
@@ -1303,7 +1291,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </main>
     <footer><div class="copyright">
-  © 2024 - 2025 | Made with ❤️ by Verdant.
+  © 2024 - 2026 | Made with ❤️ by Verdant.
   <div class="social-icons">
     <a href="/atom.xml">
       <i class="fa fa-rss"></i>
