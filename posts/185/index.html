@@ -759,6 +759,22 @@ Java中提供了一个关键字extends，用这个关键字，可以让一个类
       display: none;
     }
   }
+
+  @media (max-width: 700px) {
+    .booklist {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .booklist {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+  }
 </style>
 <meta name="msvalidate.01" content="2E1AACF009206F2DDBAAD4B98E881460" />
 <link

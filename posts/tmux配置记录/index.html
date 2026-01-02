@@ -757,6 +757,22 @@ tmux 所以我选择在~/.bashrc里加上这句，每次打开终端都会自动
       display: none;
     }
   }
+
+  @media (max-width: 700px) {
+    .booklist {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .booklist {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+  }
 </style>
 <meta name="msvalidate.01" content="2E1AACF009206F2DDBAAD4B98E881460" />
 <link
