@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>服务器 on 映屿</title>
+    <link>https://www.glowisle.me/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+    <description>Recent content in 服务器 on 映屿</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    
+      <managingEditor>i@glowisle.me (五葉地錦)</managingEditor>
+    
+    
+      <webMaster>i@glowisle.me (五葉地錦)</webMaster>
+    
+    
+    
+    <lastBuildDate>Wed, 08 Jan 2025 17:26:00 +0000</lastBuildDate>
+    
+    
+    <atom:link href="http://www.glowisle.me/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/atom.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>修复Geyser下基岩版玩家无法在地狱基岩层放置方块</title>
+      <link>https://www.glowisle.me/posts/184/</link>
+      <pubDate>Wed, 08 Jan 2025 17:26:00 +0000</pubDate><author>i@glowisle.me (五葉地錦)</author>
+      <guid>https://www.glowisle.me/posts/184/</guid>
+      <description>&lt;p&gt;在&lt;code&gt;plugins\Geyser-Spigot\config.yml&lt;/code&gt;中把第160行的&lt;code&gt;above-bedrock-nether-building: false&lt;/code&gt;改为&lt;code&gt;true&lt;/code&gt;，重启服务器，问题解决~&#xA;原理：geyser把下界翻译成了末地，会导致下界天空变成末地的样式，不过可以解决基岩版玩家在地狱基岩层的问题。&lt;/p&gt;&#xA;</description>
+    </item>
+    <item>
+      <title>Spigot服务端控制台中文乱码解决方案</title>
+      <link>https://www.glowisle.me/posts/181/</link>
+      <pubDate>Sat, 04 Jan 2025 08:35:00 +0000</pubDate><author>i@glowisle.me (五葉地錦)</author>
+      <guid>https://www.glowisle.me/posts/181/</guid>
+      <description>&lt;ol&gt;&#xA;&lt;li&gt;把&lt;code&gt;-Dfile.encoding=UTF-8&lt;/code&gt;加在开服脚本文件的&lt;code&gt;-jar&lt;/code&gt;前即可。&lt;/li&gt;&#xA;&lt;li&gt;在启动脚本第一行加上&lt;code&gt;chcp 65001&lt;/code&gt;&#xA;我的启动脚本如下：&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;chcp &lt;span style=&#34;color:#d19a66&#34;&gt;65001&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;java -Dfile.encoding&lt;span style=&#34;color:#56b6c2&#34;&gt;=&lt;/span&gt;UTF-8 -jar spigot-1.21.jar&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>记录配置SSL证书</title>
+      <link>https://www.glowisle.me/posts/163/</link>
+      <pubDate>Tue, 17 Dec 2024 11:46:07 +0000</pubDate><author>i@glowisle.me (五葉地錦)</author>
+      <guid>https://www.glowisle.me/posts/163/</guid>
+      <description>&lt;p&gt;首先你要有一个SSL证书，建议在阿里云购买或者&lt;a href=&#34;https://developer.aliyun.com/article/1595201&#34;&gt;免费申请&lt;/a&gt;，具体过程阿里云这个页面讲的很详细，在此不过多赘述。&lt;/p&gt;&#xA;&lt;h1 id=&#34;配置证书&#34;&gt;配置证书&lt;/h1&gt;&#xA;&lt;p&gt;由于我的nginx安装了ssl模块，直接进入配置证书。&lt;/p&gt;&#xA;&lt;p&gt;解压下载好的证书，然后上传到服务器。位置自己方便找到即可&#xA;我放到了root/card&lt;/p&gt;&#xA;&lt;h1 id=&#34;配置nginxconf&#34;&gt;配置nginx.conf&lt;/h1&gt;&#xA;&lt;p&gt;进入nginx.conf，我的文件位置在&lt;code&gt;/etc/nginx/nginx.conf&lt;/code&gt;,有些可能在&lt;code&gt;/usr/local/nginx/conf&lt;/code&gt;&#xA;编辑模式，启动！&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&#xA;  &#xA;&#xA;http {&#xA;&#xA;    include       mime.types;  # 包含 MIME 类型定义&#xA;&#xA;    default_type  application/octet-stream;&#xA;&#xA;    sendfile        on;&#xA;&#xA;    keepalive_timeout  65;&#xA;&#xA;  &#xA;&#xA;    # HTTPS server block&#xA;&#xA;    server {&#xA;&#xA;        # 监听443端口（HTTPS）&#xA;&#xA;        listen 443 ssl;&#xA;&#xA;  &#xA;&#xA;        # 【请修改】您的域名&#xA;&#xA;        server_name xxx;&#xA;&#xA;  &#xA;&#xA;        # 启用 SSL (注意: &amp;#34;ssl on;&amp;#34; 已被弃用，直接使用 &amp;#34;listen ... ssl;&amp;#34;)&#xA;&#xA;        ssl on;&#xA;&#xA;  &#xA;&#xA;        # 【请修改】SSL 证书的 PEM 文件路径&#xA;&#xA;        ssl_certificate  /root/card/www.xxxx.pem;&#xA;&#xA;  &#xA;&#xA;        # 【请修改】SSL 证书的 KEY 文件路径&#xA;&#xA;        ssl_certificate_key /root/card/www.xxxx.key;&#xA;&#xA;  &#xA;&#xA;        location / {&#xA;&#xA;            # 【请修改】代理转发的目标地址和端口（例如公网IP和项目端口号）&#xA;&#xA;            proxy_pass  http://公网地址:项目端口号;&#xA;&#xA;        }&#xA;&#xA;    }&#xA;&#xA;  &#xA;&#xA;    # HTTP server block for redirecting to HTTPS&#xA;&#xA;    server {&#xA;&#xA;        # 监听80端口（HTTP）&#xA;&#xA;        listen 80;&#xA;&#xA;  &#xA;&#xA;        # 【请修改】您的域名&#xA;&#xA;        server_name huiblog.top;&#xA;&#xA;  &#xA;&#xA;        # 将所有 HTTP 请求永久重定向到 HTTPS&#xA;&#xA;        rewrite ^(.*)$ https://$host$1 permanent;&#xA;&#xA;    }&#xA;&#xA;}&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;重新加载nginx&#34;&gt;重新加载Nginx&lt;/h1&gt;&#xA;&lt;p&gt;&lt;code&gt;sudo systemctl reload nginx&lt;/code&gt;&lt;/p&gt;&#xA;</description>
+    </item>
+    <item>
+      <title>游戏资源下载及连接服务器相关教程</title>
+      <link>https://www.glowisle.me/posts/%E6%B8%B8%E6%88%8F%E8%B5%84%E6%BA%90%E4%B8%8B%E8%BD%BD%E5%8F%8A%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%B8%E5%85%B3%E6%95%99%E7%A8%8B/</link>
+      <pubDate>Fri, 13 Dec 2024 20:26:00 +0800</pubDate><author>i@glowisle.me (五葉地錦)</author>
+      <guid>https://www.glowisle.me/posts/%E6%B8%B8%E6%88%8F%E8%B5%84%E6%BA%90%E4%B8%8B%E8%BD%BD%E5%8F%8A%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%B8%E5%85%B3%E6%95%99%E7%A8%8B/</guid>
+      <description>&lt;h1 id=&#34;前言&#34;&gt;前言&lt;/h1&gt;&#xA;&lt;p&gt;为了避免不必要的麻烦和纠纷，也是为了打造一个纯粹干净高质量的社区，我们需要对想要参与的人员提出一些条件，请确保你自身可以满足这些条件后再来愉快的玩耍。&#xA;&lt;strong&gt;所有的条件都是最基本的，一点也不苛刻，大部分要求仅仅是一些应该具备的能力。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;正文&#34;&gt;正文&lt;/h1&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;具备一定的耐心&lt;/li&gt;&#xA;&lt;li&gt;具备文档阅读能力&lt;/li&gt;&#xA;&lt;li&gt;不是伸手党，具备在互联网上搜索的能力&lt;/li&gt;&#xA;&lt;li&gt;拥有思考和自己解决问题的能力，而不是有点什么问题直接在群里发问，我编写的各种文档已经涵盖了可能出现的大部分问题，请仔细阅读文档。&lt;/li&gt;&#xA;&lt;li&gt;拥有支配自己钱财的权利&lt;/li&gt;&#xA;&lt;li&gt;不在游戏内使用外挂、修改器。（当然你开了我也没法知道，全凭良心）&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;在你确保满足上篇文章的各项要求后，可以开始阅读这篇文章。本文章将详细地讲解&lt;strong&gt;泰拉瑞亚PC/Android端下载&lt;/strong&gt;以及&lt;strong&gt;连接服务器&lt;/strong&gt;的方法。&lt;/p&gt;&#xA;&lt;h1 id=&#34;泰拉瑞亚android版本下载&#34;&gt;泰拉瑞亚Android版本下载&lt;/h1&gt;&#xA;&lt;p&gt;你可以直接打开群聊&amp;gt;群文件&amp;gt;泰拉瑞亚&amp;gt;Terraria_1.4.4.9.apk.&lt;strong&gt;1&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;安装apk1的方法&#34;&gt;安装apk.1的方法&lt;/h2&gt;&#xA;&lt;p&gt;几年前的新版本QQ中，所有的apk都会被强行篡改为apk.1导致很多用户无法正常下载。&#xA;首先，你需要下载&lt;strong&gt;MT管理器&lt;/strong&gt;（直接在应用商城搜或者浏览器搜）&#xA;下载好后，打开MT管理器，进入/storage/emulated/0/Android/data/com.tencent.mobileqq/tencent/QQfile_recv&#xA;找到你刚刚下载好的apk.1文件，点击它，在弹出的窗口中点击左下角的“类型”，点击全部。&#xA;不同型号的手机这个界面的选项会有所不同，以oppo手机为例，在这个页面向下滑动就会找到一个“软件包安装程序”的按钮。点击它就会进入软件安装页面，所有的选项全部点同意后，等待一段时间就可以打开游戏了。&#xA;其他品牌型号的手机也差不多，多尝试寻找。寻找差不多的字样。&lt;/p&gt;&#xA;&lt;h2 id=&#34;我无法打开androiddata&#34;&gt;我无法打开/Android/data&lt;/h2&gt;&#xA;&lt;p&gt;自安卓11起，访问Android/data等目录需要授权；自安卓14起，授权途径被阻止。在2024年2月的安全更新中，谷歌将该项限制合入，覆盖到了安卓11、12、12L、13、14。在系统设置-关于手机中安全更新日期大于等于2024年2月的系统可能会遇到无法授权的问题。&lt;/p&gt;&#xA;&lt;p&gt;遇到这种问题的同学，可以点击这个链接从网盘下载。&lt;strong&gt;要点击后缀名为.apk的文件下载&lt;/strong&gt;&#xA;&lt;a href=&#34;https://pan.quark.cn/s/a5d434ab6145&#34;&gt;https://pan.quark.cn/s/a5d434ab6145&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;泰拉瑞亚pc版本下载&#34;&gt;泰拉瑞亚PC版本下载&lt;/h1&gt;&#xA;&lt;p&gt;PC端也可以通过群文件或网盘下载&#xA;&lt;a href=&#34;https://pan.quark.cn/s/856451f8f210&#34;&gt;https://pan.quark.cn/s/856451f8f210&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;把压缩包下载好后，&lt;strong&gt;解压出来&lt;/strong&gt;，在解压出来的文件夹内双击&lt;code&gt;setup_terraria_v1.4.4.9_v4_(60319).exe&lt;/code&gt;运行，弹出的窗口左下角可以配置路径，按照你的需求配置好后同意协议，等待一段时间后安装就完成了（有些电脑时间可能比较长，请耐心等待）。&lt;/p&gt;&#xA;&lt;h1 id=&#34;连接服务器教程&#34;&gt;连接服务器教程&lt;/h1&gt;&#xA;&lt;p&gt;以PC端为例，当你下载安装好了游戏之后，创建一个人物。创建好后，左下角返回。点击多人游戏，选择最上面的加入。把群公告里的ip输入进去，然后输入端口。（手机端要直接添加一个英文冒号并跟上端口）&lt;/p&gt;&#xA;&lt;h2 id=&#34;注册登录&#34;&gt;注册登录&lt;/h2&gt;&#xA;&lt;p&gt;为了保证游戏的公平性，本服务器开启了强制开荒，也就是进入服务器后强行把物品栏清除到服务器配置文档的默认值（同志短剑、铜稿、铜斧）。即使毕业人物存档进服也只能被废尽武功从头修炼。&lt;/p&gt;&#xA;&lt;p&gt;连接到服务器后，你会发现你无法进行移动、破坏方块、拾取物品等操作，这是因为你还没有&lt;strong&gt;注册&lt;/strong&gt;。&#xA;打开聊天栏，按照以下格式输入命令&#xA;&lt;code&gt;/register &amp;lt;password&amp;gt;&lt;/code&gt;&#xA;比如我的密码是114514，我就可以输入&#xA;&lt;code&gt;/register 114514&lt;/code&gt;&#xA;注册好后，再打开聊天栏按照以下格式输入&#xA;&lt;code&gt;/login username password&lt;/code&gt;即可登录。同一设备登陆过一次后，无需再次登录。&#xA;例如&#xA;&lt;code&gt;/login yingyu5658 114514&lt;/code&gt;&#xA;恭喜你，你可以开始游玩了！&lt;/p&gt;&#xA;</description>
+    </item>
+  </channel>
+</rss>

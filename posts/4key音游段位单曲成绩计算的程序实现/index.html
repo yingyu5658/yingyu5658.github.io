@@ -1,0 +1,1338 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="https://www.glowisle.me/favicon.png" />
+<title>4Key音游段位单曲成绩计算的程序实现</title>
+<meta name="title" content="4Key音游段位单曲成绩计算的程序实现" />
+<meta name="description" content="前言
+其实这个坑我很早以前就想开了，在我刚开始学编程那会就一直想写一个这个东西。但苦于数学进度没达到，要用到加权平均数，这东西我前两天才学到，之前对数学也一直是懒得学的状态，要不然几乎是看不懂那个算法的。" />
+<meta name="keywords" content="Malody,osu,数据结构与算法," />
+
+<link rel="canonical" href="https://www.glowisle.me/posts/4key%E9%9F%B3%E6%B8%B8%E6%AE%B5%E4%BD%8D%E5%8D%95%E6%9B%B2%E6%88%90%E7%BB%A9%E8%AE%A1%E7%AE%97%E7%9A%84%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0/">
+
+
+<meta property="og:url" content="https://www.glowisle.me/posts/4key%E9%9F%B3%E6%B8%B8%E6%AE%B5%E4%BD%8D%E5%8D%95%E6%9B%B2%E6%88%90%E7%BB%A9%E8%AE%A1%E7%AE%97%E7%9A%84%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0/">
+  <meta property="og:site_name" content="映屿">
+  <meta property="og:title" content="4Key音游段位单曲成绩计算的程序实现">
+  <meta property="og:description" content="前言 其实这个坑我很早以前就想开了，在我刚开始学编程那会就一直想写一个这个东西。但苦于数学进度没达到，要用到加权平均数，这东西我前两天才学到，之前对数学也一直是懒得学的状态，要不然几乎是看不懂那个算法的。">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-06-07T13:08:07+00:00">
+    <meta property="article:modified_time" content="2025-06-07T13:08:07+00:00">
+    <meta property="article:tag" content="Malody">
+    <meta property="article:tag" content="Osu">
+    <meta property="article:tag" content="数据结构与算法">
+
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="4Key音游段位单曲成绩计算的程序实现">
+  <meta name="twitter:description" content="前言 其实这个坑我很早以前就想开了，在我刚开始学编程那会就一直想写一个这个东西。但苦于数学进度没达到，要用到加权平均数，这东西我前两天才学到，之前对数学也一直是懒得学的状态，要不然几乎是看不懂那个算法的。">
+
+
+
+
+  <meta itemprop="name" content="4Key音游段位单曲成绩计算的程序实现">
+  <meta itemprop="description" content="前言 其实这个坑我很早以前就想开了，在我刚开始学编程那会就一直想写一个这个东西。但苦于数学进度没达到，要用到加权平均数，这东西我前两天才学到，之前对数学也一直是懒得学的状态，要不然几乎是看不懂那个算法的。">
+  <meta itemprop="datePublished" content="2025-06-07T13:08:07+00:00">
+  <meta itemprop="dateModified" content="2025-06-07T13:08:07+00:00">
+  <meta itemprop="wordCount" content="2799">
+  <meta itemprop="keywords" content="Malody,Osu,数据结构与算法">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+    <style>
+  :root {
+    --width-max: 700px;
+    --font-primary: "Noto Serif SC", "Source Han Serif SC", serif;
+    --font-secondary: monospace;
+    --font-size-primary: 1.105em;
+    --font-size-secondary: 0.8em;
+    --body-bg-color: #ffffff;
+    --bold-text-color: #222;
+    --body-text-color: #444;
+    --link-color: #222;
+    --link-visited-color: #222;
+    --table-border-color: #f2f2f2;
+    --table-th-bg-color: #f2f2f2;
+    --img-border-color: #f2f2f2;
+    --code-bg-color: #f2f2f2;
+    --code-text-color: #222;
+    --blockquote-border-color: #666;
+    --blockquote-text-color: #666;
+    --upvoted-color: #fa8072;
+    --caption-text-color: #666;
+    --toc-text-color: #e5e5e5;
+    --toc-hover-color: #655e5e;
+
+    --music-bg-hover-light: #e5e5e5;  
+    --music-bg-light: rgba(229, 229, 229, 0.5);  
+    --music-text-secondary: #666;
+    --music-shadow:
+      0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+
+  .booklist {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+  }
+
+  .booklist-item {
+    transform: translateZ(0);
+    transition:
+      transform 0.25s,
+      box-shadow 0.25s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .booklist-item img {
+    height: 100%;
+  }
+
+  .booklist-item:hover {
+    transform: translateY(-5px) translateZ(20px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  }
+
+  .social-icons {
+    display: inline;
+    font-size: 16px;
+    float: right;
+    font-family: var(--font-primary);
+  }
+
+  img.missing {
+    display: none;
+  }
+
+  nav a,
+  h1.post-title a,
+  .blog-posts li a,
+  a.category-link {
+    text-decoration: none !important;
+  }
+
+  nav a:hover,
+  .post-title a:hover,
+  a.item-link:hover,
+  .blog-posts a:hover {
+    text-decoration: underline 0.5px !important;
+  }
+
+  a.category-link:hover {
+    text-decoration: underline 0.5px !important;
+  }
+
+  .wm {
+    border: 1px #d0d7de solid;
+    border-radius: 0.25em;
+    padding-top: 0;
+    padding: 1.5vw;
+    background-color: #f6f8fa;
+    margin-top: 1vh;
+  }
+
+  .wm p {
+    margin-top: 1px;
+  }
+
+  article p {
+    line-height: 35px;
+  }
+
+  .item-link {
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .post-info {
+    text-align: center;
+    margin-bottom: 3vh;
+  }
+  .category-link {
+    color: #444;
+  }
+
+  h1.post-title {
+    margin-top: 2vh;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  h1.post-title a {
+    font-size: 30px;
+    font-weight: 700;
+  }
+
+  .recent-list {
+    padding-left: 2vw;
+  }
+
+  .recent-item {
+    list-style-type: none;
+  }
+
+  .post-date {
+    display: inline;
+  }
+
+  .post-date,
+  .post-date-shortcode {
+    margin-left: auto;
+    color: #999;
+  }
+
+  article .post-date::after {
+    content: "/";
+  }
+
+  .music-card img {
+    border: none !important;
+  }
+
+   
+   
+  .music-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+   
+   
+  .music-info {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+   
+   
+  .music-cover {
+    width: 3.75rem;  
+    height: 3.75rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--music-shadow);
+    margin: 0 !important;
+    object-fit: cover;
+  }
+
+   
+  .music-title {
+    margin: 0;
+    font-size: 1rem;  
+    font-weight: bold;
+    line-height: 1.2;
+  }
+
+  .music-artist {
+    margin: 0;
+    font-size: 0.875rem;  
+    color: var(--music-text-secondary);
+  }
+
+   
+   
+  .music-links {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+   
+   
+  .music-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0 0.75rem;  
+    height: 2rem;
+    border-radius: 9999px;  
+    text-decoration: none !important;
+    font-size: 0.75rem;  
+    transition: background-color 0.3s ease;
+
+     
+    background-color: var(--music-bg-light);
+    color: inherit;
+  }
+
+  .music-btn:hover {
+    background-color: var(--music-bg-hover-light);
+  }
+
+   
+   
+  .music-icon {
+    display: block;
+    width: 0.75rem;
+    height: 0.75rem;
+    margin: 0 !important;
+  }
+
+   
+  .music-btn-text {
+    display: inline;
+  }
+
+   
+  @media (min-width: 768px) {
+     
+     
+    .music-card {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+     
+     
+    .music-btn {
+      padding: 1rem;
+      justify-content: center;
+      width: auto;
+      height: auto;
+    }
+
+     
+     
+    .music-icon {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+
+     
+     
+    .music-btn-text {
+      display: none;
+    }
+  }
+
+   
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --body-bg-color: #121212;
+      --bold-text-color: #eee;
+      --body-text-color: #ddd;
+      --link-color: #ddd;
+      --link-visited-color: #c3b1ee;
+      --table-border-color: #999;
+      --table-th-bg-color: #999;
+      --img-border-color: #999;
+      --code-bg-color: #141414;
+      --code-text-color: #ddd;
+      --blockquote-border-color: #ccc;
+      --blockquote-text-color: #ccc;
+      --caption-text-color: #aaa;
+      --toc-text-color: #373737;
+      --toc-hover-color: #cac3c3;
+      --music-bg-hover-dark: #525252;  
+      --music-bg-dark: rgba(82, 82, 82, 0.5);  
+      --music-text-secondary: #a3a3a3;
+    }
+
+    .music-btn {
+      background-color: var(--music-bg-dark);
+    }
+    .music-btn:hover {
+      background-color: var(--music-bg-hover-dark);
+    }
+
+    .category-link {
+      color: #dbdbdb;
+    }
+
+    .wm {
+      background-color: #161b22;
+      border-color: #30363d;
+      color: var(--body-text-color);
+      padding: 10px;
+    }
+
+    .wm input {
+      background-color: #010409;
+      border: #30363d 1px solid;
+      color: var(--body-text-color);
+      outline: none;
+      transition: border-color 0.2s ease-in-out;
+    }
+
+    #webmention-source:focus {
+      border-color: var(--color-accent-fg, #0969da);
+      box-shadow: 0 0 0 3px rgba(9, 105, 218, 0.1);
+    }
+
+    .wm button {
+      color: var(--body-text-color);
+      background-color: #161b22;
+      border: #30363d 1px solid;
+    }
+
+    .post-title a,
+    .blog-posts a {
+      color: #fff !important;
+    }
+
+    .post-summary {
+      color: var(--text-color-primary) !important;
+    }
+
+    .post-item {
+      border-bottom: 1px solid #414141 !important;
+    }
+
+    .pagination-link {
+      border: 1px solid #414141 !important;
+    }
+
+    a {
+      font-weight: 500 !important;
+    }
+  }
+
+  body {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-primary);
+    margin: auto;
+    padding: 20px;
+    max-width: var(--width-max);
+    text-align: left;
+    background-color: var(--body-bg-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.6;
+    color: var(--body-text-color);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: var(--bold-text-color);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 16px 0;
+  }
+
+  a {
+    color: var(--link-color);
+    cursor: pointer;
+    text-decoration: underline 0.2px #d4d4d4;
+    transition-duration: 0.3s;
+    font-weight: 600;
+  }
+
+  .posts-list li {
+    margin-bottom: 12px;
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  header {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .title:hover {
+    text-decoration: none;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav {
+    margin-bottom: 15px;
+  }
+
+  nav a {
+    margin-right: 8px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 14px;
+  }
+
+  article {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid var(--table-border-color);
+    border-radius: 4px;
+    margin-top: 16px;
+  }
+
+  th,
+  td {
+    border: 1px solid var(--table-border-color);
+    padding: 4px;
+  }
+
+  th {
+    background-color: var(--table-th-bg-color);
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px dashed;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid var(--img-border-color);
+    border-radius: 4px;
+    content-visibility: auto;
+    loading: lazy;
+  }
+
+  img[src*="#minipic"] {
+    max-width: 50%;
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  .image-caption figcaption {
+    text-align: center;
+    font-style: italic;
+    font-size: 0.8em;
+    margin-top: 0.6em;
+    color: var(--caption-text-color);
+  }
+
+  .image-caption {
+    margin: auto;
+  }
+
+  i {
+    font-style: normal;
+  }
+
+  time {
+    font-family: var(--font-secondary);
+    font-size: 15px;
+    color: rgb(139, 139, 139);
+  }
+
+  code {
+    font-family: var(--font-secondary);
+    background-color: var(--code-bg-color);
+    color: var(--code-text-color);
+    padding: 2px;
+    border-radius: 4px;
+  }
+
+  pre code {
+    display: block;
+    padding: 16px;
+    white-space: pre-wrap;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    border-radius: 4px;
+  }
+
+  div.highlight code {
+    background-color: var(--code-bg-color);
+    color: var(--code-text-color);
+  }
+
+  blockquote {
+    border-left: 2px solid var(--blockquote-border-color);
+    color: var(--blockquote-text-color);
+    margin: 0;
+    padding-left: 16px;
+    font-style: normal;
+  }
+
+  blockquote p {
+    margin: 0;
+  }
+
+  footer {
+    padding: 25px 0;
+    text-align: left;
+    font-size: var(--font-size-secondary);
+  }
+
+  ul li:has(input) {
+    list-style-type: none;
+    margin-left: -25.5px;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+    margin-bottom: 8px;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li span.grouped {
+    flex: 0 0 80px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: var(--link-visited-color);
+  }
+
+  ul.blog-posts a {
+    margin-left: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+   
+  div.toc {
+    position: fixed;  
+    top: 50%;  
+    left: calc(
+      (100vw + var(--width-max)) / 2
+    );  
+    transform: translateY(-50%);  
+    width: calc((90vw - var(--width-max)) / 2);  
+    max-height: 80vh;  
+    overflow-y: auto;  
+    border: none;  
+    padding: 0;  
+    margin: 0;  
+    z-index: 99;  
+
+     
+    &::-webkit-scrollbar {
+       
+      display: none;  
+    }
+
+    -ms-overflow-style: none;  
+    scrollbar-width: none;  
+  }
+
+  .toc-nav {
+     
+    padding: 1.5rem;  
+  }
+
+  .toc-nav ul {
+     
+    list-style: none;  
+    padding: 0;  
+    margin: 0;  
+  }
+
+  .toc-nav li {
+     
+    margin: 8px 0;  
+  }
+
+  .toc-nav a {
+     
+    display: block;  
+    text-decoration: none;  
+    color: transparent;  
+    padding: 0 12px;  
+    transition: all 0.2s ease;  
+    font-size: 0.9rem;  
+    line-height: 1.4;  
+    text-align: left;  
+    white-space: nowrap;  
+    overflow: hidden;  
+    text-overflow: ellipsis;  
+    max-width: 100%;  
+  }
+
+  .toc-nav:hover a {
+    color: var(--toc-text-color);  
+  }
+
+  .toc-nav a::before {
+     
+    content: "";  
+    display: inline-block;  
+    width: 16px;  
+    height: 4px;  
+    background-color: var(--toc-text-color);  
+    border-radius: 16px;  
+    margin-right: 12px;  
+    vertical-align: middle;  
+  }
+
+  .toc-nav ul ul a::before {
+     
+    width: 12px;  
+    margin-right: 16px;  
+  }
+
+  .toc-nav ul ul ul a::before {
+     
+    width: 8px;  
+    margin-right: 20px;  
+  }
+
+  .toc-nav a.active,  
+     .toc-nav a:hover {
+    text-decoration: none;  
+    color: var(--toc-hover-color);  
+  }
+
+  .toc-nav a.active::before,  
+     .toc-nav a:hover::before {
+    background-color: var(--toc-hover-color);  
+  }
+
+   
+  button.upvote-btn {
+    margin: 0;
+    margin-left: auto;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--body-text-color);
+  }
+
+  button.upvoted {
+    color: var(--upvoted-color);
+  }
+
+  span.upvote-count {
+    margin-top: -4px;
+    font-size: smaller;
+  }
+
+  @media (max-width: 800px) {
+    img[src*="#minipic"] {
+      max-width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    div.toc {
+      display: none;
+    }
+  }
+</style>
+<meta name="msvalidate.01" content="2E1AACF009206F2DDBAAD4B98E881460" />
+<link
+  rel="prefetch"
+  as="image"
+  href="https://www.blogsclub.org/badge/www.glowisle.me"
+/>
+<link href="https://github.com/yingyu5658" rel="me" />
+<link
+  rel="webmention"
+  href="https://webmention.io/www.glowisle.me/webmention"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
+</head>
+
+  <body>
+    <header><a href="/" class="title">
+  <h1>映屿</h1>
+</a>
+<nav>
+<a href="/categories/%E9%9A%8F%E7%AC%94/">分类</a>
+
+<a href="/readings">书单</a>
+
+<a href="/archives">归档</a>
+
+<a href="/about">关于</a>
+
+
+</nav>
+<hr>
+</header>
+    <main> 
+
+<article class="h-entry">
+    <h1 class="post-title p-name"><a href="/posts/4key%E9%9F%B3%E6%B8%B8%E6%AE%B5%E4%BD%8D%E5%8D%95%E6%9B%B2%E6%88%90%E7%BB%A9%E8%AE%A1%E7%AE%97%E7%9A%84%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0/" style="color:#222222;">4Key音游段位单曲成绩计算的程序实现</a></h1>
+
+<div class="post-info">
+    <time class="post-date dt-published" datetime="2025-06-07T13:08:07Z">
+        2025年6月7日
+    </time>
+        
+            
+            <a href="/categories/%E5%BE%80%E6%98%94/" class="category-link">往昔</a>
+        
+</div>
+
+<div class="e-content">
+    <h2 id="前言">前言</h2>
+<p>其实这个坑我很早以前就想开了，在我刚开始学编程那会就一直想写一个这个东西。但苦于数学进度没达到，要用到加权平均数，这东西我前两天才学到，之前对数学也一直是懒得学的状态，要不然几乎是看不懂那个算法的。</p>
+<p>我手头有一个<a href="https://github.com/Special-Week">Special-Week</a>写的网页版的单曲成绩计算器，就以这个为研究样本吧。以下简称原作者为sw（如有冒犯请联系修改）</p>
+<h2 id="数据结构设计">数据结构设计</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>    <span style="color:#7f848e">// 基础的4k类
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>    <span style="color:#c678dd">class</span> <span style="color:#e06c75">Dan4k</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">constructor</span>(<span style="color:#e06c75">key1</span>, <span style="color:#e06c75">key2</span>, <span style="color:#e06c75">key3</span>, <span style="color:#e06c75">key4</span>, <span style="color:#e06c75">danName</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">this</span>.<span style="color:#e06c75">m_key1</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">key1</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">this</span>.<span style="color:#e06c75">m_key2</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">key2</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">this</span>.<span style="color:#e06c75">m_key3</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">key3</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">this</span>.<span style="color:#e06c75">m_key4</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">key4</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">this</span>.<span style="color:#e06c75">m_danName</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">danName</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>每一个段（LN、Om），sw都单独写了一个内部类，继承Dan4k。</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span> <span style="color:#7f848e">// lnDan类
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>    <span style="color:#c678dd">class</span> <span style="color:#e06c75">LnDan</span> <span style="color:#c678dd">extends</span> <span style="color:#e06c75">Dan4k</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">constructor</span>(<span style="color:#e06c75">key1</span>, <span style="color:#e06c75">lnKey1</span>, <span style="color:#e06c75">key2</span>, <span style="color:#e06c75">lnKey2</span>, <span style="color:#e06c75">key3</span>, <span style="color:#e06c75">lnKey3</span>, <span style="color:#e06c75">key4</span>, <span style="color:#e06c75">lnKey4</span>, <span style="color:#e06c75">danName</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">super</span>(<span style="color:#e06c75">key1</span>, <span style="color:#e06c75">key2</span>, <span style="color:#e06c75">key3</span>, <span style="color:#e06c75">key4</span>, <span style="color:#e06c75">danName</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">this</span>.<span style="color:#e06c75">m_lnKey1</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">lnKey1</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">this</span>.<span style="color:#e06c75">m_lnKey2</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">lnKey2</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">this</span>.<span style="color:#e06c75">m_lnKey3</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">lnKey3</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">this</span>.<span style="color:#e06c75">m_lnKey4</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">lnKey4</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#7f848e">// ma段
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>    <span style="color:#c678dd">class</span> <span style="color:#e06c75">MaDan</span> <span style="color:#c678dd">extends</span> <span style="color:#e06c75">Dan4k</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">constructor</span>(<span style="color:#e06c75">key1</span>, <span style="color:#e06c75">key2</span>, <span style="color:#e06c75">key3</span>, <span style="color:#e06c75">key4</span>, <span style="color:#e06c75">name1</span>, <span style="color:#e06c75">name2</span>, <span style="color:#e06c75">name3</span>, <span style="color:#e06c75">name4</span>, <span style="color:#e06c75">danName</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">super</span>(<span style="color:#e06c75">key1</span>, <span style="color:#e06c75">key2</span>, <span style="color:#e06c75">key3</span>, <span style="color:#e06c75">key4</span>, <span style="color:#e06c75">danName</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">this</span>.<span style="color:#e06c75">m_name1</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">name1</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">this</span>.<span style="color:#e06c75">m_name2</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">name2</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">this</span>.<span style="color:#e06c75">m_name3</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">name3</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">this</span>.<span style="color:#e06c75">m_name4</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">name4</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#7f848e">// reform段
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>    <span style="color:#c678dd">class</span> <span style="color:#e06c75">ReformDan</span> <span style="color:#c678dd">extends</span> <span style="color:#e06c75">Dan4k</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">constructor</span>(<span style="color:#e06c75">key1</span>, <span style="color:#e06c75">key2</span>, <span style="color:#e06c75">key3</span>, <span style="color:#e06c75">key4</span>, <span style="color:#e06c75">name1</span>, <span style="color:#e06c75">name2</span>, <span style="color:#e06c75">name3</span>, <span style="color:#e06c75">name4</span>, <span style="color:#e06c75">danName</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">super</span>(<span style="color:#e06c75">key1</span>, <span style="color:#e06c75">key2</span>, <span style="color:#e06c75">key3</span>, <span style="color:#e06c75">key4</span>, <span style="color:#e06c75">danName</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">this</span>.<span style="color:#e06c75">m_name1</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">name1</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">this</span>.<span style="color:#e06c75">m_name2</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">name2</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">this</span>.<span style="color:#e06c75">m_name3</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">name3</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">this</span>.<span style="color:#e06c75">m_name4</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">name4</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#7f848e">// om段
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>    <span style="color:#c678dd">class</span> <span style="color:#e06c75">OmDan</span> <span style="color:#c678dd">extends</span> <span style="color:#e06c75">Dan4k</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">constructor</span>(<span style="color:#e06c75">key1</span>, <span style="color:#e06c75">key2</span>, <span style="color:#e06c75">key3</span>, <span style="color:#e06c75">key4</span>, <span style="color:#e06c75">danName</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">super</span>(<span style="color:#e06c75">key1</span>, <span style="color:#e06c75">key2</span>, <span style="color:#e06c75">key3</span>, <span style="color:#e06c75">key4</span>, <span style="color:#e06c75">danName</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>我打算重写的程序不带LN玩了，我自己也没玩过LN，不清楚是什么机制。那就来看看剩下的几个类。</p>
+<p><code>Dan4k</code>类定义了一个段位的基础属性，但是这个参数key1-4是用来做什么在当前上下文暂且不清楚，是第n首歌的物量吧。</p>
+<p>那么由此可以推断，这些类都描述了一个谱面的基本属性：</p>
+<ul>
+<li>物量</li>
+<li>歌曲名称</li>
+<li>段位名称
+然后分支匹配数据并计算。我也用C语言实现一个。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#7f848e">// 整个段位信息
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span><span style="color:#c678dd">typedef</span> <span style="color:#c678dd">struct</span> <span style="color:#e06c75">Dan</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#7f848e">// 段位名字
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>    <span style="color:#e5c07b">char</span><span style="color:#56b6c2">*</span> <span style="color:#e06c75">dan_name</span>; 
+</span></span><span style="display:flex;"><span>    <span style="color:#7f848e">// 四首歌的名字，用于匹配数据
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>    <span style="color:#e5c07b">char</span><span style="color:#56b6c2">*</span> <span style="color:#e06c75">song1_name</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">char</span><span style="color:#56b6c2">*</span> <span style="color:#e06c75">song2_name</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">char</span><span style="color:#56b6c2">*</span> <span style="color:#e06c75">song3_name</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">char</span><span style="color:#56b6c2">*</span> <span style="color:#e06c75">song4_name</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#7f848e">// 四首歌的物量
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>    <span style="color:#e5c07b">int</span> <span style="color:#e06c75">song1_key</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">int</span> <span style="color:#e06c75">song2_key</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">int</span> <span style="color:#e06c75">song3_key</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">int</span> <span style="color:#e06c75">song4_key</span>;
+</span></span><span style="display:flex;"><span>}<span style="color:#e06c75">Dan</span>;
+</span></span></code></pre></div><p>来看看网页版中数据是如何存储的</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>    <span style="color:#7f848e">// MaDan数据
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>    <span style="color:#c678dd">let</span> <span style="color:#e06c75">MaArr</span> <span style="color:#56b6c2">=</span> [
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">new</span> <span style="color:#e06c75">MaDan</span>(<span style="color:#d19a66">813</span>, <span style="color:#d19a66">955</span>, <span style="color:#d19a66">907</span>, <span style="color:#d19a66">654</span>, <span style="color:#98c379">&#34;Glitch Nerds&#34;</span>, <span style="color:#98c379">&#34;Borealis&#34;</span>, <span style="color:#98c379">&#34;Niflheim&#34;</span>, <span style="color:#98c379">&#34;Moon&#34;</span>, <span style="color:#98c379">&#34;1dan&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">new</span> <span style="color:#e06c75">MaDan</span>(<span style="color:#d19a66">1152</span>, <span style="color:#d19a66">850</span>, <span style="color:#d19a66">950</span>, <span style="color:#d19a66">969</span>, <span style="color:#98c379">&#34;Follow Tomorrow&#34;</span>, <span style="color:#98c379">&#34;Bronze Coffin&#34;</span>, <span style="color:#98c379">&#34;Keigan no Zettaireido&#34;</span>, <span style="color:#98c379">&#34;SakuraMirage&#34;</span>, <span style="color:#98c379">&#34;2dan&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">new</span> <span style="color:#e06c75">MaDan</span>(<span style="color:#d19a66">1169</span>, <span style="color:#d19a66">1143</span>, <span style="color:#d19a66">974</span>, <span style="color:#d19a66">1347</span>, <span style="color:#98c379">&#34;Quon&#34;</span>, <span style="color:#98c379">&#34;Genkyoku o Kirikizamu&#34;</span>, <span style="color:#98c379">&#34;Gin no Kaze&#34;</span>, <span style="color:#98c379">&#34;Adjudicatorz-Danzai-&#34;</span>, <span style="color:#98c379">&#34;3dan&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">new</span> <span style="color:#e06c75">MaDan</span>(<span style="color:#d19a66">1400</span>, <span style="color:#d19a66">1402</span>, <span style="color:#d19a66">1685</span>, <span style="color:#d19a66">1599</span>, <span style="color:#98c379">&#34;Tenkuu no Yoake&#34;</span>, <span style="color:#98c379">&#34;VALLISTA&#34;</span>, <span style="color:#98c379">&#34;Crystal World ~Fracture~&#34;</span>, <span style="color:#98c379">&#34;Zenithalize&#34;</span>, <span style="color:#98c379">&#34;4dan&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">new</span> <span style="color:#e06c75">MaDan</span>(<span style="color:#d19a66">1953</span>, <span style="color:#d19a66">2250</span>, <span style="color:#d19a66">2166</span>, <span style="color:#d19a66">1667</span>, <span style="color:#98c379">&#34;Ten Thousand Tons of Anonymous Letters&#34;</span>, <span style="color:#98c379">&#34;Chips of Notes&#34;</span>, <span style="color:#98c379">&#34;Despair of Elferia&#34;</span>, <span style="color:#98c379">&#34;Kamigami no Asobi&#34;</span>, <span style="color:#98c379">&#34;5dan&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">new</span> <span style="color:#e06c75">MaDan</span>(<span style="color:#d19a66">1487</span>, <span style="color:#d19a66">1424</span>, <span style="color:#d19a66">1381</span>, <span style="color:#d19a66">1587</span>, <span style="color:#98c379">&#34;Sweet Cherry X&#34;</span>, <span style="color:#98c379">&#34;Akasagarbha&#34;</span>, <span style="color:#98c379">&#34;HELLO EveryOne&#34;</span>, <span style="color:#98c379">&#34;DataErr0r&#34;</span>, <span style="color:#98c379">&#34;6dan&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">new</span> <span style="color:#e06c75">MaDan</span>(<span style="color:#d19a66">1909</span>, <span style="color:#d19a66">1814</span>, <span style="color:#d19a66">1777</span>, <span style="color:#d19a66">2681</span>, <span style="color:#98c379">&#34;Fairy Stage&#34;</span>, <span style="color:#98c379">&#34;Xross Infection&#34;</span>, <span style="color:#98c379">&#34;Wave&#34;</span>, <span style="color:#98c379">&#34;Blue Zenith&#34;</span>, <span style="color:#98c379">&#34;7dan&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">new</span> <span style="color:#e06c75">MaDan</span>(<span style="color:#d19a66">1962</span>, <span style="color:#d19a66">1067</span>, <span style="color:#d19a66">2388</span>, <span style="color:#d19a66">1772</span>, <span style="color:#98c379">&#34;The Lost Dedicated&#34;</span>, <span style="color:#98c379">&#34;The Party We Have Never Seen&#34;</span>, <span style="color:#98c379">&#34;Finixe&#34;</span>, <span style="color:#98c379">&#34;Ultimate Dream&#34;</span>, <span style="color:#98c379">&#34;8dan&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">new</span> <span style="color:#e06c75">MaDan</span>(<span style="color:#d19a66">1799</span>, <span style="color:#d19a66">2023</span>, <span style="color:#d19a66">2283</span>, <span style="color:#d19a66">1787</span>, <span style="color:#98c379">&#34;Dusk&#34;</span>, <span style="color:#98c379">&#34;Panic Popn Picnic&#34;</span>, <span style="color:#98c379">&#34;Kick-ass Kung-Fu Carnival&#34;</span>, <span style="color:#98c379">&#34;Yakusoku no kimi&#34;</span>, <span style="color:#98c379">&#34;9dan&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">new</span> <span style="color:#e06c75">MaDan</span>(<span style="color:#d19a66">2606</span>, <span style="color:#d19a66">2188</span>, <span style="color:#d19a66">2194</span>, <span style="color:#d19a66">2187</span>, <span style="color:#98c379">&#34;Chaser&#34;</span>, <span style="color:#98c379">&#34;Loli Fantasy&#34;</span>, <span style="color:#98c379">&#34;Daydream&#34;</span>, <span style="color:#98c379">&#34;Moon Gate&#34;</span>, <span style="color:#98c379">&#34;10dan&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">new</span> <span style="color:#e06c75">MaDan</span>(<span style="color:#d19a66">2160</span>, <span style="color:#d19a66">1952</span>, <span style="color:#d19a66">1821</span>, <span style="color:#d19a66">3249</span>, <span style="color:#98c379">&#34;Border of Life&#34;</span>, <span style="color:#98c379">&#34;Scorpion Dance&#34;</span>, <span style="color:#98c379">&#34;The Island of Albatross&#34;</span>, <span style="color:#98c379">&#34;beautiful loli thing&#34;</span>, <span style="color:#98c379">&#34;ex1&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">new</span> <span style="color:#e06c75">MaDan</span>(<span style="color:#d19a66">2871</span>, <span style="color:#d19a66">2024</span>, <span style="color:#d19a66">1871</span>, <span style="color:#d19a66">2452</span>, <span style="color:#98c379">&#34;Hitsune no youmeiri&#34;</span>, <span style="color:#98c379">&#34;紫阳花-AZISAI-&#34;</span>, <span style="color:#98c379">&#34;love&amp;justice&#34;</span>, <span style="color:#98c379">&#34;message&#34;</span>, <span style="color:#98c379">&#34;ex2&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">new</span> <span style="color:#e06c75">MaDan</span>(<span style="color:#d19a66">2327</span>, <span style="color:#d19a66">1593</span>, <span style="color:#d19a66">2166</span>, <span style="color:#d19a66">2200</span>, <span style="color:#98c379">&#34;Jumble Rumble&#34;</span>, <span style="color:#98c379">&#34;End Time&#34;</span>, <span style="color:#98c379">&#34;++&#34;</span>, <span style="color:#98c379">&#34;Crow Solace&#34;</span>, <span style="color:#98c379">&#34;ex3&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">new</span> <span style="color:#e06c75">MaDan</span>(<span style="color:#d19a66">2731</span>, <span style="color:#d19a66">2653</span>, <span style="color:#d19a66">2033</span>, <span style="color:#d19a66">2761</span>, <span style="color:#98c379">&#34;EDM Jumpers&#34;</span>, <span style="color:#98c379">&#34;line-epsilon&#34;</span>, <span style="color:#98c379">&#34;Contrapasso -paradiso-&#34;</span>, <span style="color:#98c379">&#34;YELL!&#34;</span>, <span style="color:#98c379">&#34;ex4&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">new</span> <span style="color:#e06c75">MaDan</span>(<span style="color:#d19a66">3229</span>, <span style="color:#d19a66">2731</span>, <span style="color:#d19a66">2561</span>, <span style="color:#d19a66">2109</span>, <span style="color:#98c379">&#34;Satori de Pon!&#34;</span>, <span style="color:#98c379">&#34;Legend of Seeker&#34;</span>, <span style="color:#98c379">&#34;Crystal World -Fracture-&#34;</span>, <span style="color:#98c379">&#34;Wizdomiot&#34;</span>, <span style="color:#98c379">&#34;ex5&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">new</span> <span style="color:#e06c75">MaDan</span>(<span style="color:#d19a66">1766</span>, <span style="color:#d19a66">1861</span>, <span style="color:#d19a66">3171</span>, <span style="color:#d19a66">1680</span>, <span style="color:#98c379">&#34;Sepia&#34;</span>, <span style="color:#98c379">&#34;Nopea&#34;</span>, <span style="color:#98c379">&#34;Satori Trisis&#34;</span>, <span style="color:#98c379">&#34;Death&#34;</span>, <span style="color:#98c379">&#34;ex6&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">new</span> <span style="color:#e06c75">MaDan</span>(<span style="color:#d19a66">2339</span>, <span style="color:#d19a66">2461</span>, <span style="color:#d19a66">2511</span>, <span style="color:#d19a66">2177</span>, <span style="color:#98c379">&#34;Paranoia&#34;</span>, <span style="color:#98c379">&#34;Boulafacet&#34;</span>, <span style="color:#98c379">&#34;Paraclete -Miracle-&#34;</span>, <span style="color:#98c379">&#34;Yumemi no Shonen&#34;</span>, <span style="color:#98c379">&#34;ex7&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">new</span> <span style="color:#e06c75">MaDan</span>(<span style="color:#d19a66">1929</span>, <span style="color:#d19a66">2380</span>, <span style="color:#d19a66">2710</span>, <span style="color:#d19a66">4675</span>, <span style="color:#98c379">&#34;Martail Arts&#34;</span>, <span style="color:#98c379">&#34;Gene Disruption&#34;</span>, <span style="color:#98c379">&#34;Paradigm Shift&#34;</span>, <span style="color:#98c379">&#34;Death Melody&#34;</span>, <span style="color:#98c379">&#34;ex8&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">new</span> <span style="color:#e06c75">MaDan</span>(<span style="color:#d19a66">3468</span>, <span style="color:#d19a66">3335</span>, <span style="color:#d19a66">3698</span>, <span style="color:#d19a66">5061</span>, <span style="color:#98c379">&#34;Only my railgun&#34;</span>, <span style="color:#98c379">&#34;-Purgatorium-&#34;</span>, <span style="color:#98c379">&#34;Blue Zenith&#34;</span>, <span style="color:#98c379">&#34;Inner Universe&#34;</span>, <span style="color:#98c379">&#34;exfin&#34;</span>),
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">new</span> <span style="color:#e06c75">MaDan</span>(<span style="color:#d19a66">492</span>, <span style="color:#d19a66">529</span>, <span style="color:#d19a66">595</span>, <span style="color:#d19a66">681</span>, <span style="color:#98c379">&#34;Ikitoshi Ikerumono&#34;</span>, <span style="color:#98c379">&#34;Rambling Pleat&#34;</span>, <span style="color:#98c379">&#34;Yi Meng Qian Xiao&#34;</span>, <span style="color:#98c379">&#34;White Eternity&#34;</span>, <span style="color:#98c379">&#34;0danv3&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">new</span> <span style="color:#e06c75">MaDan</span>(<span style="color:#d19a66">695</span>, <span style="color:#d19a66">621</span>, <span style="color:#d19a66">718</span>, <span style="color:#d19a66">1279</span>, <span style="color:#98c379">&#34;Rex Incoqnito&#34;</span>, <span style="color:#98c379">&#34;Koiseyo Otome!&#34;</span>, <span style="color:#98c379">&#34;Break&#34;</span>, <span style="color:#98c379">&#34;KING&#34;</span>, <span style="color:#98c379">&#34;1danv3&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">new</span> <span style="color:#e06c75">MaDan</span>(<span style="color:#d19a66">1397</span>, <span style="color:#d19a66">1090</span>, <span style="color:#d19a66">805</span>, <span style="color:#d19a66">1212</span>, <span style="color:#98c379">&#34;Stargazer&#34;</span>, <span style="color:#98c379">&#34;Seyana&#34;</span>, <span style="color:#98c379">&#34;Love Emotion&#34;</span>, <span style="color:#98c379">&#34;Mermaid Girl&#34;</span>, <span style="color:#98c379">&#34;2danv3&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">new</span> <span style="color:#e06c75">MaDan</span>(<span style="color:#d19a66">1055</span>, <span style="color:#d19a66">1489</span>, <span style="color:#d19a66">1288</span>, <span style="color:#d19a66">1789</span>, <span style="color:#98c379">&#34;Koi Kou Enishi&#34;</span>, <span style="color:#98c379">&#34;Onegai!Kon Kon Oinari-sama&#34;</span>, <span style="color:#98c379">&#34;The Last page&#34;</span>, <span style="color:#98c379">&#34;Hoshi ga Furanai Machi&#34;</span>, <span style="color:#98c379">&#34;3danv3&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">new</span> <span style="color:#e06c75">MaDan</span>(<span style="color:#d19a66">1865</span>, <span style="color:#d19a66">1434</span>, <span style="color:#d19a66">1284</span>, <span style="color:#d19a66">1839</span>, <span style="color:#98c379">&#34;Umiyuri Kaiteitan&#34;</span>, <span style="color:#98c379">&#34;Fire in the sky&#34;</span>, <span style="color:#98c379">&#34;Icyxis&#34;</span>, <span style="color:#98c379">&#34;The Crimson Empire&#34;</span>, <span style="color:#98c379">&#34;4danv3&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">new</span> <span style="color:#e06c75">MaDan</span>(<span style="color:#d19a66">1282</span>, <span style="color:#d19a66">1706</span>, <span style="color:#d19a66">1473</span>, <span style="color:#d19a66">1939</span>, <span style="color:#98c379">&#34;Platinum Disco&#34;</span>, <span style="color:#98c379">&#34;Cute na Kanojo&#34;</span>, <span style="color:#98c379">&#34;Reimei Sketchbook&#34;</span>, <span style="color:#98c379">&#34;Joker&#34;</span>, <span style="color:#98c379">&#34;5danv3&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">new</span> <span style="color:#e06c75">MaDan</span>(<span style="color:#d19a66">1694</span>, <span style="color:#d19a66">1636</span>, <span style="color:#d19a66">1803</span>, <span style="color:#d19a66">2115</span>, <span style="color:#98c379">&#34;Chocolate Disco&#34;</span>, <span style="color:#98c379">&#34;Call Me, Beep Me (If You Wanna Reap Me)&#34;</span>, <span style="color:#98c379">&#34;DIE IN THE SEA&#34;</span>, <span style="color:#98c379">&#34;unhappy century&#34;</span>, <span style="color:#98c379">&#34;6danv3&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">new</span> <span style="color:#e06c75">MaDan</span>(<span style="color:#d19a66">1701</span>, <span style="color:#d19a66">1799</span>, <span style="color:#d19a66">2132</span>, <span style="color:#d19a66">1899</span>, <span style="color:#98c379">&#34;Don&#39;t Stop The Music&#34;</span>, <span style="color:#98c379">&#34;Six Acid Strings&#34;</span>, <span style="color:#98c379">&#34;Arkadia [Illusion]&#34;</span>, <span style="color:#98c379">&#34;Valkyrie Revolutia&#34;</span>, <span style="color:#98c379">&#34;7danv3&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">new</span> <span style="color:#e06c75">MaDan</span>(<span style="color:#d19a66">2237</span>, <span style="color:#d19a66">2081</span>, <span style="color:#d19a66">2280</span>, <span style="color:#d19a66">2000</span>, <span style="color:#98c379">&#34;Don&#39;t let you down&#34;</span>, <span style="color:#98c379">&#34;Yoru ni Kakeru&#34;</span>, <span style="color:#98c379">&#34;Snow Veil -Shoujo to Kemono no Mori-&#34;</span>, <span style="color:#98c379">&#34;Positive Dance Time&#34;</span>, <span style="color:#98c379">&#34;8danv3&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">new</span> <span style="color:#e06c75">MaDan</span>(<span style="color:#d19a66">2374</span>, <span style="color:#d19a66">1899</span>, <span style="color:#d19a66">2142</span>, <span style="color:#d19a66">1810</span>, <span style="color:#98c379">&#34;Kikai Shoujo Gensou&#34;</span>, <span style="color:#98c379">&#34;Cold Planet&#34;</span>, <span style="color:#98c379">&#34;Stray Star&#34;</span>, <span style="color:#98c379">&#34;Unleashed World&#34;</span>, <span style="color:#98c379">&#34;9danv3&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">new</span> <span style="color:#e06c75">MaDan</span>(<span style="color:#d19a66">2034</span>, <span style="color:#d19a66">1740</span>, <span style="color:#d19a66">2270</span>, <span style="color:#d19a66">2166</span>, <span style="color:#98c379">&#34;Hiensou&#34;</span>, <span style="color:#98c379">&#34;Rocky Buinne&#34;</span>, <span style="color:#98c379">&#34;Yue Ai Yue Ye&#34;</span>, <span style="color:#98c379">&#34;Spin Eternally&#34;</span>, <span style="color:#98c379">&#34;10danv3&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">new</span> <span style="color:#e06c75">MaDan</span>(<span style="color:#d19a66">1952</span>, <span style="color:#d19a66">2013</span>, <span style="color:#d19a66">1953</span>, <span style="color:#d19a66">2111</span>, <span style="color:#98c379">&#34;Scorpion Dance&#34;</span>, <span style="color:#98c379">&#34;Tailin no Soul&#34;</span>, <span style="color:#98c379">&#34;Eiya no Parade&#34;</span>, <span style="color:#98c379">&#34;Onsoku Uchuu Ryokou&#34;</span>, <span style="color:#98c379">&#34;ex1v3&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">new</span> <span style="color:#e06c75">MaDan</span>(<span style="color:#d19a66">2107</span>, <span style="color:#d19a66">1953</span>, <span style="color:#d19a66">2386</span>, <span style="color:#d19a66">2674</span>, <span style="color:#98c379">&#34;Moments&#34;</span>, <span style="color:#98c379">&#34;Towards the Horizon&#34;</span>, <span style="color:#98c379">&#34;Torikago&#34;</span>, <span style="color:#98c379">&#34;Frontier Explorer&#34;</span>, <span style="color:#98c379">&#34;ex2v3&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">new</span> <span style="color:#e06c75">MaDan</span>(<span style="color:#d19a66">2518</span>, <span style="color:#d19a66">2636</span>, <span style="color:#d19a66">2326</span>, <span style="color:#d19a66">2511</span>, <span style="color:#98c379">&#34;Edison&#34;</span>, <span style="color:#98c379">&#34;INTERNET OVERDOSE&#34;</span>, <span style="color:#98c379">&#34;Euthanasia&#34;</span>, <span style="color:#98c379">&#34;Fin.ArcDeaR&#34;</span>, <span style="color:#98c379">&#34;ex3v3&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">new</span> <span style="color:#e06c75">MaDan</span>(<span style="color:#d19a66">2634</span>, <span style="color:#d19a66">2212</span>, <span style="color:#d19a66">2336</span>, <span style="color:#d19a66">2602</span>, <span style="color:#98c379">&#34;ZENITHALIZE&#34;</span>, <span style="color:#98c379">&#34;Asymmetrical Grooves&#34;</span>, <span style="color:#98c379">&#34;Pure Ruby&#34;</span>, <span style="color:#98c379">&#34;EVERLASTING HAPPiNESS&#34;</span>, <span style="color:#98c379">&#34;ex4v3&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">new</span> <span style="color:#e06c75">MaDan</span>(<span style="color:#d19a66">2734</span>, <span style="color:#d19a66">2417</span>, <span style="color:#d19a66">3089</span>, <span style="color:#d19a66">2974</span>, <span style="color:#98c379">&#34;Bring Our Ignition Back&#34;</span>, <span style="color:#98c379">&#34;Unsan-musho&#34;</span>, <span style="color:#98c379">&#34;Electric Angel&#34;</span>, <span style="color:#98c379">&#34;Kegare Naki Bara Juuji&#34;</span>, <span style="color:#98c379">&#34;ex5v3&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">new</span> <span style="color:#e06c75">MaDan</span>(<span style="color:#d19a66">2483</span>, <span style="color:#d19a66">2276</span>, <span style="color:#d19a66">2921</span>, <span style="color:#d19a66">3194</span>, <span style="color:#98c379">&#34;Defeat awaken battle ship&#34;</span>, <span style="color:#98c379">&#34;Extraction&#34;</span>, <span style="color:#98c379">&#34;Pastel Subliminal&#34;</span>, <span style="color:#98c379">&#34;Synthesized Fortress&#34;</span>, <span style="color:#98c379">&#34;ex6v3&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">new</span> <span style="color:#e06c75">MaDan</span>(<span style="color:#d19a66">2846</span>, <span style="color:#d19a66">2260</span>, <span style="color:#d19a66">2333</span>, <span style="color:#d19a66">3347</span>, <span style="color:#98c379">&#34;LiFE Garden&#34;</span>, <span style="color:#98c379">&#34;Alpha&#34;</span>, <span style="color:#98c379">&#34;Stay Alive&#34;</span>, <span style="color:#98c379">&#34;Heaven&#39;s Fall&#34;</span>, <span style="color:#98c379">&#34;ex7v3&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">new</span> <span style="color:#e06c75">MaDan</span>(<span style="color:#d19a66">3789</span>, <span style="color:#d19a66">3663</span>, <span style="color:#d19a66">2424</span>, <span style="color:#d19a66">3255</span>, <span style="color:#98c379">&#34;Hayabusa&#34;</span>, <span style="color:#98c379">&#34;Shuu no hazama&#34;</span>, <span style="color:#98c379">&#34;Amatsukami&#34;</span>, <span style="color:#98c379">&#34;CRIMSON FIGHTER&#34;</span>, <span style="color:#98c379">&#34;ex8v3&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">new</span> <span style="color:#e06c75">MaDan</span>(<span style="color:#d19a66">3888</span>, <span style="color:#d19a66">3030</span>, <span style="color:#d19a66">3581</span>, <span style="color:#d19a66">3700</span>, <span style="color:#98c379">&#34;crazy_tek (DJ Noriken Remix)&#34;</span>, <span style="color:#98c379">&#34;Nhelv&#34;</span>, <span style="color:#98c379">&#34;Shuuten&#34;</span>, <span style="color:#98c379">&#34;Deadly force - Put an end&#34;</span>, <span style="color:#98c379">&#34;ex9v3&#34;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">new</span> <span style="color:#e06c75">MaDan</span>(<span style="color:#d19a66">2828</span>, <span style="color:#d19a66">3362</span>, <span style="color:#d19a66">3393</span>, <span style="color:#d19a66">5100</span>, <span style="color:#98c379">&#34;Infinity Heaven&#34;</span>, <span style="color:#98c379">&#34;NEURO-CLOUD-9&#34;</span>, <span style="color:#98c379">&#34;Kizuato&#34;</span>, <span style="color:#98c379">&#34;Runengon&#34;</span>, <span style="color:#98c379">&#34;exfinv3&#34;</span>),
+</span></span><span style="display:flex;"><span>    ]
+</span></span></code></pre></div><p>可以看到，简单地调用构造函数新建对象。继续实现：
+我们可以写一个<code>init</code>函数，根据需要创建结构体变量。</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#e06c75">Dan</span><span style="color:#56b6c2">*</span> <span style="color:#61afef;font-weight:bold">dan_data_init</span>(<span style="color:#e06c75">Dan</span><span style="color:#56b6c2">*</span>, <span style="color:#e5c07b">int</span><span style="color:#56b6c2">*</span> <span style="color:#e06c75">songs_key</span>);
+</span></span></code></pre></div><p>第二个参数是存放物量的数组，这样就实现了代码复用，减少重复代码的编写，定义一次所有物量即可。</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#7f848e">// 常规段
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span><span style="color:#e5c07b">int</span> <span style="color:#e06c75">mld_1dan_total_keys</span>[] <span style="color:#56b6c2">=</span> {<span style="color:#d19a66">813</span>, <span style="color:#d19a66">955</span>, <span style="color:#d19a66">907</span>, <span style="color:#d19a66">654</span>};
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#e06c75">mld_2dan_total_keys</span>[] <span style="color:#56b6c2">=</span> {<span style="color:#d19a66">1152</span>, <span style="color:#d19a66">850</span>, <span style="color:#d19a66">950</span>, <span style="color:#d19a66">969</span>};
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#e06c75">mld_3dan_total_keys</span>[] <span style="color:#56b6c2">=</span> {<span style="color:#d19a66">1169</span>, <span style="color:#d19a66">1143</span>, <span style="color:#d19a66">974</span>, <span style="color:#d19a66">1347</span>};
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#e06c75">mld_4dan_total_keys</span>[] <span style="color:#56b6c2">=</span> {<span style="color:#d19a66">1400</span>, <span style="color:#d19a66">1402</span>, <span style="color:#d19a66">1685</span>, <span style="color:#d19a66">1599</span>};
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#e06c75">mld_5dan_total_keys</span>[] <span style="color:#56b6c2">=</span> {<span style="color:#d19a66">1953</span>, <span style="color:#d19a66">2250</span>, <span style="color:#d19a66">2166</span>, <span style="color:#d19a66">1667</span>};
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#e06c75">mld_6dan_total_keys</span>[] <span style="color:#56b6c2">=</span> {<span style="color:#d19a66">1487</span>, <span style="color:#d19a66">1424</span>, <span style="color:#d19a66">1381</span>, <span style="color:#d19a66">1587</span>};
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#e06c75">mld_7dan_total_keys</span>[] <span style="color:#56b6c2">=</span> {<span style="color:#d19a66">1909</span>, <span style="color:#d19a66">1814</span>, <span style="color:#d19a66">1777</span>, <span style="color:#d19a66">2681</span>};
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#e06c75">mld_8dan_total_keys</span>[] <span style="color:#56b6c2">=</span> {<span style="color:#d19a66">1962</span>, <span style="color:#d19a66">1067</span>, <span style="color:#d19a66">2388</span>, <span style="color:#d19a66">1772</span>};
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#e06c75">mld_9dan_total_keys</span>[] <span style="color:#56b6c2">=</span> {<span style="color:#d19a66">1799</span>, <span style="color:#d19a66">2023</span>, <span style="color:#d19a66">2283</span>, <span style="color:#d19a66">1787</span>};
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#e06c75">mld_10dan_total_keys</span>[] <span style="color:#56b6c2">=</span> {<span style="color:#d19a66">2606</span>, <span style="color:#d19a66">2188</span>, <span style="color:#d19a66">2194</span>, <span style="color:#d19a66">2187</span>};
+</span></span></code></pre></div><p>这里目前把常规段都录入了，那要怎么按需匹配创建结构体变量呢？可以通过一个指针数组保存这些数据数组的地址，然后根据用户输入的数字直接作为索引，创建结构体变量并进行初始化赋值。</p>
+<p>优点：避免if/switch分支判断逐个比较，时间复杂度为常数阶。</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#e5c07b">int</span><span style="color:#56b6c2">*</span> <span style="color:#e06c75">dan_total_keys_index</span>[] <span style="color:#56b6c2">=</span> {<span style="color:#e06c75">mld_1dan_total_keys</span>, <span style="color:#e06c75">mld_2dan_total_keys</span>, <span style="color:#e06c75">mld_3dan_total_keys</span>, <span style="color:#e06c75">mld_4dan_total_keys</span>, <span style="color:#e06c75">mld_5dan_total_keys</span>, <span style="color:#e06c75">mld_6dan_total_keys</span>, <span style="color:#e06c75">mld_7dan_total_keys</span>, <span style="color:#e06c75">mld_8dan_total_keys</span>, <span style="color:#e06c75">mld_9dan_total_keys</span>, <span style="color:#e06c75">mld_10dan_total_keys</span>};
+</span></span></code></pre></div><p>后续接着往这个数组里面装指针即可。</p>
+<p>基本的数据结构实现了，就可以开始研究一下算法，后续再录入数据吧。</p>
+<h2 id="算法实现">算法实现</h2>
+<p>曾经听群友讲过这个东西核心理念是加权平均数，最近才学到，那就来看看怎么做这个平均数吧。</p>
+<p>直接看原作者是怎么实现的</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span> <span style="color:#c678dd">function</span> <span style="color:#e06c75">normal_calculation</span>(<span style="color:#e06c75">accArr</span>, <span style="color:#e06c75">noteArr</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">let</span> <span style="color:#e06c75">score1</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">accArr</span>[<span style="color:#d19a66">0</span>]
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">let</span> <span style="color:#e06c75">temp1</span> <span style="color:#56b6c2">=</span> (<span style="color:#e06c75">noteArr</span>[<span style="color:#d19a66">0</span>] <span style="color:#56b6c2">+</span> <span style="color:#e06c75">noteArr</span>[<span style="color:#d19a66">1</span>]) <span style="color:#56b6c2">*</span> <span style="color:#e06c75">accArr</span>[<span style="color:#d19a66">1</span>] <span style="color:#56b6c2">-</span> <span style="color:#e06c75">noteArr</span>[<span style="color:#d19a66">0</span>] <span style="color:#56b6c2">*</span> <span style="color:#e06c75">accArr</span>[<span style="color:#d19a66">0</span>]
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">let</span> <span style="color:#e06c75">score2</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">temp1</span> <span style="color:#56b6c2">/</span> (<span style="color:#e06c75">noteArr</span>[<span style="color:#d19a66">1</span>])
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">let</span> <span style="color:#e06c75">temp2</span> <span style="color:#56b6c2">=</span> (<span style="color:#e06c75">noteArr</span>[<span style="color:#d19a66">0</span>] <span style="color:#56b6c2">+</span> <span style="color:#e06c75">noteArr</span>[<span style="color:#d19a66">1</span>] <span style="color:#56b6c2">+</span> <span style="color:#e06c75">noteArr</span>[<span style="color:#d19a66">2</span>]) <span style="color:#56b6c2">*</span> <span style="color:#e06c75">accArr</span>[<span style="color:#d19a66">2</span>] <span style="color:#56b6c2">-</span> (<span style="color:#e06c75">noteArr</span>[<span style="color:#d19a66">0</span>] <span style="color:#56b6c2">+</span> <span style="color:#e06c75">noteArr</span>[<span style="color:#d19a66">1</span>]) <span style="color:#56b6c2">*</span> <span style="color:#e06c75">accArr</span>[<span style="color:#d19a66">1</span>]
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">let</span> <span style="color:#e06c75">score3</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">temp2</span> <span style="color:#56b6c2">/</span> (<span style="color:#e06c75">noteArr</span>[<span style="color:#d19a66">2</span>])
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">let</span> <span style="color:#e06c75">temp3</span> <span style="color:#56b6c2">=</span> (<span style="color:#e06c75">noteArr</span>[<span style="color:#d19a66">0</span>] <span style="color:#56b6c2">+</span> <span style="color:#e06c75">noteArr</span>[<span style="color:#d19a66">1</span>] <span style="color:#56b6c2">+</span> <span style="color:#e06c75">noteArr</span>[<span style="color:#d19a66">2</span>] <span style="color:#56b6c2">+</span> <span style="color:#e06c75">noteArr</span>[<span style="color:#d19a66">3</span>]) <span style="color:#56b6c2">*</span> <span style="color:#e06c75">accArr</span>[<span style="color:#d19a66">3</span>] <span style="color:#56b6c2">-</span> (<span style="color:#e06c75">noteArr</span>[<span style="color:#d19a66">0</span>] <span style="color:#56b6c2">+</span> <span style="color:#e06c75">noteArr</span>[<span style="color:#d19a66">1</span>] <span style="color:#56b6c2">+</span> <span style="color:#e06c75">noteArr</span>[<span style="color:#d19a66">2</span>]) <span style="color:#56b6c2">*</span> <span style="color:#e06c75">accArr</span>[<span style="color:#d19a66">2</span>]
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">let</span> <span style="color:#e06c75">score4</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">temp3</span> <span style="color:#56b6c2">/</span> (<span style="color:#e06c75">noteArr</span>[<span style="color:#d19a66">3</span>])
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">return</span> [<span style="color:#e06c75">score1</span>, <span style="color:#e06c75">score2</span>, <span style="color:#e06c75">score3</span>, <span style="color:#e06c75">score4</span>]
+</span></span><span style="display:flex;"><span>        }
+</span></span></code></pre></div><p>第一首的ACC不变，这个不说了。</p>
+<p>这个temp算的是什么？？？</p>
+<p>刚刚去看了一下引用，accArr存放着四首的玩家成绩Acc，noteArr存着这四首歌的Note总数量。</p>
+<p>还是没搞明白这个temp在干什么，看这段代码是真想骂街啊。</p>
+<p>用1dan举例子，Note和ACC：</p>
+<pre tabindex="0"><code>813, 955, 907, 654
+99   98   96   94
+</code></pre><p><del>叠批来了</del></p>
+<p>Malody的每一个判定都有不同的权重，都有对应不同的Acc衰减，所以每一首歌曲结束后都是一个加权平均数。程序要做的事情就是逆推出原本的Acc。</p>
+<p>所以<code>accArr</code>是一个累计加权平均值数组。
+<code>noteArr</code>是每批数据的权重。
+目标：计算每批数据的<strong>独立加权平均值</strong>。</p>
+<h3 id="数学逻辑">数学逻辑</h3>
+<p><strong>第一批数据：</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#c678dd">let</span> <span style="color:#e06c75">score1</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">accArr</span>[<span style="color:#d19a66">0</span>]
+</span></span></code></pre></div><p>直接使用第一个累计平均值a1，此时只有第一批数据。</p>
+<p><strong>第二批数据：</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#c678dd">let</span> <span style="color:#e06c75">temp1</span> <span style="color:#56b6c2">=</span> (<span style="color:#e06c75">noteArr</span>[<span style="color:#d19a66">0</span>] <span style="color:#56b6c2">+</span> <span style="color:#e06c75">noteArr</span>[<span style="color:#d19a66">1</span>]) <span style="color:#56b6c2">*</span> <span style="color:#e06c75">accArr</span>[<span style="color:#d19a66">1</span>] <span style="color:#56b6c2">-</span> <span style="color:#e06c75">noteArr</span>[<span style="color:#d19a66">0</span>] <span style="color:#56b6c2">*</span> <span style="color:#e06c75">accArr</span>[<span style="color:#d19a66">0</span>] 
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">let</span> <span style="color:#e06c75">score2</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">temp1</span> <span style="color:#56b6c2">/</span> <span style="color:#e06c75">noteArr</span>[<span style="color:#d19a66">1</span>]
+</span></span></code></pre></div><ul>
+<li>累计平均值<code>a2 = (n1s1 +n2s2) / (n1 + n2)</code></li>
+<li>解得<code>s2</code>:<code>(n1 +n2)a2 - n1s1 / n2</code>
+&hellip;&hellip;</li>
+</ul>
+<p>额&hellip;这一顿推导，给我也整不会了。我数学奇烂，那就用一个简明易懂的例子来理解吧。</p>
+<h3 id="人话">人话</h3>
+<p>假设参加了4次考试</p>
+<ul>
+<li>第一次考了80分(score1)</li>
+<li>第二次的平均分是93.3(accArr[1])</li>
+<li>第三次的平均分是95(accArr[2])</li>
+<li>第四次的平均分是97.5(accArr[3])</li>
+</ul>
+<p>但是你忘了每次考试的重要程度（权重）：</p>
+<ul>
+<li>第一次考试占10(noteArr[0] = 10)</li>
+<li>第二次 20(noteArr[1] = 20)</li>
+<li>第三次  30(noteArr[2] = 30)</li>
+<li>第四次 40(noteArr[3] = 40)</li>
+</ul>
+<p>你想知道每次考试单独的平均分是多少</p>
+<ol>
+<li>第一次考试：
+直接用平均分（因为只有一次考试）</li>
+<li>第二次考试：
+先算总分：<code>前两次总分 = (10+20)*93.3 = 2800</code>
+减去第一次的分数：<code>第二次分数 = 2800 - 10 * 80 = 2000</code>
+第二次平均分： <code>score2 = 2000 / 20 = 100</code></li>
+<li>第三次考试：
+总分：<code>(10 + 20 + 30 )*95 = 5700</code>
+减去前两次：<code>第三次分数 = 5700 - 2800</code>
+平均分：<code>score3 = 2900 / 30 ≈ 96.7</code></li>
+<li>第四次考试
+总分：<code>(10+20+30+40)*97.5 = 9750</code>
+减去前3次：<code>第四次分数 = 9750 - 5700 = 4050</code>
+平均分：<code>score4 = 4050 / 40 = 101.25</code></li>
+</ol>
+<p>写着写着突然发现</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#c678dd">typedef</span> <span style="color:#c678dd">struct</span> <span style="color:#e06c75">Dan</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#7f848e">// 四首歌的物量
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>    <span style="color:#e5c07b">int</span><span style="color:#56b6c2">*</span> <span style="color:#e06c75">songs_total_keys</span>;
+</span></span><span style="display:flex;"><span>} <span style="color:#e06c75">Dan</span>;
+</span></span></code></pre></div><p>这个数据结构只需要一个数组。</p>
+<p>人话说完了，该说说计算机的话了。</p>
+<h3 id="实现">实现</h3>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#e5c07b">double</span> <span style="color:#56b6c2">*</span><span style="color:#61afef;font-weight:bold">common_calc</span>(<span style="color:#e5c07b">int</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">total_keys</span>, <span style="color:#e5c07b">double</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">player_acc</span>)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#7f848e">// 权重：total_keys
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>    <span style="color:#7f848e">// 分数：player_acc
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>    <span style="color:#7f848e">// 返回的数组，保存计算完成的Acc
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>    <span style="color:#e5c07b">double</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">result</span> <span style="color:#56b6c2">=</span> (<span style="color:#e5c07b">double</span> <span style="color:#56b6c2">*</span>)<span style="color:#61afef;font-weight:bold">malloc</span>(<span style="color:#c678dd">sizeof</span>(<span style="color:#e5c07b">double</span>) <span style="color:#56b6c2">*</span> <span style="color:#d19a66">4</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">if</span> (<span style="color:#e06c75">result</span> <span style="color:#56b6c2">==</span> <span style="color:#e5c07b">NULL</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#61afef;font-weight:bold">printf</span>(<span style="color:#98c379">&#34;[ERROR] 内存分配失败！&#34;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">return</span> <span style="color:#e5c07b">NULL</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">double</span> <span style="color:#e06c75">song1_acc</span>, <span style="color:#e06c75">song2_acc</span>, <span style="color:#e06c75">song3_acc</span>, <span style="color:#e06c75">song4_acc</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#7f848e">// 第一首歌：直接取第一个累积平均值
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>    <span style="color:#e06c75">result</span>[<span style="color:#d19a66">0</span>] <span style="color:#56b6c2">=</span> <span style="color:#e06c75">player_acc</span>[<span style="color:#d19a66">0</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#7f848e">// 第二首歌：((n0 + n1)*a1 - n0*a0) / n1
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>    <span style="color:#e5c07b">double</span> <span style="color:#e06c75">sum2</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">total_keys</span>[<span style="color:#d19a66">0</span>] <span style="color:#56b6c2">+</span> <span style="color:#e06c75">total_keys</span>[<span style="color:#d19a66">1</span>];
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">result</span>[<span style="color:#d19a66">1</span>] <span style="color:#56b6c2">=</span> (<span style="color:#e06c75">sum2</span> <span style="color:#56b6c2">*</span> <span style="color:#e06c75">player_acc</span>[<span style="color:#d19a66">1</span>] <span style="color:#56b6c2">-</span> <span style="color:#e06c75">total_keys</span>[<span style="color:#d19a66">0</span>] <span style="color:#56b6c2">*</span> <span style="color:#e06c75">player_acc</span>[<span style="color:#d19a66">0</span>]) <span style="color:#56b6c2">/</span> <span style="color:#e06c75">total_keys</span>[<span style="color:#d19a66">1</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#7f848e">// 第三首歌：((n0 + n1 + n2)*a2 - (n0 + n1)*a1) / n2
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>    <span style="color:#e5c07b">double</span> <span style="color:#e06c75">sum3</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">sum2</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">total_keys</span>[<span style="color:#d19a66">2</span>];
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">result</span>[<span style="color:#d19a66">2</span>] <span style="color:#56b6c2">=</span> (<span style="color:#e06c75">sum3</span> <span style="color:#56b6c2">*</span> <span style="color:#e06c75">player_acc</span>[<span style="color:#d19a66">2</span>] <span style="color:#56b6c2">-</span> <span style="color:#e06c75">sum2</span> <span style="color:#56b6c2">*</span> <span style="color:#e06c75">player_acc</span>[<span style="color:#d19a66">1</span>]) <span style="color:#56b6c2">/</span> <span style="color:#e06c75">total_keys</span>[<span style="color:#d19a66">2</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#7f848e">// 第四首歌：((n0 + n1 + n2 + n3)*a3 - (n0 + n1 + n2)*a2) / n3
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>    <span style="color:#e5c07b">double</span> <span style="color:#e06c75">sum4</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">sum3</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">total_keys</span>[<span style="color:#d19a66">3</span>];
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">result</span>[<span style="color:#d19a66">3</span>] <span style="color:#56b6c2">=</span> (<span style="color:#e06c75">sum4</span> <span style="color:#56b6c2">*</span> <span style="color:#e06c75">player_acc</span>[<span style="color:#d19a66">3</span>] <span style="color:#56b6c2">-</span> <span style="color:#e06c75">sum3</span> <span style="color:#56b6c2">*</span> <span style="color:#e06c75">player_acc</span>[<span style="color:#d19a66">2</span>]) <span style="color:#56b6c2">/</span> <span style="color:#e06c75">total_keys</span>[<span style="color:#d19a66">3</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">return</span> <span style="color:#e06c75">result</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>然后就是主函数处理用户输入了，没什么含金量，不水了。</p>
+
+</div>
+</article>
+<a class="u-url" href="https://www.glowisle.me/posts/4key%E9%9F%B3%E6%B8%B8%E6%AE%B5%E4%BD%8D%E5%8D%95%E6%9B%B2%E6%88%90%E7%BB%A9%E8%AE%A1%E7%AE%97%E7%9A%84%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0/" style="display:none;">Permalink</a>
+
+<p>
+    
+    <a href="https://www.glowisle.me/tags/malody/">#Malody</a>
+    
+    <a href="https://www.glowisle.me/tags/osu/">#Osu</a>
+    
+    <a href="https://www.glowisle.me/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">#数据结构与算法</a>
+    
+</p>
+
+
+
+<div class="upvote-container">
+<small class="upvote">
+  <button class="upvote-btn" id="upvote-btn">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
+    <polyline points="17 11 12 6 7 11"></polyline>
+    <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+    <span class="upvote-count" id="upvote-count">0</span>
+  </button>
+</small>
+</div>
+
+<script>
+  let hasUpvoted = false;
+  let upvoteBtn;
+  let upvoteCount;
+
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    const slug = '';
+    upvoteBtn = document.getElementById('upvote-btn');
+    upvoteCount = document.getElementById('upvote-count');
+    getCount(slug);
+
+    
+    upvoteBtn.addEventListener('click', handleUpvote);
+  });
+
+  
+  async function handleUpvote() {
+    if (hasUpvoted) {
+      console.log('You have already upvoted this post!');
+      return;
+    }
+    const slug = '';
+
+    
+    upvoteBtn.disabled = true;
+    
+    upvoteBtn.classList.add('upvoted');
+    
+    upvoteCount.innerText = parseInt(upvoteCount.innerText) + 1;
+
+    try {
+      const response = await fetch('https:\/\/upvote.glowisle.me\/upvote', {
+        method: 'POST',
+		mode: 'cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ postId: slug, diff: 1 }),
+      });
+
+      if (response.ok) {
+        console.log('Upvote successful!');
+        hasUpvoted = true;
+        await getCount(slug, 3);
+      } else {
+        console.log('Upvote failed!');
+      }
+    } catch (error) {
+      console.error('Error: ', error);
+    } finally {
+      upvoteBtn.disabled = false;
+    }
+  }
+
+  
+  async function getCount(slug, retryCount = 0) {
+    try {
+      const response = await fetch('https:\/\/upvote.glowisle.me\/count?post=' + slug, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      const data = await response.json();
+
+      if (data.code === 0) {
+        const count = data.data.count;
+        upvoteCount.innerText = count;
+        hasUpvoted = data.data.hasUpvoted;
+        if (hasUpvoted) {
+          upvoteBtn.classList.add('upvoted');
+        } else {
+          upvoteBtn.classList.remove('upvoted');
+        }
+      } else {
+        console.error('Failed to get upvote count: ', data.msg);
+      }
+    } catch (error) {
+      console.error('Error: ', error);
+      if (retryCount > 0) {
+        setTimeout(() => {
+          getCount(slug, retryCount - 1);
+        }, 1000);
+      }
+    }
+  }
+</script>
+
+
+
+ 
+
+
+<div class="comments-and-webmentions">
+<hr />
+<details>
+    <summary>
+    <p style="display: inline">评论 与 Webmentions</p>
+    </summary>
+    <div id="giscus-container"></div>
+
+    <div class="wm">
+<div id="webmentions"></div>
+<script src="/js/webmention.min.js"
+    data-id="webmentions"
+    data-page-url="https://www.glowisle.me/posts/4key%E9%9F%B3%E6%B8%B8%E6%AE%B5%E4%BD%8D%E5%8D%95%E6%9B%B2%E6%88%90%E7%BB%A9%E8%AE%A1%E7%AE%97%E7%9A%84%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0/"
+    data-max-webmentions="50"
+    data-wordcount="30"
+    data-sort-by="published"
+    data-sort-dir="up"
+    async>
+</script>
+
+    <p>若想回复本文，请在你的博客或社媒发布含有本文链接的帖子，然后在下方表单提交链接。</p>
+    <div class="wm-guide-content">
+<div class="webmention-form">
+    <form id="webmention-submit-form" action="https://webmention.io/www.glowisle.me/webmention" method="post">
+        
+        <input type="hidden" name="target" value="https://www.glowisle.me/posts/4key%E9%9F%B3%E6%B8%B8%E6%AE%B5%E4%BD%8D%E5%8D%95%E6%9B%B2%E6%88%90%E7%BB%A9%E8%AE%A1%E7%AE%97%E7%9A%84%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0/">
+        <div>
+            <label for="webmention-source">你的文章链接：</label>
+            <input
+                type="url"
+                id="webmention-source"
+                name="source"
+                required
+                pattern="https?://.+"
+            >
+        <button type="submit" id="webmention-submit-btn">提交</button>
+        </div>
+        <div id="webmention-form-feedback"></div>
+    </form>
+<p>也可以加入 <a href="https://t.me/glowisle">Telegram 频道</a> 或 <a href="mailto:i@glowisle.me?subject=回复《4Key%e9%9f%b3%e6%b8%b8%e6%ae%b5%e4%bd%8d%e5%8d%95%e6%9b%b2%e6%88%90%e7%bb%a9%e8%ae%a1%e7%ae%97%e7%9a%84%e7%a8%8b%e5%ba%8f%e5%ae%9e%e7%8e%b0》">发送邮件</a> 评论。</p>
+<a href="https://indieweb.org/webmention">关于 Webmention 的更多信息</a> 以及 <a href="https://www.glowisle.me/posts/tear-hypocrisy-apart/">为什么要这么做？</a>
+</div>
+
+
+
+
+
+<script>
+function getInitialTheme() {
+  
+  if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+    return localStorage.getItem('theme');
+  }
+  
+  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    return 'dark';
+  }
+  
+  return 'light';
+}
+
+const currentTheme = getInitialTheme();
+const giscusTheme = currentTheme === 'dark' ? 'dark' : 'light';
+
+const giscusScript = document.createElement('script');
+giscusScript.src = 'https://giscus.app/client.js';
+giscusScript.setAttribute('data-repo', 'yingyu5658/yingyu5658.github.io');
+giscusScript.setAttribute('data-repo-id', 'R_kgDOOBetsA');
+giscusScript.setAttribute('data-category', 'Announcements');
+giscusScript.setAttribute('data-category-id', 'DIC_kwDOOBetsM4CoF_Z');
+giscusScript.setAttribute('data-mapping', 'title');
+giscusScript.setAttribute('data-strict', '0');
+giscusScript.setAttribute('data-reactions-enabled', '0');
+giscusScript.setAttribute('data-emit-metadata', '0');
+giscusScript.setAttribute('data-input-position', 'bottom');
+giscusScript.setAttribute('data-theme', giscusTheme);
+giscusScript.setAttribute('data-lang', 'zh-CN');
+giscusScript.crossOrigin = 'anonymous';
+giscusScript.async = true;
+
+document.getElementById('giscus-container').appendChild(giscusScript);
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('webmention-submit-form');
+    const submitBtn = document.getElementById('webmention-submit-btn');
+    const feedbackEl = document.getElementById('webmention-form-feedback');
+
+    if (!form) return;
+
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        
+        const originalBtnText = submitBtn.textContent;
+        submitBtn.disabled = true;
+        submitBtn.textContent = '发送中...';
+
+        
+        feedbackEl.textContent = '';
+
+        try {
+            
+            const formData = new FormData(form);
+
+            
+            const response = await fetch(form.action, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                },
+                body: new URLSearchParams(formData)
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                
+                feedbackEl.textContent = '✅ 提交成功！Webmention 正在处理中。';
+                form.reset();
+            } else {
+                
+                let errorMsg = '提交失败：';
+                if (result.error || result.summary) {
+                    errorMsg += result.error || result.summary;
+                }
+                feedbackEl.textContent = errorMsg;
+            }
+        } catch (error) {
+            
+            feedbackEl.textContent = '❌ 提交过程中出现网络错误，请稍后重试。';
+        } finally {
+            
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalBtnText;
+        }
+    });
+});
+
+
+</script>
+
+
+</main>
+    <footer><div class="copyright">
+  © 2024 - 2026 | Made with ❤️ by Verdant.
+  <div class="social-icons">
+    <a href="/atom.xml">
+      <i class="fa fa-rss"></i>
+    </a>
+  </div>
+</div>
+</footer>
+
+    
+</body>
+</html>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Electron on 映屿</title>
+    <link>https://www.glowisle.me/tags/electron/</link>
+    <description>Recent content in Electron on 映屿</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    
+      <managingEditor>i@glowisle.me (五葉地錦)</managingEditor>
+    
+    
+      <webMaster>i@glowisle.me (五葉地錦)</webMaster>
+    
+    
+    
+    <lastBuildDate>Sat, 31 May 2025 09:07:36 +0800</lastBuildDate>
+    
+    
+    <atom:link href="http://www.glowisle.me/tags/electron/atom.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Electron CommonJS require踩坑</title>
+      <link>https://www.glowisle.me/posts/electron-commonjs-require%E8%B8%A9%E5%9D%91/</link>
+      <pubDate>Sat, 31 May 2025 09:07:36 +0800</pubDate><author>i@glowisle.me (五葉地錦)</author>
+      <guid>https://www.glowisle.me/posts/electron-commonjs-require%E8%B8%A9%E5%9D%91/</guid>
+      <description>&lt;p&gt;最近在开发一个Electron项目，在导入类的时候有以下报错:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;node:internal/modules/cjs/loader:1411 Uncaught Error: Cannot find module &amp;#39;./File&amp;#39;&#xA;Require stack:&#xA;- E:\Develop\markdown-editor\src\html\index.html&#xA;    at Module._resolveFilename (node:internal/modules/cjs/loader:1408:15)&#xA;    at a._resolveFilename (node:electron/js2c/renderer_init:2:2643)&#xA;    at defaultResolveImpl (node:internal/modules/cjs/loader:1064:19)&#xA;    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1069:22)&#xA;    at Module._load (node:internal/modules/cjs/loader:1218:37)&#xA;    at c._load (node:electron/js2c/node_init:2:17950)&#xA;    at s._load (node:electron/js2c/renderer_init:2:31718)&#xA;    at TracingChannel.traceSync (node:diagnostics_channel:322:14)&#xA;    at wrapModuleLoad (node:internal/modules/cjs/loader:242:24)&#xA;    at Module.require (node:internal/modules/cjs/loader:1494:12)&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;提示找不到模块。&lt;/p&gt;&#xA;&lt;p&gt;Electron中，使用require语句导入，都是默认从项目跟目录开始查找，所以要拼接完整路径。使用绝对路径也是不行的，在IDE里可以跳转，但是一运行就是找不到模块&#xA;&lt;code&gt;const File = require(&amp;quot;src/js/File&amp;quot;)&lt;/code&gt;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Uncaught Error: Cannot find module &amp;#39;src/js/File&amp;#39;&#xA;Require stack:&#xA;- E:\Develop\markdown-editor\src\html\index.html&#xA;    at Module._resolveFilename (node:internal/modules/cjs/loader:1408:15)&#xA;    at a._resolveFilename (node:electron/js2c/renderer_init:2:2643)&#xA;    at defaultResolveImpl (node:internal/modules/cjs/loader:1064:19)&#xA;    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1069:22)&#xA;    at Module._load (node:internal/modules/cjs/loader:1218:37)&#xA;    at c._load (node:electron/js2c/node_init:2:17950)&#xA;    at s._load (node:electron/js2c/renderer_init:2:31718)&#xA;    at TracingChannel.traceSync (node:diagnostics_channel:322:14)&#xA;    at wrapModuleLoad (node:internal/modules/cjs/loader:242:24)&#xA;    at Module.require (node:internal/modules/cjs/loader:1494:12)&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;解决方法&#34;&gt;解决方法&lt;/h2&gt;&#xA;&lt;p&gt;使用path.join拼接完整路径&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c678dd&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#e06c75&#34;&gt;File&lt;/span&gt; &lt;span style=&#34;color:#56b6c2&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e06c75&#34;&gt;require&lt;/span&gt;(&lt;span style=&#34;color:#e06c75&#34;&gt;path&lt;/span&gt;.&lt;span style=&#34;color:#e06c75&#34;&gt;join&lt;/span&gt;(&lt;span style=&#34;color:#e06c75&#34;&gt;__dirname&lt;/span&gt;, &lt;span style=&#34;color:#98c379&#34;&gt;&amp;#34;../js/File.js&amp;#34;&lt;/span&gt;));&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;经过测试，只能用这种方法导入，太怪了&lt;/p&gt;&#xA;</description>
+    </item>
+  </channel>
+</rss>
