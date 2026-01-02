@@ -335,14 +335,18 @@ Java中提供了一个关键字extends，用这个关键字，可以让一个类
       --img-border-color: #999;
       --code-bg-color: #141414;
       --code-text-color: #ddd;
-      --blockquote-border-color: #ccc;
-      --blockquote-text-color: #ccc;
+      --blockquote-border-color: #7b7b7b;
+      --blockquote-text-color: #acacac;
       --caption-text-color: #aaa;
       --toc-text-color: #373737;
       --toc-hover-color: #cac3c3;
       --music-bg-hover-dark: #525252;  
       --music-bg-dark: rgba(82, 82, 82, 0.5);  
       --music-text-secondary: #a3a3a3;
+    }
+
+    blockquote strong {
+      font-weight: 600;
     }
 
     .music-btn {
@@ -576,7 +580,7 @@ Java中提供了一个关键字extends，用这个关键字，可以让一个类
   }
 
   blockquote {
-    border-left: 2px solid var(--blockquote-border-color);
+    border-left: 5px solid var(--blockquote-border-color);
     color: var(--blockquote-text-color);
     margin: 0;
     padding-left: 16px;
@@ -1060,6 +1064,128 @@ Java中提供了一个关键字extends，用这个关键字，可以让一个类
 
 
  
+<div class="toc">
+
+<nav class="toc-nav">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#什么是继承">什么是继承</a>
+      <ul>
+        <li><a href="#继承的特点">继承的特点</a></li>
+        <li><a href="#继承后对象的创建">继承后对象的创建</a></li>
+      </ul>
+    </li>
+    <li><a href="#继承相关的注意事项">继承相关的注意事项</a>
+      <ul>
+        <li><a href="#权限修饰符">权限修饰符</a></li>
+        <li><a href="#权限修饰符有几种与各自的作用">权限修饰符有几种与各自的作用</a></li>
+      </ul>
+    </li>
+    <li><a href="#单继承">单继承</a></li>
+    <li><a href="#object类">Object类</a></li>
+    <li><a href="#方法重写">方法重写</a>
+      <ul>
+        <li><a href="#什么是方法重写">什么是方法重写</a></li>
+        <li><a href="#方法重写的注意事项">方法重写的注意事项</a></li>
+        <li><a href="#方法重写在开发中的常见应用场景">方法重写在开发中的常见应用场景</a></li>
+      </ul>
+    </li>
+    <li><a href="#子类中访问其他成员的特点">子类中访问其他成员的特点</a></li>
+    <li><a href="#子类构造器的特点">子类构造器的特点</a>
+      <ul>
+        <li><a href="#子类构造器是如何实现调用父类构造器的">子类构造器是如何实现调用父类构造器的：</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</nav>
+
+<script>
+    
+    document.addEventListener('DOMContentLoaded', function () {
+        const tocLinks = document.querySelectorAll('.toc-nav a');
+        const headings = Array.from(tocLinks).map(link => {
+            const id = link.getAttribute('href').replace('#', '');
+            return document.getElementById(id);
+        }).filter(h => h);
+
+        
+        tocLinks.forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').replace('#', '');
+                const target = document.getElementById(targetId);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+
+                    
+                    tocLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                }
+            });
+        });
+
+        
+        function updateActiveLink() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const windowHeight = window.innerHeight;
+
+            for (let i = headings.length - 1; i >= 0; i--) {
+                const heading = headings[i];
+                const rect = heading.getBoundingClientRect();
+
+                if (rect.top <= 100) {
+                    
+                    tocLinks.forEach(link => link.classList.remove('active'));
+                    
+                    
+                    const activeLink = document.querySelector(`.toc-nav a[href="#${heading.id}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('active');
+                        
+                        
+                        let currentLi = activeLink.closest('li');
+                        while (currentLi) {
+                            const parentLi = currentLi.parentElement.closest('li');
+                            if (parentLi) {
+                                const parentLink = parentLi.querySelector('a');
+                                if (parentLink) {
+                                    parentLink.classList.add('active');
+                                }
+                                currentLi = parentLi;
+                            } else {
+                                break;
+                            }
+                        }
+                    }
+                    break;
+                }
+            }
+        }
+
+        
+        let ticking = false;
+        function throttleScroll() {
+            if (!ticking) {
+                requestAnimationFrame(function () {
+                    updateActiveLink();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }
+
+        window.addEventListener('scroll', throttleScroll);
+
+        
+        updateActiveLink();
+    });
+</script>
+</div>
+
 
 
 <div class="comments-and-webmentions">

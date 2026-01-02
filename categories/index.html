@@ -337,14 +337,18 @@
       --img-border-color: #999;
       --code-bg-color: #141414;
       --code-text-color: #ddd;
-      --blockquote-border-color: #ccc;
-      --blockquote-text-color: #ccc;
+      --blockquote-border-color: #7b7b7b;
+      --blockquote-text-color: #acacac;
       --caption-text-color: #aaa;
       --toc-text-color: #373737;
       --toc-hover-color: #cac3c3;
       --music-bg-hover-dark: #525252;  
       --music-bg-dark: rgba(82, 82, 82, 0.5);  
       --music-text-secondary: #a3a3a3;
+    }
+
+    blockquote strong {
+      font-weight: 600;
     }
 
     .music-btn {
@@ -578,7 +582,7 @@
   }
 
   blockquote {
-    border-left: 2px solid var(--blockquote-border-color);
+    border-left: 5px solid var(--blockquote-border-color);
     color: var(--blockquote-text-color);
     margin: 0;
     padding-left: 16px;
@@ -952,6 +956,110 @@
 
 
  
+<div class="toc">
+
+<nav class="toc-nav">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#-随笔"><a href="/categories/%E9%9A%8F%E7%AC%94">💭 随笔</a></a></li>
+        <li><a href="#-阅读"><a href="/categories/%E9%98%85%E8%AF%BB/">📚 阅读</a></a></li>
+        <li><a href="#-观影"><a href="/categories/%E8%AF%BB%E4%B9%A6/">🎥 观影</a></a></li>
+        <li><a href="#-技术"><a href="/categories/%E6%8A%80%E6%9C%AF/">💻 技术</a></a></li>
+        <li><a href="#-回声周刊"><a href="/categories/%E5%9B%9E%E5%A3%B0%E5%91%A8%E5%88%8A">📖 回声周刊</a></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</nav>
+
+<script>
+    
+    document.addEventListener('DOMContentLoaded', function () {
+        const tocLinks = document.querySelectorAll('.toc-nav a');
+        const headings = Array.from(tocLinks).map(link => {
+            const id = link.getAttribute('href').replace('#', '');
+            return document.getElementById(id);
+        }).filter(h => h);
+
+        
+        tocLinks.forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').replace('#', '');
+                const target = document.getElementById(targetId);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+
+                    
+                    tocLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                }
+            });
+        });
+
+        
+        function updateActiveLink() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const windowHeight = window.innerHeight;
+
+            for (let i = headings.length - 1; i >= 0; i--) {
+                const heading = headings[i];
+                const rect = heading.getBoundingClientRect();
+
+                if (rect.top <= 100) {
+                    
+                    tocLinks.forEach(link => link.classList.remove('active'));
+                    
+                    
+                    const activeLink = document.querySelector(`.toc-nav a[href="#${heading.id}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('active');
+                        
+                        
+                        let currentLi = activeLink.closest('li');
+                        while (currentLi) {
+                            const parentLi = currentLi.parentElement.closest('li');
+                            if (parentLi) {
+                                const parentLink = parentLi.querySelector('a');
+                                if (parentLink) {
+                                    parentLink.classList.add('active');
+                                }
+                                currentLi = parentLi;
+                            } else {
+                                break;
+                            }
+                        }
+                    }
+                    break;
+                }
+            }
+        }
+
+        
+        let ticking = false;
+        function throttleScroll() {
+            if (!ticking) {
+                requestAnimationFrame(function () {
+                    updateActiveLink();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }
+
+        window.addEventListener('scroll', throttleScroll);
+
+        
+        updateActiveLink();
+    });
+</script>
+</div>
+
 
 
 </main>
