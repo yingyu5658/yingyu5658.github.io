@@ -80,7 +80,7 @@ Neovim和Vim相比，在性能和易用性上有很大的提升，在异步任�
     --code-bg-color: #f2f2f2;
     --code-text-color: #222;
     --blockquote-border-color: #666;
-    --blockquote-text-color: #666;
+    --blockquote-text-color: #8c8c8c;
     --upvoted-color: #fa8072;
     --caption-text-color: #666;
     --toc-text-color: #e5e5e5;
@@ -159,8 +159,9 @@ Neovim和Vim相比，在性能和易用性上有很大的提升，在异步任�
   }
 
   article p {
-    line-height: 40px;
+    line-height: 35px;
     margin-top: 20px;
+    font-weight: 550;
   }
 
   .item-link {
@@ -353,10 +354,15 @@ Neovim和Vim相比，在性能和易用性上有很大的提升，在异步任�
       --music-bg-hover-dark: #525252;  
       --music-bg-dark: rgba(82, 82, 82, 0.5);  
       --music-text-secondary: #a3a3a3;
+      --color-background: var(--body-bg-color) !important;
     }
 
     blockquote strong {
       font-weight: 600;
+    }
+
+    article p {
+      font-weight: 400;
     }
 
     .music-btn {
@@ -590,16 +596,12 @@ Neovim和Vim相比，在性能和易用性上有很大的提升，在异步任�
   }
 
   blockquote {
-    border-left: 4px solid var(--blockquote-border-color);
+     
     color: var(--blockquote-text-color);
     margin: 0;
     margin-top: 17px;
-    padding-left: 16px;
+    padding-left: 20px;
     font-style: normal;
-  }
-
-  blockquote p {
-    margin: 0;
   }
 
   footer {
@@ -807,6 +809,12 @@ Neovim和Vim相比，在性能和易用性上有很大的提升，在异步任�
 <link
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@idotj/mastodon-embed-timeline@4.7.0/dist/mastodon-timeline.min.css"
+  integrity="sha256-Qi3H+bdH6RuMuyR1trAlG5bMWJGl9y3jPiTc1PWQFpI="
+  crossorigin="anonymous"
 />
 </head>
 

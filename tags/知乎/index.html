@@ -8,7 +8,7 @@
 <title>知乎</title>
 <meta name="title" content="知乎" />
 <meta name="description" content="关于互联网、书籍、生活琐事以及那些一闪而过的念头。计算机技术 &amp; 读书感悟 &amp; 日常随笔。映屿(GlowIsle)" />
-<meta name="keywords" content="回声周刊,往昔,技术,观影,阅读,随笔,ai,arch,b站,c语言,electron,emacs,fedora,firefox,geyser,gnu,gnu/emacs,gnu/linux,graphviz,hexo,java,javascript,kilo,linux,llm,malody,minecraft,neovim,nodejs,obsidain,osu,rss,seo,terrira,thunderbird,typecho,vim,vscode,waline,webmention,windows,“厌蠢症”,《南京照相馆》,三岛由纪夫,上岸,中国文学,丰饶之海,习惯性反驳,书评,互联网,人工智能,人际交往,价值,伊豆的舞女,作文,信息节食,内容创作,写作,刘一周,前端,博客,去中心化,古典文学,古文,回忆,图书,夏,奔马,婚姻,学业,学校,家庭,小品,川端康成,年终总结,应试教育,底层技术,张河清,微信公众号,心态,怀旧,思考与议论,总结,意识流,感官,感谢恩师夸奖,我,扩列,搜索引擎,政治,教程,散文,散步,数据结构与算法,文化自信,文字,文学,文库本,文本编辑器,文章,新闻组,旁观者,日常,日本文学,日语,早睡早起,时政,春雪,暑假总结,月度总结,朋友圈,服务器,未成年人保护,杂文,杂记,汇编,汉字,沉没成本,沟通,流量,游戏,物理,狗叫,猫,生命,电影,知乎,社交,笔记,素描,终端,编程,编译原理,编译器,网络环境,美术,翻译,考试,自媒体,自搜,西西弗,观察,记事,记忆,评论区,语言,读书,读书笔记,读后感,豆瓣,贝斯,购物,软件开发,酒,阅读,阿里云,随笔,韩愈,音乐," />
+<meta name="keywords" content="回声周刊,往昔,技术,观影,阅读,随笔,ai,arch,b站,c语言,electron,emacs,fedora,firefox,geyser,gnu,gnu/emacs,gnu/linux,graphviz,hexo,java,javascript,kilo,linux,llm,malody,minecraft,neovim,nodejs,obsidain,osu,rss,seo,terrira,thunderbird,typecho,vim,vscode,waline,webmention,windows,“厌蠢症”,《南京照相馆》,三岛由纪夫,上岸,中国文学,中文,丰饶之海,习惯性反驳,书评,互联网,人工智能,人际交往,价值,伊豆的舞女,作文,信息节食,内容创作,写作,刘一周,前端,博客,去中心化,古典文学,古文,回忆,图书,夏,奔马,婚姻,学业,学校,家庭,小品,川端康成,年终总结,应试教育,底层技术,张河清,微信公众号,心态,怀旧,思考与议论,总结,意识流,感官,感谢恩师夸奖,我,扩列,搜索引擎,政治,教程,散文,散步,数据结构与算法,文化自信,文字,文学,文库本,文本编辑器,文章,新闻组,旁观者,日常,日本文学,日语,早睡早起,时政,春雪,暑假总结,月度总结,朋友圈,服务器,未成年人保护,杂文,杂记,村上春树,汇编,汉字,沉没成本,沟通,流量,游戏,物理,狗叫,猫,生命,电影,知乎,社交,笔记,素描,终端,编程,编译原理,编译器,网络环境,美术,翻译,考试,自媒体,自搜,西西弗,观察,记事,记忆,评论区,语言,读书,读书笔记,读后感,豆瓣,贝斯,购物,软件开发,酒,阅读,阿里云,随笔,韩愈,音乐," />
 
 <link rel="canonical" href="https://www.glowisle.me/tags/%E7%9F%A5%E4%B9%8E/">
 
@@ -56,7 +56,7 @@
     --code-bg-color: #f2f2f2;
     --code-text-color: #222;
     --blockquote-border-color: #666;
-    --blockquote-text-color: #666;
+    --blockquote-text-color: #8c8c8c;
     --upvoted-color: #fa8072;
     --caption-text-color: #666;
     --toc-text-color: #e5e5e5;
@@ -135,8 +135,9 @@
   }
 
   article p {
-    line-height: 40px;
+    line-height: 35px;
     margin-top: 20px;
+    font-weight: 550;
   }
 
   .item-link {
@@ -329,10 +330,15 @@
       --music-bg-hover-dark: #525252;  
       --music-bg-dark: rgba(82, 82, 82, 0.5);  
       --music-text-secondary: #a3a3a3;
+      --color-background: var(--body-bg-color) !important;
     }
 
     blockquote strong {
       font-weight: 600;
+    }
+
+    article p {
+      font-weight: 400;
     }
 
     .music-btn {
@@ -566,16 +572,12 @@
   }
 
   blockquote {
-    border-left: 4px solid var(--blockquote-border-color);
+     
     color: var(--blockquote-text-color);
     margin: 0;
     margin-top: 17px;
-    padding-left: 16px;
+    padding-left: 20px;
     font-style: normal;
-  }
-
-  blockquote p {
-    margin: 0;
   }
 
   footer {
@@ -783,6 +785,12 @@
 <link
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@idotj/mastodon-embed-timeline@4.7.0/dist/mastodon-timeline.min.css"
+  integrity="sha256-Qi3H+bdH6RuMuyR1trAlG5bMWJGl9y3jPiTc1PWQFpI="
+  crossorigin="anonymous"
 />
 </head>
 
