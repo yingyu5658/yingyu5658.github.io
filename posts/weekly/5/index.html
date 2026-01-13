@@ -7,13 +7,7 @@
 <link rel="shortcut icon" href="https://www.glowisle.me/favicon.png" />
 <title>回声周刊 Vol.5：「相关」和「有关」的滥用</title>
 <meta name="title" content="回声周刊 Vol.5：「相关」和「有关」的滥用" />
-<meta name="description" content="
-    
-    
-
-
-这里是回声周刊，分享我这周读过的文章书籍、近期发生的大事小事。每周日更新。如果你对这个周刊感兴趣，可以 订阅周刊 或加入 TG频道。
-这周我一直在忙期末复习，因此本期周刊内容很少，最晚可能要到下下期恢复正常量。" />
+<meta name="description" content="这里是回声周刊，分享我这周读过的文章书籍、近期发生的大事小事。每周日更新。如果你对这个周刊感兴趣，可以 订阅周刊 或加入 TG频道。" />
 <meta name="keywords" content="语言,中文,西西弗,村上春树," />
 
 <link rel="canonical" href="https://www.glowisle.me/posts/weekly/5/">
@@ -22,8 +16,7 @@
 <meta property="og:url" content="https://www.glowisle.me/posts/weekly/5/">
   <meta property="og:site_name" content="映屿">
   <meta property="og:title" content="回声周刊 Vol.5：「相关」和「有关」的滥用">
-  <meta property="og:description" content="这里是回声周刊，分享我这周读过的文章书籍、近期发生的大事小事。每周日更新。如果你对这个周刊感兴趣，可以 订阅周刊 或加入 TG频道。
-这周我一直在忙期末复习，因此本期周刊内容很少，最晚可能要到下下期恢复正常量。">
+  <meta property="og:description" content="这里是回声周刊，分享我这周读过的文章书籍、近期发生的大事小事。每周日更新。如果你对这个周刊感兴趣，可以 订阅周刊 或加入 TG频道。">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -39,15 +32,13 @@
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="回声周刊 Vol.5：「相关」和「有关」的滥用">
-  <meta name="twitter:description" content="这里是回声周刊，分享我这周读过的文章书籍、近期发生的大事小事。每周日更新。如果你对这个周刊感兴趣，可以 订阅周刊 或加入 TG频道。
-这周我一直在忙期末复习，因此本期周刊内容很少，最晚可能要到下下期恢复正常量。">
+  <meta name="twitter:description" content="这里是回声周刊，分享我这周读过的文章书籍、近期发生的大事小事。每周日更新。如果你对这个周刊感兴趣，可以 订阅周刊 或加入 TG频道。">
 
 
 
 
   <meta itemprop="name" content="回声周刊 Vol.5：「相关」和「有关」的滥用">
-  <meta itemprop="description" content="这里是回声周刊，分享我这周读过的文章书籍、近期发生的大事小事。每周日更新。如果你对这个周刊感兴趣，可以 订阅周刊 或加入 TG频道。
-这周我一直在忙期末复习，因此本期周刊内容很少，最晚可能要到下下期恢复正常量。">
+  <meta itemprop="description" content="这里是回声周刊，分享我这周读过的文章书籍、近期发生的大事小事。每周日更新。如果你对这个周刊感兴趣，可以 订阅周刊 或加入 TG频道。">
   <meta itemprop="datePublished" content="2026-01-11T17:52:03+08:00">
   <meta itemprop="dateModified" content="2026-01-11T17:52:03+08:00">
   <meta itemprop="wordCount" content="1775">
@@ -83,6 +74,23 @@
     --music-text-secondary: #666;
     --music-shadow:
       0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --summary-text-color: #4e4e4e;
+  }
+
+  div.summary a,
+  div.summary strong,
+  div.summary p {
+    color: var(--summary-text-color) !important;
+  }
+
+  .social-icons {
+    margin: 15px;
+    margin-top: 5px;
+    text-align: center;
+  }
+
+  .social-icons a {
+    padding: 5px 5px;
   }
 
   .booklist {
@@ -108,7 +116,7 @@
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
   }
 
-  .social-icons {
+  .rss-icon {
     display: inline;
     font-size: 16px;
     float: right;
@@ -328,6 +336,7 @@
    
   @media (prefers-color-scheme: dark) {
     :root {
+      --summary-text-color: #b4b4b4;
       --body-bg-color: #121212;
       --bold-text-color: #eee;
       --body-text-color: #ddd;
@@ -349,8 +358,12 @@
       --color-background: var(--body-bg-color) !important;
     }
 
-    blockquote strong {
-      font-weight: 600;
+    div.summary a {
+      text-decoration: underline 0.2px #6f6f6f;
+    }
+
+    strong {
+      font-weight: 650;
     }
 
     article p {
@@ -441,12 +454,12 @@
     color: var(--bold-text-color);
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  article h1,
+  article h2,
+  article h3,
+  article h4,
+  article h5,
+  article h6 {
     margin: 16px 0;
   }
 
@@ -463,13 +476,17 @@
   }
 
   .title {
-    text-decoration: none;
-    border: 0;
+    text-align: center;
+    text-decoration: none !important;
+  }
+
+  a.title h1 {
+    margin: 15px;
+    margin-bottom: 15px;
   }
 
   header {
     margin-top: 30px;
-    margin-bottom: 30px;
   }
 
   .title:hover {
@@ -481,7 +498,8 @@
   }
 
   nav {
-    margin-bottom: 15px;
+    text-align: center;
+    margin-bottom: 20px;
   }
 
   nav a {
@@ -801,17 +819,15 @@
 <link
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-/>
-<link
+/><link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@idotj/mastodon-embed-timeline@4.7.0/dist/mastodon-timeline.min.css"
-  integrity="sha256-Qi3H+bdH6RuMuyR1trAlG5bMWJGl9y3jPiTc1PWQFpI="
-  crossorigin="anonymous"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
 />
 </head>
 
   <body>
-    <header><a href="/" class="title">
+    <main>
+<header><a href="/" class="title">
   <h1>映屿</h1>
 </a>
 <nav>
@@ -827,9 +843,13 @@
 
 
 </nav>
+<div class="social-icons">
+    <a href="https://c7.io/@Verdant"><i class="fa-brands fa-mastodon"></i></a>
+    <a href="https://github.com/yingyu5658/"><i class="fa-brands fa-github"></i></a>
+    <a href="mailto:i@glowisle.me"><i class="fa-solid fa-envelope"></i></a>
+</div>
 <hr>
 </header>
-    <main> 
 
 <article class="h-entry">
     <h1 class="post-title p-name"><a href="/posts/weekly/5/" style="color:#222222;">回声周刊 Vol.5：「相关」和「有关」的滥用</a></h1>
@@ -845,12 +865,7 @@
 </div>
 
 <div class="e-content">
-    <p><figure class="image-caption">
-    <img src="https://images.glowisle.me/" alt="">
-    <figcaption></figcaption>
-</figure></p>
-<blockquote>
-<p>这里是回声周刊，分享我这周读过的文章书籍、近期发生的大事小事。每周日更新。如果你对这个周刊感兴趣，可以 <a href="/categories/%E5%9B%9E%E5%A3%B0%E5%91%A8%E5%88%8A/atom.xml">订阅周刊</a> 或加入 <a href="https://t.me/glowisle">TG频道</a>。</p></blockquote>
+    <p>这里是回声周刊，分享我这周读过的文章书籍、近期发生的大事小事。每周日更新。如果你对这个周刊感兴趣，可以 <a href="/categories/%E5%9B%9E%E5%A3%B0%E5%91%A8%E5%88%8A/atom.xml">订阅周刊</a> 或加入 <a href="https://t.me/glowisle">TG频道</a>。</p>
 <p>这周我一直在忙期末复习，因此本期周刊内容很少，最晚可能要到下下期恢复正常量。</p>
 <h2 id="-声波">〰︎ 声波</h2>
 
@@ -917,7 +932,7 @@
 <p>举着豆瓣在书架绕了半天，那么一面墙的日本文学，有《且听风吟》，有《舞！舞！舞！》，就是没有我想要的那本。最后终于鼓起勇气跟店员说能不能帮我找一下，结果他们还没卖。</p>
 <p>就拿了一本《一个人的好天气》和《舞》结账，结果花了一百五十块。唉，真黑啊！</p>
 <p><figure class="image-caption">
-    <img src="https://images.glowisle.me/https://images.glowisle.me/E4188D7B80E34C235C46CF10E0A5D4BE.jpg" alt="价值四块钱的袋子……">
+    <img src="https://images.glowisle.me/E4188D7B80E34C235C46CF10E0A5D4BE.jpg" alt="价值四块钱的袋子……">
     <figcaption>价值四块钱的袋子……</figcaption>
 </figure></p>
 <p>我不知道怎么拒绝说我自己带包了不要袋子，花四块钱又买了一个袋子，这次出行唯一成功的就是悬崖勒马没有被她忽悠充值办卡……</p>
@@ -942,7 +957,6 @@
 </li>
 </ol>
 </div>
-
 </div>
 </article>
 <a class="u-url" href="https://www.glowisle.me/posts/weekly/5/" style="display:none;">Permalink</a>
@@ -1322,7 +1336,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </main>
     <footer><div class="copyright">
   © 2024 - 2026 | Made with ❤️ by Verdant.
-  <div class="social-icons">
+  <div class="rss-icon">
     <a href="/atom.xml">
       <i class="fa fa-rss"></i>
     </a>

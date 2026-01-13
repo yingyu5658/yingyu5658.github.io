@@ -82,6 +82,23 @@ Java中提供了一个关键字extends，用这个关键字，可以让一个类
     --music-text-secondary: #666;
     --music-shadow:
       0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --summary-text-color: #4e4e4e;
+  }
+
+  div.summary a,
+  div.summary strong,
+  div.summary p {
+    color: var(--summary-text-color) !important;
+  }
+
+  .social-icons {
+    margin: 15px;
+    margin-top: 5px;
+    text-align: center;
+  }
+
+  .social-icons a {
+    padding: 5px 5px;
   }
 
   .booklist {
@@ -107,7 +124,7 @@ Java中提供了一个关键字extends，用这个关键字，可以让一个类
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
   }
 
-  .social-icons {
+  .rss-icon {
     display: inline;
     font-size: 16px;
     float: right;
@@ -327,6 +344,7 @@ Java中提供了一个关键字extends，用这个关键字，可以让一个类
    
   @media (prefers-color-scheme: dark) {
     :root {
+      --summary-text-color: #b4b4b4;
       --body-bg-color: #121212;
       --bold-text-color: #eee;
       --body-text-color: #ddd;
@@ -348,8 +366,12 @@ Java中提供了一个关键字extends，用这个关键字，可以让一个类
       --color-background: var(--body-bg-color) !important;
     }
 
-    blockquote strong {
-      font-weight: 600;
+    div.summary a {
+      text-decoration: underline 0.2px #6f6f6f;
+    }
+
+    strong {
+      font-weight: 650;
     }
 
     article p {
@@ -440,12 +462,12 @@ Java中提供了一个关键字extends，用这个关键字，可以让一个类
     color: var(--bold-text-color);
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  article h1,
+  article h2,
+  article h3,
+  article h4,
+  article h5,
+  article h6 {
     margin: 16px 0;
   }
 
@@ -462,13 +484,17 @@ Java中提供了一个关键字extends，用这个关键字，可以让一个类
   }
 
   .title {
-    text-decoration: none;
-    border: 0;
+    text-align: center;
+    text-decoration: none !important;
+  }
+
+  a.title h1 {
+    margin: 15px;
+    margin-bottom: 15px;
   }
 
   header {
     margin-top: 30px;
-    margin-bottom: 30px;
   }
 
   .title:hover {
@@ -480,7 +506,8 @@ Java中提供了一个关键字extends，用这个关键字，可以让一个类
   }
 
   nav {
-    margin-bottom: 15px;
+    text-align: center;
+    margin-bottom: 20px;
   }
 
   nav a {
@@ -800,17 +827,15 @@ Java中提供了一个关键字extends，用这个关键字，可以让一个类
 <link
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-/>
-<link
+/><link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@idotj/mastodon-embed-timeline@4.7.0/dist/mastodon-timeline.min.css"
-  integrity="sha256-Qi3H+bdH6RuMuyR1trAlG5bMWJGl9y3jPiTc1PWQFpI="
-  crossorigin="anonymous"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
 />
 </head>
 
   <body>
-    <header><a href="/" class="title">
+    <main>
+<header><a href="/" class="title">
   <h1>映屿</h1>
 </a>
 <nav>
@@ -826,9 +851,13 @@ Java中提供了一个关键字extends，用这个关键字，可以让一个类
 
 
 </nav>
+<div class="social-icons">
+    <a href="https://c7.io/@Verdant"><i class="fa-brands fa-mastodon"></i></a>
+    <a href="https://github.com/yingyu5658/"><i class="fa-brands fa-github"></i></a>
+    <a href="mailto:i@glowisle.me"><i class="fa-solid fa-envelope"></i></a>
+</div>
 <hr>
 </header>
-    <main> 
 
 <article class="h-entry">
     <h1 class="post-title p-name"><a href="/posts/185/" style="color:#222222;">Java面向对象编程——继承</a></h1>
@@ -1349,7 +1378,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </main>
     <footer><div class="copyright">
   © 2024 - 2026 | Made with ❤️ by Verdant.
-  <div class="social-icons">
+  <div class="rss-icon">
     <a href="/atom.xml">
       <i class="fa fa-rss"></i>
     </a>
