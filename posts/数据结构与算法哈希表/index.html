@@ -865,21 +865,21 @@
     <p>哈希表（Hash Table）是一种基于键（Key）直接访问数据的高效数据结构，其核心思想是通过哈希函数将键映射到数组的特定位置，从而实现平均时间复杂度为 O(1)O(1) 的插入、查找和删除操作。</p>
 <h2 id="结构定义">结构定义</h2>
 <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#7f848e">// 哈希表节点
-</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span><span style="color:#c678dd">typedef</span> <span style="color:#c678dd">struct</span> <span style="color:#e06c75">HashNode</span> {
+</span></span></span><span style="display:flex;"><span><span style="color:#c678dd">typedef</span> <span style="color:#c678dd">struct</span> <span style="color:#e06c75">HashNode</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">int</span> <span style="color:#e06c75">key</span>;
 </span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">int</span> <span style="color:#e06c75">value</span>;
 </span></span><span style="display:flex;"><span>    <span style="color:#c678dd">struct</span> <span style="color:#e06c75">Hashcode</span><span style="color:#56b6c2">*</span> <span style="color:#e06c75">next</span>;
 </span></span><span style="display:flex;"><span>} <span style="color:#e06c75">HashNode</span>;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#7f848e">// 哈希表
-</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span><span style="color:#c678dd">typedef</span> <span style="color:#c678dd">struct</span> {
+</span></span></span><span style="display:flex;"><span><span style="color:#c678dd">typedef</span> <span style="color:#c678dd">struct</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">int</span> <span style="color:#e06c75">size</span>;
 </span></span><span style="display:flex;"><span>    <span style="color:#e06c75">HashNode</span><span style="color:#56b6c2">**</span> <span style="color:#e06c75">buckets</span>;
 </span></span><span style="display:flex;"><span>} <span style="color:#e06c75">HashTable</span>;
 </span></span></code></pre></div><h2 id="初始化">初始化</h2>
 <p>创建HashTable结构体变量，进行初始化赋值，分配桶的内存。</p>
 <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#7f848e">// 初始化哈希表
-</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span><span style="color:#e06c75">HashTable</span> <span style="color:#56b6c2">*</span><span style="color:#61afef;font-weight:bold">creat_hash_table</span>(<span style="color:#e5c07b">int</span> <span style="color:#e06c75">size</span>)
+</span></span></span><span style="display:flex;"><span><span style="color:#e06c75">HashTable</span> <span style="color:#56b6c2">*</span><span style="color:#61afef;font-weight:bold">creat_hash_table</span>(<span style="color:#e5c07b">int</span> <span style="color:#e06c75">size</span>)
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>    <span style="color:#e06c75">HashTable</span><span style="color:#56b6c2">*</span> <span style="color:#e06c75">table</span> <span style="color:#56b6c2">=</span> (<span style="color:#e06c75">HashTable</span><span style="color:#56b6c2">*</span>)<span style="color:#61afef;font-weight:bold">malloc</span>(<span style="color:#c678dd">sizeof</span>(<span style="color:#e06c75">HashTable</span>));
 </span></span><span style="display:flex;"><span>    <span style="color:#e06c75">table</span><span style="color:#56b6c2">-&gt;</span><span style="color:#e06c75">size</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">size</span>;
@@ -892,14 +892,14 @@
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h2 id="哈希函数">哈希函数</h2>
 <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#7f848e">// 哈希函数
-</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span><span style="color:#e5c07b">int</span> <span style="color:#61afef;font-weight:bold">hash</span>(<span style="color:#e5c07b">int</span> <span style="color:#e06c75">key</span>, <span style="color:#e5c07b">int</span> <span style="color:#e06c75">size</span>)
+</span></span></span><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#61afef;font-weight:bold">hash</span>(<span style="color:#e5c07b">int</span> <span style="color:#e06c75">key</span>, <span style="color:#e5c07b">int</span> <span style="color:#e06c75">size</span>)
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>    <span style="color:#c678dd">return</span> <span style="color:#e06c75">key</span> <span style="color:#56b6c2">%</span> <span style="color:#e06c75">size</span>;
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>通过简单取模运算获得哈希值</p>
 <h2 id="插入">插入</h2>
 <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#7f848e">// 插入
-</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span><span style="color:#e5c07b">void</span> <span style="color:#61afef;font-weight:bold">insert</span>(<span style="color:#e06c75">HashTable</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">table</span>, <span style="color:#e5c07b">int</span> <span style="color:#e06c75">key</span>, <span style="color:#e5c07b">int</span> <span style="color:#e06c75">value</span>)
+</span></span></span><span style="display:flex;"><span><span style="color:#e5c07b">void</span> <span style="color:#61afef;font-weight:bold">insert</span>(<span style="color:#e06c75">HashTable</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">table</span>, <span style="color:#e5c07b">int</span> <span style="color:#e06c75">key</span>, <span style="color:#e5c07b">int</span> <span style="color:#e06c75">value</span>)
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">int</span> <span style="color:#e06c75">index</span> <span style="color:#56b6c2">=</span> <span style="color:#61afef;font-weight:bold">hash</span>(<span style="color:#e06c75">key</span>, <span style="color:#e06c75">table</span><span style="color:#56b6c2">-&gt;</span><span style="color:#e06c75">size</span>);
 </span></span><span style="display:flex;"><span>    <span style="color:#e06c75">HashNode</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">newNode</span> <span style="color:#56b6c2">=</span> (<span style="color:#e06c75">HashNode</span> <span style="color:#56b6c2">*</span>)<span style="color:#61afef;font-weight:bold">malloc</span>(<span style="color:#c678dd">sizeof</span>(<span style="color:#e06c75">HashNode</span>));
@@ -908,7 +908,7 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#e06c75">newNode</span><span style="color:#56b6c2">-&gt;</span><span style="color:#e06c75">next</span> <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">NULL</span>;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#7f848e">// 插入链表头部，避免遍历链表
-</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>    <span style="color:#c678dd">if</span> (<span style="color:#e06c75">table</span><span style="color:#56b6c2">-&gt;</span><span style="color:#e06c75">buckets</span>[<span style="color:#e06c75">index</span>] <span style="color:#56b6c2">==</span> <span style="color:#e5c07b">NULL</span>)
+</span></span></span><span style="display:flex;"><span>    <span style="color:#c678dd">if</span> (<span style="color:#e06c75">table</span><span style="color:#56b6c2">-&gt;</span><span style="color:#e06c75">buckets</span>[<span style="color:#e06c75">index</span>] <span style="color:#56b6c2">==</span> <span style="color:#e5c07b">NULL</span>)
 </span></span><span style="display:flex;"><span>    {
 </span></span><span style="display:flex;"><span>        <span style="color:#e06c75">table</span><span style="color:#56b6c2">-&gt;</span><span style="color:#e06c75">buckets</span>[<span style="color:#e06c75">index</span>] <span style="color:#56b6c2">=</span> <span style="color:#e06c75">newNode</span>;
 </span></span><span style="display:flex;"><span>    }
@@ -921,7 +921,7 @@
 </span></span></code></pre></div><p>头插法无需遍历到尾部。</p>
 <h2 id="查找">查找</h2>
 <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#7f848e">// 查找
-</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#61afef;font-weight:bold">search</span>(<span style="color:#e06c75">HashTable</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">table</span>, <span style="color:#e5c07b">int</span> <span style="color:#e06c75">key</span>)
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">int</span> <span style="color:#e06c75">index</span> <span style="color:#56b6c2">=</span> <span style="color:#61afef;font-weight:bold">hash</span>(<span style="color:#e06c75">key</span>, <span style="color:#e06c75">table</span><span style="color:#56b6c2">-&gt;</span><span style="color:#e06c75">size</span>);

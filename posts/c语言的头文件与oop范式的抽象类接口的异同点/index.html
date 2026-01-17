@@ -868,10 +868,10 @@
 <h2 id="c语言模块化设计的核心">C语言模块化设计的核心</h2>
 <p>头文件本质是对外提供的接口<strong>契约</strong>，包含函数声明、宏定义、结构体类型声明。例如：</p>
 <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#7f848e">// math_utils.h
-</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span><span style="color:#7f848e">#ifndef MATH_UTILS_H
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e">#ifndef MATH_UTILS_H
 </span></span></span><span style="display:flex;"><span><span style="color:#7f848e">#define MATH_UTILS_H
-</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span><span style="color:#e5c07b">int</span> <span style="color:#61afef;font-weight:bold">add</span>(<span style="color:#e5c07b">int</span> <span style="color:#e06c75">a</span>, <span style="color:#e5c07b">int</span> <span style="color:#e06c75">b</span>);  <span style="color:#7f848e">// 函数声明
-</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span><span style="color:#7f848e">#endif
+</span></span></span><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#61afef;font-weight:bold">add</span>(<span style="color:#e5c07b">int</span> <span style="color:#e06c75">a</span>, <span style="color:#e5c07b">int</span> <span style="color:#e06c75">b</span>);  <span style="color:#7f848e">// 函数声明
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e">#endif
 </span></span></span></code></pre></div><ul>
 <li>编译隔离：通过头文件守卫(#ifndef)实现模块之间的编译隔离。</li>
 <li>虽然头文件可以实现函数，但这会破坏模块化。</li>

@@ -913,12 +913,12 @@ const API_URL = &#34;osu.ppy.sh&#34;; const init = { k: &#34;YOUR_API_KEY&#34;, 
 </span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">https</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">require</span>(<span style="color:#98c379">&#34;https&#34;</span>);
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#7f848e">// 将参数序列化为查询字符串
-</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span><span style="color:#c678dd">const</span> <span style="color:#e06c75">query</span> <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e06c75">URLSearchParams</span>(<span style="color:#e06c75">init</span>);
+</span></span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">query</span> <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e06c75">URLSearchParams</span>(<span style="color:#e06c75">init</span>);
 </span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">options</span> <span style="color:#56b6c2">=</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#e06c75">hostname</span><span style="color:#56b6c2">:</span> <span style="color:#e06c75">API_URL</span>,
 </span></span><span style="display:flex;"><span>    <span style="color:#e06c75">method</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#34;GET&#34;</span>,
 </span></span><span style="display:flex;"><span>    <span style="color:#e06c75">path</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">`/api/get_user?</span><span style="color:#98c379">${</span><span style="color:#e06c75">query</span><span style="color:#98c379">}</span><span style="color:#98c379">`</span> <span style="color:#7f848e">// 附加参数
-</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>};
+</span></span></span><span style="display:flex;"><span>};
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">req</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">https</span>.<span style="color:#e06c75">request</span>(<span style="color:#e06c75">options</span>, (<span style="color:#e06c75">res</span>) =&gt; {
 </span></span><span style="display:flex;"><span>    <span style="color:#c678dd">let</span> <span style="color:#e06c75">data</span> <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#39;&#39;</span>;
@@ -933,7 +933,7 @@ const API_URL = &#34;osu.ppy.sh&#34;; const init = { k: &#34;YOUR_API_KEY&#34;, 
 </span></span><span style="display:flex;"><span>});
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#7f848e">// 错误处理
-</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span><span style="color:#e06c75">req</span>.<span style="color:#e06c75">on</span>(<span style="color:#98c379">&#39;error&#39;</span>, (<span style="color:#e06c75">err</span>) =&gt; {
+</span></span></span><span style="display:flex;"><span><span style="color:#e06c75">req</span>.<span style="color:#e06c75">on</span>(<span style="color:#98c379">&#39;error&#39;</span>, (<span style="color:#e06c75">err</span>) =&gt; {
 </span></span><span style="display:flex;"><span>    <span style="color:#e06c75">console</span>.<span style="color:#e06c75">error</span>(<span style="color:#98c379">&#39;请求失败:&#39;</span>, <span style="color:#e06c75">err</span>.<span style="color:#e06c75">code</span>);
 </span></span><span style="display:flex;"><span>});
 </span></span></code></pre></div><p>输出：</p>
