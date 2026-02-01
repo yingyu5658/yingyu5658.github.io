@@ -1,92 +1,352 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>博客 on 映屿</title>
-    <link>https://www.glowisle.me/tags/%E5%8D%9A%E5%AE%A2/</link>
-    <description>Recent content in 博客 on 映屿</description>
-    <generator>Hugo</generator>
-    <language>zh-CN</language>
-    
-      <managingEditor>i@glowisle.me (五葉地錦)</managingEditor>
-    
-    
-      <webMaster>i@glowisle.me (五葉地錦)</webMaster>
-    
-    
-    
-    <lastBuildDate>Fri, 05 Dec 2025 17:22:22 +0800</lastBuildDate>
-    
-    
-    <atom:link href="http://www.glowisle.me/tags/%E5%8D%9A%E5%AE%A2/atom.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>一次对Webmention的探索</title>
-      <link>https://www.glowisle.me/posts/exploring-webmention/</link>
-      <pubDate>Fri, 05 Dec 2025 17:22:22 +0800</pubDate><author>i@glowisle.me (五葉地錦)</author>
-      <guid>https://www.glowisle.me/posts/exploring-webmention/</guid>
-      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;Webmention is a simple way to notify any URL when you link to it from your site.&lt;/p&gt;&#xA;&lt;p&gt;It is an open web standard (W3C Recommendation) for conversations and interactions across the web, a powerful building block used for a growing distributed network of peer-to-peer comments, likes, reposts, and other responses across the web.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Webmention 是一种开放网络标准（W3C推荐标准），用于在链接到某个网址时，自动向该网址发送通知。它是构成分布式网络的基础组件，支持跨网站的点对点评论、点赞、转发等多种互动。&lt;/p&gt;&#xA;&lt;p&gt;在 &lt;a href=&#34;https://www.glowisle.me/posts/tear-hypocrisy-apart/&#34;&gt;上一篇文章&lt;/a&gt; 写完后，我开始寻找更合适的评论方案。Webmention这个看起来古老，但又超前的形式很快引起了我的兴趣。「去中心化」这个词貌似对我有什么魔力，就比如Mastodon，比Twitter更吸引我。&lt;/p&gt;&#xA;&lt;p&gt;我很想试试用Go手搓一套收发系统，但时间并不充裕，正巧&lt;a href=&#34;https://webmention.io&#34;&gt;webmention.io&lt;/a&gt;提供现成的服务和&lt;a href=&#34;https://indielogin.com/setup&#34;&gt;详细的文档&lt;/a&gt;，那就跟着文档配置吧。&lt;/p&gt;&#xA;&lt;h2 id=&#34;验证与接收&#34;&gt;验证与接收&lt;/h2&gt;&#xA;&lt;p&gt;教程提供了多种验证方案，这里使用最简便的Github. 只要在网站的首页挂上一个链接，指向用户档案页：&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#e06c75&#34;&gt;a&lt;/span&gt; &lt;span style=&#34;color:#e06c75&#34;&gt;href&lt;/span&gt;&lt;span style=&#34;color:#56b6c2&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#98c379&#34;&gt;&amp;#34;https://github.com/example&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e06c75&#34;&gt;rel&lt;/span&gt;&lt;span style=&#34;color:#56b6c2&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#98c379&#34;&gt;&amp;#34;me&amp;#34;&lt;/span&gt;&amp;gt;github.com/example&amp;lt;/&lt;span style=&#34;color:#e06c75&#34;&gt;a&lt;/span&gt;&amp;gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果不想让它可见，也可以设置为一个`&lt;link&gt;：&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#e06c75&#34;&gt;link&lt;/span&gt; &lt;span style=&#34;color:#e06c75&#34;&gt;href&lt;/span&gt;&lt;span style=&#34;color:#56b6c2&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#98c379&#34;&gt;&amp;#34;https://github.com/example&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e06c75&#34;&gt;rel&lt;/span&gt;&lt;span style=&#34;color:#56b6c2&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#98c379&#34;&gt;&amp;#34;me&amp;#34;&lt;/span&gt;&amp;gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;figure class=&#34;image-caption&#34;&gt;&#xA;    &lt;img src=&#34;https://images.glowisle.me/2025-12-05_18-26.png&#34; alt=&#34;作为验证，你需要在Github主页中包含你的网站&#34;&gt;&#xA;    &lt;figcaption&gt;作为验证，你需要在Github主页中包含你的网站&lt;/figcaption&gt;&#xA;&lt;/figure&gt;&lt;/p&gt;&#xA;&lt;p&gt;这里我部署后回退了一下网页就弹出来Github APP 认证请求了，大概需要刷新网页或打开Github？&lt;/p&gt;&#xA;&lt;p&gt;这样，访问之后页面中提供的链接，就可以看到别人发送的Webmention了。&lt;/p&gt;&#xA;&lt;h2 id=&#34;渲染&#34;&gt;渲染&lt;/h2&gt;&#xA;&lt;p&gt;在网页中添加link&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#e06c75&#34;&gt;link&lt;/span&gt; &lt;span style=&#34;color:#e06c75&#34;&gt;rel&lt;/span&gt;&lt;span style=&#34;color:#56b6c2&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#98c379&#34;&gt;&amp;#34;webmention&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e06c75&#34;&gt;href&lt;/span&gt;&lt;span style=&#34;color:#56b6c2&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#98c379&#34;&gt;&amp;#34;https://webmention.io/你的用户名/webmention&amp;#34;&lt;/span&gt; /&amp;gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;我使用&lt;a href=&#34;https://github.com/PlaidWeb/webmention.js&#34;&gt;webmention.js&lt;/a&gt;，根据说明文档，可以复制仓库中的&lt;code&gt;/static/webmention.min.js&lt;/code&gt;到博客的&lt;code&gt;/static/js/webmention.min.js&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;在评论框下方提供一个容器&lt;code&gt;&amp;lt;div id=&amp;quot;webmentions&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&lt;/code&gt;，并引用脚本&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#e06c75&#34;&gt;div&lt;/span&gt; &lt;span style=&#34;color:#e06c75&#34;&gt;id&lt;/span&gt;&lt;span style=&#34;color:#56b6c2&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#98c379&#34;&gt;&amp;#34;webmentions&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color:#e06c75&#34;&gt;div&lt;/span&gt;&amp;gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#e06c75&#34;&gt;script&lt;/span&gt; &lt;span style=&#34;color:#e06c75&#34;&gt;src&lt;/span&gt;&lt;span style=&#34;color:#56b6c2&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#98c379&#34;&gt;&amp;#34;/js/webmention.min.js&amp;#34;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e06c75&#34;&gt;data-id&lt;/span&gt;&lt;span style=&#34;color:#56b6c2&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#98c379&#34;&gt;&amp;#34;webmentions&amp;#34;&lt;/span&gt; // &lt;span style=&#34;color:#e06c75&#34;&gt;与容器id匹配&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e06c75&#34;&gt;data-page-url&lt;/span&gt;&lt;span style=&#34;color:#56b6c2&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#98c379&#34;&gt;&amp;#34;https://yourdomain.com/当前文章永久链接&amp;#34;&lt;/span&gt; // &lt;span style=&#34;color:#e06c75&#34;&gt;建议使用&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e06c75&#34;&gt;data-max-webmentions&lt;/span&gt;&lt;span style=&#34;color:#56b6c2&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#98c379&#34;&gt;&amp;#34;50&amp;#34;&lt;/span&gt; // &lt;span style=&#34;color:#e06c75&#34;&gt;最多显示数量&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e06c75&#34;&gt;data-wordcount&lt;/span&gt;&lt;span style=&#34;color:#56b6c2&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#98c379&#34;&gt;&amp;#34;30&amp;#34;&lt;/span&gt; // &lt;span style=&#34;color:#e06c75&#34;&gt;回复预览最大字数&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e06c75&#34;&gt;data-sort-by&lt;/span&gt;&lt;span style=&#34;color:#56b6c2&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#98c379&#34;&gt;&amp;#34;published&amp;#34;&lt;/span&gt; // &lt;span style=&#34;color:#e06c75&#34;&gt;按照发布时间排序&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e06c75&#34;&gt;data-sort-dir&lt;/span&gt;&lt;span style=&#34;color:#56b6c2&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#98c379&#34;&gt;&amp;#34;up&amp;#34;&lt;/span&gt; // &lt;span style=&#34;color:#e06c75&#34;&gt;时间升序&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e06c75&#34;&gt;async&lt;/span&gt;&amp;gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#e06c75&#34;&gt;script&lt;/span&gt;&amp;gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Hugo用户在永久链接上可以使用：&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;data-page-url=&amp;#34;https://yourdomain.com{{ .RelPermalink  }}&amp;#34;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;为了本地测试，使用相对链接的变量拼接。脚本会对API发送请求，如果拿到的数据是空的，则会把最终的HTML输出为一个空字符串，所以刚开始看不到输出是正常的。大概写点CSS就可以正常投入使用了。&lt;/p&gt;&#xA;&lt;h2 id=&#34;对webmention的看法&#34;&gt;对Webmention的看法&lt;/h2&gt;&#xA;&lt;p&gt;我认为Webmention是一种很像友情链接的互惠模式，优于在评论区下方留下链接的形式。续上上一篇文章的话题，这样不仅促成高质量的互动，也能丰富自己的写作素材，分量应该重于评论区链接的手段。就像上一篇文章的结尾所说，利人利己，何乐而不为呢？&lt;/p&gt;&#xA;&lt;p&gt;虽然这种模式的普及程度不高，但我相信去中心化会称为互联网的新趋势。开放、互联才能称为「互联网」。&lt;/p&gt;&#xA;&lt;p&gt;我通过一些Webmention，一条一条顺藤摸瓜也找到了很多有趣的博客。我准备有时间优化渲染格式，可能也会研究一点桥接的功能，不过还是要保持博客一贯的简洁风格。当然，要先有人回应才有数据拿来渲染，欢迎大家使用Webmention参与互动！&lt;/p&gt;&#xA;</description>
-    </item>
-    <item>
-      <title>那种虚伪的互动和友善，赶快把它撕破吧！</title>
-      <link>https://www.glowisle.me/posts/tear-hypocrisy-apart/</link>
-      <pubDate>Thu, 04 Dec 2025 16:15:36 +0800</pubDate><author>i@glowisle.me (五葉地錦)</author>
-      <guid>https://www.glowisle.me/posts/tear-hypocrisy-apart/</guid>
-      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;本文使用了一些带有攻击性的词汇，言论风格尖锐，介意者谨慎阅读。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;本来想随便写写近期的事，写到网站最近的变化，写到了评论区的问题，越写越多，单独开一篇文章来说说吧。有时候觉得自己像个愤青一样，或者就是个愤青，整天喷天怼地的，应该平和点，不过实在不吐不快。&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;给评论区做减法&#34;&gt;给评论区做减法&lt;/h2&gt;&#xA;&lt;p&gt;最近我把评论系统换成了Giscus，原因很简单：我累了。&lt;/p&gt;&#xA;&lt;p&gt;关于评论系统，我想了很长时间。&lt;/p&gt;&#xA;&lt;p&gt;至少是在我的博客里，如果是议论类文章，基于事实或观点的讨论、延伸，或反驳。偏题跑题、没看完或没看懂文章就急于发表评论的情况并不少见。而且性子比较急的朋友直接看到了评论区，自己的重点也可能会被带跑偏，于是构成恶性循环……&lt;/p&gt;&#xA;&lt;p&gt;如果是记录类，分享见闻的文章，评论除了附和、赞同之类的评论，也难以找其它类型的评论，而且似乎也不会出现其他类型的评论。&lt;/p&gt;&#xA;&lt;p&gt;我不是要说教读者该如何写评论，其实是我并不擅长回应这种评论，或者可以说，我没有跟人闲唠嗑说家常和寒暄的能力。一些评论留下的话茬实在让人很难接上，但不回复又显得冷漠，这是一直以来让我困扰的问题。和社交沾边的事，不是热脸贴冷屁股，就是痛并快乐着，又在期待与不安中挣扎。&lt;/p&gt;&#xA;&lt;p&gt;七八月的时候我特意在评论区上方注了一行小字，具体原文不记得了，但我记得大意是：「&lt;strong&gt;我没回复是因为赞同，或者没什么可说的，而不是因为对你有意见&lt;/strong&gt;」。主题改来改去，换来换去，就忘了重新写上这行字了。这是为我不回复这一行为的辩解，也是为读者可能会受到的「冷落」所做的提前安慰。&lt;/p&gt;&#xA;&lt;p&gt;另一方面，维护Waline的外部CSS很麻烦，我也不想再修改CSS了。&lt;/p&gt;&#xA;&lt;p&gt;我在使用Waline的时候尝试给评论功能做减法，我移除了表情回复和正文插入表情的功能、移除了表情包，删除了点赞、头衔，隐藏了头像和IP。力求打造安静的浏览和讨论氛围，甚至有移除网址文本框的想法。出于对博客的理念不同，有些同样在写博客的人就是冲着这个框来的，他们可能就是非常享受与人社交的获得感，把博客作为社交名片。&lt;/p&gt;&#xA;&lt;p&gt;我觉得移除网址框可以减少为了自我营销而发送的评论，因为自己的博客沦为别人的推广场所的滋味很难受，也实在不知道怎么对待这些评论最为恰当。也想过关闭评论区。如果关闭评论区，可能会显得高冷，甚至是封闭。&lt;/p&gt;&#xA;&lt;h2 id=&#34;折中的方案&#34;&gt;折中的方案&lt;/h2&gt;&#xA;&lt;p&gt;转念一想，我怕的是什么？怕的是不知道如何接话。那么提高评论的「门槛」，让真正想要讨论的人评论，也许能解决问题。所以我换成了从前被我鄙视的Giscus。我当时觉得一定需要Github帐号才能评论是在一定程度上打消读者互动的积极性的，但现在才意识到了这是在&lt;strong&gt;放过自己&lt;/strong&gt;。说真的，我非常佩服那些能一直和人聊得来，接得上话的人，也很佩服从一篇干巴巴的日常分享，甚至只有几张图的文章里找出可以评论的点的人，这确实是一种社交能力。&lt;/p&gt;&#xA;&lt;p&gt;为了照顾没有Github或访问不方便的读者，我也放了一个邮件链接，可以点击发送邮件评论。由于使用场景，它多少会和「正式性」沾边，这也就间接提高了交流的质量。虽然我的博客并没有什么流量，但&lt;strong&gt;有效的交流，总比虚伪的敷衍强&lt;/strong&gt;。我知道那些评论可能出于友善，但是妥善处理它们对我真的很难。&lt;/p&gt;&#xA;&lt;p&gt;简单地来说，让说话更麻烦，是一种让说出来的话更有分量的方式。它会让说话的人经过深思熟虑，认真想想这些话到底值不值得我费这么大劲去说。&lt;/p&gt;&#xA;&lt;h2 id=&#34;为什么我认为新的做法更好&#34;&gt;为什么我认为新的做法更好&lt;/h2&gt;&#xA;&lt;p&gt;可能有人要批判我是「精英主义」，把Email和Giscus强行和高质量讨论绑定在一起，或者认为我说以前的讨论都是低质量，我要为自己辩解。&lt;/p&gt;&#xA;&lt;p&gt;首先，不是会用Github和Email的人都能写高质量的评论，而是这个方法在「倒逼」出正经的评论。&lt;/p&gt;&#xA;&lt;p&gt;Github和技术身份强关联，它代表作为开源社区的一员的你，对某篇文章的看法。如果说得更「敏感」点，为了维护网络上的形象，至少不应该写出冒犯性的话语或无理取闹的反驳。而邮件在其它场合下的使用就如上文所说，是带有一定正式性的，并且写邮件的「仪式感」也很容易让人认真对待这件事。至少需要安安静静坐下来，组织完整的语言表达看法，留有正式的署名和日期，长期可以留存 —— 这些都在间接促成一个或严谨或私密的正式的讨论环境。&lt;/p&gt;&#xA;&lt;p&gt;虽然这种做法可能会拦住内向但真诚或没有技术背景的读者，但也能拦住自我营销与应付不来的闲谈，我没有排斥喜爱轻松交流氛围的读者，这是不得已的取舍。而且博客不是论文期刊和政府文件，不是公示真理和规范的地方，这里是自我表达的地方，我在尽力打造理想中的秩序和风格。&lt;/p&gt;&#xA;&lt;p&gt;此方法也能防止某些幽默的匿名评论。虽然当年百度贴吧和知乎都有很多匿名神贴，匿名才能让他们大胆表达，但总有这么一小波的大胆，给人一种傲慢和轻视的感觉。&lt;/p&gt;&#xA;&lt;h2 id=&#34;林子不大也有各种鸟&#34;&gt;林子不大也有各种鸟&lt;/h2&gt;&#xA;&lt;p&gt;比如说&lt;a href=&#34;https://www.glowisle.me/posts/guilt/&#34;&gt;《罪恶感》&lt;/a&gt;这篇文章写得确实非常矫情，但有人匿名评论：&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;额…实际上&lt;strong&gt;只要&lt;/strong&gt;是病，&lt;strong&gt;都&lt;/strong&gt;能够通过医学手段解决的，&lt;strong&gt;有钱人&lt;/strong&gt;一般&lt;strong&gt;都&lt;/strong&gt;能请私人家教授课，可能这就是&lt;strong&gt;青春期&lt;/strong&gt;吧…&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;这位网友的评论在不在理，确实是在理的。但连留个邮箱的勇气都没有，匿名在&lt;strong&gt;个人&lt;/strong&gt;博客唱反调的行为，高高在上地想轻易解决慢性病，并把情绪都归结给青春期的傲慢的行为，属实让人忍俊不禁。&lt;/p&gt;&#xA;&lt;p&gt;虽然文章发出来了肯定会有被人喷的风险，但我当时还是忍着自己的痛苦和不安，让人轻飘飘地说得一文不值的愤怒，给出了一个回复：&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;文本解读能力的问题&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;经历和共情能力的问题&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;我尊重你这个没啥大事的看法，不强求共鸣。&lt;/p&gt;&#xA;&lt;p&gt;说得好，我同意了，玩去吧。&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;现在再仔细想想，这种文章根本不可能有人从搜索引擎来，大概率是某个混博客圈子的人，大概率也写博客。英国女作家伊夫林·比阿特丽斯·霍尔说过：「虽然我不同意你的观点，但我誓死捍卫你说话的权利。」&lt;/p&gt;&#xA;&lt;p&gt;我今天说，虽然我不同意你的观点，但你唱反调连告诉我你是谁的胆子都没有，&lt;strong&gt;那你他妈的还是闭嘴吧！&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;如果你反对我，那就请你逻辑严密地写出几百字来批判我，即使是匿名我也会输得心服口服，在这种情况里匿名甚至可以促进大胆批判。而傲慢地写下反驳的话语却不敢署名的敢做不敢当的行为，我只能认为你是一个弱者，仗着个人博客对读者隐私的保护与自由的追求，输出轻浮的观点。&lt;/p&gt;&#xA;&lt;p&gt;当然，匿名评论不是一定没有优势，如上文所说可以促进大胆批评，但任何事情都能从不同角度思考出不同的结果，没有人能做到真正的公平和客观，我只是尽力在维护边界。&lt;/p&gt;&#xA;&lt;p&gt;在非匿名的评论中，有些人挂着自己的网站链接，写一句「学习了！」、「写得好！」，甚至连编程语言是哪个都没看清，指鹿为马地夸赞着，长期在各个博客的评论区混迹着。&lt;/p&gt;&#xA;&lt;p&gt;出于人情的默契，这类行为往往被默许。我相信这是中文博客圈的大家都看破不说破的问题。今天我就在这里，以一个和大多数博主比起来确实是小孩的年龄，指出皇帝完全就是光着屁股在大街上乱逛。&lt;/p&gt;&#xA;&lt;p&gt;我并不反对匿名评论和评论区，而是反对形式化的评论区，反对只是为了自己网站的外链的评论，&lt;strong&gt;反对形式化的、缺乏真诚的互动，而非反对社交本身&lt;/strong&gt;。评论区应当是能围绕文章展开讨论、甚至是反驳的地方，哪怕意见相左，只要是真诚的表达，任何博主都会愿意真诚回应。但当评论的形式大于其本身的作用时，就该好好思考一下它究竟有没有继续存在下去的意义，以及如何存在下去了。&lt;/p&gt;&#xA;&lt;p&gt;这种你唱我喝，看似牢固的关系，我在其它地方也有感受。&lt;/p&gt;&#xA;&lt;p&gt;大概在十月份，我退掉了很多在上一次&lt;a href=&#34;https://www.glowisle.me/posts/%E4%BF%A1%E6%81%AF%E8%8A%82%E9%A3%9F/&#34;&gt;信息节食&lt;/a&gt;行动时没有退掉的QQ群。虽然确实有几位群友在问我为什么退群了，但过了一段时间后，仅仅是少了一个人自言自语。该打游戏的还在打游戏，该上班的还在上班，该骂街的还在骂街。这很正常，但也很残酷，少了某个人，大家照样吃饭，中东那几个国家照样战乱不断，地球照样天天转。&lt;/p&gt;&#xA;&lt;p&gt;这种浅层的链接，只是披着一层友情之皮的无关紧要的感情。当然，这都是我的一家之言，你也可以认为我在社交上相当失败。&lt;/p&gt;&#xA;&lt;p&gt;我能理解那种单纯对文章表达欣赏，又期待被回访的复杂心理。我个人的做法是开启一个点赞按钮。如果赞同或欣赏文章，也许不发那些简单但带有善意的评论，按一下那个按钮也能表达认同的态度。关于期待回访的心情，如果不是真正读了你的文字，被你的灵魂打动，那种回访就是肤浅且客套的，也许回访者也是出于迫不得已的礼仪压力。&lt;/p&gt;&#xA;&lt;p&gt;所以无论是Q群聊天还是博客&lt;strong&gt;为了外链&lt;/strong&gt;的「互访」，为了自己和他人考虑，为了让自己不再苦恼于如何应对根本没有留下话茬的评论，为了让别人不再绞尽脑汁填写自己博客的链接，如果你也厌倦了廉价的温情，那就来吧，&lt;strong&gt;那种虚伪的互动和友善，赶快把它撕破吧！&lt;/strong&gt;&lt;/p&gt;&#xA;</description>
-    </item>
-    <item>
-      <title>博客一周年：我的表达、自由与偏见 —— 当一个「反流行」写作者</title>
-      <link>https://www.glowisle.me/posts/first-blog-anniversary/</link>
-      <pubDate>Sat, 08 Nov 2025 22:18:05 +0800</pubDate><author>i@glowisle.me (五葉地錦)</author>
-      <guid>https://www.glowisle.me/posts/first-blog-anniversary/</guid>
-      <description>&lt;h2 id=&#34;搭建&#34;&gt;搭建&lt;/h2&gt;&#xA;&lt;h3 id=&#34;探索时期&#34;&gt;探索时期&lt;/h3&gt;&#xA;&lt;p&gt;在2023年9月16日，我在腾讯云注册了第一个域名，使用一台轻量服务器搭建了WordPress博客，但也仅限于此，我只是搭建好了服务，并没有在上面写点什么，只是觉得有一个自己的网站很酷，这并不能作为我开始写博客的准确日期。实际上在这之前，我就用 &lt;a href=&#34;https://kslabs.ru/&#34;&gt;Ksweb&lt;/a&gt; 尝试搭建过自己的网站，并且Typecho和WordPress都尝试过，但当时没有做内网穿透，所以也不能算作正式开始写博客。&lt;/p&gt;&#xA;&lt;p&gt;严格意义上讲，我是从2025年11月3日使用 &lt;a href=&#34;https://github.com/Meekdai/Gmeek/releases&#34;&gt;Gmeek&lt;/a&gt;正式搭建完第一个认真更新的博客，12月迁移到了Typecho，我当时发了一篇很短的文：&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;将会迁移到这里。我会把有价值的文章转过来 原因仅仅是gmeek有点太简陋了，虽然typecho也差不多，不过他可以折腾一下主题之类的，并且我每个月还多花出去九十大洋。但是总比gmeek逼格高点吧。 不得不说，Linux绝对是世界上最麻烦的玩意，解压下载文件都费劲。要不是Windows资源占用多我绝对不会去用这玩意。 这次可是孤军奋战，背后没有github服务器的靠山了。要是忘了续费服务器我会丢失所有的文章，又是一个负担和一个纠结的点&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;——&lt;a href=&#34;https://www.glowisle.me/posts/6/&#34;&gt;网站迁移&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;之后回看连我自己都忍不住吐槽自己的无知：&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;2025.8.24二编：Gmeek简直太符合博客的定位了，不花里胡哨，完全够用，有网就能写文章……&lt;/p&gt;&#xA;&lt;p&gt;Linux太好用了，目前Debian12养老中。&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;现在发现，自己以前做了很多不明智的决定，比如放弃使用Gmeek……&lt;/p&gt;&#xA;&lt;p&gt;使用Typecho期间，我开始学习Java编程，早期有很多简陋的笔记文章充数，但那时候学习和写博客是一个&lt;strong&gt;相互促进&lt;/strong&gt;的过程，我相信很多技术博主能体会到我说的这一点。&lt;/p&gt;&#xA;&lt;h3 id=&#34;转型时期&#34;&gt;转型时期&lt;/h3&gt;&#xA;&lt;p&gt;在2025年3月3日，我&lt;a href=&#34;https://www.glowisle.me/posts/4/&#34;&gt; 从Typecho迁移到了Hexo&lt;/a&gt;，在这之后博客的内容开始聚焦于&lt;strong&gt;骂人&lt;/strong&gt;，对，就是骂人。骂老师，喷学校占用午休时间搞课桌舞，喷素质低下的同学等等，但只有情绪输出，写得很垃圾，大部分都删掉了。&lt;/p&gt;&#xA;&lt;p&gt;在25年5月份到8月份是更新频率最高的一段时间，主要围绕折腾Linux, C, 数据结构与算法，一些技术内容为主，少部分是非技术类内容。7 月份到8月份写了一些很矫情的散文以及自以为是的书评，还有根本站不住脚的议论类文章，满满的黑历史。&lt;/p&gt;&#xA;&lt;p&gt;其中，7 月7日我从Hexo转移到Hugo，我认为这是静态博客的最优选择了，高性能、易配置，如果一定要我挑出一个毛病，那也不是程序上的，而是中文文档的数量和质量略差，但无伤大雅，只要有翻译插件和基础的英语水平还是可以读得来英文文档的。&lt;/p&gt;&#xA;&lt;h2 id=&#34;所见和所感&#34;&gt;所见和所感&lt;/h2&gt;&#xA;&lt;p&gt;我加入了一些博客圈子，某些组织给我的印象并不是特别好——各种方面上。我最早加入的是&lt;a href=&#34;https://www.boyouquan.com/home&#34;&gt;博友圈&lt;/a&gt;，氛围很好，关于网站的Bug，维护者跟进非常积极，但我不常访问这个网站，它的随机博客功能总是有重复，没有什么新鲜感。&lt;/p&gt;&#xA;&lt;p&gt;另一个常访问的是&lt;a href=&#34;https://www.foreverblog.cn/go.html&#34;&gt;十年之约&lt;/a&gt;，主要是为虫洞功能，重复博客出现的次数很少。&lt;/p&gt;&#xA;&lt;p&gt;我这么做，一是为了看看别人都在写点什么，找点有意思的博客订阅，二是看看别人网站的样式都是怎么设计的。前者老生常谈，我觉得样式设计问题可以仔细聊一聊。&lt;/p&gt;&#xA;&lt;h3 id=&#34;某种意义上样式最重要&#34;&gt;某种意义上样式最重要&lt;/h3&gt;&#xA;&lt;p&gt;虽然博客确实应该最优先考虑内容质量，但是不能否认一个好的样式设计能更加分。而且在读者深度阅读前，先看到的是样式，这属于第一印象。每个人都有不同的审美倾向，但我个人不太喜欢的就是类似&lt;a href=&#34;https://github.com/anzhiyu-c/hexo-theme-anzhiyu&#34;&gt;安知鱼&lt;/a&gt;和&lt;a href=&#34;https://78.al/&#34;&gt;Joe&lt;/a&gt;臃肿的设计风格（没有说用这两个主题的博客不好的意思，不要打我！！！）。&lt;/p&gt;&#xA;&lt;p&gt;我的观点是，样式的设计始终是为内容服务的，而博客最主要的内容一定是文章，文章。所以一些组件就是非必要的，所谓 Less is more, 博客主题的设计应该始终放在博客的本质：「你想说什么」上，其他东西都是&lt;strong&gt;锦上添花&lt;/strong&gt;，但把握不好就会成&lt;strong&gt;画蛇添足&lt;/strong&gt;！&lt;/p&gt;&#xA;&lt;h4 id=&#34;非必要的组件&#34;&gt;非必要的组件&lt;/h4&gt;&#xA;&lt;p&gt;某个主题默认引用了大量外部资源，访问速度很不稳定，点进来需要看博主的大头照一分钟左右，难道这是什么展示开屏页面的手段吗？侧边栏还有公告、音乐、舔狗日记、最近回复等等，看上去一幅百家争鸣的场面。还有我最不理解的：Joe主题的&lt;strong&gt;人生倒计时&lt;/strong&gt;。这让一个有时间焦虑的人非常难受啊！&lt;/p&gt;&#xA;&lt;p&gt;以上所述，还不能算是拉低访问体验的，最让人难受的是&lt;strong&gt;封面图&lt;/strong&gt;。&lt;/p&gt;&#xA;&lt;p&gt;有一些博客主题，专门给封面图很多存在感，而加载速度又极其慢，加载完成后又是和文章内容关联不大的通用插画，甚至有些博客的文章封面图干脆用通一张，个人认为该约一下分了！&lt;/p&gt;&#xA;&lt;p&gt;其他的看板娘、背景特效、音乐播放器等不在此过多赘述，已经成一个梗了：&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;感觉你是那种博客一打开就bgm响个不停、樱花飘屏、瞅瞎眼看不清和背景色颜色一致的字体、鼠标屏蔽右键、顶部挂春节已经过时的灯笼、谷歌广告多余博客文章、底部20多个山寨备案号、加载5分钟才能出来的 猪腰子皮鞋 蕾丝小白袜 短裙 张开双臂拥抱的二次元幼女背景&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;我认为，&lt;strong&gt;个人作品集&lt;/strong&gt;和&lt;strong&gt;博客&lt;/strong&gt;是有本质上的区别的。而且放上一堆根本不是自己写的东西，并不会觉得有多自豪。&lt;/p&gt;&#xA;&lt;p&gt;一些热门的开源样式在一百个博客中应用的概率，就和你在火车站上喊上一嗓子张伟有一堆人答应的概率一样大。这里我要引用一个有些可悲的例子：考场作文怎样博阅卷人欢心？答案是打破他的审美疲劳。而寻求新鲜感的前提条件，也就是博客样式设计的基本理念是：&lt;strong&gt;服务于内容&lt;/strong&gt;、&lt;strong&gt;主次分明&lt;/strong&gt;、&lt;strong&gt;少即是多&lt;/strong&gt;。&lt;/p&gt;&#xA;&lt;p&gt;话又说回来了，写博客不是上班，自己玩得开心最重要，但样式的选择和设计，更多的是审美和价值理念的双重体现。&lt;/p&gt;&#xA;&lt;h2 id=&#34;为什么我还在写博客&#34;&gt;为什么我还在写博客&lt;/h2&gt;&#xA;&lt;p&gt;这个问题一直被文字或图文创作者所津津乐道，大概理由会扯到短视频、思考、阅读的对比，并把短视频踩得一无是处，把文字和书籍捧上天，认为为那是通向成功的唯一途径。虽然我不刷短视频，但我认为搞拉踩不是好的行为，如果短视频真的一无是处它就不会存在。但在这里谈论短视频的问题，不如单独写成一篇文章。&lt;/p&gt;&#xA;&lt;p&gt;我的理由是：自由和酷，以及习惯。&lt;/p&gt;&#xA;&lt;p&gt;酷这词并不能准确表达那种状态，也许更多的是归属感和安全感共同作用所产生的自豪，「我有一片能自言自语的天地」的幼稚的优越感吧。&lt;/p&gt;&#xA;&lt;p&gt;我讨厌平台的审查机制、推送算法和编辑方式。中文互联网的审查机制非常&lt;strong&gt;幽默&lt;/strong&gt;，如果你在 Bing 国内版搜「谈笑风生」，就会有一幅非常诡异的画面——《新京报：领导人的漫画形象》《求是网：毛泽东耐人寻味的生日宴》《新民网：追忆江泽民同志在上海的日子》……&lt;/p&gt;&#xA;&lt;p&gt;另外，在平台上，几乎不会有人关心「我」，创作始终是围绕观众喜爱来的，从中脱离出来想写什么就写什么，这也是自由的体现。&lt;/p&gt;&#xA;&lt;p&gt;关于习惯，我这人有个毛病就是，一写东西就收不住，状态好了就能写好多，也许是与我说话罗嗦有关。但如果不多写几个字，怎么能准确地描述事件的起因、经过、结果等必不可少的东西呢？我在发朋友圈说什么事的时候经常写一大段字，和其他朋友上下几张图片的画风完全不相称，自己都觉得有些尴尬。&lt;/p&gt;&#xA;&lt;p&gt;有人就不喜欢写字，也不喜欢看字，只喜欢图片和视频，我能理解这种心情，这只是习惯问题。我选择写博客，只是因为我认为比起坐在镜头前一边拉手风琴一边说话，又要关注打光和背景等前期工作，又要关注剪辑和配乐等后期工作，还是写字的成本更低。&lt;/p&gt;&#xA;&lt;h2 id=&#34;总结&#34;&gt;总结&lt;/h2&gt;&#xA;&lt;p&gt;写了这么长时间博客，其实一开始只是抱着玩玩的心态，后来变得越来越认真了。表达和写作能力有提升吗？我感觉不到，但看到别人写得文章很好，一种奇妙的胜负欲和攀比心就会促使我学习得更多更深，继续写下去，既然做了，就做到底，做得更好吧！&lt;/p&gt;&#xA;</description>
-    </item>
-    <item>
-      <title>个人博客凭什么为你提供价值？</title>
-      <link>https://www.glowisle.me/posts/the-value-of-blog/</link>
-      <pubDate>Tue, 30 Sep 2025 22:25:35 +0800</pubDate><author>i@glowisle.me (五葉地錦)</author>
-      <guid>https://www.glowisle.me/posts/the-value-of-blog/</guid>
-      <description>&lt;p&gt;今天我在网上冲浪的时候，看见了一个收录博客的网站。收录的所有网站都是手动整理而来，并且对所谓博客的「价值」颇有一番见解，断章取义地引用了一段&lt;a href=&#34;https://www.zhihu.com/question/19990156/answer/206653231&#34;&gt;知乎用户的回答&lt;/a&gt;。原问题是回应关于个人博客的前途的，其中对博客的价值作出了一些判断。以下是原回答：&lt;/p&gt;&#xA;&lt;details&gt;&#xA;&lt;summary&gt;点击查看详细内容&lt;/summary&gt;&#xA;&lt;p&gt;我想来分析一下为什么很多个人博客&lt;/p&gt;&#xA;&lt;p&gt;无疾而终，没“前途”。&lt;/p&gt;&#xA;&lt;h2 id=&#34;对博客价值的根本性认识错误&#34;&gt;对博客价值的根本性认识错误&lt;/h2&gt;&#xA;&lt;p&gt;以为个人博客是用来抒发“个人情感和认识”的，这是最常见的认识错误。这是我的博客，我写什么都可以，而且还假设自己写了东西别人就会来看。&lt;/p&gt;&#xA;&lt;p&gt;没人在乎你情绪化的感情抒发，这对他们没多少用处。&lt;/p&gt;&#xA;&lt;p&gt;个人博客更好的定义，是你以个人的名义发表对别人有价值的内容。所以个人博客内容创作的出发点不是让别人来关注自己，而是让自己为别人服务。&lt;/p&gt;&#xA;&lt;p&gt;用博客内容为别人服务并不复杂，比如你写偏文章，介绍最近哪个店东西打折，只要你能把时间，地点，主体对象，促销力度等信息介绍清楚，就是一篇很有价值的博文。因为它对不少人有实际价值。&lt;/p&gt;&#xA;&lt;p&gt;相反，你洋洋洒洒写一通美文，说得尽是些神神叨叨自怨自艾的个人情绪，除了你妈爱看以外，对别人没多少价值。你想开个博客靠抒发个人情感而不为别人的生活增值，却盘算着博客能有前途，这是无知，自以为是的痴人说梦。&lt;/p&gt;&#xA;&lt;h2 id=&#34;没有质量的更新&#34;&gt;没有质量的更新&lt;/h2&gt;&#xA;&lt;p&gt;很多个人博主的注意力，只有更新，不断更新，最好每天更新。只要能“保持更新”，就无所不用其极，完全失去内容建设。&lt;/p&gt;&#xA;&lt;p&gt;需要的耐心。写文章就是随便胡诌两句，不用心，还让读者“随便看看，不喜勿爱”，甚至复制黏贴，采集抄袭，玩的都是些下三滥的手段。却还指望博客能有前途，真是消化&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;&#xA;&lt;p&gt;更新是重要的，但有比更新更重要的事。是“价值”。&lt;/p&gt;&#xA;&lt;p&gt;你写一篇优质的文章，哪怕是夏天室内防暑省电技巧大全，也会永远地存在于搜索引擎，会不断地有人访问，这篇文章会成为你的网站一个优质的lead。为你创造潜在的知名度，关注度，甚至带来物质利益。&lt;/p&gt;&#xA;&lt;p&gt;中国的博主相对国外的博主，最大的缺点就是没有耐心，没有耐心，什么都做不成。除非你相信一个个人博客可以短时间内成功，不用积累。&lt;/p&gt;&#xA;&lt;h2 id=&#34;不懂营销&#34;&gt;不懂营销&lt;/h2&gt;&#xA;&lt;p&gt;酒香也怕巷子深，况且你真有好酒，为什么不多做一点，让更多人知道你有好酒？&lt;/p&gt;&#xA;&lt;p&gt;太多博主以为自己写了东西，花了力气，回报自然回来。有的时候确实是这样，比如你写的东西正好是别人不怎么写的一个特别的领域，也就是说，竞争小，或者运气好，干脆就是一片蓝海。&lt;/p&gt;&#xA;&lt;p&gt;但这种机缘哪是人人都有？大部分人写的话题，都是很多人反复了不知道多少遍的，你写同一个主题的优势，无非是那是你自己独特的角度和构思，或者你的文字比别人用得好，讲故事有自己的风格，文章的结构超过他们，内容超过他们。&lt;/p&gt;&#xA;&lt;p&gt;但仅有这些是不够的。&lt;/p&gt;&#xA;&lt;p&gt;你得发现可能对你写的东西感兴趣的人群，把他们吸引过来，给他们一个机会理解你，也给你自己一个机会更好更快地走向成功。你得把营销看成一件正经事来做，不是让你去骗人，而是把好东西告诉需要知道的人。&lt;/p&gt;&#xA;&lt;p&gt;我举一个例子， 这是我自己的一个教别人学Javascript编程核心概念的小网站：&lt;a href=&#34;https://link.zhihu.com/?target=http%3A//itlr.cc&#34;&gt;http://itlr.cc&lt;/a&gt;。我确实花了一点时间去准备内容，主要是视频的，到目前卖了大概人民币4000块，几个月时间，其他收入加起来大概8000。这是不是很多钱，当然不是！&lt;/p&gt;&#xA;&lt;p&gt;我是不是在每天更新？没有，其实很久不更新了，但是微信上几乎每天都有人加。这网站有前途吗，有的，虽然谈不上大前途，但是发挥点工作外余热，自己也能学到东西。&lt;/p&gt;&#xA;&lt;p&gt;你也可以，但要用点心，真把它当件事情来做，要学习不骗人的营销。&lt;/p&gt;&#xA;&lt;p&gt;你会发现让一个网站有前途，是一件并不是很难的事。如果你没有耐心，是不会成功的。&lt;/p&gt;&#xA;&lt;/details&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;我今天挖一七年的坟，评判一下关于价值的观点。&lt;/p&gt;&#xA;&lt;h2 id=&#34;对博客价值的根本性认识错误-1&#34;&gt;对博客价值的根本性认识错误&lt;/h2&gt;&#xA;&lt;p&gt;我们来看看百度百科怎么描述「博客」：&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;许多博客专注在特定的课题上提供评论或新闻，其他则被作为个人性的日记。一个典型的博客结合了文字、图像、其他博客或网站的链接及其它与主题相关的媒体，能够让读者以互动的方式留下意见，是许多博客的重要要素。大部分的博客内容以文字为主，但仍有一些博客专注在艺术、摄影、视频、音乐、播客等各种主题&lt;/p&gt;&#xA;&lt;p&gt;……&lt;/p&gt;&#xA;&lt;p&gt;简言之，Blog就是以网络作为载体，简易迅速便捷地发布&lt;strong&gt;自己的心得&lt;/strong&gt;，及时有效轻松地与他人进行交流，再集丰富多彩的个性化展示于一体的综合性平台。&lt;/p&gt;&#xA;&lt;p&gt;……&lt;/p&gt;&#xA;&lt;p&gt;它可以是&lt;strong&gt;个人&lt;/strong&gt;纯粹的想法和心得，包括对时事新闻、国家大事的&lt;strong&gt;个人看法&lt;/strong&gt;，或者对一日三餐、服饰打扮的精心料理等&lt;/p&gt;&#xA;&lt;p&gt;它&lt;strong&gt;绝不仅仅&lt;/strong&gt;是纯粹个人思想的表达和日常琐事的记录，它所提供的内容可以用来进行交流&lt;strong&gt;和&lt;/strong&gt;为他人提供帮助，是可以包容整个互联网的，具有极高的共享精神和价值。&lt;/p&gt;&#xA;&lt;p&gt;……&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;日记、照片、诗歌、散文，甚至科幻小说的发表或张贴都有&lt;/strong&gt;。&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;以此可以证明，博客的创作题材非常自由。&lt;/p&gt;&#xA;&lt;p&gt;再来看回答的观点：&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;个人博客更好的定义，是你以个人的名义发表对别人有价值的内容。所以个人博客内容创作的出发点不是让别人来关注自己，而是让自己为别人服务。&#xA;……&#xA;相反，你洋洋洒洒写一通美文，说得尽是些神神叨叨自怨自艾的个人情绪，除了你妈爱看以外，对别人没多少价值。你想开个博客靠抒发个人情感而不为别人的生活增值，却盘算着博客能有前途，这是无知，自以为是的痴人说梦。&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;认为个人博客&lt;strong&gt;只能为别人服务&lt;/strong&gt;，&lt;strong&gt;无法帮助他人的内容就是无价值&lt;/strong&gt;。这是一个非常幽默的逻辑。&lt;strong&gt;个人&lt;/strong&gt;博客为什么要着力于为&lt;strong&gt;他人&lt;/strong&gt;提供价值？&lt;/p&gt;&#xA;&lt;p&gt;那么谁有权定义价值？流量数据？工具性？创作者的主体性？你定义的价值，是情感价值还是存在价值？既然其存在，为什么会无价值？&lt;/p&gt;&#xA;&lt;p&gt;按照博客导航站点的逻辑：「只收藏有价值的优秀博客」，其收录了以下这些情感类、个人生活类的博客，其观点就不攻自破了。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.chener.net/archives/headacheinAugust/&#34;&gt;头痛一个月 - 小陈故事&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://bwskyer.com/bye-man-bye-memory.html&#34;&gt;别了，那些人，再见，那些记忆 - 生活的左上角&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;如果用知乎回答的观点：「谁想知道你头怎么样？谁想知道你跟虾米音乐有什么故事？&lt;strong&gt;除了你妈爱看以外，对别人没多少价值。&lt;/strong&gt;」&lt;/p&gt;&#xA;&lt;p&gt;这显然功利无情，完全背离了博客的初衷，将博客完全定义成为他人服务的工具，拒绝了自身需要的情感表达，否认了生活类以及情感类博客的意义，偏激不可取。&lt;/p&gt;&#xA;&lt;h2 id=&#34;情感类博客没有价值&#34;&gt;情感类博客没有价值？&lt;/h2&gt;&#xA;&lt;p&gt;只有实用价值才配被称作价值吗？显然不可能。&lt;/p&gt;&#xA;&lt;p&gt;所有人的声音都值得被听见，在博客这样一个如此纯粹的表达空间里，依然被所谓的价值捆绑，如果所谓的价值、前途就是「钱途」，那你大可去写那一种微信公众号——图文版抖音、吸引眼球博流量、话说一半的标题党、图文无关的封面党，并且在文章头部、正文里、结尾，甚至评论区都挂上广告，当「流量主」，稳定获取收益。&lt;/p&gt;&#xA;&lt;p&gt;写一篇实用性的文章帮助读者，是作者和读者的双向链接，而写情感类文章找到共鸣者，同样是双向链接，且比前者更牢固。这就好比你家厕所水管漏水，在外面找了一个修水管的工人，他干完活拿钱走人，过两天你会记得他吗？你只会记得你家厕所冲水真顺畅。这是实用价值。&lt;/p&gt;&#xA;&lt;p&gt;但如果当时你给他接了杯水，递了根烟，扯闲天的时候发现大家都是大老远从家跑过来，在外打拼的苦人，甚至有可能是老乡或同好，你们留了联系方式，卖命之余能一起抱怨身边的烂人烂事。共鸣共鸣，频率相同才有共鸣 —— 这就是情感共鸣带来的链接的牢固性，能让你觉得：「哦，原来不止我一个人这样。」这是情感价值。这也是除了「夏天室内防暑省电技巧大全」以外，有质量的更新。&lt;/p&gt;&#xA;&lt;p&gt;我从早期结构一盘散沙的各种文章，到如今结构极其松散的各种文章；从痛恨Linux，到向往Linux，到沉迷Linux，对各种事物理解的转变……改变不大，但那是自己坚实的脚印，看到自我成长，这是博客的自我价值。&lt;/p&gt;&#xA;&lt;p&gt;所以，不要被所谓的价值禁锢了，想写就写，不要不敢写。更不需要强行营销，重要的是保持博客的纯粹性。打这种功利主义者的脸，最好的方法就是&lt;strong&gt;坚持写下去，顽强地写下去&lt;/strong&gt;，写他们认为没有价值的东西，笔耕不辍，生生不息。&lt;/p&gt;&#xA;&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;&#xA;&lt;hr&gt;&#xA;&lt;ol&gt;&#xA;&lt;li id=&#34;fn:1&#34;&gt;&#xA;&lt;p&gt;未修改原文用词。可能是「笑话」。&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;/div&gt;</description>
-    </item>
-    <item>
-      <title>文字所承载的东西能跨越时空</title>
-      <link>https://www.glowisle.me/posts/what-is-carried-by-words-can-transcend-time-and-space/</link>
-      <pubDate>Fri, 29 Aug 2025 22:18:20 +0800</pubDate><author>i@glowisle.me (五葉地錦)</author>
-      <guid>https://www.glowisle.me/posts/what-is-carried-by-words-can-transcend-time-and-space/</guid>
-      <description>&lt;h2 id=&#34;模糊&#34;&gt;模糊&lt;/h2&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;文字永远只是形式，而文字所承载的东西，才是可以跨越时空的存在。&lt;/p&gt;&#xA;&lt;p&gt;—— &lt;a href=&#34;https://onojyun.com/2025/08/13/%E7%88%B1%E7%9A%84%E6%88%90%E6%96%87%E8%AF%97/&#34;&gt;&lt;em&gt;爱的成文诗 | 莫比乌斯&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;跨越时空这个词，我第一次读来愣了一下。有一种「念天地之悠悠」，发觉自己渺小的感觉，但「独怆然而涕下」到不至于，因为我还没有那么有才华，到不了怀才不遇的悲怆。反而是一种模糊的，缓缓流动的感伤和无奈。&lt;/p&gt;&#xA;&lt;p&gt;不用说十四年，两个月前的记忆都是模糊的。我写的一篇类似日记的文章&lt;a href=&#34;https://www.yingyu5658.me/post/jottings/%E4%BA%BA%E7%94%9F%E4%B8%AD%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%A4%A7%E8%80%83/&#34;&gt;《人生中第一次大考》&lt;/a&gt;记录了我在会考那一天发生的事。整篇都流露着一股淡淡的死感&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;，和现在的情感差异比较大，主要还是上学导致的。&lt;/p&gt;&#xA;&lt;p&gt;现在想想，那天发生的，只有几个画面和模糊的感觉，比如我在车里看到站在外面被太阳暴晒的同学、还有那天真的很热、考点教室很干净。都是不连贯的一幅一幅画面。不过还是要感谢当时的我，写下了那些文字，不然今天连可供回忆的素材都没有。我现我还记得《爱情公寓》里，有角色说过这样一句话，好像是曾小贤吧：&lt;/p&gt;&#xA;&lt;p&gt;「能证明我活过的就只有沙发上的屁股印了！」&lt;/p&gt;&#xA;&lt;p&gt;可惜，我房间里还没有沙发。但是我在网上无病呻吟了很多文字&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;，应该能保存一段时间，证明我活过。我以前也比较喜欢在朋友圈发点东西，但那些表述相对浅显。而且一旦有确切可预测的「观众」，就难以避免地带有夸张和表演情绪，但喜欢在朋友圈表演，也是自我的一个阶段。&lt;/p&gt;&#xA;&lt;details&gt;&#xA;&lt;summary&gt;&lt;s&gt;现在&lt;/s&gt;&lt;/summary&gt;&#xA;&lt;img src=&#34;https://images.glowisle.me/what-is-carried-by-words-can-transcend-time-and-space-wechat.webp&#34;&gt;&#xA;说真的，可能是我的社交圈子问题吧，我当初就不太应该加那么多人的微信。我感觉我的朋友圈里有不少不太正常的人。&#xA;&lt;/details&gt;&#xA;&lt;p&gt;虽然扫一扫在右上角的加号也能打开，但是我还是留下来了，因为我怕我手贱去点设置，打开朋友圈。虽然打开了也无妨，我已经完全把朋友圈这个功能封闭起来了，不看任何人的朋友圈，任何人不能看我的朋友圈。能减少很多看别人营造出来的完美生活的焦虑。&lt;/p&gt;&#xA;&lt;p&gt;我最后一次发朋友圈是在七月三日。近一年左右，我很喜欢发画。手绘，板绘，甚至是一些画得很垃圾的速写。还有一些博客的文章，我会把阴阳怪气，又或是直抒胸臆骂老师引起公愤行为的文章贴在朋友圈。也许没什么人看，但是看的人，应该会觉得出了一口气吧。&lt;/p&gt;&#xA;&lt;p&gt;现实中也有几个同学知道我的博客，有一位还在我当时证书到期的时候提醒过我，甚至跟我探讨过文章里的内容，也许他最近还在看我的博客。从之前网站出问题的时候他发现并提醒，可以推断出他大概是有看这个博客的习惯的。&lt;/p&gt;&#xA;&lt;h2 id=&#34;记录&#34;&gt;记录&lt;/h2&gt;&#xA;&lt;p&gt;一切记录都是有意义的。无论是朋友圈、说说，还是一篇日记，一篇长篇大论的文章，一切记录都是有意义的。&lt;/p&gt;&#xA;&lt;p&gt;我最近在构思博客一周年的总结文章，但还有两个月才算狭义上的一周年。但我前两天跟一位朋友复盘过我们的聊天记录，他所保存的最早的，有关「博客」这个关键词的聊天记录来自2023年9月10日，我当时搭建好了一个网站，邀请他来看看。但当时我还没有什么写作能力，搭建完了就搁置了。虽然现在也没有写作能力，但是起码能人模狗样的把话说出来。&lt;/p&gt;&#xA;&lt;p&gt;他把聊天记录转发过来的时候，我很震惊，因为23年9月，我刚刚升入初中。&lt;/p&gt;&#xA;&lt;p&gt;一切主观的记忆都是会随着时间的流逝，和自己的反复咀嚼、品味而被篡改的。关于23年9月搭建博客的记忆甚至没有模糊的过程，直接就被忘却了，需要提供一个锚点来回忆。我使用了那个域名作为「锚点」，那是一个国外托管网站的免费域名，于是我借着这个，回想起了一个模糊的，甚至是第三人称的画面，也有当时的感觉：对这件事一知半解，觉得有点难。&lt;/p&gt;&#xA;&lt;p&gt;那是唯一在我大脑中保存下来的回忆了。&lt;/p&gt;&#xA;&lt;p&gt;另一个让我震惊的事情是，我印象中我是在2024年11月，才开始了我认为能被称为博客的写作，但23年就有记录。当时我用的是Gmeek&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;，把语文作业里写的自认为不错的小短文贴上去了，那篇文章还被老师表扬了，说是很有感染力。具体写的是什么已经无从考证，但是我印象中有一句话：「夕阳是太阳的尸体。」这种悲观甚至有点中二的看法，竟然会被老师表扬。于是这个事成为了我对「写博客」相关回忆的锚点。但很可惜的是，那篇文章已经因为几次博客搬家丢失。&lt;/p&gt;&#xA;&lt;p&gt;回看自己写的文字，是一个重视自我的过程。可能会从中看到这中二、偏激、幼稚、尴尬、羞耻，一旦有了这些情绪，那就证明自己是有进步的。我认为这也是文字的优越性。无论是什么样的自己，都有亲手记录下的价值。&lt;/p&gt;&#xA;&lt;p&gt;这也是证明「我是我」的一个手段。&lt;/p&gt;&#xA;&lt;p&gt;怎么才能证明我是我？是我的长相，还是我的穿衣风格，还是我的人际关系？&lt;/p&gt;&#xA;&lt;p&gt;我觉得是我写下的这些文字。&lt;/p&gt;&#xA;&lt;p&gt;无论是偏激的，还是幼稚的，都是当时自己意识的速写。脸可以被毁容，也可以整容；夏天穿短袖，冬天穿长袖；毕业了同学就几乎没任何联系。只有文字才能证明「我」的存在，它是一个人流动的意识和思想的直接抽象。比其它形式更入木三分。虽然根据开头所引用，文字只是形式，但它承载的飘渺却又厚重的东西，对每个人来说都是独一无二的，是一场与自己跨越时空的对话；而在别人看来，每一个字符都是作者精神的直接投射，能从一篇篇文章中拼凑出完整的形象。&lt;/p&gt;&#xA;&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;&#xA;&lt;hr&gt;&#xA;&lt;ol&gt;&#xA;&lt;li id=&#34;fn:1&#34;&gt;&#xA;&lt;p&gt;非医学意义。&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li id=&#34;fn:2&#34;&gt;&#xA;&lt;p&gt;目前已经在此博客唧唧歪歪了85173字。&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li id=&#34;fn:3&#34;&gt;&#xA;&lt;p&gt;Gmeek，一个完全基于 Github Pages、Github Issues 和 Github Actions 的个人博客模板。详见 &lt;a href=&#34;https://github.com/Meekdai/Gmeek&#34;&gt;https://github.com/Meekdai/Gmeek&lt;/a&gt;.&amp;#160;&lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;/div&gt;&#xA;</description>
-    </item>
-    <item>
-      <title>这样的博客的意义是？</title>
-      <link>https://www.glowisle.me/posts/%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E5%8A%A0%E5%AF%86%E7%A0%81%E7%9A%84%E6%84%8F%E4%B9%89%E6%98%AF/</link>
-      <pubDate>Mon, 19 May 2025 21:53:10 +0000</pubDate><author>i@glowisle.me (五葉地錦)</author>
-      <guid>https://www.glowisle.me/posts/%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E5%8A%A0%E5%AF%86%E7%A0%81%E7%9A%84%E6%84%8F%E4%B9%89%E6%98%AF/</guid>
-      <description>&lt;h2 id=&#34;博客文章的密码&#34;&gt;博客文章的密码&lt;/h2&gt;&#xA;&lt;p&gt;博客文章加密码，意义何在？&lt;/p&gt;&#xA;&lt;p&gt;写博客的意义是？&lt;/p&gt;&#xA;&lt;p&gt;写博客的意义之一，不是放大自己的声音，表达自己的观点吗？&lt;/p&gt;&#xA;&lt;p&gt;这就要牵扯到你写博客的目的。如果你说，你写博客是为了取悦自己，那为什么要把文章发出来？取悦自己是真的吗？还是对自己网站没有流量的自我安慰？不允许他人看见，那我只能认为您财力精力都很强盛，有财力购买服务器、主题；有精力维护服务器、网站。为什么不写在备忘录里呢？&lt;/p&gt;&#xA;&lt;p&gt;发出来，不是为了被人看见？&lt;/p&gt;&#xA;&lt;p&gt;还是说，是在扮演什么角色、人设给什么人看？&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;我个人一直十分痛恨各大平台的强制注册手段，复制代码要注册、展开文章要注册，打开评论区还要注册。所以在我一开始使用动态博客程序的时候，从来没想过有强迫读者注册才能评论。&lt;/p&gt;&#xA;&lt;p&gt;这个问题依然要归结到写博客的意义。如果你写博客，是为了变现，利用在各个博客的评论区乱尿增加的一点SEO权重带来的可怜流量，和不知道从哪里抄搬来的技术文章，连格式都不调一下就挂在网站上又或是分享一大堆所谓免费资源，引流关注微信公众号的，强迫注册，为了赚钱，不寒碜。吗？&lt;/p&gt;&#xA;&lt;p&gt;很他妈寒碜！&lt;/p&gt;&#xA;&lt;p&gt;读者吃着你搬来的别人拉的屎，又要被你骗去你自建的茅房，这钱就算拿到，也是脏的，好好掂量一下这钱里都有什么。&lt;/p&gt;&#xA;&lt;p&gt;如果是正常的博客，要强迫读者注册才可评论，查看文章，那更令人费解。技术文章下，读者遇到了问题，或想更近一步讨论；表达观点、分享日常的文章下，读者看到一个有趣的灵魂，一个，强迫注册，都无异于直接抹杀读者讨论的念头。输入邮箱或手机号，接收验证码、输入验证码，再登录。加之服务器地理位置、配置等原因导致的访问不畅，每一秒所做的每一个行为，都是在一丝丝抽离由文字与读者建立起的联系。&lt;/p&gt;&#xA;&lt;p&gt;最后，只能说上一句：&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;我写博客只为取悦自己。&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;</description>
-    </item>
-    <item>
-      <title>Valine评论系统踩坑记录</title>
-      <link>https://www.glowisle.me/posts/valine%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/</link>
-      <pubDate>Wed, 23 Apr 2025 21:54:03 +0000</pubDate><author>i@glowisle.me (五葉地錦)</author>
-      <guid>https://www.glowisle.me/posts/valine%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/</guid>
-      <description>&lt;p&gt;我个人很早以前就惦记着换上这个评论系统，曾经使用Butterfly主题的时候就有折腾过Valine，当时是浏览器缓存策略和CORS跨域拦截的问题。网上能找到的教程都比较老，几年以前的情况不再适用于现在了，所以现在去折腾的话，大概率要踩非常多的坑。本文主要讲述我个人踩到的坑和解决方法。&lt;/p&gt;&#xA;&lt;p&gt;本文内容是我自己试错出来的，不要问为什么要这么做，我也不清楚，但是这么做可以正常使用！&lt;/p&gt;&#xA;&lt;p&gt;首先你要有一个自己的域名，不要用.github.io。LeanCloud中设置-域名绑定-API访问域名要绑定你自己的二级域。&lt;/p&gt;&#xA;&lt;p&gt;&lt;figure class=&#34;image-caption&#34;&gt;&#xA;    &lt;img src=&#34;https://images.glowisle.me/image-20250423220150404.webp&#34; alt=&#34;&#34;&gt;&#xA;    &lt;figcaption&gt;&lt;/figcaption&gt;&#xA;&lt;/figure&gt;&lt;/p&gt;&#xA;&lt;p&gt;这里一定一定要做DNS解析，非常重要。&lt;/p&gt;&#xA;&lt;p&gt;然后就是安全中心里面的Web安全域名，LeanCloud默认放行localhost，但是127.0.0.1我这边测试是不行的，如果有需求要自己填写。Web安全域名要填写https、http两种协议保险。&lt;/p&gt;&#xA;&lt;p&gt;主题配置文件中，以我这个主题为例，serverURLs要填写自己的二级域名&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#e06c75&#34;&gt;serverURLs&lt;/span&gt;: https://comment.yingyu5658.me&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;一定要加协议头，否则将会在你的博客域名下构建请求，比如我的&lt;code&gt;www.yingyu5658.me/comment.yingyu5658.me/&lt;/code&gt;，这将导致报错。即使你使用国际版也要填写这一项！Leancloud请求不到。&lt;/p&gt;&#xA;&lt;p&gt;现在Valine的教程都有过时，遇到问题还需结合具体情况分析。我看LeanCloud的各种API结构变更还挺多的，太久远的教程就不建议看了。&lt;/p&gt;&#xA;</description>
-    </item>
-    <item>
-      <title>【无废话】全网最简单的Hexo+Obsidian图片解决方案</title>
-      <link>https://www.glowisle.me/posts/%E6%97%A0%E5%BA%9F%E8%AF%9D%E5%85%A8%E7%BD%91%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84hexo+obsidian%E5%9B%BE%E7%89%87%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</link>
-      <pubDate>Wed, 05 Mar 2025 21:17:42 +0000</pubDate><author>i@glowisle.me (五葉地錦)</author>
-      <guid>https://www.glowisle.me/posts/%E6%97%A0%E5%BA%9F%E8%AF%9D%E5%85%A8%E7%BD%91%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84hexo+obsidian%E5%9B%BE%E7%89%87%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</guid>
-      <description>&lt;p&gt;把Hexo博客根目录用黑曜石打开，如果已经打开了仓库&#xA;&lt;figure class=&#34;image-caption&#34;&gt;&#xA;    &lt;img src=&#34;https://images.glowisle.me/Pasted%20image%2020250305215423.webp&#34; alt=&#34;&#34;&gt;&#xA;    &lt;figcaption&gt;&lt;/figcaption&gt;&#xA;&lt;/figure&gt;&#xA;在弹出的窗口中选第二个。&lt;/p&gt;&#xA;&lt;p&gt;在source目录下新建images文件夹用于存放图片&#xA;设置 =&amp;gt; 文件与链接 =&amp;gt; 附件默认存放路径：选择指定的附件文件夹。路径填写刚刚创建的image文件夹的相对路径&#xA;取消使用Wiki链接&#xA;注意。由于我的文件结构是这样的所以这么填写，要&lt;strong&gt;根据自己的文件结构填写相对路径&lt;/strong&gt;。&#xA;&lt;figure class=&#34;image-caption&#34;&gt;&#xA;    &lt;img src=&#34;https://images.glowisle.me/Pasted%20image%2020250305215642.webp&#34; alt=&#34;&#34;&gt;&#xA;    &lt;figcaption&gt;&lt;/figcaption&gt;&#xA;&lt;/figure&gt;&#xA;搞定，同时可以在本地编辑环境和博客网站中显示。&lt;/p&gt;&#xA;</description>
-    </item>
-    <item>
-      <title>记录Typecho博客转移到Hexo</title>
-      <link>https://www.glowisle.me/posts/4/</link>
-      <pubDate>Mon, 03 Mar 2025 15:40:00 +0800</pubDate><author>i@glowisle.me (五葉地錦)</author>
-      <guid>https://www.glowisle.me/posts/4/</guid>
-      <description>&lt;h1 id=&#34;前言&#34;&gt;前言&lt;/h1&gt;&#xA;&lt;p&gt;折腾来折腾去，最后发现归宿还是静态博客，安全性高、性能开销小，用Github直接省去服务器费用还差不多永生。每年把域名钱交了就得了，图片的问题再想想办法，总能解决的。&#xA;&lt;del&gt;突然有一种为了躲避战乱带着一家人四处奔波的悲凉感&lt;/del&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;分析&#34;&gt;分析&lt;/h1&gt;&#xA;&lt;p&gt;博客网站的内容，都可以拆分为以下几个点：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;文章&lt;/li&gt;&#xA;&lt;li&gt;评论&lt;/li&gt;&#xA;&lt;li&gt;文章插图&lt;/li&gt;&#xA;&lt;li&gt;网站贴图资源&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;先从最主要的文章开始，想想有没有什么可以用的。&#xA;gitee上有一个&lt;a href=&#34;https://gitcode.com/gh_mirrors/ty/Typecho-Plugin-Tp2MD&#34;&gt;插件&lt;/a&gt;，看起来好像有点用，折腾安装一下试试先。&lt;/p&gt;&#xA;&lt;h1 id=&#34;tp2md插件迁移文章&#34;&gt;Tp2MD插件迁移文章&lt;/h1&gt;&#xA;&lt;p&gt;远程登录服务器，把本地下号的zip传到服务器上并解压。&#xA;cd到插件目录&#xA;&lt;code&gt;/usr/share/nginx/html/usr/plugins&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;解压压缩包&#xA;&lt;code&gt;unzip Typecho-Plugin-Tp2MD-master.zip&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;重命名为插件的自述文件要求的名称&#xA;&lt;code&gt;mv Typecho-Plugin-Tp2MD-master Tp2MD&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;登录网站后台，启用插件。点击插件的设置，保存后按照教程访问。&#xA;这里提示&lt;code&gt;不能写入文件，请检查 cache 文件夹权限！&lt;/code&gt;，我们在插件目录设置一下权限&#xA;&lt;code&gt;sudo chmod -R 777 cache&lt;/code&gt;a&#xA;注意是这个插件目录下的cache！！&lt;/p&gt;&#xA;&lt;p&gt;提示导出成功，cd到这个目录，把文件压缩下载下来查看&#xA;可能是因为我有的文章点了多篇分类，导出文件夹有点问题，无所谓，后期再调，拿到了就行。至此，文章部分搞定！&lt;/p&gt;&#xA;&lt;h1 id=&#34;评论&#34;&gt;评论&lt;/h1&gt;&#xA;&lt;p&gt;评论这里，我折腾了两天，尝试尽了各种方案（Disqus Valine Waline Utterances Twikoo Atalk），最后还是选择了Giscus。我也知道这样读者没有github就没办法发评论，但是其他几种方案都会出现各种奇奇怪怪且无法解决的问题比如Cloudflare拦截、CORS出毛病、服务器被墙以及莫名其妙404、403。我真的尽力了。&lt;/p&gt;&#xA;&lt;h1 id=&#34;文章插图&#34;&gt;文章插图&lt;/h1&gt;&#xA;&lt;h2 id=&#34;转移图片文件&#34;&gt;转移图片文件&lt;/h2&gt;&#xA;&lt;p&gt;进入&lt;code&gt;/usr/uploads/&lt;/code&gt;，压缩下载图片&lt;/p&gt;&#xA;&lt;p&gt;重组Hexo图片目录：复制所有图片到Hexo的&lt;code&gt;source/images/&lt;/code&gt;目录。&lt;/p&gt;&#xA;&lt;p&gt;手动替换图片路径 ，注意，静态资源解析默认以source为根目录，所以直接写以source为根目录的绝对路径就行。&lt;/p&gt;&#xA;&lt;h1 id=&#34;部署到vercel加速访问&#34;&gt;部署到vercel加速访问&lt;/h1&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;注册vercel账号&lt;/li&gt;&#xA;&lt;li&gt;创建项目，关联仓库&lt;/li&gt;&#xA;&lt;li&gt;域名解析&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;2025.3.3，博客全部迁移完毕，粗略累计用时六天，一直没什么时间搞，耗时最长的还是在评论系统上的试错。&lt;/p&gt;&#xA;</description>
-    </item>
-    <item>
-      <title>网站迁移</title>
-      <link>https://www.glowisle.me/posts/6/</link>
-      <pubDate>Thu, 21 Nov 2024 22:59:00 +0000</pubDate><author>i@glowisle.me (五葉地錦)</author>
-      <guid>https://www.glowisle.me/posts/6/</guid>
-      <description>&lt;p&gt;原网站&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;yingyu5658.github.io&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;将会迁移到这里。我会把有价值的文章转过来&#xA;原因仅仅是gmeek有点太简陋了，虽然typecho也差不多，不过他可以折腾一下主题之类的，并且我每个月还多花出去九十大洋。但是总比gmeek逼格高点吧。&#xA;不得不说，Linux绝对是世界上最麻烦的玩意，解压下载文件都费劲。要不是Windows资源占用多我绝对不会去用这玩意。&#xA;这次可是孤军奋战，背后没有github服务器的靠山了。要是忘了续费服务器我会丢失所有的文章，又是一个负担和一个纠结的点&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;2025.8.24二编：Gmeek简直太符合博客的定位了，不花里胡哨，完全够用，有网就能写文章&amp;hellip;&amp;hellip;&lt;/p&gt;&#xA;&lt;p&gt;Linux太好用了，目前Debian12养老中。&lt;/p&gt;&#xA;&lt;p&gt;回看以前的自己实在是蠢。&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>博客 on 映屿</title><link>https://www.glowisle.me/tags/%E5%8D%9A%E5%AE%A2/</link><description>Recent content in 博客 on 映屿</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>i@glowisle.me (五葉地錦)</managingEditor><webMaster>i@glowisle.me (五葉地錦)</webMaster><lastBuildDate>Fri, 05 Dec 2025 17:22:22 +0800</lastBuildDate><atom:link href="http://www.glowisle.me/tags/%E5%8D%9A%E5%AE%A2/atom.xml" rel="self" type="application/rss+xml"/><item><title>一次对Webmention的探索</title><link>https://www.glowisle.me/posts/exploring-webmention/</link><pubDate>Fri, 05 Dec 2025 17:22:22 +0800</pubDate><author>i@glowisle.me (五葉地錦)</author><guid>https://www.glowisle.me/posts/exploring-webmention/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;Webmention is a simple way to notify any URL when you link to it from your site.&lt;/p&gt;
+&lt;p&gt;It is an open web standard (W3C Recommendation) for conversations and interactions across the web, a powerful building block used for a growing distributed network of peer-to-peer comments, likes, reposts, and other responses across the web.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Webmention 是一种开放网络标准（W3C推荐标准），用于在链接到某个网址时，自动向该网址发送通知。它是构成分布式网络的基础组件，支持跨网站的点对点评论、点赞、转发等多种互动。&lt;/p&gt;
+&lt;p&gt;在 &lt;a href="https://www.glowisle.me/posts/tear-hypocrisy-apart/"&gt;上一篇文章&lt;/a&gt; 写完后，我开始寻找更合适的评论方案。Webmention这个看起来古老，但又超前的形式很快引起了我的兴趣。「去中心化」这个词貌似对我有什么魔力，就比如Mastodon，比Twitter更吸引我。&lt;/p&gt;
+&lt;p&gt;我很想试试用Go手搓一套收发系统，但时间并不充裕，正巧&lt;a href="https://webmention.io"&gt;webmention.io&lt;/a&gt;提供现成的服务和&lt;a href="https://indielogin.com/setup"&gt;详细的文档&lt;/a&gt;，那就跟着文档配置吧。&lt;/p&gt;
+&lt;h2 id="验证与接收"&gt;验证与接收&lt;/h2&gt;
+&lt;p&gt;教程提供了多种验证方案，这里使用最简便的Github. 只要在网站的首页挂上一个链接，指向用户档案页：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;lt;&lt;span style="color:#e06c75"&gt;a&lt;/span&gt; &lt;span style="color:#e06c75"&gt;href&lt;/span&gt;&lt;span style="color:#56b6c2"&gt;=&lt;/span&gt;&lt;span style="color:#98c379"&gt;&amp;#34;https://github.com/example&amp;#34;&lt;/span&gt; &lt;span style="color:#e06c75"&gt;rel&lt;/span&gt;&lt;span style="color:#56b6c2"&gt;=&lt;/span&gt;&lt;span style="color:#98c379"&gt;&amp;#34;me&amp;#34;&lt;/span&gt;&amp;gt;github.com/example&amp;lt;/&lt;span style="color:#e06c75"&gt;a&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果不想让它可见，也可以设置为一个`&lt;link&gt;：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;lt;&lt;span style="color:#e06c75"&gt;link&lt;/span&gt; &lt;span style="color:#e06c75"&gt;href&lt;/span&gt;&lt;span style="color:#56b6c2"&gt;=&lt;/span&gt;&lt;span style="color:#98c379"&gt;&amp;#34;https://github.com/example&amp;#34;&lt;/span&gt; &lt;span style="color:#e06c75"&gt;rel&lt;/span&gt;&lt;span style="color:#56b6c2"&gt;=&lt;/span&gt;&lt;span style="color:#98c379"&gt;&amp;#34;me&amp;#34;&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;figure class="image-caption"&gt;
+ &lt;img src="https://images.glowisle.me/2025-12-05_18-26.png" alt="作为验证，你需要在Github主页中包含你的网站"&gt;
+ &lt;figcaption&gt;作为验证，你需要在Github主页中包含你的网站&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;这里我部署后回退了一下网页就弹出来Github APP 认证请求了，大概需要刷新网页或打开Github？&lt;/p&gt;
+&lt;p&gt;这样，访问之后页面中提供的链接，就可以看到别人发送的Webmention了。&lt;/p&gt;
+&lt;h2 id="渲染"&gt;渲染&lt;/h2&gt;
+&lt;p&gt;在网页中添加link&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;lt;&lt;span style="color:#e06c75"&gt;link&lt;/span&gt; &lt;span style="color:#e06c75"&gt;rel&lt;/span&gt;&lt;span style="color:#56b6c2"&gt;=&lt;/span&gt;&lt;span style="color:#98c379"&gt;&amp;#34;webmention&amp;#34;&lt;/span&gt; &lt;span style="color:#e06c75"&gt;href&lt;/span&gt;&lt;span style="color:#56b6c2"&gt;=&lt;/span&gt;&lt;span style="color:#98c379"&gt;&amp;#34;https://webmention.io/你的用户名/webmention&amp;#34;&lt;/span&gt; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;我使用&lt;a href="https://github.com/PlaidWeb/webmention.js"&gt;webmention.js&lt;/a&gt;，根据说明文档，可以复制仓库中的&lt;code&gt;/static/webmention.min.js&lt;/code&gt;到博客的&lt;code&gt;/static/js/webmention.min.js&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;在评论框下方提供一个容器&lt;code&gt;&amp;lt;div id=&amp;quot;webmentions&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&lt;/code&gt;，并引用脚本&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;lt;&lt;span style="color:#e06c75"&gt;div&lt;/span&gt; &lt;span style="color:#e06c75"&gt;id&lt;/span&gt;&lt;span style="color:#56b6c2"&gt;=&lt;/span&gt;&lt;span style="color:#98c379"&gt;&amp;#34;webmentions&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style="color:#e06c75"&gt;div&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;lt;&lt;span style="color:#e06c75"&gt;script&lt;/span&gt; &lt;span style="color:#e06c75"&gt;src&lt;/span&gt;&lt;span style="color:#56b6c2"&gt;=&lt;/span&gt;&lt;span style="color:#98c379"&gt;&amp;#34;/js/webmention.min.js&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e06c75"&gt;data-id&lt;/span&gt;&lt;span style="color:#56b6c2"&gt;=&lt;/span&gt;&lt;span style="color:#98c379"&gt;&amp;#34;webmentions&amp;#34;&lt;/span&gt; // &lt;span style="color:#e06c75"&gt;与容器id匹配&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e06c75"&gt;data-page-url&lt;/span&gt;&lt;span style="color:#56b6c2"&gt;=&lt;/span&gt;&lt;span style="color:#98c379"&gt;&amp;#34;https://yourdomain.com/当前文章永久链接&amp;#34;&lt;/span&gt; // &lt;span style="color:#e06c75"&gt;建议使用&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e06c75"&gt;data-max-webmentions&lt;/span&gt;&lt;span style="color:#56b6c2"&gt;=&lt;/span&gt;&lt;span style="color:#98c379"&gt;&amp;#34;50&amp;#34;&lt;/span&gt; // &lt;span style="color:#e06c75"&gt;最多显示数量&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e06c75"&gt;data-wordcount&lt;/span&gt;&lt;span style="color:#56b6c2"&gt;=&lt;/span&gt;&lt;span style="color:#98c379"&gt;&amp;#34;30&amp;#34;&lt;/span&gt; // &lt;span style="color:#e06c75"&gt;回复预览最大字数&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e06c75"&gt;data-sort-by&lt;/span&gt;&lt;span style="color:#56b6c2"&gt;=&lt;/span&gt;&lt;span style="color:#98c379"&gt;&amp;#34;published&amp;#34;&lt;/span&gt; // &lt;span style="color:#e06c75"&gt;按照发布时间排序&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e06c75"&gt;data-sort-dir&lt;/span&gt;&lt;span style="color:#56b6c2"&gt;=&lt;/span&gt;&lt;span style="color:#98c379"&gt;&amp;#34;up&amp;#34;&lt;/span&gt; // &lt;span style="color:#e06c75"&gt;时间升序&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e06c75"&gt;async&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;lt;/&lt;span style="color:#e06c75"&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Hugo用户在永久链接上可以使用：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;data-page-url=&amp;#34;https://yourdomain.com{{ .RelPermalink }}&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;为了本地测试，使用相对链接的变量拼接。脚本会对API发送请求，如果拿到的数据是空的，则会把最终的HTML输出为一个空字符串，所以刚开始看不到输出是正常的。大概写点CSS就可以正常投入使用了。&lt;/p&gt;
+&lt;h2 id="对webmention的看法"&gt;对Webmention的看法&lt;/h2&gt;
+&lt;p&gt;我认为Webmention是一种很像友情链接的互惠模式，优于在评论区下方留下链接的形式。续上上一篇文章的话题，这样不仅促成高质量的互动，也能丰富自己的写作素材，分量应该重于评论区链接的手段。就像上一篇文章的结尾所说，利人利己，何乐而不为呢？&lt;/p&gt;
+&lt;p&gt;虽然这种模式的普及程度不高，但我相信去中心化会称为互联网的新趋势。开放、互联才能称为「互联网」。&lt;/p&gt;
+&lt;p&gt;我通过一些Webmention，一条一条顺藤摸瓜也找到了很多有趣的博客。我准备有时间优化渲染格式，可能也会研究一点桥接的功能，不过还是要保持博客一贯的简洁风格。当然，要先有人回应才有数据拿来渲染，欢迎大家使用Webmention参与互动！&lt;/p&gt;</description></item><item><title>那种虚伪的互动和友善，赶快把它撕破吧！</title><link>https://www.glowisle.me/posts/tear-hypocrisy-apart/</link><pubDate>Thu, 04 Dec 2025 16:15:36 +0800</pubDate><author>i@glowisle.me (五葉地錦)</author><guid>https://www.glowisle.me/posts/tear-hypocrisy-apart/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;本文使用了一些带有攻击性的词汇，言论风格尖锐，介意者谨慎阅读。&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;本来想随便写写近期的事，写到网站最近的变化，写到了评论区的问题，越写越多，单独开一篇文章来说说吧。有时候觉得自己像个愤青一样，或者就是个愤青，整天喷天怼地的，应该平和点，不过实在不吐不快。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="给评论区做减法"&gt;给评论区做减法&lt;/h2&gt;
+&lt;p&gt;最近我把评论系统换成了Giscus，原因很简单：我累了。&lt;/p&gt;
+&lt;p&gt;关于评论系统，我想了很长时间。&lt;/p&gt;
+&lt;p&gt;至少是在我的博客里，如果是议论类文章，基于事实或观点的讨论、延伸，或反驳。偏题跑题、没看完或没看懂文章就急于发表评论的情况并不少见。而且性子比较急的朋友直接看到了评论区，自己的重点也可能会被带跑偏，于是构成恶性循环……&lt;/p&gt;
+&lt;p&gt;如果是记录类，分享见闻的文章，评论除了附和、赞同之类的评论，也难以找其它类型的评论，而且似乎也不会出现其他类型的评论。&lt;/p&gt;
+&lt;p&gt;我不是要说教读者该如何写评论，其实是我并不擅长回应这种评论，或者可以说，我没有跟人闲唠嗑说家常和寒暄的能力。一些评论留下的话茬实在让人很难接上，但不回复又显得冷漠，这是一直以来让我困扰的问题。和社交沾边的事，不是热脸贴冷屁股，就是痛并快乐着，又在期待与不安中挣扎。&lt;/p&gt;
+&lt;p&gt;七八月的时候我特意在评论区上方注了一行小字，具体原文不记得了，但我记得大意是：「&lt;strong&gt;我没回复是因为赞同，或者没什么可说的，而不是因为对你有意见&lt;/strong&gt;」。主题改来改去，换来换去，就忘了重新写上这行字了。这是为我不回复这一行为的辩解，也是为读者可能会受到的「冷落」所做的提前安慰。&lt;/p&gt;
+&lt;p&gt;另一方面，维护Waline的外部CSS很麻烦，我也不想再修改CSS了。&lt;/p&gt;
+&lt;p&gt;我在使用Waline的时候尝试给评论功能做减法，我移除了表情回复和正文插入表情的功能、移除了表情包，删除了点赞、头衔，隐藏了头像和IP。力求打造安静的浏览和讨论氛围，甚至有移除网址文本框的想法。出于对博客的理念不同，有些同样在写博客的人就是冲着这个框来的，他们可能就是非常享受与人社交的获得感，把博客作为社交名片。&lt;/p&gt;
+&lt;p&gt;我觉得移除网址框可以减少为了自我营销而发送的评论，因为自己的博客沦为别人的推广场所的滋味很难受，也实在不知道怎么对待这些评论最为恰当。也想过关闭评论区。如果关闭评论区，可能会显得高冷，甚至是封闭。&lt;/p&gt;
+&lt;h2 id="折中的方案"&gt;折中的方案&lt;/h2&gt;
+&lt;p&gt;转念一想，我怕的是什么？怕的是不知道如何接话。那么提高评论的「门槛」，让真正想要讨论的人评论，也许能解决问题。所以我换成了从前被我鄙视的Giscus。我当时觉得一定需要Github帐号才能评论是在一定程度上打消读者互动的积极性的，但现在才意识到了这是在&lt;strong&gt;放过自己&lt;/strong&gt;。说真的，我非常佩服那些能一直和人聊得来，接得上话的人，也很佩服从一篇干巴巴的日常分享，甚至只有几张图的文章里找出可以评论的点的人，这确实是一种社交能力。&lt;/p&gt;
+&lt;p&gt;为了照顾没有Github或访问不方便的读者，我也放了一个邮件链接，可以点击发送邮件评论。由于使用场景，它多少会和「正式性」沾边，这也就间接提高了交流的质量。虽然我的博客并没有什么流量，但&lt;strong&gt;有效的交流，总比虚伪的敷衍强&lt;/strong&gt;。我知道那些评论可能出于友善，但是妥善处理它们对我真的很难。&lt;/p&gt;
+&lt;p&gt;简单地来说，让说话更麻烦，是一种让说出来的话更有分量的方式。它会让说话的人经过深思熟虑，认真想想这些话到底值不值得我费这么大劲去说。&lt;/p&gt;
+&lt;h2 id="为什么我认为新的做法更好"&gt;为什么我认为新的做法更好&lt;/h2&gt;
+&lt;p&gt;可能有人要批判我是「精英主义」，把Email和Giscus强行和高质量讨论绑定在一起，或者认为我说以前的讨论都是低质量，我要为自己辩解。&lt;/p&gt;
+&lt;p&gt;首先，不是会用Github和Email的人都能写高质量的评论，而是这个方法在「倒逼」出正经的评论。&lt;/p&gt;
+&lt;p&gt;Github和技术身份强关联，它代表作为开源社区的一员的你，对某篇文章的看法。如果说得更「敏感」点，为了维护网络上的形象，至少不应该写出冒犯性的话语或无理取闹的反驳。而邮件在其它场合下的使用就如上文所说，是带有一定正式性的，并且写邮件的「仪式感」也很容易让人认真对待这件事。至少需要安安静静坐下来，组织完整的语言表达看法，留有正式的署名和日期，长期可以留存 —— 这些都在间接促成一个或严谨或私密的正式的讨论环境。&lt;/p&gt;
+&lt;p&gt;虽然这种做法可能会拦住内向但真诚或没有技术背景的读者，但也能拦住自我营销与应付不来的闲谈，我没有排斥喜爱轻松交流氛围的读者，这是不得已的取舍。而且博客不是论文期刊和政府文件，不是公示真理和规范的地方，这里是自我表达的地方，我在尽力打造理想中的秩序和风格。&lt;/p&gt;
+&lt;p&gt;此方法也能防止某些幽默的匿名评论。虽然当年百度贴吧和知乎都有很多匿名神贴，匿名才能让他们大胆表达，但总有这么一小波的大胆，给人一种傲慢和轻视的感觉。&lt;/p&gt;
+&lt;h2 id="林子不大也有各种鸟"&gt;林子不大也有各种鸟&lt;/h2&gt;
+&lt;p&gt;比如说&lt;a href="https://www.glowisle.me/posts/guilt/"&gt;《罪恶感》&lt;/a&gt;这篇文章写得确实非常矫情，但有人匿名评论：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;额…实际上&lt;strong&gt;只要&lt;/strong&gt;是病，&lt;strong&gt;都&lt;/strong&gt;能够通过医学手段解决的，&lt;strong&gt;有钱人&lt;/strong&gt;一般&lt;strong&gt;都&lt;/strong&gt;能请私人家教授课，可能这就是&lt;strong&gt;青春期&lt;/strong&gt;吧…&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这位网友的评论在不在理，确实是在理的。但连留个邮箱的勇气都没有，匿名在&lt;strong&gt;个人&lt;/strong&gt;博客唱反调的行为，高高在上地想轻易解决慢性病，并把情绪都归结给青春期的傲慢的行为，属实让人忍俊不禁。&lt;/p&gt;
+&lt;p&gt;虽然文章发出来了肯定会有被人喷的风险，但我当时还是忍着自己的痛苦和不安，让人轻飘飘地说得一文不值的愤怒，给出了一个回复：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;文本解读能力的问题&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;经历和共情能力的问题&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;我尊重你这个没啥大事的看法，不强求共鸣。&lt;/p&gt;
+&lt;p&gt;说得好，我同意了，玩去吧。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;现在再仔细想想，这种文章根本不可能有人从搜索引擎来，大概率是某个混博客圈子的人，大概率也写博客。英国女作家伊夫林·比阿特丽斯·霍尔说过：「虽然我不同意你的观点，但我誓死捍卫你说话的权利。」&lt;/p&gt;
+&lt;p&gt;我今天说，虽然我不同意你的观点，但你唱反调连告诉我你是谁的胆子都没有，&lt;strong&gt;那你他妈的还是闭嘴吧！&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;如果你反对我，那就请你逻辑严密地写出几百字来批判我，即使是匿名我也会输得心服口服，在这种情况里匿名甚至可以促进大胆批判。而傲慢地写下反驳的话语却不敢署名的敢做不敢当的行为，我只能认为你是一个弱者，仗着个人博客对读者隐私的保护与自由的追求，输出轻浮的观点。&lt;/p&gt;
+&lt;p&gt;当然，匿名评论不是一定没有优势，如上文所说可以促进大胆批评，但任何事情都能从不同角度思考出不同的结果，没有人能做到真正的公平和客观，我只是尽力在维护边界。&lt;/p&gt;
+&lt;p&gt;在非匿名的评论中，有些人挂着自己的网站链接，写一句「学习了！」、「写得好！」，甚至连编程语言是哪个都没看清，指鹿为马地夸赞着，长期在各个博客的评论区混迹着。&lt;/p&gt;
+&lt;p&gt;出于人情的默契，这类行为往往被默许。我相信这是中文博客圈的大家都看破不说破的问题。今天我就在这里，以一个和大多数博主比起来确实是小孩的年龄，指出皇帝完全就是光着屁股在大街上乱逛。&lt;/p&gt;
+&lt;p&gt;我并不反对匿名评论和评论区，而是反对形式化的评论区，反对只是为了自己网站的外链的评论，&lt;strong&gt;反对形式化的、缺乏真诚的互动，而非反对社交本身&lt;/strong&gt;。评论区应当是能围绕文章展开讨论、甚至是反驳的地方，哪怕意见相左，只要是真诚的表达，任何博主都会愿意真诚回应。但当评论的形式大于其本身的作用时，就该好好思考一下它究竟有没有继续存在下去的意义，以及如何存在下去了。&lt;/p&gt;
+&lt;p&gt;这种你唱我喝，看似牢固的关系，我在其它地方也有感受。&lt;/p&gt;
+&lt;p&gt;大概在十月份，我退掉了很多在上一次&lt;a href="https://www.glowisle.me/posts/%E4%BF%A1%E6%81%AF%E8%8A%82%E9%A3%9F/"&gt;信息节食&lt;/a&gt;行动时没有退掉的QQ群。虽然确实有几位群友在问我为什么退群了，但过了一段时间后，仅仅是少了一个人自言自语。该打游戏的还在打游戏，该上班的还在上班，该骂街的还在骂街。这很正常，但也很残酷，少了某个人，大家照样吃饭，中东那几个国家照样战乱不断，地球照样天天转。&lt;/p&gt;
+&lt;p&gt;这种浅层的链接，只是披着一层友情之皮的无关紧要的感情。当然，这都是我的一家之言，你也可以认为我在社交上相当失败。&lt;/p&gt;
+&lt;p&gt;我能理解那种单纯对文章表达欣赏，又期待被回访的复杂心理。我个人的做法是开启一个点赞按钮。如果赞同或欣赏文章，也许不发那些简单但带有善意的评论，按一下那个按钮也能表达认同的态度。关于期待回访的心情，如果不是真正读了你的文字，被你的灵魂打动，那种回访就是肤浅且客套的，也许回访者也是出于迫不得已的礼仪压力。&lt;/p&gt;
+&lt;p&gt;所以无论是Q群聊天还是博客&lt;strong&gt;为了外链&lt;/strong&gt;的「互访」，为了自己和他人考虑，为了让自己不再苦恼于如何应对根本没有留下话茬的评论，为了让别人不再绞尽脑汁填写自己博客的链接，如果你也厌倦了廉价的温情，那就来吧，&lt;strong&gt;那种虚伪的互动和友善，赶快把它撕破吧！&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>博客一周年：我的表达、自由与偏见 —— 当一个「反流行」写作者</title><link>https://www.glowisle.me/posts/first-blog-anniversary/</link><pubDate>Sat, 08 Nov 2025 22:18:05 +0800</pubDate><author>i@glowisle.me (五葉地錦)</author><guid>https://www.glowisle.me/posts/first-blog-anniversary/</guid><description>&lt;h2 id="搭建"&gt;搭建&lt;/h2&gt;
+&lt;h3 id="探索时期"&gt;探索时期&lt;/h3&gt;
+&lt;p&gt;在2023年9月16日，我在腾讯云注册了第一个域名，使用一台轻量服务器搭建了WordPress博客，但也仅限于此，我只是搭建好了服务，并没有在上面写点什么，只是觉得有一个自己的网站很酷，这并不能作为我开始写博客的准确日期。实际上在这之前，我就用 &lt;a href="https://kslabs.ru/"&gt;Ksweb&lt;/a&gt; 尝试搭建过自己的网站，并且Typecho和WordPress都尝试过，但当时没有做内网穿透，所以也不能算作正式开始写博客。&lt;/p&gt;
+&lt;p&gt;严格意义上讲，我是从2025年11月3日使用 &lt;a href="https://github.com/Meekdai/Gmeek/releases"&gt;Gmeek&lt;/a&gt;正式搭建完第一个认真更新的博客，12月迁移到了Typecho，我当时发了一篇很短的文：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;将会迁移到这里。我会把有价值的文章转过来 原因仅仅是gmeek有点太简陋了，虽然typecho也差不多，不过他可以折腾一下主题之类的，并且我每个月还多花出去九十大洋。但是总比gmeek逼格高点吧。 不得不说，Linux绝对是世界上最麻烦的玩意，解压下载文件都费劲。要不是Windows资源占用多我绝对不会去用这玩意。 这次可是孤军奋战，背后没有github服务器的靠山了。要是忘了续费服务器我会丢失所有的文章，又是一个负担和一个纠结的点&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;——&lt;a href="https://www.glowisle.me/posts/6/"&gt;网站迁移&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;之后回看连我自己都忍不住吐槽自己的无知：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;2025.8.24二编：Gmeek简直太符合博客的定位了，不花里胡哨，完全够用，有网就能写文章……&lt;/p&gt;
+&lt;p&gt;Linux太好用了，目前Debian12养老中。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;现在发现，自己以前做了很多不明智的决定，比如放弃使用Gmeek……&lt;/p&gt;
+&lt;p&gt;使用Typecho期间，我开始学习Java编程，早期有很多简陋的笔记文章充数，但那时候学习和写博客是一个&lt;strong&gt;相互促进&lt;/strong&gt;的过程，我相信很多技术博主能体会到我说的这一点。&lt;/p&gt;
+&lt;h3 id="转型时期"&gt;转型时期&lt;/h3&gt;
+&lt;p&gt;在2025年3月3日，我&lt;a href="https://www.glowisle.me/posts/4/"&gt; 从Typecho迁移到了Hexo&lt;/a&gt;，在这之后博客的内容开始聚焦于&lt;strong&gt;骂人&lt;/strong&gt;，对，就是骂人。骂老师，喷学校占用午休时间搞课桌舞，喷素质低下的同学等等，但只有情绪输出，写得很垃圾，大部分都删掉了。&lt;/p&gt;
+&lt;p&gt;在25年5月份到8月份是更新频率最高的一段时间，主要围绕折腾Linux, C, 数据结构与算法，一些技术内容为主，少部分是非技术类内容。7 月份到8月份写了一些很矫情的散文以及自以为是的书评，还有根本站不住脚的议论类文章，满满的黑历史。&lt;/p&gt;
+&lt;p&gt;其中，7 月7日我从Hexo转移到Hugo，我认为这是静态博客的最优选择了，高性能、易配置，如果一定要我挑出一个毛病，那也不是程序上的，而是中文文档的数量和质量略差，但无伤大雅，只要有翻译插件和基础的英语水平还是可以读得来英文文档的。&lt;/p&gt;
+&lt;h2 id="所见和所感"&gt;所见和所感&lt;/h2&gt;
+&lt;p&gt;我加入了一些博客圈子，某些组织给我的印象并不是特别好——各种方面上。我最早加入的是&lt;a href="https://www.boyouquan.com/home"&gt;博友圈&lt;/a&gt;，氛围很好，关于网站的Bug，维护者跟进非常积极，但我不常访问这个网站，它的随机博客功能总是有重复，没有什么新鲜感。&lt;/p&gt;
+&lt;p&gt;另一个常访问的是&lt;a href="https://www.foreverblog.cn/go.html"&gt;十年之约&lt;/a&gt;，主要是为虫洞功能，重复博客出现的次数很少。&lt;/p&gt;
+&lt;p&gt;我这么做，一是为了看看别人都在写点什么，找点有意思的博客订阅，二是看看别人网站的样式都是怎么设计的。前者老生常谈，我觉得样式设计问题可以仔细聊一聊。&lt;/p&gt;
+&lt;h3 id="某种意义上样式最重要"&gt;某种意义上样式最重要&lt;/h3&gt;
+&lt;p&gt;虽然博客确实应该最优先考虑内容质量，但是不能否认一个好的样式设计能更加分。而且在读者深度阅读前，先看到的是样式，这属于第一印象。每个人都有不同的审美倾向，但我个人不太喜欢的就是类似&lt;a href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu"&gt;安知鱼&lt;/a&gt;和&lt;a href="https://78.al/"&gt;Joe&lt;/a&gt;臃肿的设计风格（没有说用这两个主题的博客不好的意思，不要打我！！！）。&lt;/p&gt;
+&lt;p&gt;我的观点是，样式的设计始终是为内容服务的，而博客最主要的内容一定是文章，文章。所以一些组件就是非必要的，所谓 Less is more, 博客主题的设计应该始终放在博客的本质：「你想说什么」上，其他东西都是&lt;strong&gt;锦上添花&lt;/strong&gt;，但把握不好就会成&lt;strong&gt;画蛇添足&lt;/strong&gt;！&lt;/p&gt;
+&lt;h4 id="非必要的组件"&gt;非必要的组件&lt;/h4&gt;
+&lt;p&gt;某个主题默认引用了大量外部资源，访问速度很不稳定，点进来需要看博主的大头照一分钟左右，难道这是什么展示开屏页面的手段吗？侧边栏还有公告、音乐、舔狗日记、最近回复等等，看上去一幅百家争鸣的场面。还有我最不理解的：Joe主题的&lt;strong&gt;人生倒计时&lt;/strong&gt;。这让一个有时间焦虑的人非常难受啊！&lt;/p&gt;
+&lt;p&gt;以上所述，还不能算是拉低访问体验的，最让人难受的是&lt;strong&gt;封面图&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;有一些博客主题，专门给封面图很多存在感，而加载速度又极其慢，加载完成后又是和文章内容关联不大的通用插画，甚至有些博客的文章封面图干脆用通一张，个人认为该约一下分了！&lt;/p&gt;
+&lt;p&gt;其他的看板娘、背景特效、音乐播放器等不在此过多赘述，已经成一个梗了：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;感觉你是那种博客一打开就bgm响个不停、樱花飘屏、瞅瞎眼看不清和背景色颜色一致的字体、鼠标屏蔽右键、顶部挂春节已经过时的灯笼、谷歌广告多余博客文章、底部20多个山寨备案号、加载5分钟才能出来的 猪腰子皮鞋 蕾丝小白袜 短裙 张开双臂拥抱的二次元幼女背景&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;我认为，&lt;strong&gt;个人作品集&lt;/strong&gt;和&lt;strong&gt;博客&lt;/strong&gt;是有本质上的区别的。而且放上一堆根本不是自己写的东西，并不会觉得有多自豪。&lt;/p&gt;
+&lt;p&gt;一些热门的开源样式在一百个博客中应用的概率，就和你在火车站上喊上一嗓子张伟有一堆人答应的概率一样大。这里我要引用一个有些可悲的例子：考场作文怎样博阅卷人欢心？答案是打破他的审美疲劳。而寻求新鲜感的前提条件，也就是博客样式设计的基本理念是：&lt;strong&gt;服务于内容&lt;/strong&gt;、&lt;strong&gt;主次分明&lt;/strong&gt;、&lt;strong&gt;少即是多&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;话又说回来了，写博客不是上班，自己玩得开心最重要，但样式的选择和设计，更多的是审美和价值理念的双重体现。&lt;/p&gt;
+&lt;h2 id="为什么我还在写博客"&gt;为什么我还在写博客&lt;/h2&gt;
+&lt;p&gt;这个问题一直被文字或图文创作者所津津乐道，大概理由会扯到短视频、思考、阅读的对比，并把短视频踩得一无是处，把文字和书籍捧上天，认为为那是通向成功的唯一途径。虽然我不刷短视频，但我认为搞拉踩不是好的行为，如果短视频真的一无是处它就不会存在。但在这里谈论短视频的问题，不如单独写成一篇文章。&lt;/p&gt;
+&lt;p&gt;我的理由是：自由和酷，以及习惯。&lt;/p&gt;
+&lt;p&gt;酷这词并不能准确表达那种状态，也许更多的是归属感和安全感共同作用所产生的自豪，「我有一片能自言自语的天地」的幼稚的优越感吧。&lt;/p&gt;
+&lt;p&gt;我讨厌平台的审查机制、推送算法和编辑方式。中文互联网的审查机制非常&lt;strong&gt;幽默&lt;/strong&gt;，如果你在 Bing 国内版搜「谈笑风生」，就会有一幅非常诡异的画面——《新京报：领导人的漫画形象》《求是网：毛泽东耐人寻味的生日宴》《新民网：追忆江泽民同志在上海的日子》……&lt;/p&gt;
+&lt;p&gt;另外，在平台上，几乎不会有人关心「我」，创作始终是围绕观众喜爱来的，从中脱离出来想写什么就写什么，这也是自由的体现。&lt;/p&gt;
+&lt;p&gt;关于习惯，我这人有个毛病就是，一写东西就收不住，状态好了就能写好多，也许是与我说话罗嗦有关。但如果不多写几个字，怎么能准确地描述事件的起因、经过、结果等必不可少的东西呢？我在发朋友圈说什么事的时候经常写一大段字，和其他朋友上下几张图片的画风完全不相称，自己都觉得有些尴尬。&lt;/p&gt;
+&lt;p&gt;有人就不喜欢写字，也不喜欢看字，只喜欢图片和视频，我能理解这种心情，这只是习惯问题。我选择写博客，只是因为我认为比起坐在镜头前一边拉手风琴一边说话，又要关注打光和背景等前期工作，又要关注剪辑和配乐等后期工作，还是写字的成本更低。&lt;/p&gt;
+&lt;h2 id="总结"&gt;总结&lt;/h2&gt;
+&lt;p&gt;写了这么长时间博客，其实一开始只是抱着玩玩的心态，后来变得越来越认真了。表达和写作能力有提升吗？我感觉不到，但看到别人写得文章很好，一种奇妙的胜负欲和攀比心就会促使我学习得更多更深，继续写下去，既然做了，就做到底，做得更好吧！&lt;/p&gt;</description></item><item><title>个人博客凭什么为你提供价值？</title><link>https://www.glowisle.me/posts/the-value-of-blog/</link><pubDate>Tue, 30 Sep 2025 22:25:35 +0800</pubDate><author>i@glowisle.me (五葉地錦)</author><guid>https://www.glowisle.me/posts/the-value-of-blog/</guid><description>&lt;p&gt;今天我在网上冲浪的时候，看见了一个收录博客的网站。收录的所有网站都是手动整理而来，并且对所谓博客的「价值」颇有一番见解，断章取义地引用了一段&lt;a href="https://www.zhihu.com/question/19990156/answer/206653231"&gt;知乎用户的回答&lt;/a&gt;。原问题是回应关于个人博客的前途的，其中对博客的价值作出了一些判断。以下是原回答：&lt;/p&gt;
+&lt;details&gt;
+&lt;summary&gt;点击查看详细内容&lt;/summary&gt;
+&lt;p&gt;我想来分析一下为什么很多个人博客&lt;/p&gt;
+&lt;p&gt;无疾而终，没“前途”。&lt;/p&gt;
+&lt;h2 id="对博客价值的根本性认识错误"&gt;对博客价值的根本性认识错误&lt;/h2&gt;
+&lt;p&gt;以为个人博客是用来抒发“个人情感和认识”的，这是最常见的认识错误。这是我的博客，我写什么都可以，而且还假设自己写了东西别人就会来看。&lt;/p&gt;
+&lt;p&gt;没人在乎你情绪化的感情抒发，这对他们没多少用处。&lt;/p&gt;
+&lt;p&gt;个人博客更好的定义，是你以个人的名义发表对别人有价值的内容。所以个人博客内容创作的出发点不是让别人来关注自己，而是让自己为别人服务。&lt;/p&gt;
+&lt;p&gt;用博客内容为别人服务并不复杂，比如你写偏文章，介绍最近哪个店东西打折，只要你能把时间，地点，主体对象，促销力度等信息介绍清楚，就是一篇很有价值的博文。因为它对不少人有实际价值。&lt;/p&gt;
+&lt;p&gt;相反，你洋洋洒洒写一通美文，说得尽是些神神叨叨自怨自艾的个人情绪，除了你妈爱看以外，对别人没多少价值。你想开个博客靠抒发个人情感而不为别人的生活增值，却盘算着博客能有前途，这是无知，自以为是的痴人说梦。&lt;/p&gt;
+&lt;h2 id="没有质量的更新"&gt;没有质量的更新&lt;/h2&gt;
+&lt;p&gt;很多个人博主的注意力，只有更新，不断更新，最好每天更新。只要能“保持更新”，就无所不用其极，完全失去内容建设。&lt;/p&gt;
+&lt;p&gt;需要的耐心。写文章就是随便胡诌两句，不用心，还让读者“随便看看，不喜勿爱”，甚至复制黏贴，采集抄袭，玩的都是些下三滥的手段。却还指望博客能有前途，真是消化&lt;sup id="fnref:1"&gt;&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref"&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
+&lt;p&gt;更新是重要的，但有比更新更重要的事。是“价值”。&lt;/p&gt;
+&lt;p&gt;你写一篇优质的文章，哪怕是夏天室内防暑省电技巧大全，也会永远地存在于搜索引擎，会不断地有人访问，这篇文章会成为你的网站一个优质的lead。为你创造潜在的知名度，关注度，甚至带来物质利益。&lt;/p&gt;
+&lt;p&gt;中国的博主相对国外的博主，最大的缺点就是没有耐心，没有耐心，什么都做不成。除非你相信一个个人博客可以短时间内成功，不用积累。&lt;/p&gt;
+&lt;h2 id="不懂营销"&gt;不懂营销&lt;/h2&gt;
+&lt;p&gt;酒香也怕巷子深，况且你真有好酒，为什么不多做一点，让更多人知道你有好酒？&lt;/p&gt;
+&lt;p&gt;太多博主以为自己写了东西，花了力气，回报自然回来。有的时候确实是这样，比如你写的东西正好是别人不怎么写的一个特别的领域，也就是说，竞争小，或者运气好，干脆就是一片蓝海。&lt;/p&gt;
+&lt;p&gt;但这种机缘哪是人人都有？大部分人写的话题，都是很多人反复了不知道多少遍的，你写同一个主题的优势，无非是那是你自己独特的角度和构思，或者你的文字比别人用得好，讲故事有自己的风格，文章的结构超过他们，内容超过他们。&lt;/p&gt;
+&lt;p&gt;但仅有这些是不够的。&lt;/p&gt;
+&lt;p&gt;你得发现可能对你写的东西感兴趣的人群，把他们吸引过来，给他们一个机会理解你，也给你自己一个机会更好更快地走向成功。你得把营销看成一件正经事来做，不是让你去骗人，而是把好东西告诉需要知道的人。&lt;/p&gt;
+&lt;p&gt;我举一个例子， 这是我自己的一个教别人学Javascript编程核心概念的小网站：&lt;a href="https://link.zhihu.com/?target=http%3A//itlr.cc"&gt;http://itlr.cc&lt;/a&gt;。我确实花了一点时间去准备内容，主要是视频的，到目前卖了大概人民币4000块，几个月时间，其他收入加起来大概8000。这是不是很多钱，当然不是！&lt;/p&gt;
+&lt;p&gt;我是不是在每天更新？没有，其实很久不更新了，但是微信上几乎每天都有人加。这网站有前途吗，有的，虽然谈不上大前途，但是发挥点工作外余热，自己也能学到东西。&lt;/p&gt;
+&lt;p&gt;你也可以，但要用点心，真把它当件事情来做，要学习不骗人的营销。&lt;/p&gt;
+&lt;p&gt;你会发现让一个网站有前途，是一件并不是很难的事。如果你没有耐心，是不会成功的。&lt;/p&gt;
+&lt;/details&gt;
+&lt;hr&gt;
+&lt;p&gt;我今天挖一七年的坟，评判一下关于价值的观点。&lt;/p&gt;
+&lt;h2 id="对博客价值的根本性认识错误-1"&gt;对博客价值的根本性认识错误&lt;/h2&gt;
+&lt;p&gt;我们来看看百度百科怎么描述「博客」：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;许多博客专注在特定的课题上提供评论或新闻，其他则被作为个人性的日记。一个典型的博客结合了文字、图像、其他博客或网站的链接及其它与主题相关的媒体，能够让读者以互动的方式留下意见，是许多博客的重要要素。大部分的博客内容以文字为主，但仍有一些博客专注在艺术、摄影、视频、音乐、播客等各种主题&lt;/p&gt;
+&lt;p&gt;……&lt;/p&gt;
+&lt;p&gt;简言之，Blog就是以网络作为载体，简易迅速便捷地发布&lt;strong&gt;自己的心得&lt;/strong&gt;，及时有效轻松地与他人进行交流，再集丰富多彩的个性化展示于一体的综合性平台。&lt;/p&gt;
+&lt;p&gt;……&lt;/p&gt;
+&lt;p&gt;它可以是&lt;strong&gt;个人&lt;/strong&gt;纯粹的想法和心得，包括对时事新闻、国家大事的&lt;strong&gt;个人看法&lt;/strong&gt;，或者对一日三餐、服饰打扮的精心料理等&lt;/p&gt;
+&lt;p&gt;它&lt;strong&gt;绝不仅仅&lt;/strong&gt;是纯粹个人思想的表达和日常琐事的记录，它所提供的内容可以用来进行交流&lt;strong&gt;和&lt;/strong&gt;为他人提供帮助，是可以包容整个互联网的，具有极高的共享精神和价值。&lt;/p&gt;
+&lt;p&gt;……&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;日记、照片、诗歌、散文，甚至科幻小说的发表或张贴都有&lt;/strong&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;以此可以证明，博客的创作题材非常自由。&lt;/p&gt;
+&lt;p&gt;再来看回答的观点：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;个人博客更好的定义，是你以个人的名义发表对别人有价值的内容。所以个人博客内容创作的出发点不是让别人来关注自己，而是让自己为别人服务。
+……
+相反，你洋洋洒洒写一通美文，说得尽是些神神叨叨自怨自艾的个人情绪，除了你妈爱看以外，对别人没多少价值。你想开个博客靠抒发个人情感而不为别人的生活增值，却盘算着博客能有前途，这是无知，自以为是的痴人说梦。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;认为个人博客&lt;strong&gt;只能为别人服务&lt;/strong&gt;，&lt;strong&gt;无法帮助他人的内容就是无价值&lt;/strong&gt;。这是一个非常幽默的逻辑。&lt;strong&gt;个人&lt;/strong&gt;博客为什么要着力于为&lt;strong&gt;他人&lt;/strong&gt;提供价值？&lt;/p&gt;
+&lt;p&gt;那么谁有权定义价值？流量数据？工具性？创作者的主体性？你定义的价值，是情感价值还是存在价值？既然其存在，为什么会无价值？&lt;/p&gt;
+&lt;p&gt;按照博客导航站点的逻辑：「只收藏有价值的优秀博客」，其收录了以下这些情感类、个人生活类的博客，其观点就不攻自破了。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.chener.net/archives/headacheinAugust/"&gt;头痛一个月 - 小陈故事&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://bwskyer.com/bye-man-bye-memory.html"&gt;别了，那些人，再见，那些记忆 - 生活的左上角&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果用知乎回答的观点：「谁想知道你头怎么样？谁想知道你跟虾米音乐有什么故事？&lt;strong&gt;除了你妈爱看以外，对别人没多少价值。&lt;/strong&gt;」&lt;/p&gt;
+&lt;p&gt;这显然功利无情，完全背离了博客的初衷，将博客完全定义成为他人服务的工具，拒绝了自身需要的情感表达，否认了生活类以及情感类博客的意义，偏激不可取。&lt;/p&gt;
+&lt;h2 id="情感类博客没有价值"&gt;情感类博客没有价值？&lt;/h2&gt;
+&lt;p&gt;只有实用价值才配被称作价值吗？显然不可能。&lt;/p&gt;
+&lt;p&gt;所有人的声音都值得被听见，在博客这样一个如此纯粹的表达空间里，依然被所谓的价值捆绑，如果所谓的价值、前途就是「钱途」，那你大可去写那一种微信公众号——图文版抖音、吸引眼球博流量、话说一半的标题党、图文无关的封面党，并且在文章头部、正文里、结尾，甚至评论区都挂上广告，当「流量主」，稳定获取收益。&lt;/p&gt;
+&lt;p&gt;写一篇实用性的文章帮助读者，是作者和读者的双向链接，而写情感类文章找到共鸣者，同样是双向链接，且比前者更牢固。这就好比你家厕所水管漏水，在外面找了一个修水管的工人，他干完活拿钱走人，过两天你会记得他吗？你只会记得你家厕所冲水真顺畅。这是实用价值。&lt;/p&gt;
+&lt;p&gt;但如果当时你给他接了杯水，递了根烟，扯闲天的时候发现大家都是大老远从家跑过来，在外打拼的苦人，甚至有可能是老乡或同好，你们留了联系方式，卖命之余能一起抱怨身边的烂人烂事。共鸣共鸣，频率相同才有共鸣 —— 这就是情感共鸣带来的链接的牢固性，能让你觉得：「哦，原来不止我一个人这样。」这是情感价值。这也是除了「夏天室内防暑省电技巧大全」以外，有质量的更新。&lt;/p&gt;
+&lt;p&gt;我从早期结构一盘散沙的各种文章，到如今结构极其松散的各种文章；从痛恨Linux，到向往Linux，到沉迷Linux，对各种事物理解的转变……改变不大，但那是自己坚实的脚印，看到自我成长，这是博客的自我价值。&lt;/p&gt;
+&lt;p&gt;所以，不要被所谓的价值禁锢了，想写就写，不要不敢写。更不需要强行营销，重要的是保持博客的纯粹性。打这种功利主义者的脸，最好的方法就是&lt;strong&gt;坚持写下去，顽强地写下去&lt;/strong&gt;，写他们认为没有价值的东西，笔耕不辍，生生不息。&lt;/p&gt;
+&lt;div class="footnotes" role="doc-endnotes"&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id="fn:1"&gt;
+&lt;p&gt;未修改原文用词。可能是「笑话」。&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</description></item><item><title>文字所承载的东西能跨越时空</title><link>https://www.glowisle.me/posts/what-is-carried-by-words-can-transcend-time-and-space/</link><pubDate>Fri, 29 Aug 2025 22:18:20 +0800</pubDate><author>i@glowisle.me (五葉地錦)</author><guid>https://www.glowisle.me/posts/what-is-carried-by-words-can-transcend-time-and-space/</guid><description>&lt;h2 id="模糊"&gt;模糊&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;文字永远只是形式，而文字所承载的东西，才是可以跨越时空的存在。&lt;/p&gt;
+&lt;p&gt;—— &lt;a href="https://onojyun.com/2025/08/13/%E7%88%B1%E7%9A%84%E6%88%90%E6%96%87%E8%AF%97/"&gt;&lt;em&gt;爱的成文诗 | 莫比乌斯&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;跨越时空这个词，我第一次读来愣了一下。有一种「念天地之悠悠」，发觉自己渺小的感觉，但「独怆然而涕下」到不至于，因为我还没有那么有才华，到不了怀才不遇的悲怆。反而是一种模糊的，缓缓流动的感伤和无奈。&lt;/p&gt;
+&lt;p&gt;不用说十四年，两个月前的记忆都是模糊的。我写的一篇类似日记的文章&lt;a href="https://www.yingyu5658.me/post/jottings/%E4%BA%BA%E7%94%9F%E4%B8%AD%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%A4%A7%E8%80%83/"&gt;《人生中第一次大考》&lt;/a&gt;记录了我在会考那一天发生的事。整篇都流露着一股淡淡的死感&lt;sup id="fnref:1"&gt;&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref"&gt;1&lt;/a&gt;&lt;/sup&gt;，和现在的情感差异比较大，主要还是上学导致的。&lt;/p&gt;
+&lt;p&gt;现在想想，那天发生的，只有几个画面和模糊的感觉，比如我在车里看到站在外面被太阳暴晒的同学、还有那天真的很热、考点教室很干净。都是不连贯的一幅一幅画面。不过还是要感谢当时的我，写下了那些文字，不然今天连可供回忆的素材都没有。我现我还记得《爱情公寓》里，有角色说过这样一句话，好像是曾小贤吧：&lt;/p&gt;
+&lt;p&gt;「能证明我活过的就只有沙发上的屁股印了！」&lt;/p&gt;
+&lt;p&gt;可惜，我房间里还没有沙发。但是我在网上无病呻吟了很多文字&lt;sup id="fnref:2"&gt;&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref"&gt;2&lt;/a&gt;&lt;/sup&gt;，应该能保存一段时间，证明我活过。我以前也比较喜欢在朋友圈发点东西，但那些表述相对浅显。而且一旦有确切可预测的「观众」，就难以避免地带有夸张和表演情绪，但喜欢在朋友圈表演，也是自我的一个阶段。&lt;/p&gt;
+&lt;details&gt;
+&lt;summary&gt;&lt;s&gt;现在&lt;/s&gt;&lt;/summary&gt;
+&lt;img src="https://images.glowisle.me/what-is-carried-by-words-can-transcend-time-and-space-wechat.webp"&gt;
+说真的，可能是我的社交圈子问题吧，我当初就不太应该加那么多人的微信。我感觉我的朋友圈里有不少不太正常的人。
+&lt;/details&gt;
+&lt;p&gt;虽然扫一扫在右上角的加号也能打开，但是我还是留下来了，因为我怕我手贱去点设置，打开朋友圈。虽然打开了也无妨，我已经完全把朋友圈这个功能封闭起来了，不看任何人的朋友圈，任何人不能看我的朋友圈。能减少很多看别人营造出来的完美生活的焦虑。&lt;/p&gt;
+&lt;p&gt;我最后一次发朋友圈是在七月三日。近一年左右，我很喜欢发画。手绘，板绘，甚至是一些画得很垃圾的速写。还有一些博客的文章，我会把阴阳怪气，又或是直抒胸臆骂老师引起公愤行为的文章贴在朋友圈。也许没什么人看，但是看的人，应该会觉得出了一口气吧。&lt;/p&gt;
+&lt;p&gt;现实中也有几个同学知道我的博客，有一位还在我当时证书到期的时候提醒过我，甚至跟我探讨过文章里的内容，也许他最近还在看我的博客。从之前网站出问题的时候他发现并提醒，可以推断出他大概是有看这个博客的习惯的。&lt;/p&gt;
+&lt;h2 id="记录"&gt;记录&lt;/h2&gt;
+&lt;p&gt;一切记录都是有意义的。无论是朋友圈、说说，还是一篇日记，一篇长篇大论的文章，一切记录都是有意义的。&lt;/p&gt;
+&lt;p&gt;我最近在构思博客一周年的总结文章，但还有两个月才算狭义上的一周年。但我前两天跟一位朋友复盘过我们的聊天记录，他所保存的最早的，有关「博客」这个关键词的聊天记录来自2023年9月10日，我当时搭建好了一个网站，邀请他来看看。但当时我还没有什么写作能力，搭建完了就搁置了。虽然现在也没有写作能力，但是起码能人模狗样的把话说出来。&lt;/p&gt;
+&lt;p&gt;他把聊天记录转发过来的时候，我很震惊，因为23年9月，我刚刚升入初中。&lt;/p&gt;
+&lt;p&gt;一切主观的记忆都是会随着时间的流逝，和自己的反复咀嚼、品味而被篡改的。关于23年9月搭建博客的记忆甚至没有模糊的过程，直接就被忘却了，需要提供一个锚点来回忆。我使用了那个域名作为「锚点」，那是一个国外托管网站的免费域名，于是我借着这个，回想起了一个模糊的，甚至是第三人称的画面，也有当时的感觉：对这件事一知半解，觉得有点难。&lt;/p&gt;
+&lt;p&gt;那是唯一在我大脑中保存下来的回忆了。&lt;/p&gt;
+&lt;p&gt;另一个让我震惊的事情是，我印象中我是在2024年11月，才开始了我认为能被称为博客的写作，但23年就有记录。当时我用的是Gmeek&lt;sup id="fnref:3"&gt;&lt;a href="#fn:3" class="footnote-ref" role="doc-noteref"&gt;3&lt;/a&gt;&lt;/sup&gt;，把语文作业里写的自认为不错的小短文贴上去了，那篇文章还被老师表扬了，说是很有感染力。具体写的是什么已经无从考证，但是我印象中有一句话：「夕阳是太阳的尸体。」这种悲观甚至有点中二的看法，竟然会被老师表扬。于是这个事成为了我对「写博客」相关回忆的锚点。但很可惜的是，那篇文章已经因为几次博客搬家丢失。&lt;/p&gt;
+&lt;p&gt;回看自己写的文字，是一个重视自我的过程。可能会从中看到这中二、偏激、幼稚、尴尬、羞耻，一旦有了这些情绪，那就证明自己是有进步的。我认为这也是文字的优越性。无论是什么样的自己，都有亲手记录下的价值。&lt;/p&gt;
+&lt;p&gt;这也是证明「我是我」的一个手段。&lt;/p&gt;
+&lt;p&gt;怎么才能证明我是我？是我的长相，还是我的穿衣风格，还是我的人际关系？&lt;/p&gt;
+&lt;p&gt;我觉得是我写下的这些文字。&lt;/p&gt;
+&lt;p&gt;无论是偏激的，还是幼稚的，都是当时自己意识的速写。脸可以被毁容，也可以整容；夏天穿短袖，冬天穿长袖；毕业了同学就几乎没任何联系。只有文字才能证明「我」的存在，它是一个人流动的意识和思想的直接抽象。比其它形式更入木三分。虽然根据开头所引用，文字只是形式，但它承载的飘渺却又厚重的东西，对每个人来说都是独一无二的，是一场与自己跨越时空的对话；而在别人看来，每一个字符都是作者精神的直接投射，能从一篇篇文章中拼凑出完整的形象。&lt;/p&gt;
+&lt;div class="footnotes" role="doc-endnotes"&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id="fn:1"&gt;
+&lt;p&gt;非医学意义。&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:2"&gt;
+&lt;p&gt;目前已经在此博客唧唧歪歪了85173字。&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:3"&gt;
+&lt;p&gt;Gmeek，一个完全基于 Github Pages、Github Issues 和 Github Actions 的个人博客模板。详见 &lt;a href="https://github.com/Meekdai/Gmeek"&gt;https://github.com/Meekdai/Gmeek&lt;/a&gt;.&amp;#160;&lt;a href="#fnref:3" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</description></item><item><title>这样的博客的意义是？</title><link>https://www.glowisle.me/posts/%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E5%8A%A0%E5%AF%86%E7%A0%81%E7%9A%84%E6%84%8F%E4%B9%89%E6%98%AF/</link><pubDate>Mon, 19 May 2025 21:53:10 +0000</pubDate><author>i@glowisle.me (五葉地錦)</author><guid>https://www.glowisle.me/posts/%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E5%8A%A0%E5%AF%86%E7%A0%81%E7%9A%84%E6%84%8F%E4%B9%89%E6%98%AF/</guid><description>&lt;h2 id="博客文章的密码"&gt;博客文章的密码&lt;/h2&gt;
+&lt;p&gt;博客文章加密码，意义何在？&lt;/p&gt;
+&lt;p&gt;写博客的意义是？&lt;/p&gt;
+&lt;p&gt;写博客的意义之一，不是放大自己的声音，表达自己的观点吗？&lt;/p&gt;
+&lt;p&gt;这就要牵扯到你写博客的目的。如果你说，你写博客是为了取悦自己，那为什么要把文章发出来？取悦自己是真的吗？还是对自己网站没有流量的自我安慰？不允许他人看见，那我只能认为您财力精力都很强盛，有财力购买服务器、主题；有精力维护服务器、网站。为什么不写在备忘录里呢？&lt;/p&gt;
+&lt;p&gt;发出来，不是为了被人看见？&lt;/p&gt;
+&lt;p&gt;还是说，是在扮演什么角色、人设给什么人看？&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;我个人一直十分痛恨各大平台的强制注册手段，复制代码要注册、展开文章要注册，打开评论区还要注册。所以在我一开始使用动态博客程序的时候，从来没想过有强迫读者注册才能评论。&lt;/p&gt;
+&lt;p&gt;这个问题依然要归结到写博客的意义。如果你写博客，是为了变现，利用在各个博客的评论区乱尿增加的一点SEO权重带来的可怜流量，和不知道从哪里抄搬来的技术文章，连格式都不调一下就挂在网站上又或是分享一大堆所谓免费资源，引流关注微信公众号的，强迫注册，为了赚钱，不寒碜。吗？&lt;/p&gt;
+&lt;p&gt;很他妈寒碜！&lt;/p&gt;
+&lt;p&gt;读者吃着你搬来的别人拉的屎，又要被你骗去你自建的茅房，这钱就算拿到，也是脏的，好好掂量一下这钱里都有什么。&lt;/p&gt;
+&lt;p&gt;如果是正常的博客，要强迫读者注册才可评论，查看文章，那更令人费解。技术文章下，读者遇到了问题，或想更近一步讨论；表达观点、分享日常的文章下，读者看到一个有趣的灵魂，一个，强迫注册，都无异于直接抹杀读者讨论的念头。输入邮箱或手机号，接收验证码、输入验证码，再登录。加之服务器地理位置、配置等原因导致的访问不畅，每一秒所做的每一个行为，都是在一丝丝抽离由文字与读者建立起的联系。&lt;/p&gt;
+&lt;p&gt;最后，只能说上一句：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我写博客只为取悦自己。&lt;/p&gt;
+&lt;/blockquote&gt;</description></item><item><title>Valine评论系统踩坑记录</title><link>https://www.glowisle.me/posts/valine%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/</link><pubDate>Wed, 23 Apr 2025 21:54:03 +0000</pubDate><author>i@glowisle.me (五葉地錦)</author><guid>https://www.glowisle.me/posts/valine%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/</guid><description>&lt;p&gt;我个人很早以前就惦记着换上这个评论系统，曾经使用Butterfly主题的时候就有折腾过Valine，当时是浏览器缓存策略和CORS跨域拦截的问题。网上能找到的教程都比较老，几年以前的情况不再适用于现在了，所以现在去折腾的话，大概率要踩非常多的坑。本文主要讲述我个人踩到的坑和解决方法。&lt;/p&gt;
+&lt;p&gt;本文内容是我自己试错出来的，不要问为什么要这么做，我也不清楚，但是这么做可以正常使用！&lt;/p&gt;
+&lt;p&gt;首先你要有一个自己的域名，不要用.github.io。LeanCloud中设置-域名绑定-API访问域名要绑定你自己的二级域。&lt;/p&gt;
+&lt;p&gt;&lt;figure class="image-caption"&gt;
+ &lt;img src="https://images.glowisle.me/image-20250423220150404.webp" alt=""&gt;
+ &lt;figcaption&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;这里一定一定要做DNS解析，非常重要。&lt;/p&gt;
+&lt;p&gt;然后就是安全中心里面的Web安全域名，LeanCloud默认放行localhost，但是127.0.0.1我这边测试是不行的，如果有需求要自己填写。Web安全域名要填写https、http两种协议保险。&lt;/p&gt;
+&lt;p&gt;主题配置文件中，以我这个主题为例，serverURLs要填写自己的二级域名&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-yaml" data-lang="yaml"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e06c75"&gt;serverURLs&lt;/span&gt;: https://comment.yingyu5658.me
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;一定要加协议头，否则将会在你的博客域名下构建请求，比如我的&lt;code&gt;www.yingyu5658.me/comment.yingyu5658.me/&lt;/code&gt;，这将导致报错。即使你使用国际版也要填写这一项！Leancloud请求不到。&lt;/p&gt;
+&lt;p&gt;现在Valine的教程都有过时，遇到问题还需结合具体情况分析。我看LeanCloud的各种API结构变更还挺多的，太久远的教程就不建议看了。&lt;/p&gt;</description></item><item><title>【无废话】全网最简单的Hexo+Obsidian图片解决方案</title><link>https://www.glowisle.me/posts/%E6%97%A0%E5%BA%9F%E8%AF%9D%E5%85%A8%E7%BD%91%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84hexo+obsidian%E5%9B%BE%E7%89%87%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</link><pubDate>Wed, 05 Mar 2025 21:17:42 +0000</pubDate><author>i@glowisle.me (五葉地錦)</author><guid>https://www.glowisle.me/posts/%E6%97%A0%E5%BA%9F%E8%AF%9D%E5%85%A8%E7%BD%91%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84hexo+obsidian%E5%9B%BE%E7%89%87%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</guid><description>&lt;p&gt;把Hexo博客根目录用黑曜石打开，如果已经打开了仓库
+&lt;figure class="image-caption"&gt;
+ &lt;img src="https://images.glowisle.me/Pasted%20image%2020250305215423.webp" alt=""&gt;
+ &lt;figcaption&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+在弹出的窗口中选第二个。&lt;/p&gt;
+&lt;p&gt;在source目录下新建images文件夹用于存放图片
+设置 =&amp;gt; 文件与链接 =&amp;gt; 附件默认存放路径：选择指定的附件文件夹。路径填写刚刚创建的image文件夹的相对路径
+取消使用Wiki链接
+注意。由于我的文件结构是这样的所以这么填写，要&lt;strong&gt;根据自己的文件结构填写相对路径&lt;/strong&gt;。
+&lt;figure class="image-caption"&gt;
+ &lt;img src="https://images.glowisle.me/Pasted%20image%2020250305215642.webp" alt=""&gt;
+ &lt;figcaption&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+搞定，同时可以在本地编辑环境和博客网站中显示。&lt;/p&gt;</description></item><item><title>记录Typecho博客转移到Hexo</title><link>https://www.glowisle.me/posts/4/</link><pubDate>Mon, 03 Mar 2025 15:40:00 +0800</pubDate><author>i@glowisle.me (五葉地錦)</author><guid>https://www.glowisle.me/posts/4/</guid><description>&lt;h1 id="前言"&gt;前言&lt;/h1&gt;
+&lt;p&gt;折腾来折腾去，最后发现归宿还是静态博客，安全性高、性能开销小，用Github直接省去服务器费用还差不多永生。每年把域名钱交了就得了，图片的问题再想想办法，总能解决的。
+&lt;del&gt;突然有一种为了躲避战乱带着一家人四处奔波的悲凉感&lt;/del&gt;&lt;/p&gt;
+&lt;h1 id="分析"&gt;分析&lt;/h1&gt;
+&lt;p&gt;博客网站的内容，都可以拆分为以下几个点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;文章&lt;/li&gt;
+&lt;li&gt;评论&lt;/li&gt;
+&lt;li&gt;文章插图&lt;/li&gt;
+&lt;li&gt;网站贴图资源&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;先从最主要的文章开始，想想有没有什么可以用的。
+gitee上有一个&lt;a href="https://gitcode.com/gh_mirrors/ty/Typecho-Plugin-Tp2MD"&gt;插件&lt;/a&gt;，看起来好像有点用，折腾安装一下试试先。&lt;/p&gt;
+&lt;h1 id="tp2md插件迁移文章"&gt;Tp2MD插件迁移文章&lt;/h1&gt;
+&lt;p&gt;远程登录服务器，把本地下号的zip传到服务器上并解压。
+cd到插件目录
+&lt;code&gt;/usr/share/nginx/html/usr/plugins&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;解压压缩包
+&lt;code&gt;unzip Typecho-Plugin-Tp2MD-master.zip&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;重命名为插件的自述文件要求的名称
+&lt;code&gt;mv Typecho-Plugin-Tp2MD-master Tp2MD&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;登录网站后台，启用插件。点击插件的设置，保存后按照教程访问。
+这里提示&lt;code&gt;不能写入文件，请检查 cache 文件夹权限！&lt;/code&gt;，我们在插件目录设置一下权限
+&lt;code&gt;sudo chmod -R 777 cache&lt;/code&gt;a
+注意是这个插件目录下的cache！！&lt;/p&gt;
+&lt;p&gt;提示导出成功，cd到这个目录，把文件压缩下载下来查看
+可能是因为我有的文章点了多篇分类，导出文件夹有点问题，无所谓，后期再调，拿到了就行。至此，文章部分搞定！&lt;/p&gt;
+&lt;h1 id="评论"&gt;评论&lt;/h1&gt;
+&lt;p&gt;评论这里，我折腾了两天，尝试尽了各种方案（Disqus Valine Waline Utterances Twikoo Atalk），最后还是选择了Giscus。我也知道这样读者没有github就没办法发评论，但是其他几种方案都会出现各种奇奇怪怪且无法解决的问题比如Cloudflare拦截、CORS出毛病、服务器被墙以及莫名其妙404、403。我真的尽力了。&lt;/p&gt;
+&lt;h1 id="文章插图"&gt;文章插图&lt;/h1&gt;
+&lt;h2 id="转移图片文件"&gt;转移图片文件&lt;/h2&gt;
+&lt;p&gt;进入&lt;code&gt;/usr/uploads/&lt;/code&gt;，压缩下载图片&lt;/p&gt;
+&lt;p&gt;重组Hexo图片目录：复制所有图片到Hexo的&lt;code&gt;source/images/&lt;/code&gt;目录。&lt;/p&gt;
+&lt;p&gt;手动替换图片路径 ，注意，静态资源解析默认以source为根目录，所以直接写以source为根目录的绝对路径就行。&lt;/p&gt;
+&lt;h1 id="部署到vercel加速访问"&gt;部署到vercel加速访问&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;注册vercel账号&lt;/li&gt;
+&lt;li&gt;创建项目，关联仓库&lt;/li&gt;
+&lt;li&gt;域名解析&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;2025.3.3，博客全部迁移完毕，粗略累计用时六天，一直没什么时间搞，耗时最长的还是在评论系统上的试错。&lt;/p&gt;</description></item><item><title>网站迁移</title><link>https://www.glowisle.me/posts/6/</link><pubDate>Thu, 21 Nov 2024 22:59:00 +0000</pubDate><author>i@glowisle.me (五葉地錦)</author><guid>https://www.glowisle.me/posts/6/</guid><description>&lt;p&gt;原网站&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;yingyu5658.github.io&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;将会迁移到这里。我会把有价值的文章转过来
+原因仅仅是gmeek有点太简陋了，虽然typecho也差不多，不过他可以折腾一下主题之类的，并且我每个月还多花出去九十大洋。但是总比gmeek逼格高点吧。
+不得不说，Linux绝对是世界上最麻烦的玩意，解压下载文件都费劲。要不是Windows资源占用多我绝对不会去用这玩意。
+这次可是孤军奋战，背后没有github服务器的靠山了。要是忘了续费服务器我会丢失所有的文章，又是一个负担和一个纠结的点&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;2025.8.24二编：Gmeek简直太符合博客的定位了，不花里胡哨，完全够用，有网就能写文章&amp;hellip;&amp;hellip;&lt;/p&gt;
+&lt;p&gt;Linux太好用了，目前Debian12养老中。&lt;/p&gt;
+&lt;p&gt;回看以前的自己实在是蠢。&lt;/p&gt;
+&lt;/blockquote&gt;</description></item></channel></rss>
