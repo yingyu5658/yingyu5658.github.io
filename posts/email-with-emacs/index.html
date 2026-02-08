@@ -3,115 +3,214 @@
 我尝试过 fetchmail，但不知道这个东西拿到的邮件都在哪，所以最后还是选择了 mbsync."><meta name=keywords content="GNU/Emacs,Linux,"><link rel=canonical href=https://www.glowisle.me/posts/email-with-emacs/><meta property="og:url" content="https://www.glowisle.me/posts/email-with-emacs/"><meta property="og:site_name" content="映屿"><meta property="og:title" content="使用Emacs收发邮件"><meta property="og:description" content="作为一个合格的操作系统，肯定少不了Email. 我的配置很简单，只要实现基础的收发功能即可，每天的邮件量不大。在这里记录一下配置。
 收邮件 我尝试过 fetchmail，但不知道这个东西拿到的邮件都在哪，所以最后还是选择了 mbsync."><meta property="og:locale" content="zh_CN"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2025-11-12T16:48:02+08:00"><meta property="article:modified_time" content="2025-11-12T16:48:02+08:00"><meta property="article:tag" content="GNU/Emacs"><meta property="article:tag" content="Linux"><meta name=twitter:card content="summary"><meta name=twitter:title content="使用Emacs收发邮件"><meta name=twitter:description content="作为一个合格的操作系统，肯定少不了Email. 我的配置很简单，只要实现基础的收发功能即可，每天的邮件量不大。在这里记录一下配置。
 收邮件 我尝试过 fetchmail，但不知道这个东西拿到的邮件都在哪，所以最后还是选择了 mbsync."><meta itemprop=name content="使用Emacs收发邮件"><meta itemprop=description content="作为一个合格的操作系统，肯定少不了Email. 我的配置很简单，只要实现基础的收发功能即可，每天的邮件量不大。在这里记录一下配置。
-收邮件 我尝试过 fetchmail，但不知道这个东西拿到的邮件都在哪，所以最后还是选择了 mbsync."><meta itemprop=datePublished content="2025-11-12T16:48:02+08:00"><meta itemprop=dateModified content="2025-11-12T16:48:02+08:00"><meta itemprop=wordCount content="505"><meta itemprop=keywords content="GNU/Emacs,Linux"><meta name=referrer content="no-referrer-when-downgrade"><style>@font-face{font-family:source serif pro;src:url(/fonts/SourceSerifPro-Regular.otf)}div.footnotes hr::before{content:"Footnotes";display:block;font-size:1.5em;color:var(--bold-text-color);margin-top:16px}.recent-posts p{line-height:35px}.recent-posts-item{margin:0;margin-bottom:120px}.recent-post-title{margin:2px 0 -10px}.post-meta{margin-top:20px;margin-bottom:5px}.recent-item{position:relative;margin-bottom:8px;display:flex;align-items:flex-start}.item-link{width:100%;display:inline-block;text-decoration:none;flex:1;overflow:hidden;text-overflow:ellipsis;font-size:1.6em;word-wrap:break-word;white-space:normal;word-wrap:break-word}.post-title a.item-link{width:100%;display:inline-block;text-decoration:none;flex:1;overflow:hidden;text-overflow:ellipsis;font-size:1.6em;word-wrap:break-word;white-space:normal;word-wrap:break-word}.post-date{font-size:.9em;color:#666;display:inline-block;min-width:80px;flex-shrink:0}.recent-empty{text-align:center;font-style:italic}@media(max-width:720px){.post-date{min-width:auto;font-size:.85em}.recent-post-title{font-size:1.05em}.item-link{white-space:normal;overflow:visible}}.post-meta-item svg{display:inline;width:var(--svg-size);height:var(--svg-size)}.post-meta-item{margin-right:.8em;display:inline-block;font-size:var(--font-size-secondary)}.post-tag a{font-size:var(--font-size-secondary)!important}.post-meta-item p{margin:0}.recent-posts .post-meta{margin-bottom:6em}:root{--width-max:700px;--font-primary:"Source Serif Pro", "Source Han Serif SC", serif;--font-secondary:monospace;--font-size-primary:1.15rem;--font-size-secondary:1rem;--body-bg-color:#fffaed;--bold-text-color:#222;--body-text-color:#444;--link-color:#222;--link-visited-color:#222;--table-border-color:#f2f2f2;--table-th-bg-color:#f2f2f2;--img-border-color:#f2f2f2;--code-bg-color:#f2f2f2;--code-text-color:#222;--blockquote-border-color:#666;--blockquote-text-color:#646464;--upvoted-color:#fa8072;--caption-text-color:#666;--toc-text-color:#e5e5e5;--toc-hover-color:#655e5e;--music-bg-hover-light:#e5e5e5;--music-bg-light:rgba(229, 229, 229, 0.5);--music-text-secondary:#666;--music-shadow:0 10px 15px -3px rgba(0, 0, 0, 0.1),
-     0 4px 6px -2px rgba(0, 0, 0, 0.05);--summary-text-color:#4e4e4e;--svg-size:0.85em}div.summary a,div.summary strong,div.summary p{margin-bottom:0}.social-icons{margin:15px;margin-top:5px;text-align:center}.social-icons a{padding:5px}.booklist{display:grid;grid-template-columns:repeat(5,1fr);gap:20px}.booklist-item{transform:translateZ(0);transition:transform .25s,box-shadow .25s;box-shadow:0 4px 6px rgba(0,0,0,.1)}.booklist-item img{height:100%}.booklist-item:hover{transform:translateY(-5px)translateZ(20px);box-shadow:0 20px 40px rgba(0,0,0,.5)}.rss-icon{display:inline;font-size:16px;float:right;font-family:var(--font-primary)}img.missing{display:none}nav a,h1.post-title a,.blog-posts li a{text-decoration:none!important}nav a:hover,.post-title a:hover,.blog-posts a:hover{text-decoration:underline .5px!important}.wm{border:1px #d0d7de solid;border-radius:.25em;padding-top:0;padding:1.5vw;background-color:#fffaed;margin-top:1vh}.wm p{margin-top:1px}article p,.summary p{line-height:35px;margin-top:20px;font-weight:400}.item-link{white-space:nowrap;overflow:hidden}h1.post-title{margin-top:2vh;margin-bottom:10px}h1.post-title a{font-weight:700}.recent-list{padding-left:2vw}.recent-item{list-style-type:none}.post-date{display:inline}.post-date,.post-date-shortcode{margin-left:auto}.music-card img{border:none!important}.music-card{display:flex;flex-direction:column;gap:.5rem;width:100%}.music-info{display:flex;align-items:center;gap:1.25rem}.music-cover{width:3.75rem;height:3.75rem;border-radius:.5rem;box-shadow:var(--music-shadow);margin:0!important;object-fit:cover}.music-title{margin:0;font-size:1rem;font-weight:700;line-height:1.2}.music-artist{margin:0;font-size:.875rem;color:var(--music-text-secondary)}.music-links{display:flex;align-items:center;gap:.5rem}.music-btn{display:inline-flex;align-items:center;gap:.25rem;padding:0 .75rem;height:2rem;border-radius:9999px;text-decoration:none!important;font-size:.75rem;transition:background-color .3s ease;background-color:var(--music-bg-light);color:inherit}.music-btn:hover{background-color:var(--music-bg-hover-light)}.music-icon{display:block;width:.75rem;height:.75rem;margin:0!important}.music-btn-text{display:inline}@media(min-width:768px){.music-card{flex-direction:row;justify-content:space-between;align-items:center}.music-btn{padding:1rem;justify-content:center;width:auto;height:auto}.music-icon{width:1.25rem;height:1.25rem}.music-btn-text{display:none}}@media(prefers-color-scheme:dark){:root{--summary-text-color:#c9c6c5;--body-bg-color:#121212;--bold-text-color:#eee;--body-text-color:#e8e6e3;--link-color:#ddd;--link-visited-color:#c3b1ee;--table-border-color:#999;--table-th-bg-color:#999;--img-border-color:#999;--code-bg-color:#141414;--code-text-color:#ddd;--blockquote-border-color:#7b7b7b;--blockquote-text-color:#acacac;--caption-text-color:#aaa;--toc-text-color:#373737;--toc-hover-color:#cac3c3;--music-bg-hover-dark:#525252;--music-bg-dark:rgba(82, 82, 82, 0.5);--music-text-secondary:#a3a3a3;--color-background:var(--body-bg-color) !important}.post-meta-item svg{filter:invert(1)hue-rotate(180deg)}div.summary a{text-decoration:underline .1px #5e5e5e}strong{font-weight:650}.music-btn{background-color:var(--music-bg-dark)}.music-btn:hover{background-color:var(--music-bg-hover-dark)}.category-link{color:#dbdbdb}.wm{background-color:#161b22;border-color:#30363d;color:var(--body-text-color);padding:10px}.wm input{background-color:#010409;border:#30363d 1px solid;color:var(--body-text-color);outline:none;transition:border-color .2s ease-in-out}#webmention-source:focus{border-color:var(--color-accent-fg,#0969da);box-shadow:0 0 0 3px rgba(9,105,218,.1)}.wm button{color:var(--body-text-color);background-color:#161b22;border:#30363d 1px solid}.post-title a,{color:#fff!important}.post-summary{color:var(--text-color-primary)!important}.post-item{border-bottom:1px solid #414141!important}.pagination-link{border:1px solid #414141!important}a{font-weight:500!important}}body{font-family:var(--font-primary);font-size:var(--font-size-primary);margin:auto;padding:20px;max-width:var(--width-max);text-align:left;background-color:var(--body-bg-color);word-wrap:break-word;overflow-wrap:break-word;line-height:1.6;color:var(--body-text-color)}h1,h2,h3,h4,h5,h6,strong,b{color:var(--bold-text-color)}article h1,article h2,article h3,article h4,article h5,article h6{margin:16px 0}a{color:var(--link-color);cursor:pointer;text-decoration:underline .2px #5e5e5e;transition-duration:.3s;font-weight:600}.posts-list li{margin-bottom:12px}.title{text-align:center;text-decoration:none!important}a.title h1{margin:15px;margin-bottom:15px}header{margin-top:30px}.title:hover{text-decoration:none}.title span{font-weight:400}nav{text-align:center;margin-bottom:20px}nav a{margin-right:8px}textarea{width:100%;font-size:16px}input{font-size:14px}article{line-height:1.6}table{width:100%;border-collapse:collapse;border:1px solid var(--table-border-color);border-radius:4px;margin-top:16px}th,td{border:1px solid var(--table-border-color);padding:4px}th{background-color:var(--table-th-bg-color)}hr{border:0;border-top:1px dashed}img{max-width:100%;display:block;margin-left:auto;margin-right:auto;content-visibility:auto;loading:lazy}img[src*="#minipic"]{max-width:50%;margin-left:0;margin-right:auto}.image-caption figcaption{text-align:center;font-style:italic;font-size:.8em;margin-top:.6em;color:var(--caption-text-color)}.image-caption{margin:auto}i{font-style:normal}time{font-family:var(--font-primary);color:var(--body-text-color)}code{font-family:var(--font-secondary);background-color:var(--code-bg-color);color:var(--code-text-color);padding:2px;border-radius:4px}pre code{display:block;padding:16px;white-space:pre-wrap;overflow-x:auto}div.highlight pre{border-radius:4px}div.highlight code{background-color:var(--code-bg-color);color:var(--code-text-color)}blockquote{color:var(--blockquote-text-color);margin:0;margin-top:17px;padding-left:20px;font-style:normal}footer{padding:25px 0;text-align:left;font-size:var(--font-size-secondary)}ul li:has(input){list-style-type:none;margin-left:-25.5px}ul.blog-posts{list-style-type:none;padding:unset}ul.blog-posts li{display:flex;margin-bottom:8px}ul.blog-posts li span{flex:0 0 130px}ul.blog-posts li span.grouped{flex:0 0 80px}ul.blog-posts li a:visited{color:var(--link-visited-color)}ul.blog-posts a{margin-left:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}div.toc{position:fixed;top:50%;left:calc( (100vw + var(--width-max))/2 );transform:translateY(-50%);width:calc((90vw - var(--width-max))/2);max-height:80vh;overflow-y:auto;border:none;padding:0;margin:0;z-index:99;&::-webkit-scrollbar { display:none; } -ms-overflow-style:none;scrollbar-width:none}.toc-nav{padding:1.5rem}.toc-nav ul{list-style:none;padding:0;margin:0}.toc-nav li{margin:8px 0}.toc-nav a{display:block;text-decoration:none;color:transparent;padding:0 12px;transition:all .2s ease;font-size:.9rem;line-height:1.4;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}.toc-nav:hover a{color:var(--toc-text-color)}.toc-nav a::before{content:"";display:inline-block;width:16px;height:4px;background-color:var(--toc-text-color);border-radius:16px;margin-right:12px;vertical-align:middle}.toc-nav ul ul a::before{width:12px;margin-right:16px}.toc-nav ul ul ul a::before{width:8px;margin-right:20px}.toc-nav a.active,.toc-nav a:hover{text-decoration:none;color:var(--toc-hover-color)}.toc-nav a.active::before,.toc-nav a:hover::before{background-color:var(--toc-hover-color)}button.upvote-btn{margin:0;margin-left:auto;padding:0;border:none;background:0 0;cursor:pointer;display:flex;flex-direction:column;align-items:center;color:var(--body-text-color)}button.upvoted{color:var(--upvoted-color)}span.upvote-count{margin-top:-4px;font-size:smaller}@media(max-width:800px){img[src*="#minipic"]{max-width:100%;margin-left:auto;margin-right:auto}div.toc{display:none}}@media(max-width:700px){.booklist{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}}@media(max-width:400px){.booklist{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}}</style><meta name=msvalidate.01 content="2E1AACF009206F2DDBAAD4B98E881460"><meta name=fediverse:creator content="@Verdant@c7.io"><link rel=prefetch as=image href=https://www.blogsclub.org/badge/www.glowisle.me><link href=https://github.com/yingyu5658 rel=me><link href=https://c7.io/@Verdant rel=me><link rel=webmention href=https://webmention.io/www.glowisle.me/webmention><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css></head><body><main><header><a href=/ class=title><h1>映屿</h1></a><nav><a href=/categories/>分类</a>
+收邮件 我尝试过 fetchmail，但不知道这个东西拿到的邮件都在哪，所以最后还是选择了 mbsync."><meta itemprop=datePublished content="2025-11-12T16:48:02+08:00"><meta itemprop=dateModified content="2025-11-12T16:48:02+08:00"><meta itemprop=wordCount content="606"><meta itemprop=keywords content="GNU/Emacs,Linux"><meta name=referrer content="no-referrer-when-downgrade"><style>@font-face{font-family:source serif pro;src:url(/fonts/SourceSerifPro-Regular.otf)}div.footnotes hr::before{content:"Footnotes";display:block;font-size:1.5em;color:var(--bold-text-color);margin-top:16px}.recent-posts p{line-height:35px}.recent-posts-item{margin:0;margin-bottom:120px}.recent-post-title{margin:2px 0 -10px}.post-meta{margin-top:20px;margin-bottom:5px}.recent-item{position:relative;margin-bottom:8px;display:flex;align-items:flex-start}.item-link{width:100%;display:inline-block;text-decoration:none;flex:1;overflow:hidden;text-overflow:ellipsis;font-size:1.6em;word-wrap:break-word;white-space:normal;word-wrap:break-word}.post-title a.item-link{width:100%;display:inline-block;text-decoration:none;flex:1;overflow:hidden;text-overflow:ellipsis;font-size:1.6em;word-wrap:break-word;white-space:normal;word-wrap:break-word}.post-date{font-size:.9em;color:#666;display:inline-block;min-width:80px;flex-shrink:0}.recent-empty{text-align:center;font-style:italic}@media(max-width:720px){.post-date{min-width:auto;font-size:.85em}.recent-post-title{font-size:1.05em}.item-link{white-space:normal;overflow:visible}}.post-meta-item svg{display:inline;width:var(--svg-size);height:var(--svg-size)}.post-meta-item{margin-right:.8em;display:inline-block;font-size:var(--font-size-secondary)}.post-tag a{font-size:var(--font-size-secondary)!important}.post-meta-item p{margin:0}.recent-posts .post-meta{margin-bottom:6em}:root{--width-max:700px;--font-primary:"Source Serif Pro", "Source Han Serif SC", serif;--font-secondary:monospace;--font-size-primary:1.15rem;--font-size-secondary:1rem;--body-bg-color:#ffffff;--bold-text-color:#222;--body-text-color:#444;--link-color:#222;--link-visited-color:#222;--table-border-color:#f2f2f2;--table-th-bg-color:#f2f2f2;--img-border-color:#f2f2f2;--code-bg-color:#f2f2f2;--code-text-color:#222;--blockquote-border-color:#666;--blockquote-text-color:#646464;--upvoted-color:#fa8072;--caption-text-color:#666;--toc-text-color:#e5e5e5;--toc-hover-color:#655e5e;--music-bg-hover-light:#e5e5e5;--music-bg-light:rgba(229, 229, 229, 0.5);--music-text-secondary:#666;--music-shadow:0 10px 15px -3px rgba(0, 0, 0, 0.1),
+     0 4px 6px -2px rgba(0, 0, 0, 0.05);--summary-text-color:#4e4e4e;--svg-size:0.85em}div.summary a,div.summary strong,div.summary p{margin-bottom:0}.social-icons{margin:15px;margin-top:5px;text-align:center}.social-icons a{padding:5px}.booklist{display:grid;grid-template-columns:repeat(5,1fr);gap:20px}.booklist-item{transform:translateZ(0);transition:transform .25s,box-shadow .25s;box-shadow:0 4px 6px rgba(0,0,0,.1)}.booklist-item img{height:100%}.booklist-item:hover{transform:translateY(-5px)translateZ(20px);box-shadow:0 20px 40px rgba(0,0,0,.5)}.rss-icon{display:inline;font-size:16px;float:right;font-family:var(--font-primary)}img.missing{display:none}nav a,h1.post-title a,.blog-posts li a{text-decoration:none!important}nav a:hover,.post-title a:hover,.blog-posts a:hover{text-decoration:underline .5px!important}.wm{border:1px #d0d7de solid;border-radius:.25em;padding-top:0;padding:1.5vw;background-color:#fffaed;margin-top:1vh}.wm p{margin-top:1px}article p,.summary p{line-height:35px;margin-top:20px;font-weight:400}.item-link{white-space:nowrap;overflow:hidden}h1.post-title{margin-top:2vh;margin-bottom:10px}h1.post-title a{font-weight:700}.recent-list{padding-left:2vw}.recent-item{list-style-type:none}.post-date{display:inline}.post-date,.post-date-shortcode{margin-left:auto}.music-card img{border:none!important}.music-card{display:flex;flex-direction:column;gap:.5rem;width:100%}.music-info{display:flex;align-items:center;gap:1.25rem}.music-cover{width:3.75rem;height:3.75rem;border-radius:.5rem;box-shadow:var(--music-shadow);margin:0!important;object-fit:cover}.music-title{margin:0;font-size:1rem;font-weight:700;line-height:1.2}.music-artist{margin:0;font-size:.875rem;color:var(--music-text-secondary)}.music-links{display:flex;align-items:center;gap:.5rem}.music-btn{display:inline-flex;align-items:center;gap:.25rem;padding:0 .75rem;height:2rem;border-radius:9999px;text-decoration:none!important;font-size:.75rem;transition:background-color .3s ease;background-color:var(--music-bg-light);color:inherit}.music-btn:hover{background-color:var(--music-bg-hover-light)}.music-icon{display:block;width:.75rem;height:.75rem;margin:0!important}.music-btn-text{display:inline}@media(min-width:768px){.music-card{flex-direction:row;justify-content:space-between;align-items:center}.music-btn{padding:1rem;justify-content:center;width:auto;height:auto}.music-icon{width:1.25rem;height:1.25rem}.music-btn-text{display:none}}@media(prefers-color-scheme:dark){:root{--summary-text-color:#c9c6c5;--body-bg-color:#121212;--bold-text-color:#eee;--body-text-color:#e8e6e3;--link-color:#ddd;--link-visited-color:#c3b1ee;--table-border-color:#999;--table-th-bg-color:#999;--img-border-color:#999;--code-bg-color:#141414;--code-text-color:#ddd;--blockquote-border-color:#7b7b7b;--blockquote-text-color:#acacac;--caption-text-color:#aaa;--toc-text-color:#373737;--toc-hover-color:#cac3c3;--music-bg-hover-dark:#525252;--music-bg-dark:rgba(82, 82, 82, 0.5);--music-text-secondary:#a3a3a3;--color-background:var(--body-bg-color) !important}.post-meta-item svg{filter:invert(1)hue-rotate(180deg)}div.summary a{text-decoration:underline .1px #5e5e5e}strong{font-weight:650}.music-btn{background-color:var(--music-bg-dark)}.music-btn:hover{background-color:var(--music-bg-hover-dark)}.category-link{color:#dbdbdb}.wm{background-color:#161b22;border-color:#30363d;color:var(--body-text-color);padding:10px}.wm input{background-color:#010409;border:#30363d 1px solid;color:var(--body-text-color);outline:none;transition:border-color .2s ease-in-out}#webmention-source:focus{border-color:var(--color-accent-fg,#0969da);box-shadow:0 0 0 3px rgba(9,105,218,.1)}.wm button{color:var(--body-text-color);background-color:#161b22;border:#30363d 1px solid}.post-title a,{color:#fff!important}.post-summary{color:var(--text-color-primary)!important}.post-item{border-bottom:1px solid #414141!important}.pagination-link{border:1px solid #414141!important}a{font-weight:500!important}}body{font-family:var(--font-primary);font-size:var(--font-size-primary);margin:auto;padding:20px;max-width:var(--width-max);text-align:left;background-color:var(--body-bg-color);word-wrap:break-word;overflow-wrap:break-word;line-height:1.6;color:var(--body-text-color)}h1,h2,h3,h4,h5,h6,strong,b{color:var(--bold-text-color)}article h1,article h2,article h3,article h4,article h5,article h6{margin:16px 0}a{color:var(--link-color);cursor:pointer;text-decoration:underline .2px #5e5e5e;transition-duration:.3s;font-weight:600}.posts-list li{margin-bottom:12px}.title{text-align:left;text-decoration:none!important}a.title h1{margin:15px;margin-left:0;font-size:2.15em}header{margin-top:30px;margin-bottom:4vh}.title:hover{text-decoration:none}.title span{font-weight:400}nav{text-align:left;margin-bottom:20px}nav a{margin-right:8px}textarea{width:100%;font-size:16px}input{font-size:14px}article{line-height:1.6}table{width:100%;border-collapse:collapse;border:1px solid var(--table-border-color);border-radius:4px;margin-top:16px}th,td{border:1px solid var(--table-border-color);padding:4px}th{background-color:var(--table-th-bg-color)}hr{border:0;border-top:1px dashed}img{max-width:100%;display:block;margin-left:auto;margin-right:auto;content-visibility:auto;loading:lazy}img[src*="#minipic"]{max-width:50%;margin-left:0;margin-right:auto}.image-caption figcaption{text-align:center;font-style:italic;font-size:.8em;margin-top:.6em;color:var(--caption-text-color)}.image-caption{margin:auto}i{font-style:normal}time{font-family:var(--font-primary);color:var(--body-text-color)}code{font-family:var(--font-secondary);background-color:var(--code-bg-color);color:var(--code-text-color);padding:2px;border-radius:4px}pre code{display:block;padding:16px;white-space:pre-wrap;overflow-x:auto}div.highlight pre{border-radius:4px}div.highlight code{background-color:var(--code-bg-color);color:var(--code-text-color)}blockquote{color:var(--blockquote-text-color);margin:0;margin-top:17px;padding-left:20px;font-style:normal}footer{padding:25px 0;text-align:left;font-size:var(--font-size-secondary)}ul li:has(input){list-style-type:none;margin-left:-25.5px}ul.blog-posts{list-style-type:none;padding:unset}ul.blog-posts li{display:flex;margin-bottom:8px}ul.blog-posts li span{flex:0 0 130px}ul.blog-posts li span.grouped{flex:0 0 80px}ul.blog-posts li a:visited{color:var(--link-visited-color)}ul.blog-posts a{margin-left:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}div.toc{position:fixed;top:50%;left:calc( (100vw + var(--width-max))/2 );transform:translateY(-50%);width:calc((90vw - var(--width-max))/2);max-height:80vh;overflow-y:auto;border:none;padding:0;margin:0;z-index:99;&::-webkit-scrollbar { display:none; } -ms-overflow-style:none;scrollbar-width:none}.toc-nav{padding:1.5rem}.toc-nav ul{list-style:none;padding:0;margin:0}.toc-nav li{margin:8px 0}.toc-nav a{display:block;text-decoration:none;color:transparent;padding:0 12px;transition:all .2s ease;font-size:.9rem;line-height:1.4;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}.toc-nav a{color:var(--toc-text-color)}.toc-nav a::before{content:"";display:inline-block;width:16px;height:4px;background-color:var(--toc-text-color);border-radius:16px;margin-right:12px;vertical-align:middle}.toc-nav ul ul a::before{width:12px;margin-right:16px}.toc-nav ul ul ul a::before{width:8px;margin-right:20px}.toc-nav a,.toc-nav a{text-decoration:none;color:var(--toc-hover-color)}.toc-nav a.active::before,.toc-nav a:hover::before{background-color:var(--toc-hover-color)}button.upvote-btn{margin:0;margin-left:auto;padding:0;border:none;background:0 0;cursor:pointer;display:flex;flex-direction:column;align-items:center;color:var(--body-text-color)}button.upvoted{color:var(--upvoted-color)}span.upvote-count{margin-top:-4px;font-size:smaller}@media(max-width:800px){img[src*="#minipic"]{max-width:100%;margin-left:auto;margin-right:auto}div.toc{display:none}}@media(max-width:700px){.booklist{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}}@media(max-width:400px){.booklist{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}}</style><meta name=msvalidate.01 content="2E1AACF009206F2DDBAAD4B98E881460"><meta name=fediverse:creator content="@Verdant@c7.io"><link rel=prefetch as=image href=https://www.blogsclub.org/badge/www.glowisle.me><link href=https://github.com/yingyu5658 rel=me><link href=https://c7.io/@Verdant rel=me><link rel=webmention href=https://webmention.io/www.glowisle.me/webmention><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css></head><body><main><header><a href=/ class=title><h1>映屿</h1></a><nav><a href=/categories/>分类</a>
 <a href=/readings>书单</a>
 <a href=/links/>友人</a>
 <a href=/archives>归档</a>
-<a href=/about>关于</a></nav><div class=social-icons><a href=https://c7.io/@Verdant><i class="fa-brands fa-mastodon"></i></a>
-<a href=https://github.com/yingyu5658/><i class="fa-brands fa-github"></i></a>
-<a href=mailto:i@glowisle.me><i class="fa-solid fa-envelope"></i></a></div><hr></header><article class=h-entry><h3 class=post-title><a href=/posts/email-with-emacs/ class=item-link>使用Emacs收发邮件</a></h3><div class=e-content><p>作为一个合格的操作系统，肯定少不了Email. 我的配置很简单，只要实现基础的收发功能即可，每天的邮件量不大。在这里记录一下配置。</p><h2 id=收邮件>收邮件</h2><p>我尝试过 <strong><a href=https://www.fetchmail.info>fetchmail</a></strong>，但不知道这个东西拿到的邮件都在哪，所以最后还是选择了 <strong>mbsync</strong>.</p><pre tabindex=0><code># ~/.mbsyncrc
-# GlowIsle 账户配置
-IMAPAccount GlowIsle
-Host imap.qiye.aliyun.com
-Port 993
-User i@glowisle.me
-Pass ******
-TLSType IMAPS
-AuthMechs LOGIN
-CertificateFile /etc/ssl/certs/ca-certificates.crt
-
-# 远程存储
-IMAPStore glowisle-remote
-Account GlowIsle
-
-# 本地存储
-MaildirStore glowisle-local
-Path ~/mail/GlowIsle/
-Inbox ~/mail/GlowIsle/Inbox
-Subfolders Verbatim
-
-# 同步通道
-Channel glowisle
-Far :glowisle-remote:
-Near :glowisle-local:
-Patterns *
-Create Both
-Sync All
-Expunge Both
-SyncState *
-</code></pre><h2 id=发邮件>发邮件</h2><pre tabindex=0><code># ~/.msmtprc
-# glowisle
-account glowisle 
-host smtp.qiye.aliyun.com
-from i@glowisle.me
-auth login
-port 465
-user i@glowisle.me
-password ******* 
-auth on
-tls on
-tls_starttls off #使用465端口时不能开启
-tls_certcheck  off 
-tls_trust_file /etc/ssl/certs/ca-certificates.crt
-
-account default : glowisle
-</code></pre><h2 id=emacs-配置>Emacs 配置</h2><p>在Doom Emacs的<code>init.el</code>中开启 mu4e</p><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lisp data-lang=lisp><span style=display:flex><span> <span style=color:#98c379>:email</span>
-</span></span><span style=display:flex><span>    (<span style=color:#e06c75>mu4e</span> <span style=color:#e06c75>+org</span>)
-</span></span><span style=display:flex><span> 
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lisp data-lang=lisp><span style=display:flex><span><span style=color:#7f848e>;; config.el</span>
-</span></span><span style=display:flex><span>(<span style=color:#e06c75>after!</span> <span style=color:#e06c75>mu4e</span>
-</span></span><span style=display:flex><span>  <span style=color:#7f848e>;; 基本设置</span>
-</span></span><span style=display:flex><span>  (<span style=color:#c678dd>setq</span> <span style=color:#e06c75>mu4e-maildir</span> <span style=color:#98c379>&#34;~/mail&#34;</span>     <span style=color:#7f848e>; 邮件目录</span>
-</span></span><span style=display:flex><span>        <span style=color:#e06c75>mu4e-get-mail-command</span> <span style=color:#98c379>&#34;mbsync -a&#34;</span>  <span style=color:#7f848e>; 接收邮件命令</span>
-</span></span><span style=display:flex><span>        <span style=color:#e06c75>mu4e-update-interval</span> <span style=color:#d19a66>300</span>  <span style=color:#7f848e>; 自动更新间隔（秒）</span>
-</span></span><span style=display:flex><span>        <span style=color:#e06c75>mu4e-view-show-images</span> <span style=color:#e06c75>t</span>   <span style=color:#7f848e>; 显示图片</span>
-</span></span><span style=display:flex><span>        <span style=color:#e06c75>mu4e-compose-signature</span> <span style=color:#98c379>&#34;Best regards.\nVerdant&#34;</span>) <span style=color:#7f848e>; 邮件签名</span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>  <span style=color:#7f848e>;; 使用 msmtp 发送邮件</span>
-</span></span><span style=display:flex><span>  (<span style=color:#c678dd>setq</span> <span style=color:#e06c75>message-send-mail-function</span> <span style=color:#98c379>&#39;message-send-mail-with-sendmail</span>
-</span></span><span style=display:flex><span>        <span style=color:#e06c75>sendmail-program</span> <span style=color:#98c379>&#34;/usr/bin/msmtp&#34;</span>
-</span></span><span style=display:flex><span>        <span style=color:#e06c75>sendmail-arguments</span> <span style=color:#56b6c2>&#39;</span>(<span style=color:#98c379>&#34;--read-envelope-from&#34;</span> <span style=color:#98c379>&#34;--read-recipients&#34;</span>))
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>  (<span style=color:#c678dd>setq</span> <span style=color:#e06c75>mu4e-contexts</span>
-</span></span><span style=display:flex><span>        (<span style=color:#e5c07b>list</span>
-</span></span><span style=display:flex><span>         (<span style=color:#e06c75>make-mu4e-context</span>
-</span></span><span style=display:flex><span>          <span style=color:#98c379>:name</span> <span style=color:#98c379>&#34;GlowIsle&#34;</span>
-</span></span><span style=display:flex><span>          <span style=color:#98c379>:match-func</span> (<span style=color:#e5c07b>lambda</span> (<span style=color:#e06c75>msg</span>)
-</span></span><span style=display:flex><span>                        (<span style=color:#e5c07b>when</span> <span style=color:#e06c75>msg</span>
-</span></span><span style=display:flex><span>                          (<span style=color:#e06c75>string-match-p</span> <span style=color:#98c379>&#34;^/GlowIsle&#34;</span> (<span style=color:#e06c75>mu4e-message-field</span> <span style=color:#e06c75>msg</span> <span style=color:#98c379>:maildir</span>))))
-</span></span><span style=display:flex><span>          <span style=color:#98c379>:vars</span> <span style=color:#56b6c2>&#39;</span>((<span style=color:#e06c75>user-mail-address</span> <span style=color:#56b6c2>.</span> <span style=color:#98c379>&#34;i@glowisle.me&#34;</span>)
-</span></span><span style=display:flex><span>                  (<span style=color:#e06c75>user-full-name</span>    <span style=color:#56b6c2>.</span> <span style=color:#98c379>&#34;Verdant&#34;</span>)
-</span></span><span style=display:flex><span>                  (<span style=color:#e06c75>smtpmail-smtp-server</span> <span style=color:#56b6c2>.</span> <span style=color:#98c379>&#34;smtp.qiye.aliyun.com&#34;</span>)
-</span></span><span style=display:flex><span>                  (<span style=color:#e06c75>smtpmail-smtp-service</span> <span style=color:#56b6c2>.</span> <span style=color:#d19a66>465</span>)
-</span></span><span style=display:flex><span>                  (<span style=color:#e06c75>smtpmail-stream-type</span> <span style=color:#56b6c2>.</span> <span style=color:#e06c75>starttls</span>)))))
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>  )
-</span></span></code></pre></div><h2 id=基本使用>基本使用</h2><ul><li><code>SPC o m</code> 进入 mu4e 主页面</li></ul><pre tabindex=0><code>Basics
-
-    * [J]ump to some maildir
-    * enter a [s]earch query
-    * [C]ompose a new message
-
-Bookmarks
-
-    * [bu] Unread messages      (0/0)
-    * [bt] Today&#39;s messages     (0/14)
-    * [bw] Last 7 days
-    * [bp] Messages with images (0/0)
-    * [bf] Flagged messages     (0/1)
-
-Misc
-
-    * [;]Switch focus
-    * [u]pdate email &amp; database
-
-    * [N]ews
-    * [A]bout mu4e
-    * [H]elp
-    * [q]uit
-</code></pre><hr><p>微软的Outlook邮箱使用OAuth2.0认证，我暂时没找到成功的解决方案能在Emacs上使用，如果有哪位路过的好哥们知道方法请留言或<a href=mailto:i@glowisle.me>发个邮件</a>探讨一下！</p></div></article><a class=u-url href=https://www.glowisle.me/posts/email-with-emacs/ style=display:none>Permalink</a><hr><div class=post-meta><div class="post-meta-item post-author"><p><svg t="1768726817979" class="icon" viewBox="0 0 1024 1024" p-id="4715" width="200" height="200"><path d="M858.5 763.6c-18.9-44.8-46.1-85-80.6-119.5s-74.7-61.6-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6-34.5 34.5-61.6 74.7-80.6 119.5C146.9 807.5 137 854 136 901.8c-.1 4.5 3.5 8.2 8 8.2h60c4.4.0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60c4.5.0 8.1-3.7 8-8.2-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9.0-89.1-17.9-121.6-50.4S340 407.9 340 362s17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362s-17.9 89.1-50.4 121.6S557.9 534 512 534z" p-id="4716"/></svg>
+<a href=/about>关于</a></nav></header><article class=h-entry><h3 class=post-title><a href=/posts/email-with-emacs/ class=item-link>使用Emacs收发邮件</a></h3><div class=e-content><p>作为一个合格的操作系统，肯定少不了Email. 我的配置很简单，只要实现基础的收发功能即可，每天的邮件量不大。在这里记录一下配置。</p><h2 id=收邮件>收邮件</h2><p>我尝试过 <strong><a href=https://www.fetchmail.info>fetchmail</a></strong>，但不知道这个东西拿到的邮件都在哪，所以最后还是选择了 <strong>mbsync</strong>.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl># ~/.mbsyncrc
+</span></span><span class=line><span class=cl># GlowIsle 账户配置
+</span></span><span class=line><span class=cl>IMAPAccount GlowIsle
+</span></span><span class=line><span class=cl>Host imap.qiye.aliyun.com
+</span></span><span class=line><span class=cl>Port 993
+</span></span><span class=line><span class=cl>User i@glowisle.me
+</span></span><span class=line><span class=cl>Pass ******
+</span></span><span class=line><span class=cl>TLSType IMAPS
+</span></span><span class=line><span class=cl>AuthMechs LOGIN
+</span></span><span class=line><span class=cl>CertificateFile /etc/ssl/certs/ca-certificates.crt
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl># 远程存储
+</span></span><span class=line><span class=cl>IMAPStore glowisle-remote
+</span></span><span class=line><span class=cl>Account GlowIsle
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl># 本地存储
+</span></span><span class=line><span class=cl>MaildirStore glowisle-local
+</span></span><span class=line><span class=cl>Path ~/mail/GlowIsle/
+</span></span><span class=line><span class=cl>Inbox ~/mail/GlowIsle/Inbox
+</span></span><span class=line><span class=cl>Subfolders Verbatim
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl># 同步通道
+</span></span><span class=line><span class=cl>Channel glowisle
+</span></span><span class=line><span class=cl>Far :glowisle-remote:
+</span></span><span class=line><span class=cl>Near :glowisle-local:
+</span></span><span class=line><span class=cl>Patterns *
+</span></span><span class=line><span class=cl>Create Both
+</span></span><span class=line><span class=cl>Sync All
+</span></span><span class=line><span class=cl>Expunge Both
+</span></span><span class=line><span class=cl>SyncState *
+</span></span></code></pre></td></tr></table></div></div><h2 id=发邮件>发邮件</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl># ~/.msmtprc
+</span></span><span class=line><span class=cl># glowisle
+</span></span><span class=line><span class=cl>account glowisle 
+</span></span><span class=line><span class=cl>host smtp.qiye.aliyun.com
+</span></span><span class=line><span class=cl>from i@glowisle.me
+</span></span><span class=line><span class=cl>auth login
+</span></span><span class=line><span class=cl>port 465
+</span></span><span class=line><span class=cl>user i@glowisle.me
+</span></span><span class=line><span class=cl>password ******* 
+</span></span><span class=line><span class=cl>auth on
+</span></span><span class=line><span class=cl>tls on
+</span></span><span class=line><span class=cl>tls_starttls off #使用465端口时不能开启
+</span></span><span class=line><span class=cl>tls_certcheck  off 
+</span></span><span class=line><span class=cl>tls_trust_file /etc/ssl/certs/ca-certificates.crt
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>account default : glowisle
+</span></span></code></pre></td></tr></table></div></div><h2 id=emacs-配置>Emacs 配置</h2><p>在Doom Emacs的<code>init.el</code>中开启 mu4e</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-lisp data-lang=lisp><span class=line><span class=cl> <span class=ss>:email</span>
+</span></span><span class=line><span class=cl>    <span class=p>(</span><span class=nv>mu4e</span> <span class=nv>+org</span><span class=p>)</span>
+</span></span><span class=line><span class=cl> 
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-lisp data-lang=lisp><span class=line><span class=cl><span class=c1>;; config.el</span>
+</span></span><span class=line><span class=cl><span class=p>(</span><span class=nv>after!</span> <span class=nv>mu4e</span>
+</span></span><span class=line><span class=cl>  <span class=c1>;; 基本设置</span>
+</span></span><span class=line><span class=cl>  <span class=p>(</span><span class=k>setq</span> <span class=nv>mu4e-maildir</span> <span class=s>&#34;~/mail&#34;</span>     <span class=c1>; 邮件目录</span>
+</span></span><span class=line><span class=cl>        <span class=nv>mu4e-get-mail-command</span> <span class=s>&#34;mbsync -a&#34;</span>  <span class=c1>; 接收邮件命令</span>
+</span></span><span class=line><span class=cl>        <span class=nv>mu4e-update-interval</span> <span class=mi>300</span>  <span class=c1>; 自动更新间隔（秒）</span>
+</span></span><span class=line><span class=cl>        <span class=nv>mu4e-view-show-images</span> <span class=no>t</span>   <span class=c1>; 显示图片</span>
+</span></span><span class=line><span class=cl>        <span class=nv>mu4e-compose-signature</span> <span class=s>&#34;Best regards.\nVerdant&#34;</span><span class=p>)</span> <span class=c1>; 邮件签名</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=c1>;; 使用 msmtp 发送邮件</span>
+</span></span><span class=line><span class=cl>  <span class=p>(</span><span class=k>setq</span> <span class=nv>message-send-mail-function</span> <span class=ss>&#39;message-send-mail-with-sendmail</span>
+</span></span><span class=line><span class=cl>        <span class=nv>sendmail-program</span> <span class=s>&#34;/usr/bin/msmtp&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=nv>sendmail-arguments</span> <span class=o>&#39;</span><span class=p>(</span><span class=s>&#34;--read-envelope-from&#34;</span> <span class=s>&#34;--read-recipients&#34;</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=p>(</span><span class=k>setq</span> <span class=nv>mu4e-contexts</span>
+</span></span><span class=line><span class=cl>        <span class=p>(</span><span class=nc>list</span>
+</span></span><span class=line><span class=cl>         <span class=p>(</span><span class=nv>make-mu4e-context</span>
+</span></span><span class=line><span class=cl>          <span class=ss>:name</span> <span class=s>&#34;GlowIsle&#34;</span>
+</span></span><span class=line><span class=cl>          <span class=ss>:match-func</span> <span class=p>(</span><span class=nb>lambda</span> <span class=p>(</span><span class=nv>msg</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                        <span class=p>(</span><span class=nb>when</span> <span class=nv>msg</span>
+</span></span><span class=line><span class=cl>                          <span class=p>(</span><span class=nv>string-match-p</span> <span class=s>&#34;^/GlowIsle&#34;</span> <span class=p>(</span><span class=nv>mu4e-message-field</span> <span class=nv>msg</span> <span class=ss>:maildir</span><span class=p>))))</span>
+</span></span><span class=line><span class=cl>          <span class=ss>:vars</span> <span class=o>&#39;</span><span class=p>((</span><span class=nv>user-mail-address</span> <span class=o>.</span> <span class=s>&#34;i@glowisle.me&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                  <span class=p>(</span><span class=nv>user-full-name</span>    <span class=o>.</span> <span class=s>&#34;Verdant&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                  <span class=p>(</span><span class=nv>smtpmail-smtp-server</span> <span class=o>.</span> <span class=s>&#34;smtp.qiye.aliyun.com&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                  <span class=p>(</span><span class=nv>smtpmail-smtp-service</span> <span class=o>.</span> <span class=mi>465</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                  <span class=p>(</span><span class=nv>smtpmail-stream-type</span> <span class=o>.</span> <span class=nv>starttls</span><span class=p>)))))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=基本使用>基本使用</h2><ul><li><code>SPC o m</code> 进入 mu4e 主页面</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>Basics
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    * [J]ump to some maildir
+</span></span><span class=line><span class=cl>    * enter a [s]earch query
+</span></span><span class=line><span class=cl>    * [C]ompose a new message
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Bookmarks
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    * [bu] Unread messages      (0/0)
+</span></span><span class=line><span class=cl>    * [bt] Today&#39;s messages     (0/14)
+</span></span><span class=line><span class=cl>    * [bw] Last 7 days
+</span></span><span class=line><span class=cl>    * [bp] Messages with images (0/0)
+</span></span><span class=line><span class=cl>    * [bf] Flagged messages     (0/1)
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Misc
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    * [;]Switch focus
+</span></span><span class=line><span class=cl>    * [u]pdate email &amp; database
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    * [N]ews
+</span></span><span class=line><span class=cl>    * [A]bout mu4e
+</span></span><span class=line><span class=cl>    * [H]elp
+</span></span><span class=line><span class=cl>    * [q]uit
+</span></span></code></pre></td></tr></table></div></div><hr><p>微软的Outlook邮箱使用OAuth2.0认证，我暂时没找到成功的解决方案能在Emacs上使用，如果有哪位路过的好哥们知道方法请留言或<a href=mailto:i@glowisle.me>发个邮件</a>探讨一下！</p></div></article><a class=u-url href=https://www.glowisle.me/posts/email-with-emacs/ style=display:none>Permalink</a><hr><div class=post-meta><div class="post-meta-item post-author"><p><svg t="1768726817979" class="icon" viewBox="0 0 1024 1024" p-id="4715" width="200" height="200"><path d="M858.5 763.6c-18.9-44.8-46.1-85-80.6-119.5s-74.7-61.6-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6-34.5 34.5-61.6 74.7-80.6 119.5C146.9 807.5 137 854 136 901.8c-.1 4.5 3.5 8.2 8 8.2h60c4.4.0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60c4.5.0 8.1-3.7 8-8.2-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9.0-89.1-17.9-121.6-50.4S340 407.9 340 362s17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362s-17.9 89.1-50.4 121.6S557.9 534 512 534z" p-id="4716"/></svg>
 Verdant</p></div><div class="post-meta-item post-date"><svg t="1768727464189" class="icon" viewBox="0 0 1024 1024" p-id="5925" width="200" height="200"><path d="M341.333333 170.666667h341.333334V85.333333H768v85.333334h42.666667A85.333333 85.333333.0 01896 256v597.333333a85.333333 85.333333.0 01-85.333333 85.333334H213.333333A85.333333 85.333333.0 01128 853.333333V256a85.333333 85.333333.0 0185.333333-85.333333H256V85.333333h85.333333v85.333334zm-128 170.666666v512h597.333334v-512H213.333333zm85.333334 128H384v85.333334H298.666667v-85.333334zm170.666666.0h85.333334v85.333334h-85.333334v-85.333334zm170.666667.0h85.333333v85.333334H640v-85.333334zM640 640h85.333333v85.333333H640V640zm-170.666667.0h85.333334v85.333333h-85.333334V640zm-170.666666.0H384v85.333333H298.666667V640z" fill="#000" p-id="5926"/></svg>
 <time class=dt-published datetime=2025-11-12T16:48:02+08:00>November 12, 2025</time></div><div class="post-meta-item post-category"><svg t="1768727819011" class="icon" viewBox="0 0 1024 1024" p-id="7095" width="200" height="200"><path d="M85.312 153.6v716.8h853.376V288H471.36L364.416 153.6H85.376zM0 64h404.288L511.36 198.4H1024V960H0V64z" fill="#262626" p-id="7096"/></svg>
 <a href=/categories/%E5%BE%80%E6%98%94/ class=category-link>往昔</a></div><div class="post-meta-item post-tag"><svg t="1768727897449" class="icon" viewBox="0 0 1024 1024" p-id="8070" width="200" height="200"><path d="M512 910.208 910.208 512 480.832 82.624l-378.816 24.448L82.24 480.448 512 910.208zM0 512 25.472 31.36 512 0l512 512-512 512L0 512zm293.376-128.96a85.952 85.952.0 100-171.904 85.952 85.952.0 000 171.904z" fill="#262626" p-id="8071"/></svg>
