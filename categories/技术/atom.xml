@@ -1,4 +1,114 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>技术 on 映屿</title><link>https://www.glowisle.me/categories/%E6%8A%80%E6%9C%AF/</link><description>Recent content in 技术 on 映屿</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>i@glowisle.me (五葉地錦)</managingEditor><webMaster>i@glowisle.me (五葉地錦)</webMaster><lastBuildDate>Sat, 06 Dec 2025 13:26:47 +0800</lastBuildDate><atom:link href="http://www.glowisle.me/categories/%E6%8A%80%E6%9C%AF/atom.xml" rel="self" type="application/rss+xml"/><item><title>剖析千行C语言文本编辑器Kilo的技术细节</title><link>https://www.glowisle.me/posts/kilo-analysis/</link><pubDate>Sat, 06 Dec 2025 13:26:47 +0800</pubDate><author>i@glowisle.me (五葉地錦)</author><guid>https://www.glowisle.me/posts/kilo-analysis/</guid><description>&lt;p&gt;今天上午学习了一下&lt;a href="https://github.com/antirez/kilo"&gt;Kilo&lt;/a&gt;的源代码。我很早以前就对文本编辑器的实现方法感兴趣了。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>技术 on 映屿</title><link>https://www.glowisle.me/categories/%E6%8A%80%E6%9C%AF/</link><description>Recent content in 技术 on 映屿</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>i@glowisle.me (五葉地錦)</managingEditor><webMaster>i@glowisle.me (五葉地錦)</webMaster><lastBuildDate>Tue, 10 Feb 2026 18:34:00 +0800</lastBuildDate><atom:link href="http://www.glowisle.me/categories/%E6%8A%80%E6%9C%AF/atom.xml" rel="self" type="application/rss+xml"/><item><title>2026年，一个普通Emacs用户如何把Gnus跑起来</title><link>https://www.glowisle.me/posts/gnus-guide/</link><pubDate>Tue, 10 Feb 2026 18:34:00 +0800</pubDate><author>i@glowisle.me (五葉地錦)</author><guid>https://www.glowisle.me/posts/gnus-guide/</guid><description>&lt;h2 id="前言"&gt;前言&lt;/h2&gt;
+&lt;p&gt;Emacs中有众多的邮件管理工具，目前比较流行的&lt;a href="https://github.com/emacsmirror/mu4e"&gt;mu4e&lt;/a&gt;，但如果你和我一样，不喜欢它的操作逻辑和界面，或者同样有怀旧情怀，一定会想玩玩Gnus。然而这个在Emacs中自带的包，居然在中文互联网上几乎没有任何讨论度，甚至能用中文搜索到的配置教程是写于2012年的博客园文章。几乎找不到近些年的帖子或文章。所以我写下这篇文章，为同样想折腾Gnus的，使用中文的Emacser指路。&lt;/p&gt;
+&lt;p&gt;本篇文章不是《Emacs完全上手指南/圣经/官方文档》，不能做到全面、无误，但可以保证是中文互联网上较新的资料，如有错误，欢迎邮件或在评论区指出。&lt;/p&gt;
+&lt;p&gt;Gnus是一个多功能的信息聚合器，邮件只是它的功能之一，本篇文章主要配置邮件功能。&lt;/p&gt;
+&lt;h2 id="getting-started"&gt;Getting started&lt;/h2&gt;
+&lt;p&gt;Gnus的配置文件默认在&lt;code&gt;~/.gnus&lt;/code&gt;，Emacs会将它当作elisp文件读取，网上也有一些说法是&lt;code&gt;~/.gnus.el&lt;/code&gt;其实只是加载顺序的不同，如果你此前有尝试，请备份并删除以前的文件。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;touch ~/.gnus
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="gnus-select-method"&gt;gnus-select-method&lt;/h2&gt;
+&lt;p&gt;Gnus的后端选择，对于imap协议，一般选择&lt;code&gt;nnimap&lt;/code&gt;：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-elisp" data-lang="elisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#d699b6"&gt;setq&lt;/span&gt; gnus-select-method
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#7a8478"&gt;&amp;#39;&lt;/span&gt;(nnimap &lt;span style="color:#b2c98f"&gt;&amp;#34;NAME&amp;#34;&lt;/span&gt; &lt;span style="color:#859289;font-style:italic"&gt;;这里是自己起的名字，用来区分不同的帐号&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-address &lt;span style="color:#b2c98f"&gt;&amp;#34;&amp;#34;&lt;/span&gt;) &lt;span style="color:#859289;font-style:italic"&gt;; imap服务器&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-inbox &lt;span style="color:#b2c98f"&gt;&amp;#34;INBOX&amp;#34;&lt;/span&gt;) &lt;span style="color:#859289;font-style:italic"&gt;; 大多数服务器都使用INBOX，除非你明确知道不同，否则不建议修改&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-expunge &lt;span style="color:#d699b6"&gt;t&lt;/span&gt;) &lt;span style="color:#859289;font-style:italic"&gt;; 立即在服务器上同步删除的邮件（按需开启，开启后删除邮件无法恢复）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-server-port &lt;span style="color:#d699b6"&gt;993&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-stream ssl) &lt;span style="color:#859289;font-style:italic"&gt;; 使用 SSL&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-authenticator login) &lt;span style="color:#859289;font-style:italic"&gt;;指定认证方式，如果服务器支持多种认证方式但自动协商失败，建议开启&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ))
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在配好后，重启Emacs，输入&lt;code&gt;M-x RET gnus RET&lt;/code&gt;，下方会闪过一些输出，根据提示填写用户名和密码后，询问是否要把用户名和密码填入&lt;code&gt;~/.authinfo&lt;/code&gt;，建议选y。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;C-x b&lt;/code&gt;切换到&lt;code&gt;*Messages*&lt;/code&gt;buffer查看，会看到类似这样的输出，那就表明你的配置无误！&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Opening connection to imap.qiye.aliyun.com via tls...
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Opening connection to imap.qiye.aliyun.com...done
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Saving file /home/yingyu5658/.newsrc-dribble...
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Wrote /home/yingyu5658/.newsrc-dribble
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Gnus auto-save file exists. Do you want to read it? (y or n) n
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Reading /home/yingyu5658/.newsrc...done
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Subscribe newsgroup: 已删除邮件
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Subscribe newsgroup: 草稿
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Subscribe newsgroup: INBOX
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Subscribe newsgroup: 已发送
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Subscribe newsgroup: 垃圾邮件
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Opening nnfolder server on archive...done
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;5 new newsgroups have arrived
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Checking new news...
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nnimap read 0k from imap.qiye.aliyun.com (initial sync of 5 groups; please wait)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Checking new news...done
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;No news is good news
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这个news是历史遗留词汇，仅仅代表当前没有未读邮件。&lt;/p&gt;
+&lt;p&gt;你可以用另一个账号向这个邮箱发送一封测试邮件，重新打开Gnus，会有这样的输出：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;1:*INBOX
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;我们回车点进去，就会打开那封邮件显示内容啦。&lt;/p&gt;
+&lt;p&gt;&lt;figure class="image-caption"&gt;
+ &lt;img src="https://images.glowisle.me/2026-02-10_19-50.png" alt="测试邮件效果"&gt;
+ &lt;figcaption&gt;测试邮件效果&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;在Group Buffer中按下&lt;code&gt;L&lt;/code&gt;，可以看到所有文件夹。&lt;/p&gt;
+&lt;h2 id="多帐号配置"&gt;多帐号配置&lt;/h2&gt;
+&lt;p&gt;多账号配置需要设置&lt;code&gt;gnus-secondary-select-methods&lt;/code&gt;这个变量，这里和&lt;code&gt;gnus-select-method&lt;/code&gt;一起说一下。后者是主服务器，前者是额外服务器列表，但几乎和主服务器同级，使用中可以当作平级。&lt;/p&gt;
+&lt;p&gt;多账号配置示例：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-elisp" data-lang="elisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#d699b6"&gt;setq&lt;/span&gt; gnus-select-method
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#7a8478"&gt;&amp;#39;&lt;/span&gt;(nnimap &lt;span style="color:#b2c98f"&gt;&amp;#34;glowsisle&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-address &lt;span style="color:#b2c98f"&gt;&amp;#34;imap.qiye.aliyun.com&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-inbox &lt;span style="color:#b2c98f"&gt;&amp;#34;INBOX&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-expunge &lt;span style="color:#d699b6"&gt;t&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-server-port &lt;span style="color:#d699b6"&gt;993&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-stream ssl) &lt;span style="color:#859289;font-style:italic"&gt;; 使用 SSL&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-authenticator login) &lt;span style="color:#859289;font-style:italic"&gt;; 必须指定认证方式&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ))
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#d699b6"&gt;setq&lt;/span&gt; gnus-secondary-select-methods
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#7a8478"&gt;&amp;#39;&lt;/span&gt;((nnimap &lt;span style="color:#b2c98f"&gt;&amp;#34;outlook&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;		(nnimap-address &lt;span style="color:#b2c98f"&gt;&amp;#34;outlook.office365.com&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;		(nnimap-server-port &lt;span style="color:#d699b6"&gt;993&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;		(nnimap-stream ssl)))
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;		
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#859289;font-style:italic"&gt;; 如果你有更多账户，另一个账户的配置同上。&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;注意到了吗，&lt;code&gt;secondary&lt;/code&gt;的配置和我们一开始配置的&lt;code&gt;gnus-select-method&lt;/code&gt;一模一样，而且它可以容纳多个账户。&lt;/p&gt;
+&lt;p&gt;注意：Microsoft Outlook / Microsoft 365 默认禁用普通 IMAP 密码登录。Gnus 无法使用 OAuth2，因此必须在 Microsoft 帐号中启用双重验证并生成应用专用密码，否则会出现 NO LOGIN failed 错误。&lt;/p&gt;
+&lt;h2 id="发邮件"&gt;发邮件&lt;/h2&gt;
+&lt;p&gt;虽然对于一个Gnus教程来说有点跑题，但你应该会需要发件配置的。&lt;/p&gt;
+&lt;p&gt;在Emacs中发送邮件有三条路，分别是&lt;code&gt;msmtp&lt;/code&gt;、&lt;code&gt;smtpmail&lt;/code&gt;（Emacs内置）、sendmail。&lt;/p&gt;
+&lt;p&gt;最推荐的是msmtp，与Gnus、Emacs解耦，并且配置简单优雅。&lt;/p&gt;
+&lt;h3 id="安装"&gt;安装&lt;/h3&gt;
+&lt;p&gt;以Debian为例：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt update
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt install msmtp
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在配置文件中&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-elisp" data-lang="elisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#d699b6"&gt;setq&lt;/span&gt; send-mail-function &lt;span style="color:#e69875"&gt;&amp;#39;sendmail-send-it&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#d699b6"&gt;setq&lt;/span&gt; message-send-mail-function &lt;span style="color:#e69875"&gt;&amp;#39;sendmail-send-it&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#d699b6"&gt;setq&lt;/span&gt; sendmail-program &lt;span style="color:#b2c98f"&gt;&amp;#34;/usr/bin/msmtp&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在&lt;code&gt;~/.msmtprc&lt;/code&gt;：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;account 账户名
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;host smtp.server.address
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;from your@account.com
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;auth login
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;port yourport
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;user your@account.com
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;password 不建议明文写密码，配置方式见下文
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;auth on
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tls on
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tls_starttls off
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tls_certcheck off 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tls_trust_file /etc/ssl/certs/ca-certificates.crt
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;account default : 默认账户，填写account的值
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="密码存储"&gt;密码存储&lt;/h2&gt;
+&lt;p&gt;需要创建一个包含密码的文本文件。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;touch password &lt;span style="color:#7a8478"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style="color:#d699b6"&gt;echo&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;yourpassword&amp;#34;&lt;/span&gt; &amp;gt; ./password
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后使用GPG加密，这样会生成一个&lt;code&gt;password.gpg&lt;/code&gt;文件&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gpg --symmetric --cipher-algo AES256 password
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后在&lt;code&gt;~/.msmtprc&lt;/code&gt;中，把密码那行改成&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;passwordeval &amp;#34;gpg --quiet --batch --decrypt /path/to/password.gpg&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这样每次使用都要输入GPG密码，为了避免这种情况，可以在&lt;code&gt;~/.gnupg/gpg.conf&lt;/code&gt;写入以下内容来缓存密码。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;use-agent
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这样就不用每次都输入密码了。记得删除明文存储密码的password文件:)&lt;/p&gt;
+&lt;h2 id="参考"&gt;参考&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.gnu.org/software/emacs/manual/html_mono/gnus.html"&gt;Gnus Manual&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.cnblogs.com/csophys/articles/2375236.html"&gt;Emacs Gnus 的基本配置与使用&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://emacs-china.org/t/emacs-send-mail-rmail-and-gnus/11730/4?page=2"&gt;Emacs收发邮件完全操作指南: Send-Mail, Rmail and Gnus&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>剖析千行C语言文本编辑器Kilo的技术细节</title><link>https://www.glowisle.me/posts/kilo-analysis/</link><pubDate>Sat, 06 Dec 2025 13:26:47 +0800</pubDate><author>i@glowisle.me (五葉地錦)</author><guid>https://www.glowisle.me/posts/kilo-analysis/</guid><description>&lt;p&gt;今天上午学习了一下&lt;a href="https://github.com/antirez/kilo"&gt;Kilo&lt;/a&gt;的源代码。我很早以前就对文本编辑器的实现方法感兴趣了。&lt;/p&gt;
 &lt;p&gt;Kilo是一个很简易却不简陋的项目，清晰地展示了如何构建一个终端下的文本编辑器，它的目的不是真正让你学会去开发一个高标准高质量，能投入使用的文本编辑器，而是理解文本编辑器的核心骨架、理解一个看似庞大一团糟的问题的拆解思路。这是一个很好的起点。也过了一把爽玩C语言的瘾（虽然我并没有写几行代码）。&lt;/p&gt;
 &lt;h2 id="程序分析"&gt;程序分析&lt;/h2&gt;
 &lt;p&gt;整个项目只有一个文件，一千三百行代码。我用了大概一个半小时梳理了程序的执行流程，手画了一个流程图。为了美观，我又用&lt;a href="https://www.glowisle.me/posts/%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8graphviz%E7%BB%98%E5%88%B6%E7%A8%8B%E5%BA%8F%E6%B5%81%E7%A8%8B%E5%9B%BE/"&gt;Graphviz&lt;/a&gt;绘制了一个电子版：&lt;/p&gt;
@@ -10,274 +120,118 @@
 &lt;h3 id="终端信号处理"&gt;终端信号处理&lt;/h3&gt;
 &lt;p&gt;我发现在终端程序里，需要快捷键的部分都是使用Raw mode和signal相关的函数组合实现的，在理解&lt;code&gt;signal&lt;/code&gt;这个函数和它的有关宏的概念时，耗费了比较长的时间。&lt;/p&gt;
 &lt;p&gt;简单来说，signal用于处理用户在终端发出的信号，比如&lt;code&gt;SIGINT&lt;/code&gt;代表由&lt;code&gt;C-c&lt;/code&gt;产生的中断信号，&lt;code&gt;SIGIGN&lt;/code&gt;代表忽略信号，即接受到这个信号以后什么都不做，关于如何接受信号，就要说起&lt;code&gt;signal()&lt;/code&gt;这个函数。定义如下：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="nf"&gt;signal&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;sig&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;func&lt;/span&gt;&lt;span class="p"&gt;)(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="p"&gt;)))(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;看起来非常复杂，说人话就是接受两个参数，第一个参数是int类型的&lt;code&gt;sig&lt;/code&gt;，是信号编号，比如&lt;code&gt;SIGINT&lt;/code&gt;，这是要接收的信号。第二个参数是一个函数指针，接受一个返回void，参数是int类型的信号处理函数，使用第二个函数中的函数对接受到的信号做处理。函数返回原来的信号处理函数（函数指针）。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#dbbc7f"&gt;void&lt;/span&gt; (&lt;span style="color:#7a8478"&gt;*&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;signal&lt;/span&gt;(&lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; sig, &lt;span style="color:#dbbc7f"&gt;void&lt;/span&gt; (&lt;span style="color:#7a8478"&gt;*&lt;/span&gt;func)(&lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt;)))(&lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;看起来非常复杂，说人话就是接受两个参数，第一个参数是int类型的&lt;code&gt;sig&lt;/code&gt;，是信号编号，比如&lt;code&gt;SIGINT&lt;/code&gt;，这是要接收的信号。第二个参数是一个函数指针，接受一个返回void，参数是int类型的信号处理函数，使用第二个函数中的函数对接受到的信号做处理。函数返回原来的信号处理函数（函数指针）。&lt;/p&gt;
 &lt;p&gt;可以用typedef简化理解：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;span class="lnt"&gt;2
-&lt;/span&gt;&lt;span class="lnt"&gt;3
-&lt;/span&gt;&lt;span class="lnt"&gt;4
-&lt;/span&gt;&lt;span class="lnt"&gt;5
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// 定义信号处理函数的类型
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;typedef&lt;/span&gt; &lt;span class="nf"&gt;void&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="kt"&gt;sighandler_t&lt;/span&gt;&lt;span class="p"&gt;)(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// 用 typedef 重写 signal 声明
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kt"&gt;sighandler_t&lt;/span&gt; &lt;span class="nf"&gt;signal&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;sig&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;sighandler_t&lt;/span&gt; &lt;span class="n"&gt;func&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;在Kilo中，&lt;code&gt;C-c&lt;/code&gt;是被忽略的，因为它非常容易导致丢失修改，可以这样实现：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nf"&gt;signal&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;SIGINT&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;SIGIGN&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;不过，在Kilo的实现，是通过调用&lt;code&gt;editorReadKey()&lt;/code&gt;，从Raw Mode 中读取一个按键存入数组，用switch匹配按键对应的值再返回给调用方，调用方也通过switch，匹配对应的操作函数。而在&lt;code&gt;C-c&lt;/code&gt;的部分，则是直接break掉了。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;span class="lnt"&gt;2
-&lt;/span&gt;&lt;span class="lnt"&gt;3
-&lt;/span&gt;&lt;span class="lnt"&gt;4
-&lt;/span&gt;&lt;span class="lnt"&gt;5
-&lt;/span&gt;&lt;span class="lnt"&gt;6
-&lt;/span&gt;&lt;span class="lnt"&gt;7
-&lt;/span&gt;&lt;span class="lnt"&gt;8
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;...&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;case&lt;/span&gt; &lt;span class="nl"&gt;CTRL_C&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="cm"&gt;/* Ctrl-c */&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="cm"&gt;/* We ignore ctrl-c, it can&amp;#39;t be so simple to lose the changes
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cm"&gt; * to the edited file. */&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;break&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;...&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;这种实现方法也有一定局限性，不同的终端模拟器可能发送不同的转义字符，硬编码转义字符会出现不适配的情况。并且使用&lt;code&gt;read()&lt;/code&gt;阻塞读取输入有性能瓶颈。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#859289;font-style:italic"&gt;// 定义信号处理函数的类型
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e67e80"&gt;typedef&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;void&lt;/span&gt; (&lt;span style="color:#7a8478"&gt;*&lt;/span&gt;&lt;span style="color:#dbbc7f"&gt;sighandler_t&lt;/span&gt;)(&lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#859289;font-style:italic"&gt;// 用 typedef 重写 signal 声明
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#dbbc7f"&gt;sighandler_t&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;signal&lt;/span&gt;(&lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; sig, &lt;span style="color:#dbbc7f"&gt;sighandler_t&lt;/span&gt; func);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在Kilo中，&lt;code&gt;C-c&lt;/code&gt;是被忽略的，因为它非常容易导致丢失修改，可以这样实现：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#b2c98f"&gt;signal&lt;/span&gt;(SIGINT, SIGIGN);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;不过，在Kilo的实现，是通过调用&lt;code&gt;editorReadKey()&lt;/code&gt;，从Raw Mode 中读取一个按键存入数组，用switch匹配按键对应的值再返回给调用方，调用方也通过switch，匹配对应的操作函数。而在&lt;code&gt;C-c&lt;/code&gt;的部分，则是直接break掉了。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e67e80"&gt;case&lt;/span&gt; &lt;span style="color:#e67e80"&gt;CTRL_C&lt;/span&gt;: &lt;span style="color:#859289;font-style:italic"&gt;/* Ctrl-c */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;/* We ignore ctrl-c, it can&amp;#39;t be so simple to lose the changes
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#859289;font-style:italic"&gt; * to the edited file. */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;break&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这种实现方法也有一定局限性，不同的终端模拟器可能发送不同的转义字符，硬编码转义字符会出现不适配的情况。并且使用&lt;code&gt;read()&lt;/code&gt;阻塞读取输入有性能瓶颈。&lt;/p&gt;
 &lt;h3 id="精妙的数据结构与算法"&gt;精妙的数据结构与算法&lt;/h3&gt;
 &lt;p&gt;这个程序最有趣的地方在于清晰、通用的数据结构的设计，以&lt;code&gt;editorConfig&lt;/code&gt;为例：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
-&lt;/span&gt;&lt;span class="lnt"&gt; 2
-&lt;/span&gt;&lt;span class="lnt"&gt; 3
-&lt;/span&gt;&lt;span class="lnt"&gt; 4
-&lt;/span&gt;&lt;span class="lnt"&gt; 5
-&lt;/span&gt;&lt;span class="lnt"&gt; 6
-&lt;/span&gt;&lt;span class="lnt"&gt; 7
-&lt;/span&gt;&lt;span class="lnt"&gt; 8
-&lt;/span&gt;&lt;span class="lnt"&gt; 9
-&lt;/span&gt;&lt;span class="lnt"&gt;10
-&lt;/span&gt;&lt;span class="lnt"&gt;11
-&lt;/span&gt;&lt;span class="lnt"&gt;12
-&lt;/span&gt;&lt;span class="lnt"&gt;13
-&lt;/span&gt;&lt;span class="lnt"&gt;14
-&lt;/span&gt;&lt;span class="lnt"&gt;15
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;struct&lt;/span&gt; &lt;span class="n"&gt;editorConfig&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;cx&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;cy&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="cm"&gt;/* Cursor x and y position in characters */&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;rowoff&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="cm"&gt;/* Offset of row displayed. */&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;coloff&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="cm"&gt;/* Offset of column displayed. */&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;screenrows&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="cm"&gt;/* Number of rows that we can show */&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;screencols&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="cm"&gt;/* Number of cols that we can show */&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;numrows&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="cm"&gt;/* Number of rows */&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;rawmode&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="cm"&gt;/* Is terminal raw mode enabled? */&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;erow&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="cm"&gt;/* Rows */&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;dirty&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="cm"&gt;/* File modified but not saved. */&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="cm"&gt;/* Currently open filename */&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="n"&gt;statusmsg&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;80&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kt"&gt;time_t&lt;/span&gt; &lt;span class="n"&gt;statusmsg_time&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;struct&lt;/span&gt; &lt;span class="n"&gt;editorSyntax&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;syntax&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="cm"&gt;/* Current syntax highlight, or NULL. */&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;};&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;我们定义了一个&lt;code&gt;editorConfig&lt;/code&gt;类型的变量，它全局唯一，维护了程序的基本状态，包括行、列、滚动偏移、终端尺寸。让程序状态的流转非常清楚。这些内容都是一个文本编辑器需要关心的最核心内容：光标位置、视图偏移、数据和文件的状态等信息。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e67e80"&gt;struct&lt;/span&gt; editorConfig {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; cx, cy; &lt;span style="color:#859289;font-style:italic"&gt;/* Cursor x and y position in characters */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; rowoff; &lt;span style="color:#859289;font-style:italic"&gt;/* Offset of row displayed. */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; coloff; &lt;span style="color:#859289;font-style:italic"&gt;/* Offset of column displayed. */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; screenrows; &lt;span style="color:#859289;font-style:italic"&gt;/* Number of rows that we can show */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; screencols; &lt;span style="color:#859289;font-style:italic"&gt;/* Number of cols that we can show */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; numrows; &lt;span style="color:#859289;font-style:italic"&gt;/* Number of rows */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; rawmode; &lt;span style="color:#859289;font-style:italic"&gt;/* Is terminal raw mode enabled? */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; erow &lt;span style="color:#7a8478"&gt;*&lt;/span&gt;row; &lt;span style="color:#859289;font-style:italic"&gt;/* Rows */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; dirty; &lt;span style="color:#859289;font-style:italic"&gt;/* File modified but not saved. */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;char&lt;/span&gt; &lt;span style="color:#7a8478"&gt;*&lt;/span&gt;filename; &lt;span style="color:#859289;font-style:italic"&gt;/* Currently open filename */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;char&lt;/span&gt; statusmsg[&lt;span style="color:#d699b6"&gt;80&lt;/span&gt;];
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;time_t&lt;/span&gt; statusmsg_time;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;struct&lt;/span&gt; editorSyntax &lt;span style="color:#7a8478"&gt;*&lt;/span&gt;syntax; &lt;span style="color:#859289;font-style:italic"&gt;/* Current syntax highlight, or NULL. */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;};
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;我们定义了一个&lt;code&gt;editorConfig&lt;/code&gt;类型的变量，它全局唯一，维护了程序的基本状态，包括行、列、滚动偏移、终端尺寸。让程序状态的流转非常清楚。这些内容都是一个文本编辑器需要关心的最核心内容：光标位置、视图偏移、数据和文件的状态等信息。&lt;/p&gt;
 &lt;p&gt;通过这个结构体，能简单地获取程序当前的状态，或者为某项功能对状态作出修改，对一个新手来说还是挺拓宽思路的，至少我想不到怎么设计这些数据结构。&lt;/p&gt;
 &lt;h3 id="数据与显示的分离"&gt;数据与显示的分离&lt;/h3&gt;
 &lt;p&gt;在&lt;code&gt;editorConfig&lt;/code&gt;中嵌套了一个&lt;code&gt;erow&lt;/code&gt;类型的变量，里面的东西也可以展开说说，定义如下：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
-&lt;/span&gt;&lt;span class="lnt"&gt; 2
-&lt;/span&gt;&lt;span class="lnt"&gt; 3
-&lt;/span&gt;&lt;span class="lnt"&gt; 4
-&lt;/span&gt;&lt;span class="lnt"&gt; 5
-&lt;/span&gt;&lt;span class="lnt"&gt; 6
-&lt;/span&gt;&lt;span class="lnt"&gt; 7
-&lt;/span&gt;&lt;span class="lnt"&gt; 8
-&lt;/span&gt;&lt;span class="lnt"&gt; 9
-&lt;/span&gt;&lt;span class="lnt"&gt;10
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;typedef&lt;/span&gt; &lt;span class="k"&gt;struct&lt;/span&gt; &lt;span class="n"&gt;erow&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;idx&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="cm"&gt;/* Row index in the file, zero-based. */&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="cm"&gt;/* Size of the row, excluding the null term. */&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;rsize&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="cm"&gt;/* Size of the rendered row. */&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;chars&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="cm"&gt;/* Row content. */&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;render&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="cm"&gt;/* Row content &amp;#34;rendered&amp;#34; for screen (for TABs). */&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kt"&gt;unsigned&lt;/span&gt; &lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;hl&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="cm"&gt;/* Syntax highlight type for each character in render.*/&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;hl_oc&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="cm"&gt;/* Row had open comment at end in last syntax highlight
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cm"&gt; check. */&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="n"&gt;erow&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;这里面有一个&lt;code&gt;render&lt;/code&gt;字段，在&lt;code&gt;editorUpdateRow()&lt;/code&gt;中，有这样的代码：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
-&lt;/span&gt;&lt;span class="lnt"&gt; 2
-&lt;/span&gt;&lt;span class="lnt"&gt; 3
-&lt;/span&gt;&lt;span class="lnt"&gt; 4
-&lt;/span&gt;&lt;span class="lnt"&gt; 5
-&lt;/span&gt;&lt;span class="lnt"&gt; 6
-&lt;/span&gt;&lt;span class="lnt"&gt; 7
-&lt;/span&gt;&lt;span class="lnt"&gt; 8
-&lt;/span&gt;&lt;span class="lnt"&gt; 9
-&lt;/span&gt;&lt;span class="lnt"&gt;10
-&lt;/span&gt;&lt;span class="lnt"&gt;11
-&lt;/span&gt;&lt;span class="lnt"&gt;12
-&lt;/span&gt;&lt;span class="lnt"&gt;13
-&lt;/span&gt;&lt;span class="lnt"&gt;14
-&lt;/span&gt;&lt;span class="lnt"&gt;15
-&lt;/span&gt;&lt;span class="lnt"&gt;16
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kt"&gt;unsigned&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;tabs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;nonprint&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;idx&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="cm"&gt;/* Create a version of the row we can directly print on the screen,
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cm"&gt; * respecting tabs, substituting non printable characters with &amp;#39;?&amp;#39;. */&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nf"&gt;free&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;render&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;j&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;chars&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;TAB&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;tabs&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kt"&gt;unsigned&lt;/span&gt; &lt;span class="kt"&gt;long&lt;/span&gt; &lt;span class="kt"&gt;long&lt;/span&gt; &lt;span class="n"&gt;allocsize&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;unsigned&lt;/span&gt; &lt;span class="kt"&gt;long&lt;/span&gt; &lt;span class="kt"&gt;long&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;size&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;tabs&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;8&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;nonprint&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;allocsize&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;UINT32_MAX&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nf"&gt;printf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;Some line of the edited file is too long for kilo&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nf"&gt;exit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;循环的if中使用的 &lt;code&gt;TAB&lt;/code&gt; 定义在KEY_ACTION枚举，值为9，在ASCII码中是&lt;code&gt;\t&lt;/code&gt;也就是水平制表符。代码在统计tab的数量。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e67e80"&gt;typedef&lt;/span&gt; &lt;span style="color:#e67e80"&gt;struct&lt;/span&gt; erow {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; idx; &lt;span style="color:#859289;font-style:italic"&gt;/* Row index in the file, zero-based. */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; size; &lt;span style="color:#859289;font-style:italic"&gt;/* Size of the row, excluding the null term. */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; rsize; &lt;span style="color:#859289;font-style:italic"&gt;/* Size of the rendered row. */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;char&lt;/span&gt; &lt;span style="color:#7a8478"&gt;*&lt;/span&gt;chars; &lt;span style="color:#859289;font-style:italic"&gt;/* Row content. */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;char&lt;/span&gt; &lt;span style="color:#7a8478"&gt;*&lt;/span&gt;render; &lt;span style="color:#859289;font-style:italic"&gt;/* Row content &amp;#34;rendered&amp;#34; for screen (for TABs). */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;unsigned&lt;/span&gt; &lt;span style="color:#dbbc7f"&gt;char&lt;/span&gt; &lt;span style="color:#7a8478"&gt;*&lt;/span&gt;hl; &lt;span style="color:#859289;font-style:italic"&gt;/* Syntax highlight type for each character in render.*/&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; hl_oc; &lt;span style="color:#859289;font-style:italic"&gt;/* Row had open comment at end in last syntax highlight
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#859289;font-style:italic"&gt; check. */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;} erow;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这里面有一个&lt;code&gt;render&lt;/code&gt;字段，在&lt;code&gt;editorUpdateRow()&lt;/code&gt;中，有这样的代码：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#dbbc7f"&gt;unsigned&lt;/span&gt; &lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; tabs &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; &lt;span style="color:#d699b6"&gt;0&lt;/span&gt;, nonprint &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; &lt;span style="color:#d699b6"&gt;0&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; j, idx;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;/* Create a version of the row we can directly print on the screen,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#859289;font-style:italic"&gt; * respecting tabs, substituting non printable characters with &amp;#39;?&amp;#39;. */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#b2c98f"&gt;free&lt;/span&gt;(row&lt;span style="color:#7a8478"&gt;-&amp;gt;&lt;/span&gt;render);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;for&lt;/span&gt; (j &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; &lt;span style="color:#d699b6"&gt;0&lt;/span&gt;; j &lt;span style="color:#7a8478"&gt;&amp;lt;&lt;/span&gt; row&lt;span style="color:#7a8478"&gt;-&amp;gt;&lt;/span&gt;size; j&lt;span style="color:#7a8478"&gt;++&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;if&lt;/span&gt; (row&lt;span style="color:#7a8478"&gt;-&amp;gt;&lt;/span&gt;chars[j] &lt;span style="color:#7a8478"&gt;==&lt;/span&gt; TAB)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; tabs&lt;span style="color:#7a8478"&gt;++&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;unsigned&lt;/span&gt; &lt;span style="color:#dbbc7f"&gt;long&lt;/span&gt; &lt;span style="color:#dbbc7f"&gt;long&lt;/span&gt; allocsize &lt;span style="color:#7a8478"&gt;=&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (&lt;span style="color:#dbbc7f"&gt;unsigned&lt;/span&gt; &lt;span style="color:#dbbc7f"&gt;long&lt;/span&gt; &lt;span style="color:#dbbc7f"&gt;long&lt;/span&gt;)row&lt;span style="color:#7a8478"&gt;-&amp;gt;&lt;/span&gt;size &lt;span style="color:#7a8478"&gt;+&lt;/span&gt; tabs &lt;span style="color:#7a8478"&gt;*&lt;/span&gt; &lt;span style="color:#d699b6"&gt;8&lt;/span&gt; &lt;span style="color:#7a8478"&gt;+&lt;/span&gt; nonprint &lt;span style="color:#7a8478"&gt;*&lt;/span&gt; &lt;span style="color:#d699b6"&gt;9&lt;/span&gt; &lt;span style="color:#7a8478"&gt;+&lt;/span&gt; &lt;span style="color:#d699b6"&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;if&lt;/span&gt; (allocsize &lt;span style="color:#7a8478"&gt;&amp;gt;&lt;/span&gt; UINT32_MAX) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#b2c98f"&gt;printf&lt;/span&gt;(&lt;span style="color:#b2c98f"&gt;&amp;#34;Some line of the edited file is too long for kilo&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\n&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#b2c98f"&gt;exit&lt;/span&gt;(&lt;span style="color:#d699b6"&gt;1&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;循环的if中使用的 &lt;code&gt;TAB&lt;/code&gt; 定义在KEY_ACTION枚举，值为9，在ASCII码中是&lt;code&gt;\t&lt;/code&gt;也就是水平制表符。代码在统计tab的数量。&lt;/p&gt;
 &lt;p&gt;问题在于，一个&lt;code&gt;\t&lt;/code&gt;在内存中占1字节，但在屏幕显示的时候会占据八个字符的宽度，这里就体现出&lt;code&gt;render&lt;/code&gt;的作用了，如果一行有两个&lt;code&gt;\t&lt;/code&gt;，每个最多展开为八个空格，那么所需要计算的大小就是&lt;code&gt;2 * 8 + chars的大小&lt;/code&gt;：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;unsigned&lt;/span&gt; &lt;span class="kt"&gt;long&lt;/span&gt; &lt;span class="kt"&gt;long&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;size&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;tabs&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;8&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;nonprint&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;那个恒为0的变量&lt;code&gt;nonprint&lt;/code&gt;可能是为将来打印不可见字符设计的。结尾的&lt;code&gt;+1&lt;/code&gt;为&lt;code&gt;'\0'&lt;/code&gt;预留。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#dbbc7f"&gt;unsigned&lt;/span&gt; &lt;span style="color:#dbbc7f"&gt;long&lt;/span&gt; &lt;span style="color:#dbbc7f"&gt;long&lt;/span&gt;)row&lt;span style="color:#7a8478"&gt;-&amp;gt;&lt;/span&gt;size &lt;span style="color:#7a8478"&gt;+&lt;/span&gt; tabs &lt;span style="color:#7a8478"&gt;*&lt;/span&gt; &lt;span style="color:#d699b6"&gt;8&lt;/span&gt; &lt;span style="color:#7a8478"&gt;+&lt;/span&gt; nonprint &lt;span style="color:#7a8478"&gt;*&lt;/span&gt; &lt;span style="color:#d699b6"&gt;9&lt;/span&gt; &lt;span style="color:#7a8478"&gt;+&lt;/span&gt; &lt;span style="color:#d699b6"&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;那个恒为0的变量&lt;code&gt;nonprint&lt;/code&gt;可能是为将来打印不可见字符设计的。结尾的&lt;code&gt;+1&lt;/code&gt;为&lt;code&gt;'\0'&lt;/code&gt;预留。&lt;/p&gt;
 &lt;p&gt;按照这个公式，给&lt;code&gt;render&lt;/code&gt;分配内存：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;render&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nf"&gt;malloc&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;size&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;tabs&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;8&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;nonprint&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;随后，这些代码在非制表位填充空格：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
-&lt;/span&gt;&lt;span class="lnt"&gt; 2
-&lt;/span&gt;&lt;span class="lnt"&gt; 3
-&lt;/span&gt;&lt;span class="lnt"&gt; 4
-&lt;/span&gt;&lt;span class="lnt"&gt; 5
-&lt;/span&gt;&lt;span class="lnt"&gt; 6
-&lt;/span&gt;&lt;span class="lnt"&gt; 7
-&lt;/span&gt;&lt;span class="lnt"&gt; 8
-&lt;/span&gt;&lt;span class="lnt"&gt; 9
-&lt;/span&gt;&lt;span class="lnt"&gt;10
-&lt;/span&gt;&lt;span class="lnt"&gt;11
-&lt;/span&gt;&lt;span class="lnt"&gt;12
-&lt;/span&gt;&lt;span class="lnt"&gt;13
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;idx&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;j&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;chars&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;TAB&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;render&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;idx&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="sc"&gt;&amp;#39; &amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;idx&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="mi"&gt;8&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;// 在非制表位填充空格
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;render&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;idx&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="sc"&gt;&amp;#39; &amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="c1"&gt;// 正常字符直接赋值
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;render&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;idx&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;chars&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;rsize&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;idx&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;// 在循环结束的时候，idx等于写入字符总数
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;render&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;idx&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="sc"&gt;&amp;#39;\0&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;//在字符末尾添加结束符
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;虽然有点绕，但设计还是非常巧妙的！&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;row&lt;span style="color:#7a8478"&gt;-&amp;gt;&lt;/span&gt;render &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;malloc&lt;/span&gt;(row&lt;span style="color:#7a8478"&gt;-&amp;gt;&lt;/span&gt;size &lt;span style="color:#7a8478"&gt;+&lt;/span&gt; tabs &lt;span style="color:#7a8478"&gt;*&lt;/span&gt; &lt;span style="color:#d699b6"&gt;8&lt;/span&gt; &lt;span style="color:#7a8478"&gt;+&lt;/span&gt; nonprint &lt;span style="color:#7a8478"&gt;*&lt;/span&gt; &lt;span style="color:#d699b6"&gt;9&lt;/span&gt; &lt;span style="color:#7a8478"&gt;+&lt;/span&gt; &lt;span style="color:#d699b6"&gt;1&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;随后，这些代码在非制表位填充空格：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;idx &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; &lt;span style="color:#d699b6"&gt;0&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;for&lt;/span&gt; (j &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; &lt;span style="color:#d699b6"&gt;0&lt;/span&gt;; j &lt;span style="color:#7a8478"&gt;&amp;lt;&lt;/span&gt; row&lt;span style="color:#7a8478"&gt;-&amp;gt;&lt;/span&gt;size; j&lt;span style="color:#7a8478"&gt;++&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;if&lt;/span&gt; (row&lt;span style="color:#7a8478"&gt;-&amp;gt;&lt;/span&gt;chars[j] &lt;span style="color:#7a8478"&gt;==&lt;/span&gt; TAB) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; row&lt;span style="color:#7a8478"&gt;-&amp;gt;&lt;/span&gt;render[idx&lt;span style="color:#7a8478"&gt;++&lt;/span&gt;] &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#39; &amp;#39;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;while&lt;/span&gt; ((idx &lt;span style="color:#7a8478"&gt;+&lt;/span&gt; &lt;span style="color:#d699b6"&gt;1&lt;/span&gt;) &lt;span style="color:#7a8478"&gt;%&lt;/span&gt; &lt;span style="color:#d699b6"&gt;8&lt;/span&gt; &lt;span style="color:#7a8478"&gt;!=&lt;/span&gt; &lt;span style="color:#d699b6"&gt;0&lt;/span&gt;) &lt;span style="color:#859289;font-style:italic"&gt;// 在非制表位填充空格
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; row&lt;span style="color:#7a8478"&gt;-&amp;gt;&lt;/span&gt;render[idx&lt;span style="color:#7a8478"&gt;++&lt;/span&gt;] &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#39; &amp;#39;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; } &lt;span style="color:#e67e80"&gt;else&lt;/span&gt; { &lt;span style="color:#859289;font-style:italic"&gt;// 正常字符直接赋值
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; row&lt;span style="color:#7a8478"&gt;-&amp;gt;&lt;/span&gt;render[idx&lt;span style="color:#7a8478"&gt;++&lt;/span&gt;] &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; row&lt;span style="color:#7a8478"&gt;-&amp;gt;&lt;/span&gt;chars[j];
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;row&lt;span style="color:#7a8478"&gt;-&amp;gt;&lt;/span&gt;rsize &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; idx; &lt;span style="color:#859289;font-style:italic"&gt;// 在循环结束的时候，idx等于写入字符总数
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;row&lt;span style="color:#7a8478"&gt;-&lt;/span&gt;render[idx] &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#39;\0&amp;#39;&lt;/span&gt;; &lt;span style="color:#859289;font-style:italic"&gt;//在字符末尾添加结束符
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;虽然有点绕，但设计还是非常巧妙的！&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3 id="代码高亮"&gt;代码高亮&lt;/h3&gt;
 &lt;p&gt;源码中使用大量篇幅实现了代码高亮，定义了一些关键字：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
-&lt;/span&gt;&lt;span class="lnt"&gt; 2
-&lt;/span&gt;&lt;span class="lnt"&gt; 3
-&lt;/span&gt;&lt;span class="lnt"&gt; 4
-&lt;/span&gt;&lt;span class="lnt"&gt; 5
-&lt;/span&gt;&lt;span class="lnt"&gt; 6
-&lt;/span&gt;&lt;span class="lnt"&gt; 7
-&lt;/span&gt;&lt;span class="lnt"&gt; 8
-&lt;/span&gt;&lt;span class="lnt"&gt; 9
-&lt;/span&gt;&lt;span class="lnt"&gt;10
-&lt;/span&gt;&lt;span class="lnt"&gt;11
-&lt;/span&gt;&lt;span class="lnt"&gt;12
-&lt;/span&gt;&lt;span class="lnt"&gt;13
-&lt;/span&gt;&lt;span class="lnt"&gt;14
-&lt;/span&gt;&lt;span class="lnt"&gt;15
-&lt;/span&gt;&lt;span class="lnt"&gt;16
-&lt;/span&gt;&lt;span class="lnt"&gt;17
-&lt;/span&gt;&lt;span class="lnt"&gt;18
-&lt;/span&gt;&lt;span class="lnt"&gt;19
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;C_HL_extensions&lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;.c&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;.h&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;.cpp&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;.hpp&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;.cc&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;NULL&lt;/span&gt;&lt;span class="p"&gt;};&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;C_HL_keywords&lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="cm"&gt;/* C Keywords */&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s"&gt;&amp;#34;auto&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;break&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;case&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;continue&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;default&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;do&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;else&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;enum&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s"&gt;&amp;#34;extern&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;for&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;goto&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;if&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;register&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;return&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;sizeof&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;static&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s"&gt;&amp;#34;struct&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;switch&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;typedef&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;union&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;volatile&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;while&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;NULL&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="cm"&gt;/* C++ Keywords */&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s"&gt;&amp;#34;alignas&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;alignof&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;and&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;and_eq&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;asm&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;bitand&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;bitor&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;class&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s"&gt;&amp;#34;compl&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;constexpr&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;const_cast&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;deltype&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;delete&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;dynamic_cast&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s"&gt;&amp;#34;explicit&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;export&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;false&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;friend&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;inline&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;mutable&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;namespace&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s"&gt;&amp;#34;new&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;noexcept&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;not&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;not_eq&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;nullptr&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;operator&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;or&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;or_eq&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s"&gt;&amp;#34;private&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;protected&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;public&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;reinterpret_cast&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;static_assert&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s"&gt;&amp;#34;static_cast&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;template&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;this&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;thread_local&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;throw&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;true&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;try&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s"&gt;&amp;#34;typeid&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;typename&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;virtual&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;xor&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;xor_eq&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="cm"&gt;/* C types */&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s"&gt;&amp;#34;int|&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;long|&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;double|&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;float|&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;char|&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;unsigned|&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;signed|&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s"&gt;&amp;#34;void|&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;short|&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;auto|&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;const|&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;bool|&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;NULL&lt;/span&gt;&lt;span class="p"&gt;};&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;然后在具体实现&lt;code&gt;editorUpdateSyntax()&lt;/code&gt;中，简单粗暴地遍历字符匹配这些关键字。在一般的教学例子中这样实现是可以的，我认为在具体的工程中应当用词法分析、语法分析和字典树去匹配。更易于维护和拓展，也能适配复杂的嵌套。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#dbbc7f"&gt;char&lt;/span&gt; &lt;span style="color:#7a8478"&gt;*&lt;/span&gt;C_HL_extensions[] &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; {&lt;span style="color:#b2c98f"&gt;&amp;#34;.c&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;.h&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;.cpp&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;.hpp&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;.cc&amp;#34;&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;NULL&lt;/span&gt;};
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#dbbc7f"&gt;char&lt;/span&gt; &lt;span style="color:#7a8478"&gt;*&lt;/span&gt;C_HL_keywords[] &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;/* C Keywords */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;auto&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;break&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;case&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;continue&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;default&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;do&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;else&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;enum&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;extern&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;for&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;goto&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;if&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;register&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;return&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;sizeof&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;static&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;struct&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;switch&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;typedef&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;union&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;volatile&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;while&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;NULL&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;/* C++ Keywords */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;alignas&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;alignof&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;and&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;and_eq&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;asm&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;bitand&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;bitor&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;class&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;compl&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;constexpr&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;const_cast&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;deltype&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;delete&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;dynamic_cast&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;explicit&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;export&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;false&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;friend&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;inline&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;mutable&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;namespace&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;new&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;noexcept&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;not&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;not_eq&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;nullptr&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;operator&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;or&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;or_eq&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;private&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;protected&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;public&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;reinterpret_cast&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;static_assert&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;static_cast&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;template&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;this&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;thread_local&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;throw&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;true&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;try&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;typeid&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;typename&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;virtual&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;xor&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;xor_eq&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;/* C types */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;int|&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;long|&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;double|&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;float|&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;char|&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;unsigned|&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;signed|&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;void|&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;short|&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;auto|&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;const|&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;bool|&amp;#34;&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;NULL&lt;/span&gt;};
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后在具体实现&lt;code&gt;editorUpdateSyntax()&lt;/code&gt;中，简单粗暴地遍历字符匹配这些关键字。在一般的教学例子中这样实现是可以的，我认为在具体的工程中应当用词法分析、语法分析和字典树去匹配。更易于维护和拓展，也能适配复杂的嵌套。&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;上述分析提到的缺点都可以作为优化方向，比如提供更简单操作接口，用词法分析技术或接入LSP服务器，为程序提供Lua接口来扩展插件……不过我相信在古老的纯C应用中，添加这些功能的繁琐程度和开发周期简直是灾难级别的。但是在处理快捷键上，使用&lt;code&gt;termcap&lt;/code&gt;库的难度应该小于修改代码高亮部分的难度。&lt;/p&gt;
 &lt;p&gt;这个项目最值得学习的点是如何将抽象的功能和终端联系起来、如何设计合理的数据结构以及标准库的使用。是阐释「程序 = 数据结构 + 算法」的很好例子。不过我自己是想不到那些函数该什么时候用，没准还会手动实现标准库造好的轮子呢。&lt;/p&gt;
@@ -296,24 +250,10 @@
 &lt;p&gt;我很想试试用Go手搓一套收发系统，但时间并不充裕，正巧&lt;a href="https://webmention.io"&gt;webmention.io&lt;/a&gt;提供现成的服务和&lt;a href="https://indielogin.com/setup"&gt;详细的文档&lt;/a&gt;，那就跟着文档配置吧。&lt;/p&gt;
 &lt;h2 id="验证与接收"&gt;验证与接收&lt;/h2&gt;
 &lt;p&gt;教程提供了多种验证方案，这里使用最简便的Github. 只要在网站的首页挂上一个链接，指向用户档案页：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;a&lt;/span&gt; &lt;span class="na"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;https://github.com/example&amp;#34;&lt;/span&gt; &lt;span class="na"&gt;rel&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;me&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;github.com/example&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;a&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;如果不想让它可见，也可以设置为一个`&lt;link&gt;：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;link&lt;/span&gt; &lt;span class="na"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;https://github.com/example&amp;#34;&lt;/span&gt; &lt;span class="na"&gt;rel&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;me&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;figure class="image-caption"&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;lt;&lt;span style="color:#7a8478"&gt;a&lt;/span&gt; &lt;span style="color:#d699b6;font-weight:bold"&gt;href&lt;/span&gt;&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;https://github.com/example&amp;#34;&lt;/span&gt; &lt;span style="color:#d699b6;font-weight:bold"&gt;rel&lt;/span&gt;&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;me&amp;#34;&lt;/span&gt;&amp;gt;github.com/example&amp;lt;/&lt;span style="color:#7a8478"&gt;a&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果不想让它可见，也可以设置为一个`&lt;link&gt;：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;lt;&lt;span style="color:#7a8478"&gt;link&lt;/span&gt; &lt;span style="color:#d699b6;font-weight:bold"&gt;href&lt;/span&gt;&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;https://github.com/example&amp;#34;&lt;/span&gt; &lt;span style="color:#d699b6;font-weight:bold"&gt;rel&lt;/span&gt;&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;me&amp;#34;&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;figure class="image-caption"&gt;
  &lt;img src="https://images.glowisle.me/2025-12-05_18-26.png" alt="作为验证，你需要在Github主页中包含你的网站"&gt;
  &lt;figcaption&gt;作为验证，你需要在Github主页中包含你的网站&lt;/figcaption&gt;
 &lt;/figure&gt;&lt;/p&gt;
@@ -321,52 +261,22 @@
 &lt;p&gt;这样，访问之后页面中提供的链接，就可以看到别人发送的Webmention了。&lt;/p&gt;
 &lt;h2 id="渲染"&gt;渲染&lt;/h2&gt;
 &lt;p&gt;在网页中添加link&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;link&lt;/span&gt; &lt;span class="na"&gt;rel&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;webmention&amp;#34;&lt;/span&gt; &lt;span class="na"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;https://webmention.io/你的用户名/webmention&amp;#34;&lt;/span&gt; &lt;span class="p"&gt;/&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;我使用&lt;a href="https://github.com/PlaidWeb/webmention.js"&gt;webmention.js&lt;/a&gt;，根据说明文档，可以复制仓库中的&lt;code&gt;/static/webmention.min.js&lt;/code&gt;到博客的&lt;code&gt;/static/js/webmention.min.js&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;lt;&lt;span style="color:#7a8478"&gt;link&lt;/span&gt; &lt;span style="color:#d699b6;font-weight:bold"&gt;rel&lt;/span&gt;&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;webmention&amp;#34;&lt;/span&gt; &lt;span style="color:#d699b6;font-weight:bold"&gt;href&lt;/span&gt;&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;https://webmention.io/你的用户名/webmention&amp;#34;&lt;/span&gt; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;我使用&lt;a href="https://github.com/PlaidWeb/webmention.js"&gt;webmention.js&lt;/a&gt;，根据说明文档，可以复制仓库中的&lt;code&gt;/static/webmention.min.js&lt;/code&gt;到博客的&lt;code&gt;/static/js/webmention.min.js&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;在评论框下方提供一个容器&lt;code&gt;&amp;lt;div id=&amp;quot;webmentions&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&lt;/code&gt;，并引用脚本&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
-&lt;/span&gt;&lt;span class="lnt"&gt; 2
-&lt;/span&gt;&lt;span class="lnt"&gt; 3
-&lt;/span&gt;&lt;span class="lnt"&gt; 4
-&lt;/span&gt;&lt;span class="lnt"&gt; 5
-&lt;/span&gt;&lt;span class="lnt"&gt; 6
-&lt;/span&gt;&lt;span class="lnt"&gt; 7
-&lt;/span&gt;&lt;span class="lnt"&gt; 8
-&lt;/span&gt;&lt;span class="lnt"&gt; 9
-&lt;/span&gt;&lt;span class="lnt"&gt;10
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;div&lt;/span&gt; &lt;span class="na"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;webmentions&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;div&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt; &lt;span class="na"&gt;src&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;/js/webmention.min.js&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="na"&gt;data-id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;webmentions&amp;#34;&lt;/span&gt; &lt;span class="err"&gt;//&lt;/span&gt; &lt;span class="na"&gt;与容器id匹配&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="na"&gt;data-page-url&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;https://yourdomain.com/当前文章永久链接&amp;#34;&lt;/span&gt; &lt;span class="err"&gt;//&lt;/span&gt; &lt;span class="na"&gt;建议使用&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="na"&gt;data-max-webmentions&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;50&amp;#34;&lt;/span&gt; &lt;span class="err"&gt;//&lt;/span&gt; &lt;span class="na"&gt;最多显示数量&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="na"&gt;data-wordcount&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;30&amp;#34;&lt;/span&gt; &lt;span class="err"&gt;//&lt;/span&gt; &lt;span class="na"&gt;回复预览最大字数&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="na"&gt;data-sort-by&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;published&amp;#34;&lt;/span&gt; &lt;span class="err"&gt;//&lt;/span&gt; &lt;span class="na"&gt;按照发布时间排序&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="na"&gt;data-sort-dir&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;up&amp;#34;&lt;/span&gt; &lt;span class="err"&gt;//&lt;/span&gt; &lt;span class="na"&gt;时间升序&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="na"&gt;async&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Hugo用户在永久链接上可以使用：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;data-page-url=&amp;#34;https://yourdomain.com{{ .RelPermalink }}&amp;#34;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;为了本地测试，使用相对链接的变量拼接。脚本会对API发送请求，如果拿到的数据是空的，则会把最终的HTML输出为一个空字符串，所以刚开始看不到输出是正常的。大概写点CSS就可以正常投入使用了。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;lt;&lt;span style="color:#7a8478"&gt;div&lt;/span&gt; &lt;span style="color:#d699b6;font-weight:bold"&gt;id&lt;/span&gt;&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;webmentions&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style="color:#7a8478"&gt;div&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;lt;&lt;span style="color:#7a8478"&gt;script&lt;/span&gt; &lt;span style="color:#d699b6;font-weight:bold"&gt;src&lt;/span&gt;&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;/js/webmention.min.js&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#d699b6;font-weight:bold"&gt;data-id&lt;/span&gt;&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;webmentions&amp;#34;&lt;/span&gt; // &lt;span style="color:#d699b6;font-weight:bold"&gt;与容器id匹配&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#d699b6;font-weight:bold"&gt;data-page-url&lt;/span&gt;&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;https://yourdomain.com/当前文章永久链接&amp;#34;&lt;/span&gt; // &lt;span style="color:#d699b6;font-weight:bold"&gt;建议使用&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#d699b6;font-weight:bold"&gt;data-max-webmentions&lt;/span&gt;&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;50&amp;#34;&lt;/span&gt; // &lt;span style="color:#d699b6;font-weight:bold"&gt;最多显示数量&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#d699b6;font-weight:bold"&gt;data-wordcount&lt;/span&gt;&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;30&amp;#34;&lt;/span&gt; // &lt;span style="color:#d699b6;font-weight:bold"&gt;回复预览最大字数&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#d699b6;font-weight:bold"&gt;data-sort-by&lt;/span&gt;&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;published&amp;#34;&lt;/span&gt; // &lt;span style="color:#d699b6;font-weight:bold"&gt;按照发布时间排序&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#d699b6;font-weight:bold"&gt;data-sort-dir&lt;/span&gt;&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;up&amp;#34;&lt;/span&gt; // &lt;span style="color:#d699b6;font-weight:bold"&gt;时间升序&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#d699b6;font-weight:bold"&gt;async&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;lt;/&lt;span style="color:#7a8478"&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Hugo用户在永久链接上可以使用：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;data-page-url=&amp;#34;https://yourdomain.com{{ .RelPermalink }}&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;为了本地测试，使用相对链接的变量拼接。脚本会对API发送请求，如果拿到的数据是空的，则会把最终的HTML输出为一个空字符串，所以刚开始看不到输出是正常的。大概写点CSS就可以正常投入使用了。&lt;/p&gt;
 &lt;h2 id="对webmention的看法"&gt;对Webmention的看法&lt;/h2&gt;
 &lt;p&gt;我认为Webmention是一种很像友情链接的互惠模式，优于在评论区下方留下链接的形式。续上上一篇文章的话题，这样不仅促成高质量的互动，也能丰富自己的写作素材，分量应该重于评论区链接的手段。就像上一篇文章的结尾所说，利人利己，何乐而不为呢？&lt;/p&gt;
 &lt;p&gt;虽然这种模式的普及程度不高，但我相信去中心化会称为互联网的新趋势。开放、互联才能称为「互联网」。&lt;/p&gt;
@@ -414,15 +324,8 @@
 &lt;h2 id="使用"&gt;使用&lt;/h2&gt;
 &lt;p&gt;Graphviz 使用 DOT 语言来描述图形。在 DOT 中，图分为&lt;strong&gt;有向图&lt;/strong&gt;和&lt;strong&gt;无向图&lt;/strong&gt;，使用&lt;code&gt;digraph&lt;/code&gt;和&lt;code&gt;graph&lt;/code&gt;关键字。&lt;/p&gt;
 &lt;p&gt;安装：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt install dot
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;ul&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt install dot
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Digraph 有一个明确的起点和终点。&lt;/p&gt;
 &lt;/li&gt;
@@ -457,56 +360,24 @@
 &lt;p&gt;&lt;code&gt;style&lt;/code&gt; 元素样式&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;span class="lnt"&gt;2
-&lt;/span&gt;&lt;span class="lnt"&gt;3
-&lt;/span&gt;&lt;span class="lnt"&gt;4
-&lt;/span&gt;&lt;span class="lnt"&gt;5
-&lt;/span&gt;&lt;span class="lnt"&gt;6
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;digraph G {
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	A -&amp;gt; B;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	B -&amp;gt; C;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	C -&amp;gt; D;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	D -&amp;gt; A;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;渲染为图片：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;dot -Tpng ./test.dot -o ./test.png
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h2 id="示例"&gt;示例&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;digraph G {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	A -&amp;gt; B;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	B -&amp;gt; C;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	C -&amp;gt; D;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	D -&amp;gt; A;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;渲染为图片：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;dot -Tpng ./test.dot -o ./test.png
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="示例"&gt;示例&lt;/h2&gt;
 &lt;p&gt;一个容易的用户登录验证逻辑&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;span class="lnt"&gt;2
-&lt;/span&gt;&lt;span class="lnt"&gt;3
-&lt;/span&gt;&lt;span class="lnt"&gt;4
-&lt;/span&gt;&lt;span class="lnt"&gt;5
-&lt;/span&gt;&lt;span class="lnt"&gt;6
-&lt;/span&gt;&lt;span class="lnt"&gt;7
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;digraph UserLogin {
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	登录 -&amp;gt; 验证用户名和密码;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	验证用户名和密码 -&amp;gt; 放行 [label=&amp;#34;正确&amp;#34;];
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	验证用户名和密码 -&amp;gt; 重试 [label=&amp;#34;错误&amp;#34;];
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	重试 -&amp;gt; 登录
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;figure class="image-caption"&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;digraph UserLogin {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	登录 -&amp;gt; 验证用户名和密码;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	验证用户名和密码 -&amp;gt; 放行 [label=&amp;#34;正确&amp;#34;];
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	验证用户名和密码 -&amp;gt; 重试 [label=&amp;#34;错误&amp;#34;];
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	重试 -&amp;gt; 登录
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;figure class="image-caption"&gt;
  &lt;img src="https://images.glowisle.me/dot-example-login.png" alt=""&gt;
  &lt;figcaption&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;&lt;/p&gt;
@@ -557,70 +428,29 @@
 &lt;p&gt;&lt;strong&gt;这可能是当今互联网上，你能找到的为数不多的最新的有关新闻组的文章。&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;我使用&lt;a href="https://github.com/erco77/newsd"&gt;newsd&lt;/a&gt;这个服务端来搭建，至于为什么没有使用&lt;strong&gt;inn&lt;/strong&gt;，有两个原因：教程过时、软件库中没有。&lt;/p&gt;
 &lt;h3 id="编译与初始化"&gt;编译与初始化&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;span class="lnt"&gt;2
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git clone https://github.com/erco77/newsd.git
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;make
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;如果没有错误的话，输出是这样的：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
-&lt;/span&gt;&lt;span class="lnt"&gt; 2
-&lt;/span&gt;&lt;span class="lnt"&gt; 3
-&lt;/span&gt;&lt;span class="lnt"&gt; 4
-&lt;/span&gt;&lt;span class="lnt"&gt; 5
-&lt;/span&gt;&lt;span class="lnt"&gt; 6
-&lt;/span&gt;&lt;span class="lnt"&gt; 7
-&lt;/span&gt;&lt;span class="lnt"&gt; 8
-&lt;/span&gt;&lt;span class="lnt"&gt; 9
-&lt;/span&gt;&lt;span class="lnt"&gt;10
-&lt;/span&gt;&lt;span class="lnt"&gt;11
-&lt;/span&gt;&lt;span class="lnt"&gt;12
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-gdscript3" data-lang="gdscript3"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;yingyu5658&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;bongo&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;newsd&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;master&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Wall&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;DSPOOL_DIR&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;\&lt;span class="s2"&gt;&amp;#34;/var/spool/newsd&lt;/span&gt;&lt;span class="se"&gt;\&amp;#34;&lt;/span&gt;&lt;span class="s2"&gt; -DCONFIG_FILE=&lt;/span&gt;&lt;span class="se"&gt;\&amp;#34;&lt;/span&gt;&lt;span class="s2"&gt;/etc/newsd.conf&lt;/span&gt;&lt;span class="se"&gt;\&amp;#34;&lt;/span&gt;&lt;span class="s2"&gt; -DSENDMAIL=&lt;/span&gt;&lt;span class="se"&gt;\&amp;#34;&lt;/span&gt;&lt;span class="s2"&gt;/usr/sbin/sendmail&lt;/span&gt;&lt;span class="se"&gt;\&amp;#34;&lt;/span&gt;&lt;span class="s2"&gt; -g -c newsd.C&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Wall&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;DSPOOL_DIR&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;\&lt;span class="s2"&gt;&amp;#34;/var/spool/newsd&lt;/span&gt;&lt;span class="se"&gt;\&amp;#34;&lt;/span&gt;&lt;span class="s2"&gt; -DCONFIG_FILE=&lt;/span&gt;&lt;span class="se"&gt;\&amp;#34;&lt;/span&gt;&lt;span class="s2"&gt;/etc/newsd.conf&lt;/span&gt;&lt;span class="se"&gt;\&amp;#34;&lt;/span&gt;&lt;span class="s2"&gt; -DSENDMAIL=&lt;/span&gt;&lt;span class="se"&gt;\&amp;#34;&lt;/span&gt;&lt;span class="s2"&gt;/usr/sbin/sendmail&lt;/span&gt;&lt;span class="se"&gt;\&amp;#34;&lt;/span&gt;&lt;span class="s2"&gt; -g -c Subs.C&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Wall&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;DSPOOL_DIR&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;\&lt;span class="s2"&gt;&amp;#34;/var/spool/newsd&lt;/span&gt;&lt;span class="se"&gt;\&amp;#34;&lt;/span&gt;&lt;span class="s2"&gt; -DCONFIG_FILE=&lt;/span&gt;&lt;span class="se"&gt;\&amp;#34;&lt;/span&gt;&lt;span class="s2"&gt;/etc/newsd.conf&lt;/span&gt;&lt;span class="se"&gt;\&amp;#34;&lt;/span&gt;&lt;span class="s2"&gt; -DSENDMAIL=&lt;/span&gt;&lt;span class="se"&gt;\&amp;#34;&lt;/span&gt;&lt;span class="s2"&gt;/usr/sbin/sendmail&lt;/span&gt;&lt;span class="se"&gt;\&amp;#34;&lt;/span&gt;&lt;span class="s2"&gt; -g -c Article.C&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Wall&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;DSPOOL_DIR&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;\&lt;span class="s2"&gt;&amp;#34;/var/spool/newsd&lt;/span&gt;&lt;span class="se"&gt;\&amp;#34;&lt;/span&gt;&lt;span class="s2"&gt; -DCONFIG_FILE=&lt;/span&gt;&lt;span class="se"&gt;\&amp;#34;&lt;/span&gt;&lt;span class="s2"&gt;/etc/newsd.conf&lt;/span&gt;&lt;span class="se"&gt;\&amp;#34;&lt;/span&gt;&lt;span class="s2"&gt; -DSENDMAIL=&lt;/span&gt;&lt;span class="se"&gt;\&amp;#34;&lt;/span&gt;&lt;span class="s2"&gt;/usr/sbin/sendmail&lt;/span&gt;&lt;span class="se"&gt;\&amp;#34;&lt;/span&gt;&lt;span class="s2"&gt; -g -c Configuration.C&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Wall&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;DSPOOL_DIR&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;\&lt;span class="s2"&gt;&amp;#34;/var/spool/newsd&lt;/span&gt;&lt;span class="se"&gt;\&amp;#34;&lt;/span&gt;&lt;span class="s2"&gt; -DCONFIG_FILE=&lt;/span&gt;&lt;span class="se"&gt;\&amp;#34;&lt;/span&gt;&lt;span class="s2"&gt;/etc/newsd.conf&lt;/span&gt;&lt;span class="se"&gt;\&amp;#34;&lt;/span&gt;&lt;span class="s2"&gt; -DSENDMAIL=&lt;/span&gt;&lt;span class="se"&gt;\&amp;#34;&lt;/span&gt;&lt;span class="s2"&gt;/usr/sbin/sendmail&lt;/span&gt;&lt;span class="se"&gt;\&amp;#34;&lt;/span&gt;&lt;span class="s2"&gt; -g -c Group.C&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Wall&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;DSPOOL_DIR&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;\&lt;span class="s2"&gt;&amp;#34;/var/spool/newsd&lt;/span&gt;&lt;span class="se"&gt;\&amp;#34;&lt;/span&gt;&lt;span class="s2"&gt; -DCONFIG_FILE=&lt;/span&gt;&lt;span class="se"&gt;\&amp;#34;&lt;/span&gt;&lt;span class="s2"&gt;/etc/newsd.conf&lt;/span&gt;&lt;span class="se"&gt;\&amp;#34;&lt;/span&gt;&lt;span class="s2"&gt; -DSENDMAIL=&lt;/span&gt;&lt;span class="se"&gt;\&amp;#34;&lt;/span&gt;&lt;span class="s2"&gt;/usr/sbin/sendmail&lt;/span&gt;&lt;span class="se"&gt;\&amp;#34;&lt;/span&gt;&lt;span class="s2"&gt; -g -c Server.C&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Wall&lt;/span&gt; &lt;span class="n"&gt;newsd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="n"&gt;Subs&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="n"&gt;Article&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="n"&gt;Configuration&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="n"&gt;Group&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="n"&gt;Server&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="n"&gt;newsd&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;pod2man&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;center&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;newsd Documentation&amp;#34;&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;section&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt; &lt;span class="n"&gt;newsd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pod&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;newsd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;pod2man&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;center&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;newsd Documentation&amp;#34;&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;section&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt; &lt;span class="n"&gt;newsd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;conf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pod&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;newsd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;conf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;pod2html&lt;/span&gt; &lt;span class="n"&gt;newsd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pod&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;newsd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;html&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;pod2html&lt;/span&gt; &lt;span class="n"&gt;newsd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;conf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pod&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;newsd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;conf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;html&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;前台调试模式：sudo ./newsd -d -f
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git clone https://github.com/erco77/newsd.git
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;make
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果没有错误的话，输出是这样的：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-gdscript3" data-lang="gdscript3"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;yingyu5658@bongo &lt;span style="color:#7a8478"&gt;~/&lt;/span&gt;e&lt;span style="color:#7a8478"&gt;/&lt;/span&gt;newsd (master)&lt;span style="color:#7a8478"&gt;&amp;gt;&lt;/span&gt; make
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;g&lt;span style="color:#7a8478"&gt;++&lt;/span&gt; &lt;span style="color:#7a8478"&gt;-&lt;/span&gt;Wall &lt;span style="color:#7a8478"&gt;-&lt;/span&gt;DSPOOL_DIR&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;\&lt;span style="color:#b2c98f"&gt;&amp;#34;/var/spool/newsd&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt; -DCONFIG_FILE=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;/etc/newsd.conf&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt; -DSENDMAIL=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;/usr/sbin/sendmail&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt; -g -c newsd.C&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;g&lt;span style="color:#7a8478"&gt;++&lt;/span&gt; &lt;span style="color:#7a8478"&gt;-&lt;/span&gt;Wall &lt;span style="color:#7a8478"&gt;-&lt;/span&gt;DSPOOL_DIR&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;\&lt;span style="color:#b2c98f"&gt;&amp;#34;/var/spool/newsd&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt; -DCONFIG_FILE=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;/etc/newsd.conf&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt; -DSENDMAIL=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;/usr/sbin/sendmail&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt; -g -c Subs.C&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;g&lt;span style="color:#7a8478"&gt;++&lt;/span&gt; &lt;span style="color:#7a8478"&gt;-&lt;/span&gt;Wall &lt;span style="color:#7a8478"&gt;-&lt;/span&gt;DSPOOL_DIR&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;\&lt;span style="color:#b2c98f"&gt;&amp;#34;/var/spool/newsd&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt; -DCONFIG_FILE=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;/etc/newsd.conf&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt; -DSENDMAIL=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;/usr/sbin/sendmail&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt; -g -c Article.C&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;g&lt;span style="color:#7a8478"&gt;++&lt;/span&gt; &lt;span style="color:#7a8478"&gt;-&lt;/span&gt;Wall &lt;span style="color:#7a8478"&gt;-&lt;/span&gt;DSPOOL_DIR&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;\&lt;span style="color:#b2c98f"&gt;&amp;#34;/var/spool/newsd&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt; -DCONFIG_FILE=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;/etc/newsd.conf&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt; -DSENDMAIL=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;/usr/sbin/sendmail&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt; -g -c Configuration.C&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;g&lt;span style="color:#7a8478"&gt;++&lt;/span&gt; &lt;span style="color:#7a8478"&gt;-&lt;/span&gt;Wall &lt;span style="color:#7a8478"&gt;-&lt;/span&gt;DSPOOL_DIR&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;\&lt;span style="color:#b2c98f"&gt;&amp;#34;/var/spool/newsd&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt; -DCONFIG_FILE=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;/etc/newsd.conf&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt; -DSENDMAIL=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;/usr/sbin/sendmail&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt; -g -c Group.C&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;g&lt;span style="color:#7a8478"&gt;++&lt;/span&gt; &lt;span style="color:#7a8478"&gt;-&lt;/span&gt;Wall &lt;span style="color:#7a8478"&gt;-&lt;/span&gt;DSPOOL_DIR&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;\&lt;span style="color:#b2c98f"&gt;&amp;#34;/var/spool/newsd&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt; -DCONFIG_FILE=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;/etc/newsd.conf&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt; -DSENDMAIL=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;/usr/sbin/sendmail&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt; -g -c Server.C&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;g&lt;span style="color:#7a8478"&gt;++&lt;/span&gt; &lt;span style="color:#7a8478"&gt;-&lt;/span&gt;Wall newsd&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;o Subs&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;o Article&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;o Configuration&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;o Group&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;o Server&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;o &lt;span style="color:#7a8478"&gt;-&lt;/span&gt;o newsd
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pod2man &lt;span style="color:#7a8478"&gt;--&lt;/span&gt;center &lt;span style="color:#b2c98f"&gt;&amp;#34;newsd Documentation&amp;#34;&lt;/span&gt; &lt;span style="color:#7a8478"&gt;--&lt;/span&gt;section&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;&lt;span style="color:#d699b6"&gt;8&lt;/span&gt; newsd&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;pod &lt;span style="color:#7a8478"&gt;&amp;gt;&lt;/span&gt; newsd&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;&lt;span style="color:#d699b6"&gt;8&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pod2man &lt;span style="color:#7a8478"&gt;--&lt;/span&gt;center &lt;span style="color:#b2c98f"&gt;&amp;#34;newsd Documentation&amp;#34;&lt;/span&gt; &lt;span style="color:#7a8478"&gt;--&lt;/span&gt;section&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;&lt;span style="color:#d699b6"&gt;8&lt;/span&gt; newsd&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;conf&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;pod &lt;span style="color:#7a8478"&gt;&amp;gt;&lt;/span&gt; newsd&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;conf&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;&lt;span style="color:#d699b6"&gt;8&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pod2html newsd&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;pod &lt;span style="color:#7a8478"&gt;&amp;gt;&lt;/span&gt; newsd&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;html
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pod2html newsd&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;conf&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;pod &lt;span style="color:#7a8478"&gt;&amp;gt;&lt;/span&gt; newsd&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;conf&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;html
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;前台调试模式：sudo ./newsd -d -f
 后台守护进程：sudo ./newsd（日志输出至 ${LOG_DIR}/newsd.log）&lt;/p&gt;
 &lt;h3 id="创建sendmail文件"&gt;创建&lt;code&gt;sendmail&lt;/code&gt;文件&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;span class="lnt"&gt;2
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo touch /usr/sbin/sendmail
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;chmod a+x /usr/sbin/sendmail
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h3 id="创建新闻组"&gt;创建新闻组&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo ./newsd -newgroup
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;运行这条命令后，程序会依次要求输入：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo touch /usr/sbin/sendmail
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;chmod a+x /usr/sbin/sendmail
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="创建新闻组"&gt;创建新闻组&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo ./newsd -newgroup
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;运行这条命令后，程序会依次要求输入：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;组名&lt;/p&gt;
@@ -642,43 +472,22 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;创建好后，运行&lt;code&gt;sudo ./newsd -d -f&lt;/code&gt;。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
-&lt;/span&gt;&lt;span class="lnt"&gt; 2
-&lt;/span&gt;&lt;span class="lnt"&gt; 3
-&lt;/span&gt;&lt;span class="lnt"&gt; 4
-&lt;/span&gt;&lt;span class="lnt"&gt; 5
-&lt;/span&gt;&lt;span class="lnt"&gt; 6
-&lt;/span&gt;&lt;span class="lnt"&gt; 7
-&lt;/span&gt;&lt;span class="lnt"&gt; 8
-&lt;/span&gt;&lt;span class="lnt"&gt; 9
-&lt;/span&gt;&lt;span class="lnt"&gt;10
-&lt;/span&gt;&lt;span class="lnt"&gt;11
-&lt;/span&gt;&lt;span class="lnt"&gt;12
-&lt;/span&gt;&lt;span class="lnt"&gt;13
-&lt;/span&gt;&lt;span class="lnt"&gt;14
-&lt;/span&gt;&lt;span class="lnt"&gt;15
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-gdscript3" data-lang="gdscript3"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;Sat&lt;/span&gt; &lt;span class="n"&gt;Jul&lt;/span&gt; &lt;span class="mi"&gt;26&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;28&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;48&lt;/span&gt; &lt;span class="mi"&gt;2025&lt;/span&gt; &lt;span class="n"&gt;newsd&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;38895&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt; &lt;span class="n"&gt;newsd&lt;/span&gt; &lt;span class="n"&gt;started&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;V1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;54&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;Sat&lt;/span&gt; &lt;span class="n"&gt;Jul&lt;/span&gt; &lt;span class="mi"&gt;26&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;28&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;48&lt;/span&gt; &lt;span class="mi"&gt;2025&lt;/span&gt; &lt;span class="n"&gt;newsd&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;38895&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt; &lt;span class="n"&gt;start&lt;/span&gt; &lt;span class="n"&gt;config&lt;/span&gt; &lt;span class="n"&gt;summary&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;Sat&lt;/span&gt; &lt;span class="n"&gt;Jul&lt;/span&gt; &lt;span class="mi"&gt;26&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;28&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;48&lt;/span&gt; &lt;span class="mi"&gt;2025&lt;/span&gt; &lt;span class="n"&gt;newsd&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;38895&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="n"&gt;ErrorLog&lt;/span&gt; &lt;span class="n"&gt;stderr&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;Sat&lt;/span&gt; &lt;span class="n"&gt;Jul&lt;/span&gt; &lt;span class="mi"&gt;26&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;28&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;48&lt;/span&gt; &lt;span class="mi"&gt;2025&lt;/span&gt; &lt;span class="n"&gt;newsd&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;38895&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="n"&gt;HostnameLookups&lt;/span&gt; &lt;span class="n"&gt;off&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;Sat&lt;/span&gt; &lt;span class="n"&gt;Jul&lt;/span&gt; &lt;span class="mi"&gt;26&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;28&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;48&lt;/span&gt; &lt;span class="mi"&gt;2025&lt;/span&gt; &lt;span class="n"&gt;newsd&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;38895&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="n"&gt;Listen&lt;/span&gt; &lt;span class="mf"&gt;0.0&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mf"&gt;0.0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;119&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;Sat&lt;/span&gt; &lt;span class="n"&gt;Jul&lt;/span&gt; &lt;span class="mi"&gt;26&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;28&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;48&lt;/span&gt; &lt;span class="mi"&gt;2025&lt;/span&gt; &lt;span class="n"&gt;newsd&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;38895&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="n"&gt;LogLevel&lt;/span&gt; &lt;span class="n"&gt;debug&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;Sat&lt;/span&gt; &lt;span class="n"&gt;Jul&lt;/span&gt; &lt;span class="mi"&gt;26&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;28&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;48&lt;/span&gt; &lt;span class="mi"&gt;2025&lt;/span&gt; &lt;span class="n"&gt;newsd&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;38895&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="n"&gt;MaxClients&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;Sat&lt;/span&gt; &lt;span class="n"&gt;Jul&lt;/span&gt; &lt;span class="mi"&gt;26&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;28&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;48&lt;/span&gt; &lt;span class="mi"&gt;2025&lt;/span&gt; &lt;span class="n"&gt;newsd&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;38895&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="n"&gt;MaxLogSize&lt;/span&gt; &lt;span class="mi"&gt;1048576&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;Sat&lt;/span&gt; &lt;span class="n"&gt;Jul&lt;/span&gt; &lt;span class="mi"&gt;26&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;28&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;48&lt;/span&gt; &lt;span class="mi"&gt;2025&lt;/span&gt; &lt;span class="n"&gt;newsd&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;38895&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="n"&gt;SendMail&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sbin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sendmail&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;Sat&lt;/span&gt; &lt;span class="n"&gt;Jul&lt;/span&gt; &lt;span class="mi"&gt;26&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;28&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;48&lt;/span&gt; &lt;span class="mi"&gt;2025&lt;/span&gt; &lt;span class="n"&gt;newsd&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;38895&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="n"&gt;ServerName&lt;/span&gt; &lt;span class="n"&gt;bongo&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;Sat&lt;/span&gt; &lt;span class="n"&gt;Jul&lt;/span&gt; &lt;span class="mi"&gt;26&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;28&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;48&lt;/span&gt; &lt;span class="mi"&gt;2025&lt;/span&gt; &lt;span class="n"&gt;newsd&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;38895&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="n"&gt;SpamFilter&lt;/span&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;Sat&lt;/span&gt; &lt;span class="n"&gt;Jul&lt;/span&gt; &lt;span class="mi"&gt;26&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;28&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;48&lt;/span&gt; &lt;span class="mi"&gt;2025&lt;/span&gt; &lt;span class="n"&gt;newsd&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;38895&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="n"&gt;SpoolDir&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;var&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;spool&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;newsd&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;Sat&lt;/span&gt; &lt;span class="n"&gt;Jul&lt;/span&gt; &lt;span class="mi"&gt;26&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;28&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;48&lt;/span&gt; &lt;span class="mi"&gt;2025&lt;/span&gt; &lt;span class="n"&gt;newsd&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;38895&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="n"&gt;Timeout&lt;/span&gt; &lt;span class="mi"&gt;43200&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;Sat&lt;/span&gt; &lt;span class="n"&gt;Jul&lt;/span&gt; &lt;span class="mi"&gt;26&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;28&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;48&lt;/span&gt; &lt;span class="mi"&gt;2025&lt;/span&gt; &lt;span class="n"&gt;newsd&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;38895&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="n"&gt;User&lt;/span&gt; &lt;span class="n"&gt;news&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;Sat&lt;/span&gt; &lt;span class="n"&gt;Jul&lt;/span&gt; &lt;span class="mi"&gt;26&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;28&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;48&lt;/span&gt; &lt;span class="mi"&gt;2025&lt;/span&gt; &lt;span class="n"&gt;newsd&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;38895&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt; &lt;span class="n"&gt;end&lt;/span&gt; &lt;span class="n"&gt;config&lt;/span&gt; &lt;span class="n"&gt;summary&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;其中，我们需要注意的信息是监听地址，由于我这里是本地环境，是&lt;code&gt;0.0.0.0&lt;/code&gt;。这时用客户端连接这个地址，订阅刚刚创建的组就可以使用了。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-gdscript3" data-lang="gdscript3"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Sat Jul &lt;span style="color:#d699b6"&gt;26&lt;/span&gt; &lt;span style="color:#d699b6"&gt;12&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;28&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;48&lt;/span&gt; &lt;span style="color:#d699b6"&gt;2025&lt;/span&gt; newsd[&lt;span style="color:#d699b6"&gt;38895&lt;/span&gt;]: &lt;span style="color:#7a8478"&gt;--&lt;/span&gt; newsd started &lt;span style="color:#7a8478"&gt;-&lt;/span&gt; V1&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;&lt;span style="color:#d699b6"&gt;54&lt;/span&gt;&lt;span style="color:#7a8478"&gt;--&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Sat Jul &lt;span style="color:#d699b6"&gt;26&lt;/span&gt; &lt;span style="color:#d699b6"&gt;12&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;28&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;48&lt;/span&gt; &lt;span style="color:#d699b6"&gt;2025&lt;/span&gt; newsd[&lt;span style="color:#d699b6"&gt;38895&lt;/span&gt;]: &lt;span style="color:#7a8478"&gt;--&lt;/span&gt; start config summary &lt;span style="color:#7a8478"&gt;--&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Sat Jul &lt;span style="color:#d699b6"&gt;26&lt;/span&gt; &lt;span style="color:#d699b6"&gt;12&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;28&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;48&lt;/span&gt; &lt;span style="color:#d699b6"&gt;2025&lt;/span&gt; newsd[&lt;span style="color:#d699b6"&gt;38895&lt;/span&gt;]: ErrorLog stderr
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Sat Jul &lt;span style="color:#d699b6"&gt;26&lt;/span&gt; &lt;span style="color:#d699b6"&gt;12&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;28&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;48&lt;/span&gt; &lt;span style="color:#d699b6"&gt;2025&lt;/span&gt; newsd[&lt;span style="color:#d699b6"&gt;38895&lt;/span&gt;]: HostnameLookups off
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Sat Jul &lt;span style="color:#d699b6"&gt;26&lt;/span&gt; &lt;span style="color:#d699b6"&gt;12&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;28&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;48&lt;/span&gt; &lt;span style="color:#d699b6"&gt;2025&lt;/span&gt; newsd[&lt;span style="color:#d699b6"&gt;38895&lt;/span&gt;]: Listen &lt;span style="color:#d699b6"&gt;0.0&lt;/span&gt;&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;&lt;span style="color:#d699b6"&gt;0.0&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;119&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Sat Jul &lt;span style="color:#d699b6"&gt;26&lt;/span&gt; &lt;span style="color:#d699b6"&gt;12&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;28&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;48&lt;/span&gt; &lt;span style="color:#d699b6"&gt;2025&lt;/span&gt; newsd[&lt;span style="color:#d699b6"&gt;38895&lt;/span&gt;]: LogLevel debug
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Sat Jul &lt;span style="color:#d699b6"&gt;26&lt;/span&gt; &lt;span style="color:#d699b6"&gt;12&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;28&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;48&lt;/span&gt; &lt;span style="color:#d699b6"&gt;2025&lt;/span&gt; newsd[&lt;span style="color:#d699b6"&gt;38895&lt;/span&gt;]: MaxClients &lt;span style="color:#d699b6"&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Sat Jul &lt;span style="color:#d699b6"&gt;26&lt;/span&gt; &lt;span style="color:#d699b6"&gt;12&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;28&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;48&lt;/span&gt; &lt;span style="color:#d699b6"&gt;2025&lt;/span&gt; newsd[&lt;span style="color:#d699b6"&gt;38895&lt;/span&gt;]: MaxLogSize &lt;span style="color:#d699b6"&gt;1048576&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Sat Jul &lt;span style="color:#d699b6"&gt;26&lt;/span&gt; &lt;span style="color:#d699b6"&gt;12&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;28&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;48&lt;/span&gt; &lt;span style="color:#d699b6"&gt;2025&lt;/span&gt; newsd[&lt;span style="color:#d699b6"&gt;38895&lt;/span&gt;]: SendMail &lt;span style="color:#7a8478"&gt;/&lt;/span&gt;usr&lt;span style="color:#7a8478"&gt;/&lt;/span&gt;sbin&lt;span style="color:#7a8478"&gt;/&lt;/span&gt;sendmail &lt;span style="color:#7a8478"&gt;-&lt;/span&gt;t
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Sat Jul &lt;span style="color:#d699b6"&gt;26&lt;/span&gt; &lt;span style="color:#d699b6"&gt;12&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;28&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;48&lt;/span&gt; &lt;span style="color:#d699b6"&gt;2025&lt;/span&gt; newsd[&lt;span style="color:#d699b6"&gt;38895&lt;/span&gt;]: ServerName bongo
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Sat Jul &lt;span style="color:#d699b6"&gt;26&lt;/span&gt; &lt;span style="color:#d699b6"&gt;12&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;28&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;48&lt;/span&gt; &lt;span style="color:#d699b6"&gt;2025&lt;/span&gt; newsd[&lt;span style="color:#d699b6"&gt;38895&lt;/span&gt;]: SpamFilter 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Sat Jul &lt;span style="color:#d699b6"&gt;26&lt;/span&gt; &lt;span style="color:#d699b6"&gt;12&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;28&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;48&lt;/span&gt; &lt;span style="color:#d699b6"&gt;2025&lt;/span&gt; newsd[&lt;span style="color:#d699b6"&gt;38895&lt;/span&gt;]: SpoolDir &lt;span style="color:#7a8478"&gt;/&lt;/span&gt;&lt;span style="color:#e67e80"&gt;var&lt;/span&gt;&lt;span style="color:#7a8478"&gt;/&lt;/span&gt;spool&lt;span style="color:#7a8478"&gt;/&lt;/span&gt;newsd
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Sat Jul &lt;span style="color:#d699b6"&gt;26&lt;/span&gt; &lt;span style="color:#d699b6"&gt;12&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;28&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;48&lt;/span&gt; &lt;span style="color:#d699b6"&gt;2025&lt;/span&gt; newsd[&lt;span style="color:#d699b6"&gt;38895&lt;/span&gt;]: Timeout &lt;span style="color:#d699b6"&gt;43200&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Sat Jul &lt;span style="color:#d699b6"&gt;26&lt;/span&gt; &lt;span style="color:#d699b6"&gt;12&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;28&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;48&lt;/span&gt; &lt;span style="color:#d699b6"&gt;2025&lt;/span&gt; newsd[&lt;span style="color:#d699b6"&gt;38895&lt;/span&gt;]: User news
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Sat Jul &lt;span style="color:#d699b6"&gt;26&lt;/span&gt; &lt;span style="color:#d699b6"&gt;12&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;28&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;48&lt;/span&gt; &lt;span style="color:#d699b6"&gt;2025&lt;/span&gt; newsd[&lt;span style="color:#d699b6"&gt;38895&lt;/span&gt;]: &lt;span style="color:#7a8478"&gt;--&lt;/span&gt; end config summary &lt;span style="color:#7a8478"&gt;--&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;其中，我们需要注意的信息是监听地址，由于我这里是本地环境，是&lt;code&gt;0.0.0.0&lt;/code&gt;。这时用客户端连接这个地址，订阅刚刚创建的组就可以使用了。&lt;/p&gt;
 &lt;p&gt;这个服务端自己搭着玩玩还是足够的，大规模还是要用其他的，不过现在大规模的新闻组肯定不多了。&lt;/p&gt;
 &lt;h2 id="附关于新闻组的文档资料hypermemo整理"&gt;附：关于新闻组的文档资料（hypermemo整理）&lt;/h2&gt;
 &lt;ul&gt;

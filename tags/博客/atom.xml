@@ -7,24 +7,10 @@
 &lt;p&gt;我很想试试用Go手搓一套收发系统，但时间并不充裕，正巧&lt;a href="https://webmention.io"&gt;webmention.io&lt;/a&gt;提供现成的服务和&lt;a href="https://indielogin.com/setup"&gt;详细的文档&lt;/a&gt;，那就跟着文档配置吧。&lt;/p&gt;
 &lt;h2 id="验证与接收"&gt;验证与接收&lt;/h2&gt;
 &lt;p&gt;教程提供了多种验证方案，这里使用最简便的Github. 只要在网站的首页挂上一个链接，指向用户档案页：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;a&lt;/span&gt; &lt;span class="na"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;https://github.com/example&amp;#34;&lt;/span&gt; &lt;span class="na"&gt;rel&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;me&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;github.com/example&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;a&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;如果不想让它可见，也可以设置为一个`&lt;link&gt;：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;link&lt;/span&gt; &lt;span class="na"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;https://github.com/example&amp;#34;&lt;/span&gt; &lt;span class="na"&gt;rel&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;me&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;figure class="image-caption"&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;lt;&lt;span style="color:#7a8478"&gt;a&lt;/span&gt; &lt;span style="color:#d699b6;font-weight:bold"&gt;href&lt;/span&gt;&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;https://github.com/example&amp;#34;&lt;/span&gt; &lt;span style="color:#d699b6;font-weight:bold"&gt;rel&lt;/span&gt;&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;me&amp;#34;&lt;/span&gt;&amp;gt;github.com/example&amp;lt;/&lt;span style="color:#7a8478"&gt;a&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果不想让它可见，也可以设置为一个`&lt;link&gt;：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;lt;&lt;span style="color:#7a8478"&gt;link&lt;/span&gt; &lt;span style="color:#d699b6;font-weight:bold"&gt;href&lt;/span&gt;&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;https://github.com/example&amp;#34;&lt;/span&gt; &lt;span style="color:#d699b6;font-weight:bold"&gt;rel&lt;/span&gt;&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;me&amp;#34;&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;figure class="image-caption"&gt;
  &lt;img src="https://images.glowisle.me/2025-12-05_18-26.png" alt="作为验证，你需要在Github主页中包含你的网站"&gt;
  &lt;figcaption&gt;作为验证，你需要在Github主页中包含你的网站&lt;/figcaption&gt;
 &lt;/figure&gt;&lt;/p&gt;
@@ -32,52 +18,22 @@
 &lt;p&gt;这样，访问之后页面中提供的链接，就可以看到别人发送的Webmention了。&lt;/p&gt;
 &lt;h2 id="渲染"&gt;渲染&lt;/h2&gt;
 &lt;p&gt;在网页中添加link&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;link&lt;/span&gt; &lt;span class="na"&gt;rel&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;webmention&amp;#34;&lt;/span&gt; &lt;span class="na"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;https://webmention.io/你的用户名/webmention&amp;#34;&lt;/span&gt; &lt;span class="p"&gt;/&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;我使用&lt;a href="https://github.com/PlaidWeb/webmention.js"&gt;webmention.js&lt;/a&gt;，根据说明文档，可以复制仓库中的&lt;code&gt;/static/webmention.min.js&lt;/code&gt;到博客的&lt;code&gt;/static/js/webmention.min.js&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;lt;&lt;span style="color:#7a8478"&gt;link&lt;/span&gt; &lt;span style="color:#d699b6;font-weight:bold"&gt;rel&lt;/span&gt;&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;webmention&amp;#34;&lt;/span&gt; &lt;span style="color:#d699b6;font-weight:bold"&gt;href&lt;/span&gt;&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;https://webmention.io/你的用户名/webmention&amp;#34;&lt;/span&gt; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;我使用&lt;a href="https://github.com/PlaidWeb/webmention.js"&gt;webmention.js&lt;/a&gt;，根据说明文档，可以复制仓库中的&lt;code&gt;/static/webmention.min.js&lt;/code&gt;到博客的&lt;code&gt;/static/js/webmention.min.js&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;在评论框下方提供一个容器&lt;code&gt;&amp;lt;div id=&amp;quot;webmentions&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&lt;/code&gt;，并引用脚本&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
-&lt;/span&gt;&lt;span class="lnt"&gt; 2
-&lt;/span&gt;&lt;span class="lnt"&gt; 3
-&lt;/span&gt;&lt;span class="lnt"&gt; 4
-&lt;/span&gt;&lt;span class="lnt"&gt; 5
-&lt;/span&gt;&lt;span class="lnt"&gt; 6
-&lt;/span&gt;&lt;span class="lnt"&gt; 7
-&lt;/span&gt;&lt;span class="lnt"&gt; 8
-&lt;/span&gt;&lt;span class="lnt"&gt; 9
-&lt;/span&gt;&lt;span class="lnt"&gt;10
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;div&lt;/span&gt; &lt;span class="na"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;webmentions&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;div&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt; &lt;span class="na"&gt;src&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;/js/webmention.min.js&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="na"&gt;data-id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;webmentions&amp;#34;&lt;/span&gt; &lt;span class="err"&gt;//&lt;/span&gt; &lt;span class="na"&gt;与容器id匹配&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="na"&gt;data-page-url&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;https://yourdomain.com/当前文章永久链接&amp;#34;&lt;/span&gt; &lt;span class="err"&gt;//&lt;/span&gt; &lt;span class="na"&gt;建议使用&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="na"&gt;data-max-webmentions&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;50&amp;#34;&lt;/span&gt; &lt;span class="err"&gt;//&lt;/span&gt; &lt;span class="na"&gt;最多显示数量&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="na"&gt;data-wordcount&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;30&amp;#34;&lt;/span&gt; &lt;span class="err"&gt;//&lt;/span&gt; &lt;span class="na"&gt;回复预览最大字数&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="na"&gt;data-sort-by&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;published&amp;#34;&lt;/span&gt; &lt;span class="err"&gt;//&lt;/span&gt; &lt;span class="na"&gt;按照发布时间排序&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="na"&gt;data-sort-dir&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;up&amp;#34;&lt;/span&gt; &lt;span class="err"&gt;//&lt;/span&gt; &lt;span class="na"&gt;时间升序&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="na"&gt;async&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Hugo用户在永久链接上可以使用：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;data-page-url=&amp;#34;https://yourdomain.com{{ .RelPermalink }}&amp;#34;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;为了本地测试，使用相对链接的变量拼接。脚本会对API发送请求，如果拿到的数据是空的，则会把最终的HTML输出为一个空字符串，所以刚开始看不到输出是正常的。大概写点CSS就可以正常投入使用了。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;lt;&lt;span style="color:#7a8478"&gt;div&lt;/span&gt; &lt;span style="color:#d699b6;font-weight:bold"&gt;id&lt;/span&gt;&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;webmentions&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style="color:#7a8478"&gt;div&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;lt;&lt;span style="color:#7a8478"&gt;script&lt;/span&gt; &lt;span style="color:#d699b6;font-weight:bold"&gt;src&lt;/span&gt;&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;/js/webmention.min.js&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#d699b6;font-weight:bold"&gt;data-id&lt;/span&gt;&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;webmentions&amp;#34;&lt;/span&gt; // &lt;span style="color:#d699b6;font-weight:bold"&gt;与容器id匹配&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#d699b6;font-weight:bold"&gt;data-page-url&lt;/span&gt;&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;https://yourdomain.com/当前文章永久链接&amp;#34;&lt;/span&gt; // &lt;span style="color:#d699b6;font-weight:bold"&gt;建议使用&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#d699b6;font-weight:bold"&gt;data-max-webmentions&lt;/span&gt;&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;50&amp;#34;&lt;/span&gt; // &lt;span style="color:#d699b6;font-weight:bold"&gt;最多显示数量&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#d699b6;font-weight:bold"&gt;data-wordcount&lt;/span&gt;&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;30&amp;#34;&lt;/span&gt; // &lt;span style="color:#d699b6;font-weight:bold"&gt;回复预览最大字数&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#d699b6;font-weight:bold"&gt;data-sort-by&lt;/span&gt;&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;published&amp;#34;&lt;/span&gt; // &lt;span style="color:#d699b6;font-weight:bold"&gt;按照发布时间排序&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#d699b6;font-weight:bold"&gt;data-sort-dir&lt;/span&gt;&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;up&amp;#34;&lt;/span&gt; // &lt;span style="color:#d699b6;font-weight:bold"&gt;时间升序&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#d699b6;font-weight:bold"&gt;async&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;lt;/&lt;span style="color:#7a8478"&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Hugo用户在永久链接上可以使用：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;data-page-url=&amp;#34;https://yourdomain.com{{ .RelPermalink }}&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;为了本地测试，使用相对链接的变量拼接。脚本会对API发送请求，如果拿到的数据是空的，则会把最终的HTML输出为一个空字符串，所以刚开始看不到输出是正常的。大概写点CSS就可以正常投入使用了。&lt;/p&gt;
 &lt;h2 id="对webmention的看法"&gt;对Webmention的看法&lt;/h2&gt;
 &lt;p&gt;我认为Webmention是一种很像友情链接的互惠模式，优于在评论区下方留下链接的形式。续上上一篇文章的话题，这样不仅促成高质量的互动，也能丰富自己的写作素材，分量应该重于评论区链接的手段。就像上一篇文章的结尾所说，利人利己，何乐而不为呢？&lt;/p&gt;
 &lt;p&gt;虽然这种模式的普及程度不高，但我相信去中心化会称为互联网的新趋势。开放、互联才能称为「互联网」。&lt;/p&gt;
@@ -325,15 +281,8 @@
 &lt;p&gt;这里一定一定要做DNS解析，非常重要。&lt;/p&gt;
 &lt;p&gt;然后就是安全中心里面的Web安全域名，LeanCloud默认放行localhost，但是127.0.0.1我这边测试是不行的，如果有需求要自己填写。Web安全域名要填写https、http两种协议保险。&lt;/p&gt;
 &lt;p&gt;主题配置文件中，以我这个主题为例，serverURLs要填写自己的二级域名&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-yaml" data-lang="yaml"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;serverURLs&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;https://comment.yingyu5658.me&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;一定要加协议头，否则将会在你的博客域名下构建请求，比如我的&lt;code&gt;www.yingyu5658.me/comment.yingyu5658.me/&lt;/code&gt;，这将导致报错。即使你使用国际版也要填写这一项！Leancloud请求不到。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-yaml" data-lang="yaml"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#7a8478"&gt;serverURLs&lt;/span&gt;: https://comment.yingyu5658.me
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;一定要加协议头，否则将会在你的博客域名下构建请求，比如我的&lt;code&gt;www.yingyu5658.me/comment.yingyu5658.me/&lt;/code&gt;，这将导致报错。即使你使用国际版也要填写这一项！Leancloud请求不到。&lt;/p&gt;
 &lt;p&gt;现在Valine的教程都有过时，遇到问题还需结合具体情况分析。我看LeanCloud的各种API结构变更还挺多的，太久远的教程就不建议看了。&lt;/p&gt;</description></item><item><title>【无废话】全网最简单的Hexo+Obsidian图片解决方案</title><link>https://www.glowisle.me/posts/%E6%97%A0%E5%BA%9F%E8%AF%9D%E5%85%A8%E7%BD%91%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84hexo+obsidian%E5%9B%BE%E7%89%87%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</link><pubDate>Wed, 05 Mar 2025 21:17:42 +0000</pubDate><author>i@glowisle.me (五葉地錦)</author><guid>https://www.glowisle.me/posts/%E6%97%A0%E5%BA%9F%E8%AF%9D%E5%85%A8%E7%BD%91%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84hexo+obsidian%E5%9B%BE%E7%89%87%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</guid><description>&lt;p&gt;把Hexo博客根目录用黑曜石打开，如果已经打开了仓库
 &lt;figure class="image-caption"&gt;
  &lt;img src="https://images.glowisle.me/Pasted%20image%2020250305215423.webp" alt=""&gt;

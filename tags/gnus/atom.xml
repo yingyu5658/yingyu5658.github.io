@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Gnus on 映屿</title><link>https://www.glowisle.me/tags/gnus/</link><description>Recent content in Gnus on 映屿</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>i@glowisle.me (五葉地錦)</managingEditor><webMaster>i@glowisle.me (五葉地錦)</webMaster><lastBuildDate>Tue, 10 Feb 2026 18:34:00 +0800</lastBuildDate><atom:link href="http://www.glowisle.me/tags/gnus/atom.xml" rel="self" type="application/rss+xml"/><item><title>2026年，一个普通Emacs用户如何把Gnus跑起来</title><link>https://www.glowisle.me/posts/gnus-guide/</link><pubDate>Tue, 10 Feb 2026 18:34:00 +0800</pubDate><author>i@glowisle.me (五葉地錦)</author><guid>https://www.glowisle.me/posts/gnus-guide/</guid><description>&lt;h2 id="前言"&gt;前言&lt;/h2&gt;
+&lt;p&gt;Emacs中有众多的邮件管理工具，目前比较流行的&lt;a href="https://github.com/emacsmirror/mu4e"&gt;mu4e&lt;/a&gt;，但如果你和我一样，不喜欢它的操作逻辑和界面，或者同样有怀旧情怀，一定会想玩玩Gnus。然而这个在Emacs中自带的包，居然在中文互联网上几乎没有任何讨论度，甚至能用中文搜索到的配置教程是写于2012年的博客园文章。几乎找不到近些年的帖子或文章。所以我写下这篇文章，为同样想折腾Gnus的，使用中文的Emacser指路。&lt;/p&gt;
+&lt;p&gt;本篇文章不是《Emacs完全上手指南/圣经/官方文档》，不能做到全面、无误，但可以保证是中文互联网上较新的资料，如有错误，欢迎邮件或在评论区指出。&lt;/p&gt;
+&lt;p&gt;Gnus是一个多功能的信息聚合器，邮件只是它的功能之一，本篇文章主要配置邮件功能。&lt;/p&gt;
+&lt;h2 id="getting-started"&gt;Getting started&lt;/h2&gt;
+&lt;p&gt;Gnus的配置文件默认在&lt;code&gt;~/.gnus&lt;/code&gt;，Emacs会将它当作elisp文件读取，网上也有一些说法是&lt;code&gt;~/.gnus.el&lt;/code&gt;其实只是加载顺序的不同，如果你此前有尝试，请备份并删除以前的文件。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;touch ~/.gnus
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="gnus-select-method"&gt;gnus-select-method&lt;/h2&gt;
+&lt;p&gt;Gnus的后端选择，对于imap协议，一般选择&lt;code&gt;nnimap&lt;/code&gt;：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-elisp" data-lang="elisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#d699b6"&gt;setq&lt;/span&gt; gnus-select-method
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#7a8478"&gt;&amp;#39;&lt;/span&gt;(nnimap &lt;span style="color:#b2c98f"&gt;&amp;#34;NAME&amp;#34;&lt;/span&gt; &lt;span style="color:#859289;font-style:italic"&gt;;这里是自己起的名字，用来区分不同的帐号&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-address &lt;span style="color:#b2c98f"&gt;&amp;#34;&amp;#34;&lt;/span&gt;) &lt;span style="color:#859289;font-style:italic"&gt;; imap服务器&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-inbox &lt;span style="color:#b2c98f"&gt;&amp;#34;INBOX&amp;#34;&lt;/span&gt;) &lt;span style="color:#859289;font-style:italic"&gt;; 大多数服务器都使用INBOX，除非你明确知道不同，否则不建议修改&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-expunge &lt;span style="color:#d699b6"&gt;t&lt;/span&gt;) &lt;span style="color:#859289;font-style:italic"&gt;; 立即在服务器上同步删除的邮件（按需开启，开启后删除邮件无法恢复）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-server-port &lt;span style="color:#d699b6"&gt;993&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-stream ssl) &lt;span style="color:#859289;font-style:italic"&gt;; 使用 SSL&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-authenticator login) &lt;span style="color:#859289;font-style:italic"&gt;;指定认证方式，如果服务器支持多种认证方式但自动协商失败，建议开启&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ))
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在配好后，重启Emacs，输入&lt;code&gt;M-x RET gnus RET&lt;/code&gt;，下方会闪过一些输出，根据提示填写用户名和密码后，询问是否要把用户名和密码填入&lt;code&gt;~/.authinfo&lt;/code&gt;，建议选y。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;C-x b&lt;/code&gt;切换到&lt;code&gt;*Messages*&lt;/code&gt;buffer查看，会看到类似这样的输出，那就表明你的配置无误！&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Opening connection to imap.qiye.aliyun.com via tls...
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Opening connection to imap.qiye.aliyun.com...done
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Saving file /home/yingyu5658/.newsrc-dribble...
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Wrote /home/yingyu5658/.newsrc-dribble
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Gnus auto-save file exists. Do you want to read it? (y or n) n
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Reading /home/yingyu5658/.newsrc...done
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Subscribe newsgroup: 已删除邮件
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Subscribe newsgroup: 草稿
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Subscribe newsgroup: INBOX
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Subscribe newsgroup: 已发送
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Subscribe newsgroup: 垃圾邮件
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Opening nnfolder server on archive...done
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;5 new newsgroups have arrived
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Checking new news...
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nnimap read 0k from imap.qiye.aliyun.com (initial sync of 5 groups; please wait)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Checking new news...done
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;No news is good news
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这个news是历史遗留词汇，仅仅代表当前没有未读邮件。&lt;/p&gt;
+&lt;p&gt;你可以用另一个账号向这个邮箱发送一封测试邮件，重新打开Gnus，会有这样的输出：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;1:*INBOX
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;我们回车点进去，就会打开那封邮件显示内容啦。&lt;/p&gt;
+&lt;p&gt;&lt;figure class="image-caption"&gt;
+ &lt;img src="https://images.glowisle.me/2026-02-10_19-50.png" alt="测试邮件效果"&gt;
+ &lt;figcaption&gt;测试邮件效果&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;在Group Buffer中按下&lt;code&gt;L&lt;/code&gt;，可以看到所有文件夹。&lt;/p&gt;
+&lt;h2 id="多帐号配置"&gt;多帐号配置&lt;/h2&gt;
+&lt;p&gt;多账号配置需要设置&lt;code&gt;gnus-secondary-select-methods&lt;/code&gt;这个变量，这里和&lt;code&gt;gnus-select-method&lt;/code&gt;一起说一下。后者是主服务器，前者是额外服务器列表，但几乎和主服务器同级，使用中可以当作平级。&lt;/p&gt;
+&lt;p&gt;多账号配置示例：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-elisp" data-lang="elisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#d699b6"&gt;setq&lt;/span&gt; gnus-select-method
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#7a8478"&gt;&amp;#39;&lt;/span&gt;(nnimap &lt;span style="color:#b2c98f"&gt;&amp;#34;glowsisle&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-address &lt;span style="color:#b2c98f"&gt;&amp;#34;imap.qiye.aliyun.com&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-inbox &lt;span style="color:#b2c98f"&gt;&amp;#34;INBOX&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-expunge &lt;span style="color:#d699b6"&gt;t&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-server-port &lt;span style="color:#d699b6"&gt;993&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-stream ssl) &lt;span style="color:#859289;font-style:italic"&gt;; 使用 SSL&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-authenticator login) &lt;span style="color:#859289;font-style:italic"&gt;; 必须指定认证方式&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ))
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#d699b6"&gt;setq&lt;/span&gt; gnus-secondary-select-methods
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#7a8478"&gt;&amp;#39;&lt;/span&gt;((nnimap &lt;span style="color:#b2c98f"&gt;&amp;#34;outlook&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;		(nnimap-address &lt;span style="color:#b2c98f"&gt;&amp;#34;outlook.office365.com&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;		(nnimap-server-port &lt;span style="color:#d699b6"&gt;993&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;		(nnimap-stream ssl)))
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;		
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#859289;font-style:italic"&gt;; 如果你有更多账户，另一个账户的配置同上。&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;注意到了吗，&lt;code&gt;secondary&lt;/code&gt;的配置和我们一开始配置的&lt;code&gt;gnus-select-method&lt;/code&gt;一模一样，而且它可以容纳多个账户。&lt;/p&gt;
+&lt;p&gt;注意：Microsoft Outlook / Microsoft 365 默认禁用普通 IMAP 密码登录。Gnus 无法使用 OAuth2，因此必须在 Microsoft 帐号中启用双重验证并生成应用专用密码，否则会出现 NO LOGIN failed 错误。&lt;/p&gt;
+&lt;h2 id="发邮件"&gt;发邮件&lt;/h2&gt;
+&lt;p&gt;虽然对于一个Gnus教程来说有点跑题，但你应该会需要发件配置的。&lt;/p&gt;
+&lt;p&gt;在Emacs中发送邮件有三条路，分别是&lt;code&gt;msmtp&lt;/code&gt;、&lt;code&gt;smtpmail&lt;/code&gt;（Emacs内置）、sendmail。&lt;/p&gt;
+&lt;p&gt;最推荐的是msmtp，与Gnus、Emacs解耦，并且配置简单优雅。&lt;/p&gt;
+&lt;h3 id="安装"&gt;安装&lt;/h3&gt;
+&lt;p&gt;以Debian为例：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt update
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt install msmtp
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在配置文件中&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-elisp" data-lang="elisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#d699b6"&gt;setq&lt;/span&gt; send-mail-function &lt;span style="color:#e69875"&gt;&amp;#39;sendmail-send-it&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#d699b6"&gt;setq&lt;/span&gt; message-send-mail-function &lt;span style="color:#e69875"&gt;&amp;#39;sendmail-send-it&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#d699b6"&gt;setq&lt;/span&gt; sendmail-program &lt;span style="color:#b2c98f"&gt;&amp;#34;/usr/bin/msmtp&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在&lt;code&gt;~/.msmtprc&lt;/code&gt;：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;account 账户名
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;host smtp.server.address
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;from your@account.com
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;auth login
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;port yourport
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;user your@account.com
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;password 不建议明文写密码，配置方式见下文
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;auth on
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tls on
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tls_starttls off
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tls_certcheck off 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tls_trust_file /etc/ssl/certs/ca-certificates.crt
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;account default : 默认账户，填写account的值
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="密码存储"&gt;密码存储&lt;/h2&gt;
+&lt;p&gt;需要创建一个包含密码的文本文件。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;touch password &lt;span style="color:#7a8478"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style="color:#d699b6"&gt;echo&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;yourpassword&amp;#34;&lt;/span&gt; &amp;gt; ./password
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后使用GPG加密，这样会生成一个&lt;code&gt;password.gpg&lt;/code&gt;文件&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gpg --symmetric --cipher-algo AES256 password
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后在&lt;code&gt;~/.msmtprc&lt;/code&gt;中，把密码那行改成&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;passwordeval &amp;#34;gpg --quiet --batch --decrypt /path/to/password.gpg&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这样每次使用都要输入GPG密码，为了避免这种情况，可以在&lt;code&gt;~/.gnupg/gpg.conf&lt;/code&gt;写入以下内容来缓存密码。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;use-agent
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这样就不用每次都输入密码了。记得删除明文存储密码的password文件:)&lt;/p&gt;
+&lt;h2 id="参考"&gt;参考&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.gnu.org/software/emacs/manual/html_mono/gnus.html"&gt;Gnus Manual&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.cnblogs.com/csophys/articles/2375236.html"&gt;Emacs Gnus 的基本配置与使用&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://emacs-china.org/t/emacs-send-mail-rmail-and-gnus/11730/4?page=2"&gt;Emacs收发邮件完全操作指南: Send-Mail, Rmail and Gnus&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>
