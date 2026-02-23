@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tilde on 映屿</title><link>https://www.glowisle.me/tags/tilde/</link><description>Recent content in Tilde on 映屿</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>i@glowisle.me (五葉地錦)</managingEditor><webMaster>i@glowisle.me (五葉地錦)</webMaster><lastBuildDate>Sun, 22 Feb 2026 13:49:49 +0800</lastBuildDate><atom:link href="http://www.glowisle.me/tags/tilde/atom.xml" rel="self" type="application/rss+xml"/><item><title>回声周刊 Vol.10：Vim9.2 添加对Wayland的实验性支持</title><link>https://www.glowisle.me/posts/weekly/10/</link><pubDate>Sun, 22 Feb 2026 13:49:49 +0800</pubDate><author>i@glowisle.me (五葉地錦)</author><guid>https://www.glowisle.me/posts/weekly/10/</guid><description>&lt;p&gt;这里是回声周刊，分享我这周读过的文章书籍、近期发生的大事小事。每周日更新。如果你对这个周刊感兴趣，可以 &lt;a href="https://www.glowisle.me/categories/%E5%9B%9E%E5%A3%B0%E5%91%A8%E5%88%8A/atom.xml"&gt;订阅周刊&lt;/a&gt;。&lt;/p&gt;
+&lt;h2 id="-声波"&gt;〰︎ 声波&lt;/h2&gt;
+
+
+&lt;div class="music-card"&gt;
+ 
+ &lt;div class="music-info"&gt;
+ &lt;img class="music-cover"
+ src="https://images.glowisle.me/ab67616d00001e02df12926c3e33c921bb05e66b.jpeg" loading="lazy" alt="Cover" /&gt;
+ &lt;div class="music-text"&gt;
+ &lt;h4 class="music-title"&gt;SAMURAI METROPOLIS&lt;/h4&gt;
+ &lt;p class="music-artist"&gt;T-SQUARE&lt;/p&gt;
+ &lt;/div&gt;
+ &lt;/div&gt;
+
+ 
+ &lt;div class="music-links"&gt;
+ 
+
+ 
+ &lt;a href="SAMURAI%20METROPOLIS" class="music-btn" target="_blank" title="在网易云音乐中打开" data-tooltip&gt;
+ &lt;img src="https://www.glowisle.me/images/netease-music.png" loading="lazy" class="music-icon" alt="Netease Music" /&gt;
+ &lt;span class="music-btn-text"&gt;网易云&lt;/span&gt;
+ &lt;/a&gt;
+ 
+
+ 
+ &lt;a href="https://open.spotify.com/track/2Him0kuVFhxrFjJ7DfMNos?si=f68b5652ab664de2" class="music-btn" target="_blank" title="在 Spotify 中打开" data-tooltip&gt;
+ &lt;img src="https://www.glowisle.me/images/spotify.png" loading="lazy" class="music-icon" alt="Spotify" /&gt;
+ &lt;span class="music-btn-text"&gt;Spotify&lt;/span&gt;
+ &lt;/a&gt;
+ 
+ &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;来自非常优秀的爵士乐队 T-Square ，貌似在国内很有热度，之前还在用网易云的时候看到评论区有不少吵风格的，管他呢，好听就行。这也是我换到 Spotify 的原因之一。&lt;/p&gt;
+&lt;h2 id="-声源"&gt;🕮 声源&lt;/h2&gt;
+&lt;h3 id="vim-92-发布提供实验性-wayland-支持更好的-hidpi-显示支持"&gt;Vim 9.2 发布，提供实验性 Wayland 支持，更好的 HiDPI 显示支持&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;🔗 &lt;a href="https://www.phoronix.com/news/Vim-9.2-Released"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;本月 14 日 ， Vim 发布了 9.2 版本。添加了实验性的 Wayland 支持、 XDG 基本目录规范支持、 HiDPI 显示的现代化默认设置、新的补全功能和改进的 Diff 模式，以及垂直标签页栏等功能。&lt;/p&gt;
+&lt;p&gt;不过，现在 Neovim 社区这么活跃，日常开发一般都使用 Neovim 了吧，就算受限环境或服务器，也不可能用 GVim ，但至少表明 Vim 正在努力跟进现代 Linux 标准。&lt;/p&gt;
+&lt;h3 id="手写html搭建博客"&gt;手写HTML搭建博客&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;🔗 &lt;a href="https://claytonwramsey.com/blog/own-html/"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;作者厌倦了 Jekyll ，改用手写 HTML 的方式搭建博客，倡导个人网站应该如此。&lt;/p&gt;
+&lt;p&gt;追求简单和容易维护的理念很值得肯定，但这篇文章的作者一定没有用过 Hugo ， Hugo 唯一可能让人讨厌的地方就是 Go 模板奇怪的语法，从 Hugo 的可定制性、可拓展性以及维护成本来看，都是比 Jekyll 更现代的选择。以及 HTML 虽然是一种简单的格式，但闭合标签、移动光标等操作，都会打断写作的思路，Markdown 完全避免了这些，这种行为有些激进。如果是一些简单的页面手写确实是个不错的选择，但需要频繁更新改动的博客不一定合适。&lt;/p&gt;
+&lt;h3 id="那不是抽象那只是间接层"&gt;那不是抽象，那只是间接层&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;🔗 &lt;a href="https://fhur.me/posts/2024/thats-not-an-abstraction"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;文章批评了软件工程中「抽象」的滥用，并举例 TCP 证明什么是伟大的抽象，伟大的抽象在于隐藏底层的复杂性，让使用者可以完全忽略细节，化繁为简。坏抽象（即伪装的间接层）不隐藏任何复杂性。它们通常是薄薄的包装器、单纯传递数据的接口，其意义完全来源于被包装物，只是增加了需要导航的额外层次，导致系统更难追踪和调试。但是没有完美的抽象，最终都要面对底层细节，好抽象能最大限度减少这种情况。&lt;/p&gt;
+&lt;h2 id="-所在"&gt;♇ 所在&lt;/h2&gt;
+&lt;h3 id="加入-tilde-社区"&gt;加入 Tilde 社区&lt;/h3&gt;
+&lt;p&gt;前几天，我正准备制作自己的个人主页，看中了一个&lt;code&gt;.org&lt;/code&gt;域名，但这个域名由于国内的条条框框不方便购买，一定要买的话，只能用境外支付方式、银行卡、信用卡一类，我只好放弃域名，寻找其他的方式。首先排除了 Github Pages ，因为我正在用它托管我的博客。其次排除了 Cloudflare 和 Netlify 一类，没有其他原因，只是偏好和印象问题。最终我在&lt;a href="https://mabbs.github.io/2025/08/10/tilde.html"&gt;《在Tilde社区的游玩体验》&lt;/a&gt;这篇文章发现了 Tilde 社区。&lt;/p&gt;
+&lt;p&gt;Tilde，即波浪号(~)，在类 Unix 系统中代表一个用户的家目录。在 Tilde 社区中，每个成员都会在服务器中分配一个用户，可以用于托管网页和一些简单的服务。网上有各种免费托管网页的服务，为什么偏偏选中 Tilde 社区呢？抛开那些哲学和理念，我其实是被&lt;code&gt;~&lt;/code&gt;这个符号吸引的。&lt;/p&gt;
+&lt;p&gt;在计算机还很笨重，只有高校的实验室，有几台运行着 Unix 系统的服务器的时期，用户如果想托管个人主页，就需要在家目录建立&lt;code&gt;public_html&lt;/code&gt;目录，然后放入网页文件，而 URL 就是&lt;code&gt;http://example.net/~username&lt;/code&gt;的形式，例如：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.samba.org/~sahlberg/"&gt;https://www.samba.org/~sahlberg/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.cs.vu.nl/~ast/"&gt;https://www.cs.vu.nl/~ast/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www-cs-faculty.stanford.edu/~knuth/"&gt;https://www-cs-faculty.stanford.edu/~knuth/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;很复古，很 Unix！我在&lt;a href="https://rw.rs"&gt;rw.rs&lt;/a&gt;托管了&lt;a href="https://rw.rs/~verdant"&gt;我的个人主页&lt;/a&gt;，欢迎访问！&lt;/p&gt;
+&lt;p&gt;至于为什么那么简陋，大概是一种致敬 C++ 之父的个人主页的心态，虽然我讨厌 C++ ，但我很认同 Bjarne Stroustrup 在被问及「为什么那不把你的网站做得更现代」时的&lt;a href="https://www.stroustrup.com/bs_faq.html#looks"&gt;回答&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;马上就要开学了，距离中考仅剩一百二十天左右。周刊可能会停更，或者会变成单纯罗列链接的形式，博客的更新速度也会放缓，希望中考后的暑假不要像这个寒假一样这么颓废了。&lt;/p&gt;
+&lt;p&gt;以上就是本期回声周刊的全部内容，感谢你的阅读，祝你有充满 ECHO 的一周！👋&lt;/p&gt;</description></item></channel></rss>
