@@ -1,7 +1,90 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>翻译 on 映屿</title><link>https://www.glowisle.me/tags/%E7%BF%BB%E8%AF%91/</link><description>Recent content in 翻译 on 映屿</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>i@glowisle.me (五葉地錦)</managingEditor><webMaster>i@glowisle.me (五葉地錦)</webMaster><lastBuildDate>Fri, 04 Jul 2025 10:46:53 +0000</lastBuildDate><atom:link href="http://www.glowisle.me/tags/%E7%BF%BB%E8%AF%91/atom.xml" rel="self" type="application/rss+xml"/><item><title>使用Javascript TSS和Highlights构建一个文本阅读器</title><link>https://www.glowisle.me/posts/%E7%94%A8javascript-tss%E5%92%8Chighlights%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8F%A5%E7%BA%A7%E6%96%87%E6%9C%AC%E9%98%85%E8%AF%BB%E5%99%A8/</link><pubDate>Fri, 04 Jul 2025 10:46:53 +0000</pubDate><author>i@glowisle.me (五葉地錦)</author><guid>https://www.glowisle.me/posts/%E7%94%A8javascript-tss%E5%92%8Chighlights%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8F%A5%E7%BA%A7%E6%96%87%E6%9C%AC%E9%98%85%E8%AF%BB%E5%99%A8/</guid><description>&lt;blockquote&gt;
-&lt;p&gt;原文：https://jsdev.space/tts-sentence-reader/&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>翻译 on 映屿</title><link>https://www.glowisle.me/tags/%E7%BF%BB%E8%AF%91/</link><description>Recent content in 翻译 on 映屿</description><generator>Hugo</generator><language>zh-cn</language><managingEditor>i@glowisle.me (五葉地錦)</managingEditor><webMaster>i@glowisle.me (五葉地錦)</webMaster><lastBuildDate>Fri, 04 Jul 2025 10:46:53 +0000</lastBuildDate><atom:link href="http://www.glowisle.me/tags/%E7%BF%BB%E8%AF%91/atom.xml" rel="self" type="application/rss+xml"/><item><title>使用Javascript TSS和Highlights构建一个文本阅读器</title><link>https://www.glowisle.me/posts/%E7%94%A8javascript-tss%E5%92%8Chighlights%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8F%A5%E7%BA%A7%E6%96%87%E6%9C%AC%E9%98%85%E8%AF%BB%E5%99%A8/</link><pubDate>Fri, 04 Jul 2025 10:46:53 +0000</pubDate><author>i@glowisle.me (五葉地錦)</author><guid>https://www.glowisle.me/posts/%E7%94%A8javascript-tss%E5%92%8Chighlights%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8F%A5%E7%BA%A7%E6%96%87%E6%9C%AC%E9%98%85%E8%AF%BB%E5%99%A8/</guid><description>
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;原文：https://jsdev.space/tts-sentence-reader/&lt;/p&gt;
 &lt;p&gt;翻译：Verdant&lt;a href="mailto:i@glowisle.me"&gt;i@glowisle.me&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;&lt;figure class="image-caption"&gt;
  &lt;img src="https://jsdev.space/.netlify/images?url=_astro%2Ftts-sentence-reader.hV9whx3I.png&amp;amp;w=800&amp;amp;h=800" alt=""&gt;
  &lt;figcaption&gt;&lt;/figcaption&gt;

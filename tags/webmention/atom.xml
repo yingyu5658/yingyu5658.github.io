@@ -1,7 +1,90 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Webmention on 映屿</title><link>https://www.glowisle.me/tags/webmention/</link><description>Recent content in Webmention on 映屿</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>i@glowisle.me (五葉地錦)</managingEditor><webMaster>i@glowisle.me (五葉地錦)</webMaster><lastBuildDate>Fri, 05 Dec 2025 17:22:22 +0800</lastBuildDate><atom:link href="http://www.glowisle.me/tags/webmention/atom.xml" rel="self" type="application/rss+xml"/><item><title>一次对Webmention的探索</title><link>https://www.glowisle.me/posts/exploring-webmention/</link><pubDate>Fri, 05 Dec 2025 17:22:22 +0800</pubDate><author>i@glowisle.me (五葉地錦)</author><guid>https://www.glowisle.me/posts/exploring-webmention/</guid><description>&lt;blockquote&gt;
-&lt;p&gt;Webmention is a simple way to notify any URL when you link to it from your site.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Webmention on 映屿</title><link>https://www.glowisle.me/tags/webmention/</link><description>Recent content in Webmention on 映屿</description><generator>Hugo</generator><language>zh-cn</language><managingEditor>i@glowisle.me (五葉地錦)</managingEditor><webMaster>i@glowisle.me (五葉地錦)</webMaster><lastBuildDate>Fri, 05 Dec 2025 17:22:22 +0800</lastBuildDate><atom:link href="http://www.glowisle.me/tags/webmention/atom.xml" rel="self" type="application/rss+xml"/><item><title>一次对Webmention的探索</title><link>https://www.glowisle.me/posts/exploring-webmention/</link><pubDate>Fri, 05 Dec 2025 17:22:22 +0800</pubDate><author>i@glowisle.me (五葉地錦)</author><guid>https://www.glowisle.me/posts/exploring-webmention/</guid><description>
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;Webmention is a simple way to notify any URL when you link to it from your site.&lt;/p&gt;
 &lt;p&gt;It is an open web standard (W3C Recommendation) for conversations and interactions across the web, a powerful building block used for a growing distributed network of peer-to-peer comments, likes, reposts, and other responses across the web.&lt;/p&gt;
-&lt;/blockquote&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;Webmention 是一种开放网络标准（W3C推荐标准），用于在链接到某个网址时，自动向该网址发送通知。它是构成分布式网络的基础组件，支持跨网站的点对点评论、点赞、转发等多种互动。&lt;/p&gt;
 &lt;p&gt;在 &lt;a href="https://www.glowisle.me/posts/tear-hypocrisy-apart/"&gt;上一篇文章&lt;/a&gt; 写完后，我开始寻找更合适的评论方案。Webmention这个看起来古老，但又超前的形式很快引起了我的兴趣。「去中心化」这个词貌似对我有什么魔力，就比如Mastodon，比Twitter更吸引我。&lt;/p&gt;
 &lt;p&gt;我很想试试用Go手搓一套收发系统，但时间并不充裕，正巧&lt;a href="https://webmention.io"&gt;webmention.io&lt;/a&gt;提供现成的服务和&lt;a href="https://indielogin.com/setup"&gt;详细的文档&lt;/a&gt;，那就跟着文档配置吧。&lt;/p&gt;

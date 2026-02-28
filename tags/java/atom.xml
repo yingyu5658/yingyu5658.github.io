@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Java on 映屿</title><link>https://www.glowisle.me/tags/java/</link><description>Recent content in Java on 映屿</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>i@glowisle.me (五葉地錦)</managingEditor><webMaster>i@glowisle.me (五葉地錦)</webMaster><lastBuildDate>Fri, 10 Jan 2025 15:05:00 +0000</lastBuildDate><atom:link href="http://www.glowisle.me/tags/java/atom.xml" rel="self" type="application/rss+xml"/><item><title>Java面向对象编程——多态、抽象类、接口</title><link>https://www.glowisle.me/posts/186/</link><pubDate>Fri, 10 Jan 2025 15:05:00 +0000</pubDate><author>i@glowisle.me (五葉地錦)</author><guid>https://www.glowisle.me/posts/186/</guid><description>&lt;h2 id="什么是多态"&gt;什么是多态&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Java on 映屿</title><link>https://www.glowisle.me/tags/java/</link><description>Recent content in Java on 映屿</description><generator>Hugo</generator><language>zh-cn</language><managingEditor>i@glowisle.me (五葉地錦)</managingEditor><webMaster>i@glowisle.me (五葉地錦)</webMaster><lastBuildDate>Fri, 10 Jan 2025 15:05:00 +0000</lastBuildDate><atom:link href="http://www.glowisle.me/tags/java/atom.xml" rel="self" type="application/rss+xml"/><item><title>Java面向对象编程——多态、抽象类、接口</title><link>https://www.glowisle.me/posts/186/</link><pubDate>Fri, 10 Jan 2025 15:05:00 +0000</pubDate><author>i@glowisle.me (五葉地錦)</author><guid>https://www.glowisle.me/posts/186/</guid><description>&lt;h2 id="什么是多态"&gt;什么是多态&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;在继承/实现情况下的一种现象，表现为：对象多态、行为多态。&lt;/li&gt;
 &lt;/ul&gt;
@@ -354,9 +354,92 @@
 &lt;ul&gt;
 &lt;li&gt;开发一个一个的对象，把数据交给对象，再用调用对象的方法来完成对数据的处理，这种方法叫&lt;strong&gt;面向对象编程&lt;/strong&gt;。&lt;/li&gt;
 &lt;/ul&gt;</description></item><item><title>深刻认识面向对象</title><link>https://www.glowisle.me/posts/99/</link><pubDate>Sun, 01 Dec 2024 13:31:00 +0800</pubDate><author>i@glowisle.me (五葉地錦)</author><guid>https://www.glowisle.me/posts/99/</guid><description>&lt;p&gt;面向对象编程的好处&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;按照&lt;strong&gt;詹姆斯·高斯林&lt;/strong&gt;的看法，世间万物都是对象。好比要出去旅游，你要找到车这个对象调用他的行驶功能使用来带你出去旅游。&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;按照&lt;strong&gt;詹姆斯·高斯林&lt;/strong&gt;的看法，世间万物都是对象。好比要出去旅游，你要找到车这个对象调用他的行驶功能使用来带你出去旅游。&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;所以面向对象编程的好处就是：&lt;strong&gt;符合人类思维习惯，编程更简单，更直观&lt;/strong&gt;。&lt;/p&gt;
 &lt;h1 id="程序中的对象到底是什么"&gt;程序中的对象到底是什么&lt;/h1&gt;
 &lt;ul&gt;

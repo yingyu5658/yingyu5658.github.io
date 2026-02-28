@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>回声周刊 on 映屿</title><link>https://www.glowisle.me/categories/%E5%9B%9E%E5%A3%B0%E5%91%A8%E5%88%8A/</link><description>Recent content in 回声周刊 on 映屿</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>i@glowisle.me (五葉地錦)</managingEditor><webMaster>i@glowisle.me (五葉地錦)</webMaster><lastBuildDate>Sun, 22 Feb 2026 13:49:49 +0800</lastBuildDate><atom:link href="http://www.glowisle.me/categories/%E5%9B%9E%E5%A3%B0%E5%91%A8%E5%88%8A/atom.xml" rel="self" type="application/rss+xml"/><item><title>回声周刊 Vol.10：Vim9.2 添加对Wayland的实验性支持</title><link>https://www.glowisle.me/posts/weekly/10/</link><pubDate>Sun, 22 Feb 2026 13:49:49 +0800</pubDate><author>i@glowisle.me (五葉地錦)</author><guid>https://www.glowisle.me/posts/weekly/10/</guid><description>&lt;p&gt;这里是回声周刊，分享我这周读过的文章书籍、近期发生的大事小事。每周日更新。如果你对这个周刊感兴趣，可以 &lt;a href="https://www.glowisle.me/categories/%E5%9B%9E%E5%A3%B0%E5%91%A8%E5%88%8A/atom.xml"&gt;订阅周刊&lt;/a&gt;。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>回声周刊 on 映屿</title><link>https://www.glowisle.me/categories/%E5%9B%9E%E5%A3%B0%E5%91%A8%E5%88%8A/</link><description>Recent content in 回声周刊 on 映屿</description><generator>Hugo</generator><language>zh-cn</language><managingEditor>i@glowisle.me (五葉地錦)</managingEditor><webMaster>i@glowisle.me (五葉地錦)</webMaster><lastBuildDate>Sun, 22 Feb 2026 13:49:49 +0800</lastBuildDate><atom:link href="http://www.glowisle.me/categories/%E5%9B%9E%E5%A3%B0%E5%91%A8%E5%88%8A/atom.xml" rel="self" type="application/rss+xml"/><item><title>回声周刊 Vol.10：Vim9.2 添加对Wayland的实验性支持</title><link>https://www.glowisle.me/posts/weekly/10/</link><pubDate>Sun, 22 Feb 2026 13:49:49 +0800</pubDate><author>i@glowisle.me (五葉地錦)</author><guid>https://www.glowisle.me/posts/weekly/10/</guid><description>&lt;p&gt;这里是回声周刊，分享我这周读过的文章书籍、近期发生的大事小事。每周日更新。如果你对这个周刊感兴趣，可以 &lt;a href="https://www.glowisle.me/categories/%E5%9B%9E%E5%A3%B0%E5%91%A8%E5%88%8A/atom.xml"&gt;订阅周刊&lt;/a&gt;。&lt;/p&gt;
 &lt;h2 id="-声波"&gt;〰︎ 声波&lt;/h2&gt;
 
 
@@ -36,21 +36,270 @@
 &lt;p&gt;来自非常优秀的爵士乐队 T-Square ，貌似在国内很有热度，之前还在用网易云的时候看到评论区有不少吵风格的，管他呢，好听就行。这也是我换到 Spotify 的原因之一。&lt;/p&gt;
 &lt;h2 id="-声源"&gt;🕮 声源&lt;/h2&gt;
 &lt;h3 id="vim-92-发布提供实验性-wayland-支持更好的-hidpi-显示支持"&gt;Vim 9.2 发布，提供实验性 Wayland 支持，更好的 HiDPI 显示支持&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;🔗 &lt;a href="https://www.phoronix.com/news/Vim-9.2-Released"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;🔗 &lt;a href="https://www.phoronix.com/news/Vim-9.2-Released"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;本月 14 日 ， Vim 发布了 9.2 版本。添加了实验性的 Wayland 支持、 XDG 基本目录规范支持、 HiDPI 显示的现代化默认设置、新的补全功能和改进的 Diff 模式，以及垂直标签页栏等功能。&lt;/p&gt;
 &lt;p&gt;不过，现在 Neovim 社区这么活跃，日常开发一般都使用 Neovim 了吧，就算受限环境或服务器，也不可能用 GVim ，但至少表明 Vim 正在努力跟进现代 Linux 标准。&lt;/p&gt;
 &lt;h3 id="手写html搭建博客"&gt;手写HTML搭建博客&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;🔗 &lt;a href="https://claytonwramsey.com/blog/own-html/"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;🔗 &lt;a href="https://claytonwramsey.com/blog/own-html/"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;作者厌倦了 Jekyll ，改用手写 HTML 的方式搭建博客，倡导个人网站应该如此。&lt;/p&gt;
 &lt;p&gt;追求简单和容易维护的理念很值得肯定，但这篇文章的作者一定没有用过 Hugo ， Hugo 唯一可能让人讨厌的地方就是 Go 模板奇怪的语法，从 Hugo 的可定制性、可拓展性以及维护成本来看，都是比 Jekyll 更现代的选择。以及 HTML 虽然是一种简单的格式，但闭合标签、移动光标等操作，都会打断写作的思路，Markdown 完全避免了这些，这种行为有些激进。如果是一些简单的页面手写确实是个不错的选择，但需要频繁更新改动的博客不一定合适。&lt;/p&gt;
 &lt;h3 id="那不是抽象那只是间接层"&gt;那不是抽象，那只是间接层&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;🔗 &lt;a href="https://fhur.me/posts/2024/thats-not-an-abstraction"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;🔗 &lt;a href="https://fhur.me/posts/2024/thats-not-an-abstraction"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;文章批评了软件工程中「抽象」的滥用，并举例 TCP 证明什么是伟大的抽象，伟大的抽象在于隐藏底层的复杂性，让使用者可以完全忽略细节，化繁为简。坏抽象（即伪装的间接层）不隐藏任何复杂性。它们通常是薄薄的包装器、单纯传递数据的接口，其意义完全来源于被包装物，只是增加了需要导航的额外层次，导致系统更难追踪和调试。但是没有完美的抽象，最终都要面对底层细节，好抽象能最大限度减少这种情况。&lt;/p&gt;
 &lt;h2 id="-所在"&gt;♇ 所在&lt;/h2&gt;
 &lt;h3 id="加入-tilde-社区"&gt;加入 Tilde 社区&lt;/h3&gt;
@@ -66,7 +315,7 @@
 &lt;p&gt;至于为什么那么简陋，大概是一种致敬 C++ 之父的个人主页的心态，虽然我讨厌 C++ ，但我很认同 Bjarne Stroustrup 在被问及「为什么那不把你的网站做得更现代」时的&lt;a href="https://www.stroustrup.com/bs_faq.html#looks"&gt;回答&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;马上就要开学了，距离中考仅剩一百二十天左右。周刊可能会停更，或者会变成单纯罗列链接的形式，博客的更新速度也会放缓，希望中考后的暑假不要像这个寒假一样这么颓废了。&lt;/p&gt;
 &lt;p&gt;以上就是本期回声周刊的全部内容，感谢你的阅读，祝你有充满 ECHO 的一周！👋&lt;/p&gt;</description></item><item><title>回声周刊 Vol.9：用telnet上论坛</title><link>https://www.glowisle.me/posts/weekly/9/</link><pubDate>Sun, 15 Feb 2026 12:36:29 +0800</pubDate><author>i@glowisle.me (五葉地錦)</author><guid>https://www.glowisle.me/posts/weekly/9/</guid><description>&lt;p&gt;这里是回声周刊，分享我这周读过的文章书籍、近期发生的大事小事。每周日更新。如果你对这个周刊感兴趣，可以 &lt;a href="https://www.glowisle.me/categories/%E5%9B%9E%E5%A3%B0%E5%91%A8%E5%88%8A/atom.xml"&gt;订阅周刊&lt;/a&gt;。&lt;/p&gt;
-&lt;h1 id="-声波"&gt;〰︎ 声波&lt;/h1&gt;
+&lt;h2 id="-声波"&gt;〰︎ 声波&lt;/h2&gt;
 
 
 &lt;div class="music-card"&gt;
@@ -103,12 +352,178 @@
 &lt;p&gt;又发现了東京事変的一首神曲，给我的感觉像老电视剧的片尾曲，这个乐队真是什么风格都能驾驭得很好。&lt;/p&gt;
 &lt;h2 id="-声源"&gt;🕮 声源&lt;/h2&gt;
 &lt;h3 id="中文互联网现存的telnet论坛"&gt;中文互联网现存的Telnet论坛&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;🔗 &lt;a href="https://chenwumm.github.io/posts/%E7%8E%B0%E5%9C%A8%E5%9B%BD%E5%86%85%E8%BF%98%E8%83%BD%E7%94%A8telnet%E8%BF%9E%E7%9A%84BBS%E8%AE%BA%E5%9D%9B.html"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;🔗 &lt;a href="https://bbslist.github.io/"&gt;整合站&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;🔗 &lt;a href="https://chenwumm.github.io/posts/%E7%8E%B0%E5%9C%A8%E5%9B%BD%E5%86%85%E8%BF%98%E8%83%BD%E7%94%A8telnet%E8%BF%9E%E7%9A%84BBS%E8%AE%BA%E5%9D%9B.html"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;🔗 &lt;a href="https://bbslist.github.io/"&gt;整合站&lt;/a&gt;&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;互联网考古爱好者必玩项目。&lt;/p&gt;
 &lt;p&gt;&lt;figure class="image-caption"&gt;
  &lt;img src="https://images.glowisle.me/7BB6F52B0BB88BC77F12F8E2303F7195.png" alt="紫丁香社区"&gt;
@@ -120,23 +535,272 @@
 &lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;就像我刚发现新闻组和IRC时的心情一样，太神奇了，太令人兴奋了！虽然从技术上来说没什么好神奇的，但我就是莫名被这种低效古老不安全的互联网活化石吸引。&lt;/p&gt;
 &lt;h3 id="不要因为错误的原因放弃写博客"&gt;不要因为错误的原因放弃写博客&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;🔗 &lt;a href="https://robertbirming.com/quit-blogging-wrong-reasons/"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;🔗 &lt;a href="https://robertbirming.com/quit-blogging-wrong-reasons/"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;作者指出，当博主想要放弃写博客的时候，通常会用一些听起来很理智的借口，比如减少上网时间、想专注于其他事等。但经过深思熟虑，作者发现这些往往是为了掩盖真像的谎言。&lt;/p&gt;
 &lt;p&gt;想要放弃的深层原因其实是对认可的渴望。这是一种觉得「没人在乎」、「付出没有回报」的挫败感。作者提醒自己，写作是因为热爱创作本人而非名利，同时，他也通过邮件和留言，意识到实际上是有人在乎的。&lt;/p&gt;
 &lt;p&gt;我的观点是，如果你真的在乎名利、有没有人在意，那你应该去做公众号、自媒体，而不是博客。写博客就像往互联网的大海里扔漂流瓶，最有可能被捡到的方式是通过搜索引擎，但这显然只对那些问题解决方案类的文章友好，如果写随笔或日记，看起来「无人在意」其实是正常的。&lt;/p&gt;
 &lt;p&gt;有时候，我甚至想过关闭博客的评论区，并不是因为垃圾评论和第三方脚本，也不是因为无人在意，而是因为遇到评论，我都要坐在电脑前抓耳挠腮半小时，绞尽脑汁想怎么回复。如果不回复可能会显得高冷或不友好，但我不回复真的不代表我对你的评论有什么意见。相反，如果我真的反对，可能会郑重地写上几百字来抨击。有些时候我只是纯粹不知道该怎么回复。&lt;/p&gt;
 &lt;h3 id="我爱archwiki维护者的工作"&gt;我爱ArchWiki维护者的工作&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;🔗 &lt;a href="https://k7r.eu/i-love-the-work-of-the-archwiki-maintainers/"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;🔗 &lt;a href="https://k7r.eu/i-love-the-work-of-the-archwiki-maintainers/"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;这篇文章是为倾注2026年2月14日的「我爱自由软件日」（原来还有这种节日吗）所写。作者提到他在FOSDEM 2026大会上，与Arch项目负责人Levente、ArchWiki维护者Ferdinand (Alad) 以及 FSFE 副主席 Heiki 会面，并赠送了「黑客巧克力」以表达谢意。&lt;/p&gt;
 &lt;p&gt;无论是否使用Arch Linux，ArchWiki都是极佳的参考文档，大多数页面都有对应中文版，作者感谢所有ArchWiki贡献者整理知识并确保其长期可用，同时呼吁读者像这些维护者表达感谢，并鼓励向Arch项目捐款。&lt;/p&gt;
 &lt;h3 id="discord-的替代品是什么样子"&gt;Discord 的替代品是什么样子？&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;🔗 &lt;a href="https://connectedplaces.xlat.cc/reports/fr153-what-does-a-discord-replacement-look-like/"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;🔗 &lt;a href="https://connectedplaces.xlat.cc/reports/fr153-what-does-a-discord-replacement-look-like/"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;Discord要对全球用户进行年龄认证，很多人想逃离Discord，正在寻找新的替代品，如Matrix，PieFed，但它们各有短板，想找一个Discord的替代品几乎不可能，因为Discord是个功能极其复杂的缝合怪软件。&lt;/p&gt;
 &lt;p&gt;文章认为，未来的趋势不是用「大而全」的应用去打败另一个应用，而是「功能去中心化」，不用一个APP包揽所有事，而是多个专业APP拼在一起。&lt;/p&gt;
 &lt;p&gt;其实这有点像Unix哲学的一部分在社交网络层面的体现。事实证明过于信任大公司，把鸡蛋装在一个篮子里的行为，迟早会引来麻烦。&lt;/p&gt;
@@ -151,14 +815,180 @@
 &lt;li&gt;&lt;a href="https://meekdai.github.io/post/Gmeek-geng-xin-ri-zhi.html"&gt;Gmeek更新日志&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://blog.meekdai.com/post/Gmeek-kuai-su-shang-shou.html"&gt;Gmeek快速上手&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;🔗 &lt;a href="https://github.com/Meekdai/Gmeek"&gt;项目链接&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;🔗 &lt;a href="https://github.com/Meekdai/Gmeek"&gt;项目链接&lt;/a&gt;&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;我一开始也是用这个项目搭建的博客，过程非常简单，只要点两下按钮即可，适合不愿意碰CLI或nginx的用户。&lt;/p&gt;
 &lt;h3 id="awesome-os-setup"&gt;awesome-os-setup&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;🔗 &lt;a href="https://github.com/AmineDjeghri/awesome-os-setup"&gt;项目链接&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;🔗 &lt;a href="https://github.com/AmineDjeghri/awesome-os-setup"&gt;项目链接&lt;/a&gt;&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;用于轻松配置 Windows、Linux、MacOS、Google TV、Stremio、Home Assistant 等（包括 WSL2、GPU 驱动程序和开发工具）的应用程序和指南。提高您的用户体验和生产力。&lt;/p&gt;
 &lt;p&gt;&lt;figure class="image-caption"&gt;
  &lt;img src="https://raw.githubusercontent.com/AmineDjeghri/awesome-os-setup/refs/heads/main/docs/images/app_showcase.gif" alt="来自仓库README的预览"&gt;
@@ -194,70 +1024,983 @@
  &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;とかげ3号~ とかげ3号~&lt;/p&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;とかげ3号~ とかげ3号~&lt;/p&gt;
 &lt;p&gt;しっぽの切れた 八虫類&lt;/p&gt;
 &lt;p&gt;とかげ3号 とかげ3号&lt;/p&gt;
 &lt;p&gt;お腹青光り 八虫類&lt;/p&gt;
 &lt;p&gt;キラキラと光る あの物体は何だ?&lt;/p&gt;
-&lt;/blockquote&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;已经成为这段时间的必需品，停止播放大脑就会&lt;em&gt;とかげ3号~ とかげ3号&lt;/em&gt;个不停。&lt;/p&gt;
 &lt;h2 id="-声源"&gt;🕮 声源&lt;/h2&gt;
 &lt;h3 id="欧盟初步认定tiktok成瘾性违法英文"&gt;欧盟初步认定TikTok成瘾性违法（英文）&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;🔗 &lt;a href="https://ec.europa.eu/commission/presscorner/detail/en/ip_26_312"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;🔗 &lt;a href="https://ec.europa.eu/commission/presscorner/detail/en/ip_26_312"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;欧盟委员会初步认定TikTok因其令人上瘾的设计违反了《数字服务法》。这包括无限滚动、自动播放、推送通知和高度个性化的推荐系统等功能。&lt;/p&gt;
 &lt;p&gt;Twitter同理，他们对青少年的访问进行了限制。但我请问，现在广为人知的娱乐平台哪一个不是这样？&lt;/p&gt;
 &lt;h3 id="检查伴侣的手机中国亲密关系中的一个恶习"&gt;检查伴侣的手机：中国亲密关系中的一个恶习&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;🔗 &lt;a href="https://stephenleng.com/cn/jiancha-shouji-qinglv/"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;🔗 &lt;a href="https://stephenleng.com/cn/jiancha-shouji-qinglv/"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;文章探讨了&lt;strong&gt;中国人&lt;/strong&gt;在亲密关系中对隐私权的让渡问题，如查看手机，并列出了&lt;strong&gt;美国人&lt;/strong&gt;的数据作为对比，深入到信任问题，并对查看手机这一行为持明显批判态度。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;在中国，有些人常常逼迫自己伴侣交出手机，假若不从，就以分手为威胁。这种让人惊掉下巴的寡廉鲜耻已经到了人神共愤的程度，因为这表明这些人完全不尊重对方的隐私权，丝毫没有权利意识。&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;在中国，有些人常常逼迫自己伴侣交出手机，假若不从，就以分手为威胁。这种让人惊掉下巴的寡廉鲜耻已经到了人神共愤的程度，因为这表明这些人完全不尊重对方的隐私权，丝毫没有权利意识。&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;虽然文章的内容确实有道理，但作者几乎是先假设了一个「中国人在亲密关系中隐私关系欠佳、存在信任问题」的结论，寻找论据进行论证的。以及，「中国人」在文章中被描述为一个静态的整体。&lt;/p&gt;
 &lt;h3 id="为什么我用c语言制作游戏英文"&gt;为什么我用C语言制作游戏（英文）&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;🔗 &lt;a href="https://jonathanwhiting.com/writing/blog/games_in_c/"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;🔗 &lt;a href="https://jonathanwhiting.com/writing/blog/games_in_c/"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;作者将不同编程语言对比，结合自己的需求和经验，最终认为C语言是最适合自己的语言。&lt;/p&gt;
 &lt;p&gt;文中提到了作者想要的编程语言特性：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;I want to produce less bugs, so I want strict typing, strong warning messages and static code analysis.&lt;/p&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;I want to produce less bugs, so I want strict typing, strong warning messages and static code analysis.&lt;/p&gt;
 &lt;p&gt;我希望Bug更少，所以我想要&lt;strong&gt;强类型&lt;/strong&gt;、&lt;strong&gt;强大的警告信息&lt;/strong&gt;、&lt;strong&gt;静态代码分析&lt;/strong&gt;。&lt;/p&gt;
-&lt;/blockquote&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;&lt;del&gt;乍一听，如果不单纯考虑游戏开发的话，他应该会喜欢Rust的。&lt;/del&gt;
 文章中的不少观点都能引发我的共鸣，比如对C++的厌恶和对Golang的喜爱，但显然Go因为游戏相关的库太少，不适用于游戏开发。&lt;/p&gt;
 &lt;p&gt;我相信在Linux环境下工作的程序员很难讨厌C。我个人对于C的喜爱，大部分来自GNU/Linux, Emacs和Vim等等一大堆使用C开发的日常使用的工具，除此之外，还有这个语言本身的简洁性：没有过多的语法糖和抽象，完全清楚代码在做什么，几乎没有隐藏的开销。如此简单却接近底层的机制带来了巨大的灵活性。&lt;/p&gt;
 &lt;h3 id="互联网档案馆发布插件解决40的互联网死链问题"&gt;互联网档案馆发布插件，解决40%的互联网死链问题&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;🔗 &lt;a href="https://github.com/a8cteam51/internet-archive-wayback-machine-link-fixer"&gt;项目链接&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;🔗 &lt;a href="https://github.com/a8cteam51/internet-archive-wayback-machine-link-fixer"&gt;项目链接&lt;/a&gt;&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;&lt;a href="https://techcrunch.com/2026/02/04/the-wayback-machine-debuts-a-new-plugin-designed-to-fix-the-internets-broken-links-problem/"&gt;来源&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id="wemd"&gt;WeMD&lt;/h3&gt;
 &lt;p&gt;更优雅的Markdown公众号排版工具。告别复杂工具。Markdown写作，一键复制到公众号。专为公众号创作者设计的本地优先编辑器。支持桌面客户端和网页版在线使用。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;🔗 &lt;a href="https://github.com/tenngoxars/WeMD"&gt;项目链接&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;🔗 &lt;a href="https://github.com/tenngoxars/WeMD"&gt;项目链接&lt;/a&gt;&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;微信公众号的编辑器如果敢说自己是世界上第二难用的编辑器，没人敢说自己是第一。&lt;/p&gt;
 &lt;h3 id="superdoc"&gt;SuperDoc&lt;/h3&gt;
 &lt;p&gt;SuperDoc&lt;a href="https://www.superdoc.dev"&gt;（在线演示）&lt;/a&gt;是一个开源文档编辑器，将Microsoft Word功能带到Web上，具有实时协作，广泛的格式选项和轻松的集成。可自托管Vanilla JS，React，Vue等。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;🔗 &lt;a href="https://github.com/superdoc-dev/superdoc"&gt;项目链接&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;🔗 &lt;a href="https://github.com/superdoc-dev/superdoc"&gt;项目链接&lt;/a&gt;&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;h3 id="tmux-plugin-manager"&gt;Tmux Plugin Manager&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;🔗 &lt;a href="https://github.com/tmux-plugins/tpm"&gt;项目链接&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;🔗 &lt;a href="https://github.com/tmux-plugins/tpm"&gt;项目链接&lt;/a&gt;&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;安装和加载tmux插件。&lt;/p&gt;
 &lt;h2 id="-所在"&gt;♇ 所在&lt;/h2&gt;
 &lt;h3 id="自建fedi实例"&gt;自建Fedi实例&lt;/h3&gt;
 &lt;p&gt;昨天和群友讨论泰拉瑞亚联机方案的时候提到服务器，我随便看了看，发现有一台挺适合的。虽然联机方案的讨论结果是不需要单独的服务器，我也不用干活，但还是拿下了这台机器，搭建了一个akkoma实例。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;⁂ &lt;a href="https://akk.glowisle.me/"&gt;实例地址&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;⁂ &lt;a href="https://akk.glowisle.me/"&gt;实例地址&lt;/a&gt;&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;选择akkoma就是因为它相对轻量，可以减少服务器成本。减少成本是对于我个人来说，让服务活下去并且活得好的方法之一，~因为这个东西就像Spotify一样会每月吃掉我的钱啊！~目前是不开放注册的单人实例，当然这个配置应该不会开放注册的。&lt;/p&gt;
 &lt;p&gt;这个过程踩了不少坑，从服务端到nginx到cloudflare缓存，前端后端几乎全踩了一遍，不过也好，也算是为对服务器维护一窍不通的我积累经验了。其中卡了我最长时间的问题是头像的显示问题。这个问题有好几个阶段。&lt;/p&gt;
 &lt;p&gt;阶段一：上传图片会裂开。是nginx配置问题导致，程序不知道该把图片上传到什么位置，在调整nginx配置文件后解决了。&lt;/p&gt;
@@ -340,9 +2083,92 @@
  &lt;figcaption&gt;预览图（来自仓库README）&lt;/figcaption&gt;
 &lt;/figure&gt;&lt;/p&gt;
 &lt;h3 id="一些好用的neovim插件英文"&gt;一些好用的Neovim插件（英文）&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;🔗 &lt;a href="https://btj93.github.io/nvim-plugins-202504"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;🔗 &lt;a href="https://btj93.github.io/nvim-plugins-202504"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;作者推荐了自己使用的一些Vim插件，每一个插件都有详细的说明。我在里面找到了很多有意思的插件，有点想换到Neovim了……但是已经养成了Emacs的快捷键习惯。&lt;/p&gt;
 &lt;p&gt;这个&lt;a href="https://github.com/chrisgrieser/nvim-spider"&gt;nvim-spider&lt;/a&gt;挺有意思的，专治大驼峰命名光标跳转不听话：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-mysql" data-lang="mysql"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#859289;font-style:italic"&gt;-- positions vim&amp;#39;s `w` will move to
@@ -353,20 +2179,269 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;local myVariableName &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; FOO_BAR_BAZ
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#859289;font-style:italic"&gt;-- ^ ^ ^ ^ ^ ^ ^
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="为什么有人说在现代计算机体系中链表已死"&gt;为什么有人说在现代计算机体系中「链表已死」？&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;🔗 &lt;a href="https://telegra.ph/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%9C%89%E4%BA%BA%E8%AF%B4%E5%9C%A8%E7%8E%B0%E4%BB%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E4%B8%AD%E9%93%BE%E8%A1%A8%E5%B7%B2%E6%AD%BB-01-26-2"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;🔗 &lt;a href="https://telegra.ph/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%9C%89%E4%BA%BA%E8%AF%B4%E5%9C%A8%E7%8E%B0%E4%BB%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E4%B8%AD%E9%93%BE%E8%A1%A8%E5%B7%B2%E6%AD%BB-01-26-2"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;文章从现代硬件和实际开发的角度探讨了链表的优劣。由于链表是非连续的内存空间，会导致大量缓存未命中，性能往往不如数组。但如Linux内核中的&lt;code&gt;list_head&lt;/code&gt;等&lt;strong&gt;侵入式链表&lt;/strong&gt;无需额外内存分配，适合管理生命周期复杂的对象，以及无锁、并发、图和树等场景仍有用武之地。&lt;/p&gt;
 &lt;p&gt;原知乎回答评论区有人说是AI文，第一遍读还真没看出来。&lt;/p&gt;
 &lt;h3 id="当代义和团"&gt;当代义和团&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;🔗 &lt;a href="https://www.bilibili.com/video/BV1wqBjB2EaJ"&gt;视频链接&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;🔗 &lt;a href="https://www.bilibili.com/video/BV1wqBjB2EaJ"&gt;视频链接&lt;/a&gt;&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;最近期末考试成绩公布，很多英语课上睡觉、不写作业的人抱怨英语太难，自己的分数太低的人，嚷嚷着「要加入义和团」「我要洋人死」。历史教材上这里一笔带过，于是我找了一些视频和资料来详细了解这段历史。&lt;/p&gt;
 &lt;p&gt;首先，一个明显的误区就是，义和团并不是从头到尾都要「扶清灭洋」的。甲午战争战败后，西方列强进一步侵略瓜分中国，四处修建教堂，传教士压迫平民百姓。无能的清政府不仅不为百姓讨公道，还继续偏袒基督教组织，民间的义和拳组织开始抵抗，后这个组织改名为义和团。在这个期间，他们的口号是「扫清灭洋」。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;关于义和团的源头，高志运有不同观点。义和团起初还是反清组织，故清末吴桥知县劳乃宣就强烈地主张义和团源于八卦教，因此应当断然镇压。&lt;sup id="fnref:1"&gt;&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref"&gt;1&lt;/a&gt;&lt;/sup&gt;为此他刊布了小册子《义和团教门源流考》，而且亲自出马镇压义和团。当代义和团史著名学者路遥、李世瑜、佐藤公彦等也都认为义和拳与长期流行在山东一带的举着反清复明大旗的白莲教有关。&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;关于义和团的源头，高志运有不同观点。义和团起初还是反清组织，故清末吴桥知县劳乃宣就强烈地主张义和团源于八卦教，因此应当断然镇压。&lt;sup id="fnref:1"&gt;&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref"&gt;1&lt;/a&gt;&lt;/sup&gt;为此他刊布了小册子《义和团教门源流考》，而且亲自出马镇压义和团。当代义和团史著名学者路遥、李世瑜、佐藤公彦等也都认为义和拳与长期流行在山东一带的举着反清复明大旗的白莲教有关。&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;&lt;del&gt;所以这群当代义和团想干嘛？&lt;/del&gt;&lt;/p&gt;
 &lt;p&gt;还有「因为自己英语不好就要杀洋人」是什么逻辑……？&lt;/p&gt;
 &lt;h2 id="-回望"&gt;✍︎ 回望&lt;/h2&gt;
@@ -428,8 +2503,89 @@
 &lt;h3 id="头条leancloud停止对外提供服务"&gt;头条：LeanCloud停止对外提供服务&lt;/h3&gt;
 &lt;p&gt;想必这时候发已经晚了，最佳时期应该是上周，但我忙于期末考试，断更了一周。&lt;/p&gt;
 &lt;p&gt;LeanCloud在1月12日给每个用户都发送了一封邮件：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;关于 LeanCloud 停止对外提供服务的通知&lt;/p&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;关于 LeanCloud 停止对外提供服务的通知&lt;/p&gt;
 &lt;p&gt;尊敬的 LeanCloud 用户：&lt;/p&gt;
 &lt;p&gt;感谢您一直以来对 LeanCloud 的信任与支持。自平台上线以来，我们陪伴并见证了无数开发者的成长与创新，能与大家共同走过这十余年，我们深感荣幸。&lt;/p&gt;
 &lt;p&gt;为了团队能聚焦打造更优质的产品，经过慎重考虑，我们决定逐步停止 LeanCloud 的服务。&lt;/p&gt;
@@ -452,10 +2608,95 @@
 &lt;p&gt;如您在迁移中有任何疑问，欢迎随时联系我们。&lt;/p&gt;
 &lt;p&gt;再次诚挚感谢您的理解与支持！&lt;/p&gt;
 &lt;p&gt;The LeanCloud Team&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;参见：&lt;a href="https://docs.leancloud.app/sdk/announcements/sunset-announcement/"&gt;关于 LeanCloud 停止对外提供服务的通知&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+
+ &lt;/blockquote&gt;
+
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;参见：&lt;a href="https://docs.leancloud.app/sdk/announcements/sunset-announcement/"&gt;关于 LeanCloud 停止对外提供服务的通知&lt;/a&gt;&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;Github上有关的Issue：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://github.com/walinejs/waline/issues/3387"&gt;[Feature]: LeanCloud 要停服了如何平移数据到类似平台？&lt;/a&gt;&lt;/li&gt;
@@ -469,30 +2710,362 @@
 &lt;p&gt;我已经很久不用动态博客程序了，这次更新看起来像是一些小问题的修复，具体信息参见：&lt;a href="https://github.com/typecho/typecho/releases/tag/v1.3.0"&gt;Release&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;说点题外话，我倒是挺欣赏Typecho默认主题，以及它本身的设计哲学的，在我看来那都是恰到好处适合博客定位的配置。以及它的后台界面总是让我想起我小时候上网冲浪，对互联网的印象，有一种莫名的亲切感。&lt;/p&gt;
 &lt;h3 id="成为收藏者的前提是意识到人生短暂"&gt;「成为收藏者的前提是意识到人生短暂」&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;🔗 &lt;a href="https://jesor.me/2024/to-be-a-collector/"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;🔗 &lt;a href="https://jesor.me/2024/to-be-a-collector/"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;作者由自己收听的一期博客引出对内容的总结和对「收集」的思考：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;「收集」是某种局部自由最大化的尝试。「收集者」对差异和多样有着天然的尊重，能扩大知识和经验的边界，防止我们随年龄增长而变得保守、反动。且这种「收集」并不必需深刻，它可以由纯粹的感受、主观的品味驱动，帮助我们对抗人生的焦虑和虚无。&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;「收集」是某种局部自由最大化的尝试。「收集者」对差异和多样有着天然的尊重，能扩大知识和经验的边界，防止我们随年龄增长而变得保守、反动。且这种「收集」并不必需深刻，它可以由纯粹的感受、主观的品味驱动，帮助我们对抗人生的焦虑和虚无。&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;h3 id="我喜欢gitlab英文"&gt;我喜欢Gitlab（英文）&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;🔗 &lt;a href="https://www.whileforloop.com/en/blog/2026/01/21/i-like-gitlab/"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;🔗 &lt;a href="https://www.whileforloop.com/en/blog/2026/01/21/i-like-gitlab/"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;作者表示自己因为当时Github私有仓库收费而迁移到了Gitlab，并从Docker镜像拉取、CI/CD的便捷易用两方面说明了Gitlab让人喜欢的地方，并批评了速度&lt;sup id="fnref:1"&gt;&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref"&gt;1&lt;/a&gt;&lt;/sup&gt;、功能泛滥的问题，主张公开项目使用Github，私有项目/未完成的想法使用Gitlab。&lt;/p&gt;
 &lt;p&gt;随着Github的独立性一步步减弱，被微软收购、CEO辞职……我对它感到越来越不安，前阵子有自建Git实例的想法，但也许短期内会换到Gitlab。仔细想想，我并没有非常多的硬性需要Github的地方。&lt;/p&gt;
 &lt;h3 id="避免在社交网络发布自拍照"&gt;避免在社交网络发布自拍照&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;🔗 &lt;a href="https://www.javis.me/bmzsjwlfbzpz/"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;🔗 &lt;a href="https://www.javis.me/bmzsjwlfbzpz/"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;文章讲述了作者的朋友为什么不在社交网络发布清晰的自拍照。我个人也是从来不喜欢自拍的，在网络上的痕迹很难被完全消除，即使发布者主动删除，照片也有可能在删除之前被保存、下载、转发传播，这让我很不安&lt;sup id="fnref:2"&gt;&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref"&gt;2&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
 &lt;p&gt;抛开那些风险而言，在旅行中从来不自拍、避免自己出现在照片里的原因除了对镜头感到不适以外，还有一点不理解，&lt;strong&gt;为什么一定要用照片表明自己来过呢&lt;/strong&gt;？至少我不会让自己的脸出现在照片里，并把它发布到公开的社交媒体上。&lt;/p&gt;
 &lt;h2 id="-所在"&gt;♇ 所在&lt;/h2&gt;
 &lt;h3 id="网站的一些变化"&gt;网站的一些变化&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;调整了首页最近文章的布局，让标题更突出。借鉴了一些WordPress主题，那些主题真的太有设计感了！&lt;/li&gt;
-&lt;li&gt;重写了&lt;a href="https://www.glowisle.me/about"&gt;关于&lt;/a&gt;页面，很早以前就想这么做了，我或许会每隔一段时间就重写一次。&lt;/li&gt;
+&lt;li&gt;重写了&lt;a href="https://www.glowisle.me/about/"&gt;关于&lt;/a&gt;页面，很早以前就想这么做了，我或许会每隔一段时间就重写一次。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="补课补课"&gt;补课补课&lt;/h3&gt;
 &lt;p&gt;最近终于考完了期末考试，但还是要继续上七天课，一直处于非常疲惫的状态，每天从学校回来只想躺在床上刷无脑地手机或者睡觉。关于补课的更多事情，会在结束后写一篇文章仔细聊聊这期间发生的有意思的事。比如微信状态里写的两篇短文……&lt;/p&gt;
@@ -539,9 +3112,92 @@
 
 &lt;h2 id="-声源"&gt;🕮 声源&lt;/h2&gt;
 &lt;h3 id="不要逃避解释论相关和有关在日常写作中的滥用"&gt;不要逃避解释：论「相关」和「有关」在日常写作中的滥用&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;🔗 &lt;a href="https://hsu.cy/2025/04/irrelevancy/"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;🔗 &lt;a href="https://hsu.cy/2025/04/irrelevancy/"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;文章指出了中文里「相关」和「有关」被滥用的现象，进行了批判，并给出了减少使用这两个词的例子。&lt;/p&gt;
 &lt;p&gt;文章里提到的最经典的例子「有关部门」，我觉得是刻意为之。这和「原则上不可以」就是「可以」的意味很相似，一定有人会说这是中文的博大精深，其实很多情况下就是故意含糊其辞的说法。不过这篇文章确实一针见血，能给写作者很大的启发。除了文章提到的两个词，我觉得在一些应试叙事文里「便」也被滥用了，它是「就」的书面语版本，表动作或事件之间的因果联系和连续性，也就是承接关系。我曾经读过我同学的一篇作文，事件就是买手抓饼身上没带钱，老板说没事可以不用给。他在那篇六百多字的文章里用了二三十个「便」。&lt;/p&gt;
 &lt;h3 id="你分得清-follow-feed-和-subscribe-吗"&gt;你分得清 Follow Feed 和 Subscribe 吗？&lt;/h3&gt;
@@ -549,16 +3205,182 @@
 &lt;p&gt;为什么在表达「RSS订阅」这个意思的时候，不用常见的subscribe（订阅），或者follow（关注），而是用feed（v. 喂养；&lt;strong&gt;供应&lt;/strong&gt; / n. 饲料）这个奇怪的词呢？&lt;/p&gt;
 &lt;h4 id="subscribe"&gt;subscribe&lt;/h4&gt;
 &lt;p&gt;来看看这个词在字典中的含义：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;to pay money to an organization in order to receive a product, use a service regularly&lt;sup id="fnref:1"&gt;&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref"&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;to pay money to an organization in order to receive a product, use a service regularly&lt;sup id="fnref:1"&gt;&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref"&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;&lt;strong&gt;向一个组织付费以收到产品&lt;/strong&gt;、&lt;strong&gt;使用周期性的服务&lt;/strong&gt;、&lt;strong&gt;主动选择，直接接收更新&lt;/strong&gt;如 email, push notifications（消息推送）。&lt;/p&gt;
 &lt;p&gt;仔细一想，这是不是和&lt;strong&gt;Newsletter&lt;/strong&gt;的模式很像？因此可以看到很多支持Newsletter的网站，会在提交邮箱的输入框旁边附上一个写着Subscribe的按钮。&lt;/p&gt;
 &lt;p&gt;除了Newsletter，也适用于某些软件的会员服务，例如：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;2.3 million people subscribe to this online music service.&lt;/p&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;2.3 million people subscribe to this online music service.&lt;/p&gt;
 &lt;p&gt;230 万人订阅了这项在线音乐服务。&lt;/p&gt;
-&lt;/blockquote&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;从词源学的角度看，subscribe的词根sub-（在下面）+scribe（写），原意是「在文件下方签名」。这其中包含着一种「我登记，你准时交付」的「契约感」&lt;/p&gt;
 &lt;p&gt;所以，遇到这种情况，使用Subscribe是最好的选择。&lt;/p&gt;
 &lt;h4 id="follow"&gt;Follow&lt;/h4&gt;
@@ -566,9 +3388,92 @@
 &lt;p&gt;在我看来，这和subscribe的微妙的区别在于，subscribe的作用对象在大多数情况下是正式的、有质量保证「服务」，而follow是一种相对轻松的「帖子（post)」，聚焦在「关注个人」而非「订阅服务」。&lt;/p&gt;
 &lt;h4 id="feed"&gt;Feed&lt;/h4&gt;
 &lt;p&gt;最后在来看这个经常被使用于RSS订阅的feed的释义：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;to supply something to a person or thing（向某人提供某物）, or put something into a machine or system, especially in a regular or continuous way（将某物放入机器 / 系统，尤其指有规律的、连续的方式）.&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;to supply something to a person or thing（向某人提供某物）, or put something into a machine or system, especially in a regular or continuous way（将某物放入机器 / 系统，尤其指有规律的、连续的方式）.&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;这不是某个动作，而是目的，这是机器对机器的自动化喂养。它的结果是：获取一个由你自己筛选的源所供给的个性化信息流。因此这个词非常贴合RSS这个模式。&lt;/p&gt;
 &lt;p&gt;这三个词的背后隐藏着用户主动权的变化，subscribe是一种「强主动」，点名要看，不能错过的需求；follow是像推特的关注那样「我想看，但有算法帮我推荐」的机制；feed在RSS盛行的时代也是一种用户完全掌控的强主动，但在现代APP里，又有了一层「投喂」的意思，例如TikTok和小红书的算法推荐。不得不说，「投喂」这个词实在是太难听了。&lt;/p&gt;
 &lt;h2 id="-所在"&gt;♇ 所在&lt;/h2&gt;
@@ -608,18 +3513,184 @@
 &lt;/figure&gt;&lt;/p&gt;
 &lt;h2 id="-声源"&gt;🕮 声源&lt;/h2&gt;
 &lt;h3 id="只需要有一个能成功就行"&gt;只需要有一个能成功就行&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;🔗 &lt;a href="https://alearningaday.blog/2025/11/28/all-it-takes-is-for-one-to-work-out-2/"&gt;文章链接（英文）&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;🔗 &lt;a href="https://alearningaday.blog/2025/11/28/all-it-takes-is-for-one-to-work-out-2/"&gt;文章链接（英文）&lt;/a&gt;&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;作者讲述了自己十年前各项条件都不突出时申请研究生的焦虑和挣扎，他的朋友对他说&amp;quot;All it takes is for one to work out.&amp;quot;（只要有一个能成功就行），最后作者成功获得了一个录取的机会。&lt;/p&gt;
 &lt;p&gt;其实这句话无论在做什么事时都有价值，尤其是对自己高标准高要求，达不到目标还经常责备自己的人。&lt;/p&gt;
 &lt;p&gt;All it takes is for one to work out.&lt;/p&gt;
 &lt;p&gt;And that one is all you need.&lt;/p&gt;
 &lt;p&gt;&lt;del&gt;刷算法题的时候不要这样啊！必须所有测试用例全部AC才可以……&lt;/del&gt;&lt;/p&gt;
 &lt;h3 id="谈政治"&gt;谈政治&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;🔗 &lt;a href="https://www.xianrenlife.com/2025/12/blog-post_29.html"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;🔗 &lt;a href="https://www.xianrenlife.com/2025/12/blog-post_29.html"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;作者发表了自己对于政治内容的看法，他选择少看政治新闻，少发表政治意见，并展开了详细的解释。&lt;/p&gt;
 &lt;p&gt;主要为以下几点：&lt;/p&gt;
 &lt;ol&gt;
@@ -632,29 +3703,361 @@
 &lt;p&gt;在无能为力的环境里，上网过多关注政治内容，看人们吵架，很容易让自己的戾气更重，变得更偏激。至少我的推特上全都是猫，而B站上不仅有小猫，还有猎豹（猎豹真的超级无敌可爱）、小蛇、熊、大象、蜘蛛以及各种鸟。&lt;/p&gt;
 &lt;p&gt;小动物们实在是太可爱了！&lt;/p&gt;
 &lt;h3 id="vs-code-作为-markdown-编辑器"&gt;VS Code 作为 markdown 编辑器&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;🔗 &lt;a href="https://zhengduo.wordpress.com/2024/03/15/vs-code-markdown/"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;🔗 &lt;a href="https://zhengduo.wordpress.com/2024/03/15/vs-code-markdown/"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;文章讲述了使用VS Code作为Markdown编辑器的工作流、插件以及优点。我也反思了一下我目前的写作工作流，以及为什么我要用 Emacs 写 Markdown。&lt;/p&gt;
 &lt;p&gt;其实无论在GNU/Linux上，还是在Windows上，都有一些不错的Markdown编辑器，比如Obsidian, Typora，我尝试过一圈后，还是用回了Emacs。这也许是Emacs用户最爱说的一句话：其它软件能做到的，Emacs很少有不能做的。&lt;/p&gt;
 &lt;p&gt;我不需要那些花里胡哨的功能，更不需要用Emacs煮咖啡，只是非常需要Vim的编辑模式。我在Emacs上从来没有使用过它的原生键位，始终开着evil-mode，这是在早期使用Vim的时候就养成的编辑习惯。&lt;/p&gt;
 &lt;p&gt;在不少文本编辑器里都有不太完善的Vim相关插件，对中文使用者也不太友好。不知道Doom Emacs用了什么手段，可以在输入法状态为中文的时候进入Normal模式进行操作，这一点是我最欣赏的，因此我一直在用Emacs + Evil进行Markdown编辑。显然VS Code或Obsidian更现代友好且美观，如果有朝一日它的Vim模式可以像evil那样完善，我也许会考虑迁移到其他的编辑环境。&lt;/p&gt;
 &lt;p&gt;作者还提到了一个很有趣的点：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;选中文本会自动高亮整个文档中所有相同文本，可以这样看你词语滥用&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;选中文本会自动高亮整个文档中所有相同文本，可以这样看你词语滥用&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;这是一个我没有考虑到的地方，根据我个人的观察，我好像&lt;strong&gt;很&lt;/strong&gt;喜欢使用「很」、「但」这样的词，我也在有意控制自己减少使用这些词，即便如此，依然难以完全避免。&lt;/p&gt;
 &lt;h3 id="让rss更有趣"&gt;让RSS更有趣&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;🔗 &lt;a href="https://matduggan.com/making-rss-more-fun/"&gt;文章链接（英文）&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;🔗 &lt;a href="https://matduggan.com/making-rss-more-fun/"&gt;文章链接（英文）&lt;/a&gt;&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;作者因为觉得传统RSS推送阅读压力太大，经常有堆积的未读文章，并且厌倦了时间排序的阅读顺序，希望有一个类似TikTok的随机内容推送系统，就自己动手做了一个Firefox插件，亮点是可以投赞成票和反对票，来改变每一个网站的权重。&lt;/p&gt;
 &lt;p&gt;在中文博客圈，有&lt;a href="https://foreverblog.cn/go.html"&gt;十年之约&lt;/a&gt;、&lt;a href="https://www.boyouquan.com/planet-shuttle"&gt;博友圈&lt;/a&gt;、&lt;a href="https://www.blogsclub.org/go"&gt;BlogsClub&lt;/a&gt;提供类似的随机博客服务，在国外则有&lt;a href="https://xn--sr8hvo.ws/"&gt;An IndieWeb Webring&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;虽然作者的动手能力很强，但我不太同意这种「阅读压力」的说法，这完全可以通过精简订阅源来解决。并且通过投票增减权重的内容筛选方式确实可以让优质内容浮出水面，但是这样做，两极分化可能会加重，比如刚刚起步的小型网站很难被发现，以及「受欢迎」的网站被看见得越多，它的「受欢迎程度」也就会越高。总的来说，有利有弊，但作者的目的确实达到了。&lt;/p&gt;
 &lt;h3 id="中文互联网在变得越来越差吗"&gt;中文互联网在变得越来越差吗？&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;🔗 &lt;a href="https://mp.weixin.qq.com/s/t2JBmlQC5oVe8EEtpM9yOw"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;🔗 &lt;a href="https://mp.weixin.qq.com/s/t2JBmlQC5oVe8EEtpM9yOw"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;文章讨论了简中互联网的内容衰减问题以及对人们的影响。所谓内容衰减，其实是指内容质量下滑和可检索性变低，我认为这个现象的成因，很大一部分责任都可以甩给国内互联网厂商的手机APP捆绑，网页端形同虚设，所有操作必须下载APP。而且如果你的手机里有了一个影视APP，你同时也拥有了一个短视频APP，一个借贷APP，一个人工智能APP，一个购物APP。&lt;em&gt;古有葫芦娃一胎七个下崽器，今有无良APP暴塞臃肿无用功能&lt;/em&gt;，这简直是国内互联网传统。&lt;/p&gt;
 &lt;p&gt;文章提出了让信息的摄入更多样化的方式，即「引入外来物种」，多逛逛不熟悉的网站或平台，多使用外语搜索，以及尝试通过听的方式摄入非理论书籍。我很认同这些手段，尤其是使用英语在Google搜索。如果使用Bing搜索技术类内容，基本都是CSDN搬运个人博客收费，或者人工智能生成的无用信息。用英语在Google搜索只需要认识几个关键词，找到需要的网页后搭配翻译插件，就能轻松获取资料。&lt;/p&gt;
 &lt;p&gt;简中互联网根本不能称作「互联网」，因为它根本不互联，也不能形成一张网。因此，还在写博客的博主们更需要坚持产出内容。如果在外网找到了有用的信息且时间和精力允许的话，请多把它们写成中文文章吧，一起抵抗大厂的烂俗手段，不要让简中互联网成为真正的「茧中互联网」。&lt;/p&gt;
@@ -743,8 +4146,89 @@
  &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;愛も何も無くたって明ける夜だ
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;愛も何も無くたって明ける夜だ
 就算失去爱和一切，长夜和拂晓仍会如期而至&lt;/p&gt;
 &lt;p&gt;生まれた理由なんて後付けだっていい
 降生的理由先抛之脑后也无妨&lt;/p&gt;
@@ -752,7 +4236,9 @@
 别将生命凋零的模样称之为美啊&lt;/p&gt;
 &lt;p&gt;散る為に咲く花なんて無いだろ
 没有什么花是为了凋零而绽放的吧&lt;/p&gt;
-&lt;/blockquote&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;这首歌是很早以前就放在我的歌单里的，几乎没怎么听过。在昨天写作业的时候随机到了这首，瞬间就被歌手通透的高音吸引了，单曲循环了好长时间，写完作业又打开b站看了MV和歌词中文翻译。&lt;/p&gt;
 &lt;p&gt;在疲惫和心情低落的时候就容易变为泪失禁体质，前半部分的歌词就让我有些触动，当我听到那句「别将生命凋零的模样称之为美啊，&lt;strong&gt;没有什么花是为了凋零而绽放的吧&lt;/strong&gt;」时眼泪就止不住地流了下来。&lt;/p&gt;
 &lt;p&gt;我一直陷入某个难以走出的怪圈，一直处于一种消极的状态，但我听到这两句的时候有一种豁然开朗的明亮感，那泪水不来自悲伤也不来自喜悦，只属于被共鸣和引导后的幸福。即使现在回想依然让我热泪盈眶。&lt;/p&gt;
@@ -804,9 +4290,92 @@
 &lt;h2 id="-声源"&gt;🕮 声源&lt;/h2&gt;
 &lt;h3 id="习惯性反驳是一种隐形的贫穷型人格"&gt;习惯性反驳，是一种隐形的贫穷型人格&lt;/h3&gt;
 &lt;p&gt;这篇文章还是我们的班主任提到的，她在公开批评某一个同学的时候完整地念出了文章的标题，我根据她的阅读习惯，在公众号找到了这篇文章&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;🔗 &lt;a href="https://mp.weixin.qq.com/s/Aqs-AEIL66btSK3cEUy_bQ"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;🔗 &lt;a href="https://mp.weixin.qq.com/s/Aqs-AEIL66btSK3cEUy_bQ"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;虽然这篇文章有一种明显的AI润色的语言风格，但说的东西有一些道理，讲了什么是「习惯性反驳」、为什么要远离这种人，以及什么是「富足的人格」。读起来有一种给LLM一个结论，让它举例子倒推写一篇文章的感觉。&lt;/p&gt;
 &lt;p&gt;我身边确实有这种人，具体来说是那种很会把天聊死的人，没有一点和他继续交谈的欲望，从表现上看非常自大，在内核里看非常自卑的人。类比一下大概有点像那种喜欢在饭桌上吹牛的有点保守的亲戚。&lt;/p&gt;
 &lt;p&gt;文章提到爱抬杠的人的特征如下：&lt;/p&gt;
@@ -818,23 +4387,355 @@
 &lt;p&gt;在讨论为什么要远离这种人的时候，它引用了一个所谓的心理学名词：「情绪共振」。我对这个词挺感兴趣的，但在维基百科和百度百科，以及其他地方都没有找到对应的词条，近义词有心理共振、情感共鸣等，都和「情绪共振」，也就是受环境影响这个概念没什么关联。&lt;/p&gt;
 &lt;p&gt;不过，抬杠归抬杠，现实甚至悲观一点挺好的。&lt;/p&gt;
 &lt;h3 id="为什么我更愿意劝人放弃"&gt;为什么我更愿意劝人放弃&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;🔗 &lt;a href="https://kaix.in/2025/1223-why-i-prefer/"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;🔗 &lt;a href="https://kaix.in/2025/1223-why-i-prefer/"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;作者在文章里阐述了一种方向正确大于坚持不懈，及时止损减少沉没成本，在迭代中判断价值的行事理念。&lt;/p&gt;
 &lt;p&gt;我本来想说：「这套观点很有意思，但也有不适用的领域。」重新读了一遍文章后，发现作者早在第一段就回应了可能出现的这种反驳。「正确的方向」这个概念是建立在动态评估反馈之后才能作出判断的，所以按照这套说法，继续做下去的事很难再出现方向的错误。&lt;/p&gt;
 &lt;p&gt;我想到的一个相似的例子是小红书上有一个所谓的学习博主，勾股定理写了好几页笔记，最后却上了中专。这个例子虽然和坚持关系不大，但是呼应作者想阐述的「方向更重要」的观点，也就是说，该把力气用在对的地方。&lt;/p&gt;
 &lt;h3 id="ai-正在让人变得前所未有地自以为是"&gt;AI 正在让人变得前所未有地自以为是&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;🔗 &lt;a href="https://www.geedea.pro/essays/ai-%E6%AD%A3%E5%9C%A8%E8%AE%A9%E4%BA%BA%E5%8F%98%E5%BE%97%E5%89%8D%E6%89%80%E6%9C%AA%E6%9C%89%E5%9C%B0%E8%87%AA%E4%BB%A5%E4%B8%BA%E6%98%AF/"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;🔗 &lt;a href="https://www.geedea.pro/essays/ai-%E6%AD%A3%E5%9C%A8%E8%AE%A9%E4%BA%BA%E5%8F%98%E5%BE%97%E5%89%8D%E6%89%80%E6%9C%AA%E6%9C%89%E5%9C%B0%E8%87%AA%E4%BB%A5%E4%B8%BA%E6%98%AF/"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;我喜欢这种直抒胸臆的有棱角的文章，同时这也是我讨厌AI写作的原因。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;你可以用 Cursor 这样的工具把你的好想法变成现实，但别把自己当成程序员，更别他妈的说，因为会用 AI，自己早上是程序员，下午是作家，晚上是自媒体人这种自负得令人作呕的话了，请停止侮辱更多的群体。你不过是个付了钱，连提示词都不一定写得清楚的用户而已&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;用 AI 算命，把 AI 当作心理咨询师，就是这种无知的具体表现。就连 AI 所擅长的编程工作，真正的程序员都还在担心 AI 会不会让自己变成文盲，而另一些可笑的人，做着相反的事情，还认为 AI 能让自己变得更聪明，能在一夜之间换一个职业，肆无忌惮地生产垃圾产品污染行业。&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;你可以用 Cursor 这样的工具把你的好想法变成现实，但别把自己当成程序员，更别他妈的说，因为会用 AI，自己早上是程序员，下午是作家，晚上是自媒体人这种自负得令人作呕的话了，请停止侮辱更多的群体。你不过是个付了钱，连提示词都不一定写得清楚的用户而已&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;用 AI 算命，把 AI 当作心理咨询师，就是这种无知的具体表现。就连 AI 所擅长的编程工作，真正的程序员都还在担心 AI 会不会让自己变成文盲，而另一些可笑的人，做着相反的事情，还认为 AI 能让自己变得更聪明，能在一夜之间换一个职业，肆无忌惮地生产垃圾产品污染行业。&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;AI最好的一点也是最差的一点就是，用起来太简单了。最低配置甚至不是识字、会打字，有些大模型甚至可以语音输入，朗读文字输出。我四岁的弟弟都能无障碍使用豆包，毫无使用门槛是AI让人变得自以为是的直接原因。&lt;/p&gt;
 &lt;p&gt;作者不完全批判「用AI去做什么」，而是在批判「用AI做了什么并骄傲地声称自己是某某领域的专家」这种在那个领域付出过努力的人看来又好笑又可气的态度。&lt;/p&gt;
 &lt;p&gt;但是，从功利主义的角度讲，我曾经吹捧过一段时间的AI。在AI生成的文章风格还没有被大众所熟知到能一眼看出来的时候，我们的班主任，就是前文提到的那位，也是我们的语文老师，推荐我们用Deepseek写作文。虽然它完全没有创新的能力，编出来的故事极其俗套，但词藻华丽，简直就是把阅卷老师的眼闪瞎以至于给那种作文判高分的程度。我在那个时候愿意用AI写作文。毕竟分数比「门槛」、「纯粹性」值钱。&lt;/p&gt;
@@ -910,10 +4811,93 @@
 &lt;p&gt;来自1998年组建，活动至2012年解散的乐队&lt;a href="https://en.wikipedia.org/wiki/GO!GO!7188"&gt;GO!GO!7188&lt;/a&gt;的一首歌，适合冬天的傍晚下班下学听。&lt;/p&gt;
 &lt;h2 id="-声源"&gt;🕮 声源&lt;/h2&gt;
 &lt;h3 id="怀念挚友刘一周"&gt;怀念挚友刘一周&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;没有人会对一捧土产生情感，直到自己亲手垒起了一座。&lt;/p&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;没有人会对一捧土产生情感，直到自己亲手垒起了一座。&lt;/p&gt;
 &lt;p&gt;🔗 &lt;a href="https://www.bilibili.com/opus/1146502542854717465"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;这篇文章是在语文课上老师给我们读的，文章用质朴的语言，讲述了张河清教授大学时，结识挚友刘一周，到23年刘因公出差途中病倒殉职，张前往坟前悼念挚友的一系列经历。文章写得相当好，详略得当，人物形象鲜明。全程没有几句真正意义上抒情的话，但感情深刻且饱满。&lt;/p&gt;
 &lt;p&gt;&lt;figure class="image-caption"&gt;
  &lt;img src="https://images.glowisle.me/359b033b5bb5c9ea15ce11c8c265a1003af33a8715de.webp" alt="张河清手书 —— 百度百科"&gt;
@@ -923,26 +4907,441 @@
 &lt;p&gt;据老师自述，她在初看这篇文章时泪流满面，在给我们朗读的时候也明显哽咽。不过她给我们读完后升华的方向是「每个年代的人都有每个年代的苦」，然后开始讲起自己上学时有多穷，论证了「你们现在需要承担学业上的压力是应该的，因为你们没有承受经济上的压力」的观点，本来以为给我们分享这篇文章是想让我们珍惜当下的友情，没想到又开始讲大道理，而且站在一个几十年前的价值连城的本科学历的位置上，在灌输一种「你们现在累都是活该」的思想，颇有一种站着说话不腰疼的感觉。&lt;/p&gt;
 &lt;p&gt;让我有点惊喜的是，作者在B站上有账号，而且一直保持活跃。张河清教授的文字给人的感觉和他视频里的形象简直是两个人。&lt;/p&gt;
 &lt;h3 id="ai-算不算一种研究方法"&gt;AI 算不算一种研究方法？&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;🔗 &lt;a href="https://sspai.com/post/104421"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;🔗 &lt;a href="https://sspai.com/post/104421"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;文章从开头就对用AI的目的做了区分讨论，抛出了观点：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;所以，我的第一个观点是：「生成数据」和「分析数据」是两回事。AI 做被试（Subject）确实有争议，但在处理海量文本、辅助编码时，它就是一种高效的研究工具（Instrument）。否定前者，不能连坐后者。&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;所以，我的第一个观点是：「生成数据」和「分析数据」是两回事。AI 做被试（Subject）确实有争议，但在处理海量文本、辅助编码时，它就是一种高效的研究工具（Instrument）。否定前者，不能连坐后者。&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;在后半部分，列举AI的概率性、讨好病、无产出新知识的能力三个硬伤，以及依赖概率模式而无具体经验导致的生成数据分布怪异，阐述红线（不能用AI做什么）。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;AI 不能做「被试」&lt;/p&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;AI 不能做「被试」&lt;/p&gt;
 &lt;p&gt;如果你用 AI 生成数据，你研究的就不是「人类社会」，而是「大模型的概率分布」。如果你进行快速模拟探索，尚可接受；但你如果以此作为研究方法，并且以其生成数据作为证据来汇报，那就不应该了。&lt;/p&gt;
-&lt;/blockquote&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;作者提倡使用AI进行高重复性的，在实验、数据以外的次要工作来「解放生产力」，如代码编写与调试、语言润色、数据格式转换与清洗，并在结尾简明地点出结论：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;AI 本身不是一种独立的「方法论」（Methodology），因为它不具备确定性，不负责真理。但它正在成为所有研究方法中不可或缺的「元工具」（Meta-tool）。&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;AI 本身不是一种独立的「方法论」（Methodology），因为它不具备确定性，不负责真理。但它正在成为所有研究方法中不可或缺的「元工具」（Meta-tool）。&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;h3 id="是登录而不是登陆"&gt;是「登录」而不是「登陆」&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;🔗 &lt;a href="https://blog.solazy.me/20251216/"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;🔗 &lt;a href="https://blog.solazy.me/20251216/"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;文章提出了一个在互联网普遍存在但很少有人注意的问题：把「登录」写成「登陆」。&lt;/p&gt;
 &lt;p&gt;我在小时候也发现过这个现象，为什么进入一个软件的账号要像从海里面爬上来一样呢？当时靠着小孩特有的&lt;strong&gt;联想&lt;/strong&gt;能力，把自己说服了，用「登陆」好像也可以。&lt;/p&gt;
 &lt;p&gt;其实，我刚刚那句话就有一对类似的词，即「连想」与「联想」。关于前者与后者是否有区分，在学术界有争议，维基百科没有名为「连想」的条目，在权威词典中，也没有这个词。如果要定性的话，前者应该算在错别字的范畴。&lt;/p&gt;
@@ -950,7 +5349,7 @@
 &lt;h2 id="-所在"&gt;♇ 所在&lt;/h2&gt;
 &lt;h3 id="--"&gt;❤️ 🐧 ❤️&lt;/h3&gt;
 &lt;p&gt;周四下午在同学的书包上看到了一个企鹅挂件。我反复从她的座位边走过两次，就是为了多看两眼这个企鹅。它长得实在是太丑了，甚至感觉有点可爱是怎么回事……&lt;/p&gt;
-&lt;p&gt;上了三年学都没有那个同学的任何联系方式，从下午第一节课到放学一直在想该怎么跟她说：「能不能加个微信，把你书包上这个挂件的链接发我」，要用什么语气、什么表情，说完后应该做什么……这个企鹅实在是太丑太可爱了，所以除了想问链接的事，就是在想关于这个企鹅。不知道为什么，第一次看见这个企鹅的时候根本压不住嘴角，除了丑以外，让我想到了&lt;a href="https://en.wikipedia.org/wiki/Tux_(mascot)"&gt;Tux&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;上了三年学都没有那个同学的任何联系方式，从下午第一节课到放学一直在想该怎么跟她说：「能不能加个微信，把你书包上这个挂件的链接发我」，要用什么语气、什么表情，说完后应该做什么……这个企鹅实在是太丑太可爱了，所以除了想问链接的事，就是在想关于这个企鹅。不知道为什么，第一次看见这个企鹅的时候根本压不住嘴角，除了丑以外，让我想到了&lt;a href="https://en.wikipedia.org/wiki/Tux_%28mascot%29"&gt;Tux&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;最后我也没加她的微信，而是在拼多多搜「企鹅挂件」，直接就买到了。&lt;/p&gt;
 &lt;p&gt;&lt;figure class="image-caption"&gt;
  &lt;img src="https://images.glowisle.me/0fd25cecbf712300.jpeg" alt=""&gt;
@@ -965,8 +5364,89 @@
 &lt;p&gt;这个毛绒绒的手感真的很像我的猫，我弟也是这么想的，所以才不打算给我，不过在看到我有六个以后，为了讨好我，等我什么时候玩腻了把所有的都送给他，他甚至主动把他自己的那个也给了我，还送了两个其他样式的挂件。没想到这么小就懂得投资了。&lt;/p&gt;
 &lt;h3 id="外语的进阶思路"&gt;外语的进阶思路&lt;/h3&gt;
 &lt;p&gt;昨天我在&lt;a href="https://c7.io/@Verdant"&gt;Mastodon&lt;/a&gt;上发了一条嘟文：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;「这句话怎么翻译」等等类似的问题，真的很让人难办……
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;「这句话怎么翻译」等等类似的问题，真的很让人难办……
 或者说，给人讲英语题就是一件很难办的事。如果你已经有了一定的基础，还停留在初阶的翻译思维，只会让你的外语越来越糟糕，这是一种做题思维，而不是学习外语的思维。之所以是做题思维，是因为所谓翻译、语法等等都是学校教的，正常说话没人在乎那些。&lt;/p&gt;
 &lt;p&gt;据我观察，这也是不少人用这种做题的思维做题，速度还很慢的原因，学外语的重点应该放在多读、多听、多说，养成语感上，最终的效果就是像看母语一样，做题的时候不用思考语法结构，读一遍就有答案；阅读的时候不用翻译成母语，直接领会原文意思，这应该才算是半支脚踏入了语言的大门。翻译是万不得已的最后手段。&lt;/p&gt;
 &lt;p&gt;语言是被使用的工具，当成一门科目，像分析函数一样对着句子划来划去，标记出各种成分，只会让知识更难以被理解。一直想「这句话到底怎么翻译」或许是做题困难的原因之一，试着用你正在学的那门语言思考、体会文字想表达的意思，应该能更轻松，至少对我个人来说是这样。&lt;/p&gt;
@@ -974,7 +5454,9 @@
 最好的效果应该是：看到「bee」这个单词，想到「🐝」；而不是：看到「bee」，这是「蜜蜂」的意思，它长这样：🐝。&lt;/p&gt;
 &lt;p&gt;如果你在学英语或已经比较熟悉的语言，就尽快尝试放弃翻译的思维模式吧。不要再做语言的肉编器了！&lt;/p&gt;
 &lt;p&gt;🔗 &lt;a href="https://c7.io/@Verdant/115746549763877093"&gt;原文链接&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;事情的起因是，我跟我的同学对英语题答案，他的英语很不错，120分满分110的水平。我们的答案出现了分歧，他一直在反复问「为什么填这个」和「这么填怎么翻译」。而我一直表示没法翻译，因为我只是读了一遍，脑结合语境和一贯的套路，海里就有答案了。&lt;/p&gt;
 &lt;p&gt;从语法的角度分析，我和他的答案都是合理的，所以讨论没办法进行下去，直到老师公布正确答案，证明了我是对的。由此引发了我对外语学习方式、目的、最终效果的思考。&lt;/p&gt;
 &lt;p&gt;以上就是本期回声周刊的全部内容，感谢阅读，祝你有充满ECHO的一周！👋&lt;/p&gt;
@@ -1026,16 +5508,182 @@
 &lt;p&gt;東京事変的水平一如既往地高，前奏非常抓耳，在听惯了 Adult ver. 的劲爆贝斯后听到层次感如此丰富的前奏甚感惊喜。&lt;/p&gt;
 &lt;h2 id="-声源"&gt;🕮 声源&lt;/h2&gt;
 &lt;h3 id="与其直接问-ai-答案不如请-ai-找到研究这些问题最好的老师"&gt;与其直接问 AI 答案，不如请 AI 找到研究这些问题最好的老师&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;🔗 &lt;a href="https://www.owenyoung.com/blog/ai-expert-guidance/"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;🔗 &lt;a href="https://www.owenyoung.com/blog/ai-expert-guidance/"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;文章简述了作者自己和群友聊天时探讨的一种使用AI的新方式：让
 AI扮演MIT或哈佛的博士生，通过询问在什么地方可以详细学习某一主题，让AI帮我们指出学习路径，而非直接询问答案，这样只会获得缺乏深度的中庸的解释。&lt;/p&gt;
 &lt;p&gt;我的看法是，深度和难度是成正比的，因此当你尝试用这个方式涉足自己不熟悉的领域时，过于专业的文章会让门槛和上手难度指数级上升，如果适当优化提示词，应该能探索出一条新手友好的路径。这个方法确实对搭建系统性的学习路径有指导意义。&lt;/p&gt;
 &lt;h3 id="一台打印机干掉我所有稍后读软件"&gt;一台打印机，干掉我所有稍后读软件&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;🔗 &lt;a href="https://liangmouyin.com/250608-printer-read-later/"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;🔗 &lt;a href="https://liangmouyin.com/250608-printer-read-later/"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;作者介绍了如何把网络上的文章打印成更纸质阅读的样子，提供了打印成小册子(Booklet)和调整格式及装订的方法。&lt;/p&gt;
 &lt;p&gt;我尝试了一下，复制文章内容到Obsidian，然后导出为PDF，这一步的效果不错，但我没有在Linux上找到合适的打印程序，本着能不折腾就不折腾的原则，我切换到了Windows上使用WPS Office打印，软件可以直接选择打印为Booklet。&lt;/p&gt;
 &lt;p&gt;&lt;figure class="image-caption"&gt;
@@ -1044,25 +5692,357 @@ AI扮演MIT或哈佛的博士生，通过询问在什么地方可以详细学习
 &lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;看起来还是很不错的，可以在Obsidian设置中调整一下字体对握持阅读更友好。至于装订，用曲别针别起来就可以了。现在需要考虑的问题是纸张和墨水的成本……不过费了这点小钱，保护了眼睛未必不值。&lt;/p&gt;
 &lt;h3 id="只为陌生人"&gt;只为陌生人&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;🔗 &lt;a href="https://www.xianrenlife.com/2025/12/only-for-strangers.html"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;🔗 &lt;a href="https://www.xianrenlife.com/2025/12/only-for-strangers.html"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;这篇文章阐述了「只为陌生人」的写作观，我非常赞同文章的这句话：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;陌生人在网络上的品评，看过笑笑便罢；可熟人的否定，往往更有杀伤力。&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;陌生人在网络上的品评，看过笑笑便罢；可熟人的否定，往往更有杀伤力。&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;从另一个角度想，熟人的评判之所以更有杀伤力，在评价者与被评价者之间都有那层感情上的因素。我个人认为大部分的「求评价」实际上不一定是真的需要评价，而是「求夸奖」。举个例子就是：网络上有些所谓画师，把自己的作品出来求评价，结果被人扼要地指出画得不对的地方，就心理防线崩塌，删贴骂人。通常情况下请求熟人的夸奖比请求陌生人的夸奖容易得多，但为什么伤害更大，就在评价者在「熟人」这层关系下的措辞了。&lt;/p&gt;
 &lt;p&gt;既然限定了熟人这种关系，那也就表明「话可以敞开说」，这与被评价者的需求其实是错位的，当评价者按照自己的看法，真的作出评价后，就对被评价者的心灵造成了暴击，这就是杀伤力的来源。&lt;/p&gt;
 &lt;h3 id="也许岸上什么都没有论虚幻的目标"&gt;也许岸上什么都没有：论虚幻的目标&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;🔗 &lt;a href="https://stephenleng.com/cn/perhaps-there-is-nothing-on-shore-on-illusory-goals/"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;🔗 &lt;a href="https://stephenleng.com/cn/perhaps-there-is-nothing-on-shore-on-illusory-goals/"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;作者以自己高中时期对虚幻的梦想的经历为引，探讨当代年轻人关于「上岸」和虚幻的目标的困境。&lt;/p&gt;
 &lt;p&gt;我认为在人生的早期阶段，尤其是学生阶段，憧憬一个虚幻的目标是必要的。一个理想化的，或抽象或朦胧的目标，明显比残酷又骨感的真实更适合作为动力的源头，或者说作为一个盼头。这和某些惯用的宏大叙事几乎是一个道理。&lt;/p&gt;
 &lt;p&gt;作者提到自己高二的暑假去北京旅行，专程去了一趟他梦想的中国人民大学，不知道他见到自己梦想之中的纯粹之地是什么感想，但我想到了《金阁寺》中的一句话，是主人公沟口第一次看见金阁时的心理活动：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;所谓美，难道竟是这样不美的东西吗？&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;所谓美，难道竟是这样不美的东西吗？&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;然而沟口后续在心理上对金阁的美进行了修正，例如「自己的审美水平还不够」或「金阁把自己的美藏起来了」此类的想法，让他维持着对美的幻想。&lt;/p&gt;
 &lt;p&gt;了解得太多，就会导致顾虑得太多，顾虑得太多，就会举步维艰。梦想对我来说是一个恐怖的东西，到底有几个人能见到金阁？又有多少人在见到金阁不需要照着自己幻想中的美而修正？&lt;/p&gt;
 &lt;p&gt;对于现阶段即将面临的中考，我也在憧憬着某个遥不可及，也未曾见过的学校。我也不愿意去见，被现实玷污后它的纯洁性就崩坏了。&lt;/p&gt;

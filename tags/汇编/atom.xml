@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>汇编 on 映屿</title><link>https://www.glowisle.me/tags/%E6%B1%87%E7%BC%96/</link><description>Recent content in 汇编 on 映屿</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>i@glowisle.me (五葉地錦)</managingEditor><webMaster>i@glowisle.me (五葉地錦)</webMaster><lastBuildDate>Tue, 29 Apr 2025 13:44:13 +0000</lastBuildDate><atom:link href="http://www.glowisle.me/tags/%E6%B1%87%E7%BC%96/atom.xml" rel="self" type="application/rss+xml"/><item><title>x86-64汇编学习笔记</title><link>https://www.glowisle.me/posts/x86-64%E6%B1%87%E7%BC%96%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link><pubDate>Tue, 29 Apr 2025 13:44:13 +0000</pubDate><author>i@glowisle.me (五葉地錦)</author><guid>https://www.glowisle.me/posts/x86-64%E6%B1%87%E7%BC%96%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid><description>&lt;h2 id="机器指令和机器语言"&gt;机器指令和机器语言&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>汇编 on 映屿</title><link>https://www.glowisle.me/tags/%E6%B1%87%E7%BC%96/</link><description>Recent content in 汇编 on 映屿</description><generator>Hugo</generator><language>zh-cn</language><managingEditor>i@glowisle.me (五葉地錦)</managingEditor><webMaster>i@glowisle.me (五葉地錦)</webMaster><lastBuildDate>Tue, 29 Apr 2025 13:44:13 +0000</lastBuildDate><atom:link href="http://www.glowisle.me/tags/%E6%B1%87%E7%BC%96/atom.xml" rel="self" type="application/rss+xml"/><item><title>x86-64汇编学习笔记</title><link>https://www.glowisle.me/posts/x86-64%E6%B1%87%E7%BC%96%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link><pubDate>Tue, 29 Apr 2025 13:44:13 +0000</pubDate><author>i@glowisle.me (五葉地錦)</author><guid>https://www.glowisle.me/posts/x86-64%E6%B1%87%E7%BC%96%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid><description>&lt;h2 id="机器指令和机器语言"&gt;机器指令和机器语言&lt;/h2&gt;
 &lt;p&gt;机器指令，二进制数字，机器语言全局机器指令的集合，CPU通过执行一系列的机器指令完成计算工作。&lt;/p&gt;
 &lt;p&gt;汇编语言就是为了代替机器指令，使人类能够更加简单地编写程序而诞生的。汇编语言就是机器码的助记符。&lt;/p&gt;
 &lt;p&gt;编译器将汇编代码再编译为真正的机器码。&lt;/p&gt;
@@ -80,9 +80,92 @@
 &lt;p&gt;到了64位，段的概念被进一步弱化。&lt;/p&gt;
 &lt;p&gt;内存变成平坦模型，即无分段式内存。所有对内存的访问都在同一个地址空间内进行。&lt;/p&gt;
 &lt;p&gt;此外，对于段的保护也被弱化，64位更强调对页的保护。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;看来段寄存器没什么用了啊&lt;/p&gt;
-&lt;/blockquote&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;看来段寄存器没什么用了啊&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
 &lt;p&gt;段寄存器最初的存在目的是辅助寻址，在32位下基本不再用于寻址，而是用于保护，而64位中其保护作用进一步被削弱。&lt;/p&gt;
 &lt;h2 id="标志寄存器"&gt;标志寄存器&lt;/h2&gt;
 &lt;p&gt;标准寄存器存储了机组标志，分别是状态标志、控制标志、系统标志。&lt;/p&gt;
