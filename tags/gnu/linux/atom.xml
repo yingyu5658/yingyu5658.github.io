@@ -1,0 +1,726 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>GNU/Linux on 映屿</title><link>https://www.glowisle.me/tags/gnu/linux/</link><description>Recent content in GNU/Linux on 映屿</description><generator>Hugo</generator><language>zh-cn</language><managingEditor>i@glowisle.me (五葉地錦)</managingEditor><webMaster>i@glowisle.me (五葉地錦)</webMaster><lastBuildDate>Sat, 28 Mar 2026 13:30:05 +0800</lastBuildDate><atom:link href="http://www.glowisle.me/tags/gnu/linux/atom.xml" rel="self" type="application/rss+xml"/><item><title>我如何使用我的电子设备</title><link>https://www.glowisle.me/posts/how-i-do-my-computing/</link><pubDate>Sat, 28 Mar 2026 13:30:05 +0800</pubDate><author>i@glowisle.me (五葉地錦)</author><guid>https://www.glowisle.me/posts/how-i-do-my-computing/</guid><description>&lt;p&gt;机不在贵，能用就行。屏不在大，能亮则赢。斯是老垃圾，唯吾自由馨。键盘上磨损，A 面俩划痕。谈笑有邮件，往来无 QQ。可以调程序，阅文档。无社交媒体之乱耳，无微信之劳形。南阳诸葛庐，西洋 Stallman ThinkPad X200，孔子云：「何陋之有？」&lt;/p&gt;
+&lt;h2 id="设备"&gt;设备&lt;/h2&gt;
+&lt;p&gt;在 &lt;a href="https://www.glowisle.me/uses/"&gt;Uses&lt;/a&gt; 页面查看我的硬件和软件。&lt;/p&gt;
+&lt;p&gt;我在上个月购买了一台 ThinkPad X220（￥260），经过简单的配置后，已经投入日常使用。&lt;/p&gt;
+&lt;p&gt;我非常在意我的电脑上到底运行了什么程序，它们都在做什么，因此我不会选择在这台笔记本上安装 Windows 这种商业操作系统。我安装了 Arch Linux，以便于从最小化系统开始，按需配置，防止冗余占用性能。窗口管理器选择了我最熟悉的 i3-wm ，搭配 st 终端模拟器和 Emacs 终端模式，轻松胜任代码编辑、网页浏览（eww）、邮件管理（rmail）、撰写博客等工作。
+我在这台设备上使用最多的浏览器就是 Emacs 自带的 eww。它轻量、快速、&lt;strong&gt;纯文本&lt;/strong&gt;、&lt;strong&gt;无 JavaScript&lt;/strong&gt;。纯文本意味着它只能显示页面中的最核心内容，而不是花里胡哨的 CSS 修饰后的难以阅读、难以辨认的页面（当然，真正有干货的页面不会这样）。除非想看漫画和视频，否则 eww 无疑是最佳选择。而无 JavaScript 就意味着，网站提供者无法使用万恶的 JS 脚本追踪你的行为、收集你的数据和隐私，也不会有到处漂浮、插入、弹出、闪现的第三方广告，更不会有过多脚本带来的性能瓶颈，对十年前的老机器非常友好。在平时，我会用 eww 浏览一些文档。如果一定需要看图片的话，那还是打开 Firefox 吧。&lt;/p&gt;
+&lt;p&gt;在这台设备上，如果不算那些依赖程序的话，我用的最多的软件就是 i3-wm, st, fcitx5 , Emacs, Firefox。没有任何多余的程序干扰。如果你不是苦逼的 Java 程序员，离开 IDEA 就一行代码都写不出来，我建议你也购买一台&lt;del&gt;破烂&lt;/del&gt;老旧的设备，因为老旧的设备无法运行大型游戏，甚至拿来看视频都不尽流畅。但它能拿来写代码、编辑文本，浏览网页，这就足够了。如果不需要读写中文内容，预览图片或 PDF，我甚至不会启动图形界面。&lt;/p&gt;
+&lt;p&gt;ThinkPad X220 是我最喜欢的型号，最后一代经典七行键盘，充满工业感的外观，低廉的价格，极高的性价比和可玩性。通过自己动手修改配置、改装硬件，把钱花在刀刃上，不跟随邪恶的厂商花大价钱购买最新硬件，经济且实用。ThinkPad 的模块化设计非常天然适配「垃圾佬」精神。&lt;/p&gt;
+&lt;p&gt;除了这台 ThinkPad X220 外，我还有一台台式机。在台式机中，我安装了 Debian GNU/Linux 和 Windows 11。&lt;/p&gt;
+&lt;p&gt;我大部分时间都在使用 Debian ，在需要处理学校的任务时会切换到 Windows 11。稳定对我来说是最重要的，我不希望把大部分时间都花在维护系统配置、修复错误上，因此在这台设备上，我选择 Debian。&lt;/p&gt;
+&lt;p&gt;这台电脑原本是我爸的，在我长期&lt;del&gt;占&lt;/del&gt;借用后，已经完全属于我，我爸也因此有理由购买一台新的笔记本电脑，因为他想打游戏所以没有考虑 ThinkPad，好可惜！然而他花上千买了一台天选姬，只是拿来打魔兽世界……&lt;/p&gt;
+&lt;h2 id="软件"&gt;软件&lt;/h2&gt;
+&lt;p&gt;美化的尽头是默认。我完全不再考虑外观了。在这台设备上，我的优先级是：是否是自由软件？ &amp;gt; 性能 &amp;gt; 可自定义性的高低 &amp;gt; 外观。电脑固然有玩具属性，但工具属性更多，它是达成目的的途径，而不是目的本身。&lt;/p&gt;
+&lt;p&gt;我已经没有精力再去折腾各种软件的和桌面的美化，而且引入过多复杂的配置只会让系统越来越脆弱、维护成本越来越高。因此我安装了配置简单、稳定性高的 i3-wm，我有考虑过使用 dwm，但它毕竟是 wm，配置项比较多，等什么时候又有兴趣了，可能会尝试一下。&lt;/p&gt;
+&lt;p&gt;我按照台式机上的习惯，重写了一份配置文件。状态栏、系统托盘等，全部使用默认设置。而 Emacs 的配置也尽可能保持精简，为了好维护和在低性能设备上流畅使用，我裁剪了大部分很少使用的配置和包，让 Emacs 回归为一个纯净的文本编辑器&lt;del&gt;兼邮件客户端兼网页浏览器兼计算器兼 RSS 阅读器&lt;/del&gt;。&lt;/p&gt;
+&lt;p&gt;实际上，我的配置还是非常简单的，由于我大部分时间都在 Emacs 中，稳定性是最重要的，我不能接受在写着写着代码的时候，某个地方突然报错，然后我就要花上好几个小时去排查到底是什么原因，这大大影响了效率和心情。&lt;/p&gt;
+&lt;p&gt;出于性能考虑，我只在终端中使用 Emacs。我不经常用 Org-mode ，也不经常浏览图片，所以终端模式是一个不错的选择。在终端中开启 emacsclient，可以把 Emacs 当成 vi 用，随用随退，非常方便。目前我遇到的唯一让我不适应的地方就是，在终端中打字的手感可没有 GUI 好。&lt;/p&gt;
+&lt;p&gt;我将简单、默认的理念在 st 中也贯彻到底，只打了两个 patch : clipboard &amp;amp; scrollbar。我感觉它的配置比 Xterm 简单多了，我用了有一段时间 Xterm ，它的优点是配置文件即插即用，但一旦出现一些问题，它古老又死板的字体、属性查找逻辑又会浪费掉我不少时间。它的好兄弟 urxvt 也是如此，它们是用同一个配置文件的！&lt;/p&gt;
+&lt;p&gt;我直接 pass 掉了 kitty 和 WezTerm 等终端模拟器，感觉它们在老设备上的性能并不出色，并且我实在喜欢不起来 WezTerm 的配置脚本语言 Lua。综合考量之下，我选择了 st。它极其精简，精简到你需要自己打 patch 来实现一些其他终端模拟器本来就有的，或者写一两行配置文件的代码就有的功能。不过，我可以接受，至少到目前为止的配置过程都还算愉快，我也非常欣赏 Suckless 的哲学：保持简单、最小化、可用。并且它们的软件都是纯 C 编写，这让我对他们的印象更好了。&lt;/p&gt;
+&lt;p&gt;如你所见，我没有在这台设备上安装微信和 QQ，因为它的 Linux 客户端做得实在是太烂了！尤其是 QQ，在我的台式机上都会经常卡住，我不得不手动在 htop 中关掉那个进程。 除了这个原因外，&lt;em&gt;我也很享受这种别人想找我找不到，只有我主动打开软件才能找到我的感觉&lt;/em&gt;。我非常讨厌在我专注做某件事的时候，一通电话，一条微信消息发过来，电脑上有该死的咚咚两声，手机也会振动、响铃，因此我一般都把手机设置成免打扰。事实也证明我并不是非常重要，消失几个小时，多达上百次，几乎没有酿成任何大祸，也能说明找我的人大部分并没有什么急事，所以我的这种做法还算恰当。&lt;/p&gt;
+&lt;p&gt;不过，如果真的有人有什么急事要找我，发邮件或许真的是最快能联系到我的方式。因为我的手机上没有安装 QQ ，平板和电脑也不能接打电话和短信。按照我的习惯，如果我没有需求主动用它，很有可能三四个小时都不会拿起来看一眼。但是邮件就不同了，我的每一台电子设备上都有邮件客户端。&lt;/p&gt;
+&lt;p&gt;一些好玩的事：有时候我会躺在床上，ssh 连接到台式机写博客文章，或者笔记本的小屏幕看得眼睛干脖子酸了，就用台式机 ssh 连接到笔记本继续写。再一次赞美 Emacs 终端模式！&lt;/p&gt;</description></item><item><title>我与Emacs</title><link>https://www.glowisle.me/posts/emacs-and-i/</link><pubDate>Sun, 15 Feb 2026 01:23:54 +0800</pubDate><author>i@glowisle.me (五葉地錦)</author><guid>https://www.glowisle.me/posts/emacs-and-i/</guid><description>&lt;p&gt;如果你翻看我的博客，你会找到一小部分有关Emacs的文章。在138篇文章，16万字中，一共出现了125次Emacs，一半以上都是尝试入门Emacs记录的。直到去年的11月，我正式&lt;a href="https://www.glowisle.me/posts/emacs-i-am-back/"&gt;入门了Emacs&lt;/a&gt;。&lt;/p&gt;
+&lt;h2 id="我与vi"&gt;我与Vi&lt;/h2&gt;
+&lt;p&gt;关于Emacs，这就要从Vi说起了。&lt;/p&gt;
+&lt;p&gt;也许是因为看了TheCW的&lt;a href="https://www.bilibili.com/video/BV1az4y1f77A/"&gt;Vim综合征&lt;/a&gt;，或者是看了Mars的&lt;a href="https://www.bilibili.com/video/BV1UQ4y1z7q5/"&gt;这个视频&lt;/a&gt;，总之有一个视频对我有一些影响，让我开始折腾代码编辑器。&lt;/p&gt;
+&lt;p&gt;在2024年十二月或更早一些，一个链表都写不利索，甚至不知道什么是链表，甚至没写过任何一行数据结构的菜鸟开始配置自己的Vim。当时我用的是Windows10，你绝对想象不到在Windows上用Vim是一种什么样的体验，首先从安装开始就非常折磨。你需要去Vim那又老旧，引导又差的官网上找到适配你CPU的文件，运行那个文件进行安装，安装过程中好像会有一些选项，最后配置环境变量。&lt;/p&gt;
+&lt;p&gt;不仅安装麻烦，配置也很折磨，Windows下的Vim配置文件并不像GNU/Linux下那样好找，它在：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;USERPROFILE%\AppData\Roaming\vim\vim74
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;是的，就是这么个位置。你要进五层目录，然后终端的提示符中就有了冗长的路径，这也是我使用GNU/Linux的原因之一，我受不了Windows的丑。&lt;/p&gt;
+&lt;p&gt;一开始我想的是一下午搞定，让它和IDEA一样能流畅地写代码，写我的Java代码。但显然我太天真了，当时我根本不懂那些配置有什么作用，只是去网上抄代码，出错了也不会调试，就半途而废了，但这次还是有收获的，我学会了使用&lt;code&gt;:wq&lt;/code&gt;来退出Vim。&lt;/p&gt;
+&lt;p&gt;之后不知道又经过了几次尝试，也用过Neovim和Lazyvim。在Lazyvim上花费的时间是最多的，因为它非常适合根本不懂配置，也不愿意折腾太多配置的人，有一段时间我使用Arch Linux，貌似也使用Lazyvim。谈起Arch Linux，也是一次激进的尝试。这里可以和代码编辑器放到一起说，我都是被花里胡哨的配置所吸引的，如果你是出于兴趣在用GNU/Linux，你一定折腾过桌面美化，那种半透明终端、二次元壁纸、Dock栏、Mac主题、窗口果冻特效破碎特效的美化。我折腾Neovim和KDE美化几乎是同时进行的。在那个时候我基本不会写代码，也不想写代码，只是觉得「啊，我的桌面真好看！」「啊！我的Neovim真帅！」等等。&lt;/p&gt;
+&lt;p&gt;有从Vim迁移到Neovim的，但你一定没见到过从Neovim迁回Vim的——我就是那个人。&lt;/p&gt;
+&lt;p&gt;说实话，我不喜欢Lua。一门编程语言首先要让代码看起来顺眼。比如纯C或者Go，但Lua实在背离我的审美点，并且它的模块加载机制很奇怪，至少我当时没弄懂，我也有很长时间没碰过Lua了。我甚至觉得Lua比Vimscript还难写，所以就用回Vim了。如果大学开设「折腾代码编辑器而不写一行有用的代码」这门课程，我毫无疑问可以胜任教授，除了Vi系，我还折腾过VSCode。&lt;/p&gt;
+&lt;p&gt;我也许是想，既然这么多编辑器都玩过了，为什么不试试Emacs呢？我大概抱着这样天真的想法，就开始尝试Emacs。&lt;/p&gt;
+&lt;p&gt;你可以发现一件非常好笑的事，我的博客里有 &lt;a href="https://www.glowisle.me/posts/%E5%88%9D%E6%8A%98%E8%85%BEemacs%E8%AE%B0%E5%BD%95/"&gt;《初折腾Emacs记录》&lt;/a&gt;、&lt;a href="https://www.glowisle.me/posts/%E6%88%91%E8%BF%98%E6%98%AF%E6%94%BE%E4%B8%8D%E4%B8%8Bemacs/"&gt;《我还是放不下Emacs！》&lt;/a&gt;、&lt;a href="https://www.glowisle.me/posts/emacs-i-am-back/"&gt;《Emacs，我又回来了！》&lt;/a&gt;这样的黑历史，我多次尝试Emacs，这说明Emacs真的很困难。我当时既不喜欢Lisp，又几乎对Emacs一无所知。在使用Doom Emacs后，才算是把我留住。&lt;/p&gt;
+&lt;h2 id="我为什么选择emacs"&gt;我为什么选择Emacs&lt;/h2&gt;
+&lt;p&gt;你也许会觉得我要说「可定制性」「神的编辑器」这样的话，但如果问当时的自己：「你为什么要选择Emacs？」就像上文所述，只有四个字：脑子一热。&lt;/p&gt;
+&lt;p&gt;我脑子一热做过很多事，比如学编程、写博客、弹贝斯、写周刊……总是有一个念头：「诶，感觉不错啊！」然后手就自己动起来开始做了，除了写作业。&lt;/p&gt;
+&lt;p&gt;如果仔细分析，Emacs确实有很多迷人的点，但最吸引我的是全键盘工作流。我从新建这篇文章到说了这么多口水话，一次鼠标都没有动过，它甚至离我很远。当然，我要承认的是，适度用用鼠标是有益身体健康的。至少不会让你的手指和胳膊特别疲劳。&lt;/p&gt;
+&lt;p&gt;全键盘哲学当然要说说Vi(Vim/Neovim)，用Vi不只是用编辑器，而是用一种围绕Vi快捷键的生态。初次使用Vi，你可能觉得&lt;code&gt;HJKL&lt;/code&gt;移动光标很反人类，但这能让你手指几乎不移动地灵活操作，在适应后就离不开了。我有装了Vi键位的浏览器，也用过&lt;a href="https://github.com/jarun/nnn"&gt;nnn&lt;/a&gt;，&lt;a href="https://yazi-rs.github.io/"&gt;yazi&lt;/a&gt;等支持Vi快捷键的终端文件管理器，你几乎可以在GNU/Linux的任何地方找到&lt;code&gt;HJKL&lt;/code&gt;的哲学，支持方向键的地方基本就支持&lt;code&gt;HJKL&lt;/code&gt;，比如Archinstall脚本。我甚至尝试了一段时间用HJKL玩Minecraft。&lt;/p&gt;
+&lt;p&gt;但Vi系编辑器可以做的事，终究只是编辑代码。Emacs的可定制性让它几乎可以完成所有事。&lt;/p&gt;
+&lt;p&gt;可定制性是Emacs最大的特点，你几乎可以改动任何一个让你不爽的细节，除了修改源代码那种硬核的方式以外，可以通过Emacs Lisp来配置，这可能也是拦住很多人使用Emacs的一点。Lisp这门语言在没有接触过的人看来，简直是其丑无比、臭不可闻，因为它完全是由括号组成的，但当你熟悉了之后，这也是Lisp最讨人喜欢的地方：一切都是列表，整个宇宙都是列表，代码即数据。&lt;/p&gt;
+&lt;p&gt;Emacs鼓励用户进行定制，提供了很多方便的函数，比如&lt;code&gt;describe-key&lt;/code&gt;这样查看某个按键组合详细信息的函数，我在前阵子也自己从零开始配置了Emacs，写了很多ELisp代码，你可以在&lt;a href="https://codeberg.org/verdant/emacs.d"&gt;这里&lt;/a&gt;查看我的Emacs配置。&lt;/p&gt;
+&lt;p&gt;我也用Emacs实现了&lt;a href="https://github.com/yingyu5658/niwa"&gt;自己的数字花园&lt;/a&gt;，这个项目只有Emacs Lisp和Shell脚本组成，没有任何外部依赖，全靠Emacs强大的Org-mode。它还被收录于2026-02-09期的&lt;a href="https://sachachua.com/blog/2026/02/2026-02-09-emacs-news/"&gt;Emacs news&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;这也是Emacs教徒们经常拿来传教的一句话：只要你想，没有Emacs做不到的。你甚至可以在Emacs里写代码！&lt;/p&gt;
+&lt;h2 id="百年emacs"&gt;百年Emacs&lt;/h2&gt;
+&lt;p&gt;除了可定制性外，Emacs悠久的历史也很吸引我。这个天杀的操作系统竟然1984年就诞生了，比我爸岁数还大，由于它极高的可定制性，社区依然保持活跃，在Melpa的仓库中，每周都有新的PR提交新的Package。同时Emacs也有非常多的分支变种，比如Linus在用的&lt;a href="https://github.com/torvalds/uemacs"&gt;Uemacs(MicroEMACS)&lt;/a&gt;。让我没想到的是，这位最早提交在16年前，但是三周前Linus还发布了一个&lt;a href="https://github.com/torvalds/uemacs/commit/fbb23f2467e6367d6580a4e37ebacc26282c97c0"&gt;补丁&lt;/a&gt;的老爷子，编译安装后竟然能无痛支持中文字符，或许是我终端配置过的原因吧，我相信Linus一个美国人、芬兰人，不会在终端碰见中文字符的。&lt;/p&gt;
+&lt;p&gt;扯远了……说回历史这个话题。Gen Z的特点之一就是怀念早期互联网，不知道2011年出生还能不能算Gen Z，但我真的莫名怀念早期互联网。但我到底怀念的是什么东西呢？可以简单用一些关键词来概括：C, Unix, Linux, Newsgroup(Usenet), Email ,邮件列表。或者Windows的IE浏览器、PHP大行其道的年代，我应该赶上了这个尾巴，记得小时候还有当年我爸学PHP买的书，当然早丢了，他可能也只看了目录。&lt;/p&gt;
+&lt;p&gt;Emacs自然在Usenet流行的时候广为人知，在《UNIX痛恨者手册》这本书里就多次提到，当时大家都用Gnus看邮件、订阅新闻组和邮件列表。由于年代太过久远，中文互联网能找到的资料太少，我就在看了上古教程和Gnu.org的手册后，拼凑出&lt;a href="https://www.glowisle.me/posts/gnus-guide/"&gt;一篇教程&lt;/a&gt;，这可能是中文互联网最新的有关Gnus的信息。大家可能现在都用mu4e，但那个东西的界面我实在不喜欢，我更喜欢Gnus开屏那头丑到爆炸的牛。&lt;/p&gt;
+&lt;h2 id="少即是多的使用哲学"&gt;少即是多的使用哲学&lt;/h2&gt;
+&lt;p&gt;虽然Emacs可以做几乎任何事，但我现在没有像一些Emacs用户，或者说玩家一样，给Emacs装一堆包。虽然Emacs有Emac OS的称号，但它就是那种什么都能干，但又什么都干不好的典型。就拿浏览器来说，或许是因为我用Firefox而不是Chrome，不能导入Cookie，这就让我很少使用Eaf的浏览器。性能问题绝对是Emacs GUI跨不过去的坎，而且Eaf的浏览器好像还是用Python实现的，非常有创意，非常有技术，但性能肯定比不上专业的浏览器。最近我也把Eaf整个插件都从我的配置文件中移除了。&lt;/p&gt;
+&lt;p&gt;我使用Emacs的需求极其简单，无非就是写Markdown和org、写C代码、写一点前端，甚至不是Vue或者什么其他框架，就是纯原生的前端三件套，我做的那点东西也不太需要LSP，但有一个总归是舒服的。还有收发邮件什么的。&lt;/p&gt;
+&lt;p&gt;所以核心包只有LSP，顶多加一个markdown的优化插件，这就足够了，其他的就是ivy等优化体验的插件，虽然我喜欢考古，但在2026年没必要过古人的生活。我近乎偏执的数字洁癖，让我恨不得重新编译Emacs，关掉我不需要的选项才好。&lt;/p&gt;
+&lt;p&gt;但扯了那么多，最终还是要写代码的。最好的编辑器应该不挡你写代码，甚至应该忘掉编辑器这个事，眼睛里只有代码，所以我希望装更少的包，让Emacs干自己该干的事，干好该干的事，让它更稳定，不至于在写代码的时候因为某个包的错误而崩溃。就像我某篇文章的副标题说的：为不折腾而折腾，才是折腾的终极目标。&lt;/p&gt;</description></item><item><title>2026年，一个普通Emacs用户如何把Gnus跑起来</title><link>https://www.glowisle.me/posts/gnus-guide/</link><pubDate>Tue, 10 Feb 2026 18:34:00 +0800</pubDate><author>i@glowisle.me (五葉地錦)</author><guid>https://www.glowisle.me/posts/gnus-guide/</guid><description>&lt;p&gt;Emacs中有众多的邮件管理工具，目前比较流行的是&lt;a href="https://github.com/emacsmirror/mu4e"&gt;mu4e&lt;/a&gt;，但如果你和我一样，不喜欢它的操作逻辑和界面，或者同样有怀旧情怀，一定会想玩玩Gnus。然而这个在Emacs中自带的包，居然在中文互联网上几乎没有任何讨论度，甚至能用中文搜索到的配置教程是写于2012年的博客园文章。几乎找不到近些年的帖子或文章。所以我写下这篇文章，为同样想折腾Gnus的，使用中文的Emacser指路。&lt;/p&gt;
+&lt;p&gt;本篇文章不是《Emacs完全上手指南/圣经/官方文档》，不能做到全面、无误，但可以保证是中文互联网上较新的资料，如有错误，欢迎邮件或在评论区指出。&lt;/p&gt;
+&lt;p&gt;Gnus是一个多功能的信息聚合器，邮件只是它的功能之一，本篇文章主要配置邮件功能。&lt;/p&gt;
+&lt;h2 id="getting-started"&gt;Getting started&lt;/h2&gt;
+&lt;p&gt;Gnus的配置文件默认在&lt;code&gt;~/.gnus&lt;/code&gt;，Emacs会将它当作elisp文件读取，网上也有一些说法是&lt;code&gt;~/.gnus.el&lt;/code&gt;其实只是加载顺序的不同，如果你此前有尝试，请备份并删除以前的文件。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;touch ~/.gnus
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="gnus-select-method"&gt;gnus-select-method&lt;/h2&gt;
+&lt;p&gt;Gnus的后端选择，对于imap协议，一般选择&lt;code&gt;nnimap&lt;/code&gt;：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-elisp" data-lang="elisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#d699b6"&gt;setq&lt;/span&gt; gnus-select-method
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#7a8478"&gt;&amp;#39;&lt;/span&gt;(nnimap &lt;span style="color:#b2c98f"&gt;&amp;#34;NAME&amp;#34;&lt;/span&gt; &lt;span style="color:#859289;font-style:italic"&gt;;这里是自己起的名字，用来区分不同的帐号&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-address &lt;span style="color:#b2c98f"&gt;&amp;#34;&amp;#34;&lt;/span&gt;) &lt;span style="color:#859289;font-style:italic"&gt;; imap服务器&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-inbox &lt;span style="color:#b2c98f"&gt;&amp;#34;INBOX&amp;#34;&lt;/span&gt;) &lt;span style="color:#859289;font-style:italic"&gt;; 大多数服务器都使用INBOX，除非你明确知道不同，否则不建议修改&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-expunge &lt;span style="color:#d699b6"&gt;t&lt;/span&gt;) &lt;span style="color:#859289;font-style:italic"&gt;; 立即在服务器上同步删除的邮件（按需开启，开启后删除邮件无法恢复）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-server-port &lt;span style="color:#d699b6"&gt;993&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-stream ssl) &lt;span style="color:#859289;font-style:italic"&gt;; 使用 SSL&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-authenticator login) &lt;span style="color:#859289;font-style:italic"&gt;;指定认证方式，如果服务器支持多种认证方式但自动协商失败，建议开启&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ))
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在配好后，重启Emacs，输入&lt;code&gt;M-x RET gnus RET&lt;/code&gt;，下方会闪过一些输出，根据提示填写用户名和密码后，询问是否要把用户名和密码填入&lt;code&gt;~/.authinfo&lt;/code&gt;，建议选y。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;C-x b&lt;/code&gt;切换到&lt;code&gt;*Messages*&lt;/code&gt;buffer查看，会看到类似这样的输出，那就表明你的配置无误！&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Opening connection to imap.qiye.aliyun.com via tls...
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Opening connection to imap.qiye.aliyun.com...done
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Saving file /home/yingyu5658/.newsrc-dribble...
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Wrote /home/yingyu5658/.newsrc-dribble
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Gnus auto-save file exists. Do you want to read it? (y or n) n
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Reading /home/yingyu5658/.newsrc...done
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Subscribe newsgroup: 已删除邮件
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Subscribe newsgroup: 草稿
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Subscribe newsgroup: INBOX
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Subscribe newsgroup: 已发送
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Subscribe newsgroup: 垃圾邮件
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Opening nnfolder server on archive...done
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;5 new newsgroups have arrived
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Checking new news...
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nnimap read 0k from imap.qiye.aliyun.com (initial sync of 5 groups; please wait)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Checking new news...done
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;No news is good news
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这个news是历史遗留词汇，最后一行输出仅仅代表当前没有未读邮件。&lt;/p&gt;
+&lt;p&gt;你可以用另一个账号向这个邮箱发送一封测试邮件，重新打开Gnus，会有这样的输出：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;1:*INBOX
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;我们回车点进去，就会打开那封邮件显示内容啦。&lt;/p&gt;
+&lt;p&gt;&lt;figure class="image-caption"&gt;
+ &lt;img src="https://images.glowisle.me/2026-02-10_19-50.png" alt="测试邮件效果"&gt;
+ &lt;figcaption&gt;测试邮件效果&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;在Group Buffer中按下&lt;code&gt;L&lt;/code&gt;，可以看到所有文件夹。&lt;/p&gt;
+&lt;h2 id="多帐号配置"&gt;多帐号配置&lt;/h2&gt;
+&lt;p&gt;多账号配置需要设置&lt;code&gt;gnus-secondary-select-methods&lt;/code&gt;这个变量，这里和&lt;code&gt;gnus-select-method&lt;/code&gt;一起说一下。后者是主服务器，前者是额外服务器列表，但几乎和主服务器同级，使用中可以当作平级。&lt;/p&gt;
+&lt;p&gt;多账号配置示例：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-elisp" data-lang="elisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#d699b6"&gt;setq&lt;/span&gt; gnus-select-method
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#7a8478"&gt;&amp;#39;&lt;/span&gt;(nnimap &lt;span style="color:#b2c98f"&gt;&amp;#34;glowsisle&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-address &lt;span style="color:#b2c98f"&gt;&amp;#34;imap.qiye.aliyun.com&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-inbox &lt;span style="color:#b2c98f"&gt;&amp;#34;INBOX&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-expunge &lt;span style="color:#d699b6"&gt;t&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-server-port &lt;span style="color:#d699b6"&gt;993&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-stream ssl) &lt;span style="color:#859289;font-style:italic"&gt;; 使用 SSL&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-authenticator login) &lt;span style="color:#859289;font-style:italic"&gt;; 必须指定认证方式&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ))
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#d699b6"&gt;setq&lt;/span&gt; gnus-secondary-select-methods
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#7a8478"&gt;&amp;#39;&lt;/span&gt;((nnimap &lt;span style="color:#b2c98f"&gt;&amp;#34;outlook&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;		(nnimap-address &lt;span style="color:#b2c98f"&gt;&amp;#34;outlook.office365.com&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;		(nnimap-server-port &lt;span style="color:#d699b6"&gt;993&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;		(nnimap-stream ssl)))
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;		
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#859289;font-style:italic"&gt;; 如果你有更多账户，另一个账户的配置同上。&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;注意到了吗，&lt;code&gt;secondary&lt;/code&gt;的配置和我们一开始配置的&lt;code&gt;gnus-select-method&lt;/code&gt;一模一样，而且它可以容纳多个账户。&lt;/p&gt;
+&lt;p&gt;注意：Microsoft Outlook / Microsoft 365 默认禁用普通 IMAP 密码登录。Gnus 无法使用 OAuth2，因此必须在 Microsoft 帐号中启用双重验证并生成应用专用密码，否则会出现 NO LOGIN failed 错误。&lt;/p&gt;
+&lt;h2 id="发邮件"&gt;发邮件&lt;/h2&gt;
+&lt;p&gt;虽然对于一个Gnus教程来说有点跑题，但你应该会需要发件配置的。&lt;/p&gt;
+&lt;p&gt;在Emacs中发送邮件有三条路，分别是&lt;code&gt;msmtp&lt;/code&gt;、&lt;code&gt;smtpmail&lt;/code&gt;（Emacs内置）、sendmail。&lt;/p&gt;
+&lt;p&gt;最推荐的是msmtp，与Gnus、Emacs解耦，并且配置简单优雅。&lt;/p&gt;
+&lt;h3 id="安装"&gt;安装&lt;/h3&gt;
+&lt;p&gt;以Debian为例：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt update
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt install msmtp
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在配置文件中&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-elisp" data-lang="elisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#d699b6"&gt;setq&lt;/span&gt; send-mail-function &lt;span style="color:#e69875"&gt;&amp;#39;sendmail-send-it&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#d699b6"&gt;setq&lt;/span&gt; message-send-mail-function &lt;span style="color:#e69875"&gt;&amp;#39;sendmail-send-it&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#d699b6"&gt;setq&lt;/span&gt; sendmail-program &lt;span style="color:#b2c98f"&gt;&amp;#34;/usr/bin/msmtp&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在&lt;code&gt;~/.msmtprc&lt;/code&gt;：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;account 账户名
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;host smtp.server.address
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;from your@account.com
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;auth login
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;port yourport
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;user your@account.com
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;password 不建议明文写密码，配置方式见下文
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;auth on
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tls on
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tls_starttls off
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tls_certcheck off 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tls_trust_file /etc/ssl/certs/ca-certificates.crt
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;account default : 默认账户，填写account的值
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="密码存储"&gt;密码存储&lt;/h2&gt;
+&lt;p&gt;需要创建一个包含密码的文本文件。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;touch password &lt;span style="color:#7a8478"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style="color:#d699b6"&gt;echo&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;yourpassword&amp;#34;&lt;/span&gt; &amp;gt; ./password
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后使用GPG加密，这样会生成一个&lt;code&gt;password.gpg&lt;/code&gt;文件&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gpg --symmetric --cipher-algo AES256 password
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后在&lt;code&gt;~/.msmtprc&lt;/code&gt;中，把密码那行改成&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;passwordeval &amp;#34;gpg --quiet --batch --decrypt /path/to/password.gpg&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这样每次使用都要输入GPG密码，为了避免这种情况，可以在&lt;code&gt;~/.gnupg/gpg.conf&lt;/code&gt;写入以下内容来缓存密码。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;use-agent
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这样就不用每次都输入密码了。记得删除明文存储密码的password文件:)&lt;/p&gt;
+&lt;h2 id="参考"&gt;参考&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.gnu.org/software/emacs/manual/html_mono/gnus.html"&gt;Gnus Manual&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.cnblogs.com/csophys/articles/2375236.html"&gt;Emacs Gnus 的基本配置与使用&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://emacs-china.org/t/emacs-send-mail-rmail-and-gnus/11730/4?page=2"&gt;Emacs收发邮件完全操作指南: Send-Mail, Rmail and Gnus&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>回声周刊 Vol.3：为不折腾而折腾，才是折腾的终极目标</title><link>https://www.glowisle.me/posts/weekly/3/</link><pubDate>Sun, 28 Dec 2025 18:49:48 +0800</pubDate><author>i@glowisle.me (五葉地錦)</author><guid>https://www.glowisle.me/posts/weekly/3/</guid><description>&lt;p&gt;这里是回声周刊，分享我这周读过的文章书籍、近期发生的大事小事。每周日更新。如果你对这个周刊感兴趣，可以 &lt;a href="https://www.glowisle.me/categories/%E5%9B%9E%E5%A3%B0%E5%91%A8%E5%88%8A/atom.xml"&gt;订阅周刊&lt;/a&gt; 或加入 &lt;a href="https://t.me/glowisle"&gt;TG频道&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;figure class="image-caption"&gt;
+ &lt;img src="https://images.glowisle.me/jason-yuen-UQBmFv4u0wc-unsplash.jpg" alt=""&gt;
+ &lt;figcaption&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id="-声波"&gt;〰︎ 声波&lt;/h2&gt;
+
+
+&lt;div class="music-card"&gt;
+ 
+ &lt;div class="music-info"&gt;
+ &lt;img class="music-cover"
+ src="https://images.glowisle.me/ab67616d00001e02df12926c3e33c921bb05e66b.jpeg" loading="lazy" alt="Cover" /&gt;
+ &lt;div class="music-text"&gt;
+ &lt;h4 class="music-title"&gt;SAMURAI METROPOLIS&lt;/h4&gt;
+ &lt;p class="music-artist"&gt;T-SQUARE&lt;/p&gt;
+ &lt;/div&gt;
+ &lt;/div&gt;
+
+ 
+ &lt;div class="music-links"&gt;
+ 
+
+ 
+ &lt;a href="https://music.163.com/#/song?id=22665717" class="music-btn" target="_blank" title="在网易云音乐中打开" data-tooltip&gt;
+ &lt;img src="https://www.glowisle.me/images/netease-music.png" loading="lazy" class="music-icon" alt="Netease Music" /&gt;
+ &lt;span class="music-btn-text"&gt;网易云&lt;/span&gt;
+ &lt;/a&gt;
+ 
+
+ 
+ &lt;a href="https://open.spotify.com/track/2Him0kuVFhxrFjJ7DfMNos?si=ccce292493bb459b" class="music-btn" target="_blank" title="在 Spotify 中打开" data-tooltip&gt;
+ &lt;img src="https://www.glowisle.me/images/spotify.png" loading="lazy" class="music-icon" alt="Spotify" /&gt;
+ &lt;span class="music-btn-text"&gt;Spotify&lt;/span&gt;
+ &lt;/a&gt;
+ 
+ &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;前两期一直都在推荐日语歌，就想着是不是该变换一下风格。虽然这首歌是爵士纯音乐没有日语，但还是日本乐队演奏的，这个乐队的其他歌也很不错。不得不承认，日本人在音乐这方面确实强。&lt;/p&gt;
+&lt;h2 id="-声源"&gt;🕮 声源&lt;/h2&gt;
+&lt;h3 id="习惯性反驳是一种隐形的贫穷型人格"&gt;习惯性反驳，是一种隐形的贫穷型人格&lt;/h3&gt;
+&lt;p&gt;这篇文章还是我们的班主任提到的，她在公开批评某一个同学的时候完整地念出了文章的标题，我根据她的阅读习惯，在公众号找到了这篇文章&lt;/p&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;🔗 &lt;a href="https://mp.weixin.qq.com/s/Aqs-AEIL66btSK3cEUy_bQ"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
+&lt;p&gt;虽然这篇文章有一种明显的AI润色的语言风格，但说的东西有一些道理，讲了什么是「习惯性反驳」、为什么要远离这种人，以及什么是「富足的人格」。读起来有一种给LLM一个结论，让它举例子倒推写一篇文章的感觉。&lt;/p&gt;
+&lt;p&gt;我身边确实有这种人，具体来说是那种很会把天聊死的人，没有一点和他继续交谈的欲望，从表现上看非常自大，在内核里看非常自卑的人。类比一下大概有点像那种喜欢在饭桌上吹牛的有点保守的亲戚。&lt;/p&gt;
+&lt;p&gt;文章提到爱抬杠的人的特征如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;害怕变革&lt;/li&gt;
+&lt;li&gt;只与人争论而不行动&lt;/li&gt;
+&lt;li&gt;对未知和不确定性的恐惧&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在讨论为什么要远离这种人的时候，它引用了一个所谓的心理学名词：「情绪共振」。我对这个词挺感兴趣的，但在维基百科和百度百科，以及其他地方都没有找到对应的词条，近义词有心理共振、情感共鸣等，都和「情绪共振」，也就是受环境影响这个概念没什么关联。&lt;/p&gt;
+&lt;p&gt;不过，抬杠归抬杠，现实甚至悲观一点挺好的。&lt;/p&gt;
+&lt;h3 id="为什么我更愿意劝人放弃"&gt;为什么我更愿意劝人放弃&lt;/h3&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;🔗 &lt;a href="https://kaix.in/2025/1223-why-i-prefer/"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
+&lt;p&gt;作者在文章里阐述了一种方向正确大于坚持不懈，及时止损减少沉没成本，在迭代中判断价值的行事理念。&lt;/p&gt;
+&lt;p&gt;我本来想说：「这套观点很有意思，但也有不适用的领域。」重新读了一遍文章后，发现作者早在第一段就回应了可能出现的这种反驳。「正确的方向」这个概念是建立在动态评估反馈之后才能作出判断的，所以按照这套说法，继续做下去的事很难再出现方向的错误。&lt;/p&gt;
+&lt;p&gt;我想到的一个相似的例子是小红书上有一个所谓的学习博主，勾股定理写了好几页笔记，最后却上了中专。这个例子虽然和坚持关系不大，但是呼应作者想阐述的「方向更重要」的观点，也就是说，该把力气用在对的地方。&lt;/p&gt;
+&lt;h3 id="ai-正在让人变得前所未有地自以为是"&gt;AI 正在让人变得前所未有地自以为是&lt;/h3&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;🔗 &lt;a href="https://www.geedea.pro/essays/ai-%E6%AD%A3%E5%9C%A8%E8%AE%A9%E4%BA%BA%E5%8F%98%E5%BE%97%E5%89%8D%E6%89%80%E6%9C%AA%E6%9C%89%E5%9C%B0%E8%87%AA%E4%BB%A5%E4%B8%BA%E6%98%AF/"&gt;文章链接&lt;/a&gt;&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
+&lt;p&gt;我喜欢这种直抒胸臆的有棱角的文章，同时这也是我讨厌AI写作的原因。&lt;/p&gt;
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;你可以用 Cursor 这样的工具把你的好想法变成现实，但别把自己当成程序员，更别他妈的说，因为会用 AI，自己早上是程序员，下午是作家，晚上是自媒体人这种自负得令人作呕的话了，请停止侮辱更多的群体。你不过是个付了钱，连提示词都不一定写得清楚的用户而已&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
+
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;用 AI 算命，把 AI 当作心理咨询师，就是这种无知的具体表现。就连 AI 所擅长的编程工作，真正的程序员都还在担心 AI 会不会让自己变成文盲，而另一些可笑的人，做着相反的事情，还认为 AI 能让自己变得更聪明，能在一夜之间换一个职业，肆无忌惮地生产垃圾产品污染行业。&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
+&lt;p&gt;AI最好的一点也是最差的一点就是，用起来太简单了。最低配置甚至不是识字、会打字，有些大模型甚至可以语音输入，朗读文字输出。我四岁的弟弟都能无障碍使用豆包，毫无使用门槛是AI让人变得自以为是的直接原因。&lt;/p&gt;
+&lt;p&gt;作者不完全批判「用AI去做什么」，而是在批判「用AI做了什么并骄傲地声称自己是某某领域的专家」这种在那个领域付出过努力的人看来又好笑又可气的态度。&lt;/p&gt;
+&lt;p&gt;但是，从功利主义的角度讲，我曾经吹捧过一段时间的AI。在AI生成的文章风格还没有被大众所熟知到能一眼看出来的时候，我们的班主任，就是前文提到的那位，也是我们的语文老师，推荐我们用Deepseek写作文。虽然它完全没有创新的能力，编出来的故事极其俗套，但词藻华丽，简直就是把阅卷老师的眼闪瞎以至于给那种作文判高分的程度。我在那个时候愿意用AI写作文。毕竟分数比「门槛」、「纯粹性」值钱。&lt;/p&gt;
+&lt;p&gt;现在跟过去的自己反目成仇的原因在于，AI写出来的文章都有一股味，在议论类文章中，那是一种无「人味」的圆滑和客观；在相对没有那么严肃的文章中，那是一种过度修饰以模仿「人味」，所造成的恐怖谷效应。&lt;/p&gt;
+&lt;p&gt;所谓没有「人味」，除了AI写文章惯用的套路句式词汇以外，就是过度的圆滑客观，没有偏见和情绪。我喜欢看个人博客，就是因为他们有自己的偏见和情绪，这让我感受到我读的文字是一个活着的人，在某个时刻的心里所想，而不是论文或新闻报道。&lt;/p&gt;
+&lt;p&gt;讨厌AI写作的原因还在于：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;你他妈不会写就不要用AI硬装自己会写了！&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;真希望未来半年我的博客里不会再次出现「AI」这两个字母，我对这个话题已经有点厌倦了……&lt;/p&gt;
+&lt;h2 id="-所在"&gt;♇ 所在&lt;/h2&gt;
+&lt;h3 id="让旧电脑焕发新生"&gt;让旧电脑焕发新生&lt;/h3&gt;
+&lt;p&gt;我爸最近换了一台新的笔记本电脑，终于把那个十多年前的笔记本电脑传给了我。&lt;/p&gt;
+&lt;p&gt;&lt;figure class="image-caption"&gt;
+ &lt;img src="https://images.glowisle.me/wx_2025-12-28_205958_330.png" alt="从来没打过这么富裕的仗（"&gt;
+ &lt;figcaption&gt;从来没打过这么富裕的仗（&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;这i5双核的顶配CPU，高达8GB的运存……&lt;/p&gt;
+&lt;p&gt;我用archinstall装了最小化系统，本来想用dwl的，但是它过于折腾，所以选用了配置简单的i3，这次吸取了上次玩Arch的教训：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;不折腾美化：不影响使用就不美化&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;不陷入细节：Linux的大部分发行版、WM DE都或多或少有不完美的地方，一直想优化那种细节只会陷入耗时耗力的黑洞&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如非必要勿增实体：选择Arch就是因为可以从一个干净的起点开始配置，所以只安装必要的软件，只做必要的配置，严格控制包数量，保证性能和可维护度。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;我的理念越来越简单，四个字：能用就行。&lt;/p&gt;
+&lt;p&gt;去年六月刚开始玩Linux的时候热衷于各种桌面和终端模拟器的美化，直到&lt;a href="https://www.glowisle.me/posts/%E6%8A%8A%E4%B8%BB%E5%8A%9B%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%8D%A2%E6%88%90arch-linux%E6%98%AF%E6%88%91%E8%BF%99%E8%BE%88%E5%AD%90%E5%81%9A%E8%BF%87%E7%9A%84%E6%9C%80%E8%A0%A2%E7%9A%84%E5%86%B3%E5%AE%9A/"&gt;放弃&lt;/a&gt;，实际写代码不超过一百行，虽然我现在代码写得也不多，但至少不想一直解决系统问题。&lt;/p&gt;
+&lt;p&gt;WM/DE，代码编辑器的配置，比起「提升效率」这个听起来高大上的目标，不如说成「不会阻碍你工作」，别让它妨碍你。如果一直关注用什么发行版、代码编辑器，那就说明它一直在出错误，一直在把你拉入修复和配置的无底洞。这也是我在主力机上选用Debian的原因。&lt;/p&gt;
+&lt;p&gt;&lt;figure class="image-caption"&gt;
+ &lt;img src="https://images.glowisle.me/08BE4F8FD420603A6E57EBE4A93FD930.png" alt=""&gt;
+ &lt;figcaption&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;没想到它还能流畅运行Emacs！美中不足的只是屏幕看起来很不舒服，以及电池几乎没有续航，不过能流畅跑起来就已经超出我的预期了，以后如果有像过年等等有一段时间不在家的情况，可以带上这个电脑解决一下需求。&lt;/p&gt;
+&lt;p&gt;为不折腾而折腾，才是折腾的终极目标👊&lt;/p&gt;
+&lt;p&gt;以上就是本期回声周刊的全部内容，感谢你的阅读，祝你有充满ECHO的一周！👋&lt;/p&gt;</description></item><item><title>Emacs，我又回来了！</title><link>https://www.glowisle.me/posts/emacs-i-am-back/</link><pubDate>Sat, 01 Nov 2025 12:01:12 +0800</pubDate><author>i@glowisle.me (五葉地錦)</author><guid>https://www.glowisle.me/posts/emacs-i-am-back/</guid><description>&lt;h2 id="前言"&gt;前言&lt;/h2&gt;
+&lt;p&gt;这大概已经是我第四次尝试入门 Emacs 了。&lt;/p&gt;
+&lt;p&gt;前几次尝试过自己重新配置 Emacs、Spacemacs。自己配置简直是在堆屎山， Spacemacs 的机制搞不明白而且很卡，听说&lt;a href="https://github.com/doomemacs/doomemacs"&gt;Doom Emacs&lt;/a&gt; 对 Vi/Vim 用户很友好，那就尝试一下吧！&lt;/p&gt;
+&lt;p&gt;虽然我不能算是个老 Vimer，但是也深受 Vim 操作模式的荼毒，只想用 HJKL 走天下。之前也想玩 Obsidian 。但是&lt;strong&gt;它的 Vim mode 实在是太简陋了！！！&lt;/strong&gt; C-d不是向下翻页，而是把整行都删掉！&lt;/p&gt;
+&lt;p&gt;不过手机上的 Ob 还是可以一用，比如 Banyan 插件，用来随时随地写一些碎碎念很方便。至于其他的功能，还是配 Emacs 更好玩吧。&lt;/p&gt;
+&lt;h2 id="安装"&gt;安装&lt;/h2&gt;
+&lt;p&gt;根据官方仓库的文档，使用以下命令安装：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git clone --depth &lt;span style="color:#d699b6"&gt;1&lt;/span&gt; https://github.com/doomemacs/doomemacs ~/.config/emacs
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;~/.config/emacs/bin/doom install
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;速度比我想象中的要快得多，而且是交互式操作，感觉比 Spacemacs 友好一点？&lt;del&gt;这个脚本的输出有一股 Cargo 味……&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;安装结束后给了一点提示：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;But before you doom yourself, here are some things you should know:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;1. Don&amp;#39;t forget to run &amp;#39;doom sync&amp;#39; and restart Emacs after modifying init.el or
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; packages.el in ~/.config/doom. This is never necessary for config.el.
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;2. If something goes wrong, run `doom doctor` to diagnose common issues with
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; your environment, setup, and config.
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;3. Use &amp;#39;doom upgrade&amp;#39; to update Doom. Doing it any other way will require
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; additional steps (see &amp;#39;doom help upgrade&amp;#39;).
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;4. Access Doom&amp;#39;s documentation from within Emacs via &amp;#39;SPC h d h&amp;#39; or &amp;#39;C-h d h&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (or &amp;#39;M-x doom/help&amp;#39;).
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Have fun!
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;其中提到了一个叫&lt;strong&gt;doom&lt;/strong&gt;的命令，这是一个在&lt;code&gt;~/.emacs.d/bin/&lt;/code&gt;下的二进制文件，可以做个链接到&lt;code&gt;/usr/bin&lt;/code&gt;以便在任何地方使用。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo ln -s ~/.emacs.d/bin/doom /usr/bin/doom
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="配置"&gt;配置&lt;/h2&gt;
+&lt;p&gt;启动时全屏：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-elisp" data-lang="elisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(add-hook &lt;span style="color:#e69875"&gt;&amp;#39;window-setup-hook&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;#&amp;#39;&lt;/span&gt;toggle-frame-maximized)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安装 &lt;a href="https://github.com/emacs-eaf/emacs-application-framework"&gt;Eaf&lt;/a&gt; 插件：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git clone --depth=1 -b master https://github.com/emacs-eaf/emacs-application-framework.git ~/.emacs.d/site-lisp/emacs-application-framework/
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cd emacs-application-framework
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;chmod +x ./install-eaf.py
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;./install-eaf.py
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;用用看吧，后续有什么需求再折腾。&lt;/p&gt;</description></item></channel></rss>

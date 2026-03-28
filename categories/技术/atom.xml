@@ -1,0 +1,599 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>技术 on 映屿</title><link>https://www.glowisle.me/categories/%E6%8A%80%E6%9C%AF/</link><description>Recent content in 技术 on 映屿</description><generator>Hugo</generator><language>zh-cn</language><managingEditor>i@glowisle.me (五葉地錦)</managingEditor><webMaster>i@glowisle.me (五葉地錦)</webMaster><lastBuildDate>Sat, 28 Mar 2026 13:30:05 +0800</lastBuildDate><atom:link href="http://www.glowisle.me/categories/%E6%8A%80%E6%9C%AF/atom.xml" rel="self" type="application/rss+xml"/><item><title>我如何使用我的电子设备</title><link>https://www.glowisle.me/posts/how-i-do-my-computing/</link><pubDate>Sat, 28 Mar 2026 13:30:05 +0800</pubDate><author>i@glowisle.me (五葉地錦)</author><guid>https://www.glowisle.me/posts/how-i-do-my-computing/</guid><description>&lt;p&gt;机不在贵，能用就行。屏不在大，能亮则赢。斯是老垃圾，唯吾自由馨。键盘上磨损，A 面俩划痕。谈笑有邮件，往来无 QQ。可以调程序，阅文档。无社交媒体之乱耳，无微信之劳形。南阳诸葛庐，西洋 Stallman ThinkPad X200，孔子云：「何陋之有？」&lt;/p&gt;
+&lt;h2 id="设备"&gt;设备&lt;/h2&gt;
+&lt;p&gt;在 &lt;a href="https://www.glowisle.me/uses/"&gt;Uses&lt;/a&gt; 页面查看我的硬件和软件。&lt;/p&gt;
+&lt;p&gt;我在上个月购买了一台 ThinkPad X220（￥260），经过简单的配置后，已经投入日常使用。&lt;/p&gt;
+&lt;p&gt;我非常在意我的电脑上到底运行了什么程序，它们都在做什么，因此我不会选择在这台笔记本上安装 Windows 这种商业操作系统。我安装了 Arch Linux，以便于从最小化系统开始，按需配置，防止冗余占用性能。窗口管理器选择了我最熟悉的 i3-wm ，搭配 st 终端模拟器和 Emacs 终端模式，轻松胜任代码编辑、网页浏览（eww）、邮件管理（rmail）、撰写博客等工作。
+我在这台设备上使用最多的浏览器就是 Emacs 自带的 eww。它轻量、快速、&lt;strong&gt;纯文本&lt;/strong&gt;、&lt;strong&gt;无 JavaScript&lt;/strong&gt;。纯文本意味着它只能显示页面中的最核心内容，而不是花里胡哨的 CSS 修饰后的难以阅读、难以辨认的页面（当然，真正有干货的页面不会这样）。除非想看漫画和视频，否则 eww 无疑是最佳选择。而无 JavaScript 就意味着，网站提供者无法使用万恶的 JS 脚本追踪你的行为、收集你的数据和隐私，也不会有到处漂浮、插入、弹出、闪现的第三方广告，更不会有过多脚本带来的性能瓶颈，对十年前的老机器非常友好。在平时，我会用 eww 浏览一些文档。如果一定需要看图片的话，那还是打开 Firefox 吧。&lt;/p&gt;
+&lt;p&gt;在这台设备上，如果不算那些依赖程序的话，我用的最多的软件就是 i3-wm, st, fcitx5 , Emacs, Firefox。没有任何多余的程序干扰。如果你不是苦逼的 Java 程序员，离开 IDEA 就一行代码都写不出来，我建议你也购买一台&lt;del&gt;破烂&lt;/del&gt;老旧的设备，因为老旧的设备无法运行大型游戏，甚至拿来看视频都不尽流畅。但它能拿来写代码、编辑文本，浏览网页，这就足够了。如果不需要读写中文内容，预览图片或 PDF，我甚至不会启动图形界面。&lt;/p&gt;
+&lt;p&gt;ThinkPad X220 是我最喜欢的型号，最后一代经典七行键盘，充满工业感的外观，低廉的价格，极高的性价比和可玩性。通过自己动手修改配置、改装硬件，把钱花在刀刃上，不跟随邪恶的厂商花大价钱购买最新硬件，经济且实用。ThinkPad 的模块化设计非常天然适配「垃圾佬」精神。&lt;/p&gt;
+&lt;p&gt;除了这台 ThinkPad X220 外，我还有一台台式机。在台式机中，我安装了 Debian GNU/Linux 和 Windows 11。&lt;/p&gt;
+&lt;p&gt;我大部分时间都在使用 Debian ，在需要处理学校的任务时会切换到 Windows 11。稳定对我来说是最重要的，我不希望把大部分时间都花在维护系统配置、修复错误上，因此在这台设备上，我选择 Debian。&lt;/p&gt;
+&lt;p&gt;这台电脑原本是我爸的，在我长期&lt;del&gt;占&lt;/del&gt;借用后，已经完全属于我，我爸也因此有理由购买一台新的笔记本电脑，因为他想打游戏所以没有考虑 ThinkPad，好可惜！然而他花上千买了一台天选姬，只是拿来打魔兽世界……&lt;/p&gt;
+&lt;h2 id="软件"&gt;软件&lt;/h2&gt;
+&lt;p&gt;美化的尽头是默认。我完全不再考虑外观了。在这台设备上，我的优先级是：是否是自由软件？ &amp;gt; 性能 &amp;gt; 可自定义性的高低 &amp;gt; 外观。电脑固然有玩具属性，但工具属性更多，它是达成目的的途径，而不是目的本身。&lt;/p&gt;
+&lt;p&gt;我已经没有精力再去折腾各种软件的和桌面的美化，而且引入过多复杂的配置只会让系统越来越脆弱、维护成本越来越高。因此我安装了配置简单、稳定性高的 i3-wm，我有考虑过使用 dwm，但它毕竟是 wm，配置项比较多，等什么时候又有兴趣了，可能会尝试一下。&lt;/p&gt;
+&lt;p&gt;我按照台式机上的习惯，重写了一份配置文件。状态栏、系统托盘等，全部使用默认设置。而 Emacs 的配置也尽可能保持精简，为了好维护和在低性能设备上流畅使用，我裁剪了大部分很少使用的配置和包，让 Emacs 回归为一个纯净的文本编辑器&lt;del&gt;兼邮件客户端兼网页浏览器兼计算器兼 RSS 阅读器&lt;/del&gt;。&lt;/p&gt;
+&lt;p&gt;实际上，我的配置还是非常简单的，由于我大部分时间都在 Emacs 中，稳定性是最重要的，我不能接受在写着写着代码的时候，某个地方突然报错，然后我就要花上好几个小时去排查到底是什么原因，这大大影响了效率和心情。&lt;/p&gt;
+&lt;p&gt;出于性能考虑，我只在终端中使用 Emacs。我不经常用 Org-mode ，也不经常浏览图片，所以终端模式是一个不错的选择。在终端中开启 emacsclient，可以把 Emacs 当成 vi 用，随用随退，非常方便。目前我遇到的唯一让我不适应的地方就是，在终端中打字的手感可没有 GUI 好。&lt;/p&gt;
+&lt;p&gt;我将简单、默认的理念在 st 中也贯彻到底，只打了两个 patch : clipboard &amp;amp; scrollbar。我感觉它的配置比 Xterm 简单多了，我用了有一段时间 Xterm ，它的优点是配置文件即插即用，但一旦出现一些问题，它古老又死板的字体、属性查找逻辑又会浪费掉我不少时间。它的好兄弟 urxvt 也是如此，它们是用同一个配置文件的！&lt;/p&gt;
+&lt;p&gt;我直接 pass 掉了 kitty 和 WezTerm 等终端模拟器，感觉它们在老设备上的性能并不出色，并且我实在喜欢不起来 WezTerm 的配置脚本语言 Lua。综合考量之下，我选择了 st。它极其精简，精简到你需要自己打 patch 来实现一些其他终端模拟器本来就有的，或者写一两行配置文件的代码就有的功能。不过，我可以接受，至少到目前为止的配置过程都还算愉快，我也非常欣赏 Suckless 的哲学：保持简单、最小化、可用。并且它们的软件都是纯 C 编写，这让我对他们的印象更好了。&lt;/p&gt;
+&lt;p&gt;如你所见，我没有在这台设备上安装微信和 QQ，因为它的 Linux 客户端做得实在是太烂了！尤其是 QQ，在我的台式机上都会经常卡住，我不得不手动在 htop 中关掉那个进程。 除了这个原因外，&lt;em&gt;我也很享受这种别人想找我找不到，只有我主动打开软件才能找到我的感觉&lt;/em&gt;。我非常讨厌在我专注做某件事的时候，一通电话，一条微信消息发过来，电脑上有该死的咚咚两声，手机也会振动、响铃，因此我一般都把手机设置成免打扰。事实也证明我并不是非常重要，消失几个小时，多达上百次，几乎没有酿成任何大祸，也能说明找我的人大部分并没有什么急事，所以我的这种做法还算恰当。&lt;/p&gt;
+&lt;p&gt;不过，如果真的有人有什么急事要找我，发邮件或许真的是最快能联系到我的方式。因为我的手机上没有安装 QQ ，平板和电脑也不能接打电话和短信。按照我的习惯，如果我没有需求主动用它，很有可能三四个小时都不会拿起来看一眼。但是邮件就不同了，我的每一台电子设备上都有邮件客户端。&lt;/p&gt;
+&lt;p&gt;一些好玩的事：有时候我会躺在床上，ssh 连接到台式机写博客文章，或者笔记本的小屏幕看得眼睛干脖子酸了，就用台式机 ssh 连接到笔记本继续写。再一次赞美 Emacs 终端模式！&lt;/p&gt;</description></item><item><title>2026年，一个普通Emacs用户如何把Gnus跑起来</title><link>https://www.glowisle.me/posts/gnus-guide/</link><pubDate>Tue, 10 Feb 2026 18:34:00 +0800</pubDate><author>i@glowisle.me (五葉地錦)</author><guid>https://www.glowisle.me/posts/gnus-guide/</guid><description>&lt;p&gt;Emacs中有众多的邮件管理工具，目前比较流行的是&lt;a href="https://github.com/emacsmirror/mu4e"&gt;mu4e&lt;/a&gt;，但如果你和我一样，不喜欢它的操作逻辑和界面，或者同样有怀旧情怀，一定会想玩玩Gnus。然而这个在Emacs中自带的包，居然在中文互联网上几乎没有任何讨论度，甚至能用中文搜索到的配置教程是写于2012年的博客园文章。几乎找不到近些年的帖子或文章。所以我写下这篇文章，为同样想折腾Gnus的，使用中文的Emacser指路。&lt;/p&gt;
+&lt;p&gt;本篇文章不是《Emacs完全上手指南/圣经/官方文档》，不能做到全面、无误，但可以保证是中文互联网上较新的资料，如有错误，欢迎邮件或在评论区指出。&lt;/p&gt;
+&lt;p&gt;Gnus是一个多功能的信息聚合器，邮件只是它的功能之一，本篇文章主要配置邮件功能。&lt;/p&gt;
+&lt;h2 id="getting-started"&gt;Getting started&lt;/h2&gt;
+&lt;p&gt;Gnus的配置文件默认在&lt;code&gt;~/.gnus&lt;/code&gt;，Emacs会将它当作elisp文件读取，网上也有一些说法是&lt;code&gt;~/.gnus.el&lt;/code&gt;其实只是加载顺序的不同，如果你此前有尝试，请备份并删除以前的文件。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;touch ~/.gnus
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="gnus-select-method"&gt;gnus-select-method&lt;/h2&gt;
+&lt;p&gt;Gnus的后端选择，对于imap协议，一般选择&lt;code&gt;nnimap&lt;/code&gt;：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-elisp" data-lang="elisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#d699b6"&gt;setq&lt;/span&gt; gnus-select-method
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#7a8478"&gt;&amp;#39;&lt;/span&gt;(nnimap &lt;span style="color:#b2c98f"&gt;&amp;#34;NAME&amp;#34;&lt;/span&gt; &lt;span style="color:#859289;font-style:italic"&gt;;这里是自己起的名字，用来区分不同的帐号&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-address &lt;span style="color:#b2c98f"&gt;&amp;#34;&amp;#34;&lt;/span&gt;) &lt;span style="color:#859289;font-style:italic"&gt;; imap服务器&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-inbox &lt;span style="color:#b2c98f"&gt;&amp;#34;INBOX&amp;#34;&lt;/span&gt;) &lt;span style="color:#859289;font-style:italic"&gt;; 大多数服务器都使用INBOX，除非你明确知道不同，否则不建议修改&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-expunge &lt;span style="color:#d699b6"&gt;t&lt;/span&gt;) &lt;span style="color:#859289;font-style:italic"&gt;; 立即在服务器上同步删除的邮件（按需开启，开启后删除邮件无法恢复）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-server-port &lt;span style="color:#d699b6"&gt;993&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-stream ssl) &lt;span style="color:#859289;font-style:italic"&gt;; 使用 SSL&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-authenticator login) &lt;span style="color:#859289;font-style:italic"&gt;;指定认证方式，如果服务器支持多种认证方式但自动协商失败，建议开启&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ))
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在配好后，重启Emacs，输入&lt;code&gt;M-x RET gnus RET&lt;/code&gt;，下方会闪过一些输出，根据提示填写用户名和密码后，询问是否要把用户名和密码填入&lt;code&gt;~/.authinfo&lt;/code&gt;，建议选y。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;C-x b&lt;/code&gt;切换到&lt;code&gt;*Messages*&lt;/code&gt;buffer查看，会看到类似这样的输出，那就表明你的配置无误！&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Opening connection to imap.qiye.aliyun.com via tls...
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Opening connection to imap.qiye.aliyun.com...done
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Saving file /home/yingyu5658/.newsrc-dribble...
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Wrote /home/yingyu5658/.newsrc-dribble
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Gnus auto-save file exists. Do you want to read it? (y or n) n
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Reading /home/yingyu5658/.newsrc...done
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Subscribe newsgroup: 已删除邮件
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Subscribe newsgroup: 草稿
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Subscribe newsgroup: INBOX
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Subscribe newsgroup: 已发送
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Subscribe newsgroup: 垃圾邮件
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Opening nnfolder server on archive...done
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;5 new newsgroups have arrived
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Checking new news...
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nnimap read 0k from imap.qiye.aliyun.com (initial sync of 5 groups; please wait)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Checking new news...done
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;No news is good news
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这个news是历史遗留词汇，最后一行输出仅仅代表当前没有未读邮件。&lt;/p&gt;
+&lt;p&gt;你可以用另一个账号向这个邮箱发送一封测试邮件，重新打开Gnus，会有这样的输出：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;1:*INBOX
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;我们回车点进去，就会打开那封邮件显示内容啦。&lt;/p&gt;
+&lt;p&gt;&lt;figure class="image-caption"&gt;
+ &lt;img src="https://images.glowisle.me/2026-02-10_19-50.png" alt="测试邮件效果"&gt;
+ &lt;figcaption&gt;测试邮件效果&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;在Group Buffer中按下&lt;code&gt;L&lt;/code&gt;，可以看到所有文件夹。&lt;/p&gt;
+&lt;h2 id="多帐号配置"&gt;多帐号配置&lt;/h2&gt;
+&lt;p&gt;多账号配置需要设置&lt;code&gt;gnus-secondary-select-methods&lt;/code&gt;这个变量，这里和&lt;code&gt;gnus-select-method&lt;/code&gt;一起说一下。后者是主服务器，前者是额外服务器列表，但几乎和主服务器同级，使用中可以当作平级。&lt;/p&gt;
+&lt;p&gt;多账号配置示例：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-elisp" data-lang="elisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#d699b6"&gt;setq&lt;/span&gt; gnus-select-method
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#7a8478"&gt;&amp;#39;&lt;/span&gt;(nnimap &lt;span style="color:#b2c98f"&gt;&amp;#34;glowsisle&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-address &lt;span style="color:#b2c98f"&gt;&amp;#34;imap.qiye.aliyun.com&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-inbox &lt;span style="color:#b2c98f"&gt;&amp;#34;INBOX&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-expunge &lt;span style="color:#d699b6"&gt;t&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-server-port &lt;span style="color:#d699b6"&gt;993&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-stream ssl) &lt;span style="color:#859289;font-style:italic"&gt;; 使用 SSL&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-authenticator login) &lt;span style="color:#859289;font-style:italic"&gt;; 必须指定认证方式&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ))
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#d699b6"&gt;setq&lt;/span&gt; gnus-secondary-select-methods
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#7a8478"&gt;&amp;#39;&lt;/span&gt;((nnimap &lt;span style="color:#b2c98f"&gt;&amp;#34;outlook&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;		(nnimap-address &lt;span style="color:#b2c98f"&gt;&amp;#34;outlook.office365.com&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;		(nnimap-server-port &lt;span style="color:#d699b6"&gt;993&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;		(nnimap-stream ssl)))
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;		
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#859289;font-style:italic"&gt;; 如果你有更多账户，另一个账户的配置同上。&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;注意到了吗，&lt;code&gt;secondary&lt;/code&gt;的配置和我们一开始配置的&lt;code&gt;gnus-select-method&lt;/code&gt;一模一样，而且它可以容纳多个账户。&lt;/p&gt;
+&lt;p&gt;注意：Microsoft Outlook / Microsoft 365 默认禁用普通 IMAP 密码登录。Gnus 无法使用 OAuth2，因此必须在 Microsoft 帐号中启用双重验证并生成应用专用密码，否则会出现 NO LOGIN failed 错误。&lt;/p&gt;
+&lt;h2 id="发邮件"&gt;发邮件&lt;/h2&gt;
+&lt;p&gt;虽然对于一个Gnus教程来说有点跑题，但你应该会需要发件配置的。&lt;/p&gt;
+&lt;p&gt;在Emacs中发送邮件有三条路，分别是&lt;code&gt;msmtp&lt;/code&gt;、&lt;code&gt;smtpmail&lt;/code&gt;（Emacs内置）、sendmail。&lt;/p&gt;
+&lt;p&gt;最推荐的是msmtp，与Gnus、Emacs解耦，并且配置简单优雅。&lt;/p&gt;
+&lt;h3 id="安装"&gt;安装&lt;/h3&gt;
+&lt;p&gt;以Debian为例：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt update
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt install msmtp
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在配置文件中&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-elisp" data-lang="elisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#d699b6"&gt;setq&lt;/span&gt; send-mail-function &lt;span style="color:#e69875"&gt;&amp;#39;sendmail-send-it&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#d699b6"&gt;setq&lt;/span&gt; message-send-mail-function &lt;span style="color:#e69875"&gt;&amp;#39;sendmail-send-it&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#d699b6"&gt;setq&lt;/span&gt; sendmail-program &lt;span style="color:#b2c98f"&gt;&amp;#34;/usr/bin/msmtp&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在&lt;code&gt;~/.msmtprc&lt;/code&gt;：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;account 账户名
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;host smtp.server.address
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;from your@account.com
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;auth login
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;port yourport
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;user your@account.com
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;password 不建议明文写密码，配置方式见下文
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;auth on
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tls on
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tls_starttls off
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tls_certcheck off 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tls_trust_file /etc/ssl/certs/ca-certificates.crt
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;account default : 默认账户，填写account的值
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="密码存储"&gt;密码存储&lt;/h2&gt;
+&lt;p&gt;需要创建一个包含密码的文本文件。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;touch password &lt;span style="color:#7a8478"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style="color:#d699b6"&gt;echo&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;yourpassword&amp;#34;&lt;/span&gt; &amp;gt; ./password
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后使用GPG加密，这样会生成一个&lt;code&gt;password.gpg&lt;/code&gt;文件&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gpg --symmetric --cipher-algo AES256 password
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后在&lt;code&gt;~/.msmtprc&lt;/code&gt;中，把密码那行改成&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;passwordeval &amp;#34;gpg --quiet --batch --decrypt /path/to/password.gpg&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这样每次使用都要输入GPG密码，为了避免这种情况，可以在&lt;code&gt;~/.gnupg/gpg.conf&lt;/code&gt;写入以下内容来缓存密码。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;use-agent
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这样就不用每次都输入密码了。记得删除明文存储密码的password文件:)&lt;/p&gt;
+&lt;h2 id="参考"&gt;参考&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.gnu.org/software/emacs/manual/html_mono/gnus.html"&gt;Gnus Manual&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.cnblogs.com/csophys/articles/2375236.html"&gt;Emacs Gnus 的基本配置与使用&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://emacs-china.org/t/emacs-send-mail-rmail-and-gnus/11730/4?page=2"&gt;Emacs收发邮件完全操作指南: Send-Mail, Rmail and Gnus&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>剖析千行C语言文本编辑器Kilo的技术细节</title><link>https://www.glowisle.me/posts/kilo-analysis/</link><pubDate>Sat, 06 Dec 2025 13:26:47 +0800</pubDate><author>i@glowisle.me (五葉地錦)</author><guid>https://www.glowisle.me/posts/kilo-analysis/</guid><description>&lt;p&gt;今天上午学习了一下&lt;a href="https://github.com/antirez/kilo"&gt;Kilo&lt;/a&gt;的源代码。我很早以前就对文本编辑器的实现方法感兴趣了。&lt;/p&gt;
+&lt;p&gt;Kilo是一个很简易却不简陋的项目，清晰地展示了如何构建一个终端下的文本编辑器，它的目的不是真正让你学会去开发一个高标准高质量，能投入使用的文本编辑器，而是理解文本编辑器的核心骨架、理解一个看似庞大一团糟的问题的拆解思路。这是一个很好的起点。也过了一把爽玩C语言的瘾（虽然我并没有写几行代码）。&lt;/p&gt;
+&lt;h2 id="程序分析"&gt;程序分析&lt;/h2&gt;
+&lt;p&gt;整个项目只有一个文件，一千三百行代码。我用了大概一个半小时梳理了程序的执行流程，手画了一个流程图。为了美观，我又用&lt;a href="https://www.glowisle.me/posts/%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8graphviz%E7%BB%98%E5%88%B6%E7%A8%8B%E5%BA%8F%E6%B5%81%E7%A8%8B%E5%9B%BE/"&gt;Graphviz&lt;/a&gt;绘制了一个电子版：&lt;/p&gt;
+&lt;p&gt;&lt;figure class="image-caption"&gt;
+ &lt;img src="https://images.glowisle.me/kilo-graph.png" alt="程序流程图（大意）"&gt;
+ &lt;figcaption&gt;程序流程图（大意）&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;这张图我省略了一些深的函数调用，但也能帮助我大体上掌握这个程序的执行流程。结合这张图与源码，我发现文本编辑器的核心功能——打开、编辑、保存，实现难度并不大，在C语言中容易踩坑的是缓冲区处理、文件读写这种老生常谈的内容。在这个程序中，调用最多、最重磅的部分是&lt;code&gt;initEditor&lt;/code&gt;这个函数，以及后续的高亮处理，尤其是前者在窗口尺寸计算、修改后的做法上花费了大功夫。其实和终端环境的交互才是最麻烦的点，它提供的封装和抽象并不多，有很多需要自己手动调试的地方，繁琐是显著特征。&lt;/p&gt;
+&lt;h3 id="终端信号处理"&gt;终端信号处理&lt;/h3&gt;
+&lt;p&gt;我发现在终端程序里，需要快捷键的部分都是使用Raw mode和signal相关的函数组合实现的，在理解&lt;code&gt;signal&lt;/code&gt;这个函数和它的有关宏的概念时，耗费了比较长的时间。&lt;/p&gt;
+&lt;p&gt;简单来说，signal用于处理用户在终端发出的信号，比如&lt;code&gt;SIGINT&lt;/code&gt;代表由&lt;code&gt;C-c&lt;/code&gt;产生的中断信号，&lt;code&gt;SIGIGN&lt;/code&gt;代表忽略信号，即接受到这个信号以后什么都不做，关于如何接受信号，就要说起&lt;code&gt;signal()&lt;/code&gt;这个函数。定义如下：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#dbbc7f"&gt;void&lt;/span&gt; (&lt;span style="color:#7a8478"&gt;*&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;signal&lt;/span&gt;(&lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; sig, &lt;span style="color:#dbbc7f"&gt;void&lt;/span&gt; (&lt;span style="color:#7a8478"&gt;*&lt;/span&gt;func)(&lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt;)))(&lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;看起来非常复杂，说人话就是接受两个参数，第一个参数是int类型的&lt;code&gt;sig&lt;/code&gt;，是信号编号，比如&lt;code&gt;SIGINT&lt;/code&gt;，这是要接收的信号。第二个参数是一个函数指针，接受一个返回void，参数是int类型的信号处理函数，使用第二个函数中的函数对接受到的信号做处理。函数返回原来的信号处理函数（函数指针）。&lt;/p&gt;
+&lt;p&gt;可以用typedef简化理解：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#859289;font-style:italic"&gt;// 定义信号处理函数的类型
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e67e80"&gt;typedef&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;void&lt;/span&gt; (&lt;span style="color:#7a8478"&gt;*&lt;/span&gt;&lt;span style="color:#dbbc7f"&gt;sighandler_t&lt;/span&gt;)(&lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#859289;font-style:italic"&gt;// 用 typedef 重写 signal 声明
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#dbbc7f"&gt;sighandler_t&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;signal&lt;/span&gt;(&lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; sig, &lt;span style="color:#dbbc7f"&gt;sighandler_t&lt;/span&gt; func);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在Kilo中，&lt;code&gt;C-c&lt;/code&gt;是被忽略的，因为它非常容易导致丢失修改，可以这样实现：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#b2c98f"&gt;signal&lt;/span&gt;(SIGINT, SIGIGN);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;不过，在Kilo的实现，是通过调用&lt;code&gt;editorReadKey()&lt;/code&gt;，从Raw Mode 中读取一个按键存入数组，用switch匹配按键对应的值再返回给调用方，调用方也通过switch，匹配对应的操作函数。而在&lt;code&gt;C-c&lt;/code&gt;的部分，则是直接break掉了。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e67e80"&gt;case&lt;/span&gt; &lt;span style="color:#e67e80"&gt;CTRL_C&lt;/span&gt;: &lt;span style="color:#859289;font-style:italic"&gt;/* Ctrl-c */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;/* We ignore ctrl-c, it can&amp;#39;t be so simple to lose the changes
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#859289;font-style:italic"&gt; * to the edited file. */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;break&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这种实现方法也有一定局限性，不同的终端模拟器可能发送不同的转义字符，硬编码转义字符会出现不适配的情况。并且使用&lt;code&gt;read()&lt;/code&gt;阻塞读取输入有性能瓶颈。&lt;/p&gt;
+&lt;h3 id="精妙的数据结构与算法"&gt;精妙的数据结构与算法&lt;/h3&gt;
+&lt;p&gt;这个程序最有趣的地方在于清晰、通用的数据结构的设计，以&lt;code&gt;editorConfig&lt;/code&gt;为例：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e67e80"&gt;struct&lt;/span&gt; editorConfig {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; cx, cy; &lt;span style="color:#859289;font-style:italic"&gt;/* Cursor x and y position in characters */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; rowoff; &lt;span style="color:#859289;font-style:italic"&gt;/* Offset of row displayed. */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; coloff; &lt;span style="color:#859289;font-style:italic"&gt;/* Offset of column displayed. */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; screenrows; &lt;span style="color:#859289;font-style:italic"&gt;/* Number of rows that we can show */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; screencols; &lt;span style="color:#859289;font-style:italic"&gt;/* Number of cols that we can show */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; numrows; &lt;span style="color:#859289;font-style:italic"&gt;/* Number of rows */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; rawmode; &lt;span style="color:#859289;font-style:italic"&gt;/* Is terminal raw mode enabled? */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; erow &lt;span style="color:#7a8478"&gt;*&lt;/span&gt;row; &lt;span style="color:#859289;font-style:italic"&gt;/* Rows */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; dirty; &lt;span style="color:#859289;font-style:italic"&gt;/* File modified but not saved. */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;char&lt;/span&gt; &lt;span style="color:#7a8478"&gt;*&lt;/span&gt;filename; &lt;span style="color:#859289;font-style:italic"&gt;/* Currently open filename */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;char&lt;/span&gt; statusmsg[&lt;span style="color:#d699b6"&gt;80&lt;/span&gt;];
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;time_t&lt;/span&gt; statusmsg_time;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;struct&lt;/span&gt; editorSyntax &lt;span style="color:#7a8478"&gt;*&lt;/span&gt;syntax; &lt;span style="color:#859289;font-style:italic"&gt;/* Current syntax highlight, or NULL. */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;};
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;我们定义了一个&lt;code&gt;editorConfig&lt;/code&gt;类型的变量，它全局唯一，维护了程序的基本状态，包括行、列、滚动偏移、终端尺寸。让程序状态的流转非常清楚。这些内容都是一个文本编辑器需要关心的最核心内容：光标位置、视图偏移、数据和文件的状态等信息。&lt;/p&gt;
+&lt;p&gt;通过这个结构体，能简单地获取程序当前的状态，或者为某项功能对状态作出修改，对一个新手来说还是挺拓宽思路的，至少我想不到怎么设计这些数据结构。&lt;/p&gt;
+&lt;h3 id="数据与显示的分离"&gt;数据与显示的分离&lt;/h3&gt;
+&lt;p&gt;在&lt;code&gt;editorConfig&lt;/code&gt;中嵌套了一个&lt;code&gt;erow&lt;/code&gt;类型的变量，里面的东西也可以展开说说，定义如下：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e67e80"&gt;typedef&lt;/span&gt; &lt;span style="color:#e67e80"&gt;struct&lt;/span&gt; erow {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; idx; &lt;span style="color:#859289;font-style:italic"&gt;/* Row index in the file, zero-based. */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; size; &lt;span style="color:#859289;font-style:italic"&gt;/* Size of the row, excluding the null term. */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; rsize; &lt;span style="color:#859289;font-style:italic"&gt;/* Size of the rendered row. */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;char&lt;/span&gt; &lt;span style="color:#7a8478"&gt;*&lt;/span&gt;chars; &lt;span style="color:#859289;font-style:italic"&gt;/* Row content. */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;char&lt;/span&gt; &lt;span style="color:#7a8478"&gt;*&lt;/span&gt;render; &lt;span style="color:#859289;font-style:italic"&gt;/* Row content &amp;#34;rendered&amp;#34; for screen (for TABs). */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;unsigned&lt;/span&gt; &lt;span style="color:#dbbc7f"&gt;char&lt;/span&gt; &lt;span style="color:#7a8478"&gt;*&lt;/span&gt;hl; &lt;span style="color:#859289;font-style:italic"&gt;/* Syntax highlight type for each character in render.*/&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; hl_oc; &lt;span style="color:#859289;font-style:italic"&gt;/* Row had open comment at end in last syntax highlight
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#859289;font-style:italic"&gt; check. */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;} erow;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这里面有一个&lt;code&gt;render&lt;/code&gt;字段，在&lt;code&gt;editorUpdateRow()&lt;/code&gt;中，有这样的代码：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#dbbc7f"&gt;unsigned&lt;/span&gt; &lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; tabs &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; &lt;span style="color:#d699b6"&gt;0&lt;/span&gt;, nonprint &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; &lt;span style="color:#d699b6"&gt;0&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; j, idx;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;/* Create a version of the row we can directly print on the screen,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#859289;font-style:italic"&gt; * respecting tabs, substituting non printable characters with &amp;#39;?&amp;#39;. */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#b2c98f"&gt;free&lt;/span&gt;(row&lt;span style="color:#7a8478"&gt;-&amp;gt;&lt;/span&gt;render);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;for&lt;/span&gt; (j &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; &lt;span style="color:#d699b6"&gt;0&lt;/span&gt;; j &lt;span style="color:#7a8478"&gt;&amp;lt;&lt;/span&gt; row&lt;span style="color:#7a8478"&gt;-&amp;gt;&lt;/span&gt;size; j&lt;span style="color:#7a8478"&gt;++&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;if&lt;/span&gt; (row&lt;span style="color:#7a8478"&gt;-&amp;gt;&lt;/span&gt;chars[j] &lt;span style="color:#7a8478"&gt;==&lt;/span&gt; TAB)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; tabs&lt;span style="color:#7a8478"&gt;++&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;unsigned&lt;/span&gt; &lt;span style="color:#dbbc7f"&gt;long&lt;/span&gt; &lt;span style="color:#dbbc7f"&gt;long&lt;/span&gt; allocsize &lt;span style="color:#7a8478"&gt;=&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (&lt;span style="color:#dbbc7f"&gt;unsigned&lt;/span&gt; &lt;span style="color:#dbbc7f"&gt;long&lt;/span&gt; &lt;span style="color:#dbbc7f"&gt;long&lt;/span&gt;)row&lt;span style="color:#7a8478"&gt;-&amp;gt;&lt;/span&gt;size &lt;span style="color:#7a8478"&gt;+&lt;/span&gt; tabs &lt;span style="color:#7a8478"&gt;*&lt;/span&gt; &lt;span style="color:#d699b6"&gt;8&lt;/span&gt; &lt;span style="color:#7a8478"&gt;+&lt;/span&gt; nonprint &lt;span style="color:#7a8478"&gt;*&lt;/span&gt; &lt;span style="color:#d699b6"&gt;9&lt;/span&gt; &lt;span style="color:#7a8478"&gt;+&lt;/span&gt; &lt;span style="color:#d699b6"&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;if&lt;/span&gt; (allocsize &lt;span style="color:#7a8478"&gt;&amp;gt;&lt;/span&gt; UINT32_MAX) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#b2c98f"&gt;printf&lt;/span&gt;(&lt;span style="color:#b2c98f"&gt;&amp;#34;Some line of the edited file is too long for kilo&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\n&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#b2c98f"&gt;exit&lt;/span&gt;(&lt;span style="color:#d699b6"&gt;1&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;循环的if中使用的 &lt;code&gt;TAB&lt;/code&gt; 定义在KEY_ACTION枚举，值为9，在ASCII码中是&lt;code&gt;\t&lt;/code&gt;也就是水平制表符。代码在统计tab的数量。&lt;/p&gt;
+&lt;p&gt;问题在于，一个&lt;code&gt;\t&lt;/code&gt;在内存中占1字节，但在屏幕显示的时候会占据八个字符的宽度，这里就体现出&lt;code&gt;render&lt;/code&gt;的作用了，如果一行有两个&lt;code&gt;\t&lt;/code&gt;，每个最多展开为八个空格，那么所需要计算的大小就是&lt;code&gt;2 * 8 + chars的大小&lt;/code&gt;：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#dbbc7f"&gt;unsigned&lt;/span&gt; &lt;span style="color:#dbbc7f"&gt;long&lt;/span&gt; &lt;span style="color:#dbbc7f"&gt;long&lt;/span&gt;)row&lt;span style="color:#7a8478"&gt;-&amp;gt;&lt;/span&gt;size &lt;span style="color:#7a8478"&gt;+&lt;/span&gt; tabs &lt;span style="color:#7a8478"&gt;*&lt;/span&gt; &lt;span style="color:#d699b6"&gt;8&lt;/span&gt; &lt;span style="color:#7a8478"&gt;+&lt;/span&gt; nonprint &lt;span style="color:#7a8478"&gt;*&lt;/span&gt; &lt;span style="color:#d699b6"&gt;9&lt;/span&gt; &lt;span style="color:#7a8478"&gt;+&lt;/span&gt; &lt;span style="color:#d699b6"&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;那个恒为0的变量&lt;code&gt;nonprint&lt;/code&gt;可能是为将来打印不可见字符设计的。结尾的&lt;code&gt;+1&lt;/code&gt;为&lt;code&gt;'\0'&lt;/code&gt;预留。&lt;/p&gt;
+&lt;p&gt;按照这个公式，给&lt;code&gt;render&lt;/code&gt;分配内存：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;row&lt;span style="color:#7a8478"&gt;-&amp;gt;&lt;/span&gt;render &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;malloc&lt;/span&gt;(row&lt;span style="color:#7a8478"&gt;-&amp;gt;&lt;/span&gt;size &lt;span style="color:#7a8478"&gt;+&lt;/span&gt; tabs &lt;span style="color:#7a8478"&gt;*&lt;/span&gt; &lt;span style="color:#d699b6"&gt;8&lt;/span&gt; &lt;span style="color:#7a8478"&gt;+&lt;/span&gt; nonprint &lt;span style="color:#7a8478"&gt;*&lt;/span&gt; &lt;span style="color:#d699b6"&gt;9&lt;/span&gt; &lt;span style="color:#7a8478"&gt;+&lt;/span&gt; &lt;span style="color:#d699b6"&gt;1&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;随后，这些代码在非制表位填充空格：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;idx &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; &lt;span style="color:#d699b6"&gt;0&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;for&lt;/span&gt; (j &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; &lt;span style="color:#d699b6"&gt;0&lt;/span&gt;; j &lt;span style="color:#7a8478"&gt;&amp;lt;&lt;/span&gt; row&lt;span style="color:#7a8478"&gt;-&amp;gt;&lt;/span&gt;size; j&lt;span style="color:#7a8478"&gt;++&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;if&lt;/span&gt; (row&lt;span style="color:#7a8478"&gt;-&amp;gt;&lt;/span&gt;chars[j] &lt;span style="color:#7a8478"&gt;==&lt;/span&gt; TAB) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; row&lt;span style="color:#7a8478"&gt;-&amp;gt;&lt;/span&gt;render[idx&lt;span style="color:#7a8478"&gt;++&lt;/span&gt;] &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#39; &amp;#39;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;while&lt;/span&gt; ((idx &lt;span style="color:#7a8478"&gt;+&lt;/span&gt; &lt;span style="color:#d699b6"&gt;1&lt;/span&gt;) &lt;span style="color:#7a8478"&gt;%&lt;/span&gt; &lt;span style="color:#d699b6"&gt;8&lt;/span&gt; &lt;span style="color:#7a8478"&gt;!=&lt;/span&gt; &lt;span style="color:#d699b6"&gt;0&lt;/span&gt;) &lt;span style="color:#859289;font-style:italic"&gt;// 在非制表位填充空格
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; row&lt;span style="color:#7a8478"&gt;-&amp;gt;&lt;/span&gt;render[idx&lt;span style="color:#7a8478"&gt;++&lt;/span&gt;] &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#39; &amp;#39;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; } &lt;span style="color:#e67e80"&gt;else&lt;/span&gt; { &lt;span style="color:#859289;font-style:italic"&gt;// 正常字符直接赋值
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; row&lt;span style="color:#7a8478"&gt;-&amp;gt;&lt;/span&gt;render[idx&lt;span style="color:#7a8478"&gt;++&lt;/span&gt;] &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; row&lt;span style="color:#7a8478"&gt;-&amp;gt;&lt;/span&gt;chars[j];
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;row&lt;span style="color:#7a8478"&gt;-&amp;gt;&lt;/span&gt;rsize &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; idx; &lt;span style="color:#859289;font-style:italic"&gt;// 在循环结束的时候，idx等于写入字符总数
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;row&lt;span style="color:#7a8478"&gt;-&lt;/span&gt;render[idx] &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#39;\0&amp;#39;&lt;/span&gt;; &lt;span style="color:#859289;font-style:italic"&gt;//在字符末尾添加结束符
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;虽然有点绕，但设计还是非常巧妙的！&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id="代码高亮"&gt;代码高亮&lt;/h3&gt;
+&lt;p&gt;源码中使用大量篇幅实现了代码高亮，定义了一些关键字：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#dbbc7f"&gt;char&lt;/span&gt; &lt;span style="color:#7a8478"&gt;*&lt;/span&gt;C_HL_extensions[] &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; {&lt;span style="color:#b2c98f"&gt;&amp;#34;.c&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;.h&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;.cpp&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;.hpp&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;.cc&amp;#34;&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;NULL&lt;/span&gt;};
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#dbbc7f"&gt;char&lt;/span&gt; &lt;span style="color:#7a8478"&gt;*&lt;/span&gt;C_HL_keywords[] &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;/* C Keywords */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;auto&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;break&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;case&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;continue&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;default&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;do&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;else&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;enum&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;extern&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;for&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;goto&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;if&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;register&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;return&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;sizeof&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;static&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;struct&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;switch&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;typedef&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;union&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;volatile&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;while&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;NULL&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;/* C++ Keywords */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;alignas&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;alignof&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;and&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;and_eq&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;asm&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;bitand&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;bitor&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;class&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;compl&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;constexpr&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;const_cast&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;deltype&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;delete&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;dynamic_cast&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;explicit&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;export&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;false&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;friend&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;inline&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;mutable&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;namespace&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;new&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;noexcept&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;not&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;not_eq&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;nullptr&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;operator&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;or&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;or_eq&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;private&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;protected&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;public&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;reinterpret_cast&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;static_assert&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;static_cast&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;template&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;this&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;thread_local&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;throw&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;true&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;try&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;typeid&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;typename&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;virtual&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;xor&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;xor_eq&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;/* C types */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;int|&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;long|&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;double|&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;float|&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;char|&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;unsigned|&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;signed|&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;void|&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;short|&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;auto|&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;const|&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;bool|&amp;#34;&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;NULL&lt;/span&gt;};
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后在具体实现&lt;code&gt;editorUpdateSyntax()&lt;/code&gt;中，简单粗暴地遍历字符匹配这些关键字。在一般的教学例子中这样实现是可以的，我认为在具体的工程中应当用词法分析、语法分析和字典树去匹配。更易于维护和拓展，也能适配复杂的嵌套。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;上述分析提到的缺点都可以作为优化方向，比如提供更简单操作接口，用词法分析技术或接入LSP服务器，为程序提供Lua接口来扩展插件……不过我相信在古老的纯C应用中，添加这些功能的繁琐程度和开发周期简直是灾难级别的。但是在处理快捷键上，使用&lt;code&gt;termcap&lt;/code&gt;库的难度应该小于修改代码高亮部分的难度。&lt;/p&gt;
+&lt;p&gt;这个项目最值得学习的点是如何将抽象的功能和终端联系起来、如何设计合理的数据结构以及标准库的使用。是阐释「程序 = 数据结构 + 算法」的很好例子。不过我自己是想不到那些函数该什么时候用，没准还会手动实现标准库造好的轮子呢。&lt;/p&gt;
+&lt;p&gt;学习的过程很好玩，从主函数开始探索整个程序，一段一段地跳转调用，A调用B，B调用C，C调用D，理解了逻辑后再把它们画成图，对感兴趣的部分深入研究，有一种前人用他的智慧抚平我大脑褶皱的感觉……读懂它，几乎就等于一只脚趾踩上了理解Vim / Nano等项目的大门吧。&lt;/p&gt;
+&lt;p&gt;想自己重新实现一次，然后加入自己的优化，比如联动Lua / Zig甚至是Go来实现上层的功能，好玩好玩真好玩。&lt;/p&gt;
+&lt;p&gt;头皮好痒，要长脑子了！&lt;/p&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;在查资料的过程中又发现了 &lt;a href="https://github.com/martanne/vis"&gt;vis&lt;/a&gt; 和 &lt;a href="https://github.com/zyedidia/micro"&gt;micro&lt;/a&gt;（它甚至是用Go写的），又有新玩具了！&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>一次对Webmention的探索</title><link>https://www.glowisle.me/posts/exploring-webmention/</link><pubDate>Fri, 05 Dec 2025 17:22:22 +0800</pubDate><author>i@glowisle.me (五葉地錦)</author><guid>https://www.glowisle.me/posts/exploring-webmention/</guid><description>
+
+&lt;style&gt;
+
+ 
+blockquote[class*="alert-"] &gt; div:first-child {
+ font-size: 1.25rem;
+ font-weight: bold;
+ user-select: none;
+}
+
+ 
+
+ 
+.alert-note {
+ border-left-color: #2196f3;
+}
+.alert-note &gt; div:first-child {
+ color: #2196f3;
+}
+
+ 
+.alert-tip {
+ border-left-color: #4caf50;
+}
+.alert-tip &gt; div:first-child {
+ color: #4caf50;
+}
+
+ 
+.alert-warning {
+ border-left-color: #ff9800;
+}
+.alert-warning &gt; div:first-child {
+ color: #ff9800;
+}
+
+ 
+.alert-caution {
+ border-left-color: #f44336;
+}
+.alert-caution &gt; div:first-child {
+ color: #f44336;
+}
+
+ 
+.alert-important {
+ border-left-color: #9c27b0;
+}
+.alert-important &gt; div:first-child {
+ color: #9c27b0;
+}
+
+ 
+.alert-announcement {
+ border-left-color: #00bcd4;
+}
+.alert-announcement &gt; div:first-child {
+ color: #00bcd4;
+}
+
+ 
+blockquote.text-secondary {
+ border-left: 3px solid #e0e0e0;
+ color: #666;
+ padding-left: 1.5rem !important; 
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+ blockquote.text-secondary {
+ border-left-color: #444;
+ color: #aaa;
+ }
+}
+&lt;/style&gt;
+
+
+
+
+
+ &lt;blockquote class="text-secondary p-0 m-0 ml-[1em]"&gt;
+ &lt;p&gt;Webmention is a simple way to notify any URL when you link to it from your site.&lt;/p&gt;
+&lt;p&gt;It is an open web standard (W3C Recommendation) for conversations and interactions across the web, a powerful building block used for a growing distributed network of peer-to-peer comments, likes, reposts, and other responses across the web.&lt;/p&gt;
+
+ &lt;/blockquote&gt;
+
+&lt;p&gt;Webmention 是一种开放网络标准（W3C推荐标准），用于在链接到某个网址时，自动向该网址发送通知。它是构成分布式网络的基础组件，支持跨网站的点对点评论、点赞、转发等多种互动。&lt;/p&gt;
+&lt;p&gt;在 &lt;a href="https://www.glowisle.me/posts/tear-hypocrisy-apart/"&gt;上一篇文章&lt;/a&gt; 写完后，我开始寻找更合适的评论方案。Webmention这个看起来古老，但又超前的形式很快引起了我的兴趣。「去中心化」这个词貌似对我有什么魔力，就比如Mastodon，比Twitter更吸引我。&lt;/p&gt;
+&lt;p&gt;我很想试试用Go手搓一套收发系统，但时间并不充裕，正巧&lt;a href="https://webmention.io"&gt;webmention.io&lt;/a&gt;提供现成的服务和&lt;a href="https://indielogin.com/setup"&gt;详细的文档&lt;/a&gt;，那就跟着文档配置吧。&lt;/p&gt;
+&lt;h2 id="验证与接收"&gt;验证与接收&lt;/h2&gt;
+&lt;p&gt;教程提供了多种验证方案，这里使用最简便的Github. 只要在网站的首页挂上一个链接，指向用户档案页：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;lt;&lt;span style="color:#7a8478"&gt;a&lt;/span&gt; &lt;span style="color:#d699b6;font-weight:bold"&gt;href&lt;/span&gt;&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;https://github.com/example&amp;#34;&lt;/span&gt; &lt;span style="color:#d699b6;font-weight:bold"&gt;rel&lt;/span&gt;&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;me&amp;#34;&lt;/span&gt;&amp;gt;github.com/example&amp;lt;/&lt;span style="color:#7a8478"&gt;a&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果不想让它可见，也可以设置为一个`&lt;link&gt;：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;lt;&lt;span style="color:#7a8478"&gt;link&lt;/span&gt; &lt;span style="color:#d699b6;font-weight:bold"&gt;href&lt;/span&gt;&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;https://github.com/example&amp;#34;&lt;/span&gt; &lt;span style="color:#d699b6;font-weight:bold"&gt;rel&lt;/span&gt;&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;me&amp;#34;&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;figure class="image-caption"&gt;
+ &lt;img src="https://images.glowisle.me/2025-12-05_18-26.png" alt="作为验证，你需要在Github主页中包含你的网站"&gt;
+ &lt;figcaption&gt;作为验证，你需要在Github主页中包含你的网站&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;这里我部署后回退了一下网页就弹出来Github APP 认证请求了，大概需要刷新网页或打开Github？&lt;/p&gt;
+&lt;p&gt;这样，访问之后页面中提供的链接，就可以看到别人发送的Webmention了。&lt;/p&gt;
+&lt;h2 id="渲染"&gt;渲染&lt;/h2&gt;
+&lt;p&gt;在网页中添加link&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;lt;&lt;span style="color:#7a8478"&gt;link&lt;/span&gt; &lt;span style="color:#d699b6;font-weight:bold"&gt;rel&lt;/span&gt;&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;webmention&amp;#34;&lt;/span&gt; &lt;span style="color:#d699b6;font-weight:bold"&gt;href&lt;/span&gt;&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;https://webmention.io/你的用户名/webmention&amp;#34;&lt;/span&gt; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;我使用&lt;a href="https://github.com/PlaidWeb/webmention.js"&gt;webmention.js&lt;/a&gt;，根据说明文档，可以复制仓库中的&lt;code&gt;/static/webmention.min.js&lt;/code&gt;到博客的&lt;code&gt;/static/js/webmention.min.js&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;在评论框下方提供一个容器&lt;code&gt;&amp;lt;div id=&amp;quot;webmentions&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&lt;/code&gt;，并引用脚本&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;lt;&lt;span style="color:#7a8478"&gt;div&lt;/span&gt; &lt;span style="color:#d699b6;font-weight:bold"&gt;id&lt;/span&gt;&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;webmentions&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style="color:#7a8478"&gt;div&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;lt;&lt;span style="color:#7a8478"&gt;script&lt;/span&gt; &lt;span style="color:#d699b6;font-weight:bold"&gt;src&lt;/span&gt;&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;/js/webmention.min.js&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#d699b6;font-weight:bold"&gt;data-id&lt;/span&gt;&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;webmentions&amp;#34;&lt;/span&gt; // &lt;span style="color:#d699b6;font-weight:bold"&gt;与容器id匹配&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#d699b6;font-weight:bold"&gt;data-page-url&lt;/span&gt;&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;https://yourdomain.com/当前文章永久链接&amp;#34;&lt;/span&gt; // &lt;span style="color:#d699b6;font-weight:bold"&gt;建议使用&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#d699b6;font-weight:bold"&gt;data-max-webmentions&lt;/span&gt;&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;50&amp;#34;&lt;/span&gt; // &lt;span style="color:#d699b6;font-weight:bold"&gt;最多显示数量&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#d699b6;font-weight:bold"&gt;data-wordcount&lt;/span&gt;&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;30&amp;#34;&lt;/span&gt; // &lt;span style="color:#d699b6;font-weight:bold"&gt;回复预览最大字数&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#d699b6;font-weight:bold"&gt;data-sort-by&lt;/span&gt;&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;published&amp;#34;&lt;/span&gt; // &lt;span style="color:#d699b6;font-weight:bold"&gt;按照发布时间排序&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#d699b6;font-weight:bold"&gt;data-sort-dir&lt;/span&gt;&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;up&amp;#34;&lt;/span&gt; // &lt;span style="color:#d699b6;font-weight:bold"&gt;时间升序&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#d699b6;font-weight:bold"&gt;async&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;lt;/&lt;span style="color:#7a8478"&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Hugo用户在永久链接上可以使用：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;data-page-url=&amp;#34;https://yourdomain.com{{ .RelPermalink }}&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;为了本地测试，使用相对链接的变量拼接。脚本会对API发送请求，如果拿到的数据是空的，则会把最终的HTML输出为一个空字符串，所以刚开始看不到输出是正常的。大概写点CSS就可以正常投入使用了。&lt;/p&gt;
+&lt;h2 id="对webmention的看法"&gt;对Webmention的看法&lt;/h2&gt;
+&lt;p&gt;我认为Webmention是一种很像友情链接的互惠模式，优于在评论区下方留下链接的形式。续上上一篇文章的话题，这样不仅促成高质量的互动，也能丰富自己的写作素材，分量应该重于评论区链接的手段。就像上一篇文章的结尾所说，利人利己，何乐而不为呢？&lt;/p&gt;
+&lt;p&gt;虽然这种模式的普及程度不高，但我相信去中心化会称为互联网的新趋势。开放、互联才能称为「互联网」。&lt;/p&gt;
+&lt;p&gt;我通过一些Webmention，一条一条顺藤摸瓜也找到了很多有趣的博客。我准备有时间优化渲染格式，可能也会研究一点桥接的功能，不过还是要保持博客一贯的简洁风格。当然，要先有人回应才有数据拿来渲染，欢迎大家使用Webmention参与互动！&lt;/p&gt;</description></item><item><title>简单使用Graphviz绘制程序流程图</title><link>https://www.glowisle.me/posts/%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8graphviz%E7%BB%98%E5%88%B6%E7%A8%8B%E5%BA%8F%E6%B5%81%E7%A8%8B%E5%9B%BE/</link><pubDate>Wed, 12 Nov 2025 11:13:24 +0800</pubDate><author>i@glowisle.me (五葉地錦)</author><guid>https://www.glowisle.me/posts/%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8graphviz%E7%BB%98%E5%88%B6%E7%A8%8B%E5%BA%8F%E6%B5%81%E7%A8%8B%E5%9B%BE/</guid><description>&lt;h2 id="graphviz"&gt;Graphviz&lt;/h2&gt;
+&lt;p&gt;Graphviz 是一个开源的图形可视化软件，主要用于绘制有向图和无向图。&lt;/p&gt;
+&lt;p&gt;用途：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;数据结构可视化：Graphviz 常用于显示数据结构，如抽象语法树或其他编程语言、工具或服务中的数据结构。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;软件设计和架构：通过Graphviz，开发者可以可视化系统组件、依赖关系和交互。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;网络拓扑图：用于显示网络设备和其连接的物理或逻辑视图。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;业务流程和工作流程图：描述组织或系统中的工作流程。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;其他任何需要图形表示的场景，例如状态机、决策树、组织结构图等。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;优势：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;声明性语言：Graphviz 使用一种称为 DOT 的声明性图形描述语言。用户只需描述图形的元素（如节点和边）及其关系，而无需指定其在屏幕上的确切位置。这使得创建和修改图形变得非常简单。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;自动布局：Graphviz 的一个显著特点是其强大的自动布局工具，这意味着你不需要手动指定节点的位置；Graphviz 将自动为你找到一个有意义和易于阅读的布局。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;可扩展性：Graphviz 支持多种输出格式，如 PNG、SVG、PDF 等，这意味着你可以轻松地将其图形集成到其他文档、网页或应用程序中。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;灵活性：虽然 DOT 语言相对简单，但它提供了丰富的特性和属性，允许用户定制图形的外观，如颜色、形状、大小、标签、箭头样式等。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;跨平台：Graphviz 可在多种操作系统上运行，如 Windows、Linux 和 macOS。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;活跃的社区和广泛的应用：由于其开源性质，Graphviz 拥有一个活跃的社区，不断有新的工具和库被开发，以支持更多的用例和集成。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="使用"&gt;使用&lt;/h2&gt;
+&lt;p&gt;Graphviz 使用 DOT 语言来描述图形。在 DOT 中，图分为&lt;strong&gt;有向图&lt;/strong&gt;和&lt;strong&gt;无向图&lt;/strong&gt;，使用&lt;code&gt;digraph&lt;/code&gt;和&lt;code&gt;graph&lt;/code&gt;关键字。&lt;/p&gt;
+&lt;p&gt;安装：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt install dot
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Digraph 有一个明确的起点和终点。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Graph 没有明确的起点和终点。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="节点node"&gt;节点(Node)&lt;/h3&gt;
+&lt;p&gt;节点表示图中的一个实体，每一个节点都有唯一标识符。&lt;/p&gt;
+&lt;h3 id="边"&gt;边&lt;/h3&gt;
+&lt;p&gt;边连接两个节点。在有向图中显示为一个箭头，在无向图中显示为一条线段。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;有向图：&lt;code&gt;nodeA -&amp;gt; nodeB;&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;无向图：&lt;code&gt;nodeA -- bodeB;&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="属性"&gt;属性&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;color&lt;/code&gt; 元素颜色&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;label&lt;/code&gt; 附加到元素上的文本标签&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;shape&lt;/code&gt; 节点形状&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;style&lt;/code&gt; 元素样式&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;digraph G {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	A -&amp;gt; B;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	B -&amp;gt; C;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	C -&amp;gt; D;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	D -&amp;gt; A;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;渲染为图片：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;dot -Tpng ./test.dot -o ./test.png
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="示例"&gt;示例&lt;/h2&gt;
+&lt;p&gt;一个容易的用户登录验证逻辑&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;digraph UserLogin {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	登录 -&amp;gt; 验证用户名和密码;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	验证用户名和密码 -&amp;gt; 放行 [label=&amp;#34;正确&amp;#34;];
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	验证用户名和密码 -&amp;gt; 重试 [label=&amp;#34;错误&amp;#34;];
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	重试 -&amp;gt; 登录
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;figure class="image-caption"&gt;
+ &lt;img src="https://images.glowisle.me/dot-example-login.png" alt=""&gt;
+ &lt;figcaption&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id="参考"&gt;参考&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://zhuanlan.zhihu.com/p/644358139"&gt;https://zhuanlan.zhihu.com/p/644358139&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://graphviz.org/documentation/"&gt;https://graphviz.org/documentation/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>如何订阅新闻组</title><link>https://www.glowisle.me/posts/how-to-subscribe-newsgroup/</link><pubDate>Thu, 07 Aug 2025 11:52:23 +0800</pubDate><author>i@glowisle.me (五葉地錦)</author><guid>https://www.glowisle.me/posts/how-to-subscribe-newsgroup/</guid><description>&lt;h2 id="新闻组简介"&gt;新闻组简介&lt;/h2&gt;
+&lt;p&gt;新闻组（Usenet） 是互联网早期最重要、最具影响力的分布式讨论系统之一，可以把它理解为现代网络论坛（BBS）、社交媒体群组或Reddit版块的前身。它的核心特点是去中心化，提供一个平台，让用户可以在不同的主题分类（新闻组） 中发表文章（类似于帖子）。&lt;/p&gt;
+&lt;h2 id="订阅"&gt;订阅&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;如果有Emacs使用经验，可以用Gnus，本文使用&lt;a href="https://www.thunderbird.net/zh-CN/thunderbird/all/"&gt;Thunderbird&lt;/a&gt;。&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;运行Thunderbird，点击左下角的齿轮。&lt;/p&gt;
+&lt;p&gt;&lt;figure class="image-caption"&gt;
+ &lt;img src="https://images.glowisle.me/subscribe-newsgroup-1.webp" alt=""&gt;
+ &lt;figcaption&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;点击账户设置。&lt;/p&gt;
+&lt;p&gt;点击上方的账户操作，选择新建新闻组账户。&lt;/p&gt;
+&lt;p&gt;&lt;figure class="image-caption"&gt;
+ &lt;img src="https://images.glowisle.me/subscribe-newsgroup-3.webp" alt=""&gt;
+ &lt;figcaption&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;填入昵称、邮箱等基本信息。&lt;/p&gt;
+&lt;p&gt;在下一个服务器地址页面填入&lt;code&gt;news.yingyu5658.me&lt;/code&gt;，点击确定。回到最左边的标签页。&lt;/p&gt;
+&lt;p&gt;&lt;figure class="image-caption"&gt;
+ &lt;img src="https://images.glowisle.me/subscribe-newsgroup-4.webp" alt=""&gt;
+ &lt;figcaption&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;找到刚刚输入的服务器，选择顶部第二个“管理新闻组订阅”选项。&lt;/p&gt;
+&lt;p&gt;&lt;figure class="image-caption"&gt;
+ &lt;img src="https://images.glowisle.me/subscribe-newsgroup-5.webp" alt=""&gt;
+ &lt;figcaption&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;选好要订阅的组，点击右边一栏的订阅，确定。&lt;/p&gt;
+&lt;p&gt;在最左边的列表中，右键刚刚填入的服务器，点击收取邮件，每次想要阅读消息时就收取一次邮件。&lt;/p&gt;
+&lt;p&gt;&lt;figure class="image-caption"&gt;
+ &lt;img src="https://images.glowisle.me/subscribe-newsgroup-6.webp" alt=""&gt;
+ &lt;figcaption&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;如果有想参与讨论的话题，点进那个邮件，选择回复组即可。&lt;/p&gt;
+&lt;p&gt;&lt;figure class="image-caption"&gt;
+ &lt;img src="https://images.glowisle.me/subscribe-newsgroup-7.webp" alt=""&gt;
+ &lt;figcaption&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;/p&gt;</description></item><item><title>在2025年，搭建新闻组</title><link>https://www.glowisle.me/posts/set-up-newsgroup/</link><pubDate>Sat, 26 Jul 2025 12:05:39 +0800</pubDate><author>i@glowisle.me (五葉地錦)</author><guid>https://www.glowisle.me/posts/set-up-newsgroup/</guid><description>&lt;h2 id="介绍"&gt;介绍&lt;/h2&gt;
+&lt;p&gt;新闻组(英文名Usenet或NewsGroup)，简单地说就是一个基于网络的计算机组合，这些计算机被称为新闻服务器，不同的用户通过一些软件可连接到新闻服务器上，阅读其他人的消息并可以参与讨论。新闻组是一个完全交互式的超级电子论坛，是任何一个网络用户都能进行相互交流的工具。现在已经没落，1990年前后是新闻组的鼎盛时期。很可惜，我晚了20年。&lt;/p&gt;
+&lt;p&gt;新闻组基于古老的NNTP协议，又名Usenet，类似一个巨大的论坛，用户可以在不同的组中发表内容，其他用户也可以回复内容，一切基于Email。&lt;/p&gt;
+&lt;h2 id="搭建"&gt;搭建&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;这可能是当今互联网上，你能找到的为数不多的最新的有关新闻组的文章。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;我使用&lt;a href="https://github.com/erco77/newsd"&gt;newsd&lt;/a&gt;这个服务端来搭建，至于为什么没有使用&lt;strong&gt;inn&lt;/strong&gt;，有两个原因：教程过时、软件库中没有。&lt;/p&gt;
+&lt;h3 id="编译与初始化"&gt;编译与初始化&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git clone https://github.com/erco77/newsd.git
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;make
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果没有错误的话，输出是这样的：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-gdscript3" data-lang="gdscript3"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;yingyu5658@bongo &lt;span style="color:#7a8478"&gt;~/&lt;/span&gt;e&lt;span style="color:#7a8478"&gt;/&lt;/span&gt;newsd (master)&lt;span style="color:#7a8478"&gt;&amp;gt;&lt;/span&gt; make
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;g&lt;span style="color:#7a8478"&gt;++&lt;/span&gt; &lt;span style="color:#7a8478"&gt;-&lt;/span&gt;Wall &lt;span style="color:#7a8478"&gt;-&lt;/span&gt;DSPOOL_DIR&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;\&lt;span style="color:#b2c98f"&gt;&amp;#34;/var/spool/newsd&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt; -DCONFIG_FILE=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;/etc/newsd.conf&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt; -DSENDMAIL=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;/usr/sbin/sendmail&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt; -g -c newsd.C&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;g&lt;span style="color:#7a8478"&gt;++&lt;/span&gt; &lt;span style="color:#7a8478"&gt;-&lt;/span&gt;Wall &lt;span style="color:#7a8478"&gt;-&lt;/span&gt;DSPOOL_DIR&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;\&lt;span style="color:#b2c98f"&gt;&amp;#34;/var/spool/newsd&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt; -DCONFIG_FILE=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;/etc/newsd.conf&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt; -DSENDMAIL=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;/usr/sbin/sendmail&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt; -g -c Subs.C&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;g&lt;span style="color:#7a8478"&gt;++&lt;/span&gt; &lt;span style="color:#7a8478"&gt;-&lt;/span&gt;Wall &lt;span style="color:#7a8478"&gt;-&lt;/span&gt;DSPOOL_DIR&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;\&lt;span style="color:#b2c98f"&gt;&amp;#34;/var/spool/newsd&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt; -DCONFIG_FILE=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;/etc/newsd.conf&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt; -DSENDMAIL=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;/usr/sbin/sendmail&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt; -g -c Article.C&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;g&lt;span style="color:#7a8478"&gt;++&lt;/span&gt; &lt;span style="color:#7a8478"&gt;-&lt;/span&gt;Wall &lt;span style="color:#7a8478"&gt;-&lt;/span&gt;DSPOOL_DIR&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;\&lt;span style="color:#b2c98f"&gt;&amp;#34;/var/spool/newsd&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt; -DCONFIG_FILE=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;/etc/newsd.conf&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt; -DSENDMAIL=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;/usr/sbin/sendmail&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt; -g -c Configuration.C&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;g&lt;span style="color:#7a8478"&gt;++&lt;/span&gt; &lt;span style="color:#7a8478"&gt;-&lt;/span&gt;Wall &lt;span style="color:#7a8478"&gt;-&lt;/span&gt;DSPOOL_DIR&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;\&lt;span style="color:#b2c98f"&gt;&amp;#34;/var/spool/newsd&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt; -DCONFIG_FILE=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;/etc/newsd.conf&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt; -DSENDMAIL=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;/usr/sbin/sendmail&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt; -g -c Group.C&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;g&lt;span style="color:#7a8478"&gt;++&lt;/span&gt; &lt;span style="color:#7a8478"&gt;-&lt;/span&gt;Wall &lt;span style="color:#7a8478"&gt;-&lt;/span&gt;DSPOOL_DIR&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;\&lt;span style="color:#b2c98f"&gt;&amp;#34;/var/spool/newsd&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt; -DCONFIG_FILE=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;/etc/newsd.conf&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt; -DSENDMAIL=&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;/usr/sbin/sendmail&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt; -g -c Server.C&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;g&lt;span style="color:#7a8478"&gt;++&lt;/span&gt; &lt;span style="color:#7a8478"&gt;-&lt;/span&gt;Wall newsd&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;o Subs&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;o Article&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;o Configuration&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;o Group&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;o Server&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;o &lt;span style="color:#7a8478"&gt;-&lt;/span&gt;o newsd
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pod2man &lt;span style="color:#7a8478"&gt;--&lt;/span&gt;center &lt;span style="color:#b2c98f"&gt;&amp;#34;newsd Documentation&amp;#34;&lt;/span&gt; &lt;span style="color:#7a8478"&gt;--&lt;/span&gt;section&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;&lt;span style="color:#d699b6"&gt;8&lt;/span&gt; newsd&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;pod &lt;span style="color:#7a8478"&gt;&amp;gt;&lt;/span&gt; newsd&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;&lt;span style="color:#d699b6"&gt;8&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pod2man &lt;span style="color:#7a8478"&gt;--&lt;/span&gt;center &lt;span style="color:#b2c98f"&gt;&amp;#34;newsd Documentation&amp;#34;&lt;/span&gt; &lt;span style="color:#7a8478"&gt;--&lt;/span&gt;section&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;&lt;span style="color:#d699b6"&gt;8&lt;/span&gt; newsd&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;conf&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;pod &lt;span style="color:#7a8478"&gt;&amp;gt;&lt;/span&gt; newsd&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;conf&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;&lt;span style="color:#d699b6"&gt;8&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pod2html newsd&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;pod &lt;span style="color:#7a8478"&gt;&amp;gt;&lt;/span&gt; newsd&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;html
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pod2html newsd&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;conf&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;pod &lt;span style="color:#7a8478"&gt;&amp;gt;&lt;/span&gt; newsd&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;conf&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;html
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;前台调试模式：sudo ./newsd -d -f
+后台守护进程：sudo ./newsd（日志输出至 ${LOG_DIR}/newsd.log）&lt;/p&gt;
+&lt;h3 id="创建sendmail文件"&gt;创建&lt;code&gt;sendmail&lt;/code&gt;文件&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo touch /usr/sbin/sendmail
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;chmod a+x /usr/sbin/sendmail
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="创建新闻组"&gt;创建新闻组&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo ./newsd -newgroup
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;运行这条命令后，程序会依次要求输入：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;组名&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;是否允许用户发件&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;字数限制（？）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;描述&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;管理员的邮箱&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;将所有帖子的副本密送到的邮箱&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;创建好后，运行&lt;code&gt;sudo ./newsd -d -f&lt;/code&gt;。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-gdscript3" data-lang="gdscript3"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Sat Jul &lt;span style="color:#d699b6"&gt;26&lt;/span&gt; &lt;span style="color:#d699b6"&gt;12&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;28&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;48&lt;/span&gt; &lt;span style="color:#d699b6"&gt;2025&lt;/span&gt; newsd[&lt;span style="color:#d699b6"&gt;38895&lt;/span&gt;]: &lt;span style="color:#7a8478"&gt;--&lt;/span&gt; newsd started &lt;span style="color:#7a8478"&gt;-&lt;/span&gt; V1&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;&lt;span style="color:#d699b6"&gt;54&lt;/span&gt;&lt;span style="color:#7a8478"&gt;--&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Sat Jul &lt;span style="color:#d699b6"&gt;26&lt;/span&gt; &lt;span style="color:#d699b6"&gt;12&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;28&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;48&lt;/span&gt; &lt;span style="color:#d699b6"&gt;2025&lt;/span&gt; newsd[&lt;span style="color:#d699b6"&gt;38895&lt;/span&gt;]: &lt;span style="color:#7a8478"&gt;--&lt;/span&gt; start config summary &lt;span style="color:#7a8478"&gt;--&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Sat Jul &lt;span style="color:#d699b6"&gt;26&lt;/span&gt; &lt;span style="color:#d699b6"&gt;12&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;28&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;48&lt;/span&gt; &lt;span style="color:#d699b6"&gt;2025&lt;/span&gt; newsd[&lt;span style="color:#d699b6"&gt;38895&lt;/span&gt;]: ErrorLog stderr
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Sat Jul &lt;span style="color:#d699b6"&gt;26&lt;/span&gt; &lt;span style="color:#d699b6"&gt;12&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;28&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;48&lt;/span&gt; &lt;span style="color:#d699b6"&gt;2025&lt;/span&gt; newsd[&lt;span style="color:#d699b6"&gt;38895&lt;/span&gt;]: HostnameLookups off
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Sat Jul &lt;span style="color:#d699b6"&gt;26&lt;/span&gt; &lt;span style="color:#d699b6"&gt;12&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;28&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;48&lt;/span&gt; &lt;span style="color:#d699b6"&gt;2025&lt;/span&gt; newsd[&lt;span style="color:#d699b6"&gt;38895&lt;/span&gt;]: Listen &lt;span style="color:#d699b6"&gt;0.0&lt;/span&gt;&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;&lt;span style="color:#d699b6"&gt;0.0&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;119&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Sat Jul &lt;span style="color:#d699b6"&gt;26&lt;/span&gt; &lt;span style="color:#d699b6"&gt;12&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;28&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;48&lt;/span&gt; &lt;span style="color:#d699b6"&gt;2025&lt;/span&gt; newsd[&lt;span style="color:#d699b6"&gt;38895&lt;/span&gt;]: LogLevel debug
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Sat Jul &lt;span style="color:#d699b6"&gt;26&lt;/span&gt; &lt;span style="color:#d699b6"&gt;12&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;28&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;48&lt;/span&gt; &lt;span style="color:#d699b6"&gt;2025&lt;/span&gt; newsd[&lt;span style="color:#d699b6"&gt;38895&lt;/span&gt;]: MaxClients &lt;span style="color:#d699b6"&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Sat Jul &lt;span style="color:#d699b6"&gt;26&lt;/span&gt; &lt;span style="color:#d699b6"&gt;12&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;28&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;48&lt;/span&gt; &lt;span style="color:#d699b6"&gt;2025&lt;/span&gt; newsd[&lt;span style="color:#d699b6"&gt;38895&lt;/span&gt;]: MaxLogSize &lt;span style="color:#d699b6"&gt;1048576&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Sat Jul &lt;span style="color:#d699b6"&gt;26&lt;/span&gt; &lt;span style="color:#d699b6"&gt;12&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;28&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;48&lt;/span&gt; &lt;span style="color:#d699b6"&gt;2025&lt;/span&gt; newsd[&lt;span style="color:#d699b6"&gt;38895&lt;/span&gt;]: SendMail &lt;span style="color:#7a8478"&gt;/&lt;/span&gt;usr&lt;span style="color:#7a8478"&gt;/&lt;/span&gt;sbin&lt;span style="color:#7a8478"&gt;/&lt;/span&gt;sendmail &lt;span style="color:#7a8478"&gt;-&lt;/span&gt;t
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Sat Jul &lt;span style="color:#d699b6"&gt;26&lt;/span&gt; &lt;span style="color:#d699b6"&gt;12&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;28&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;48&lt;/span&gt; &lt;span style="color:#d699b6"&gt;2025&lt;/span&gt; newsd[&lt;span style="color:#d699b6"&gt;38895&lt;/span&gt;]: ServerName bongo
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Sat Jul &lt;span style="color:#d699b6"&gt;26&lt;/span&gt; &lt;span style="color:#d699b6"&gt;12&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;28&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;48&lt;/span&gt; &lt;span style="color:#d699b6"&gt;2025&lt;/span&gt; newsd[&lt;span style="color:#d699b6"&gt;38895&lt;/span&gt;]: SpamFilter 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Sat Jul &lt;span style="color:#d699b6"&gt;26&lt;/span&gt; &lt;span style="color:#d699b6"&gt;12&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;28&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;48&lt;/span&gt; &lt;span style="color:#d699b6"&gt;2025&lt;/span&gt; newsd[&lt;span style="color:#d699b6"&gt;38895&lt;/span&gt;]: SpoolDir &lt;span style="color:#7a8478"&gt;/&lt;/span&gt;&lt;span style="color:#e67e80"&gt;var&lt;/span&gt;&lt;span style="color:#7a8478"&gt;/&lt;/span&gt;spool&lt;span style="color:#7a8478"&gt;/&lt;/span&gt;newsd
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Sat Jul &lt;span style="color:#d699b6"&gt;26&lt;/span&gt; &lt;span style="color:#d699b6"&gt;12&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;28&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;48&lt;/span&gt; &lt;span style="color:#d699b6"&gt;2025&lt;/span&gt; newsd[&lt;span style="color:#d699b6"&gt;38895&lt;/span&gt;]: Timeout &lt;span style="color:#d699b6"&gt;43200&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Sat Jul &lt;span style="color:#d699b6"&gt;26&lt;/span&gt; &lt;span style="color:#d699b6"&gt;12&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;28&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;48&lt;/span&gt; &lt;span style="color:#d699b6"&gt;2025&lt;/span&gt; newsd[&lt;span style="color:#d699b6"&gt;38895&lt;/span&gt;]: User news
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Sat Jul &lt;span style="color:#d699b6"&gt;26&lt;/span&gt; &lt;span style="color:#d699b6"&gt;12&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;28&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;48&lt;/span&gt; &lt;span style="color:#d699b6"&gt;2025&lt;/span&gt; newsd[&lt;span style="color:#d699b6"&gt;38895&lt;/span&gt;]: &lt;span style="color:#7a8478"&gt;--&lt;/span&gt; end config summary &lt;span style="color:#7a8478"&gt;--&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;其中，我们需要注意的信息是监听地址，由于我这里是本地环境，是&lt;code&gt;0.0.0.0&lt;/code&gt;。这时用客户端连接这个地址，订阅刚刚创建的组就可以使用了。&lt;/p&gt;
+&lt;p&gt;这个服务端自己搭着玩玩还是足够的，大规模还是要用其他的，不过现在大规模的新闻组肯定不多了。&lt;/p&gt;
+&lt;h2 id="附关于新闻组的文档资料hypermemo整理"&gt;附：关于新闻组的文档资料（hypermemo整理）&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;nntp 协议的参考资料： &lt;a href="https://www.eyrie.org/~eagle/nntp/"&gt;https://www.eyrie.org/~eagle/nntp/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;inn 文档（英文）：&lt;a href="https://www.eyrie.org/~eagle/software/inn/"&gt;https://www.eyrie.org/~eagle/software/inn/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>
