@@ -1009,8 +1009,8 @@ blockquote.text-secondary {
 &lt;p&gt;这个过程踩了不少坑，从服务端到nginx到cloudflare缓存，前端后端几乎全踩了一遍，不过也好，也算是为对服务器维护一窍不通的我积累经验了。其中卡了我最长时间的问题是头像的显示问题。这个问题有好几个阶段。&lt;/p&gt;
 &lt;p&gt;阶段一：上传图片会裂开。是nginx配置问题导致，程序不知道该把图片上传到什么位置，在调整nginx配置文件后解决了。&lt;/p&gt;
 &lt;p&gt;阶段二：可以上传图片，服务器物理上存储了图片，但还是裂，实际url被设置为：&lt;code&gt;https:akk.glowisle.me/media.glowisle.me/xxxx.png/&lt;/code&gt;，这是baseurl没有加&lt;code&gt;https://&lt;/code&gt;导致的。&lt;/p&gt;
-&lt;p&gt;阶段三：上传头像，png格式的图片会变成一张透明图，其他格式全部变成纯黑图。&lt;/p&gt;
-&lt;p&gt;这里是浪费时间最长的，一开始我以为图片损坏或者媒体类型不正确，用curl各种测都正常，之后怀疑是图片裁剪后端的问题，因为我的服务器发行版是Debian，我担心软件版本太低，然而禁用了裁剪器后问题依然存在，我开始抓瞎排查调试……&lt;/p&gt;
+&lt;p&gt;阶段三：上传头像，png格式的图片会变成一张透明图，其他格式全部变成纯黑图。
+这里是浪费时间最长的，一开始我以为图片损坏或者媒体类型不正确，用curl各种测都正常，之后怀疑是图片裁剪后端的问题，因为我的服务器发行版是Debian，我担心软件版本太低，然而禁用了裁剪器后问题依然存在，我开始抓瞎排查调试……&lt;/p&gt;
 &lt;p&gt;我用手机客户端登录账号上传头像，就不会有这个问题。在那个客户端里没有裁剪图片这个步骤，我就更加笃定是裁剪后端的问题了。直到在&lt;a href="https://akk.glowisle.me/notice/B35Dd1zdF1yNJurewS"&gt;这条帖子&lt;/a&gt;下有网友回复可能是浏览器问题，我才换了一个浏览器来测试，终于能正常上传图片了。没想到问题竟然出在这里！&lt;/p&gt;
 &lt;h3 id="有点折磨自己的改变"&gt;有点折磨自己的改变！&lt;/h3&gt;
 &lt;p&gt;我最近打破了很多原有的习惯。比如，我重新配置了Emacs，而不是继续使用Doom Emacs。&lt;a href="https://codeberg.org/verdant/emacs.d"&gt;这里是我的配置文件&lt;/a&gt;。&lt;/p&gt;

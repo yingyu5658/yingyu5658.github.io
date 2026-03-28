@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linux on 映屿</title><link>https://www.glowisle.me/tags/linux/</link><description>Recent content in Linux on 映屿</description><generator>Hugo</generator><language>zh-cn</language><managingEditor>i@glowisle.me (五葉地錦)</managingEditor><webMaster>i@glowisle.me (五葉地錦)</webMaster><lastBuildDate>Wed, 12 Nov 2025 16:48:02 +0800</lastBuildDate><atom:link href="http://www.glowisle.me/tags/linux/atom.xml" rel="self" type="application/rss+xml"/><item><title>使用Emacs收发邮件</title><link>https://www.glowisle.me/posts/email-with-emacs/</link><pubDate>Wed, 12 Nov 2025 16:48:02 +0800</pubDate><author>i@glowisle.me (五葉地錦)</author><guid>https://www.glowisle.me/posts/email-with-emacs/</guid><description>&lt;p&gt;作为一个合格的操作系统，肯定少不了Email. 我的配置很简单，只要实现基础的收发功能即可，每天的邮件量不大。在这里记录一下配置。&lt;/p&gt;
 &lt;h2 id="收邮件"&gt;收邮件&lt;/h2&gt;
 &lt;p&gt;我尝试过 &lt;strong&gt;&lt;a href="https://www.fetchmail.info"&gt;fetchmail&lt;/a&gt;&lt;/strong&gt;，但不知道这个东西拿到的邮件都在哪，所以最后还是选择了 &lt;strong&gt;mbsync&lt;/strong&gt;.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# ~/.mbsyncrc
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# ~/.mbsyncrc
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# GlowIsle 账户配置
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;IMAPAccount GlowIsle
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Host imap.qiye.aliyun.com
@@ -32,7 +32,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Expunge Both
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;SyncState *
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="发邮件"&gt;发邮件&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# ~/.msmtprc
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# ~/.msmtprc
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# glowisle
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;account glowisle 
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;host smtp.qiye.aliyun.com
@@ -50,10 +50,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;account default : glowisle
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="emacs-配置"&gt;Emacs 配置&lt;/h2&gt;
 &lt;p&gt;在Doom Emacs的&lt;code&gt;init.el&lt;/code&gt;中开启 mu4e&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:email&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:email&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (mu4e +org)
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#859289;font-style:italic"&gt;;; config.el&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#859289;font-style:italic"&gt;;; config.el&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(after! mu4e
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;;; 基本设置&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (&lt;span style="color:#e67e80"&gt;setq&lt;/span&gt; mu4e-maildir &lt;span style="color:#b2c98f"&gt;&amp;#34;~/mail&amp;#34;&lt;/span&gt; &lt;span style="color:#859289;font-style:italic"&gt;; 邮件目录&lt;/span&gt;
@@ -86,7 +86,7 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;SPC o m&lt;/code&gt; 进入 mu4e 主页面&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Basics
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Basics
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; * [J]ump to some maildir
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; * enter a [s]earch query
@@ -112,7 +112,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
 &lt;p&gt;微软的Outlook邮箱使用OAuth2.0认证，我暂时没找到成功的解决方案能在Emacs上使用，如果有哪位路过的好哥们知道方法请留言或&lt;a href="mailto:i@glowisle.me"&gt;发个邮件&lt;/a&gt;探讨一下！&lt;/p&gt;</description></item><item><title>Tmux配置记录</title><link>https://www.glowisle.me/posts/tmux%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/</link><pubDate>Sat, 21 Jun 2025 14:19:36 +0000</pubDate><author>i@glowisle.me (五葉地錦)</author><guid>https://www.glowisle.me/posts/tmux%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/</guid><description>&lt;p&gt;TMux 是终端复用神器，让你在一个终端窗口管理多个会话、窗口和窗格。&lt;/p&gt;
 &lt;p&gt;基础操作：启动Tmux&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tmux
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tmux
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;所以我选择在&lt;code&gt;~/.bashrc&lt;/code&gt;里加上这句，每次打开终端都会自动进入tmux。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;需要掌握的概念&lt;/strong&gt;：&lt;/p&gt;
 &lt;ul&gt;
@@ -208,7 +208,7 @@
  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;&lt;strong&gt;配置自定义（~/.tmux.conf）&lt;/strong&gt;：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;set-option -g default-shell /bin/bash # 强制使用 Bash
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;set-option -g default-shell /bin/bash # 强制使用 Bash
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;set-option -g default-command /bin/bash # 确保新会话/Pane 也使用 Bash
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;unbind H # 移除 H 的绑定
@@ -226,7 +226,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;bind v split-window -h # 前缀键+v垂直分割
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;bind -n C-Left resize-pane -L 5 # Ctrl+←：向左扩大窗格 5 单位
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;bind -n C-Right resize-pane -R 5 # Ctrl+→：向右扩大窗格 5 单位
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ________________
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ________________
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;lt; fuck you tmux! &amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ----------------
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; \ ^__^
@@ -301,7 +301,7 @@
 &lt;code&gt;git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;重启Emacs，让他下载一下自带的包。&lt;/p&gt;
 &lt;p&gt;上次没清理干净Spacemacs，不知道存在哪的备份还在，算是免去了一些折腾吧。来看看现在的Emacs都配置了什么。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; dotspacemacs-configuration-layers
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; dotspacemacs-configuration-layers
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#7a8478"&gt;&amp;#39;&lt;/span&gt;(yaml
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; markdown
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; javascript
@@ -349,7 +349,7 @@
 该层会自动集成Flycheck及其常见语言的后端支持。&lt;/p&gt;
 &lt;p&gt;C/C++要安装&lt;code&gt;clang-tidy&lt;/code&gt;或&lt;code&gt;cppcheck&lt;/code&gt;。&lt;/p&gt;
 &lt;h3 id="进阶配置"&gt;进阶配置&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (with-eval-after-load &lt;span style="color:#e69875"&gt;&amp;#39;flycheck&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (with-eval-after-load &lt;span style="color:#e69875"&gt;&amp;#39;flycheck&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (&lt;span style="color:#e67e80"&gt;setq&lt;/span&gt; flycheck-check-syntax-automatically &lt;span style="color:#7a8478"&gt;&amp;#39;&lt;/span&gt;(save mode-enabled) &lt;span style="color:#859289;font-style:italic"&gt;;; 保存时检查&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; flycheck-display-errors-delay &lt;span style="color:#d699b6"&gt;0.5&lt;/span&gt; &lt;span style="color:#859289;font-style:italic"&gt;;; 错误显示延迟&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; flycheck-indication-mode &lt;span style="color:#e69875"&gt;&amp;#39;right-fringe&lt;/span&gt;)) &lt;span style="color:#859289;font-style:italic"&gt;;; 错误标记位置&lt;/span&gt;
@@ -570,16 +570,16 @@ blockquote.text-secondary {
 &lt;p&gt;在&lt;code&gt;rm -rf ~/.emacs.d&lt;/code&gt;后，那个不伦不类、上不去下不来的Emacs彻底成为了历史。重新输入Emacs，又看到熟悉又陌生的丑陋开屏页。&lt;/p&gt;
 &lt;h2 id="小插曲"&gt;小插曲&lt;/h2&gt;
 &lt;p&gt;WSLg间歇性抽风，打不开GUI&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Display 10.255.255.254:0 unavailable, simulating -nw
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Display 10.255.255.254:0 unavailable, simulating -nw
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;打开管理员Powershell，运行&lt;code&gt;wsl --update&lt;/code&gt;
 ![[public/images/我还是放不下Emacs！/Pasted image 20250603210050.png]]
 &lt;del&gt;我草，怎么这么慢？？&lt;/del&gt;&lt;/p&gt;
 &lt;h2 id="melpa配置"&gt;MELPA配置&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#b2c98f"&gt;require&lt;/span&gt; &lt;span style="color:#e69875"&gt;&amp;#39;package&lt;/span&gt;)
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#b2c98f"&gt;require&lt;/span&gt; &lt;span style="color:#e69875"&gt;&amp;#39;package&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(add-to-list &lt;span style="color:#e69875"&gt;&amp;#39;package-archives&lt;/span&gt; &lt;span style="color:#7a8478"&gt;&amp;#39;&lt;/span&gt;(&lt;span style="color:#b2c98f"&gt;&amp;#34;melpa&amp;#34;&lt;/span&gt; &lt;span style="color:#7a8478"&gt;.&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;https://melpa.org/packages/&amp;#34;&lt;/span&gt;) &lt;span style="color:#d699b6"&gt;t&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(package-initialize)
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;切换中国镜像源&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#b2c98f"&gt;require&lt;/span&gt; &lt;span style="color:#e69875"&gt;&amp;#39;package&lt;/span&gt;)
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#b2c98f"&gt;require&lt;/span&gt; &lt;span style="color:#e69875"&gt;&amp;#39;package&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#e67e80"&gt;setq&lt;/span&gt; package-archives &lt;span style="color:#7a8478"&gt;&amp;#39;&lt;/span&gt;((&lt;span style="color:#b2c98f"&gt;&amp;#34;gnu&amp;#34;&lt;/span&gt; &lt;span style="color:#7a8478"&gt;.&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;http://mirrors.cloud.tencent.com/elpa/gnu/&amp;#34;&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (&lt;span style="color:#b2c98f"&gt;&amp;#34;melpa&amp;#34;&lt;/span&gt; &lt;span style="color:#7a8478"&gt;.&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;http://mirrors.cloud.tencent.com/elpa/melpa/&amp;#34;&lt;/span&gt;)))
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(package-initialize)
@@ -587,10 +587,10 @@ blockquote.text-secondary {
 默认情况下，插件会被安装到 &lt;code&gt;~/.emacs.d/elpa/&lt;/code&gt; 目录下。&lt;/p&gt;
 &lt;h2 id="use-package"&gt;use-package&lt;/h2&gt;
 &lt;p&gt;输入&lt;code&gt;package-install&lt;/code&gt;，输入&lt;code&gt;use-package&lt;/code&gt;，回车安装，然后在init.el中写&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(eval-when-compile
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(eval-when-compile
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (&lt;span style="color:#b2c98f"&gt;require&lt;/span&gt; &lt;span style="color:#e69875"&gt;&amp;#39;use-package&lt;/span&gt;))
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="ivy"&gt;ivy&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#b2c98f"&gt;use-package&lt;/span&gt; ivy
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#b2c98f"&gt;use-package&lt;/span&gt; ivy
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:ensure&lt;/span&gt; &lt;span style="color:#d699b6"&gt;t&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:init&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (ivy-mode &lt;span style="color:#d699b6"&gt;1&lt;/span&gt;)
@@ -610,36 +610,36 @@ blockquote.text-secondary {
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:map&lt;/span&gt; minibuffer-local-map
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (&lt;span style="color:#b2c98f"&gt;&amp;#34;C-r&amp;#34;&lt;/span&gt; &lt;span style="color:#7a8478"&gt;.&lt;/span&gt; counsel-minibuffer-history)))
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="amx"&gt;amx&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#b2c98f"&gt;use-package&lt;/span&gt; amx
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#b2c98f"&gt;use-package&lt;/span&gt; amx
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:ensure&lt;/span&gt; &lt;span style="color:#d699b6"&gt;t&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:init&lt;/span&gt; (amx-mode))
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="ace-window"&gt;ace-window&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(use&lt;span style="color:#7a8478"&gt;-&lt;/span&gt;&lt;span style="color:#e67e80"&gt;package&lt;/span&gt; ace&lt;span style="color:#7a8478"&gt;-&lt;/span&gt;window
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(use&lt;span style="color:#7a8478"&gt;-&lt;/span&gt;&lt;span style="color:#e67e80"&gt;package&lt;/span&gt; ace&lt;span style="color:#7a8478"&gt;-&lt;/span&gt;window
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; :ensure t
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; :&lt;span style="color:#b2c98f"&gt;bind&lt;/span&gt; ((&lt;span style="color:#b2c98f"&gt;&amp;#34;C-x o&amp;#34;&lt;/span&gt; . &amp;#39;ace&lt;span style="color:#7a8478"&gt;-&lt;/span&gt;window)))
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="mwim"&gt;mwim&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#b2c98f"&gt;use-package&lt;/span&gt; mwim
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#b2c98f"&gt;use-package&lt;/span&gt; mwim
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:ensure&lt;/span&gt; &lt;span style="color:#d699b6"&gt;t&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:bind&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (&lt;span style="color:#b2c98f"&gt;&amp;#34;C-a&amp;#34;&lt;/span&gt; &lt;span style="color:#7a8478"&gt;.&lt;/span&gt; mwim-beginning-of-code-or-line)
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (&lt;span style="color:#b2c98f"&gt;&amp;#34;C-e&amp;#34;&lt;/span&gt; &lt;span style="color:#7a8478"&gt;.&lt;/span&gt; mwim-end-of-code-or-line))
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="undo-tree"&gt;undo-tree&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#b2c98f"&gt;use-package&lt;/span&gt; undo-tree
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#b2c98f"&gt;use-package&lt;/span&gt; undo-tree
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:ensure&lt;/span&gt; &lt;span style="color:#d699b6"&gt;t&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:init&lt;/span&gt; (global-undo-tree-mode)
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:custom&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (undo-tree-auto-save-history &lt;span style="color:#d699b6"&gt;nil&lt;/span&gt;))
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="smart-mode-line"&gt;smart-mode-line&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#b2c98f"&gt;use-package&lt;/span&gt; smart-mode-line
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#b2c98f"&gt;use-package&lt;/span&gt; smart-mode-line
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:ensure&lt;/span&gt; &lt;span style="color:#d699b6"&gt;t&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:init&lt;/span&gt; (sml/setup))
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="good-scroll"&gt;good-scroll&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#b2c98f"&gt;use-package&lt;/span&gt; good-scroll
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#b2c98f"&gt;use-package&lt;/span&gt; good-scroll
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:ensure&lt;/span&gt; &lt;span style="color:#d699b6"&gt;t&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:if&lt;/span&gt; window-system &lt;span style="color:#859289;font-style:italic"&gt;; 在图形化界面时才使用这个插件&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:init&lt;/span&gt; (good-scroll-mode))
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;今天就先到这里吧。&lt;/p&gt;</description></item><item><title>WSL Arch Linux ZSH输入中文输入法乱码解决方法</title><link>https://www.glowisle.me/posts/wsl-arch-linux-zsh%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</link><pubDate>Tue, 29 Apr 2025 10:31:26 +0000</pubDate><author>i@glowisle.me (五葉地錦)</author><guid>https://www.glowisle.me/posts/wsl-arch-linux-zsh%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</guid><description>&lt;p&gt;没有进行配置的情况下输入中文，一般会显示&amp;lt;0xffffffff&amp;gt;，这是由于没有安装字体造成的。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo pacman -S noto-fonts-cjk &lt;span style="color:#859289;font-style:italic"&gt;# 安装中文字体&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo pacman -S noto-fonts-cjk &lt;span style="color:#859289;font-style:italic"&gt;# 安装中文字体&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo vi /etc/locale.gen &lt;span style="color:#859289;font-style:italic"&gt;# 取消注释 zh_CN.UTF-8&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo locale-gen &lt;span style="color:#859289;font-style:italic"&gt;# 生成语言环境&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#d699b6"&gt;echo&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;export LANG=zh_CN.UTF-8&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; ~/.zshrc &lt;span style="color:#859289;font-style:italic"&gt;# 设置默认中文环境&lt;/span&gt;
@@ -819,24 +819,24 @@ blockquote.text-secondary {
 &lt;h2 id="配置-ibus-和-rime"&gt;配置 IBus 和 Rime&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;设置环境变量&lt;/strong&gt;
 在&lt;code&gt;~/.xprofile&lt;/code&gt;添加以下内容&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#d699b6"&gt;export&lt;/span&gt; GTK_IM_MODULE&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;ibus &lt;span style="color:#d699b6"&gt;export&lt;/span&gt; QT_IM_MODULE&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;ibus &lt;span style="color:#d699b6"&gt;export&lt;/span&gt; XMODIFIERS&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;@im&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;ibus
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#d699b6"&gt;export&lt;/span&gt; GTK_IM_MODULE&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;ibus &lt;span style="color:#d699b6"&gt;export&lt;/span&gt; QT_IM_MODULE&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;ibus &lt;span style="color:#d699b6"&gt;export&lt;/span&gt; XMODIFIERS&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;@im&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;ibus
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;重启系统或执行 &lt;code&gt;source ~/.xprofile&lt;/code&gt; 使配置生效&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;启动 IBus 并添加 Rime 输入源&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ibus-daemon -drx
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ibus-daemon -drx
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;右键点击系统托盘中的 IBus 图标，选择 &lt;strong&gt;Preferences&lt;/strong&gt; → &lt;strong&gt;Input Method&lt;/strong&gt; → &lt;strong&gt;Add&lt;/strong&gt;，选择 &lt;strong&gt;Chinese (Rime)&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;配置双拼方案&lt;/strong&gt;
 编辑 Rime 的配置文件 &lt;code&gt;~/.config/ibus/rime/default.custom.yaml&lt;/code&gt;：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;patch:
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;patch:
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;schema_list:
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	- schema: double_pinyin &lt;span style="color:#859289;font-style:italic"&gt;# 自然码双拼&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	- schema: luna_pinyin &lt;span style="color:#859289;font-style:italic"&gt;# 全拼备用&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="优化-rime-的智能联想与词库"&gt;优化 Rime 的智能联想与词库&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;启用雾凇拼音方案（推荐）&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#d699b6"&gt;cd&lt;/span&gt; ~/.config/ibus/rime
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#d699b6"&gt;cd&lt;/span&gt; ~/.config/ibus/rime
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git clone https://github.com/iDvel/rime-ice.git
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cp -r rime-ice/* .
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="安装小鹤双拼方案"&gt;安装小鹤双拼方案&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#859289;font-style:italic"&gt;# 安装 plum 工具&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#859289;font-style:italic"&gt;# 安装 plum 工具&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl -fsSL https://git.io/rime-install | bash -s -- double-pinyin flypy
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>Kitty终端美化记录</title><link>https://www.glowisle.me/posts/kitty%E7%BB%88%E7%AB%AF%E7%BE%8E%E5%8C%96%E8%AE%B0%E5%BD%95/</link><pubDate>Sun, 09 Mar 2025 12:41:10 +0000</pubDate><author>i@glowisle.me (五葉地錦)</author><guid>https://www.glowisle.me/posts/kitty%E7%BB%88%E7%AB%AF%E7%BE%8E%E5%8C%96%E8%AE%B0%E5%BD%95/</guid><description>&lt;p&gt;Kitty这个终端可谓是兼顾了性能与美观，虽然默认设置很简陋，但是经过一番折腾后也能变得很漂亮。&lt;/p&gt;
 &lt;h2 id="选择配色"&gt;选择配色&lt;/h2&gt;
@@ -853,7 +853,7 @@ blockquote.text-secondary {
 输入&lt;code&gt;kitty list-fonts --psnames&lt;/code&gt;来列出系统安装好的所有等宽字体。&lt;/p&gt;
 &lt;h2 id="设置窗口风格"&gt;设置窗口风格&lt;/h2&gt;
 &lt;p&gt;进入配置文件&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;#window
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;#window
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# 不显示窗口标题栏 保留窗口圆角
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;hide_window_decorations titlebar-only
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# 边距
@@ -863,7 +863,7 @@ blockquote.text-secondary {
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# 毛玻璃效果
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;background_blur 30
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="设置标签栏风格"&gt;设置标签栏风格&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;#tab bar
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;#tab bar
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tab_bar_edge top
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tab_bar_style powerline
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tab_powerline_style slanted
@@ -885,9 +885,9 @@ blockquote.text-secondary {
  &lt;figcaption&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;&lt;/p&gt;</description></item><item><title>KDE桌面环境无法在Konsole切换中文输入法的解决方案</title><link>https://www.glowisle.me/posts/kde%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E6%97%A0%E6%B3%95%E5%9C%A8konsole%E5%88%87%E6%8D%A2%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</link><pubDate>Sat, 08 Mar 2025 22:07:58 +0000</pubDate><author>i@glowisle.me (五葉地錦)</author><guid>https://www.glowisle.me/posts/kde%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E6%97%A0%E6%B3%95%E5%9C%A8konsole%E5%88%87%E6%8D%A2%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</guid><description>&lt;h3 id="原因"&gt;原因&lt;/h3&gt;
 &lt;p&gt;KDE默认使用Wayland会话，而fcitx4不支持Wayland，需升级到fcitx5。若无法升级到fcitx5或升级后仍然无法切换中文输入法，&lt;strong&gt;安装fcitx-qt6&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo pacman -S fcitx-qt6
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo pacman -S fcitx-qt6
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安装后执行&lt;code&gt;sudo reboot now&lt;/code&gt;进行重启，问题解决。&lt;/p&gt;</description></item><item><title>【未解决】Windows WSL报错：Error: 0x80080005 ???????</title><link>https://www.glowisle.me/posts/%E6%9C%AA%E8%A7%A3%E5%86%B3windows-wsl%E6%8A%A5%E9%94%99error-0x80080005/</link><pubDate>Tue, 04 Mar 2025 20:58:30 +0000</pubDate><author>i@glowisle.me (五葉地錦)</author><guid>https://www.glowisle.me/posts/%E6%9C%AA%E8%A7%A3%E5%86%B3windows-wsl%E6%8A%A5%E9%94%99error-0x80080005/</guid><description>&lt;p&gt;设备环境：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;操作系统：Windows 10
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;操作系统：Windows 10
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;安装系统：Arch Linux
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;错误日志：
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Installing, this may take a few minutes...
@@ -897,7 +897,7 @@ blockquote.text-secondary {
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Press any key to continue...
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;网上有一篇&lt;a href="https://ask.csdn.net/questions/7625716"&gt;文章&lt;/a&gt;提到这个错误，下面的评论回复以管理员权限运行命令提示符并执行&lt;code&gt;sc stop LxssManager&lt;/code&gt;和&lt;code&gt;sc start LxssManager&lt;/code&gt;
 出现如下报错：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;C:\Windows\system32&amp;gt;sc stop LxssManager
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;C:\Windows\system32&amp;gt;sc stop LxssManager
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;[SC] OpenService 失败 1060:
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;指定的服务未安装。
@@ -910,12 +910,12 @@ blockquote.text-secondary {
 勾选&lt;code&gt;适用于Linux的Windows子系统&lt;/code&gt;和&lt;code&gt;虚拟机平台&lt;/code&gt;这两项，点击确定
 重启电脑。
 回来以后，用管理员身份运行powershell，强制重置WSL服务，依次执行：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;wsl --shutdown
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;wsl --shutdown
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;wsl --unregister Arch &lt;span style="color:#859289;font-style:italic"&gt;# 替换为你的发行版名称&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;wsl --install -d Arch &lt;span style="color:#859289;font-style:italic"&gt;# 重新注册发行版&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果提示内核缺失，在这里下&lt;a href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi"&gt;https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;如果有以下输出：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;zcz  system32  ♥ 21:32  wsl --shutdown
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;zcz  system32  ♥ 21:32  wsl --shutdown
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;此应用程序需要适用于 Linux 的 Windows 子系统可选组件。
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;通过运行安装它： wsl.exe --install --no-distribution
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;可能需要重新启动系统才能使更改生效。
@@ -928,10 +928,10 @@ blockquote.text-secondary {
 &lt;strong&gt;强制安装WSL组件&lt;/strong&gt;
 &lt;strong&gt;以管理员身份运行 PowerShell&lt;/strong&gt;，执行以下命令：&lt;/li&gt;
 &lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#859289;font-style:italic"&gt;# 安装WSL核心组件（会自动启用虚拟化功能）&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#859289;font-style:italic"&gt;# 安装WSL核心组件（会自动启用虚拟化功能）&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;wsl --install
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;输出：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-gdscript3" data-lang="gdscript3"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;zcz  system32  ♥ &lt;span style="color:#d699b6"&gt;21&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;34&lt;/span&gt;  wsl &lt;span style="color:#7a8478"&gt;--&lt;/span&gt;install
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-gdscript3" data-lang="gdscript3"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;zcz  system32  ♥ &lt;span style="color:#d699b6"&gt;21&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;34&lt;/span&gt;  wsl &lt;span style="color:#7a8478"&gt;--&lt;/span&gt;install
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;正在安装 Windows 可选组件: Microsoft&lt;span style="color:#7a8478"&gt;-&lt;/span&gt;Windows&lt;span style="color:#7a8478"&gt;-&lt;/span&gt;Subsystem&lt;span style="color:#7a8478"&gt;-&lt;/span&gt;Linux
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Deployment &lt;span style="color:#e67e80"&gt;Image&lt;/span&gt; Servicing &lt;span style="color:#7a8478"&gt;and&lt;/span&gt; Management &lt;span style="color:#e67e80"&gt;tool&lt;/span&gt;
@@ -959,21 +959,21 @@ blockquote.text-secondary {
 尝试过的方法：进入安全模式，尝试重启更新，失败。
 安全模式仍然失败，选择临时禁用WSL服务
 管理员cmd执行&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-powershell" data-lang="powershell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#d699b6"&gt;sc &lt;/span&gt;config LxssManager start= disabled
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-powershell" data-lang="powershell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#d699b6"&gt;sc &lt;/span&gt;config LxssManager start= disabled
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;shutdown /&lt;span style="color:#d699b6"&gt;r &lt;/span&gt;/t &lt;span style="color:#d699b6"&gt;0&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;输出：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;C:\Windows\system32&amp;gt;sc config LxssManager start= disabled&amp;amp;&amp;amp; shutdown /r /t 0
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;C:\Windows\system32&amp;gt;sc config LxssManager start= disabled&amp;amp;&amp;amp; shutdown /r /t 0
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;[SC] OpenService 失败 1060:
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;指定的服务未安装。
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;唉，老朋友，又见面了。只能祭出来我的终极大杀器。&lt;/p&gt;
 &lt;h3 id="彻底重装wsl"&gt;&lt;strong&gt;彻底重装WSL&lt;/strong&gt;&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-powershell" data-lang="powershell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#859289;font-style:italic"&gt;# 卸载所有发行版&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-powershell" data-lang="powershell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#859289;font-style:italic"&gt;# 卸载所有发行版&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;wsl --unregister *
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#859289;font-style:italic"&gt;# 删除残留配置&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#d699b6"&gt;Remove-Item&lt;/span&gt; -Path &lt;span style="color:#b2c98f"&gt;&amp;#34;&lt;/span&gt;$env:USERPROFILE&lt;span style="color:#b2c98f"&gt;\AppData\Local\Packages\*Linux*&amp;#34;&lt;/span&gt; -Recurse -Force
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;输出：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;zcz  system32  ♥ 22:04  # 卸载所有发行版
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;zcz  system32  ♥ 22:04  # 卸载所有发行版
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;gt; wsl --unregister *
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;gt; # 删除残留配置
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;gt; Remove-Item -Path &amp;#34;$env:USERPROFILE\AppData\Local\Packages\*Linux*&amp;#34; -Recurse -Force
@@ -984,7 +984,7 @@ blockquote.text-secondary {
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;错误代码: Wsl/WSL_E_WSL_OPTIONAL_COMPONENT_REQUIRED
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;输入&lt;code&gt;wsl.exe --install --no-distribution&lt;/code&gt;
 输出：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-gdscript3" data-lang="gdscript3"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;zcz  system32  ♥ &lt;span style="color:#d699b6"&gt;22&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;09&lt;/span&gt;  wsl&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;exe &lt;span style="color:#7a8478"&gt;--&lt;/span&gt;install &lt;span style="color:#7a8478"&gt;--&lt;/span&gt;no&lt;span style="color:#7a8478"&gt;-&lt;/span&gt;distribution
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-gdscript3" data-lang="gdscript3"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;zcz  system32  ♥ &lt;span style="color:#d699b6"&gt;22&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;09&lt;/span&gt;  wsl&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;exe &lt;span style="color:#7a8478"&gt;--&lt;/span&gt;install &lt;span style="color:#7a8478"&gt;--&lt;/span&gt;no&lt;span style="color:#7a8478"&gt;-&lt;/span&gt;distribution
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;正在安装 Windows 可选组件: Microsoft&lt;span style="color:#7a8478"&gt;-&lt;/span&gt;Windows&lt;span style="color:#7a8478"&gt;-&lt;/span&gt;Subsystem&lt;span style="color:#7a8478"&gt;-&lt;/span&gt;Linux
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Deployment &lt;span style="color:#e67e80"&gt;Image&lt;/span&gt; Servicing &lt;span style="color:#7a8478"&gt;and&lt;/span&gt; Management &lt;span style="color:#e67e80"&gt;tool&lt;/span&gt;
@@ -1009,18 +1009,18 @@ blockquote.text-secondary {
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;继续重启，显示“我们无法完成更新，正在撤销更改。”&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;以管理员身份打开CMD&lt;/strong&gt;：
 按下 &lt;code&gt;Win+S&lt;/code&gt; → 输入 &lt;code&gt;cmd&lt;/code&gt; → 右键选择 &lt;strong&gt;“以管理员身份运行”&lt;/strong&gt;  &lt;strong&gt;执行以下命令（注意语法）&lt;/strong&gt;：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-cmd" data-lang="cmd"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sc config LxssManager start= auto
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-cmd" data-lang="cmd"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sc config LxssManager start= auto
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sc config vmcompute start= auto
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;net start LxssManager
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;net start vmcompute
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;仍然1085，管理员cmd执行&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;dism /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;dism /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;dism /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;尝试重装WSL，出现
 ![[_posts\Windows-WSL报错：Error-0x80080005\Pasted image 20250304222548.png]]&lt;/p&gt;
 &lt;p&gt;研究了一阵子，&lt;strong&gt;&lt;code&gt;vmcompute&lt;/code&gt;&lt;/strong&gt;（虚拟机核心服务）和 &lt;strong&gt;&lt;code&gt;LxssManager&lt;/code&gt;&lt;/strong&gt;（WSL管理服务）均未注册，导致WSL安装向导崩溃。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-Powershell" data-lang="Powershell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#859289;font-style:italic"&gt;# 以管理员身份运行&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-Powershell" data-lang="Powershell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#859289;font-style:italic"&gt;# 以管理员身份运行&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;dism.exe /online /&lt;span style="color:#d699b6"&gt;enable-feature&lt;/span&gt; /featurename:&lt;span style="color:#d699b6"&gt;Microsoft-Windows&lt;/span&gt;-Subsystem-Linux /all /norestart
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;dism.exe /online /&lt;span style="color:#d699b6"&gt;enable-feature&lt;/span&gt; /featurename:VirtualMachinePlatform /all /norestart
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;dism.exe /online /&lt;span style="color:#d699b6"&gt;enable-feature&lt;/span&gt; /featurename:HypervisorPlatform /all /norestart
@@ -1031,11 +1031,11 @@ blockquote.text-secondary {
 &lt;p&gt;————————————————————————————&lt;/p&gt;
 &lt;p&gt;2025.3.5&lt;/p&gt;
 &lt;p&gt;尝试&lt;strong&gt;强制修复系统核心组件&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# 以管理员身份运行 PowerShell
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# 以管理员身份运行 PowerShell
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sfc /scannow
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;DISM /Online /Cleanup-Image /RestoreHealth
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;重置 Windows Update 组件&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# 管理员cmd执行 net stop wuauserv
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# 管理员cmd执行 net stop wuauserv
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;net stop cryptSvc
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;net stop bits
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;net stop msiserver

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Windows on 映屿</title><link>https://www.glowisle.me/tags/windows/</link><description>Recent content in Windows on 映屿</description><generator>Hugo</generator><language>zh-cn</language><managingEditor>i@glowisle.me (五葉地錦)</managingEditor><webMaster>i@glowisle.me (五葉地錦)</webMaster><lastBuildDate>Tue, 04 Mar 2025 20:58:30 +0000</lastBuildDate><atom:link href="http://www.glowisle.me/tags/windows/atom.xml" rel="self" type="application/rss+xml"/><item><title>【未解决】Windows WSL报错：Error: 0x80080005 ???????</title><link>https://www.glowisle.me/posts/%E6%9C%AA%E8%A7%A3%E5%86%B3windows-wsl%E6%8A%A5%E9%94%99error-0x80080005/</link><pubDate>Tue, 04 Mar 2025 20:58:30 +0000</pubDate><author>i@glowisle.me (五葉地錦)</author><guid>https://www.glowisle.me/posts/%E6%9C%AA%E8%A7%A3%E5%86%B3windows-wsl%E6%8A%A5%E9%94%99error-0x80080005/</guid><description>&lt;p&gt;设备环境：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;操作系统：Windows 10
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;操作系统：Windows 10
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;安装系统：Arch Linux
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;错误日志：
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Installing, this may take a few minutes...
@@ -9,7 +9,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Press any key to continue...
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;网上有一篇&lt;a href="https://ask.csdn.net/questions/7625716"&gt;文章&lt;/a&gt;提到这个错误，下面的评论回复以管理员权限运行命令提示符并执行&lt;code&gt;sc stop LxssManager&lt;/code&gt;和&lt;code&gt;sc start LxssManager&lt;/code&gt;
 出现如下报错：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;C:\Windows\system32&amp;gt;sc stop LxssManager
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;C:\Windows\system32&amp;gt;sc stop LxssManager
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;[SC] OpenService 失败 1060:
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;指定的服务未安装。
@@ -22,12 +22,12 @@
 勾选&lt;code&gt;适用于Linux的Windows子系统&lt;/code&gt;和&lt;code&gt;虚拟机平台&lt;/code&gt;这两项，点击确定
 重启电脑。
 回来以后，用管理员身份运行powershell，强制重置WSL服务，依次执行：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;wsl --shutdown
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;wsl --shutdown
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;wsl --unregister Arch &lt;span style="color:#859289;font-style:italic"&gt;# 替换为你的发行版名称&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;wsl --install -d Arch &lt;span style="color:#859289;font-style:italic"&gt;# 重新注册发行版&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果提示内核缺失，在这里下&lt;a href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi"&gt;https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;如果有以下输出：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;zcz  system32  ♥ 21:32  wsl --shutdown
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;zcz  system32  ♥ 21:32  wsl --shutdown
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;此应用程序需要适用于 Linux 的 Windows 子系统可选组件。
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;通过运行安装它： wsl.exe --install --no-distribution
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;可能需要重新启动系统才能使更改生效。
@@ -40,10 +40,10 @@
 &lt;strong&gt;强制安装WSL组件&lt;/strong&gt;
 &lt;strong&gt;以管理员身份运行 PowerShell&lt;/strong&gt;，执行以下命令：&lt;/li&gt;
 &lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#859289;font-style:italic"&gt;# 安装WSL核心组件（会自动启用虚拟化功能）&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#859289;font-style:italic"&gt;# 安装WSL核心组件（会自动启用虚拟化功能）&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;wsl --install
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;输出：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-gdscript3" data-lang="gdscript3"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;zcz  system32  ♥ &lt;span style="color:#d699b6"&gt;21&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;34&lt;/span&gt;  wsl &lt;span style="color:#7a8478"&gt;--&lt;/span&gt;install
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-gdscript3" data-lang="gdscript3"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;zcz  system32  ♥ &lt;span style="color:#d699b6"&gt;21&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;34&lt;/span&gt;  wsl &lt;span style="color:#7a8478"&gt;--&lt;/span&gt;install
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;正在安装 Windows 可选组件: Microsoft&lt;span style="color:#7a8478"&gt;-&lt;/span&gt;Windows&lt;span style="color:#7a8478"&gt;-&lt;/span&gt;Subsystem&lt;span style="color:#7a8478"&gt;-&lt;/span&gt;Linux
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Deployment &lt;span style="color:#e67e80"&gt;Image&lt;/span&gt; Servicing &lt;span style="color:#7a8478"&gt;and&lt;/span&gt; Management &lt;span style="color:#e67e80"&gt;tool&lt;/span&gt;
@@ -71,21 +71,21 @@
 尝试过的方法：进入安全模式，尝试重启更新，失败。
 安全模式仍然失败，选择临时禁用WSL服务
 管理员cmd执行&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-powershell" data-lang="powershell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#d699b6"&gt;sc &lt;/span&gt;config LxssManager start= disabled
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-powershell" data-lang="powershell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#d699b6"&gt;sc &lt;/span&gt;config LxssManager start= disabled
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;shutdown /&lt;span style="color:#d699b6"&gt;r &lt;/span&gt;/t &lt;span style="color:#d699b6"&gt;0&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;输出：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;C:\Windows\system32&amp;gt;sc config LxssManager start= disabled&amp;amp;&amp;amp; shutdown /r /t 0
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;C:\Windows\system32&amp;gt;sc config LxssManager start= disabled&amp;amp;&amp;amp; shutdown /r /t 0
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;[SC] OpenService 失败 1060:
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;指定的服务未安装。
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;唉，老朋友，又见面了。只能祭出来我的终极大杀器。&lt;/p&gt;
 &lt;h3 id="彻底重装wsl"&gt;&lt;strong&gt;彻底重装WSL&lt;/strong&gt;&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-powershell" data-lang="powershell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#859289;font-style:italic"&gt;# 卸载所有发行版&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-powershell" data-lang="powershell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#859289;font-style:italic"&gt;# 卸载所有发行版&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;wsl --unregister *
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#859289;font-style:italic"&gt;# 删除残留配置&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#d699b6"&gt;Remove-Item&lt;/span&gt; -Path &lt;span style="color:#b2c98f"&gt;&amp;#34;&lt;/span&gt;$env:USERPROFILE&lt;span style="color:#b2c98f"&gt;\AppData\Local\Packages\*Linux*&amp;#34;&lt;/span&gt; -Recurse -Force
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;输出：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;zcz  system32  ♥ 22:04  # 卸载所有发行版
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;zcz  system32  ♥ 22:04  # 卸载所有发行版
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;gt; wsl --unregister *
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;gt; # 删除残留配置
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;gt; Remove-Item -Path &amp;#34;$env:USERPROFILE\AppData\Local\Packages\*Linux*&amp;#34; -Recurse -Force
@@ -96,7 +96,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;错误代码: Wsl/WSL_E_WSL_OPTIONAL_COMPONENT_REQUIRED
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;输入&lt;code&gt;wsl.exe --install --no-distribution&lt;/code&gt;
 输出：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-gdscript3" data-lang="gdscript3"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;zcz  system32  ♥ &lt;span style="color:#d699b6"&gt;22&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;09&lt;/span&gt;  wsl&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;exe &lt;span style="color:#7a8478"&gt;--&lt;/span&gt;install &lt;span style="color:#7a8478"&gt;--&lt;/span&gt;no&lt;span style="color:#7a8478"&gt;-&lt;/span&gt;distribution
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-gdscript3" data-lang="gdscript3"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;zcz  system32  ♥ &lt;span style="color:#d699b6"&gt;22&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;09&lt;/span&gt;  wsl&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;exe &lt;span style="color:#7a8478"&gt;--&lt;/span&gt;install &lt;span style="color:#7a8478"&gt;--&lt;/span&gt;no&lt;span style="color:#7a8478"&gt;-&lt;/span&gt;distribution
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;正在安装 Windows 可选组件: Microsoft&lt;span style="color:#7a8478"&gt;-&lt;/span&gt;Windows&lt;span style="color:#7a8478"&gt;-&lt;/span&gt;Subsystem&lt;span style="color:#7a8478"&gt;-&lt;/span&gt;Linux
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Deployment &lt;span style="color:#e67e80"&gt;Image&lt;/span&gt; Servicing &lt;span style="color:#7a8478"&gt;and&lt;/span&gt; Management &lt;span style="color:#e67e80"&gt;tool&lt;/span&gt;
@@ -121,18 +121,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;继续重启，显示“我们无法完成更新，正在撤销更改。”&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;以管理员身份打开CMD&lt;/strong&gt;：
 按下 &lt;code&gt;Win+S&lt;/code&gt; → 输入 &lt;code&gt;cmd&lt;/code&gt; → 右键选择 &lt;strong&gt;“以管理员身份运行”&lt;/strong&gt;  &lt;strong&gt;执行以下命令（注意语法）&lt;/strong&gt;：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-cmd" data-lang="cmd"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sc config LxssManager start= auto
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-cmd" data-lang="cmd"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sc config LxssManager start= auto
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sc config vmcompute start= auto
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;net start LxssManager
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;net start vmcompute
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;仍然1085，管理员cmd执行&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;dism /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;dism /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;dism /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;尝试重装WSL，出现
 ![[_posts\Windows-WSL报错：Error-0x80080005\Pasted image 20250304222548.png]]&lt;/p&gt;
 &lt;p&gt;研究了一阵子，&lt;strong&gt;&lt;code&gt;vmcompute&lt;/code&gt;&lt;/strong&gt;（虚拟机核心服务）和 &lt;strong&gt;&lt;code&gt;LxssManager&lt;/code&gt;&lt;/strong&gt;（WSL管理服务）均未注册，导致WSL安装向导崩溃。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-Powershell" data-lang="Powershell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#859289;font-style:italic"&gt;# 以管理员身份运行&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-Powershell" data-lang="Powershell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#859289;font-style:italic"&gt;# 以管理员身份运行&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;dism.exe /online /&lt;span style="color:#d699b6"&gt;enable-feature&lt;/span&gt; /featurename:&lt;span style="color:#d699b6"&gt;Microsoft-Windows&lt;/span&gt;-Subsystem-Linux /all /norestart
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;dism.exe /online /&lt;span style="color:#d699b6"&gt;enable-feature&lt;/span&gt; /featurename:VirtualMachinePlatform /all /norestart
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;dism.exe /online /&lt;span style="color:#d699b6"&gt;enable-feature&lt;/span&gt; /featurename:HypervisorPlatform /all /norestart
@@ -143,11 +143,11 @@
 &lt;p&gt;————————————————————————————&lt;/p&gt;
 &lt;p&gt;2025.3.5&lt;/p&gt;
 &lt;p&gt;尝试&lt;strong&gt;强制修复系统核心组件&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# 以管理员身份运行 PowerShell
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# 以管理员身份运行 PowerShell
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sfc /scannow
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;DISM /Online /Cleanup-Image /RestoreHealth
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;重置 Windows Update 组件&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# 管理员cmd执行 net stop wuauserv
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# 管理员cmd执行 net stop wuauserv
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;net stop cryptSvc
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;net stop bits
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;net stop msiserver

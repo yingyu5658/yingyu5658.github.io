@@ -9,7 +9,7 @@
 &lt;h2 id="实现方法"&gt;实现方法&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;创建脚本文件&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;在Hexo根目录的&lt;code&gt;scripts&lt;/code&gt;文件夹（若不存在则新建）下创建一个javascript脚本，我这里就命名为&lt;code&gt;auto-image-folder.js&lt;/code&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-js" data-lang="js"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e67e80"&gt;const&lt;/span&gt; fs &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; require(&lt;span style="color:#b2c98f"&gt;&amp;#34;fs&amp;#34;&lt;/span&gt;)
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-js" data-lang="js"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e67e80"&gt;const&lt;/span&gt; fs &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; require(&lt;span style="color:#b2c98f"&gt;&amp;#34;fs&amp;#34;&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e67e80"&gt;const&lt;/span&gt; path &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; require(&lt;span style="color:#b2c98f"&gt;&amp;#34;path&amp;#34;&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;hexo.on(&lt;span style="color:#b2c98f"&gt;&amp;#34;new&amp;#34;&lt;/span&gt;, &lt;span style="color:#e67e80"&gt;function&lt;/span&gt;(data) {
@@ -21,7 +21,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;})
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;效果测试&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;hexo new &lt;span style="color:#b2c98f"&gt;&amp;#34;新文章&amp;#34;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;hexo new &lt;span style="color:#b2c98f"&gt;&amp;#34;新文章&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这时候就在images目录下新建了一个与文章同名的文件夹。&lt;/p&gt;
 &lt;h2 id="编辑器设置优化"&gt;编辑器设置优化&lt;/h2&gt;
 &lt;h3 id="typora"&gt;Typora&lt;/h3&gt;
@@ -38,7 +38,7 @@
 &lt;p&gt;勾选：优先使用相对路径&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;PS E:\blog&amp;gt; ls .\source\images\测试\
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;PS E:\blog&amp;gt; ls .\source\images\测试\
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 目录: E:\blog\source\images\测试
