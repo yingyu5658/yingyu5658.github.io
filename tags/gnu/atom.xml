@@ -25,7 +25,7 @@
 &lt;p&gt;也许是因为看了TheCW的&lt;a href="https://www.bilibili.com/video/BV1az4y1f77A/"&gt;Vim综合征&lt;/a&gt;，或者是看了Mars的&lt;a href="https://www.bilibili.com/video/BV1UQ4y1z7q5/"&gt;这个视频&lt;/a&gt;，总之有一个视频对我有一些影响，让我开始折腾代码编辑器。&lt;/p&gt;
 &lt;p&gt;在2024年十二月或更早一些，一个链表都写不利索，甚至不知道什么是链表，甚至没写过任何一行数据结构的菜鸟开始配置自己的Vim。当时我用的是Windows10，你绝对想象不到在Windows上用Vim是一种什么样的体验，首先从安装开始就非常折磨。你需要去Vim那又老旧，引导又差的官网上找到适配你CPU的文件，运行那个文件进行安装，安装过程中好像会有一些选项，最后配置环境变量。&lt;/p&gt;
 &lt;p&gt;不仅安装麻烦，配置也很折磨，Windows下的Vim配置文件并不像GNU/Linux下那样好找，它在：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;USERPROFILE%\AppData\Roaming\vim\vim74
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;USERPROFILE%\AppData\Roaming\vim\vim74
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;是的，就是这么个位置。你要进五层目录，然后终端的提示符中就有了冗长的路径，这也是我使用GNU/Linux的原因之一，我受不了Windows的丑。&lt;/p&gt;
 &lt;p&gt;一开始我想的是一下午搞定，让它和IDEA一样能流畅地写代码，写我的Java代码。但显然我太天真了，当时我根本不懂那些配置有什么作用，只是去网上抄代码，出错了也不会调试，就半途而废了，但这次还是有收获的，我学会了使用&lt;code&gt;:wq&lt;/code&gt;来退出Vim。&lt;/p&gt;
 &lt;p&gt;之后不知道又经过了几次尝试，也用过Neovim和Lazyvim。在Lazyvim上花费的时间是最多的，因为它非常适合根本不懂配置，也不愿意折腾太多配置的人，有一段时间我使用Arch Linux，貌似也使用Lazyvim。谈起Arch Linux，也是一次激进的尝试。这里可以和代码编辑器放到一起说，我都是被花里胡哨的配置所吸引的，如果你是出于兴趣在用GNU/Linux，你一定折腾过桌面美化，那种半透明终端、二次元壁纸、Dock栏、Mac主题、窗口果冻特效破碎特效的美化。我折腾Neovim和KDE美化几乎是同时进行的。在那个时候我基本不会写代码，也不想写代码，只是觉得「啊，我的桌面真好看！」「啊！我的Neovim真帅！」等等。&lt;/p&gt;
@@ -56,10 +56,10 @@
 &lt;p&gt;Gnus是一个多功能的信息聚合器，邮件只是它的功能之一，本篇文章主要配置邮件功能。&lt;/p&gt;
 &lt;h2 id="getting-started"&gt;Getting started&lt;/h2&gt;
 &lt;p&gt;Gnus的配置文件默认在&lt;code&gt;~/.gnus&lt;/code&gt;，Emacs会将它当作elisp文件读取，网上也有一些说法是&lt;code&gt;~/.gnus.el&lt;/code&gt;其实只是加载顺序的不同，如果你此前有尝试，请备份并删除以前的文件。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;touch ~/.gnus
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;touch ~/.gnus
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="gnus-select-method"&gt;gnus-select-method&lt;/h2&gt;
 &lt;p&gt;Gnus的后端选择，对于imap协议，一般选择&lt;code&gt;nnimap&lt;/code&gt;：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-elisp" data-lang="elisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#d699b6"&gt;setq&lt;/span&gt; gnus-select-method
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-elisp" data-lang="elisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#d699b6"&gt;setq&lt;/span&gt; gnus-select-method
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#7a8478"&gt;&amp;#39;&lt;/span&gt;(nnimap &lt;span style="color:#b2c98f"&gt;&amp;#34;NAME&amp;#34;&lt;/span&gt; &lt;span style="color:#859289;font-style:italic"&gt;;这里是自己起的名字，用来区分不同的帐号&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-address &lt;span style="color:#b2c98f"&gt;&amp;#34;&amp;#34;&lt;/span&gt;) &lt;span style="color:#859289;font-style:italic"&gt;; imap服务器&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-inbox &lt;span style="color:#b2c98f"&gt;&amp;#34;INBOX&amp;#34;&lt;/span&gt;) &lt;span style="color:#859289;font-style:italic"&gt;; 大多数服务器都使用INBOX，除非你明确知道不同，否则不建议修改&lt;/span&gt;
@@ -70,7 +70,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ))
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在配好后，重启Emacs，输入&lt;code&gt;M-x RET gnus RET&lt;/code&gt;，下方会闪过一些输出，根据提示填写用户名和密码后，询问是否要把用户名和密码填入&lt;code&gt;~/.authinfo&lt;/code&gt;，建议选y。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;C-x b&lt;/code&gt;切换到&lt;code&gt;*Messages*&lt;/code&gt;buffer查看，会看到类似这样的输出，那就表明你的配置无误！&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Opening connection to imap.qiye.aliyun.com via tls...
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Opening connection to imap.qiye.aliyun.com via tls...
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Opening connection to imap.qiye.aliyun.com...done
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Saving file /home/yingyu5658/.newsrc-dribble...
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Wrote /home/yingyu5658/.newsrc-dribble
@@ -89,7 +89,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;No news is good news
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这个news是历史遗留词汇，最后一行输出仅仅代表当前没有未读邮件。&lt;/p&gt;
 &lt;p&gt;你可以用另一个账号向这个邮箱发送一封测试邮件，重新打开Gnus，会有这样的输出：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;1:*INBOX
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;1:*INBOX
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;我们回车点进去，就会打开那封邮件显示内容啦。&lt;/p&gt;
 &lt;p&gt;&lt;figure class="image-caption"&gt;
  &lt;img src="https://images.glowisle.me/2026-02-10_19-50.png" alt="测试邮件效果"&gt;
@@ -99,7 +99,7 @@
 &lt;h2 id="多帐号配置"&gt;多帐号配置&lt;/h2&gt;
 &lt;p&gt;多账号配置需要设置&lt;code&gt;gnus-secondary-select-methods&lt;/code&gt;这个变量，这里和&lt;code&gt;gnus-select-method&lt;/code&gt;一起说一下。后者是主服务器，前者是额外服务器列表，但几乎和主服务器同级，使用中可以当作平级。&lt;/p&gt;
 &lt;p&gt;多账号配置示例：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-elisp" data-lang="elisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#d699b6"&gt;setq&lt;/span&gt; gnus-select-method
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-elisp" data-lang="elisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#d699b6"&gt;setq&lt;/span&gt; gnus-select-method
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#7a8478"&gt;&amp;#39;&lt;/span&gt;(nnimap &lt;span style="color:#b2c98f"&gt;&amp;#34;glowsisle&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-address &lt;span style="color:#b2c98f"&gt;&amp;#34;imap.qiye.aliyun.com&amp;#34;&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (nnimap-inbox &lt;span style="color:#b2c98f"&gt;&amp;#34;INBOX&amp;#34;&lt;/span&gt;)
@@ -125,14 +125,14 @@
 &lt;p&gt;最推荐的是msmtp，与Gnus、Emacs解耦，并且配置简单优雅。&lt;/p&gt;
 &lt;h3 id="安装"&gt;安装&lt;/h3&gt;
 &lt;p&gt;以Debian为例：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt update
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt update
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt install msmtp
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在配置文件中&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-elisp" data-lang="elisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#d699b6"&gt;setq&lt;/span&gt; send-mail-function &lt;span style="color:#e69875"&gt;&amp;#39;sendmail-send-it&lt;/span&gt;)
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-elisp" data-lang="elisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#d699b6"&gt;setq&lt;/span&gt; send-mail-function &lt;span style="color:#e69875"&gt;&amp;#39;sendmail-send-it&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#d699b6"&gt;setq&lt;/span&gt; message-send-mail-function &lt;span style="color:#e69875"&gt;&amp;#39;sendmail-send-it&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#d699b6"&gt;setq&lt;/span&gt; sendmail-program &lt;span style="color:#b2c98f"&gt;&amp;#34;/usr/bin/msmtp&amp;#34;&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在&lt;code&gt;~/.msmtprc&lt;/code&gt;：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;account 账户名
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;account 账户名
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;host smtp.server.address
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;from your@account.com
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;auth login
@@ -147,13 +147,13 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;account default : 默认账户，填写account的值
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="密码存储"&gt;密码存储&lt;/h2&gt;
 &lt;p&gt;需要创建一个包含密码的文本文件。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;touch password &lt;span style="color:#7a8478"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style="color:#d699b6"&gt;echo&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;yourpassword&amp;#34;&lt;/span&gt; &amp;gt; ./password
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;touch password &lt;span style="color:#7a8478"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style="color:#d699b6"&gt;echo&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;yourpassword&amp;#34;&lt;/span&gt; &amp;gt; ./password
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后使用GPG加密，这样会生成一个&lt;code&gt;password.gpg&lt;/code&gt;文件&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gpg --symmetric --cipher-algo AES256 password
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gpg --symmetric --cipher-algo AES256 password
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后在&lt;code&gt;~/.msmtprc&lt;/code&gt;中，把密码那行改成&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;passwordeval &amp;#34;gpg --quiet --batch --decrypt /path/to/password.gpg&amp;#34;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;passwordeval &amp;#34;gpg --quiet --batch --decrypt /path/to/password.gpg&amp;#34;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这样每次使用都要输入GPG密码，为了避免这种情况，可以在&lt;code&gt;~/.gnupg/gpg.conf&lt;/code&gt;写入以下内容来缓存密码。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;use-agent
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;use-agent
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这样就不用每次都输入密码了。记得删除明文存储密码的password文件:)&lt;/p&gt;
 &lt;h2 id="参考"&gt;参考&lt;/h2&gt;
 &lt;ul&gt;
@@ -689,7 +689,7 @@ blockquote.text-secondary {
 &lt;p&gt;以上就是本期回声周刊的全部内容，感谢你的阅读，祝你有充满ECHO的一周！👋&lt;/p&gt;</description></item><item><title>使用Emacs收发邮件</title><link>https://www.glowisle.me/posts/email-with-emacs/</link><pubDate>Wed, 12 Nov 2025 16:48:02 +0800</pubDate><author>i@glowisle.me (五葉地錦)</author><guid>https://www.glowisle.me/posts/email-with-emacs/</guid><description>&lt;p&gt;作为一个合格的操作系统，肯定少不了Email. 我的配置很简单，只要实现基础的收发功能即可，每天的邮件量不大。在这里记录一下配置。&lt;/p&gt;
 &lt;h2 id="收邮件"&gt;收邮件&lt;/h2&gt;
 &lt;p&gt;我尝试过 &lt;strong&gt;&lt;a href="https://www.fetchmail.info"&gt;fetchmail&lt;/a&gt;&lt;/strong&gt;，但不知道这个东西拿到的邮件都在哪，所以最后还是选择了 &lt;strong&gt;mbsync&lt;/strong&gt;.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# ~/.mbsyncrc
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# ~/.mbsyncrc
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# GlowIsle 账户配置
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;IMAPAccount GlowIsle
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Host imap.qiye.aliyun.com
@@ -720,7 +720,7 @@ blockquote.text-secondary {
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Expunge Both
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;SyncState *
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="发邮件"&gt;发邮件&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# ~/.msmtprc
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# ~/.msmtprc
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# glowisle
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;account glowisle 
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;host smtp.qiye.aliyun.com
@@ -738,10 +738,10 @@ blockquote.text-secondary {
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;account default : glowisle
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="emacs-配置"&gt;Emacs 配置&lt;/h2&gt;
 &lt;p&gt;在Doom Emacs的&lt;code&gt;init.el&lt;/code&gt;中开启 mu4e&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:email&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:email&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (mu4e +org)
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#859289;font-style:italic"&gt;;; config.el&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#859289;font-style:italic"&gt;;; config.el&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(after! mu4e
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;;; 基本设置&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (&lt;span style="color:#e67e80"&gt;setq&lt;/span&gt; mu4e-maildir &lt;span style="color:#b2c98f"&gt;&amp;#34;~/mail&amp;#34;&lt;/span&gt; &lt;span style="color:#859289;font-style:italic"&gt;; 邮件目录&lt;/span&gt;
@@ -774,7 +774,7 @@ blockquote.text-secondary {
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;SPC o m&lt;/code&gt; 进入 mu4e 主页面&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Basics
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Basics
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; * [J]ump to some maildir
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; * enter a [s]earch query
@@ -805,11 +805,11 @@ blockquote.text-secondary {
 &lt;p&gt;不过手机上的 Ob 还是可以一用，比如 Banyan 插件，用来随时随地写一些碎碎念很方便。至于其他的功能，还是配 Emacs 更好玩吧。&lt;/p&gt;
 &lt;h2 id="安装"&gt;安装&lt;/h2&gt;
 &lt;p&gt;根据官方仓库的文档，使用以下命令安装：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git clone --depth &lt;span style="color:#d699b6"&gt;1&lt;/span&gt; https://github.com/doomemacs/doomemacs ~/.config/emacs
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git clone --depth &lt;span style="color:#d699b6"&gt;1&lt;/span&gt; https://github.com/doomemacs/doomemacs ~/.config/emacs
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;~/.config/emacs/bin/doom install
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;速度比我想象中的要快得多，而且是交互式操作，感觉比 Spacemacs 友好一点？&lt;del&gt;这个脚本的输出有一股 Cargo 味……&lt;/del&gt;&lt;/p&gt;
 &lt;p&gt;安装结束后给了一点提示：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;But before you doom yourself, here are some things you should know:
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;But before you doom yourself, here are some things you should know:
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;1. Don&amp;#39;t forget to run &amp;#39;doom sync&amp;#39; and restart Emacs after modifying init.el or
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; packages.el in ~/.config/doom. This is never necessary for config.el.
@@ -825,12 +825,12 @@ blockquote.text-secondary {
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Have fun!
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;其中提到了一个叫&lt;strong&gt;doom&lt;/strong&gt;的命令，这是一个在&lt;code&gt;~/.emacs.d/bin/&lt;/code&gt;下的二进制文件，可以做个链接到&lt;code&gt;/usr/bin&lt;/code&gt;以便在任何地方使用。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo ln -s ~/.emacs.d/bin/doom /usr/bin/doom
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo ln -s ~/.emacs.d/bin/doom /usr/bin/doom
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="配置"&gt;配置&lt;/h2&gt;
 &lt;p&gt;启动时全屏：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-elisp" data-lang="elisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(add-hook &lt;span style="color:#e69875"&gt;&amp;#39;window-setup-hook&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;#&amp;#39;&lt;/span&gt;toggle-frame-maximized)
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-elisp" data-lang="elisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(add-hook &lt;span style="color:#e69875"&gt;&amp;#39;window-setup-hook&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;#&amp;#39;&lt;/span&gt;toggle-frame-maximized)
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安装 &lt;a href="https://github.com/emacs-eaf/emacs-application-framework"&gt;Eaf&lt;/a&gt; 插件：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git clone --depth=1 -b master https://github.com/emacs-eaf/emacs-application-framework.git ~/.emacs.d/site-lisp/emacs-application-framework/
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git clone --depth=1 -b master https://github.com/emacs-eaf/emacs-application-framework.git ~/.emacs.d/site-lisp/emacs-application-framework/
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cd emacs-application-framework
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;chmod +x ./install-eaf.py
@@ -944,16 +944,16 @@ blockquote.text-secondary {
 &lt;p&gt;在&lt;code&gt;rm -rf ~/.emacs.d&lt;/code&gt;后，那个不伦不类、上不去下不来的Emacs彻底成为了历史。重新输入Emacs，又看到熟悉又陌生的丑陋开屏页。&lt;/p&gt;
 &lt;h2 id="小插曲"&gt;小插曲&lt;/h2&gt;
 &lt;p&gt;WSLg间歇性抽风，打不开GUI&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Display 10.255.255.254:0 unavailable, simulating -nw
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Display 10.255.255.254:0 unavailable, simulating -nw
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;打开管理员Powershell，运行&lt;code&gt;wsl --update&lt;/code&gt;
 ![[public/images/我还是放不下Emacs！/Pasted image 20250603210050.png]]
 &lt;del&gt;我草，怎么这么慢？？&lt;/del&gt;&lt;/p&gt;
 &lt;h2 id="melpa配置"&gt;MELPA配置&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#b2c98f"&gt;require&lt;/span&gt; &lt;span style="color:#e69875"&gt;&amp;#39;package&lt;/span&gt;)
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#b2c98f"&gt;require&lt;/span&gt; &lt;span style="color:#e69875"&gt;&amp;#39;package&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(add-to-list &lt;span style="color:#e69875"&gt;&amp;#39;package-archives&lt;/span&gt; &lt;span style="color:#7a8478"&gt;&amp;#39;&lt;/span&gt;(&lt;span style="color:#b2c98f"&gt;&amp;#34;melpa&amp;#34;&lt;/span&gt; &lt;span style="color:#7a8478"&gt;.&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;https://melpa.org/packages/&amp;#34;&lt;/span&gt;) &lt;span style="color:#d699b6"&gt;t&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(package-initialize)
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;切换中国镜像源&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#b2c98f"&gt;require&lt;/span&gt; &lt;span style="color:#e69875"&gt;&amp;#39;package&lt;/span&gt;)
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#b2c98f"&gt;require&lt;/span&gt; &lt;span style="color:#e69875"&gt;&amp;#39;package&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#e67e80"&gt;setq&lt;/span&gt; package-archives &lt;span style="color:#7a8478"&gt;&amp;#39;&lt;/span&gt;((&lt;span style="color:#b2c98f"&gt;&amp;#34;gnu&amp;#34;&lt;/span&gt; &lt;span style="color:#7a8478"&gt;.&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;http://mirrors.cloud.tencent.com/elpa/gnu/&amp;#34;&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (&lt;span style="color:#b2c98f"&gt;&amp;#34;melpa&amp;#34;&lt;/span&gt; &lt;span style="color:#7a8478"&gt;.&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;http://mirrors.cloud.tencent.com/elpa/melpa/&amp;#34;&lt;/span&gt;)))
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(package-initialize)
@@ -961,10 +961,10 @@ blockquote.text-secondary {
 默认情况下，插件会被安装到 &lt;code&gt;~/.emacs.d/elpa/&lt;/code&gt; 目录下。&lt;/p&gt;
 &lt;h2 id="use-package"&gt;use-package&lt;/h2&gt;
 &lt;p&gt;输入&lt;code&gt;package-install&lt;/code&gt;，输入&lt;code&gt;use-package&lt;/code&gt;，回车安装，然后在init.el中写&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(eval-when-compile
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(eval-when-compile
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (&lt;span style="color:#b2c98f"&gt;require&lt;/span&gt; &lt;span style="color:#e69875"&gt;&amp;#39;use-package&lt;/span&gt;))
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="ivy"&gt;ivy&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#b2c98f"&gt;use-package&lt;/span&gt; ivy
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#b2c98f"&gt;use-package&lt;/span&gt; ivy
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:ensure&lt;/span&gt; &lt;span style="color:#d699b6"&gt;t&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:init&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (ivy-mode &lt;span style="color:#d699b6"&gt;1&lt;/span&gt;)
@@ -984,31 +984,31 @@ blockquote.text-secondary {
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:map&lt;/span&gt; minibuffer-local-map
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (&lt;span style="color:#b2c98f"&gt;&amp;#34;C-r&amp;#34;&lt;/span&gt; &lt;span style="color:#7a8478"&gt;.&lt;/span&gt; counsel-minibuffer-history)))
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="amx"&gt;amx&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#b2c98f"&gt;use-package&lt;/span&gt; amx
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#b2c98f"&gt;use-package&lt;/span&gt; amx
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:ensure&lt;/span&gt; &lt;span style="color:#d699b6"&gt;t&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:init&lt;/span&gt; (amx-mode))
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="ace-window"&gt;ace-window&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(use&lt;span style="color:#7a8478"&gt;-&lt;/span&gt;&lt;span style="color:#e67e80"&gt;package&lt;/span&gt; ace&lt;span style="color:#7a8478"&gt;-&lt;/span&gt;window
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(use&lt;span style="color:#7a8478"&gt;-&lt;/span&gt;&lt;span style="color:#e67e80"&gt;package&lt;/span&gt; ace&lt;span style="color:#7a8478"&gt;-&lt;/span&gt;window
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; :ensure t
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; :&lt;span style="color:#b2c98f"&gt;bind&lt;/span&gt; ((&lt;span style="color:#b2c98f"&gt;&amp;#34;C-x o&amp;#34;&lt;/span&gt; . &amp;#39;ace&lt;span style="color:#7a8478"&gt;-&lt;/span&gt;window)))
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="mwim"&gt;mwim&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#b2c98f"&gt;use-package&lt;/span&gt; mwim
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#b2c98f"&gt;use-package&lt;/span&gt; mwim
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:ensure&lt;/span&gt; &lt;span style="color:#d699b6"&gt;t&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:bind&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (&lt;span style="color:#b2c98f"&gt;&amp;#34;C-a&amp;#34;&lt;/span&gt; &lt;span style="color:#7a8478"&gt;.&lt;/span&gt; mwim-beginning-of-code-or-line)
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (&lt;span style="color:#b2c98f"&gt;&amp;#34;C-e&amp;#34;&lt;/span&gt; &lt;span style="color:#7a8478"&gt;.&lt;/span&gt; mwim-end-of-code-or-line))
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="undo-tree"&gt;undo-tree&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#b2c98f"&gt;use-package&lt;/span&gt; undo-tree
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#b2c98f"&gt;use-package&lt;/span&gt; undo-tree
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:ensure&lt;/span&gt; &lt;span style="color:#d699b6"&gt;t&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:init&lt;/span&gt; (global-undo-tree-mode)
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:custom&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (undo-tree-auto-save-history &lt;span style="color:#d699b6"&gt;nil&lt;/span&gt;))
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="smart-mode-line"&gt;smart-mode-line&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#b2c98f"&gt;use-package&lt;/span&gt; smart-mode-line
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#b2c98f"&gt;use-package&lt;/span&gt; smart-mode-line
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:ensure&lt;/span&gt; &lt;span style="color:#d699b6"&gt;t&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:init&lt;/span&gt; (sml/setup))
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="good-scroll"&gt;good-scroll&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#b2c98f"&gt;use-package&lt;/span&gt; good-scroll
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#b2c98f"&gt;use-package&lt;/span&gt; good-scroll
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:ensure&lt;/span&gt; &lt;span style="color:#d699b6"&gt;t&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:if&lt;/span&gt; window-system &lt;span style="color:#859289;font-style:italic"&gt;; 在图形化界面时才使用这个插件&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:init&lt;/span&gt; (good-scroll-mode))
