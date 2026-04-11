@@ -1,11 +1,14 @@
-<!doctype html><gnu>______ ____ _____ _____ _____ _________ _______ _ __ _ _
-.' ___ ||_ \|_ _||_ _||_ _| | _ _ | |_ __ \ / |_ [ | / |_ / |_
-/ .' \_| | \ | | | | | | |_/ | | \_|.---. _ .--. _ .--. _ __ | |__) |_ .--. ,--. `| |-'.---. | |--. .---.`| |-'`| |-'
-| | ____ | |\ \| | | ' ' | | | / /__\\[ `/'`\][ `/'`\][ \ [ ] | ___/[ `/'`\]`'_\ : | | / /'`\] | .-. |/ /__\\| | | |
-\ `.___] |_| |_\ |_ \ \__/ / _| |_ | \__., | | | | \ '/ / _| |_ | | // | |,| |,| \__. | | | || \__.,| |, | |,
-`._____.'|_____|\____| `.__.' |_____| '.__.'[___] [___] [\_: / |_____| [___] \'-;__/\__/'.___.'[___]|__]'.__.'\__/ \__/
-\__.'
-"A man is not dead while his name is still spoken."</gnu><html lang=zh-cn><head><meta http-equiv=X-Clacks-Overhead content="GNU Terry Pratchett"><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><link rel="shortcut icon" href=https://www.glowisle.me/favicon.png><title>把主力机系统换成Arch Linux是我这辈子做过的最蠢的决定</title><meta name=title content="把主力机系统换成Arch Linux是我这辈子做过的最蠢的决定"><meta name=description content="前言
+<!doctype html>
+<html lang="zh-cn">
+	<head>
+		<link rel="stylesheet" href="/style.css" />
+		<meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="https://www.glowisle.me/favicon.png" />
+<title>把主力机系统换成Arch Linux是我这辈子做过的最蠢的决定</title>
+<meta name="title" content="把主力机系统换成Arch Linux是我这辈子做过的最蠢的决定" />
+<meta name="description" content="前言
 先说结论。
 我是傻逼！
 我是傻逼！！
@@ -16,28 +19,417 @@
 为什么我放弃了Linux。
 什么人适合用Linux做主力系统
 
-本文的所有观点仅仅代表个人观点，我纯菜。你问我为什么要选择Arch，而不是Ubuntu或者其他新手友好的发行版，我不知道，正如上文所说，我是傻逼！"><meta name=keywords content="Arch,Linux,"><link rel=canonical href=https://www.glowisle.me/posts/%E6%8A%8A%E4%B8%BB%E5%8A%9B%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%8D%A2%E6%88%90arch-linux%E6%98%AF%E6%88%91%E8%BF%99%E8%BE%88%E5%AD%90%E5%81%9A%E8%BF%87%E7%9A%84%E6%9C%80%E8%A0%A2%E7%9A%84%E5%86%B3%E5%AE%9A/><meta property="og:url" content="https://www.glowisle.me/posts/%E6%8A%8A%E4%B8%BB%E5%8A%9B%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%8D%A2%E6%88%90arch-linux%E6%98%AF%E6%88%91%E8%BF%99%E8%BE%88%E5%AD%90%E5%81%9A%E8%BF%87%E7%9A%84%E6%9C%80%E8%A0%A2%E7%9A%84%E5%86%B3%E5%AE%9A/"><meta property="og:site_name" content="映屿"><meta property="og:title" content="把主力机系统换成Arch Linux是我这辈子做过的最蠢的决定"><meta property="og:description" content="前言 先说结论。
+本文的所有观点仅仅代表个人观点，我纯菜。你问我为什么要选择Arch，而不是Ubuntu或者其他新手友好的发行版，我不知道，正如上文所说，我是傻逼！" />
+<meta name="keywords" content="黑历史,Arch,Linux," />
+
+<link rel="canonical" href="https://www.glowisle.me/posts/%E6%8A%8A%E4%B8%BB%E5%8A%9B%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%8D%A2%E6%88%90arch-linux%E6%98%AF%E6%88%91%E8%BF%99%E8%BE%88%E5%AD%90%E5%81%9A%E8%BF%87%E7%9A%84%E6%9C%80%E8%A0%A2%E7%9A%84%E5%86%B3%E5%AE%9A/">
+
+
+<meta property="og:url" content="https://www.glowisle.me/posts/%E6%8A%8A%E4%B8%BB%E5%8A%9B%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%8D%A2%E6%88%90arch-linux%E6%98%AF%E6%88%91%E8%BF%99%E8%BE%88%E5%AD%90%E5%81%9A%E8%BF%87%E7%9A%84%E6%9C%80%E8%A0%A2%E7%9A%84%E5%86%B3%E5%AE%9A/">
+  <meta property="og:site_name" content="映屿">
+  <meta property="og:title" content="把主力机系统换成Arch Linux是我这辈子做过的最蠢的决定">
+  <meta property="og:description" content="前言 先说结论。
 我是傻逼！
 我是傻逼！！
 我是傻逼！！！
 本文将讲述
-为什么我放弃了Arch 为什么我放弃了Linux。 什么人适合用Linux做主力系统 本文的所有观点仅仅代表个人观点，我纯菜。你问我为什么要选择Arch，而不是Ubuntu或者其他新手友好的发行版，我不知道，正如上文所说，我是傻逼！"><meta property="og:locale" content="zh_cn"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2025-04-06T17:58:48+00:00"><meta property="article:modified_time" content="2025-04-06T17:58:48+00:00"><meta property="article:tag" content="Arch"><meta property="article:tag" content="Linux"><meta name=twitter:card content="summary"><meta name=twitter:title content="把主力机系统换成Arch Linux是我这辈子做过的最蠢的决定"><meta name=twitter:description content="前言 先说结论。
+为什么我放弃了Arch 为什么我放弃了Linux。 什么人适合用Linux做主力系统 本文的所有观点仅仅代表个人观点，我纯菜。你问我为什么要选择Arch，而不是Ubuntu或者其他新手友好的发行版，我不知道，正如上文所说，我是傻逼！">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-04-06T17:58:48+00:00">
+    <meta property="article:modified_time" content="2025-04-06T17:58:48+00:00">
+    <meta property="article:tag" content="黑历史">
+    <meta property="article:tag" content="Arch">
+    <meta property="article:tag" content="Linux">
+
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="把主力机系统换成Arch Linux是我这辈子做过的最蠢的决定">
+  <meta name="twitter:description" content="前言 先说结论。
 我是傻逼！
 我是傻逼！！
 我是傻逼！！！
 本文将讲述
-为什么我放弃了Arch 为什么我放弃了Linux。 什么人适合用Linux做主力系统 本文的所有观点仅仅代表个人观点，我纯菜。你问我为什么要选择Arch，而不是Ubuntu或者其他新手友好的发行版，我不知道，正如上文所说，我是傻逼！"><meta itemprop=name content="把主力机系统换成Arch Linux是我这辈子做过的最蠢的决定"><meta itemprop=description content="前言 先说结论。
+为什么我放弃了Arch 为什么我放弃了Linux。 什么人适合用Linux做主力系统 本文的所有观点仅仅代表个人观点，我纯菜。你问我为什么要选择Arch，而不是Ubuntu或者其他新手友好的发行版，我不知道，正如上文所说，我是傻逼！">
+
+
+
+
+  <meta itemprop="name" content="把主力机系统换成Arch Linux是我这辈子做过的最蠢的决定">
+  <meta itemprop="description" content="前言 先说结论。
 我是傻逼！
 我是傻逼！！
 我是傻逼！！！
 本文将讲述
-为什么我放弃了Arch 为什么我放弃了Linux。 什么人适合用Linux做主力系统 本文的所有观点仅仅代表个人观点，我纯菜。你问我为什么要选择Arch，而不是Ubuntu或者其他新手友好的发行版，我不知道，正如上文所说，我是傻逼！"><meta itemprop=datePublished content="2025-04-06T17:58:48+00:00"><meta itemprop=dateModified content="2025-04-06T17:58:48+00:00"><meta itemprop=wordCount content="2948"><meta itemprop=keywords content="Arch,Linux"><meta name=referrer content="no-referrer-when-downgrade"><style>:root{--width-max:550px;--font-secondary:monospace;--font-size-primary:1rem;--font-size-secondary:.93rem;--body-bg-color:#fbfbf6;--bold-text-color:#222;--body-text-color:#444;--link-color:#0355a6;--link-visited-color:#551a8b;--table-border-color:#f2f2f2;--table-th-bg-color:#f2f2f2;--img-border-color:#f2f2f2;--code-bg-color:#f2f2f2;--code-text-color:#222;--blockquote-border-color:#666;--blockquote-text-color:#646464;--upvoted-color:#fa8072;--caption-text-color:#666;--toc-text-color:#e5e5e5;--toc-hover-color:e5e5e5;--music-bg-hover-light:#e5e5e5;--music-bg-light:rgba(229, 229, 229, 0.5);--music-text-secondary:#666;--music-shadow:0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);--summary-text-color:#706c6c;--svg-size:0.85em;--title-color:#444444}.recent-title{font-weight:700;border:none}.recent-date{display:block}summary p{color:var(--summary-text-color)}:is(article,.summary) p:not(.music-card *){margin-top:1.6rem}.e-content h2,.e-content h3,.e-content h4,.e-content h5,.e-content h6{font-weight:800}h1,h2{margin:0;padding:0}.site-title{margin:15px 0;font-size:2.15em;font-weight:700}.badge-88x31{display:flex;flex-wrap:wrap;gap:5px}.badge-88x31 a{flex:none;line-height:0}.badge-88x31 img{display:block}.post-title a.item-link{font-size:1.25rem;margin-bottom:0}.e-content :is(h1,h2,h3,h4,h5,h6),.summary :is(h1,h2,h3,h4,h5,h6){margin-top:1.5em}.post-meta-item a,.rss-icon a,.post-title a,a.title h1,p{color:var(--body-text-color)}.post-meta-item a{font-size:.85rem}body{font-size:var(--font-size-primary);font-family:Noto Serif CJK SC;margin:auto;padding:20px;max-width:var(--width-max);text-align:left;background-color:var(--body-bg-color);word-wrap:break-word;overflow-wrap:break-word;line-height:1.6;color:var(--body-text-color)}.post-title a{margin:16px 0}.post-title:hover{color:var(--link-color)}p{line-height:2;font-weight:500}div.summary{font-weight:400}div.summary p{line-height:2}a{text-decoration:none;border-bottom:1px dotted;color:var(--body-text-color)!important}strong,b{color:var(--bold-text-color)}i{font-style:normal}hr{border:0;border-top:1px dashed}time{font-family:var(--font-primary);color:var(--body-text-color)}header{margin-top:30px}.title{text-align:left;text-decoration:none!important}.title:hover{text-decoration:none}a.title h1{margin:15px 0;font-size:2.15em}.title span{font-weight:400}nav a{margin-right:8px;border:none}footer{padding:25px 0;text-align:left;font-size:var(--font-size-secondary)}.recent-posts-item{margin:0 0 120px}.recent-item{margin-bottom:4rem}.recent-list{padding-left:2vw}<!--.item-link{ --> <!-- width: 100%; --> <!-- display: inline-block; --> <!-- text-decoration: none; --> <!-- flex: 1; --> <!-- overflow: hidden; --> <!-- text-overflow: ellipsis; --> <!-- font-size: 1.6em; --> <!-- word-wrap: break-word; --> <!-- white-space: nowrap; --> <!--}-->.post-title a.item-link{font-size:1.8rem;border:none}h1.post-title{margin-top:0}.post-title{margin:0!important;display:inline-block}.post-date,.post-date-shortcode{font-size:.9em;color:#666;display:inline;min-width:80px;flex-shrink:0;margin-left:auto}.recent-empty{text-align:center;font-style:italic}ul.blog-posts{list-style-type:none;padding:unset}ul.blog-posts li{display:flex;margin-bottom:8px}ul.blog-posts li span{flex:0 0 130px}ul.blog-posts li span.grouped{flex:0 0 80px}.posts-list li{margin-bottom:12px}.post-meta{margin-top:20px;margin-bottom:5px}.recent-posts .post-meta{margin-bottom:3em}.post-meta-item{margin-right:.3rem;display:inline-block}.post-meta-item svg{display:inline;width:var(--svg-size);height:var(--svg-size)}.post-meta-item p{margin:0}.post-tag a{}img{max-width:100%;display:block;margin-left:auto;margin-right:auto;content-visibility:auto}img.missing{display:none}img[src*="#minipic"]{max-width:50%;margin-left:0;margin-right:auto}.image-caption{margin:auto}.image-caption figcaption{text-align:center;font-style:italic;font-size:.8em;margin-top:.6em;color:var(--caption-text-color)}.booklist{display:grid;grid-template-columns:repeat(5,1fr);gap:20px}.booklist-item{transform:translateZ(0);transition:transform .25s,box-shadow .25s;box-shadow:0 4px 6px rgba(0,0,0,.1)}.booklist-item:hover{transform:translateY(-5px)translateZ(20px);box-shadow:0 20px 40px rgba(0,0,0,.5)}.booklist-item img{height:100%}.rss-icon{display:inline;font-size:16px;float:right;font-family:var(--font-primary)}.social-icons{margin:15px 15px 5px;text-align:center}.social-icons a{padding:5px}code{font-family:var(--font-secondary);background-color:var(--code-bg-color);color:var(--code-text-color);padding:2px;border-radius:4px}pre code{display:block;padding:16px;white-space:pre-wrap;overflow-x:auto}div.highlight pre{border-radius:4px}div.highlight code{background-color:var(--code-bg-color);color:var(--code-text-color)}blockquote{color:var(--blockquote-text-color);margin:17px 0 0;padding-left:20px;font-style:normal}table{width:100%;border-collapse:collapse;border:1px solid var(--table-border-color);border-radius:4px;margin-top:16px}th,td{border:1px solid var(--table-border-color);padding:4px}th{background-color:var(--table-th-bg-color)}.wm{border:1px #d0d7de solid;border-radius:.25em;padding:1.5vw;padding-top:0;background-color:#fffaed;margin-top:1vh}.wm p{margin-top:1px}textarea{width:100%;font-size:16px}input{font-size:14px}div.footnotes hr::before{content:"Footnotes";display:block;font-size:1.5em;color:var(--bold-text-color);margin-top:16px}.music-card{display:flex;flex-direction:column;gap:.5rem;width:100%}.music-card img{border:none!important}.music-info{display:flex;align-items:center;gap:1.25rem}.music-cover{width:3.75rem;height:3.75rem;border-radius:.5rem;box-shadow:var(--music-shadow);margin:0!important;object-fit:cover}.music-title{margin:0;font-size:1rem;font-weight:700;line-height:1.2}.music-artist{margin:0;font-size:.875rem;color:var(--music-text-secondary)}.music-links{display:flex;align-items:center;gap:.5rem}.music-btn{display:inline-flex;align-items:center;gap:.25rem;padding:0 .75rem;height:2rem;border-radius:9999px;text-decoration:none!important;font-size:.75rem;transition:background-color .3s ease;background-color:var(--music-bg-light);color:inherit}.music-btn:hover{background-color:var(--music-bg-hover-light)}.music-icon{display:block;width:.75rem;height:.75rem;margin:0!important}.music-btn-text{display:inline}div.toc{position:fixed;top:50%;left:calc((100vw + var(--width-max))/2);transform:translateY(-50%);width:calc((90vw - var(--width-max))/2);max-height:80vh;overflow-y:auto;border:none;padding:0;margin:0;z-index:99;scrollbar-width:none;-ms-overflow-style:none}div.toc::-webkit-scrollbar{display:none}.toc-nav{padding:1.5rem}.toc-nav ul{list-style:none;padding:0;margin:0}.toc-nav li{margin:8px 0}.toc-nav a{display:block;text-decoration:none;padding:0 12px;transition:all .2s ease;font-size:.9rem;line-height:1.4;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;color:var(--toc-text-color)}.toc-nav a:hover,.toc-nav a.active{color:var(--toc-hover-color)}.toc-nav a::before{content:"";display:inline-block;width:16px;height:4px;background-color:var(--toc-text-color);border-radius:16px;margin-right:12px;vertical-align:middle}.toc-nav a:hover::before,.toc-nav a.active::before{background-color:var(--toc-hover-color)}.toc-nav ul ul a::before{width:12px;margin-right:16px}.toc-nav ul ul ul a::before{width:8px;margin-right:20px}button.upvote-btn{padding:0;border:none;background:0 0;cursor:pointer;display:flex;flex-direction:column;align-items:center;color:var(--body-text-color)}button.upvoted{color:var(--upvoted-color)}span.upvote-count{margin-top:-4px;font-size:smaller}ul li:has(input){list-style-type:none;margin-left:-25.5px}@media(prefers-color-scheme:dark){:root{--summary-text-color:#c9c6c5;--body-bg-color:#262624;--bold-text-color:#eee;--body-text-color:#e8e6e3;--text-color-tertiary:#a0a0a0;--link-color:#6da6ff;--link-visited-color:#b388ff;--table-border-color:#999;--table-th-bg-color:#121212;--img-border-color:#999;--code-bg-color:#141414;--code-text-color:#ddd;--blockquote-border-color:#7b7b7b;--blockquote-text-color:#acacac;--caption-text-color:#aaa;--toc-text-color:#cac3c3;--toc-hover-color:#cac3c3;--music-bg-hover-dark:#525252;--music-bg-dark:rgba(82, 82, 82, 0.5);--music-text-secondary:#a3a3a3;--color-background:var(--body-bg-color) !important;--summary-text-color:#a2a2a2}a{color:var(--link-color);cursor:pointer;text-decoration:none}h3.recent-post-title a{color:var(--body-text-color)}.post-meta-item svg{filter:invert(1)hue-rotate(180deg)}strong{font-weight:650}.music-btn{background-color:var(--music-bg-dark)}.music-btn:hover{background-color:var(--music-bg-hover-dark)}.category-link{color:#dbdbdb}.wm{background-color:#161b22;border-color:#30363d;color:var(--body-text-color);padding:10px}.wm input{background-color:#010409;border:#30363d 1px solid;color:var(--body-text-color);outline:none}#webmention-source:focus{border-color:var(--color-accent-fg,#0969da);box-shadow:0 0 0 3px rgba(9,105,218,.1)}.wm button{color:var(--body-text-color);background-color:#161b22;border:#30363d 1px solid}.post-summary{color:var(--text-color-primary)!important}.post-item{border-bottom:1px solid #414141!important}.pagination-link{border:1px solid #414141!important}}@media(min-width:768px){.music-card{flex-direction:row;justify-content:space-between;align-items:center}.music-btn{padding:1rem;justify-content:center;width:auto;height:auto}.music-icon{width:1.25rem;height:1.25rem}.music-btn-text{display:none}}@media(max-width:800px){img[src*="#minipic"]{max-width:100%;margin-left:auto;margin-right:auto}div.toc{display:none}}@media(max-width:720px){.post-date{min-width:auto;font-size:.85em}.item-link{white-space:normal;overflow:visible}}@media(max-width:700px){.booklist{grid-template-columns:repeat(3,1fr);gap:10px}}@media(max-width:400px){.booklist{grid-template-columns:repeat(2,1fr);gap:10px}}.title h1,.title p{margin:15px 0!important;font-size:2.15em!important;font-weight:700!important;line-height:1.2!important;display:block!important;padding:0!important}.post-title{font-size:26.4px;line-height:1.4!important;display:block!important;padding:0!important}.post-title a{display:inline-block!important;padding:0!important}nav{margin-top:0!important;margin-bottom:20px!important;line-height:1.6!important}header{margin-top:30px;display:block}gnu{display:none}</style><meta name=msvalidate.01 content="2E1AACF009206F2DDBAAD4B98E881460"><link rel=prefetch as=image href=https://www.blogsclub.org/badge/www.glowisle.me><link href=https://github.com/yingyu5658 rel=me><link rel=webmention href=https://webmention.io/www.glowisle.me/webmention><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css><link rel="shortcut icon" href=/favicon.ico></head><body><main><header><a href=/ class=title><p class=site-title>映屿</p></a><nav><a href=/categories/>分类</a>
-<a href=/links/>友人</a>
-<a href=/archives/>归档</a>
-<a href=/about/>关于</a></nav></header><article class=h-entry><h1 class=post-title><a href=/posts/%E6%8A%8A%E4%B8%BB%E5%8A%9B%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%8D%A2%E6%88%90arch-linux%E6%98%AF%E6%88%91%E8%BF%99%E8%BE%88%E5%AD%90%E5%81%9A%E8%BF%87%E7%9A%84%E6%9C%80%E8%A0%A2%E7%9A%84%E5%86%B3%E5%AE%9A/ class=item-link>把主力机系统换成Arch Linux是我这辈子做过的最蠢的决定</a></h1><div class=e-content><h1 id=前言>前言</h1><p>先说结论。</p><p><strong>我是傻逼！</strong></p><p><strong>我是傻逼！！</strong></p><p><strong>我是傻逼！！！</strong></p><p>本文将讲述</p><ul><li>为什么我放弃了Arch</li><li>为什么我放弃了Linux。</li><li>什么人适合用Linux做主力系统</li></ul><p>本文的所有观点仅仅代表个人观点，我纯菜。你问我为什么要选择Arch，而不是Ubuntu或者其他新手友好的发行版，我不知道，正如上文所说，我是傻逼！</p><h2 id=为什么我放弃了arch>为什么我放弃了Arch</h2><p>说到这个问题，就要先来谈谈为什么我要把Windows换成Linux。</p><p>Linux这个系统对于我来说一直是神秘而美好的，至少在当时。我痴迷于命令行、终端、Vim这种工具。小时候也看过爸爸零几年买的《鸟哥的Linux私房菜》，给我当时幼小的心灵带来的极大的震撼。</p><p>我当时也对Linux的目录结构非常新鲜，不分盘的设定感觉很好玩。</p><p>我网站的服务器是Linux、身边的各种设备都有Linux的影子，这更加提高了我对Linux的向往程度。</p><p>还有一个原因是，我当时正在用C语言写一个小工具，Windows下的gcc无法使用通配符<code>*</code>，要想用只能去打开Git Bash或者MSYS2，这俩东西界面的丑陋程度相比就不用我多说了，我当时就是喜欢把精力浪费在不必要的地方上，Windows的那个终端被我“美化”得花里胡哨的，上面两者的界面当然入不了我的眼。</p><p>为了解决这个问题，我开始使用WSL2，但仅仅停留在开始阶段。</p><p>我这个系统不知道怎么回事，根本没办法用WSL2。</p><p>全网都没有遇到这个问题的，那既然如此，重装系统吧。</p><p>和系统相处就像谈恋爱，总有一段热恋期，过了这个时期后就冷淡了、矛盾也就浮出水面。刚装好的前几天，我的热情前所未有的高涨，学习各种命令、各种工具，当然少不了配置我最爱的Vim。那么说到Vim，归根结底是文本编辑器对吧，打字的软件，那么就要说说我用Linux的第一大困难——<strong>输入法配置难</strong></p><h3 id=输入法配置难>输入法配置难</h3><p>我是双拼用户，从小学六年级就开始用小鹤双拼打字了，这么长时间的习惯很难改，我也不想改。但是Linux上对双拼友好的输入法方案几乎没几个，我尝试过两个，Fcitx5 + 搜狗, Fcitx5 + Rime。</p><p>这两个方案都大差不差，只是搜狗的可能略微智能一点，下载源什么的换成国内镜像，分分钟搞定下载问题。难就难在，我使用的终端不兼容Fcitx。</p><p>没错，我用的就是Kitty。</p><p>那么，肯定有人就想说，KDE自带的Console不能用吗？非得额外下载一个干什么？？</p><p>我的答案就是：<strong>丑</strong>。</p><p>没错，就是因为Console丑。当然他也可以美化，但问题就在于，他的窗口圆角不彻底，而且把标签页显示关掉后，只能额外开一个窗口，占用屏幕空间。</p><p>而Kitty就不同，窗口边框干净利落，看起来很舒服，而且配色看起来也比Konsole那高饱和度的方案舒服太多了。标签页不是类似于系统组件的那种形式，所以不会额外占窗口空间。</p><p>虽然不兼容问题，在程序启动参数添加一条指定ibus接口的命令就解决了。</p><p>你问我为什么非得要追求好看，闲的么？我当时可能会扣一大串字来回怼你，但是我现在觉得我错了，我认同你的观点，就是闲的。</p><p>如开头所说，我是傻逼！</p><p>配置各种东西就免不了使用Github下载，那么就由此引出了第二个问题，<strong>代理配置难</strong></p><h3 id=代理配置难>代理配置难</h3><p>我这边访问Github非常不稳定，有时候能丝滑裸连，有时候挂代理都难上。我先用了Steam++的Github加速服务，但是他会把Github的一些地址都重定向到localhost导致使用Git的某些功能如<code>git push</code>异常。我又换到FastGithub，这东西很好用，但也有不稳定的时候，当他作为系统服务启动的时候，发生异常，想杀死他就变得十分困难，然后导致几乎所有Git功能都瘫痪，非常麻烦，<code>git clone</code>都跑不下来。</p><h3 id=显卡驱动安装难>显卡驱动安装难</h3><p>Linux显卡驱动问题一直都是社区津津乐道的蛋疼问题，更蛋疼的是我的显卡还是英伟达的，你问我为什么用英伟达显卡还玩Linux，我不知道。正如开头所说，我是傻逼！</p><p>显卡驱动的问题，我研究了一周左右，虽然最后还是成功了，但是离正常使用还有一段距离。也是有很多小问题，比如使用系统自带的截图会黑屏，用不了i3等窗口管理器等等。</p><p>当初安装显卡驱动导致的问题包括但不限于：</p><ul><li>鼠标灵敏度异常</li><li>显示比例异常</li><li>画面撕裂</li><li>系统炸了</li><li>桌面炸了</li><li>能进图形界面但是不能登录</li></ul><p>嗯对就是这么离谱。当然经过我一番折腾还是达到了能用但体验不好的程度。</p><h3 id=安装软件难>安装软件难</h3><p>拿QQ举例，QQ官网的Linux安装包是.deb，如果我想安装，还是要经过一大通折腾，拼凑出来一个半成品QQ，而且最难受的是，每次他都会自动推送更新，我还更不了，还不能忽略版本，让我这个强迫症非常折磨。</p><h2 id=为什么我放弃了linux>为什么我放弃了Linux</h2><p>其实原本我是不打算放弃Linux的，因为我突然想玩星露谷物语了，就想着要不要装双系统，但是我装Arch根本没有经验，磁盘分区做的很烂，上面的一番折腾已经让我筋疲力尽，我不想再玩Arch，只想找一个开箱即用的Linux发行版。</p><p>我的目光理所应当地投到了Ubuntu，这是我小时候体验的第一个Linux发行版，对我来说意义有点特殊，而且也属于开箱即用，所以Arch就光荣的升级为我的前任了。</p><p>Windows系统的安装非常简单，只要一直下一步下一步下一步，然后等就行了。Ubuntu也差不多，但需要注意的一点是，有一个步骤让用户选择以怎样的方式安装Ubuntu，给了三个选项，一个是用Windows Boot Manager管理，一个是擦除磁盘，好像还有一个，没注意。</p><p>我要装双系统，当然是选第一个选项，系统正常装上了，一切正常。下载软件，Neovim、VSCode、kitty。</p><p>kitty&mldr;&mldr;</p><p>上文提到，Kitty不支持fcitx5，理论上这个问题还是可以像Arch时期那么解决，但是我当时没找到怎么给程序添加启动参数。跟着网上的教程折腾了半天系统配置文件后，我成功的又把系统玩炸了，进不去桌面。</p><p>当时已经是晚上十点多了，当天上午刚出去踏青，走了一万一千步，对于我来说已经把这一个月的活动量都用完了，筋疲力尽。非常困倦的状态下，我打算重装Ubuntu，正式因为特别困，智商下降得厉害，在安装程序选择了第二个：擦除磁盘。</p><p>我原本Windows系统的D盘擦干净装了个Ubuntu。</p><p>&mldr;&mldr;&mldr;.</p><p>那就这样吧，也行，我试着在Windows里把C盘装的那个坏掉的Ubuntu删掉，但是Windows访问不了那块神秘区域。。。</p><p>那行吧，重装系统。我格式化了C盘，删除了所有的分区，重装了Windows。在下载软件的时候猛地一惊。</p><style>blockquote[class*=alert-]>div:first-child{font-size:1.25rem;font-weight:700;user-select:none}.alert-note{border-left-color:#2196f3}.alert-note>div:first-child{color:#2196f3}.alert-tip{border-left-color:#4caf50}.alert-tip>div:first-child{color:#4caf50}.alert-warning{border-left-color:#ff9800}.alert-warning>div:first-child{color:#ff9800}.alert-caution{border-left-color:#f44336}.alert-caution>div:first-child{color:#f44336}.alert-important{border-left-color:#9c27b0}.alert-important>div:first-child{color:#9c27b0}.alert-announcement{border-left-color:#00bcd4}.alert-announcement>div:first-child{color:#00bcd4}blockquote.text-secondary{border-left:3px solid #e0e0e0;color:#666;padding-left:1.5rem!important}@media(prefers-color-scheme:dark){blockquote.text-secondary{border-left-color:#444;color:#aaa}}</style><blockquote class="text-secondary p-0 m-0 ml-[1em]"><p>我为什么现在不用WSL了呢？</p></blockquote><p>这是个好问题，对吧，你问我为什么到这时候才想起来用WSL，我不知道，正如开头所说，我是傻逼！</p><p>于是，我不再安装Ubuntu，执行wsl的安装命令，没有像上次使用Windows那样报错，报各种偏门错，报全网都找不到解决方法的错。</p><p>此时我心中一万头曹尼玛奔腾，只有一句话想说：</p><p><strong>我是傻逼！！！！！！</strong></p><h2 id=什么人适合用linux做主力系统>什么人适合用Linux做主力系统</h2><p>我个人认为，对Linux有刚需，如嵌入式、AI、机器学习这种领域，离开Linux干不了活的，我会推荐你用WSL，而不是主力Linux。我不建议任何人主力系统用Linux。。。。更不建议主力Linux发行版是Arch。</p><p>WSL的好处太多了，最大的好处就是方便。</p><p>当然，你爱折腾，对Linux有热情，有好奇心，完全可以把我这话当放屁。</p><h2 id=结语>结语</h2><p><strong>我是傻逼！</strong></p><p><strong>我是傻逼！！</strong></p><p><strong>我是傻逼！！！</strong></p></div></article><a class=u-url href=https://www.glowisle.me/posts/%E6%8A%8A%E4%B8%BB%E5%8A%9B%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%8D%A2%E6%88%90arch-linux%E6%98%AF%E6%88%91%E8%BF%99%E8%BE%88%E5%AD%90%E5%81%9A%E8%BF%87%E7%9A%84%E6%9C%80%E8%A0%A2%E7%9A%84%E5%86%B3%E5%AE%9A/ style=display:none>Permalink</a><hr><div class=post-meta><div class="post-meta-item post-date"><time class=dt-published datetime=2025-04-06T17:58:48Z>April 06, 2025</time></div><div class="post-meta-item post-category">•
-<a href=/categories/%E5%BE%80%E6%98%94/ class=category-link>往昔</a></div><div class="post-meta-item post-tag">#
-<a href=https://www.glowisle.me/tags/arch/>Arch</a>
-,
-<a href=https://www.glowisle.me/tags/linux/>Linux</a></div></div><div class=upvote-container><small class=upvote><button class=upvote-btn id=upvote-btn>
-<svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><polyline points="17 11 12 6 7 11"/><polyline points="17 18 12 13 7 18"/></svg>
-<span class=upvote-count id=upvote-count>0</span></button></small></div><script>let hasUpvoted=!1,upvoteBtn,upvoteCount;document.addEventListener("DOMContentLoaded",function(){const e="";upvoteBtn=document.getElementById("upvote-btn"),upvoteCount=document.getElementById("upvote-count"),getCount(e),upvoteBtn.addEventListener("click",handleUpvote)});async function handleUpvote(){if(hasUpvoted){console.log("You have already upvoted this post!");return}const e="";upvoteBtn.disabled=!0,upvoteBtn.classList.add("upvoted"),upvoteCount.innerText=parseInt(upvoteCount.innerText)+1;try{const t=await fetch("https://upvote.glowisle.me/upvote",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({postId:e,diff:1})});t.ok?(console.log("Upvote successful!"),hasUpvoted=!0,await getCount(e,3)):console.log("Upvote failed!")}catch(e){console.error("Error: ",e)}finally{upvoteBtn.disabled=!1}}async function getCount(e,t=0){try{const n=await fetch("https://upvote.glowisle.me/count?post="+e,{method:"GET",headers:{"Content-Type":"application/json"}}),t=await n.json();if(t.code===0){const e=t.data.count;upvoteCount.innerText=e,hasUpvoted=t.data.hasUpvoted,hasUpvoted?upvoteBtn.classList.add("upvoted"):upvoteBtn.classList.remove("upvoted")}else console.error("Failed to get upvote count: ",t.msg)}catch(n){console.error("Error: ",n),t>0&&setTimeout(()=>{getCount(e,t-1)},1e3)}}</script><p>有想对我说的？<a href="mailto:i@glowisle.me?subject=回复《%e6%8a%8a%e4%b8%bb%e5%8a%9b%e6%9c%ba%e7%b3%bb%e7%bb%9f%e6%8d%a2%e6%88%90Arch%20Linux%e6%98%af%e6%88%91%e8%bf%99%e8%be%88%e5%ad%90%e5%81%9a%e8%bf%87%e7%9a%84%e6%9c%80%e8%a0%a2%e7%9a%84%e5%86%b3%e5%ae%9a》">发一封邮件吧</a>。</p></div></main><footer><div class=copyright>© 2024 - 2026 | Made with ❤️ by Verdant.<div class=rss-icon><a href=/rss><i class="fa fa-rss"></i></a></div></div></footer></body></html>
+为什么我放弃了Arch 为什么我放弃了Linux。 什么人适合用Linux做主力系统 本文的所有观点仅仅代表个人观点，我纯菜。你问我为什么要选择Arch，而不是Ubuntu或者其他新手友好的发行版，我不知道，正如上文所说，我是傻逼！">
+  <meta itemprop="datePublished" content="2025-04-06T17:58:48+00:00">
+  <meta itemprop="dateModified" content="2025-04-06T17:58:48+00:00">
+  <meta itemprop="wordCount" content="2948">
+  <meta itemprop="keywords" content="黑历史,Arch,Linux">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+		<meta name="msvalidate.01" content="2E1AACF009206F2DDBAAD4B98E881460" />
+<link
+	rel="prefetch"
+	as="image"
+	href="https://www.blogsclub.org/badge/www.glowisle.me"
+/>
+<link rel="shortcut icon" href="/favicon.ico" />
+</head>
+
+	<body>
+		<main>
+<header>
+<a href="/" class="title">
+  <p class="site-title">映屿</p>
+</a>
+<nav>
+<a href="/categories/">分类</a>
+
+<a href="/links/">友人</a>
+
+<a href="/archives/">归档</a>
+
+<a href="/about/">关于</a>
+
+
+</nav>
+
+</header>
+
+<article class="h-entry">
+<h1 class="post-title">
+      <a href="/posts/%E6%8A%8A%E4%B8%BB%E5%8A%9B%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%8D%A2%E6%88%90arch-linux%E6%98%AF%E6%88%91%E8%BF%99%E8%BE%88%E5%AD%90%E5%81%9A%E8%BF%87%E7%9A%84%E6%9C%80%E8%A0%A2%E7%9A%84%E5%86%B3%E5%AE%9A/" class="item-link">把主力机系统换成Arch Linux是我这辈子做过的最蠢的决定</a>
+</h1>
+
+<div class="post-meta">
+    <div class="post-meta-item post-date">
+        <time class="dt-published" datetime="2025-04-06T17:58:48Z">
+            April 06, 2025
+        </time>
+    </div>
+
+    <div class="post-meta-item post-category">
+
+        
+        
+•
+        <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-link">技术</a>
+        
+    </div>
+</div>
+
+
+  <div class="e-content"><h1 id="前言">前言</h1>
+<p>先说结论。</p>
+<p><strong>我是傻逼！</strong></p>
+<p><strong>我是傻逼！！</strong></p>
+<p><strong>我是傻逼！！！</strong></p>
+<p>本文将讲述</p>
+<ul>
+<li>为什么我放弃了Arch</li>
+<li>为什么我放弃了Linux。</li>
+<li>什么人适合用Linux做主力系统</li>
+</ul>
+<p>本文的所有观点仅仅代表个人观点，我纯菜。你问我为什么要选择Arch，而不是Ubuntu或者其他新手友好的发行版，我不知道，正如上文所说，我是傻逼！</p>
+<h2 id="为什么我放弃了arch">为什么我放弃了Arch</h2>
+<p>说到这个问题，就要先来谈谈为什么我要把Windows换成Linux。</p>
+<p>Linux这个系统对于我来说一直是神秘而美好的，至少在当时。我痴迷于命令行、终端、Vim这种工具。小时候也看过爸爸零几年买的《鸟哥的Linux私房菜》，给我当时幼小的心灵带来的极大的震撼。</p>
+<p>我当时也对Linux的目录结构非常新鲜，不分盘的设定感觉很好玩。</p>
+<p>我网站的服务器是Linux、身边的各种设备都有Linux的影子，这更加提高了我对Linux的向往程度。</p>
+<p>还有一个原因是，我当时正在用C语言写一个小工具，Windows下的gcc无法使用通配符<code>*</code>，要想用只能去打开Git Bash或者MSYS2，这俩东西界面的丑陋程度相比就不用我多说了，我当时就是喜欢把精力浪费在不必要的地方上，Windows的那个终端被我“美化”得花里胡哨的，上面两者的界面当然入不了我的眼。</p>
+<p>为了解决这个问题，我开始使用WSL2，但仅仅停留在开始阶段。</p>
+<p>我这个系统不知道怎么回事，根本没办法用WSL2。</p>
+<p>全网都没有遇到这个问题的，那既然如此，重装系统吧。</p>
+<p>和系统相处就像谈恋爱，总有一段热恋期，过了这个时期后就冷淡了、矛盾也就浮出水面。刚装好的前几天，我的热情前所未有的高涨，学习各种命令、各种工具，当然少不了配置我最爱的Vim。那么说到Vim，归根结底是文本编辑器对吧，打字的软件，那么就要说说我用Linux的第一大困难——<strong>输入法配置难</strong></p>
+<h3 id="输入法配置难">输入法配置难</h3>
+<p>我是双拼用户，从小学六年级就开始用小鹤双拼打字了，这么长时间的习惯很难改，我也不想改。但是Linux上对双拼友好的输入法方案几乎没几个，我尝试过两个，Fcitx5 + 搜狗, Fcitx5 + Rime。</p>
+<p>这两个方案都大差不差，只是搜狗的可能略微智能一点，下载源什么的换成国内镜像，分分钟搞定下载问题。难就难在，我使用的终端不兼容Fcitx。</p>
+<p>没错，我用的就是Kitty。</p>
+<p>那么，肯定有人就想说，KDE自带的Console不能用吗？非得额外下载一个干什么？？</p>
+<p>我的答案就是：<strong>丑</strong>。</p>
+<p>没错，就是因为Console丑。当然他也可以美化，但问题就在于，他的窗口圆角不彻底，而且把标签页显示关掉后，只能额外开一个窗口，占用屏幕空间。</p>
+<p>而Kitty就不同，窗口边框干净利落，看起来很舒服，而且配色看起来也比Konsole那高饱和度的方案舒服太多了。标签页不是类似于系统组件的那种形式，所以不会额外占窗口空间。</p>
+<p>虽然不兼容问题，在程序启动参数添加一条指定ibus接口的命令就解决了。</p>
+<p>你问我为什么非得要追求好看，闲的么？我当时可能会扣一大串字来回怼你，但是我现在觉得我错了，我认同你的观点，就是闲的。</p>
+<p>如开头所说，我是傻逼！</p>
+<p>配置各种东西就免不了使用Github下载，那么就由此引出了第二个问题，<strong>代理配置难</strong></p>
+<h3 id="代理配置难">代理配置难</h3>
+<p>我这边访问Github非常不稳定，有时候能丝滑裸连，有时候挂代理都难上。我先用了Steam++的Github加速服务，但是他会把Github的一些地址都重定向到localhost导致使用Git的某些功能如<code>git push</code>异常。我又换到FastGithub，这东西很好用，但也有不稳定的时候，当他作为系统服务启动的时候，发生异常，想杀死他就变得十分困难，然后导致几乎所有Git功能都瘫痪，非常麻烦，<code>git clone</code>都跑不下来。</p>
+<h3 id="显卡驱动安装难">显卡驱动安装难</h3>
+<p>Linux显卡驱动问题一直都是社区津津乐道的蛋疼问题，更蛋疼的是我的显卡还是英伟达的，你问我为什么用英伟达显卡还玩Linux，我不知道。正如开头所说，我是傻逼！</p>
+<p>显卡驱动的问题，我研究了一周左右，虽然最后还是成功了，但是离正常使用还有一段距离。也是有很多小问题，比如使用系统自带的截图会黑屏，用不了i3等窗口管理器等等。</p>
+<p>当初安装显卡驱动导致的问题包括但不限于：</p>
+<ul>
+<li>鼠标灵敏度异常</li>
+<li>显示比例异常</li>
+<li>画面撕裂</li>
+<li>系统炸了</li>
+<li>桌面炸了</li>
+<li>能进图形界面但是不能登录</li>
+</ul>
+<p>嗯对就是这么离谱。当然经过我一番折腾还是达到了能用但体验不好的程度。</p>
+<h3 id="安装软件难">安装软件难</h3>
+<p>拿QQ举例，QQ官网的Linux安装包是.deb，如果我想安装，还是要经过一大通折腾，拼凑出来一个半成品QQ，而且最难受的是，每次他都会自动推送更新，我还更不了，还不能忽略版本，让我这个强迫症非常折磨。</p>
+<h2 id="为什么我放弃了linux">为什么我放弃了Linux</h2>
+<p>其实原本我是不打算放弃Linux的，因为我突然想玩星露谷物语了，就想着要不要装双系统，但是我装Arch根本没有经验，磁盘分区做的很烂，上面的一番折腾已经让我筋疲力尽，我不想再玩Arch，只想找一个开箱即用的Linux发行版。</p>
+<p>我的目光理所应当地投到了Ubuntu，这是我小时候体验的第一个Linux发行版，对我来说意义有点特殊，而且也属于开箱即用，所以Arch就光荣的升级为我的前任了。</p>
+<p>Windows系统的安装非常简单，只要一直下一步下一步下一步，然后等就行了。Ubuntu也差不多，但需要注意的一点是，有一个步骤让用户选择以怎样的方式安装Ubuntu，给了三个选项，一个是用Windows Boot Manager管理，一个是擦除磁盘，好像还有一个，没注意。</p>
+<p>我要装双系统，当然是选第一个选项，系统正常装上了，一切正常。下载软件，Neovim、VSCode、kitty。</p>
+<p>kitty&hellip;&hellip;</p>
+<p>上文提到，Kitty不支持fcitx5，理论上这个问题还是可以像Arch时期那么解决，但是我当时没找到怎么给程序添加启动参数。跟着网上的教程折腾了半天系统配置文件后，我成功的又把系统玩炸了，进不去桌面。</p>
+<p>当时已经是晚上十点多了，当天上午刚出去踏青，走了一万一千步，对于我来说已经把这一个月的活动量都用完了，筋疲力尽。非常困倦的状态下，我打算重装Ubuntu，正式因为特别困，智商下降得厉害，在安装程序选择了第二个：擦除磁盘。</p>
+<p>我原本Windows系统的D盘擦干净装了个Ubuntu。</p>
+<p>&hellip;&hellip;&hellip;.</p>
+<p>那就这样吧，也行，我试着在Windows里把C盘装的那个坏掉的Ubuntu删掉，但是Windows访问不了那块神秘区域。。。</p>
+<p>那行吧，重装系统。我格式化了C盘，删除了所有的分区，重装了Windows。在下载软件的时候猛地一惊。</p>
+<blockquote>
+<p>我为什么现在不用WSL了呢？</p>
+</blockquote>
+<p>这是个好问题，对吧，你问我为什么到这时候才想起来用WSL，我不知道，正如开头所说，我是傻逼！</p>
+<p>于是，我不再安装Ubuntu，执行wsl的安装命令，没有像上次使用Windows那样报错，报各种偏门错，报全网都找不到解决方法的错。</p>
+<p>此时我心中一万头曹尼玛奔腾，只有一句话想说：</p>
+<p><strong>我是傻逼！！！！！！</strong></p>
+<h2 id="什么人适合用linux做主力系统">什么人适合用Linux做主力系统</h2>
+<p>我个人认为，对Linux有刚需，如嵌入式、AI、机器学习这种领域，离开Linux干不了活的，我会推荐你用WSL，而不是主力Linux。我不建议任何人主力系统用Linux。。。。更不建议主力Linux发行版是Arch。</p>
+<p>WSL的好处太多了，最大的好处就是方便。</p>
+<p>当然，你爱折腾，对Linux有热情，有好奇心，完全可以把我这话当放屁。</p>
+<h2 id="结语">结语</h2>
+<p><strong>我是傻逼！</strong></p>
+<p><strong>我是傻逼！！</strong></p>
+<p><strong>我是傻逼！！！</strong></p>
+</div>
+</article>
+<a class="u-url" href="https://www.glowisle.me/posts/%E6%8A%8A%E4%B8%BB%E5%8A%9B%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%8D%A2%E6%88%90arch-linux%E6%98%AF%E6%88%91%E8%BF%99%E8%BE%88%E5%AD%90%E5%81%9A%E8%BF%87%E7%9A%84%E6%9C%80%E8%A0%A2%E7%9A%84%E5%86%B3%E5%AE%9A/" style="display: none">Permalink</a>
+
+<hr>
+
+
+<div class="post-meta">
+	
+	<div class="post-meta-item post-tag">
+		#   
+		<a href="https://www.glowisle.me/tags/%E9%BB%91%E5%8E%86%E5%8F%B2/">黑历史</a>
+		,  
+		<a href="https://www.glowisle.me/tags/arch/">Arch</a>
+		,  
+		<a href="https://www.glowisle.me/tags/linux/">Linux</a>
+		 
+	</div>
+	
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  <p>有想对我说的？<a href="mailto:i@glowisle.me?subject=回复《%e6%8a%8a%e4%b8%bb%e5%8a%9b%e6%9c%ba%e7%b3%bb%e7%bb%9f%e6%8d%a2%e6%88%90Arch%20Linux%e6%98%af%e6%88%91%e8%bf%99%e8%be%88%e5%ad%90%e5%81%9a%e8%bf%87%e7%9a%84%e6%9c%80%e8%a0%a2%e7%9a%84%e5%86%b3%e5%ae%9a》">发一封邮件吧</a>。</p>
+</div>
+</main>
+		<footer><div class="copyright">
+	© 2024 - 2026 | Made with ❤️ by <a href="https://verdant.ee">Verdant</a>.
+	<div class="rss-icon">
+		<a href="/rss">
+			<i class="fa fa-rss">🛜</i>
+		</a>
+	</div>
+</div>
+</footer>
+
+		
+</body>
+	<GNU>
+		______ ____ _____ _____ _____ _________ _______ _ __ _ _ .' ___ ||_ \|_ _||_
+		_||_ _| | _ _ | |_ __ \ / |_ [ | / |_ / |_ / .' \_| | \ | | | | | | |_/ | |
+		\_|.---. _ .--. _ .--. _ __ | |__) |_ .--. ,--. `| |-'.---. | |--. .---.`|
+		|-'`| |-' | | ____ | |\ \| | | ' ' | | | / /__\\[ `/'`\][ `/'`\][ \ [ ] |
+		___/[ `/'`\]`'_\ : | | / /'`\] | .-. |/ /__\\| | | | \ `.___] |_| |_\ |_ \
+		\__/ / _| |_ | \__., | | | | \ '/ / _| |_ | | // | |,| |,| \__. | | | ||
+		\__.,| |, | |, `._____.'|_____|\____| `.__.' |_____| '.__.'[___] [___] [\_:
+		/ |_____| [___] \'-;__/\__/'.___.'[___]|__]'.__.'\__/ \__/ \__.' "A man is
+		not dead while his name is still spoken."
+	</GNU>
+</html>

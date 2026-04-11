@@ -1,26 +1,395 @@
-<!doctype html><gnu>______ ____ _____ _____ _____ _________ _______ _ __ _ _
-.' ___ ||_ \|_ _||_ _||_ _| | _ _ | |_ __ \ / |_ [ | / |_ / |_
-/ .' \_| | \ | | | | | | |_/ | | \_|.---. _ .--. _ .--. _ __ | |__) |_ .--. ,--. `| |-'.---. | |--. .---.`| |-'`| |-'
-| | ____ | |\ \| | | ' ' | | | / /__\\[ `/'`\][ `/'`\][ \ [ ] | ___/[ `/'`\]`'_\ : | | / /'`\] | .-. |/ /__\\| | | |
-\ `.___] |_| |_\ |_ \ \__/ / _| |_ | \__., | | | | \ '/ / _| |_ | | // | |,| |,| \__. | | | || \__.,| |, | |,
-`._____.'|_____|\____| `.__.' |_____| '.__.'[___] [___] [\_: / |_____| [___] \'-;__/\__/'.___.'[___]|__]'.__.'\__/ \__/
-\__.'
-"A man is not dead while his name is still spoken."</gnu><html lang=zh-cn><head><meta http-equiv=X-Clacks-Overhead content="GNU Terry Pratchett"><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><link rel="shortcut icon" href=https://www.glowisle.me/favicon.png><title>「创作者」们，用AI当开塞露</title><meta name=title content="「创作者」们，用AI当开塞露"><meta name=description content="AI是一个躲都躲不掉的话题，无论在哪里都能看到。我个人对这个话题兴趣不大，但最近发生了一件让我很不舒服的事，就借着这次机会谈谈AI创作的事。
+<!doctype html>
+<html lang="zh-cn">
+	<head>
+		<link rel="stylesheet" href="/style.css" />
+		<meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="https://www.glowisle.me/favicon.png" />
+<title>「创作者」们，用AI当开塞露</title>
+<meta name="title" content="「创作者」们，用AI当开塞露" />
+<meta name="description" content="AI是一个躲都躲不掉的话题，无论在哪里都能看到。我个人对这个话题兴趣不大，但最近发生了一件让我很不舒服的事，就借着这次机会谈谈AI创作的事。
 
-今天下午，我和我父亲聊天。他最近一直在看AI和自媒体有关的内容。比如Claude, 提示词优化等方面，想运营一个短视频帐号，用AI大量制作暴款视频带货盈利（主要聚焦个人成长、社交等方面）。这事跟我说主要是想找我提供所谓的「技术支持」，让我帮他部署模型、调试和维护。但有了今天这篇文章，就代表了我压根不想干。"><meta name=keywords content="AI,人工智能,自媒体,内容创作,"><link rel=canonical href=https://www.glowisle.me/posts/stop-pooping-with-ai/><meta property="og:url" content="https://www.glowisle.me/posts/stop-pooping-with-ai/"><meta property="og:site_name" content="映屿"><meta property="og:title" content="「创作者」们，用AI当开塞露"><meta property="og:description" content="AI是一个躲都躲不掉的话题，无论在哪里都能看到。我个人对这个话题兴趣不大，但最近发生了一件让我很不舒服的事，就借着这次机会谈谈AI创作的事。
-今天下午，我和我父亲聊天。他最近一直在看AI和自媒体有关的内容。比如Claude, 提示词优化等方面，想运营一个短视频帐号，用AI大量制作暴款视频带货盈利（主要聚焦个人成长、社交等方面）。这事跟我说主要是想找我提供所谓的「技术支持」，让我帮他部署模型、调试和维护。但有了今天这篇文章，就代表了我压根不想干。"><meta property="og:locale" content="zh_cn"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2025-11-22T21:06:49+08:00"><meta property="article:modified_time" content="2025-11-22T21:06:49+08:00"><meta property="article:tag" content="AI"><meta property="article:tag" content="人工智能"><meta property="article:tag" content="自媒体"><meta property="article:tag" content="内容创作"><meta name=twitter:card content="summary"><meta name=twitter:title content="「创作者」们，用AI当开塞露"><meta name=twitter:description content="AI是一个躲都躲不掉的话题，无论在哪里都能看到。我个人对这个话题兴趣不大，但最近发生了一件让我很不舒服的事，就借着这次机会谈谈AI创作的事。
-今天下午，我和我父亲聊天。他最近一直在看AI和自媒体有关的内容。比如Claude, 提示词优化等方面，想运营一个短视频帐号，用AI大量制作暴款视频带货盈利（主要聚焦个人成长、社交等方面）。这事跟我说主要是想找我提供所谓的「技术支持」，让我帮他部署模型、调试和维护。但有了今天这篇文章，就代表了我压根不想干。"><meta itemprop=name content="「创作者」们，用AI当开塞露"><meta itemprop=description content="AI是一个躲都躲不掉的话题，无论在哪里都能看到。我个人对这个话题兴趣不大，但最近发生了一件让我很不舒服的事，就借着这次机会谈谈AI创作的事。
-今天下午，我和我父亲聊天。他最近一直在看AI和自媒体有关的内容。比如Claude, 提示词优化等方面，想运营一个短视频帐号，用AI大量制作暴款视频带货盈利（主要聚焦个人成长、社交等方面）。这事跟我说主要是想找我提供所谓的「技术支持」，让我帮他部署模型、调试和维护。但有了今天这篇文章，就代表了我压根不想干。"><meta itemprop=datePublished content="2025-11-22T21:06:49+08:00"><meta itemprop=dateModified content="2025-11-22T21:06:49+08:00"><meta itemprop=wordCount content="2668"><meta itemprop=keywords content="AI,人工智能,自媒体,内容创作"><meta name=referrer content="no-referrer-when-downgrade"><style>:root{--width-max:550px;--font-secondary:monospace;--font-size-primary:1rem;--font-size-secondary:.93rem;--body-bg-color:#fbfbf6;--bold-text-color:#222;--body-text-color:#444;--link-color:#0355a6;--link-visited-color:#551a8b;--table-border-color:#f2f2f2;--table-th-bg-color:#f2f2f2;--img-border-color:#f2f2f2;--code-bg-color:#f2f2f2;--code-text-color:#222;--blockquote-border-color:#666;--blockquote-text-color:#646464;--upvoted-color:#fa8072;--caption-text-color:#666;--toc-text-color:#e5e5e5;--toc-hover-color:e5e5e5;--music-bg-hover-light:#e5e5e5;--music-bg-light:rgba(229, 229, 229, 0.5);--music-text-secondary:#666;--music-shadow:0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);--summary-text-color:#706c6c;--svg-size:0.85em;--title-color:#444444}.recent-title{font-weight:700;border:none}.recent-date{display:block}summary p{color:var(--summary-text-color)}:is(article,.summary) p:not(.music-card *){margin-top:1.6rem}.e-content h2,.e-content h3,.e-content h4,.e-content h5,.e-content h6{font-weight:800}h1,h2{margin:0;padding:0}.site-title{margin:15px 0;font-size:2.15em;font-weight:700}.badge-88x31{display:flex;flex-wrap:wrap;gap:5px}.badge-88x31 a{flex:none;line-height:0}.badge-88x31 img{display:block}.post-title a.item-link{font-size:1.25rem;margin-bottom:0}.e-content :is(h1,h2,h3,h4,h5,h6),.summary :is(h1,h2,h3,h4,h5,h6){margin-top:1.5em}.post-meta-item a,.rss-icon a,.post-title a,a.title h1,p{color:var(--body-text-color)}.post-meta-item a{font-size:.85rem}body{font-size:var(--font-size-primary);font-family:Noto Serif CJK SC;margin:auto;padding:20px;max-width:var(--width-max);text-align:left;background-color:var(--body-bg-color);word-wrap:break-word;overflow-wrap:break-word;line-height:1.6;color:var(--body-text-color)}.post-title a{margin:16px 0}.post-title:hover{color:var(--link-color)}p{line-height:2;font-weight:500}div.summary{font-weight:400}div.summary p{line-height:2}a{text-decoration:none;border-bottom:1px dotted;color:var(--body-text-color)!important}strong,b{color:var(--bold-text-color)}i{font-style:normal}hr{border:0;border-top:1px dashed}time{font-family:var(--font-primary);color:var(--body-text-color)}header{margin-top:30px}.title{text-align:left;text-decoration:none!important}.title:hover{text-decoration:none}a.title h1{margin:15px 0;font-size:2.15em}.title span{font-weight:400}nav a{margin-right:8px;border:none}footer{padding:25px 0;text-align:left;font-size:var(--font-size-secondary)}.recent-posts-item{margin:0 0 120px}.recent-item{margin-bottom:4rem}.recent-list{padding-left:2vw}<!--.item-link{ --> <!-- width: 100%; --> <!-- display: inline-block; --> <!-- text-decoration: none; --> <!-- flex: 1; --> <!-- overflow: hidden; --> <!-- text-overflow: ellipsis; --> <!-- font-size: 1.6em; --> <!-- word-wrap: break-word; --> <!-- white-space: nowrap; --> <!--}-->.post-title a.item-link{font-size:1.8rem;border:none}h1.post-title{margin-top:0}.post-title{margin:0!important;display:inline-block}.post-date,.post-date-shortcode{font-size:.9em;color:#666;display:inline;min-width:80px;flex-shrink:0;margin-left:auto}.recent-empty{text-align:center;font-style:italic}ul.blog-posts{list-style-type:none;padding:unset}ul.blog-posts li{display:flex;margin-bottom:8px}ul.blog-posts li span{flex:0 0 130px}ul.blog-posts li span.grouped{flex:0 0 80px}.posts-list li{margin-bottom:12px}.post-meta{margin-top:20px;margin-bottom:5px}.recent-posts .post-meta{margin-bottom:3em}.post-meta-item{margin-right:.3rem;display:inline-block}.post-meta-item svg{display:inline;width:var(--svg-size);height:var(--svg-size)}.post-meta-item p{margin:0}.post-tag a{}img{max-width:100%;display:block;margin-left:auto;margin-right:auto;content-visibility:auto}img.missing{display:none}img[src*="#minipic"]{max-width:50%;margin-left:0;margin-right:auto}.image-caption{margin:auto}.image-caption figcaption{text-align:center;font-style:italic;font-size:.8em;margin-top:.6em;color:var(--caption-text-color)}.booklist{display:grid;grid-template-columns:repeat(5,1fr);gap:20px}.booklist-item{transform:translateZ(0);transition:transform .25s,box-shadow .25s;box-shadow:0 4px 6px rgba(0,0,0,.1)}.booklist-item:hover{transform:translateY(-5px)translateZ(20px);box-shadow:0 20px 40px rgba(0,0,0,.5)}.booklist-item img{height:100%}.rss-icon{display:inline;font-size:16px;float:right;font-family:var(--font-primary)}.social-icons{margin:15px 15px 5px;text-align:center}.social-icons a{padding:5px}code{font-family:var(--font-secondary);background-color:var(--code-bg-color);color:var(--code-text-color);padding:2px;border-radius:4px}pre code{display:block;padding:16px;white-space:pre-wrap;overflow-x:auto}div.highlight pre{border-radius:4px}div.highlight code{background-color:var(--code-bg-color);color:var(--code-text-color)}blockquote{color:var(--blockquote-text-color);margin:17px 0 0;padding-left:20px;font-style:normal}table{width:100%;border-collapse:collapse;border:1px solid var(--table-border-color);border-radius:4px;margin-top:16px}th,td{border:1px solid var(--table-border-color);padding:4px}th{background-color:var(--table-th-bg-color)}.wm{border:1px #d0d7de solid;border-radius:.25em;padding:1.5vw;padding-top:0;background-color:#fffaed;margin-top:1vh}.wm p{margin-top:1px}textarea{width:100%;font-size:16px}input{font-size:14px}div.footnotes hr::before{content:"Footnotes";display:block;font-size:1.5em;color:var(--bold-text-color);margin-top:16px}.music-card{display:flex;flex-direction:column;gap:.5rem;width:100%}.music-card img{border:none!important}.music-info{display:flex;align-items:center;gap:1.25rem}.music-cover{width:3.75rem;height:3.75rem;border-radius:.5rem;box-shadow:var(--music-shadow);margin:0!important;object-fit:cover}.music-title{margin:0;font-size:1rem;font-weight:700;line-height:1.2}.music-artist{margin:0;font-size:.875rem;color:var(--music-text-secondary)}.music-links{display:flex;align-items:center;gap:.5rem}.music-btn{display:inline-flex;align-items:center;gap:.25rem;padding:0 .75rem;height:2rem;border-radius:9999px;text-decoration:none!important;font-size:.75rem;transition:background-color .3s ease;background-color:var(--music-bg-light);color:inherit}.music-btn:hover{background-color:var(--music-bg-hover-light)}.music-icon{display:block;width:.75rem;height:.75rem;margin:0!important}.music-btn-text{display:inline}div.toc{position:fixed;top:50%;left:calc((100vw + var(--width-max))/2);transform:translateY(-50%);width:calc((90vw - var(--width-max))/2);max-height:80vh;overflow-y:auto;border:none;padding:0;margin:0;z-index:99;scrollbar-width:none;-ms-overflow-style:none}div.toc::-webkit-scrollbar{display:none}.toc-nav{padding:1.5rem}.toc-nav ul{list-style:none;padding:0;margin:0}.toc-nav li{margin:8px 0}.toc-nav a{display:block;text-decoration:none;padding:0 12px;transition:all .2s ease;font-size:.9rem;line-height:1.4;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;color:var(--toc-text-color)}.toc-nav a:hover,.toc-nav a.active{color:var(--toc-hover-color)}.toc-nav a::before{content:"";display:inline-block;width:16px;height:4px;background-color:var(--toc-text-color);border-radius:16px;margin-right:12px;vertical-align:middle}.toc-nav a:hover::before,.toc-nav a.active::before{background-color:var(--toc-hover-color)}.toc-nav ul ul a::before{width:12px;margin-right:16px}.toc-nav ul ul ul a::before{width:8px;margin-right:20px}button.upvote-btn{padding:0;border:none;background:0 0;cursor:pointer;display:flex;flex-direction:column;align-items:center;color:var(--body-text-color)}button.upvoted{color:var(--upvoted-color)}span.upvote-count{margin-top:-4px;font-size:smaller}ul li:has(input){list-style-type:none;margin-left:-25.5px}@media(prefers-color-scheme:dark){:root{--summary-text-color:#c9c6c5;--body-bg-color:#262624;--bold-text-color:#eee;--body-text-color:#e8e6e3;--text-color-tertiary:#a0a0a0;--link-color:#6da6ff;--link-visited-color:#b388ff;--table-border-color:#999;--table-th-bg-color:#121212;--img-border-color:#999;--code-bg-color:#141414;--code-text-color:#ddd;--blockquote-border-color:#7b7b7b;--blockquote-text-color:#acacac;--caption-text-color:#aaa;--toc-text-color:#cac3c3;--toc-hover-color:#cac3c3;--music-bg-hover-dark:#525252;--music-bg-dark:rgba(82, 82, 82, 0.5);--music-text-secondary:#a3a3a3;--color-background:var(--body-bg-color) !important;--summary-text-color:#a2a2a2}a{color:var(--link-color);cursor:pointer;text-decoration:none}h3.recent-post-title a{color:var(--body-text-color)}.post-meta-item svg{filter:invert(1)hue-rotate(180deg)}strong{font-weight:650}.music-btn{background-color:var(--music-bg-dark)}.music-btn:hover{background-color:var(--music-bg-hover-dark)}.category-link{color:#dbdbdb}.wm{background-color:#161b22;border-color:#30363d;color:var(--body-text-color);padding:10px}.wm input{background-color:#010409;border:#30363d 1px solid;color:var(--body-text-color);outline:none}#webmention-source:focus{border-color:var(--color-accent-fg,#0969da);box-shadow:0 0 0 3px rgba(9,105,218,.1)}.wm button{color:var(--body-text-color);background-color:#161b22;border:#30363d 1px solid}.post-summary{color:var(--text-color-primary)!important}.post-item{border-bottom:1px solid #414141!important}.pagination-link{border:1px solid #414141!important}}@media(min-width:768px){.music-card{flex-direction:row;justify-content:space-between;align-items:center}.music-btn{padding:1rem;justify-content:center;width:auto;height:auto}.music-icon{width:1.25rem;height:1.25rem}.music-btn-text{display:none}}@media(max-width:800px){img[src*="#minipic"]{max-width:100%;margin-left:auto;margin-right:auto}div.toc{display:none}}@media(max-width:720px){.post-date{min-width:auto;font-size:.85em}.item-link{white-space:normal;overflow:visible}}@media(max-width:700px){.booklist{grid-template-columns:repeat(3,1fr);gap:10px}}@media(max-width:400px){.booklist{grid-template-columns:repeat(2,1fr);gap:10px}}.title h1,.title p{margin:15px 0!important;font-size:2.15em!important;font-weight:700!important;line-height:1.2!important;display:block!important;padding:0!important}.post-title{font-size:26.4px;line-height:1.4!important;display:block!important;padding:0!important}.post-title a{display:inline-block!important;padding:0!important}nav{margin-top:0!important;margin-bottom:20px!important;line-height:1.6!important}header{margin-top:30px;display:block}gnu{display:none}</style><meta name=msvalidate.01 content="2E1AACF009206F2DDBAAD4B98E881460"><link rel=prefetch as=image href=https://www.blogsclub.org/badge/www.glowisle.me><link href=https://github.com/yingyu5658 rel=me><link rel=webmention href=https://webmention.io/www.glowisle.me/webmention><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css><link rel="shortcut icon" href=/favicon.ico></head><body><main><header><a href=/ class=title><p class=site-title>映屿</p></a><nav><a href=/categories/>分类</a>
-<a href=/links/>友人</a>
-<a href=/archives/>归档</a>
-<a href=/about/>关于</a></nav></header><article class=h-entry><h1 class=post-title><a href=/posts/stop-pooping-with-ai/ class=item-link>「创作者」们，用AI当开塞露</a></h1><div class=e-content><p>AI是一个躲都躲不掉的话题，无论在哪里都能看到。我个人对这个话题兴趣不大，但最近发生了一件让我很不舒服的事，就借着这次机会谈谈AI创作的事。</p><hr><p>今天下午，我和我父亲聊天。他最近一直在看AI和自媒体有关的内容。比如Claude, 提示词优化等方面，想运营一个短视频帐号，用AI大量制作暴款视频带货盈利（主要聚焦个人成长、社交等方面）。这事跟我说主要是想找我提供所谓的「技术支持」，让我帮他部署模型、调试和维护。但有了今天这篇文章，就代表了我压根不想干。</p><p>虽然从理论上这么赚钱并非不可行，甚至已经有很多比较成熟的方案，你只要会打字，有一台能联网的设备就行。但仔细想想，还是能找出几个值得掰扯的点。</p><h2 id=你能想到的为什么别人想不到>你能想到的为什么别人想不到？</h2><p>AI大规模普及后，写作、编程、绘画、甚至是作曲的门槛已经变得相当低，只要有语言组织能力，或许加上一点点财力，就能轻松用人工智能帮你完成「创作」。而这种「创作」的流程又进一步优化，已经有了很多基于AI的「创作」工作流，教你调教各种AI，优化提示词、写文章、写代码……</p><p>上次让某些领域有颠覆性改变的发明还是社交媒体，让每一个人都可以轻松发表自己的看法。而AI的出现让每一个人都能「创作」。</p><p><figure class=image-caption><img src=https://images.glowisle.me/stop-pooping-with-ai-1.jpg alt=仅举例用，无冒犯作者意><figcaption>仅举例用，无冒犯作者意</figcaption></figure><figure class=image-caption><img src=https://images.glowisle.me/stop-pooping-with-ai-2.jpg alt=仅举例用，无冒犯作者意><figcaption>仅举例用，无冒犯作者意</figcaption></figure></p><p><strong>既然每一个人都能做，为什么商单会找上你</strong>？千篇一律的文案风格、视频风格，甚至难以分辨彼此。内容同质化、低质化、模板化的大背景下怎样才能做到脱颖而出？内卷是永远不会停止的，借助AI做自媒体的门槛看似谁都能轻而易举地踏过去，实际上相当困难。</p><h2 id=观众的被欺骗感>观众的被欺骗感</h2><p>试着想象一下：你刷到的每一个视频背后，都是葛优躺在显示器前，复制粘贴大模型生成的文本，机械、重复、麻木地完成工作的那类人在制作，并且他们只需要两三分钟就可以生产出十分钟甚至更长的，看起来人模狗样的视频，而你要花费你宝贵的生命在大模型从互联网各处和语料拾来的牙慧上，你作何感受？</p><p>无论是二十分钟甚至更长的科普视频，还是用手机和烂梗素材拼贴的短视频，背后都有<strong>创作者</strong>付出了时间和精力。无论质量的高低，<strong>创作者</strong>的<strong>真心</strong>是可触摸到的。每一字每一句，都闪耀着作者思想的光辉，而AI生成的文本，只是在数学上计算了每个字可能出现的概率，在用词里对用户加以谄媚，在结果上空有其表。他究竟代表着谁？你想让他代表谁，他就可以代表谁。一篇高中生的习作可以被AI捧到提名诺奖，而真正诺奖得主的作品，又可以被批判得一文不值。</p><p>使用AI批量生产内容，不仅是对观众的欺骗，更是对创作这一行为本身的背叛。AI背后的到底是作者，还是冷冰冰的数学与统计学程序？创作，最后不要沦为收手工「匠心费」的只能看，不能摸的工艺品了。</p><h2 id=思考深度和逻辑能力缺失>思考深度和逻辑能力缺失</h2><p>在搜集资料时，我发现了这样的观点：</p><style>blockquote[class*=alert-]>div:first-child{font-size:1.25rem;font-weight:700;user-select:none}.alert-note{border-left-color:#2196f3}.alert-note>div:first-child{color:#2196f3}.alert-tip{border-left-color:#4caf50}.alert-tip>div:first-child{color:#4caf50}.alert-warning{border-left-color:#ff9800}.alert-warning>div:first-child{color:#ff9800}.alert-caution{border-left-color:#f44336}.alert-caution>div:first-child{color:#f44336}.alert-important{border-left-color:#9c27b0}.alert-important>div:first-child{color:#9c27b0}.alert-announcement{border-left-color:#00bcd4}.alert-announcement>div:first-child{color:#00bcd4}blockquote.text-secondary{border-left:3px solid #e0e0e0;color:#666;padding-left:1.5rem!important}@media(prefers-color-scheme:dark){blockquote.text-secondary{border-left-color:#444;color:#aaa}}</style><blockquote class="text-secondary p-0 m-0 ml-[1em]"><style>blockquote[class*=alert-]>div:first-child{font-size:1.25rem;font-weight:700;user-select:none}.alert-note{border-left-color:#2196f3}.alert-note>div:first-child{color:#2196f3}.alert-tip{border-left-color:#4caf50}.alert-tip>div:first-child{color:#4caf50}.alert-warning{border-left-color:#ff9800}.alert-warning>div:first-child{color:#ff9800}.alert-caution{border-left-color:#f44336}.alert-caution>div:first-child{color:#f44336}.alert-important{border-left-color:#9c27b0}.alert-important>div:first-child{color:#9c27b0}.alert-announcement{border-left-color:#00bcd4}.alert-announcement>div:first-child{color:#00bcd4}blockquote.text-secondary{border-left:3px solid #e0e0e0;color:#666;padding-left:1.5rem!important}@media(prefers-color-scheme:dark){blockquote.text-secondary{border-left-color:#444;color:#aaa}}</style><blockquote class="text-secondary p-0 m-0 ml-[1em]"><p>从自身出发，更科学、更理性地对待AI创作时代，树立对自我创作的价值的全新认识。</p><p>比如，从“我写的”转向“我发现的”。</p><p>比如，从“内容生产者”转型“内容想象者”。</p><p>比如，“表达自我”升级成“激发共鸣”。</p><p>……</p><p><strong>第三种，我把它称作“伪人性崇拜”，它其实是一种人类社会长久依赖就存在的反智倾向。</strong></p><p>但是他们却忘了：海明威用打字机写作，并坚称打字机比用笔书写更凝练、更高效，也被同时代用钢笔、甚至羽毛笔创作的同行和文艺界人士们，揶揄、嘲讽，甚至批评，说他的作品充满机械的臭味，批判他从根本上是一个作风粗野，毫无历史上伟大作家们那种深邃的精神格调，也毫无优雅气质的“文痞”。</p><p>当电脑出现后，这种对机器创作的偏见就更明显了，“键盘的机械触感隔断人类灵魂的流淌，完全比不上笔在纸上的流畅书写的情感自然深刻”，类似这样的言论在当时老一批作家和读者中，流行了很长时间。</p><p>其实，今天当我们在星巴克用MacBook甚至是智能手机码字时，当我们随时通过搜索引擎，大大摆脱对个人知识储备和数据资料积累的依赖时，对以前的人们来说，何尝不是另一种“技术作弊”？</p></blockquote><p>—— <a href=https://zhuanlan.zhihu.com/p/28802794985>《为什么中国很多人见别人用AI的就崩了？AI写作歧视症：这个时代最挣扎的文化偏见》</a>（后文简称《偏见》）<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup></p></blockquote><p>郑永年认为短视频的崛起让中国进入了全民弱智的时代，那么AI的崛起，无疑是给这种形势火上浇油。如果短视频真的使全民弱智，那么滥用AI进行「创作」，并主张「树立对自我创作价值的全新认知」，就是让本就难以沉静的心更加浮躁：输入提示词、等待模型「思考」、获得输出。这个过程，从创作者自身的角度出发思考，他们得到了什么？打字速度和准确度的提升？</p><p>《偏见》中探讨的「我发现的」与「我写的」实际上是一种包含关系：我发现 => 我写 => 我有收获。而不是：我发现 => AI想、AI写 => 我坐享其成。</p><p>第二条也同理，想象 => 设计 => 实践。这是生产的大过程。</p><p>而「表达自我」与「激发共鸣」，一定是「升级」的关系吗？甚至无法从中找到逻辑联系。两者可以共存，而且没有谁高谁低。</p><p>在引用《偏见》的第二段文本中，讨论了创作工具的偏见：纸笔、打字机、电脑。不管使用何种工具，「创作」的过程都是作者独立思考、独立撰写。而不是让他「人」代替创作者思考与撰写。</p><p>在我看来，AI的「深度思考」功能最具讽刺意味。主动放弃深度思考的权利、丧失深度思考的能力、当指挥AI思考的皇帝。这正是走向自我堕落的道路。</p><p>郑的观点可以再一次得到验证：谣言、仇恨、戾气的生产会更加易如反掌；长期滥用AI，思考和逻辑能力的缺失让它们更能猖獗释放。</p><h2 id=滥用ai与善用ai>滥用AI与善用AI</h2><p>既然如此，用AI就有罪么？技术本身是中性的，问题的根源在于使用技术的人和目的。</p><p>AI是搜索引擎的新形式，它有着人手无法匹敌的爬取信息能力；AI是学识渊博的良师，从文学问到物理，从心理学问到古汉语，在已经有丰富研究的非前沿领域有着强大的知识储备。将AI作为真正意义上的工具使用，而不是免费的外包员工，是有利于创作和创作者的明智行为。</p><p>例如，使用AI寻找灵感，讨论话题切入点、如何优化作品表现的手法。甚至写文章时，将AI作为对话式的词典使用、探讨几个近义词在同一语境下的表现效果；纠打字错误、校对文本等。所以，合理地使用AI能提高创作效率和质量，同时也能促进自己能力的提升，而非沦为八手文本的搬运工，在变现的利益诱惑下丧失了创作的本心。</p><p>使用技术的方式有很多种，但完全使用AI进行「创作」，还美其名曰「创作者」，究竟是当还是立，请自行明辩吧！</p><div class=footnotes role=doc-endnotes><hr><ol><li id=fn:1><p>这篇文章从手法上说，存在来源不明的数据和案例、不当类比、偷换概念等诡辩行为，如「某平台数据显示」、「72%的人会优先批判AI生成的文章」、「来自AI研究机构的最新数据表明」、02中谬误2的两个案例、谬误3 偷换AI本身情感与给人带来的情感波动的概念等。&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></div></div></article><a class=u-url href=https://www.glowisle.me/posts/stop-pooping-with-ai/ style=display:none>Permalink</a><hr><div class=post-meta><div class="post-meta-item post-date"><time class=dt-published datetime=2025-11-22T21:06:49+08:00>November 22, 2025</time></div><div class="post-meta-item post-category">•
-<a href=/categories/%E9%9A%8F%E7%AC%94/ class=category-link>随笔</a></div><div class="post-meta-item post-tag">#
-<a href=https://www.glowisle.me/tags/ai/>AI</a>
-,
-<a href=https://www.glowisle.me/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/>人工智能</a>
-,
-<a href=https://www.glowisle.me/tags/%E8%87%AA%E5%AA%92%E4%BD%93/>自媒体</a>
-,
-<a href=https://www.glowisle.me/tags/%E5%86%85%E5%AE%B9%E5%88%9B%E4%BD%9C/>内容创作</a></div></div><div class=upvote-container><small class=upvote><button class=upvote-btn id=upvote-btn>
-<svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><polyline points="17 11 12 6 7 11"/><polyline points="17 18 12 13 7 18"/></svg>
-<span class=upvote-count id=upvote-count>0</span></button></small></div><script>let hasUpvoted=!1,upvoteBtn,upvoteCount;document.addEventListener("DOMContentLoaded",function(){const e="stop-pooping-with-ai";upvoteBtn=document.getElementById("upvote-btn"),upvoteCount=document.getElementById("upvote-count"),getCount(e),upvoteBtn.addEventListener("click",handleUpvote)});async function handleUpvote(){if(hasUpvoted){console.log("You have already upvoted this post!");return}const e="stop-pooping-with-ai";upvoteBtn.disabled=!0,upvoteBtn.classList.add("upvoted"),upvoteCount.innerText=parseInt(upvoteCount.innerText)+1;try{const t=await fetch("https://upvote.glowisle.me/upvote",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({postId:e,diff:1})});t.ok?(console.log("Upvote successful!"),hasUpvoted=!0,await getCount(e,3)):console.log("Upvote failed!")}catch(e){console.error("Error: ",e)}finally{upvoteBtn.disabled=!1}}async function getCount(e,t=0){try{const n=await fetch("https://upvote.glowisle.me/count?post="+e,{method:"GET",headers:{"Content-Type":"application/json"}}),t=await n.json();if(t.code===0){const e=t.data.count;upvoteCount.innerText=e,hasUpvoted=t.data.hasUpvoted,hasUpvoted?upvoteBtn.classList.add("upvoted"):upvoteBtn.classList.remove("upvoted")}else console.error("Failed to get upvote count: ",t.msg)}catch(n){console.error("Error: ",n),t>0&&setTimeout(()=>{getCount(e,t-1)},1e3)}}</script><p>有想对我说的？<a href="mailto:i@glowisle.me?subject=回复《%e3%80%8c%e5%88%9b%e4%bd%9c%e8%80%85%e3%80%8d%e4%bb%ac%ef%bc%8c%e7%94%a8AI%e5%bd%93%e5%bc%80%e5%a1%9e%e9%9c%b2》">发一封邮件吧</a>。</p></div></main><footer><div class=copyright>© 2024 - 2026 | Made with ❤️ by Verdant.<div class=rss-icon><a href=/rss><i class="fa fa-rss"></i></a></div></div></footer></body></html>
+今天下午，我和我父亲聊天。他最近一直在看AI和自媒体有关的内容。比如Claude, 提示词优化等方面，想运营一个短视频帐号，用AI大量制作暴款视频带货盈利（主要聚焦个人成长、社交等方面）。这事跟我说主要是想找我提供所谓的「技术支持」，让我帮他部署模型、调试和维护。但有了今天这篇文章，就代表了我压根不想干。" />
+<meta name="keywords" content="AI,人工智能,自媒体,内容创作," />
+
+<link rel="canonical" href="https://www.glowisle.me/posts/stop-pooping-with-ai/">
+
+
+<meta property="og:url" content="https://www.glowisle.me/posts/stop-pooping-with-ai/">
+  <meta property="og:site_name" content="映屿">
+  <meta property="og:title" content="「创作者」们，用AI当开塞露">
+  <meta property="og:description" content="AI是一个躲都躲不掉的话题，无论在哪里都能看到。我个人对这个话题兴趣不大，但最近发生了一件让我很不舒服的事，就借着这次机会谈谈AI创作的事。
+今天下午，我和我父亲聊天。他最近一直在看AI和自媒体有关的内容。比如Claude, 提示词优化等方面，想运营一个短视频帐号，用AI大量制作暴款视频带货盈利（主要聚焦个人成长、社交等方面）。这事跟我说主要是想找我提供所谓的「技术支持」，让我帮他部署模型、调试和维护。但有了今天这篇文章，就代表了我压根不想干。">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-11-22T21:06:49+08:00">
+    <meta property="article:modified_time" content="2025-11-22T21:06:49+08:00">
+    <meta property="article:tag" content="AI">
+    <meta property="article:tag" content="人工智能">
+    <meta property="article:tag" content="自媒体">
+    <meta property="article:tag" content="内容创作">
+
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="「创作者」们，用AI当开塞露">
+  <meta name="twitter:description" content="AI是一个躲都躲不掉的话题，无论在哪里都能看到。我个人对这个话题兴趣不大，但最近发生了一件让我很不舒服的事，就借着这次机会谈谈AI创作的事。
+今天下午，我和我父亲聊天。他最近一直在看AI和自媒体有关的内容。比如Claude, 提示词优化等方面，想运营一个短视频帐号，用AI大量制作暴款视频带货盈利（主要聚焦个人成长、社交等方面）。这事跟我说主要是想找我提供所谓的「技术支持」，让我帮他部署模型、调试和维护。但有了今天这篇文章，就代表了我压根不想干。">
+
+
+
+
+  <meta itemprop="name" content="「创作者」们，用AI当开塞露">
+  <meta itemprop="description" content="AI是一个躲都躲不掉的话题，无论在哪里都能看到。我个人对这个话题兴趣不大，但最近发生了一件让我很不舒服的事，就借着这次机会谈谈AI创作的事。
+今天下午，我和我父亲聊天。他最近一直在看AI和自媒体有关的内容。比如Claude, 提示词优化等方面，想运营一个短视频帐号，用AI大量制作暴款视频带货盈利（主要聚焦个人成长、社交等方面）。这事跟我说主要是想找我提供所谓的「技术支持」，让我帮他部署模型、调试和维护。但有了今天这篇文章，就代表了我压根不想干。">
+  <meta itemprop="datePublished" content="2025-11-22T21:06:49+08:00">
+  <meta itemprop="dateModified" content="2025-11-22T21:06:49+08:00">
+  <meta itemprop="wordCount" content="2668">
+  <meta itemprop="keywords" content="AI,人工智能,自媒体,内容创作">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+		<meta name="msvalidate.01" content="2E1AACF009206F2DDBAAD4B98E881460" />
+<link
+	rel="prefetch"
+	as="image"
+	href="https://www.blogsclub.org/badge/www.glowisle.me"
+/>
+<link rel="shortcut icon" href="/favicon.ico" />
+</head>
+
+	<body>
+		<main>
+<header>
+<a href="/" class="title">
+  <p class="site-title">映屿</p>
+</a>
+<nav>
+<a href="/categories/">分类</a>
+
+<a href="/links/">友人</a>
+
+<a href="/archives/">归档</a>
+
+<a href="/about/">关于</a>
+
+
+</nav>
+
+</header>
+
+<article class="h-entry">
+<h1 class="post-title">
+      <a href="/posts/stop-pooping-with-ai/" class="item-link">「创作者」们，用AI当开塞露</a>
+</h1>
+
+<div class="post-meta">
+    <div class="post-meta-item post-date">
+        <time class="dt-published" datetime="2025-11-22T21:06:49&#43;08:00">
+            November 22, 2025
+        </time>
+    </div>
+
+    <div class="post-meta-item post-category">
+
+        
+        
+•
+        <a href="/categories/%E9%9A%8F%E7%AC%94/" class="category-link">随笔</a>
+        
+    </div>
+</div>
+
+
+  <div class="e-content"><p>AI是一个躲都躲不掉的话题，无论在哪里都能看到。我个人对这个话题兴趣不大，但最近发生了一件让我很不舒服的事，就借着这次机会谈谈AI创作的事。</p>
+<hr>
+<p>今天下午，我和我父亲聊天。他最近一直在看AI和自媒体有关的内容。比如Claude, 提示词优化等方面，想运营一个短视频帐号，用AI大量制作暴款视频带货盈利（主要聚焦个人成长、社交等方面）。这事跟我说主要是想找我提供所谓的「技术支持」，让我帮他部署模型、调试和维护。但有了今天这篇文章，就代表了我压根不想干。</p>
+<p>虽然从理论上这么赚钱并非不可行，甚至已经有很多比较成熟的方案，你只要会打字，有一台能联网的设备就行。但仔细想想，还是能找出几个值得掰扯的点。</p>
+<h2 id="你能想到的为什么别人想不到">你能想到的为什么别人想不到？</h2>
+<p>AI大规模普及后，写作、编程、绘画、甚至是作曲的门槛已经变得相当低，只要有语言组织能力，或许加上一点点财力，就能轻松用人工智能帮你完成「创作」。而这种「创作」的流程又进一步优化，已经有了很多基于AI的「创作」工作流，教你调教各种AI，优化提示词、写文章、写代码……</p>
+<p>上次让某些领域有颠覆性改变的发明还是社交媒体，让每一个人都可以轻松发表自己的看法。而AI的出现让每一个人都能「创作」。</p>
+<p><figure class="image-caption">
+    <img src="https://images.glowisle.me/stop-pooping-with-ai-1.jpg" alt="仅举例用，无冒犯作者意">
+    <figcaption>仅举例用，无冒犯作者意</figcaption>
+</figure>
+<figure class="image-caption">
+    <img src="https://images.glowisle.me/stop-pooping-with-ai-2.jpg" alt="仅举例用，无冒犯作者意">
+    <figcaption>仅举例用，无冒犯作者意</figcaption>
+</figure></p>
+<p><strong>既然每一个人都能做，为什么商单会找上你</strong>？千篇一律的文案风格、视频风格，甚至难以分辨彼此。内容同质化、低质化、模板化的大背景下怎样才能做到脱颖而出？内卷是永远不会停止的，借助AI做自媒体的门槛看似谁都能轻而易举地踏过去，实际上相当困难。</p>
+<h2 id="观众的被欺骗感">观众的被欺骗感</h2>
+<p>试着想象一下：你刷到的每一个视频背后，都是葛优躺在显示器前，复制粘贴大模型生成的文本，机械、重复、麻木地完成工作的那类人在制作，并且他们只需要两三分钟就可以生产出十分钟甚至更长的，看起来人模狗样的视频，而你要花费你宝贵的生命在大模型从互联网各处和语料拾来的牙慧上，你作何感受？</p>
+<p>无论是二十分钟甚至更长的科普视频，还是用手机和烂梗素材拼贴的短视频，背后都有<strong>创作者</strong>付出了时间和精力。无论质量的高低，<strong>创作者</strong>的<strong>真心</strong>是可触摸到的。每一字每一句，都闪耀着作者思想的光辉，而AI生成的文本，只是在数学上计算了每个字可能出现的概率，在用词里对用户加以谄媚，在结果上空有其表。他究竟代表着谁？你想让他代表谁，他就可以代表谁。一篇高中生的习作可以被AI捧到提名诺奖，而真正诺奖得主的作品，又可以被批判得一文不值。</p>
+<p>使用AI批量生产内容，不仅是对观众的欺骗，更是对创作这一行为本身的背叛。AI背后的到底是作者，还是冷冰冰的数学与统计学程序？创作，最后不要沦为收手工「匠心费」的只能看，不能摸的工艺品了。</p>
+<h2 id="思考深度和逻辑能力缺失">思考深度和逻辑能力缺失</h2>
+<p>在搜集资料时，我发现了这样的观点：</p>
+<blockquote>
+<blockquote>
+<p>从自身出发，更科学、更理性地对待AI创作时代，树立对自我创作的价值的全新认识。</p>
+<p>比如，从“我写的”转向“我发现的”。</p>
+<p>比如，从“内容生产者”转型“内容想象者”。</p>
+<p>比如，“表达自我”升级成“激发共鸣”。</p>
+<p>……</p>
+<p><strong>第三种，我把它称作“伪人性崇拜”，它其实是一种人类社会长久依赖就存在的反智倾向。</strong></p>
+<p>但是他们却忘了：海明威用打字机写作，并坚称打字机比用笔书写更凝练、更高效，也被同时代用钢笔、甚至羽毛笔创作的同行和文艺界人士们，揶揄、嘲讽，甚至批评，说他的作品充满机械的臭味，批判他从根本上是一个作风粗野，毫无历史上伟大作家们那种深邃的精神格调，也毫无优雅气质的“文痞”。</p>
+<p>当电脑出现后，这种对机器创作的偏见就更明显了，“键盘的机械触感隔断人类灵魂的流淌，完全比不上笔在纸上的流畅书写的情感自然深刻”，类似这样的言论在当时老一批作家和读者中，流行了很长时间。</p>
+<p>其实，今天当我们在星巴克用MacBook甚至是智能手机码字时，当我们随时通过搜索引擎，大大摆脱对个人知识储备和数据资料积累的依赖时，对以前的人们来说，何尝不是另一种“技术作弊”？</p>
+</blockquote>
+<p>—— <a href="https://zhuanlan.zhihu.com/p/28802794985">《为什么中国很多人见别人用AI的就崩了？AI写作歧视症：这个时代最挣扎的文化偏见》</a>（后文简称《偏见》）<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+</blockquote>
+<p>郑永年认为短视频的崛起让中国进入了全民弱智的时代，那么AI的崛起，无疑是给这种形势火上浇油。如果短视频真的使全民弱智，那么滥用AI进行「创作」，并主张「树立对自我创作价值的全新认知」，就是让本就难以沉静的心更加浮躁：输入提示词、等待模型「思考」、获得输出。这个过程，从创作者自身的角度出发思考，他们得到了什么？打字速度和准确度的提升？</p>
+<p>《偏见》中探讨的「我发现的」与「我写的」实际上是一种包含关系：我发现 =&gt; 我写 =&gt; 我有收获。而不是：我发现 =&gt; AI想、AI写 =&gt; 我坐享其成。</p>
+<p>第二条也同理，想象 =&gt; 设计 =&gt; 实践。这是生产的大过程。</p>
+<p>而「表达自我」与「激发共鸣」，一定是「升级」的关系吗？甚至无法从中找到逻辑联系。两者可以共存，而且没有谁高谁低。</p>
+<p>在引用《偏见》的第二段文本中，讨论了创作工具的偏见：纸笔、打字机、电脑。不管使用何种工具，「创作」的过程都是作者独立思考、独立撰写。而不是让他「人」代替创作者思考与撰写。</p>
+<p>在我看来，AI的「深度思考」功能最具讽刺意味。主动放弃深度思考的权利、丧失深度思考的能力、当指挥AI思考的皇帝。这正是走向自我堕落的道路。</p>
+<p>郑的观点可以再一次得到验证：谣言、仇恨、戾气的生产会更加易如反掌；长期滥用AI，思考和逻辑能力的缺失让它们更能猖獗释放。</p>
+<h2 id="滥用ai与善用ai">滥用AI与善用AI</h2>
+<p>既然如此，用AI就有罪么？技术本身是中性的，问题的根源在于使用技术的人和目的。</p>
+<p>AI是搜索引擎的新形式，它有着人手无法匹敌的爬取信息能力；AI是学识渊博的良师，从文学问到物理，从心理学问到古汉语，在已经有丰富研究的非前沿领域有着强大的知识储备。将AI作为真正意义上的工具使用，而不是免费的外包员工，是有利于创作和创作者的明智行为。</p>
+<p>例如，使用AI寻找灵感，讨论话题切入点、如何优化作品表现的手法。甚至写文章时，将AI作为对话式的词典使用、探讨几个近义词在同一语境下的表现效果；纠打字错误、校对文本等。所以，合理地使用AI能提高创作效率和质量，同时也能促进自己能力的提升，而非沦为八手文本的搬运工，在变现的利益诱惑下丧失了创作的本心。</p>
+<p>使用技术的方式有很多种，但完全使用AI进行「创作」，还美其名曰「创作者」，究竟是当还是立，请自行明辩吧！</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>这篇文章从手法上说，存在来源不明的数据和案例、不当类比、偷换概念等诡辩行为，如「某平台数据显示」、「72%的人会优先批判AI生成的文章」、「来自AI研究机构的最新数据表明」、02中谬误2的两个案例、谬误3 偷换AI本身情感与给人带来的情感波动的概念等。&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+</div>
+</article>
+<a class="u-url" href="https://www.glowisle.me/posts/stop-pooping-with-ai/" style="display: none">Permalink</a>
+
+<hr>
+
+
+<div class="post-meta">
+	
+	<div class="post-meta-item post-tag">
+		#   
+		<a href="https://www.glowisle.me/tags/ai/">AI</a>
+		,  
+		<a href="https://www.glowisle.me/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a>
+		,  
+		<a href="https://www.glowisle.me/tags/%E8%87%AA%E5%AA%92%E4%BD%93/">自媒体</a>
+		,  
+		<a href="https://www.glowisle.me/tags/%E5%86%85%E5%AE%B9%E5%88%9B%E4%BD%9C/">内容创作</a>
+		 
+	</div>
+	
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  <p>有想对我说的？<a href="mailto:i@glowisle.me?subject=回复《%e3%80%8c%e5%88%9b%e4%bd%9c%e8%80%85%e3%80%8d%e4%bb%ac%ef%bc%8c%e7%94%a8AI%e5%bd%93%e5%bc%80%e5%a1%9e%e9%9c%b2》">发一封邮件吧</a>。</p>
+</div>
+</main>
+		<footer><div class="copyright">
+	© 2024 - 2026 | Made with ❤️ by <a href="https://verdant.ee">Verdant</a>.
+	<div class="rss-icon">
+		<a href="/rss">
+			<i class="fa fa-rss">🛜</i>
+		</a>
+	</div>
+</div>
+</footer>
+
+		
+</body>
+	<GNU>
+		______ ____ _____ _____ _____ _________ _______ _ __ _ _ .' ___ ||_ \|_ _||_
+		_||_ _| | _ _ | |_ __ \ / |_ [ | / |_ / |_ / .' \_| | \ | | | | | | |_/ | |
+		\_|.---. _ .--. _ .--. _ __ | |__) |_ .--. ,--. `| |-'.---. | |--. .---.`|
+		|-'`| |-' | | ____ | |\ \| | | ' ' | | | / /__\\[ `/'`\][ `/'`\][ \ [ ] |
+		___/[ `/'`\]`'_\ : | | / /'`\] | .-. |/ /__\\| | | | \ `.___] |_| |_\ |_ \
+		\__/ / _| |_ | \__., | | | | \ '/ / _| |_ | | // | |,| |,| \__. | | | ||
+		\__.,| |, | |, `._____.'|_____|\____| `.__.' |_____| '.__.'[___] [___] [\_:
+		/ |_____| [___] \'-;__/\__/'.___.'[___]|__]'.__.'\__/ \__/ \__.' "A man is
+		not dead while his name is still spoken."
+	</GNU>
+</html>
