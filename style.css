@@ -1,12 +1,11 @@
 :root {
-    --width-max: 660px;
+    --width-max: 720px;
     --font-secondary: monospace;
-    --font-size-primary: 1.01rem;
+    --font-size-primary: 1.06rem;
     --font-size-secondary: 1.03rem;
-    /* --body-bg-color: #fbfbf6; */
     --body-bg-color: white;
     --bold-text-color: black;
-    --body-text-color: black;
+    --body-text-color: #444;
     --link-color: #0355a6;
     --link-visited-color: #551a8b;
     --table-border-color: #f2f2f2;
@@ -27,15 +26,17 @@
         0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     --summary-text-color: #706c6c;
     --svg-size: 0.85em;
-    --title-color: #444444;
+    --title-color: #55555;
+}
+
+p {
+    font-size: var(--font-size-primary);
+    line-height: 2;
 }
 
 .recent-title {
     border: none;
-}
-
-.recent-title a {
-    border-bottom: 1px dotted;
+    font-weight: bold;
 }
 
 .grouped {
@@ -126,15 +127,6 @@ body {
 
 .post-title a {
     margin: 16px 0;
-}
-
-.post-title:hover {
-    color: var(--link-color);
-}
-
-p {
-    line-height: 2;
-    /* font-weight: 500; */
 }
 
 div.summary p {
@@ -628,11 +620,13 @@ ul li:has(input) {
 
 @media (prefers-color-scheme: dark) {
     :root {
+        --body-text-color: #bbb;
+        --title-color: #aaa;
+
         --body-bg-color: #0f0f0f;
-        --body-text-color: #e6e6e6;
         --summary-text-color: #a8a8a8;
         --bold-text-color: #ffffff;
-        --text-color-tertiary: #888888;
+        --text-color-tertiary: #bbb;
 
         --link-color: #5cc2ff;
         --link-visited-color: #9d7eff;
@@ -648,7 +642,7 @@ ul li:has(input) {
         --img-border-color: #444444;
         --toc-text-color: #aaaaaa;
         --toc-hover-color: #5cc2ff;
-
+        --summary-text-color: #878686;
         --color-background: var(--body-bg-color) !important;
     }
 
