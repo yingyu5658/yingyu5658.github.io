@@ -1,14 +1,4 @@
-<!doctype html>
-<html lang="zh-cn">
-	<head>
-		<link rel="stylesheet" href="/style.css" />
-		<meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="shortcut icon" href="https://blog.verdant.ee/favicon.png" />
-<title>C语言下的二进制文件IO踩坑</title>
-<meta name="title" content="C语言下的二进制文件IO踩坑" />
-<meta name="description" content="C语言下的二进制文件读写有个坑，就是一定要按存储的顺序读取。例：
+<!doctype html><html lang=zh-cn><head><link rel=stylesheet href=/style.css><meta http-equiv=X-Clacks-Overhead content="GNU Terry Pratchett"><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><link rel="shortcut icon" href=https://blog.verdant.ee/favicon.png><title>C语言下的二进制文件IO踩坑</title><meta name=title content="C语言下的二进制文件IO踩坑"><meta name=description content="C语言下的二进制文件读写有个坑，就是一定要按存储的顺序读取。例：
 typedef struct player {
 	int id;
 	double XP;
@@ -20,363 +10,57 @@ player yingyu5658;
 yingyu5658.MP = 100;
 yingyu5658.XP = 100;
 yingyu5658.id = 114514;
-对文件进行存储时，按照MP=&gt;XP=&gt;ID的顺序存储" />
-<meta name="keywords" content="" />
-
-<link rel="canonical" href="https://blog.verdant.ee/posts/c%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6io/">
-
-
-<meta property="og:url" content="https://blog.verdant.ee/posts/c%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6io/">
-  <meta property="og:site_name" content="映屿">
-  <meta property="og:title" content="C语言下的二进制文件IO踩坑">
-  <meta property="og:description" content="C语言下的二进制文件读写有个坑，就是一定要按存储的顺序读取。例：
+对文件进行存储时，按照MP=>XP=>ID的顺序存储"><meta name=keywords content><link rel=canonical href=https://blog.verdant.ee/posts/c%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6io/><meta property="og:url" content="https://blog.verdant.ee/posts/c%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6io/"><meta property="og:site_name" content="映屿"><meta property="og:title" content="C语言下的二进制文件IO踩坑"><meta property="og:description" content="C语言下的二进制文件读写有个坑，就是一定要按存储的顺序读取。例：
 typedef struct player { int id; double XP; double MP; }player; 这里有一个玩家的数据结构，我们创建变量并初始化。
-int b_i[32] = {1, 233, 2453, 5432, 21 ,43 ,297, 752, 643}; player yingyu5658; yingyu5658.MP = 100; yingyu5658.XP = 100; yingyu5658.id = 114514; 对文件进行存储时，按照MP=&gt;XP=&gt;ID的顺序存储">
-  <meta property="og:locale" content="zh_cn">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-07-12T00:26:59+08:00">
-    <meta property="article:modified_time" content="2025-07-12T00:26:59+08:00">
-
-
-
-
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="C语言下的二进制文件IO踩坑">
-  <meta name="twitter:description" content="C语言下的二进制文件读写有个坑，就是一定要按存储的顺序读取。例：
+int b_i[32] = {1, 233, 2453, 5432, 21 ,43 ,297, 752, 643}; player yingyu5658; yingyu5658.MP = 100; yingyu5658.XP = 100; yingyu5658.id = 114514; 对文件进行存储时，按照MP=>XP=>ID的顺序存储"><meta property="og:locale" content="zh_cn"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2025-07-12T00:26:59+08:00"><meta property="article:modified_time" content="2025-07-12T00:26:59+08:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="C语言下的二进制文件IO踩坑"><meta name=twitter:description content="C语言下的二进制文件读写有个坑，就是一定要按存储的顺序读取。例：
 typedef struct player { int id; double XP; double MP; }player; 这里有一个玩家的数据结构，我们创建变量并初始化。
-int b_i[32] = {1, 233, 2453, 5432, 21 ,43 ,297, 752, 643}; player yingyu5658; yingyu5658.MP = 100; yingyu5658.XP = 100; yingyu5658.id = 114514; 对文件进行存储时，按照MP=&gt;XP=&gt;ID的顺序存储">
-
-
-
-
-  <meta itemprop="name" content="C语言下的二进制文件IO踩坑">
-  <meta itemprop="description" content="C语言下的二进制文件读写有个坑，就是一定要按存储的顺序读取。例：
+int b_i[32] = {1, 233, 2453, 5432, 21 ,43 ,297, 752, 643}; player yingyu5658; yingyu5658.MP = 100; yingyu5658.XP = 100; yingyu5658.id = 114514; 对文件进行存储时，按照MP=>XP=>ID的顺序存储"><meta itemprop=name content="C语言下的二进制文件IO踩坑"><meta itemprop=description content="C语言下的二进制文件读写有个坑，就是一定要按存储的顺序读取。例：
 typedef struct player { int id; double XP; double MP; }player; 这里有一个玩家的数据结构，我们创建变量并初始化。
-int b_i[32] = {1, 233, 2453, 5432, 21 ,43 ,297, 752, 643}; player yingyu5658; yingyu5658.MP = 100; yingyu5658.XP = 100; yingyu5658.id = 114514; 对文件进行存储时，按照MP=&gt;XP=&gt;ID的顺序存储">
-  <meta itemprop="datePublished" content="2025-07-12T00:26:59+08:00">
-  <meta itemprop="dateModified" content="2025-07-12T00:26:59+08:00">
-  <meta itemprop="wordCount" content="263">
-  <meta itemprop="keywords" content="往昔">
-<meta name="referrer" content="no-referrer-when-downgrade" />
-
-		<meta name="msvalidate.01" content="2E1AACF009206F2DDBAAD4B98E881460" />
-<link
-	rel="prefetch"
-	as="image"
-	href="https://www.blogsclub.org/badge/blog.verdant.ee"
-  />
-<meta name="blogsclub-verify" content="2fff06c4423c4f41ac048f779a7daab5">
-<link rel="shortcut icon" href="/favicon.ico" />
-</head>
-
-	<body>
-		<main>
-<header>
-<a href="/" class="title">
-  <p class="site-title">映屿</p>
-</a>
-<nav>
-<a href="/categories/">分类</a>
-
-<a href="/links/">友人</a>
-
-<a href="/archives/">归档</a>
-
-<a href="/about/">关于</a>
-
-
-</nav>
-
-</header>
-
-<article class="h-entry">
-<h1 class="post-title">
-      <a href="/posts/c%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6io/" class="item-link">C语言下的二进制文件IO踩坑</a>
-</h1>
-
-<div class="post-meta">
-    <div class="post-meta-item post-date">
-        <time class="dt-published" datetime="2025-07-12T00:26:59&#43;08:00">
-            July 12, 2025
-        </time>
-    </div>
-
-    <div class="post-meta-item post-category">
-
-        
-        
-•
-        <a href="/categories/%E5%BE%80%E6%98%94/" class="category-link">往昔</a>
-        
-    </div>
-</div>
-
-
-  <div class="e-content"><p>C语言下的二进制文件读写有个坑，就是一定要按存储的顺序读取。例：</p>
-<div class="highlight"><pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#e67e80">typedef</span> <span style="color:#e67e80">struct</span> player {
-</span></span><span style="display:flex;"><span>	<span style="color:#dbbc7f">int</span> id;
-</span></span><span style="display:flex;"><span>	<span style="color:#dbbc7f">double</span> XP;
-</span></span><span style="display:flex;"><span>	<span style="color:#dbbc7f">double</span> MP;
-</span></span><span style="display:flex;"><span>}player;
-</span></span></code></pre></div><p>这里有一个玩家的数据结构，我们创建变量并初始化。</p>
-<div class="highlight"><pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#dbbc7f">int</span> b_i[<span style="color:#d699b6">32</span>] <span style="color:#7a8478">=</span> {<span style="color:#d699b6">1</span>, <span style="color:#d699b6">233</span>, <span style="color:#d699b6">2453</span>, <span style="color:#d699b6">5432</span>, <span style="color:#d699b6">21</span> ,<span style="color:#d699b6">43</span> ,<span style="color:#d699b6">297</span>, <span style="color:#d699b6">752</span>, <span style="color:#d699b6">643</span>};
-</span></span><span style="display:flex;"><span>player yingyu5658;
-</span></span><span style="display:flex;"><span>yingyu5658.MP <span style="color:#7a8478">=</span> <span style="color:#d699b6">100</span>;
-</span></span><span style="display:flex;"><span>yingyu5658.XP <span style="color:#7a8478">=</span> <span style="color:#d699b6">100</span>;
-</span></span><span style="display:flex;"><span>yingyu5658.id <span style="color:#7a8478">=</span> <span style="color:#d699b6">114514</span>;
-</span></span></code></pre></div><p>对文件进行存储时，按照MP=&gt;XP=&gt;ID的顺序存储</p>
-<div class="highlight"><pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>pd <span style="color:#7a8478">=</span> <span style="color:#b2c98f">fopen</span>(<span style="color:#b2c98f">&#34;./data&#34;</span>, <span style="color:#b2c98f">&#34;wb&#34;</span>);
-</span></span><span style="display:flex;"><span><span style="color:#b2c98f">fwrite</span>(<span style="color:#7a8478">&amp;</span>yingyu5658.MP, <span style="color:#e67e80">sizeof</span>(<span style="color:#dbbc7f">double</span>), <span style="color:#d699b6">1</span>, pd);
-</span></span><span style="display:flex;"><span><span style="color:#b2c98f">fwrite</span>(<span style="color:#7a8478">&amp;</span>yingyu5658.XP, <span style="color:#e67e80">sizeof</span>(<span style="color:#dbbc7f">double</span>), <span style="color:#d699b6">1</span>, pd);
-</span></span><span style="display:flex;"><span><span style="color:#b2c98f">fwrite</span>(<span style="color:#7a8478">&amp;</span>yingyu5658.id, <span style="color:#e67e80">sizeof</span>(<span style="color:#dbbc7f">int</span>), <span style="color:#d699b6">1</span>, pd);
-</span></span></code></pre></div><p>读取的时候一定要按照这个顺序，否则读取出来的内容是无效的。</p>
-<div class="highlight"><pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#dbbc7f">int</span> id;
-</span></span><span style="display:flex;"><span><span style="color:#dbbc7f">double</span> XP, MP;
-</span></span><span style="display:flex;"><span>pd <span style="color:#7a8478">=</span> <span style="color:#b2c98f">fopen</span>(<span style="color:#b2c98f">&#34;./data&#34;</span>, <span style="color:#b2c98f">&#34;rb&#34;</span>);
-</span></span><span style="display:flex;"><span><span style="color:#b2c98f">fread</span>(<span style="color:#7a8478">&amp;</span>MP, <span style="color:#e67e80">sizeof</span>(<span style="color:#dbbc7f">double</span>), <span style="color:#d699b6">1</span>, pd);
-</span></span><span style="display:flex;"><span><span style="color:#b2c98f">fread</span>(<span style="color:#7a8478">&amp;</span>XP, <span style="color:#e67e80">sizeof</span>(<span style="color:#dbbc7f">double</span>), <span style="color:#d699b6">1</span>, pd);
-</span></span><span style="display:flex;"><span><span style="color:#b2c98f">fread</span>(<span style="color:#7a8478">&amp;</span>id, <span style="color:#e67e80">sizeof</span>(<span style="color:#dbbc7f">int</span>), <span style="color:#d699b6">1</span>, pd);
-</span></span><span style="display:flex;"><span>player new_player;
-</span></span><span style="display:flex;"><span>new_player.id <span style="color:#7a8478">=</span> id;
-</span></span><span style="display:flex;"><span>new_player.XP <span style="color:#7a8478">=</span> XP;
-</span></span><span style="display:flex;"><span>new_player.MP <span style="color:#7a8478">=</span> MP;
-</span></span><span style="display:flex;"><span><span style="color:#b2c98f">printf</span>(<span style="color:#b2c98f">&#34;id: %d</span><span style="color:#b2c98f">\n</span><span style="color:#b2c98f">&#34;</span>, new_player.id);
-</span></span><span style="display:flex;"><span><span style="color:#b2c98f">printf</span>(<span style="color:#b2c98f">&#34;XP: %f</span><span style="color:#b2c98f">\n</span><span style="color:#b2c98f">&#34;</span>, new_player.XP);
-</span></span><span style="display:flex;"><span><span style="color:#b2c98f">printf</span>(<span style="color:#b2c98f">&#34;MP: %f</span><span style="color:#b2c98f">\n</span><span style="color:#b2c98f">&#34;</span>, new_player.MP);
-</span></span></code></pre></div><p>运行结果：</p>
-<div class="highlight"><pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>写入了id: 114514
-</span></span><span style="display:flex;"><span>写入了XP: 100.000000
-</span></span><span style="display:flex;"><span>写入了MP: 100.000000
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>id: 114514
-</span></span><span style="display:flex;"><span>XP: 100.000000
-</span></span><span style="display:flex;"><span>MP: 100.000000
-</span></span></code></pre></div><p>使用完也要关闭流，否则资源泄漏</p>
-<div class="highlight"><pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#b2c98f">fclose</span>(pd);  <span style="color:#859289;font-style:italic">// 必须显式关闭
-</span></span></span></code></pre></div></div>
-</article>
-<a class="u-url" href="https://blog.verdant.ee/posts/c%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6io/" style="display: none">Permalink</a>
-
-<hr>
-
-
-<div class="post-meta">
-	
-	<div class="post-meta-item post-tag">
-		#   
-	</div>
-	
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  
-  <p>有想对我说的？<a href="mailto:im@verdant.ee?subject=回复《C%e8%af%ad%e8%a8%80%e4%b8%8b%e7%9a%84%e4%ba%8c%e8%bf%9b%e5%88%b6%e6%96%87%e4%bb%b6IO%e8%b8%a9%e5%9d%91》">发一封邮件吧</a>。</p>
-</div>
-</main>
-		<footer><div class="copyright">
-	© 2024 - 2026 | Made with ❤️ by <a href="https://verdant.ee">Verdant</a>.
-	<div class="rss-icon">
-		<a href="/rss">
-			<i class="fa fa-rss">🛜</i>
-		</a>
-	</div>
-</div>
-</footer>
-
-		
-</body>
-	<GNU>
-		______ ____ _____ _____ _____ _________ _______ _ __ _ _ .' ___ ||_ \|_ _||_
-		_||_ _| | _ _ | |_ __ \ / |_ [ | / |_ / |_ / .' \_| | \ | | | | | | |_/ | |
-		\_|.---. _ .--. _ .--. _ __ | |__) |_ .--. ,--. `| |-'.---. | |--. .---.`|
-		|-'`| |-' | | ____ | |\ \| | | ' ' | | | / /__\\[ `/'`\][ `/'`\][ \ [ ] |
-		___/[ `/'`\]`'_\ : | | / /'`\] | .-. |/ /__\\| | | | \ `.___] |_| |_\ |_ \
-		\__/ / _| |_ | \__., | | | | \ '/ / _| |_ | | // | |,| |,| \__. | | | ||
-		\__.,| |, | |, `._____.'|_____|\____| `.__.' |_____| '.__.'[___] [___] [\_:
-		/ |_____| [___] \'-;__/\__/'.___.'[___]|__]'.__.'\__/ \__/ \__.' "A man is
-		not dead while his name is still spoken."
-	</GNU>
-</html>
+int b_i[32] = {1, 233, 2453, 5432, 21 ,43 ,297, 752, 643}; player yingyu5658; yingyu5658.MP = 100; yingyu5658.XP = 100; yingyu5658.id = 114514; 对文件进行存储时，按照MP=>XP=>ID的顺序存储"><meta itemprop=datePublished content="2025-07-12T00:26:59+08:00"><meta itemprop=dateModified content="2025-07-12T00:26:59+08:00"><meta itemprop=wordCount content="263"><meta itemprop=keywords content="往昔"><meta name=referrer content="no-referrer-when-downgrade"><meta name=msvalidate.01 content="2E1AACF009206F2DDBAAD4B98E881460"><link rel=prefetch as=image href=https://www.blogsclub.org/badge/blog.verdant.ee><meta name=blogsclub-verify content="2fff06c4423c4f41ac048f779a7daab5"><link rel="shortcut icon" href=/favicon.ico></head><body><main><header><a href=/ class=title><p class=site-title>映屿</p></a><nav><a href=/categories/>分类</a>
+<a href=/links/>友人</a>
+<a href=/archives/>归档</a>
+<a href=/about/>关于</a></nav></header><article class=h-entry><h1 class=post-title><a href=/posts/c%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6io/ class=item-link>C语言下的二进制文件IO踩坑</a></h1><div class=post-meta><div class="post-meta-item post-date"><time class=dt-published datetime=2025-07-12T00:26:59+08:00>July 12, 2025</time></div><div class="post-meta-item post-category">•
+<a href=/categories/%E5%BE%80%E6%98%94/ class=category-link>往昔</a></div></div><div class=e-content><p>C语言下的二进制文件读写有个坑，就是一定要按存储的顺序读取。例：</p><div class=highlight><pre tabindex=0 style=color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#e67e80>typedef</span> <span style=color:#e67e80>struct</span> player {
+</span></span><span style=display:flex><span>	<span style=color:#dbbc7f>int</span> id;
+</span></span><span style=display:flex><span>	<span style=color:#dbbc7f>double</span> XP;
+</span></span><span style=display:flex><span>	<span style=color:#dbbc7f>double</span> MP;
+</span></span><span style=display:flex><span>}player;
+</span></span></code></pre></div><p>这里有一个玩家的数据结构，我们创建变量并初始化。</p><div class=highlight><pre tabindex=0 style=color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#dbbc7f>int</span> b_i[<span style=color:#d699b6>32</span>] <span style=color:#7a8478>=</span> {<span style=color:#d699b6>1</span>, <span style=color:#d699b6>233</span>, <span style=color:#d699b6>2453</span>, <span style=color:#d699b6>5432</span>, <span style=color:#d699b6>21</span> ,<span style=color:#d699b6>43</span> ,<span style=color:#d699b6>297</span>, <span style=color:#d699b6>752</span>, <span style=color:#d699b6>643</span>};
+</span></span><span style=display:flex><span>player yingyu5658;
+</span></span><span style=display:flex><span>yingyu5658.MP <span style=color:#7a8478>=</span> <span style=color:#d699b6>100</span>;
+</span></span><span style=display:flex><span>yingyu5658.XP <span style=color:#7a8478>=</span> <span style=color:#d699b6>100</span>;
+</span></span><span style=display:flex><span>yingyu5658.id <span style=color:#7a8478>=</span> <span style=color:#d699b6>114514</span>;
+</span></span></code></pre></div><p>对文件进行存储时，按照MP=>XP=>ID的顺序存储</p><div class=highlight><pre tabindex=0 style=color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=display:flex><span>pd <span style=color:#7a8478>=</span> <span style=color:#b2c98f>fopen</span>(<span style=color:#b2c98f>&#34;./data&#34;</span>, <span style=color:#b2c98f>&#34;wb&#34;</span>);
+</span></span><span style=display:flex><span><span style=color:#b2c98f>fwrite</span>(<span style=color:#7a8478>&amp;</span>yingyu5658.MP, <span style=color:#e67e80>sizeof</span>(<span style=color:#dbbc7f>double</span>), <span style=color:#d699b6>1</span>, pd);
+</span></span><span style=display:flex><span><span style=color:#b2c98f>fwrite</span>(<span style=color:#7a8478>&amp;</span>yingyu5658.XP, <span style=color:#e67e80>sizeof</span>(<span style=color:#dbbc7f>double</span>), <span style=color:#d699b6>1</span>, pd);
+</span></span><span style=display:flex><span><span style=color:#b2c98f>fwrite</span>(<span style=color:#7a8478>&amp;</span>yingyu5658.id, <span style=color:#e67e80>sizeof</span>(<span style=color:#dbbc7f>int</span>), <span style=color:#d699b6>1</span>, pd);
+</span></span></code></pre></div><p>读取的时候一定要按照这个顺序，否则读取出来的内容是无效的。</p><div class=highlight><pre tabindex=0 style=color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#dbbc7f>int</span> id;
+</span></span><span style=display:flex><span><span style=color:#dbbc7f>double</span> XP, MP;
+</span></span><span style=display:flex><span>pd <span style=color:#7a8478>=</span> <span style=color:#b2c98f>fopen</span>(<span style=color:#b2c98f>&#34;./data&#34;</span>, <span style=color:#b2c98f>&#34;rb&#34;</span>);
+</span></span><span style=display:flex><span><span style=color:#b2c98f>fread</span>(<span style=color:#7a8478>&amp;</span>MP, <span style=color:#e67e80>sizeof</span>(<span style=color:#dbbc7f>double</span>), <span style=color:#d699b6>1</span>, pd);
+</span></span><span style=display:flex><span><span style=color:#b2c98f>fread</span>(<span style=color:#7a8478>&amp;</span>XP, <span style=color:#e67e80>sizeof</span>(<span style=color:#dbbc7f>double</span>), <span style=color:#d699b6>1</span>, pd);
+</span></span><span style=display:flex><span><span style=color:#b2c98f>fread</span>(<span style=color:#7a8478>&amp;</span>id, <span style=color:#e67e80>sizeof</span>(<span style=color:#dbbc7f>int</span>), <span style=color:#d699b6>1</span>, pd);
+</span></span><span style=display:flex><span>player new_player;
+</span></span><span style=display:flex><span>new_player.id <span style=color:#7a8478>=</span> id;
+</span></span><span style=display:flex><span>new_player.XP <span style=color:#7a8478>=</span> XP;
+</span></span><span style=display:flex><span>new_player.MP <span style=color:#7a8478>=</span> MP;
+</span></span><span style=display:flex><span><span style=color:#b2c98f>printf</span>(<span style=color:#b2c98f>&#34;id: %d</span><span style=color:#b2c98f>\n</span><span style=color:#b2c98f>&#34;</span>, new_player.id);
+</span></span><span style=display:flex><span><span style=color:#b2c98f>printf</span>(<span style=color:#b2c98f>&#34;XP: %f</span><span style=color:#b2c98f>\n</span><span style=color:#b2c98f>&#34;</span>, new_player.XP);
+</span></span><span style=display:flex><span><span style=color:#b2c98f>printf</span>(<span style=color:#b2c98f>&#34;MP: %f</span><span style=color:#b2c98f>\n</span><span style=color:#b2c98f>&#34;</span>, new_player.MP);
+</span></span></code></pre></div><p>运行结果：</p><div class=highlight><pre tabindex=0 style=color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>写入了id: 114514
+</span></span><span style=display:flex><span>写入了XP: 100.000000
+</span></span><span style=display:flex><span>写入了MP: 100.000000
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>id: 114514
+</span></span><span style=display:flex><span>XP: 100.000000
+</span></span><span style=display:flex><span>MP: 100.000000
+</span></span></code></pre></div><p>使用完也要关闭流，否则资源泄漏</p><div class=highlight><pre tabindex=0 style=color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#b2c98f>fclose</span>(pd);  <span style=color:#859289;font-style:italic>// 必须显式关闭
+</span></span></span></code></pre></div></div></article><a class=u-url href=https://blog.verdant.ee/posts/c%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6io/ style=display:none>Permalink</a><hr><div class=post-meta><div class="post-meta-item post-tag">#</div></div><p>有想对我说的？向<a href="mailto:im@verdant.ee?subject=回复《C%e8%af%ad%e8%a8%80%e4%b8%8b%e7%9a%84%e4%ba%8c%e8%bf%9b%e5%88%b6%e6%96%87%e4%bb%b6IO%e8%b8%a9%e5%9d%91》"> im@verdant.ee </a>发送一封<a href=https://useplaintext.email/>纯文本邮件</a>吧。</p></div></main><footer><div class=copyright>© 2024 - 2026 | Made with ❤️ by <a href=https://verdant.ee>Verdant</a>.<div class=footer-item><a href=/rss><i class="fa fa-rss">🛜</i></a></div><div class=footer-item><button id=toggle-theme-btn>🌞/🌙</button></div></div><script>console.log("Loaded");const modes={Dark:"dark",Light:"light"};function getCurrentMode(){let e=localStorage.getItem("theme");return e===null?null:e}const toggleColorSchemeBtn=document.getElementById("toggle-theme-btn"),body=document.body,currentMode=getCurrentMode();currentMode===modes.Dark&&body.classList.toggle("dark-mode"),toggleColorSchemeBtn.addEventListener("click",()=>{body.classList.toggle("dark-mode"),body.classList.contains("dark-mode")?localStorage.setItem("theme",modes.Dark):localStorage.setItem("theme",modes.Light)})</script></footer></body><gnu>______ ____ _____ _____ _____ _________ _______ _ __ _ _ .' ___ ||_ \|_ _||_
+_||_ _| | _ _ | |_ __ \ / |_ [ | / |_ / |_ / .' \_| | \ | | | | | | |_/ | |
+\_|.---. _ .--. _ .--. _ __ | |__) |_ .--. ,--. `| |-'.---. | |--. .---.`|
+|-'`| |-' | | ____ | |\ \| | | ' ' | | | / /__\\[ `/'`\][ `/'`\][ \ [ ] |
+___/[ `/'`\]`'_\ : | | / /'`\] | .-. |/ /__\\| | | | \ `.___] |_| |_\ |_ \
+\__/ / _| |_ | \__., | | | | \ '/ / _| |_ | | // | |,| |,| \__. | | | ||
+\__.,| |, | |, `._____.'|_____|\____| `.__.' |_____| '.__.'[___] [___] [\_:
+/ |_____| [___] \'-;__/\__/'.___.'[___]|__]'.__.'\__/ \__/ \__.' "A man is
+not dead while his name is still spoken."</gnu></html>

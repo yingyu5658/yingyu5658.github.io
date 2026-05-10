@@ -1,438 +1,98 @@
-<!doctype html>
-<html lang="zh-cn">
-	<head>
-		<link rel="stylesheet" href="/style.css" />
-		<meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="shortcut icon" href="https://blog.verdant.ee/favicon.png" />
-<title>【数据结构与算法】众数、中位数</title>
-<meta name="title" content="【数据结构与算法】众数、中位数" />
-<meta name="description" content="今天学这个东西的时候，看到这种线性的数据结构加上排序步骤，很难不想写个程序来跑跑。
+<!doctype html><html lang=zh-cn><head><link rel=stylesheet href=/style.css><meta http-equiv=X-Clacks-Overhead content="GNU Terry Pratchett"><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><link rel="shortcut icon" href=https://blog.verdant.ee/favicon.png><title>【数据结构与算法】众数、中位数</title><meta name=title content="【数据结构与算法】众数、中位数"><meta name=description content="今天学这个东西的时候，看到这种线性的数据结构加上排序步骤，很难不想写个程序来跑跑。
 先来说说中位数，这个比较有思路。
 中位数
-具体的操作步骤应该是：排序 =&gt; 获得数据元素个数n =&gt; 是奇数 ? (n&#43;1) / 2 : n / 2" />
-<meta name="keywords" content="黑历史,数据结构与算法," />
-
-<link rel="canonical" href="https://blog.verdant.ee/posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%BC%97%E6%95%B0%E4%B8%AD%E4%BD%8D%E6%95%B0/">
-
-
-<meta property="og:url" content="https://blog.verdant.ee/posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%BC%97%E6%95%B0%E4%B8%AD%E4%BD%8D%E6%95%B0/">
-  <meta property="og:site_name" content="映屿">
-  <meta property="og:title" content="【数据结构与算法】众数、中位数">
-  <meta property="og:description" content="今天学这个东西的时候，看到这种线性的数据结构加上排序步骤，很难不想写个程序来跑跑。
+具体的操作步骤应该是：排序 => 获得数据元素个数n => 是奇数 ? (n+1) / 2 : n / 2"><meta name=keywords content="黑历史,数据结构与算法,"><link rel=canonical href=https://blog.verdant.ee/posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%BC%97%E6%95%B0%E4%B8%AD%E4%BD%8D%E6%95%B0/><meta property="og:url" content="https://blog.verdant.ee/posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%BC%97%E6%95%B0%E4%B8%AD%E4%BD%8D%E6%95%B0/"><meta property="og:site_name" content="映屿"><meta property="og:title" content="【数据结构与算法】众数、中位数"><meta property="og:description" content="今天学这个东西的时候，看到这种线性的数据结构加上排序步骤，很难不想写个程序来跑跑。
 先来说说中位数，这个比较有思路。
-中位数 具体的操作步骤应该是：排序 =&gt; 获得数据元素个数n =&gt; 是奇数 ? (n&#43;1) / 2 : n / 2">
-  <meta property="og:locale" content="zh_cn">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-05-27T19:41:53+00:00">
-    <meta property="article:modified_time" content="2025-05-27T19:41:53+00:00">
-    <meta property="article:tag" content="黑历史">
-    <meta property="article:tag" content="数据结构与算法">
-
-
-
-
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="【数据结构与算法】众数、中位数">
-  <meta name="twitter:description" content="今天学这个东西的时候，看到这种线性的数据结构加上排序步骤，很难不想写个程序来跑跑。
+中位数 具体的操作步骤应该是：排序 => 获得数据元素个数n => 是奇数 ? (n+1) / 2 : n / 2"><meta property="og:locale" content="zh_cn"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2025-05-27T19:41:53+00:00"><meta property="article:modified_time" content="2025-05-27T19:41:53+00:00"><meta property="article:tag" content="黑历史"><meta property="article:tag" content="数据结构与算法"><meta name=twitter:card content="summary"><meta name=twitter:title content="【数据结构与算法】众数、中位数"><meta name=twitter:description content="今天学这个东西的时候，看到这种线性的数据结构加上排序步骤，很难不想写个程序来跑跑。
 先来说说中位数，这个比较有思路。
-中位数 具体的操作步骤应该是：排序 =&gt; 获得数据元素个数n =&gt; 是奇数 ? (n&#43;1) / 2 : n / 2">
-
-
-
-
-  <meta itemprop="name" content="【数据结构与算法】众数、中位数">
-  <meta itemprop="description" content="今天学这个东西的时候，看到这种线性的数据结构加上排序步骤，很难不想写个程序来跑跑。
+中位数 具体的操作步骤应该是：排序 => 获得数据元素个数n => 是奇数 ? (n+1) / 2 : n / 2"><meta itemprop=name content="【数据结构与算法】众数、中位数"><meta itemprop=description content="今天学这个东西的时候，看到这种线性的数据结构加上排序步骤，很难不想写个程序来跑跑。
 先来说说中位数，这个比较有思路。
-中位数 具体的操作步骤应该是：排序 =&gt; 获得数据元素个数n =&gt; 是奇数 ? (n&#43;1) / 2 : n / 2">
-  <meta itemprop="datePublished" content="2025-05-27T19:41:53+00:00">
-  <meta itemprop="dateModified" content="2025-05-27T19:41:53+00:00">
-  <meta itemprop="wordCount" content="796">
-  <meta itemprop="keywords" content="黑历史,数据结构与算法">
-<meta name="referrer" content="no-referrer-when-downgrade" />
-
-		<meta name="msvalidate.01" content="2E1AACF009206F2DDBAAD4B98E881460" />
-<link
-	rel="prefetch"
-	as="image"
-	href="https://www.blogsclub.org/badge/blog.verdant.ee"
-  />
-<meta name="blogsclub-verify" content="2fff06c4423c4f41ac048f779a7daab5">
-<link rel="shortcut icon" href="/favicon.ico" />
-</head>
-
-	<body>
-		<main>
-<header>
-<a href="/" class="title">
-  <p class="site-title">映屿</p>
-</a>
-<nav>
-<a href="/categories/">分类</a>
-
-<a href="/links/">友人</a>
-
-<a href="/archives/">归档</a>
-
-<a href="/about/">关于</a>
-
-
-</nav>
-
-</header>
-
-<article class="h-entry">
-<h1 class="post-title">
-      <a href="/posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%BC%97%E6%95%B0%E4%B8%AD%E4%BD%8D%E6%95%B0/" class="item-link">【数据结构与算法】众数、中位数</a>
-</h1>
-
-<div class="post-meta">
-    <div class="post-meta-item post-date">
-        <time class="dt-published" datetime="2025-05-27T19:41:53Z">
-            May 27, 2025
-        </time>
-    </div>
-
-    <div class="post-meta-item post-category">
-
-        
-        
-•
-        <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-link">技术</a>
-        
-    </div>
-</div>
-
-
-  <div class="e-content"><p>今天学这个东西的时候，看到这种线性的数据结构加上排序步骤，很难不想写个程序来跑跑。</p>
-<p>先来说说中位数，这个比较有思路。</p>
-<h2 id="中位数">中位数</h2>
-<p>具体的操作步骤应该是：<strong>排序 =&gt; 获得数据元素个数n =&gt; 是奇数 ? (n+1) / 2 : n / 2</strong></p>
-<p>那么排序就用之前学的冒泡排序，这种题目大概不会完全倒序给数据，编写sort函数：</p>
-<div class="highlight"><pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#dbbc7f">void</span> <span style="color:#b2c98f">sort</span>(<span style="color:#dbbc7f">int</span> arr[], <span style="color:#dbbc7f">int</span> n)
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#e67e80">for</span> (<span style="color:#dbbc7f">int</span> i <span style="color:#7a8478">=</span> <span style="color:#d699b6">0</span>; i <span style="color:#7a8478">&lt;</span> n <span style="color:#7a8478">-</span> <span style="color:#d699b6">1</span>; i<span style="color:#7a8478">++</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#e67e80">for</span> (<span style="color:#dbbc7f">int</span> j <span style="color:#7a8478">=</span> <span style="color:#d699b6">0</span>; j <span style="color:#7a8478">&lt;</span> n <span style="color:#7a8478">-</span> i <span style="color:#7a8478">-</span> <span style="color:#d699b6">1</span>; j<span style="color:#7a8478">++</span>) {
-</span></span><span style="display:flex;"><span>      <span style="color:#e67e80">if</span> (arr[j] <span style="color:#7a8478">&gt;</span> arr[j <span style="color:#7a8478">+</span> <span style="color:#d699b6">1</span>]) {
-</span></span><span style="display:flex;"><span>        <span style="color:#dbbc7f">int</span> temp <span style="color:#7a8478">=</span> arr[j];
-</span></span><span style="display:flex;"><span>        arr[j] <span style="color:#7a8478">=</span> arr[j <span style="color:#7a8478">+</span> <span style="color:#d699b6">1</span>];
-</span></span><span style="display:flex;"><span>        arr[j <span style="color:#7a8478">+</span> <span style="color:#d699b6">1</span>] <span style="color:#7a8478">=</span> temp;
-</span></span><span style="display:flex;"><span>      }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>接下来是判断奇偶，奇偶的判断非常简单，对取模运算的值比对就可以，编写is_even函数，判断奇偶性。</p>
-<div class="highlight"><pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#dbbc7f">int</span> <span style="color:#b2c98f">is_even</span>(<span style="color:#dbbc7f">int</span> data)
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#e67e80">if</span> (data <span style="color:#7a8478">%</span> <span style="color:#d699b6">2</span> <span style="color:#7a8478">==</span> <span style="color:#d699b6">0</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#e67e80">return</span> <span style="color:#d699b6">true</span>;
-</span></span><span style="display:flex;"><span>  } <span style="color:#e67e80">else</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#e67e80">return</span> <span style="color:#d699b6">false</span>;
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>完成了奇偶判断，下一步就可以正式进行中位数的运算，编写get_median函数。</p>
-<div class="highlight"><pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#dbbc7f">double</span> <span style="color:#b2c98f">get_median</span>(<span style="color:#dbbc7f">int</span> arr[], <span style="color:#dbbc7f">int</span> length)
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#859289;font-style:italic">// 获取索引
-</span></span></span><span style="display:flex;"><span>  <span style="color:#dbbc7f">double</span> result <span style="color:#7a8478">=</span> <span style="color:#d699b6">0</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#b2c98f">sort</span>(arr, length);
-</span></span><span style="display:flex;"><span>  <span style="color:#e67e80">if</span> (<span style="color:#b2c98f">is_even</span>(length)) {
-</span></span><span style="display:flex;"><span>    <span style="color:#dbbc7f">int</span> median_index_1 <span style="color:#7a8478">=</span> arr[(length <span style="color:#7a8478">/</span> <span style="color:#d699b6">2</span>) <span style="color:#7a8478">-</span> <span style="color:#d699b6">1</span>];
-</span></span><span style="display:flex;"><span>    <span style="color:#dbbc7f">int</span> median_index_2 <span style="color:#7a8478">=</span> arr[length <span style="color:#7a8478">/</span> <span style="color:#d699b6">2</span>];
-</span></span><span style="display:flex;"><span>    <span style="color:#859289;font-style:italic">// 计算数据
-</span></span></span><span style="display:flex;"><span>    result <span style="color:#7a8478">=</span> (median_index_1 <span style="color:#7a8478">+</span> median_index_2) <span style="color:#7a8478">/</span> <span style="color:#d699b6">2.0</span>;
-</span></span><span style="display:flex;"><span>  } <span style="color:#e67e80">else</span> {
-</span></span><span style="display:flex;"><span>    result <span style="color:#7a8478">=</span> arr[length <span style="color:#7a8478">/</span> <span style="color:#d699b6">2</span>];
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#e67e80">return</span> result;
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>这个函数首先计算了中位数在数组的哪个索引，然后进行了计算。</p>
-<h2 id="众数">众数</h2>
-<p>众数（Mode）是指在<a href="https://baike.baidu.com/item/%E7%BB%9F%E8%AE%A1%E5%88%86%E5%B8%83/8478867?fromModule=lemma_inlink">统计分布</a>上具有明显集中趋势点的<a href="https://baike.baidu.com/item/%E6%95%B0%E5%80%BC/2013853?fromModule=lemma_inlink">数值</a>，代表<a href="https://baike.baidu.com/item/%E6%95%B0%E6%8D%AE/33305?fromModule=lemma_inlink">数据</a>的一般水平。 也是一组数据中出现次数最多的数值，有时众数在一组数中有好几个。用M表示。</p>
-<p>那么，在程序中，想要计算一个值出现的次数并比对，可拆分为两步。</p>
-<ol>
-<li>计算出每一个数据出现的次数</li>
-<li>结果排序比对</li>
-<li>找出最大值</li>
-</ol>
-<p>我没学过什么高级的数据结构，就用这个复制数组的笨办法吧。</p>
-<div class="highlight"><pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#dbbc7f">int</span> <span style="color:#b2c98f">get_mode</span>(<span style="color:#dbbc7f">int</span> arr[], <span style="color:#dbbc7f">int</span> length)
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#dbbc7f">int</span> <span style="color:#7a8478">*</span>copy_arr <span style="color:#7a8478">=</span> <span style="color:#b2c98f">malloc</span>(length <span style="color:#7a8478">*</span> <span style="color:#e67e80">sizeof</span>(<span style="color:#dbbc7f">int</span>));
-</span></span><span style="display:flex;"><span>  <span style="color:#b2c98f">memcpy</span>(copy_arr, arr, length <span style="color:#7a8478">*</span> <span style="color:#e67e80">sizeof</span>(<span style="color:#dbbc7f">int</span>));
-</span></span><span style="display:flex;"><span>  <span style="color:#b2c98f">sort</span>(copy_arr, length);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#dbbc7f">int</span> max_count <span style="color:#7a8478">=</span> <span style="color:#d699b6">0</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#dbbc7f">int</span> current_count <span style="color:#7a8478">=</span> <span style="color:#d699b6">1</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#dbbc7f">int</span> mode <span style="color:#7a8478">=</span> copy_arr[<span style="color:#d699b6">0</span>];
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#e67e80">for</span> (<span style="color:#dbbc7f">int</span> i <span style="color:#7a8478">=</span> <span style="color:#d699b6">1</span>; i <span style="color:#7a8478">&lt;</span> length; i<span style="color:#7a8478">++</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#e67e80">if</span> (copy_arr[i] <span style="color:#7a8478">==</span> copy_arr[i <span style="color:#7a8478">-</span> <span style="color:#d699b6">1</span>]) {
-</span></span><span style="display:flex;"><span>      current_count<span style="color:#7a8478">++</span>;
-</span></span><span style="display:flex;"><span>    } <span style="color:#e67e80">else</span> {
-</span></span><span style="display:flex;"><span>      <span style="color:#e67e80">if</span> (current_count <span style="color:#7a8478">&gt;</span> max_count) {
-</span></span><span style="display:flex;"><span>        max_count <span style="color:#7a8478">=</span> current_count;
-</span></span><span style="display:flex;"><span>        mode <span style="color:#7a8478">=</span> copy_arr[i <span style="color:#7a8478">-</span> <span style="color:#d699b6">1</span>];
-</span></span><span style="display:flex;"><span>      }
-</span></span><span style="display:flex;"><span>      current_count <span style="color:#7a8478">=</span> <span style="color:#d699b6">1</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#e67e80">if</span> (current_count <span style="color:#7a8478">&gt;</span> max_count) {
-</span></span><span style="display:flex;"><span>    mode <span style="color:#7a8478">=</span> copy_arr[length <span style="color:#7a8478">-</span> <span style="color:#d699b6">1</span>];
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#b2c98f">free</span>(copy_arr);
-</span></span><span style="display:flex;"><span>  <span style="color:#e67e80">return</span> mode;
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>这个函数干了以下几件事：</p>
-<ul>
-<li>复制数组</li>
-<li>排序复制好的数组</li>
-<li>对比数组元素，如果array[i] == array[i - 1]，出现次数+1</li>
-<li>如果遇到新元素，检查是否需要更新最大值</li>
-<li>动态更新众数值</li>
-</ul>
-<p>测试跑一把，输出如下</p>
-<div class="highlight"><pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#dbbc7f">int</span> <span style="color:#b2c98f">main</span>()
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#dbbc7f">int</span> arr[] <span style="color:#7a8478">=</span> {<span style="color:#d699b6">1</span>, <span style="color:#d699b6">1</span>, <span style="color:#d699b6">1</span>, <span style="color:#d699b6">1</span>, <span style="color:#d699b6">2</span>, <span style="color:#d699b6">2</span>, <span style="color:#d699b6">4</span>, <span style="color:#d699b6">5</span>, <span style="color:#d699b6">7</span>, <span style="color:#d699b6">4</span>, <span style="color:#d699b6">4</span>, <span style="color:#d699b6">4</span>, <span style="color:#d699b6">4</span>, <span style="color:#d699b6">4</span>, <span style="color:#d699b6">4</span>, <span style="color:#d699b6">4</span>, <span style="color:#d699b6">4</span>, <span style="color:#d699b6">4</span>, <span style="color:#d699b6">2</span>};
-</span></span><span style="display:flex;"><span>  <span style="color:#dbbc7f">int</span> length <span style="color:#7a8478">=</span> <span style="color:#e67e80">sizeof</span>(arr) <span style="color:#7a8478">/</span> <span style="color:#e67e80">sizeof</span>(arr[<span style="color:#d699b6">0</span>]);
-</span></span><span style="display:flex;"><span>  <span style="color:#dbbc7f">int</span> result <span style="color:#7a8478">=</span> <span style="color:#b2c98f">get_mode</span>(arr, length);
-</span></span><span style="display:flex;"><span>  <span style="color:#b2c98f">printf</span>(<span style="color:#b2c98f">&#34;result = %d</span><span style="color:#b2c98f">\n</span><span style="color:#b2c98f">&#34;</span>, result);
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>result = 4
-</span></span></code></pre></div><p><del>这个办法实在是有点蠢，找时间仔细学学哈希表，应该能更快。</del></p>
-</div>
-</article>
-<a class="u-url" href="https://blog.verdant.ee/posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%BC%97%E6%95%B0%E4%B8%AD%E4%BD%8D%E6%95%B0/" style="display: none">Permalink</a>
-
-<hr>
-
-
-<div class="post-meta">
-	
-	<div class="post-meta-item post-tag">
-		#   
-		<a href="https://blog.verdant.ee/tags/%E9%BB%91%E5%8E%86%E5%8F%B2/">黑历史</a>
-		,  
-		<a href="https://blog.verdant.ee/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法</a>
-		 
-	</div>
-	
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  
-  <p>有想对我说的？<a href="mailto:im@verdant.ee?subject=回复《%e3%80%90%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84%e4%b8%8e%e7%ae%97%e6%b3%95%e3%80%91%e4%bc%97%e6%95%b0%e3%80%81%e4%b8%ad%e4%bd%8d%e6%95%b0》">发一封邮件吧</a>。</p>
-</div>
-</main>
-		<footer><div class="copyright">
-	© 2024 - 2026 | Made with ❤️ by <a href="https://verdant.ee">Verdant</a>.
-	<div class="rss-icon">
-		<a href="/rss">
-			<i class="fa fa-rss">🛜</i>
-		</a>
-	</div>
-</div>
-</footer>
-
-		
-</body>
-	<GNU>
-		______ ____ _____ _____ _____ _________ _______ _ __ _ _ .' ___ ||_ \|_ _||_
-		_||_ _| | _ _ | |_ __ \ / |_ [ | / |_ / |_ / .' \_| | \ | | | | | | |_/ | |
-		\_|.---. _ .--. _ .--. _ __ | |__) |_ .--. ,--. `| |-'.---. | |--. .---.`|
-		|-'`| |-' | | ____ | |\ \| | | ' ' | | | / /__\\[ `/'`\][ `/'`\][ \ [ ] |
-		___/[ `/'`\]`'_\ : | | / /'`\] | .-. |/ /__\\| | | | \ `.___] |_| |_\ |_ \
-		\__/ / _| |_ | \__., | | | | \ '/ / _| |_ | | // | |,| |,| \__. | | | ||
-		\__.,| |, | |, `._____.'|_____|\____| `.__.' |_____| '.__.'[___] [___] [\_:
-		/ |_____| [___] \'-;__/\__/'.___.'[___]|__]'.__.'\__/ \__/ \__.' "A man is
-		not dead while his name is still spoken."
-	</GNU>
-</html>
+中位数 具体的操作步骤应该是：排序 => 获得数据元素个数n => 是奇数 ? (n+1) / 2 : n / 2"><meta itemprop=datePublished content="2025-05-27T19:41:53+00:00"><meta itemprop=dateModified content="2025-05-27T19:41:53+00:00"><meta itemprop=wordCount content="796"><meta itemprop=keywords content="黑历史,数据结构与算法"><meta name=referrer content="no-referrer-when-downgrade"><meta name=msvalidate.01 content="2E1AACF009206F2DDBAAD4B98E881460"><link rel=prefetch as=image href=https://www.blogsclub.org/badge/blog.verdant.ee><meta name=blogsclub-verify content="2fff06c4423c4f41ac048f779a7daab5"><link rel="shortcut icon" href=/favicon.ico></head><body><main><header><a href=/ class=title><p class=site-title>映屿</p></a><nav><a href=/categories/>分类</a>
+<a href=/links/>友人</a>
+<a href=/archives/>归档</a>
+<a href=/about/>关于</a></nav></header><article class=h-entry><h1 class=post-title><a href=/posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%BC%97%E6%95%B0%E4%B8%AD%E4%BD%8D%E6%95%B0/ class=item-link>【数据结构与算法】众数、中位数</a></h1><div class=post-meta><div class="post-meta-item post-date"><time class=dt-published datetime=2025-05-27T19:41:53Z>May 27, 2025</time></div><div class="post-meta-item post-category">•
+<a href=/categories/%E6%8A%80%E6%9C%AF/ class=category-link>技术</a></div></div><div class=e-content><p>今天学这个东西的时候，看到这种线性的数据结构加上排序步骤，很难不想写个程序来跑跑。</p><p>先来说说中位数，这个比较有思路。</p><h2 id=中位数>中位数</h2><p>具体的操作步骤应该是：<strong>排序 => 获得数据元素个数n => 是奇数 ? (n+1) / 2 : n / 2</strong></p><p>那么排序就用之前学的冒泡排序，这种题目大概不会完全倒序给数据，编写sort函数：</p><div class=highlight><pre tabindex=0 style=color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#dbbc7f>void</span> <span style=color:#b2c98f>sort</span>(<span style=color:#dbbc7f>int</span> arr[], <span style=color:#dbbc7f>int</span> n)
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>  <span style=color:#e67e80>for</span> (<span style=color:#dbbc7f>int</span> i <span style=color:#7a8478>=</span> <span style=color:#d699b6>0</span>; i <span style=color:#7a8478>&lt;</span> n <span style=color:#7a8478>-</span> <span style=color:#d699b6>1</span>; i<span style=color:#7a8478>++</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#e67e80>for</span> (<span style=color:#dbbc7f>int</span> j <span style=color:#7a8478>=</span> <span style=color:#d699b6>0</span>; j <span style=color:#7a8478>&lt;</span> n <span style=color:#7a8478>-</span> i <span style=color:#7a8478>-</span> <span style=color:#d699b6>1</span>; j<span style=color:#7a8478>++</span>) {
+</span></span><span style=display:flex><span>      <span style=color:#e67e80>if</span> (arr[j] <span style=color:#7a8478>&gt;</span> arr[j <span style=color:#7a8478>+</span> <span style=color:#d699b6>1</span>]) {
+</span></span><span style=display:flex><span>        <span style=color:#dbbc7f>int</span> temp <span style=color:#7a8478>=</span> arr[j];
+</span></span><span style=display:flex><span>        arr[j] <span style=color:#7a8478>=</span> arr[j <span style=color:#7a8478>+</span> <span style=color:#d699b6>1</span>];
+</span></span><span style=display:flex><span>        arr[j <span style=color:#7a8478>+</span> <span style=color:#d699b6>1</span>] <span style=color:#7a8478>=</span> temp;
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>接下来是判断奇偶，奇偶的判断非常简单，对取模运算的值比对就可以，编写is_even函数，判断奇偶性。</p><div class=highlight><pre tabindex=0 style=color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#dbbc7f>int</span> <span style=color:#b2c98f>is_even</span>(<span style=color:#dbbc7f>int</span> data)
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>  <span style=color:#e67e80>if</span> (data <span style=color:#7a8478>%</span> <span style=color:#d699b6>2</span> <span style=color:#7a8478>==</span> <span style=color:#d699b6>0</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#e67e80>return</span> <span style=color:#d699b6>true</span>;
+</span></span><span style=display:flex><span>  } <span style=color:#e67e80>else</span> {
+</span></span><span style=display:flex><span>    <span style=color:#e67e80>return</span> <span style=color:#d699b6>false</span>;
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>完成了奇偶判断，下一步就可以正式进行中位数的运算，编写get_median函数。</p><div class=highlight><pre tabindex=0 style=color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#dbbc7f>double</span> <span style=color:#b2c98f>get_median</span>(<span style=color:#dbbc7f>int</span> arr[], <span style=color:#dbbc7f>int</span> length)
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>  <span style=color:#859289;font-style:italic>// 获取索引
+</span></span></span><span style=display:flex><span>  <span style=color:#dbbc7f>double</span> result <span style=color:#7a8478>=</span> <span style=color:#d699b6>0</span>;
+</span></span><span style=display:flex><span>  <span style=color:#b2c98f>sort</span>(arr, length);
+</span></span><span style=display:flex><span>  <span style=color:#e67e80>if</span> (<span style=color:#b2c98f>is_even</span>(length)) {
+</span></span><span style=display:flex><span>    <span style=color:#dbbc7f>int</span> median_index_1 <span style=color:#7a8478>=</span> arr[(length <span style=color:#7a8478>/</span> <span style=color:#d699b6>2</span>) <span style=color:#7a8478>-</span> <span style=color:#d699b6>1</span>];
+</span></span><span style=display:flex><span>    <span style=color:#dbbc7f>int</span> median_index_2 <span style=color:#7a8478>=</span> arr[length <span style=color:#7a8478>/</span> <span style=color:#d699b6>2</span>];
+</span></span><span style=display:flex><span>    <span style=color:#859289;font-style:italic>// 计算数据
+</span></span></span><span style=display:flex><span>    result <span style=color:#7a8478>=</span> (median_index_1 <span style=color:#7a8478>+</span> median_index_2) <span style=color:#7a8478>/</span> <span style=color:#d699b6>2.0</span>;
+</span></span><span style=display:flex><span>  } <span style=color:#e67e80>else</span> {
+</span></span><span style=display:flex><span>    result <span style=color:#7a8478>=</span> arr[length <span style=color:#7a8478>/</span> <span style=color:#d699b6>2</span>];
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#e67e80>return</span> result;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>这个函数首先计算了中位数在数组的哪个索引，然后进行了计算。</p><h2 id=众数>众数</h2><p>众数（Mode）是指在<a href="https://baike.baidu.com/item/%E7%BB%9F%E8%AE%A1%E5%88%86%E5%B8%83/8478867?fromModule=lemma_inlink">统计分布</a>上具有明显集中趋势点的<a href="https://baike.baidu.com/item/%E6%95%B0%E5%80%BC/2013853?fromModule=lemma_inlink">数值</a>，代表<a href="https://baike.baidu.com/item/%E6%95%B0%E6%8D%AE/33305?fromModule=lemma_inlink">数据</a>的一般水平。 也是一组数据中出现次数最多的数值，有时众数在一组数中有好几个。用M表示。</p><p>那么，在程序中，想要计算一个值出现的次数并比对，可拆分为两步。</p><ol><li>计算出每一个数据出现的次数</li><li>结果排序比对</li><li>找出最大值</li></ol><p>我没学过什么高级的数据结构，就用这个复制数组的笨办法吧。</p><div class=highlight><pre tabindex=0 style=color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#dbbc7f>int</span> <span style=color:#b2c98f>get_mode</span>(<span style=color:#dbbc7f>int</span> arr[], <span style=color:#dbbc7f>int</span> length)
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>  <span style=color:#dbbc7f>int</span> <span style=color:#7a8478>*</span>copy_arr <span style=color:#7a8478>=</span> <span style=color:#b2c98f>malloc</span>(length <span style=color:#7a8478>*</span> <span style=color:#e67e80>sizeof</span>(<span style=color:#dbbc7f>int</span>));
+</span></span><span style=display:flex><span>  <span style=color:#b2c98f>memcpy</span>(copy_arr, arr, length <span style=color:#7a8478>*</span> <span style=color:#e67e80>sizeof</span>(<span style=color:#dbbc7f>int</span>));
+</span></span><span style=display:flex><span>  <span style=color:#b2c98f>sort</span>(copy_arr, length);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#dbbc7f>int</span> max_count <span style=color:#7a8478>=</span> <span style=color:#d699b6>0</span>;
+</span></span><span style=display:flex><span>  <span style=color:#dbbc7f>int</span> current_count <span style=color:#7a8478>=</span> <span style=color:#d699b6>1</span>;
+</span></span><span style=display:flex><span>  <span style=color:#dbbc7f>int</span> mode <span style=color:#7a8478>=</span> copy_arr[<span style=color:#d699b6>0</span>];
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#e67e80>for</span> (<span style=color:#dbbc7f>int</span> i <span style=color:#7a8478>=</span> <span style=color:#d699b6>1</span>; i <span style=color:#7a8478>&lt;</span> length; i<span style=color:#7a8478>++</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#e67e80>if</span> (copy_arr[i] <span style=color:#7a8478>==</span> copy_arr[i <span style=color:#7a8478>-</span> <span style=color:#d699b6>1</span>]) {
+</span></span><span style=display:flex><span>      current_count<span style=color:#7a8478>++</span>;
+</span></span><span style=display:flex><span>    } <span style=color:#e67e80>else</span> {
+</span></span><span style=display:flex><span>      <span style=color:#e67e80>if</span> (current_count <span style=color:#7a8478>&gt;</span> max_count) {
+</span></span><span style=display:flex><span>        max_count <span style=color:#7a8478>=</span> current_count;
+</span></span><span style=display:flex><span>        mode <span style=color:#7a8478>=</span> copy_arr[i <span style=color:#7a8478>-</span> <span style=color:#d699b6>1</span>];
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>      current_count <span style=color:#7a8478>=</span> <span style=color:#d699b6>1</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#e67e80>if</span> (current_count <span style=color:#7a8478>&gt;</span> max_count) {
+</span></span><span style=display:flex><span>    mode <span style=color:#7a8478>=</span> copy_arr[length <span style=color:#7a8478>-</span> <span style=color:#d699b6>1</span>];
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#b2c98f>free</span>(copy_arr);
+</span></span><span style=display:flex><span>  <span style=color:#e67e80>return</span> mode;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>这个函数干了以下几件事：</p><ul><li>复制数组</li><li>排序复制好的数组</li><li>对比数组元素，如果array[i] == array[i - 1]，出现次数+1</li><li>如果遇到新元素，检查是否需要更新最大值</li><li>动态更新众数值</li></ul><p>测试跑一把，输出如下</p><div class=highlight><pre tabindex=0 style=color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#dbbc7f>int</span> <span style=color:#b2c98f>main</span>()
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>  <span style=color:#dbbc7f>int</span> arr[] <span style=color:#7a8478>=</span> {<span style=color:#d699b6>1</span>, <span style=color:#d699b6>1</span>, <span style=color:#d699b6>1</span>, <span style=color:#d699b6>1</span>, <span style=color:#d699b6>2</span>, <span style=color:#d699b6>2</span>, <span style=color:#d699b6>4</span>, <span style=color:#d699b6>5</span>, <span style=color:#d699b6>7</span>, <span style=color:#d699b6>4</span>, <span style=color:#d699b6>4</span>, <span style=color:#d699b6>4</span>, <span style=color:#d699b6>4</span>, <span style=color:#d699b6>4</span>, <span style=color:#d699b6>4</span>, <span style=color:#d699b6>4</span>, <span style=color:#d699b6>4</span>, <span style=color:#d699b6>4</span>, <span style=color:#d699b6>2</span>};
+</span></span><span style=display:flex><span>  <span style=color:#dbbc7f>int</span> length <span style=color:#7a8478>=</span> <span style=color:#e67e80>sizeof</span>(arr) <span style=color:#7a8478>/</span> <span style=color:#e67e80>sizeof</span>(arr[<span style=color:#d699b6>0</span>]);
+</span></span><span style=display:flex><span>  <span style=color:#dbbc7f>int</span> result <span style=color:#7a8478>=</span> <span style=color:#b2c98f>get_mode</span>(arr, length);
+</span></span><span style=display:flex><span>  <span style=color:#b2c98f>printf</span>(<span style=color:#b2c98f>&#34;result = %d</span><span style=color:#b2c98f>\n</span><span style=color:#b2c98f>&#34;</span>, result);
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>result = 4
+</span></span></code></pre></div><p><del>这个办法实在是有点蠢，找时间仔细学学哈希表，应该能更快。</del></p></div></article><a class=u-url href=https://blog.verdant.ee/posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%BC%97%E6%95%B0%E4%B8%AD%E4%BD%8D%E6%95%B0/ style=display:none>Permalink</a><hr><div class=post-meta><div class="post-meta-item post-tag">#
+<a href=https://blog.verdant.ee/tags/%E9%BB%91%E5%8E%86%E5%8F%B2/>黑历史</a>
+,
+<a href=https://blog.verdant.ee/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/>数据结构与算法</a></div></div><p>有想对我说的？向<a href="mailto:im@verdant.ee?subject=回复《%e3%80%90%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84%e4%b8%8e%e7%ae%97%e6%b3%95%e3%80%91%e4%bc%97%e6%95%b0%e3%80%81%e4%b8%ad%e4%bd%8d%e6%95%b0》"> im@verdant.ee </a>发送一封<a href=https://useplaintext.email/>纯文本邮件</a>吧。</p></div></main><footer><div class=copyright>© 2024 - 2026 | Made with ❤️ by <a href=https://verdant.ee>Verdant</a>.<div class=footer-item><a href=/rss><i class="fa fa-rss">🛜</i></a></div><div class=footer-item><button id=toggle-theme-btn>🌞/🌙</button></div></div><script>console.log("Loaded");const modes={Dark:"dark",Light:"light"};function getCurrentMode(){let e=localStorage.getItem("theme");return e===null?null:e}const toggleColorSchemeBtn=document.getElementById("toggle-theme-btn"),body=document.body,currentMode=getCurrentMode();currentMode===modes.Dark&&body.classList.toggle("dark-mode"),toggleColorSchemeBtn.addEventListener("click",()=>{body.classList.toggle("dark-mode"),body.classList.contains("dark-mode")?localStorage.setItem("theme",modes.Dark):localStorage.setItem("theme",modes.Light)})</script></footer></body><gnu>______ ____ _____ _____ _____ _________ _______ _ __ _ _ .' ___ ||_ \|_ _||_
+_||_ _| | _ _ | |_ __ \ / |_ [ | / |_ / |_ / .' \_| | \ | | | | | | |_/ | |
+\_|.---. _ .--. _ .--. _ __ | |__) |_ .--. ,--. `| |-'.---. | |--. .---.`|
+|-'`| |-' | | ____ | |\ \| | | ' ' | | | / /__\\[ `/'`\][ `/'`\][ \ [ ] |
+___/[ `/'`\]`'_\ : | | / /'`\] | .-. |/ /__\\| | | | \ `.___] |_| |_\ |_ \
+\__/ / _| |_ | \__., | | | | \ '/ / _| |_ | | // | |,| |,| \__. | | | ||
+\__.,| |, | |, `._____.'|_____|\____| `.__.' |_____| '.__.'[___] [___] [\_:
+/ |_____| [___] \'-;__/\__/'.___.'[___]|__]'.__.'\__/ \__/ \__.' "A man is
+not dead while his name is still spoken."</gnu></html>

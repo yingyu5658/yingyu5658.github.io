@@ -1,376 +1,52 @@
-<!doctype html>
-<html lang="zh-cn">
-	<head>
-		<link rel="stylesheet" href="/style.css" />
-		<meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="shortcut icon" href="https://blog.verdant.ee/favicon.png" />
-<title>【数据结构与算法】二叉树</title>
-<meta name="title" content="【数据结构与算法】二叉树" />
-<meta name="description" content="定义
-二叉树（binary tree）是指树中节点的度不大于2的有序树，它是一种最简单且最重要的树。二叉树的递归定义为：二叉树是一棵空树，或者是一棵由一个根节点和两棵互不相交的，分别称作根的左子树和右子树组成的非空树；左子树和右子树又同样都是二叉树。" />
-<meta name="keywords" content="黑历史,数据结构与算法," />
-
-<link rel="canonical" href="https://blog.verdant.ee/posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%BA%8C%E5%8F%89%E6%A0%91/">
-
-
-<meta property="og:url" content="https://blog.verdant.ee/posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%BA%8C%E5%8F%89%E6%A0%91/">
-  <meta property="og:site_name" content="映屿">
-  <meta property="og:title" content="【数据结构与算法】二叉树">
-  <meta property="og:description" content="定义 二叉树（binary tree）是指树中节点的度不大于2的有序树，它是一种最简单且最重要的树。二叉树的递归定义为：二叉树是一棵空树，或者是一棵由一个根节点和两棵互不相交的，分别称作根的左子树和右子树组成的非空树；左子树和右子树又同样都是二叉树。">
-  <meta property="og:locale" content="zh_cn">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-05-25T18:46:37+00:00">
-    <meta property="article:modified_time" content="2025-05-25T18:46:37+00:00">
-    <meta property="article:tag" content="黑历史">
-    <meta property="article:tag" content="数据结构与算法">
-
-
-
-
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="【数据结构与算法】二叉树">
-  <meta name="twitter:description" content="定义 二叉树（binary tree）是指树中节点的度不大于2的有序树，它是一种最简单且最重要的树。二叉树的递归定义为：二叉树是一棵空树，或者是一棵由一个根节点和两棵互不相交的，分别称作根的左子树和右子树组成的非空树；左子树和右子树又同样都是二叉树。">
-
-
-
-
-  <meta itemprop="name" content="【数据结构与算法】二叉树">
-  <meta itemprop="description" content="定义 二叉树（binary tree）是指树中节点的度不大于2的有序树，它是一种最简单且最重要的树。二叉树的递归定义为：二叉树是一棵空树，或者是一棵由一个根节点和两棵互不相交的，分别称作根的左子树和右子树组成的非空树；左子树和右子树又同样都是二叉树。">
-  <meta itemprop="datePublished" content="2025-05-25T18:46:37+00:00">
-  <meta itemprop="dateModified" content="2025-05-25T18:46:37+00:00">
-  <meta itemprop="wordCount" content="325">
-  <meta itemprop="keywords" content="黑历史,数据结构与算法">
-<meta name="referrer" content="no-referrer-when-downgrade" />
-
-		<meta name="msvalidate.01" content="2E1AACF009206F2DDBAAD4B98E881460" />
-<link
-	rel="prefetch"
-	as="image"
-	href="https://www.blogsclub.org/badge/blog.verdant.ee"
-  />
-<meta name="blogsclub-verify" content="2fff06c4423c4f41ac048f779a7daab5">
-<link rel="shortcut icon" href="/favicon.ico" />
-</head>
-
-	<body>
-		<main>
-<header>
-<a href="/" class="title">
-  <p class="site-title">映屿</p>
-</a>
-<nav>
-<a href="/categories/">分类</a>
-
-<a href="/links/">友人</a>
-
-<a href="/archives/">归档</a>
-
-<a href="/about/">关于</a>
-
-
-</nav>
-
-</header>
-
-<article class="h-entry">
-<h1 class="post-title">
-      <a href="/posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%BA%8C%E5%8F%89%E6%A0%91/" class="item-link">【数据结构与算法】二叉树</a>
-</h1>
-
-<div class="post-meta">
-    <div class="post-meta-item post-date">
-        <time class="dt-published" datetime="2025-05-25T18:46:37Z">
-            May 25, 2025
-        </time>
-    </div>
-
-    <div class="post-meta-item post-category">
-
-        
-        
-•
-        <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-link">技术</a>
-        
-    </div>
-</div>
-
-
-  <div class="e-content"><h2 id="定义">定义</h2>
-<p>二叉树（binary tree）是指树中节点的度不大于2的有序树，它是一种最简单且最重要的树。二叉树的递归定义为：二叉树是一棵空树，或者是一棵由一个根节点和两棵互不相交的，分别称作根的左子树和右子树组成的非空树；左子树和右子树又同样都是二叉树。</p>
-<h2 id="实现">实现</h2>
-<h3 id="结构定义">结构定义</h3>
-<p><del>尝试了一下C语言，各种指针乱指，各种bug，暂时放自己一马，跟自己和解一下用js写写吧。</del></p>
-<div class="highlight"><pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#e67e80">class</span> TreeNode {
-</span></span><span style="display:flex;"><span>  constructor(data) {
-</span></span><span style="display:flex;"><span>    <span style="color:#e67e80">this</span>.data <span style="color:#7a8478">=</span> data;
-</span></span><span style="display:flex;"><span>    <span style="color:#e67e80">this</span>.left <span style="color:#7a8478">=</span> <span style="color:#e67e80">null</span>;  <span style="color:#859289;font-style:italic">// 左节点
-</span></span></span><span style="display:flex;"><span>    <span style="color:#e67e80">this</span>.right <span style="color:#7a8478">=</span> <span style="color:#e67e80">null</span>; <span style="color:#859289;font-style:italic">// 右边节点
-</span></span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="创建对象并绑定节点">创建对象并绑定节点</h3>
-<div class="highlight"><pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#859289;font-style:italic">// 手动绑定节点
-</span></span></span><span style="display:flex;"><span><span style="color:#e67e80">let</span> root <span style="color:#7a8478">=</span> <span style="color:#e67e80">new</span> TreeNode(<span style="color:#d699b6">1</span>)
-</span></span><span style="display:flex;"><span>root.left <span style="color:#7a8478">=</span> <span style="color:#e67e80">new</span> TreeNode(<span style="color:#d699b6">2</span>)
-</span></span><span style="display:flex;"><span>root.right <span style="color:#7a8478">=</span> <span style="color:#e67e80">new</span> TreeNode(<span style="color:#d699b6">3</span>)
-</span></span><span style="display:flex;"><span>root.left.left <span style="color:#7a8478">=</span> <span style="color:#e67e80">new</span> TreeNode(<span style="color:#d699b6">4</span>)
-</span></span><span style="display:flex;"><span>root.right.right <span style="color:#7a8478">=</span> <span style="color:#e67e80">new</span> TreeNode(<span style="color:#d699b6">5</span>)
-</span></span></code></pre></div><p>此时树的结构：</p>
-<div class="highlight"><pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>      1
-</span></span><span style="display:flex;"><span>     /  \
-</span></span><span style="display:flex;"><span>     2   3
-</span></span><span style="display:flex;"><span>   /  \   \
-</span></span><span style="display:flex;"><span>  4    5   6
-</span></span></code></pre></div><h3 id="遍历二叉树">遍历二叉树</h3>
-<h4 id="前序遍历dfs">前序遍历（DFS）</h4>
-<div class="highlight"><pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#e67e80">function</span> preOrder(node) {
-</span></span><span style="display:flex;"><span>  <span style="color:#e67e80">if</span>(node) {
-</span></span><span style="display:flex;"><span>    console.log(node.data)
-</span></span><span style="display:flex;"><span>    preOrder(node.left)
-</span></span><span style="display:flex;"><span>    preOrder(node.right)
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>这里用递归调用，遍历到左右元素</p>
-<h4 id="层序遍历bfs">层序遍历（BFS）</h4>
-<div class="highlight"><pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#e67e80">function</span> levelOrder(root) {
-</span></span><span style="display:flex;"><span>  <span style="color:#e67e80">const</span> queue <span style="color:#7a8478">=</span> [];
-</span></span><span style="display:flex;"><span>  queue.push(root);
-</span></span><span style="display:flex;"><span>  <span style="color:#e67e80">while</span> (queue.length) {
-</span></span><span style="display:flex;"><span>    <span style="color:#e67e80">const</span> node <span style="color:#7a8478">=</span> queue.shift();
-</span></span><span style="display:flex;"><span>    console.log(node.data);
-</span></span><span style="display:flex;"><span>    <span style="color:#e67e80">if</span> (node.left) queue.push(node.left);
-</span></span><span style="display:flex;"><span>    <span style="color:#e67e80">if</span> (node.right) queue.push(node.right);
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div></div>
-</article>
-<a class="u-url" href="https://blog.verdant.ee/posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%BA%8C%E5%8F%89%E6%A0%91/" style="display: none">Permalink</a>
-
-<hr>
-
-
-<div class="post-meta">
-	
-	<div class="post-meta-item post-tag">
-		#   
-		<a href="https://blog.verdant.ee/tags/%E9%BB%91%E5%8E%86%E5%8F%B2/">黑历史</a>
-		,  
-		<a href="https://blog.verdant.ee/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法</a>
-		 
-	</div>
-	
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  
-  <p>有想对我说的？<a href="mailto:im@verdant.ee?subject=回复《%e3%80%90%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84%e4%b8%8e%e7%ae%97%e6%b3%95%e3%80%91%e4%ba%8c%e5%8f%89%e6%a0%91》">发一封邮件吧</a>。</p>
-</div>
-</main>
-		<footer><div class="copyright">
-	© 2024 - 2026 | Made with ❤️ by <a href="https://verdant.ee">Verdant</a>.
-	<div class="rss-icon">
-		<a href="/rss">
-			<i class="fa fa-rss">🛜</i>
-		</a>
-	</div>
-</div>
-</footer>
-
-		
-</body>
-	<GNU>
-		______ ____ _____ _____ _____ _________ _______ _ __ _ _ .' ___ ||_ \|_ _||_
-		_||_ _| | _ _ | |_ __ \ / |_ [ | / |_ / |_ / .' \_| | \ | | | | | | |_/ | |
-		\_|.---. _ .--. _ .--. _ __ | |__) |_ .--. ,--. `| |-'.---. | |--. .---.`|
-		|-'`| |-' | | ____ | |\ \| | | ' ' | | | / /__\\[ `/'`\][ `/'`\][ \ [ ] |
-		___/[ `/'`\]`'_\ : | | / /'`\] | .-. |/ /__\\| | | | \ `.___] |_| |_\ |_ \
-		\__/ / _| |_ | \__., | | | | \ '/ / _| |_ | | // | |,| |,| \__. | | | ||
-		\__.,| |, | |, `._____.'|_____|\____| `.__.' |_____| '.__.'[___] [___] [\_:
-		/ |_____| [___] \'-;__/\__/'.___.'[___]|__]'.__.'\__/ \__/ \__.' "A man is
-		not dead while his name is still spoken."
-	</GNU>
-</html>
+<!doctype html><html lang=zh-cn><head><link rel=stylesheet href=/style.css><meta http-equiv=X-Clacks-Overhead content="GNU Terry Pratchett"><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><link rel="shortcut icon" href=https://blog.verdant.ee/favicon.png><title>【数据结构与算法】二叉树</title><meta name=title content="【数据结构与算法】二叉树"><meta name=description content="定义
+二叉树（binary tree）是指树中节点的度不大于2的有序树，它是一种最简单且最重要的树。二叉树的递归定义为：二叉树是一棵空树，或者是一棵由一个根节点和两棵互不相交的，分别称作根的左子树和右子树组成的非空树；左子树和右子树又同样都是二叉树。"><meta name=keywords content="黑历史,数据结构与算法,"><link rel=canonical href=https://blog.verdant.ee/posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%BA%8C%E5%8F%89%E6%A0%91/><meta property="og:url" content="https://blog.verdant.ee/posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%BA%8C%E5%8F%89%E6%A0%91/"><meta property="og:site_name" content="映屿"><meta property="og:title" content="【数据结构与算法】二叉树"><meta property="og:description" content="定义 二叉树（binary tree）是指树中节点的度不大于2的有序树，它是一种最简单且最重要的树。二叉树的递归定义为：二叉树是一棵空树，或者是一棵由一个根节点和两棵互不相交的，分别称作根的左子树和右子树组成的非空树；左子树和右子树又同样都是二叉树。"><meta property="og:locale" content="zh_cn"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2025-05-25T18:46:37+00:00"><meta property="article:modified_time" content="2025-05-25T18:46:37+00:00"><meta property="article:tag" content="黑历史"><meta property="article:tag" content="数据结构与算法"><meta name=twitter:card content="summary"><meta name=twitter:title content="【数据结构与算法】二叉树"><meta name=twitter:description content="定义 二叉树（binary tree）是指树中节点的度不大于2的有序树，它是一种最简单且最重要的树。二叉树的递归定义为：二叉树是一棵空树，或者是一棵由一个根节点和两棵互不相交的，分别称作根的左子树和右子树组成的非空树；左子树和右子树又同样都是二叉树。"><meta itemprop=name content="【数据结构与算法】二叉树"><meta itemprop=description content="定义 二叉树（binary tree）是指树中节点的度不大于2的有序树，它是一种最简单且最重要的树。二叉树的递归定义为：二叉树是一棵空树，或者是一棵由一个根节点和两棵互不相交的，分别称作根的左子树和右子树组成的非空树；左子树和右子树又同样都是二叉树。"><meta itemprop=datePublished content="2025-05-25T18:46:37+00:00"><meta itemprop=dateModified content="2025-05-25T18:46:37+00:00"><meta itemprop=wordCount content="325"><meta itemprop=keywords content="黑历史,数据结构与算法"><meta name=referrer content="no-referrer-when-downgrade"><meta name=msvalidate.01 content="2E1AACF009206F2DDBAAD4B98E881460"><link rel=prefetch as=image href=https://www.blogsclub.org/badge/blog.verdant.ee><meta name=blogsclub-verify content="2fff06c4423c4f41ac048f779a7daab5"><link rel="shortcut icon" href=/favicon.ico></head><body><main><header><a href=/ class=title><p class=site-title>映屿</p></a><nav><a href=/categories/>分类</a>
+<a href=/links/>友人</a>
+<a href=/archives/>归档</a>
+<a href=/about/>关于</a></nav></header><article class=h-entry><h1 class=post-title><a href=/posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%BA%8C%E5%8F%89%E6%A0%91/ class=item-link>【数据结构与算法】二叉树</a></h1><div class=post-meta><div class="post-meta-item post-date"><time class=dt-published datetime=2025-05-25T18:46:37Z>May 25, 2025</time></div><div class="post-meta-item post-category">•
+<a href=/categories/%E6%8A%80%E6%9C%AF/ class=category-link>技术</a></div></div><div class=e-content><h2 id=定义>定义</h2><p>二叉树（binary tree）是指树中节点的度不大于2的有序树，它是一种最简单且最重要的树。二叉树的递归定义为：二叉树是一棵空树，或者是一棵由一个根节点和两棵互不相交的，分别称作根的左子树和右子树组成的非空树；左子树和右子树又同样都是二叉树。</p><h2 id=实现>实现</h2><h3 id=结构定义>结构定义</h3><p><del>尝试了一下C语言，各种指针乱指，各种bug，暂时放自己一马，跟自己和解一下用js写写吧。</del></p><div class=highlight><pre tabindex=0 style=color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#e67e80>class</span> TreeNode {
+</span></span><span style=display:flex><span>  constructor(data) {
+</span></span><span style=display:flex><span>    <span style=color:#e67e80>this</span>.data <span style=color:#7a8478>=</span> data;
+</span></span><span style=display:flex><span>    <span style=color:#e67e80>this</span>.left <span style=color:#7a8478>=</span> <span style=color:#e67e80>null</span>;  <span style=color:#859289;font-style:italic>// 左节点
+</span></span></span><span style=display:flex><span>    <span style=color:#e67e80>this</span>.right <span style=color:#7a8478>=</span> <span style=color:#e67e80>null</span>; <span style=color:#859289;font-style:italic>// 右边节点
+</span></span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=创建对象并绑定节点>创建对象并绑定节点</h3><div class=highlight><pre tabindex=0 style=color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#859289;font-style:italic>// 手动绑定节点
+</span></span></span><span style=display:flex><span><span style=color:#e67e80>let</span> root <span style=color:#7a8478>=</span> <span style=color:#e67e80>new</span> TreeNode(<span style=color:#d699b6>1</span>)
+</span></span><span style=display:flex><span>root.left <span style=color:#7a8478>=</span> <span style=color:#e67e80>new</span> TreeNode(<span style=color:#d699b6>2</span>)
+</span></span><span style=display:flex><span>root.right <span style=color:#7a8478>=</span> <span style=color:#e67e80>new</span> TreeNode(<span style=color:#d699b6>3</span>)
+</span></span><span style=display:flex><span>root.left.left <span style=color:#7a8478>=</span> <span style=color:#e67e80>new</span> TreeNode(<span style=color:#d699b6>4</span>)
+</span></span><span style=display:flex><span>root.right.right <span style=color:#7a8478>=</span> <span style=color:#e67e80>new</span> TreeNode(<span style=color:#d699b6>5</span>)
+</span></span></code></pre></div><p>此时树的结构：</p><div class=highlight><pre tabindex=0 style=color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>      1
+</span></span><span style=display:flex><span>     /  \
+</span></span><span style=display:flex><span>     2   3
+</span></span><span style=display:flex><span>   /  \   \
+</span></span><span style=display:flex><span>  4    5   6
+</span></span></code></pre></div><h3 id=遍历二叉树>遍历二叉树</h3><h4 id=前序遍历dfs>前序遍历（DFS）</h4><div class=highlight><pre tabindex=0 style=color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#e67e80>function</span> preOrder(node) {
+</span></span><span style=display:flex><span>  <span style=color:#e67e80>if</span>(node) {
+</span></span><span style=display:flex><span>    console.log(node.data)
+</span></span><span style=display:flex><span>    preOrder(node.left)
+</span></span><span style=display:flex><span>    preOrder(node.right)
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>这里用递归调用，遍历到左右元素</p><h4 id=层序遍历bfs>层序遍历（BFS）</h4><div class=highlight><pre tabindex=0 style=color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#e67e80>function</span> levelOrder(root) {
+</span></span><span style=display:flex><span>  <span style=color:#e67e80>const</span> queue <span style=color:#7a8478>=</span> [];
+</span></span><span style=display:flex><span>  queue.push(root);
+</span></span><span style=display:flex><span>  <span style=color:#e67e80>while</span> (queue.length) {
+</span></span><span style=display:flex><span>    <span style=color:#e67e80>const</span> node <span style=color:#7a8478>=</span> queue.shift();
+</span></span><span style=display:flex><span>    console.log(node.data);
+</span></span><span style=display:flex><span>    <span style=color:#e67e80>if</span> (node.left) queue.push(node.left);
+</span></span><span style=display:flex><span>    <span style=color:#e67e80>if</span> (node.right) queue.push(node.right);
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div></div></article><a class=u-url href=https://blog.verdant.ee/posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%BA%8C%E5%8F%89%E6%A0%91/ style=display:none>Permalink</a><hr><div class=post-meta><div class="post-meta-item post-tag">#
+<a href=https://blog.verdant.ee/tags/%E9%BB%91%E5%8E%86%E5%8F%B2/>黑历史</a>
+,
+<a href=https://blog.verdant.ee/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/>数据结构与算法</a></div></div><p>有想对我说的？向<a href="mailto:im@verdant.ee?subject=回复《%e3%80%90%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84%e4%b8%8e%e7%ae%97%e6%b3%95%e3%80%91%e4%ba%8c%e5%8f%89%e6%a0%91》"> im@verdant.ee </a>发送一封<a href=https://useplaintext.email/>纯文本邮件</a>吧。</p></div></main><footer><div class=copyright>© 2024 - 2026 | Made with ❤️ by <a href=https://verdant.ee>Verdant</a>.<div class=footer-item><a href=/rss><i class="fa fa-rss">🛜</i></a></div><div class=footer-item><button id=toggle-theme-btn>🌞/🌙</button></div></div><script>console.log("Loaded");const modes={Dark:"dark",Light:"light"};function getCurrentMode(){let e=localStorage.getItem("theme");return e===null?null:e}const toggleColorSchemeBtn=document.getElementById("toggle-theme-btn"),body=document.body,currentMode=getCurrentMode();currentMode===modes.Dark&&body.classList.toggle("dark-mode"),toggleColorSchemeBtn.addEventListener("click",()=>{body.classList.toggle("dark-mode"),body.classList.contains("dark-mode")?localStorage.setItem("theme",modes.Dark):localStorage.setItem("theme",modes.Light)})</script></footer></body><gnu>______ ____ _____ _____ _____ _________ _______ _ __ _ _ .' ___ ||_ \|_ _||_
+_||_ _| | _ _ | |_ __ \ / |_ [ | / |_ / |_ / .' \_| | \ | | | | | | |_/ | |
+\_|.---. _ .--. _ .--. _ __ | |__) |_ .--. ,--. `| |-'.---. | |--. .---.`|
+|-'`| |-' | | ____ | |\ \| | | ' ' | | | / /__\\[ `/'`\][ `/'`\][ \ [ ] |
+___/[ `/'`\]`'_\ : | | / /'`\] | .-. |/ /__\\| | | | \ `.___] |_| |_\ |_ \
+\__/ / _| |_ | \__., | | | | \ '/ / _| |_ | | // | |,| |,| \__. | | | ||
+\__.,| |, | |, `._____.'|_____|\____| `.__.' |_____| '.__.'[___] [___] [\_:
+/ |_____| [___] \'-;__/\__/'.___.'[___]|__]'.__.'\__/ \__/ \__.' "A man is
+not dead while his name is still spoken."</gnu></html>

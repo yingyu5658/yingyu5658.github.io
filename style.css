@@ -1,35 +1,63 @@
 :root {
-    --width-max: 720px;
-    --font-secondary: monospace;
-    --font-size-primary: 1.06rem;
-    --font-size-secondary: 1.03rem;
-    --body-bg-color: white;
-    --bold-text-color: black;
-    --body-text-color: #444;
-    --link-color: #0355a6;
-    --link-visited-color: #551a8b;
-    --table-border-color: #f2f2f2;
-    --table-th-bg-color: #f2f2f2;
-    --img-border-color: #f2f2f2;
-    --code-bg-color: #f2f2f2;
-    --code-text-color: #222;
-    --blockquote-border-color: #666;
-    --blockquote-text-color: gray;
-    --upvoted-color: #fa8072;
-    --caption-text-color: #666;
-    --toc-text-color: #e5e5e5;
-    --toc-hover-color: e5e5e5;
-    --music-bg-hover-light: #e5e5e5;
-    --music-bg-light: rgba(229, 229, 229, 0.5);
-    --music-text-secondary: #666;
+    --btn-bg: #f0f0f0;
+    --btn-border: #cccccc;
+    --btn-color: #333333;
+    --btn-bg-hover: #e0e0e0;
+    --btn-border-hover: #aaaaaa;
+
+    --width-max: 730px;
+    --font-secondary: "Georgia", "Noto Serif", "Times New Roman", serif;
+    --font-size-primary: 1.08rem;
+    --font-size-secondary: 1.05rem;
+
+    --font-size-h1: calc(var(--font-size-primary) * 1.953125);  /* ≈2.11rem ≈33.8px */
+    --font-size-h2: calc(var(--font-size-primary) * 1.5625);    /* ≈1.69rem ≈27.0px */
+    --font-size-h3: calc(var(--font-size-primary) * 1.25);      /* ≈1.35rem ≈21.6px */
+    --font-size-h4: calc(var(--font-size-primary) * 1.0);       /* ≈1.08rem ≈17.3px */
+    --font-size-h5: calc(var(--font-size-primary) * 0.875);     /* ≈0.945rem ≈15.1px */
+    --font-size-h6: calc(var(--font-size-primary) * 0.75);   
+
+    --body-bg-color: #fbf8f2;
+    --bold-text-color: #1e1e1e;
+    --body-text-color: #3d3a35;
+
+    --link-color: #03539e;
+    --link-visited-color: #5e4684;
+
+    --table-border-color: #e6dfd1;
+    --table-th-bg-color: #f3efe6;
+    --img-border-color: #e6dfd1;
+    --code-bg-color: #f4efe4;
+    --code-text-color: #362c21;
+    --blockquote-border-color: #c0b6a4;
+    --blockquote-text-color: #5e5a52;
+
+    --upvoted-color: #c47062;
+    --caption-text-color: #7d7870;
+    --summary-text-color: #6b6660;
+    --toc-text-color: #d7cebc;
+    --toc-hover-color: #b7aa8f;
+    --music-bg-hover-light: #ede4d4;
+    --music-bg-light: rgba(237, 228, 212, 0.5);
+    --music-text-secondary: #7d7870;
+
     --music-shadow:
-        0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    --summary-text-color: #706c6c;
+        0 10px 15px -3px rgba(80, 70, 50, 0.08),
+        0 4px 6px -2px rgba(80, 70, 50, 0.04);
+
+    /* ── 标题 & 图标 ── */
+    --title-color: #4d4840;
     --svg-size: 0.85em;
-    --title-color: #55555;
 }
 
-p {
+h1 { font-size: var(--font-size-h1); font-weight: 700; line-height: 1.2; margin: 0.67em 0; }
+h2 { font-size: var(--font-size-h2); font-weight: 600; line-height: 1.25; margin: 0.83em 0; }
+h3 { font-size: var(--font-size-h3); font-weight: 600; line-height: 1.3; margin: 1em 0; }
+h4 { font-size: var(--font-size-h4); font-weight: 600; line-height: 1.4; margin: 1.33em 0; }
+h5 { font-size: var(--font-size-h5); font-weight: 500; line-height: 1.5; margin: 1.67em 0; text-transform: uppercase; }
+h6 { font-size: var(--font-size-h6); font-weight: 500; line-height: 1.5; margin: 2em 0; color: #666; }
+
+p, li {
     font-size: var(--font-size-primary);
     line-height: 2;
 }
@@ -47,20 +75,12 @@ p {
     display: block;
 }
 
-summary p {
+summary, summary p {
     color: var(--summary-text-color);
 }
 
 :is(article, .summary) p:not(.music-card *) {
     margin-top: 1.6rem;
-}
-
-.e-content h2,
-.e-content h3,
-.e-content h4,
-.e-content h5,
-.e-content h6 {
-    /* font-weight: 800; */
 }
 
 gnu {
@@ -133,6 +153,20 @@ div.summary p {
     line-height: 2;
 }
 
+p, details {
+    margin: 0;
+}
+
+/* 再统一设置上下边距 */
+p, details {
+    margin: 1em 0; /* 根据设计需求调整数值 */
+}
+
+div.faq summary {
+    color: var(--body-text-color);
+
+}
+
 a {
     text-decoration: none;
     border-bottom: 1px dotted;
@@ -178,6 +212,26 @@ header {
 a.title h1 {
     margin: 15px 0 15px 0;
     font-size: 2.15em;
+}
+
+div.title {
+    display: inline-block;
+}
+
+.theme-toggler {
+    float: right;
+    margin-top: 1.3rem;
+    padding: 0;
+}
+
+#toggle-theme-btn{
+    margin-right: 1rem;
+    padding: 0;
+    background: var(--btn-bg-color);
+    border: 1px solid var(--btn-border-color);
+    color: var(--btn-color);
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 .title span {
@@ -335,7 +389,7 @@ img[src*="#minipic"] {
     height: 100%;
 }
 
-.rss-icon {
+.footer-item {
     display: inline;
     font-size: 16px;
     float: right;
@@ -618,33 +672,49 @@ ul li:has(input) {
     margin-left: -25.5px;
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --body-text-color: #bbb;
-        --title-color: #aaa;
+button {
+background: var(--btn-bg-color);
+    border: 1px solid var(--btn-border-color);
+    color: var(--btn-color, currentColor);
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
 
-        --body-bg-color: #0f0f0f;
-        --summary-text-color: #a8a8a8;
-        --bold-text-color: #ffffff;
-        --text-color-tertiary: #bbb;
+body.dark-mode {
 
-        --link-color: #5cc2ff;
-        --link-visited-color: #9d7eff;
+    --btn-bg: #3a3a3a;
+    --btn-border: #555555;
+    --btn-color: #eeeeee;
+    --btn-bg-hover: #4a4a4a;
+    --btn-border-hover: #777777;
 
-        --code-bg-color: #1a1a1a;
-        --code-text-color: #d4d4d4;
-        --blockquote-border-color: #555555;
-        --blockquote-text-color: #bbbbbb;
 
-        --table-border-color: #444444;
-        --table-th-bg-color: #1f1f1f;
+    --body-text-color: #bbb; 
 
-        --img-border-color: #444444;
-        --toc-text-color: #aaaaaa;
-        --toc-hover-color: #5cc2ff;
-        --summary-text-color: #878686;
-        --color-background: var(--body-bg-color) !important;
-    }
+    --title-color: #aaa;
+
+    --body-bg-color: #1b1a1d;
+    --summary-text-color: #a8a8a8;
+    --bold-text-color: #ffffff;
+    --text-color-tertiary: #bbb;
+
+    --link-color: #5cc2ff;
+    --link-visited-color: #9d7eff;
+
+    --code-bg-color: #1a1a1a;
+    --code-text-color: #d4d4d4;
+    --blockquote-border-color: #555555;
+    --blockquote-text-color: #bbbbbb;
+
+    --table-border-color: #444444;
+    --table-th-bg-color: #1f1f1f;
+
+    --img-border-color: #444444;
+    --toc-text-color: #aaaaaa;
+    --toc-hover-color: #5cc2ff;
+    --summary-text-color: #878686;
+    --color-background: var(--body-bg-color) !important;
 
     a {
         color: var(--link-color);
