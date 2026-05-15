@@ -5,7 +5,7 @@
     --btn-bg-hover: #e0e0e0;
     --btn-border-hover: #aaaaaa;
 
-    --width-max: 730px;
+    --width-max: 70ch;
     --font-secondary: "Georgia", "Noto Serif", "Times New Roman", serif;
     --font-size-primary: 1.08rem;
     --font-size-secondary: 1.05rem;
@@ -17,9 +17,12 @@
     --font-size-h5: calc(var(--font-size-primary) * 0.875);     /* ≈0.945rem ≈15.1px */
     --font-size-h6: calc(var(--font-size-primary) * 0.75);   
 
-    --body-bg-color: #fbf8f2;
+    /* --body-bg-color: #fbf8f2; */
+    /* --body-bg-color: #fff; */
+    --body-bg-color: #f4f4f0;
     --bold-text-color: #1e1e1e;
-    --body-text-color: #3d3a35;
+    --body-text-color: #2b2b2b;
+
 
     --link-color: #03539e;
     --link-visited-color: #5e4684;
@@ -70,13 +73,13 @@ p, details {
     margin: 1em 0;
 }
 
-.recent-title {
-    border: none;
-    font-weight: bold;
-}
+/* .recent-title { */
+/*     border: none; */
+/*     font-weight: bold; */
+/* } */
 
 .grouped {
-    margin-right: 0.7rem;
+    margin-right: 0.5rem;
 }
 
 .recent-date {
@@ -89,6 +92,9 @@ summary, summary p {
 
 :is(article, .summary) p:not(.music-card *) {
     margin-top: 1.6rem;
+    line-height: 1.8;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.5rem;
 }
 
 gnu {
@@ -141,7 +147,7 @@ p {
 }
 
 body {
-    font-family: Noto Serif CJK SC;
+    font-family: "Baskerville", "Georgia", "Songti SC", "SimSun", serif;
     margin: auto;
     padding: 20px;
     max-width: var(--width-max);
@@ -181,9 +187,16 @@ i {
     font-style: normal;
 }
 
+/* hr { */
+/*     border: 0; */
+/*     border-top: 1px dashed; */
+/* } */
+
+
 hr {
     border: 0;
-    border-top: 1px dashed;
+    border-top: 1px solid var(--table-border-color);
+    margin: 3rem 0 1rem 0;
 }
 
 time {
@@ -287,6 +300,10 @@ h1.post-title {
 .recent-empty {
     text-align: center;
     font-style: italic;
+}
+
+ul,blog-posts li span.grouped a {
+    border: none;
 }
 
 ul.blog-posts {
@@ -689,11 +706,11 @@ body.dark-mode {
     --btn-border-hover: #777777;
 
 
-    --body-text-color: #bbb; 
+    --body-text-color: #c8c8c8; 
 
     --title-color: #aaa;
 
-    --body-bg-color: #1b1a1d;
+    --body-bg-color: #16161a;
     --summary-text-color: #a8a8a8;
     --bold-text-color: #ffffff;
     --text-color-tertiary: #bbb;
