@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Graphviz on 映屿</title><link>http://localhost:1313/tags/graphviz/</link><description>Recent content in Graphviz on 映屿</description><generator>Hugo</generator><language>zh-cn</language><managingEditor>im@verdant.ee (五葉地錦)</managingEditor><webMaster>im@verdant.ee (五葉地錦)</webMaster><lastBuildDate>Wed, 12 Nov 2025 11:13:24 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/graphviz/atom.xml" rel="self" type="application/rss+xml"/><item><title>简单使用Graphviz绘制程序流程图</title><link>http://localhost:1313/posts/%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8graphviz%E7%BB%98%E5%88%B6%E7%A8%8B%E5%BA%8F%E6%B5%81%E7%A8%8B%E5%9B%BE/</link><pubDate>Wed, 12 Nov 2025 11:13:24 +0800</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>http://localhost:1313/posts/%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8graphviz%E7%BB%98%E5%88%B6%E7%A8%8B%E5%BA%8F%E6%B5%81%E7%A8%8B%E5%9B%BE/</guid><description>&lt;h2 id="graphviz"&gt;Graphviz&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Graphviz on 映屿</title><link>https://blog.verdant.ee/tags/graphviz/</link><description>Recent content in Graphviz on 映屿</description><generator>Hugo</generator><language>zh-cn</language><managingEditor>im@verdant.ee (五葉地錦)</managingEditor><webMaster>im@verdant.ee (五葉地錦)</webMaster><lastBuildDate>Wed, 12 Nov 2025 11:13:24 +0800</lastBuildDate><atom:link href="http://blog.verdant.ee/tags/graphviz/atom.xml" rel="self" type="application/rss+xml"/><item><title>简单使用Graphviz绘制程序流程图</title><link>https://blog.verdant.ee/posts/%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8graphviz%E7%BB%98%E5%88%B6%E7%A8%8B%E5%BA%8F%E6%B5%81%E7%A8%8B%E5%9B%BE/</link><pubDate>Wed, 12 Nov 2025 11:13:24 +0800</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>https://blog.verdant.ee/posts/%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8graphviz%E7%BB%98%E5%88%B6%E7%A8%8B%E5%BA%8F%E6%B5%81%E7%A8%8B%E5%9B%BE/</guid><description>&lt;h2 id="graphviz"&gt;Graphviz&lt;/h2&gt;
 &lt;p&gt;Graphviz 是一个开源的图形可视化软件，主要用于绘制有向图和无向图。&lt;/p&gt;
 &lt;p&gt;用途：&lt;/p&gt;
 &lt;ol&gt;
@@ -42,8 +42,9 @@
 &lt;h2 id="使用"&gt;使用&lt;/h2&gt;
 &lt;p&gt;Graphviz 使用 DOT 语言来描述图形。在 DOT 中，图分为&lt;strong&gt;有向图&lt;/strong&gt;和&lt;strong&gt;无向图&lt;/strong&gt;，使用&lt;code&gt;digraph&lt;/code&gt;和&lt;code&gt;graph&lt;/code&gt;关键字。&lt;/p&gt;
 &lt;p&gt;安装：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt install dot
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt install dot
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Digraph 有一个明确的起点和终点。&lt;/p&gt;
 &lt;/li&gt;
@@ -78,24 +79,27 @@
 &lt;p&gt;&lt;code&gt;style&lt;/code&gt; 元素样式&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;digraph G {
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	A -&amp;gt; B;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	B -&amp;gt; C;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	C -&amp;gt; D;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	D -&amp;gt; A;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;渲染为图片：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;dot -Tpng ./test.dot -o ./test.png
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="示例"&gt;示例&lt;/h2&gt;
+&lt;pre&gt;&lt;code class="language-dot"&gt;digraph G {
+	A -&amp;gt; B;
+	B -&amp;gt; C;
+	C -&amp;gt; D;
+	D -&amp;gt; A;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;渲染为图片：&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-bash"&gt;dot -Tpng ./test.dot -o ./test.png
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="示例"&gt;示例&lt;/h2&gt;
 &lt;p&gt;一个容易的用户登录验证逻辑&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;digraph UserLogin {
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	登录 -&amp;gt; 验证用户名和密码;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	验证用户名和密码 -&amp;gt; 放行 [label=&amp;#34;正确&amp;#34;];
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	验证用户名和密码 -&amp;gt; 重试 [label=&amp;#34;错误&amp;#34;];
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	重试 -&amp;gt; 登录
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;figure class="image-caption"&gt;
+&lt;pre&gt;&lt;code class="language-dot"&gt;digraph UserLogin {
+	登录 -&amp;gt; 验证用户名和密码;
+
+	验证用户名和密码 -&amp;gt; 放行 [label=&amp;quot;正确&amp;quot;];
+	验证用户名和密码 -&amp;gt; 重试 [label=&amp;quot;错误&amp;quot;];
+	重试 -&amp;gt; 登录
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;figure class="image-caption"&gt;
  &lt;img src="https://images.glowisle.me/dot-example-login.png" alt=""&gt;
  &lt;figcaption&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;&lt;/p&gt;

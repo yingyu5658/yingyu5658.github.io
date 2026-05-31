@@ -1,116 +1,124 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>往昔 on 映屿</title><link>http://localhost:1313/categories/%E5%BE%80%E6%98%94/</link><description>Recent content in 往昔 on 映屿</description><generator>Hugo</generator><language>zh-cn</language><managingEditor>im@verdant.ee (五葉地錦)</managingEditor><webMaster>im@verdant.ee (五葉地錦)</webMaster><lastBuildDate>Wed, 12 Nov 2025 16:48:02 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/%E5%BE%80%E6%98%94/atom.xml" rel="self" type="application/rss+xml"/><item><title>使用Emacs收发邮件</title><link>http://localhost:1313/posts/email-with-emacs/</link><pubDate>Wed, 12 Nov 2025 16:48:02 +0800</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>http://localhost:1313/posts/email-with-emacs/</guid><description>&lt;p&gt;作为一个合格的操作系统，肯定少不了Email. 我的配置很简单，只要实现基础的收发功能即可，每天的邮件量不大。在这里记录一下配置。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>往昔 on 映屿</title><link>https://blog.verdant.ee/categories/%E5%BE%80%E6%98%94/</link><description>Recent content in 往昔 on 映屿</description><generator>Hugo</generator><language>zh-cn</language><managingEditor>im@verdant.ee (五葉地錦)</managingEditor><webMaster>im@verdant.ee (五葉地錦)</webMaster><lastBuildDate>Wed, 12 Nov 2025 16:48:02 +0800</lastBuildDate><atom:link href="http://blog.verdant.ee/categories/%E5%BE%80%E6%98%94/atom.xml" rel="self" type="application/rss+xml"/><item><title>使用Emacs收发邮件</title><link>https://blog.verdant.ee/posts/email-with-emacs/</link><pubDate>Wed, 12 Nov 2025 16:48:02 +0800</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>https://blog.verdant.ee/posts/email-with-emacs/</guid><description>&lt;p&gt;作为一个合格的操作系统，肯定少不了Email. 我的配置很简单，只要实现基础的收发功能即可，每天的邮件量不大。在这里记录一下配置。&lt;/p&gt;
 &lt;h2 id="收邮件"&gt;收邮件&lt;/h2&gt;
 &lt;p&gt;我尝试过 &lt;strong&gt;&lt;a href="https://www.fetchmail.info"&gt;fetchmail&lt;/a&gt;&lt;/strong&gt;，但不知道这个东西拿到的邮件都在哪，所以最后还是选择了 &lt;strong&gt;mbsync&lt;/strong&gt;.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# ~/.mbsyncrc
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# GlowIsle 账户配置
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;IMAPAccount GlowIsle
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Host imap.qiye.aliyun.com
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Port 993
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;User i@glowisle.me
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Pass ******
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;TLSType IMAPS
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;AuthMechs LOGIN
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;CertificateFile /etc/ssl/certs/ca-certificates.crt
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# 远程存储
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;IMAPStore glowisle-remote
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Account GlowIsle
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# 本地存储
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;MaildirStore glowisle-local
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Path ~/mail/GlowIsle/
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Inbox ~/mail/GlowIsle/Inbox
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Subfolders Verbatim
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# 同步通道
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Channel glowisle
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Far :glowisle-remote:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Near :glowisle-local:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Patterns *
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Create Both
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Sync All
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Expunge Both
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;SyncState *
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="发邮件"&gt;发邮件&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# ~/.msmtprc
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# glowisle
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;account glowisle 
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;host smtp.qiye.aliyun.com
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;from i@glowisle.me
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;auth login
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;port 465
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;user i@glowisle.me
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;password ******* 
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;auth on
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tls on
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tls_starttls off #使用465端口时不能开启
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tls_certcheck off 
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tls_trust_file /etc/ssl/certs/ca-certificates.crt
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;account default : glowisle
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="emacs-配置"&gt;Emacs 配置&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;# ~/.mbsyncrc
+# GlowIsle 账户配置
+IMAPAccount GlowIsle
+Host imap.qiye.aliyun.com
+Port 993
+User i@glowisle.me
+Pass ******
+TLSType IMAPS
+AuthMechs LOGIN
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+# 远程存储
+IMAPStore glowisle-remote
+Account GlowIsle
+
+# 本地存储
+MaildirStore glowisle-local
+Path ~/mail/GlowIsle/
+Inbox ~/mail/GlowIsle/Inbox
+Subfolders Verbatim
+
+# 同步通道
+Channel glowisle
+Far :glowisle-remote:
+Near :glowisle-local:
+Patterns *
+Create Both
+Sync All
+Expunge Both
+SyncState *
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="发邮件"&gt;发邮件&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;# ~/.msmtprc
+# glowisle
+account glowisle 
+host smtp.qiye.aliyun.com
+from i@glowisle.me
+auth login
+port 465
+user i@glowisle.me
+password ******* 
+auth on
+tls on
+tls_starttls off #使用465端口时不能开启
+tls_certcheck off 
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
+
+account default : glowisle
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="emacs-配置"&gt;Emacs 配置&lt;/h2&gt;
 &lt;p&gt;在Doom Emacs的&lt;code&gt;init.el&lt;/code&gt;中开启 mu4e&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:email&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (mu4e +org)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#859289;font-style:italic"&gt;;; config.el&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(after! mu4e
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;;; 基本设置&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (&lt;span style="color:#e67e80"&gt;setq&lt;/span&gt; mu4e-maildir &lt;span style="color:#b2c98f"&gt;&amp;#34;~/mail&amp;#34;&lt;/span&gt; &lt;span style="color:#859289;font-style:italic"&gt;; 邮件目录&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; mu4e-get-mail-command &lt;span style="color:#b2c98f"&gt;&amp;#34;mbsync -a&amp;#34;&lt;/span&gt; &lt;span style="color:#859289;font-style:italic"&gt;; 接收邮件命令&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; mu4e-update-interval &lt;span style="color:#d699b6"&gt;300&lt;/span&gt; &lt;span style="color:#859289;font-style:italic"&gt;; 自动更新间隔（秒）&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; mu4e-view-show-images &lt;span style="color:#d699b6"&gt;t&lt;/span&gt; &lt;span style="color:#859289;font-style:italic"&gt;; 显示图片&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; mu4e-compose-signature &lt;span style="color:#b2c98f"&gt;&amp;#34;Best regards.\nVerdant&amp;#34;&lt;/span&gt;) &lt;span style="color:#859289;font-style:italic"&gt;; 邮件签名&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;;; 使用 msmtp 发送邮件&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (&lt;span style="color:#e67e80"&gt;setq&lt;/span&gt; message-send-mail-function &lt;span style="color:#e69875"&gt;&amp;#39;message-send-mail-with-sendmail&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; sendmail-program &lt;span style="color:#b2c98f"&gt;&amp;#34;/usr/bin/msmtp&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; sendmail-arguments &lt;span style="color:#7a8478"&gt;&amp;#39;&lt;/span&gt;(&lt;span style="color:#b2c98f"&gt;&amp;#34;--read-envelope-from&amp;#34;&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;--read-recipients&amp;#34;&lt;/span&gt;))
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (&lt;span style="color:#e67e80"&gt;setq&lt;/span&gt; mu4e-contexts
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (list
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (make-mu4e-context
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:name&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;GlowIsle&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:match-func&lt;/span&gt; (&lt;span style="color:#d699b6"&gt;lambda&lt;/span&gt; (msg)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (&lt;span style="color:#d699b6"&gt;when&lt;/span&gt; msg
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (string-match-p &lt;span style="color:#b2c98f"&gt;&amp;#34;^/GlowIsle&amp;#34;&lt;/span&gt; (mu4e-message-field msg &lt;span style="color:#e69875"&gt;:maildir&lt;/span&gt;))))
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:vars&lt;/span&gt; &lt;span style="color:#7a8478"&gt;&amp;#39;&lt;/span&gt;((user-mail-address &lt;span style="color:#7a8478"&gt;.&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;i@glowisle.me&amp;#34;&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (user-full-name &lt;span style="color:#7a8478"&gt;.&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;Verdant&amp;#34;&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (smtpmail-smtp-server &lt;span style="color:#7a8478"&gt;.&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;smtp.qiye.aliyun.com&amp;#34;&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (smtpmail-smtp-service &lt;span style="color:#7a8478"&gt;.&lt;/span&gt; &lt;span style="color:#d699b6"&gt;465&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (smtpmail-stream-type &lt;span style="color:#7a8478"&gt;.&lt;/span&gt; starttls)))))
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; )
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="基本使用"&gt;基本使用&lt;/h2&gt;
+&lt;pre&gt;&lt;code class="language-lisp"&gt; :email
+ (mu4e +org)
+ 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class="language-lisp"&gt;;; config.el
+(after! mu4e
+ ;; 基本设置
+ (setq mu4e-maildir &amp;quot;~/mail&amp;quot; ; 邮件目录
+ mu4e-get-mail-command &amp;quot;mbsync -a&amp;quot; ; 接收邮件命令
+ mu4e-update-interval 300 ; 自动更新间隔（秒）
+ mu4e-view-show-images t ; 显示图片
+ mu4e-compose-signature &amp;quot;Best regards.\nVerdant&amp;quot;) ; 邮件签名
+
+ ;; 使用 msmtp 发送邮件
+ (setq message-send-mail-function 'message-send-mail-with-sendmail
+ sendmail-program &amp;quot;/usr/bin/msmtp&amp;quot;
+ sendmail-arguments '(&amp;quot;--read-envelope-from&amp;quot; &amp;quot;--read-recipients&amp;quot;))
+
+
+ (setq mu4e-contexts
+ (list
+ (make-mu4e-context
+ :name &amp;quot;GlowIsle&amp;quot;
+ :match-func (lambda (msg)
+ (when msg
+ (string-match-p &amp;quot;^/GlowIsle&amp;quot; (mu4e-message-field msg :maildir))))
+ :vars '((user-mail-address . &amp;quot;i@glowisle.me&amp;quot;)
+ (user-full-name . &amp;quot;Verdant&amp;quot;)
+ (smtpmail-smtp-server . &amp;quot;smtp.qiye.aliyun.com&amp;quot;)
+ (smtpmail-smtp-service . 465)
+ (smtpmail-stream-type . starttls)))))
+
+ )
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="基本使用"&gt;基本使用&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;SPC o m&lt;/code&gt; 进入 mu4e 主页面&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Basics
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; * [J]ump to some maildir
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; * enter a [s]earch query
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; * [C]ompose a new message
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Bookmarks
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; * [bu] Unread messages (0/0)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; * [bt] Today&amp;#39;s messages (0/14)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; * [bw] Last 7 days
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; * [bp] Messages with images (0/0)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; * [bf] Flagged messages (0/1)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Misc
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; * [;]Switch focus
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; * [u]pdate email &amp;amp; database
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; * [N]ews
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; * [A]bout mu4e
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; * [H]elp
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; * [q]uit
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;p&gt;微软的Outlook邮箱使用OAuth2.0认证，我暂时没找到成功的解决方案能在Emacs上使用，如果有哪位路过的好哥们知道方法请留言或&lt;a href="mailto:i@glowisle.me"&gt;发个邮件&lt;/a&gt;探讨一下！&lt;/p&gt;</description></item><item><title>立场与观点</title><link>http://localhost:1313/posts/stand-and-thought/</link><pubDate>Fri, 19 Sep 2025 20:49:24 +0800</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>http://localhost:1313/posts/stand-and-thought/</guid><description>&lt;p&gt;&lt;figure class="image-caption"&gt;
+&lt;pre&gt;&lt;code&gt;Basics
+
+ * [J]ump to some maildir
+ * enter a [s]earch query
+ * [C]ompose a new message
+
+Bookmarks
+
+ * [bu] Unread messages (0/0)
+ * [bt] Today's messages (0/14)
+ * [bw] Last 7 days
+ * [bp] Messages with images (0/0)
+ * [bf] Flagged messages (0/1)
+
+Misc
+
+ * [;]Switch focus
+ * [u]pdate email &amp;amp; database
+
+ * [N]ews
+ * [A]bout mu4e
+ * [H]elp
+ * [q]uit
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;p&gt;微软的Outlook邮箱使用OAuth2.0认证，我暂时没找到成功的解决方案能在Emacs上使用，如果有哪位路过的好哥们知道方法请留言或&lt;a href="mailto:i@glowisle.me"&gt;发个邮件&lt;/a&gt;探讨一下！&lt;/p&gt;</description></item><item><title>立场与观点</title><link>https://blog.verdant.ee/posts/stand-and-thought/</link><pubDate>Fri, 19 Sep 2025 20:49:24 +0800</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>https://blog.verdant.ee/posts/stand-and-thought/</guid><description>&lt;p&gt;&lt;figure class="image-caption"&gt;
  &lt;img src="https://images.glowisle.me/stand-and-thought-cover.webp" alt=""&gt;
  &lt;figcaption&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -134,7 +142,7 @@
 &lt;p&gt;指教师子女。&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;</description></item><item><title>夏日残影</title><link>http://localhost:1313/posts/%E5%A4%8F%E6%97%A5%E6%AE%8B%E5%BD%B1/</link><pubDate>Thu, 14 Aug 2025 11:04:30 +0800</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>http://localhost:1313/posts/%E5%A4%8F%E6%97%A5%E6%AE%8B%E5%BD%B1/</guid><description>&lt;h2 id="一"&gt;一&lt;/h2&gt;
+&lt;/div&gt;</description></item><item><title>夏日残影</title><link>https://blog.verdant.ee/posts/%E5%A4%8F%E6%97%A5%E6%AE%8B%E5%BD%B1/</link><pubDate>Thu, 14 Aug 2025 11:04:30 +0800</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>https://blog.verdant.ee/posts/%E5%A4%8F%E6%97%A5%E6%AE%8B%E5%BD%B1/</guid><description>&lt;h2 id="一"&gt;一&lt;/h2&gt;
 &lt;p&gt;“请各位勇士们扣好胸前的安全带。”&lt;/p&gt;
 &lt;p&gt;一个甜美的机械女声响起。那是跳楼机开始运行前例行朗读的温馨提示。&lt;/p&gt;
 &lt;p&gt;我从来都对这种游乐园没兴趣，但还是被硬拉来了。我当然不会花钱，冒着危险体验所谓的刺激感。&lt;/p&gt;
@@ -157,7 +165,7 @@
 &lt;p&gt;快到家时，后脖上突然传来一阵瘙痒。一抓，竟是一股树叶般的触感——软绵绵无力，又毛茸茸的触感，似乎要被团成一个球了。拿到眼前一看，是一只半死的蛾子，它右边的翅膀折断了，是乱飞，撞到我脖子上的吧。随手一丢，掉在挡把下了，被父亲来回挂挡折磨得奄奄一息。&lt;/p&gt;
 &lt;p&gt;下了车，拿好东西准备上楼。我落脚太快，被咯了一下，正顾及脚趾传来的阵阵剧痛时，发现脚边有一个黑色的小身影。那是一只鸟。&lt;/p&gt;
 &lt;p&gt;它立在楼梯的栏杆下边，还睁着眼。见人不跑，我断定它是死了，母亲呵斥我不许动“人家”，我当然没有那么缺德，只是看看。等父亲走上来了，我跟他说了这件事，他用脚碰了一下那只鸟，翅膀挣扎着扇动了一下，但没有飞走。&lt;/p&gt;
-&lt;p&gt;楼道里昏暗的灯光一个劲儿地倾洒在这只鸟的身体，一片潦草的羽毛插在背上清晰可见。在那惨白灯光映衬下的无神的双眼更显呆滞和诡异，我又想起车上的那只蛾子。&lt;/p&gt;</description></item><item><title>别闲着没事自搜，黑历史啊</title><link>http://localhost:1313/posts/%E5%88%AB%E9%97%B2%E7%9D%80%E6%B2%A1%E4%BA%8B%E8%87%AA%E6%90%9C%E9%BB%91%E5%8E%86%E5%8F%B2%E5%95%8A/</link><pubDate>Wed, 06 Aug 2025 10:07:38 +0800</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>http://localhost:1313/posts/%E5%88%AB%E9%97%B2%E7%9D%80%E6%B2%A1%E4%BA%8B%E8%87%AA%E6%90%9C%E9%BB%91%E5%8E%86%E5%8F%B2%E5%95%8A/</guid><description>&lt;h3 id="在bing自搜"&gt;在Bing自搜&lt;/h3&gt;
+&lt;p&gt;楼道里昏暗的灯光一个劲儿地倾洒在这只鸟的身体，一片潦草的羽毛插在背上清晰可见。在那惨白灯光映衬下的无神的双眼更显呆滞和诡异，我又想起车上的那只蛾子。&lt;/p&gt;</description></item><item><title>别闲着没事自搜，黑历史啊</title><link>https://blog.verdant.ee/posts/%E5%88%AB%E9%97%B2%E7%9D%80%E6%B2%A1%E4%BA%8B%E8%87%AA%E6%90%9C%E9%BB%91%E5%8E%86%E5%8F%B2%E5%95%8A/</link><pubDate>Wed, 06 Aug 2025 10:07:38 +0800</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>https://blog.verdant.ee/posts/%E5%88%AB%E9%97%B2%E7%9D%80%E6%B2%A1%E4%BA%8B%E8%87%AA%E6%90%9C%E9%BB%91%E5%8E%86%E5%8F%B2%E5%95%8A/</guid><description>&lt;h3 id="在bing自搜"&gt;在Bing自搜&lt;/h3&gt;
 &lt;p&gt;今天实在是太闲了，在bing搜了一下我自己的id，结果看到了早期刚建站时的各种黑历史。搜索引擎的缓存还没有消失，已经快一年了。甚至连最早用的第一个域名都挂在上面，但是那个域名现在已经易主了，现在是一个卖赌博机器的网站。估计站长看到有一个很蠢的中文页面还被搜索引擎收录也是很困惑。&lt;/p&gt;
 &lt;p&gt;这么说来，我这一年的成长倒是挺多，证据就是看到这些东西就像看到自己四五年前发的朋友圈和QQ空间一样羞耻。可是前者能删，但搜索引擎也不是我家开的，只能保证不要经常更换域名和永久链接格式，等着搜索引擎自己移除了，以前分享自己Vim的配置，甚至传网盘，现在都想穿越回去给自己一巴掌。&lt;/p&gt;
 &lt;h3 id="在bilibili自搜"&gt;在BiliBili自搜&lt;/h3&gt;
@@ -195,7 +203,7 @@
 &lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;Github页面比较靠前，前一阵子在Bing上几乎搜不到&lt;code&gt;yingyu5658.me&lt;/code&gt;这个域名，结果都是Github Pages。&lt;/p&gt;
 &lt;p&gt;看似自搜，实际上是检测各大搜索引擎对自己网站的收录情况，现在国人用的最多的搜索引擎应该是Bing吧，对个人站算是比较友好了，甚至一年前的链接都不下，可能和我之前弃用服务器、更换域名的处理手法有关，但那时候真是什么都不懂，虽然现在也是。&lt;/p&gt;
-&lt;p&gt;还有一些不知名的小网站收录了我以前写的技术文章，不过也都是老链接，hexo的链接。&lt;/p&gt;</description></item><item><title>无蝉鸣夏</title><link>http://localhost:1313/posts/%E6%97%A0%E8%9D%89%E9%B8%A3%E5%A4%8F/</link><pubDate>Tue, 22 Jul 2025 20:56:08 +0800</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>http://localhost:1313/posts/%E6%97%A0%E8%9D%89%E9%B8%A3%E5%A4%8F/</guid><description>&lt;p&gt;学校里的海棠花谢了两次了，老师每次都会带着我们出去拍照。花确实很美，但我每次都恐于留下不堪的回忆，拍照时都远远躲去了。一天又一天地盼着的暑假到来了。十几天像流水奔去。&lt;/p&gt;
+&lt;p&gt;还有一些不知名的小网站收录了我以前写的技术文章，不过也都是老链接，hexo的链接。&lt;/p&gt;</description></item><item><title>无蝉鸣夏</title><link>https://blog.verdant.ee/posts/%E6%97%A0%E8%9D%89%E9%B8%A3%E5%A4%8F/</link><pubDate>Tue, 22 Jul 2025 20:56:08 +0800</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>https://blog.verdant.ee/posts/%E6%97%A0%E8%9D%89%E9%B8%A3%E5%A4%8F/</guid><description>&lt;p&gt;学校里的海棠花谢了两次了，老师每次都会带着我们出去拍照。花确实很美，但我每次都恐于留下不堪的回忆，拍照时都远远躲去了。一天又一天地盼着的暑假到来了。十几天像流水奔去。&lt;/p&gt;
 &lt;p&gt;总能见到一种人，每天因逝者如斯夫而悲鸣，在网上。慨叹时间太快，自己太空虚。每天抱着手机刷几个小时视频，看到比自己强的人，继续焦虑地刷视频。到了晚上，按照惯例把自己思维反刍的结果公布在群聊里。神奇的是，这种负能量满满的人，反而更有广阔的社交圈子。我的意思是，有很多喜欢安慰这种人的人。能量实在是高，保持自己的情绪不被影响（待研究）的同时，能去安慰别人。&lt;/p&gt;
 &lt;p&gt;我个人当然是对这种负能量者敬而远之的，但实在是好奇那些安慰者是如何保持冷静和感性和那种人沟通。&lt;/p&gt;
 &lt;p&gt;而有的人又不领这份人情，把别人投来的好心曲解成说教，真为那些安慰者愤怒。当然，他们不会愤怒，因为他们永远能保持冷静和感性。&lt;/p&gt;
@@ -205,7 +213,7 @@
 &lt;p&gt;一次上课回来，在植被繁茂的小区，树上的蝉好像约定好了在某一时刻突然一起鸣叫，震耳欲聋。我好奇它们在哪，朝树上张望，什么也看不见，只闻蝉鸣震耳欲聋。&lt;/p&gt;
 &lt;p&gt;暑假确实寂静，不闻蝉鸣，也没有狗叫纷扰，关闭朋友圈和QQ空间确实是一个正确的选择，少了焦虑，多了清净，薄如蝉翼的交情在屏蔽对方的那一刻彻底被撕碎了。&lt;/p&gt;
 &lt;p&gt;开学又要回到聒噪的、持续高压的环境，多希望能一直保持这样的状态，不用接触各种类人生物，安静自在地呼吸，初三的放学时间延后到八点半，但愿能活下来。我会怀念一个人坐在房间里，借着阴雨天窗边映下来的蓝冷色调的光读书，听雨打在玻璃上的哒哒声的日子，和带着耳机，听着自己喜欢的歌，坐在公交车最后排，在去图书馆的路上欣赏风景的日子。&lt;/p&gt;
-&lt;p&gt;这种生活和早上六七点背着沉重的书包，拖着疲惫的身体匆匆出门，在拥挤嘈杂的人群中感受冲天的死气和体臭一对比，顿觉窒息。&lt;/p&gt;</description></item><item><title>基于身边扩列者行为观察的结论</title><link>http://localhost:1313/posts/kuo-lie/</link><pubDate>Sat, 12 Jul 2025 16:13:14 +0800</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>http://localhost:1313/posts/kuo-lie/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;这种生活和早上六七点背着沉重的书包，拖着疲惫的身体匆匆出门，在拥挤嘈杂的人群中感受冲天的死气和体臭一对比，顿觉窒息。&lt;/p&gt;</description></item><item><title>基于身边扩列者行为观察的结论</title><link>https://blog.verdant.ee/posts/kuo-lie/</link><pubDate>Sat, 12 Jul 2025 16:13:14 +0800</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>https://blog.verdant.ee/posts/kuo-lie/</guid><description>&lt;blockquote&gt;
 &lt;p&gt;本文描绘的群体画像仅代表个人在社交媒体上所见，尤其是&lt;strong&gt;音游圈&lt;/strong&gt;的行为，不代表所有人。观点包含个人主观推测，谨慎甄别。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;我把朋友圈和QQ空间关闭的原因之一就是有很多扩列的。一直很不解，扩列的意义到底是什么？&lt;/p&gt;
@@ -229,48 +237,53 @@
 &lt;p&gt;扩列行为中普遍存在的一个现象是加了好友，几乎没有任何互动，我称之为“僵尸好友”。这是&lt;a href="https://baike.baidu.com/item/150%E5%AE%9A%E5%BE%8B/2112262"&gt;邓巴数字&lt;/a&gt;的一个很好的验证。&lt;/p&gt;
 &lt;p&gt;小圈子中个体的小圈子浓缩再浓缩，最后形成所谓的小团体，高强度互动，筛选把控和精准匹配此时已经达到最终目的。&lt;/p&gt;
 &lt;p&gt;这也就是我得出的第三个结论：&lt;strong&gt;获得归属感&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;包括MBTI、属性图等主观上容易被判断为贴标签的行为，也是在寻找归属感。&lt;/p&gt;</description></item><item><title>C语言下的二进制文件IO踩坑</title><link>http://localhost:1313/posts/c%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6io/</link><pubDate>Sat, 12 Jul 2025 00:26:59 +0800</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>http://localhost:1313/posts/c%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6io/</guid><description>&lt;p&gt;C语言下的二进制文件读写有个坑，就是一定要按存储的顺序读取。例：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e67e80"&gt;typedef&lt;/span&gt; &lt;span style="color:#e67e80"&gt;struct&lt;/span&gt; player {
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; id;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#dbbc7f"&gt;double&lt;/span&gt; XP;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#dbbc7f"&gt;double&lt;/span&gt; MP;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}player;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这里有一个玩家的数据结构，我们创建变量并初始化。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; b_i[&lt;span style="color:#d699b6"&gt;32&lt;/span&gt;] &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; {&lt;span style="color:#d699b6"&gt;1&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;233&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2453&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;5432&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;21&lt;/span&gt; ,&lt;span style="color:#d699b6"&gt;43&lt;/span&gt; ,&lt;span style="color:#d699b6"&gt;297&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;752&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;643&lt;/span&gt;};
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;player yingyu5658;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;yingyu5658.MP &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; &lt;span style="color:#d699b6"&gt;100&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;yingyu5658.XP &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; &lt;span style="color:#d699b6"&gt;100&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;yingyu5658.id &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; &lt;span style="color:#d699b6"&gt;114514&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;对文件进行存储时，按照MP=&amp;gt;XP=&amp;gt;ID的顺序存储&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pd &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;fopen&lt;/span&gt;(&lt;span style="color:#b2c98f"&gt;&amp;#34;./data&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;wb&amp;#34;&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#b2c98f"&gt;fwrite&lt;/span&gt;(&lt;span style="color:#7a8478"&gt;&amp;amp;&lt;/span&gt;yingyu5658.MP, &lt;span style="color:#e67e80"&gt;sizeof&lt;/span&gt;(&lt;span style="color:#dbbc7f"&gt;double&lt;/span&gt;), &lt;span style="color:#d699b6"&gt;1&lt;/span&gt;, pd);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#b2c98f"&gt;fwrite&lt;/span&gt;(&lt;span style="color:#7a8478"&gt;&amp;amp;&lt;/span&gt;yingyu5658.XP, &lt;span style="color:#e67e80"&gt;sizeof&lt;/span&gt;(&lt;span style="color:#dbbc7f"&gt;double&lt;/span&gt;), &lt;span style="color:#d699b6"&gt;1&lt;/span&gt;, pd);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#b2c98f"&gt;fwrite&lt;/span&gt;(&lt;span style="color:#7a8478"&gt;&amp;amp;&lt;/span&gt;yingyu5658.id, &lt;span style="color:#e67e80"&gt;sizeof&lt;/span&gt;(&lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt;), &lt;span style="color:#d699b6"&gt;1&lt;/span&gt;, pd);
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;读取的时候一定要按照这个顺序，否则读取出来的内容是无效的。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; id;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#dbbc7f"&gt;double&lt;/span&gt; XP, MP;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pd &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;fopen&lt;/span&gt;(&lt;span style="color:#b2c98f"&gt;&amp;#34;./data&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;rb&amp;#34;&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#b2c98f"&gt;fread&lt;/span&gt;(&lt;span style="color:#7a8478"&gt;&amp;amp;&lt;/span&gt;MP, &lt;span style="color:#e67e80"&gt;sizeof&lt;/span&gt;(&lt;span style="color:#dbbc7f"&gt;double&lt;/span&gt;), &lt;span style="color:#d699b6"&gt;1&lt;/span&gt;, pd);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#b2c98f"&gt;fread&lt;/span&gt;(&lt;span style="color:#7a8478"&gt;&amp;amp;&lt;/span&gt;XP, &lt;span style="color:#e67e80"&gt;sizeof&lt;/span&gt;(&lt;span style="color:#dbbc7f"&gt;double&lt;/span&gt;), &lt;span style="color:#d699b6"&gt;1&lt;/span&gt;, pd);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#b2c98f"&gt;fread&lt;/span&gt;(&lt;span style="color:#7a8478"&gt;&amp;amp;&lt;/span&gt;id, &lt;span style="color:#e67e80"&gt;sizeof&lt;/span&gt;(&lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt;), &lt;span style="color:#d699b6"&gt;1&lt;/span&gt;, pd);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;player new_player;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;new_player.id &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; id;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;new_player.XP &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; XP;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;new_player.MP &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; MP;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#b2c98f"&gt;printf&lt;/span&gt;(&lt;span style="color:#b2c98f"&gt;&amp;#34;id: %d&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\n&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;&lt;/span&gt;, new_player.id);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#b2c98f"&gt;printf&lt;/span&gt;(&lt;span style="color:#b2c98f"&gt;&amp;#34;XP: %f&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\n&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;&lt;/span&gt;, new_player.XP);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#b2c98f"&gt;printf&lt;/span&gt;(&lt;span style="color:#b2c98f"&gt;&amp;#34;MP: %f&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\n&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;&lt;/span&gt;, new_player.MP);
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;运行结果：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;写入了id: 114514
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;写入了XP: 100.000000
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;写入了MP: 100.000000
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;id: 114514
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;XP: 100.000000
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;MP: 100.000000
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;使用完也要关闭流，否则资源泄漏&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#b2c98f"&gt;fclose&lt;/span&gt;(pd); &lt;span style="color:#859289;font-style:italic"&gt;// 必须显式关闭
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>C语言实现简易Shell</title><link>http://localhost:1313/posts/c%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E7%AE%80%E6%98%93shell/</link><pubDate>Thu, 10 Jul 2025 00:09:36 +0800</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>http://localhost:1313/posts/c%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E7%AE%80%E6%98%93shell/</guid><description>&lt;p&gt;实现一个Shell，需要的功能有：&lt;/p&gt;
+&lt;p&gt;包括MBTI、属性图等主观上容易被判断为贴标签的行为，也是在寻找归属感。&lt;/p&gt;</description></item><item><title>C语言下的二进制文件IO踩坑</title><link>https://blog.verdant.ee/posts/c%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6io/</link><pubDate>Sat, 12 Jul 2025 00:26:59 +0800</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>https://blog.verdant.ee/posts/c%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6io/</guid><description>&lt;p&gt;C语言下的二进制文件读写有个坑，就是一定要按存储的顺序读取。例：&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-c"&gt;typedef struct player {
+	int id;
+	double XP;
+	double MP;
+}player;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这里有一个玩家的数据结构，我们创建变量并初始化。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-c"&gt;int b_i[32] = {1, 233, 2453, 5432, 21 ,43 ,297, 752, 643};
+player yingyu5658;
+yingyu5658.MP = 100;
+yingyu5658.XP = 100;
+yingyu5658.id = 114514;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;对文件进行存储时，按照MP=&amp;gt;XP=&amp;gt;ID的顺序存储&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-c"&gt;pd = fopen(&amp;quot;./data&amp;quot;, &amp;quot;wb&amp;quot;);
+fwrite(&amp;amp;yingyu5658.MP, sizeof(double), 1, pd);
+fwrite(&amp;amp;yingyu5658.XP, sizeof(double), 1, pd);
+fwrite(&amp;amp;yingyu5658.id, sizeof(int), 1, pd);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;读取的时候一定要按照这个顺序，否则读取出来的内容是无效的。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-c"&gt;int id;
+double XP, MP;
+pd = fopen(&amp;quot;./data&amp;quot;, &amp;quot;rb&amp;quot;);
+fread(&amp;amp;MP, sizeof(double), 1, pd);
+fread(&amp;amp;XP, sizeof(double), 1, pd);
+fread(&amp;amp;id, sizeof(int), 1, pd);
+player new_player;
+new_player.id = id;
+new_player.XP = XP;
+new_player.MP = MP;
+printf(&amp;quot;id: %d\n&amp;quot;, new_player.id);
+printf(&amp;quot;XP: %f\n&amp;quot;, new_player.XP);
+printf(&amp;quot;MP: %f\n&amp;quot;, new_player.MP);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;运行结果：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;写入了id: 114514
+写入了XP: 100.000000
+写入了MP: 100.000000
+
+id: 114514
+XP: 100.000000
+MP: 100.000000
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;使用完也要关闭流，否则资源泄漏&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-c"&gt;fclose(pd); // 必须显式关闭
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>C语言实现简易Shell</title><link>https://blog.verdant.ee/posts/c%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E7%AE%80%E6%98%93shell/</link><pubDate>Thu, 10 Jul 2025 00:09:36 +0800</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>https://blog.verdant.ee/posts/c%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E7%AE%80%E6%98%93shell/</guid><description>&lt;p&gt;实现一个Shell，需要的功能有：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;循环读取用户输入&lt;/li&gt;
 &lt;li&gt;输出提示符&lt;/li&gt;
@@ -280,217 +293,226 @@
 &lt;p&gt;shell中的大多数命令都是通过创建子进程来执行的，可以使用&lt;code&gt;fork()&lt;/code&gt;创建子进程，然后替换主进程执行命令。
 创建
 常用函数原型&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#dbbc7f"&gt;pid_t&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;fork&lt;/span&gt;(&lt;span style="color:#dbbc7f"&gt;void&lt;/span&gt;); &lt;span style="color:#859289;font-style:italic"&gt;// pid_t是int类型
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#dbbc7f"&gt;pid_t&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;get_pid&lt;/span&gt;(); &lt;span style="color:#859289;font-style:italic"&gt;// 获取当前进程pid
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pid_ &lt;span style="color:#b2c98f"&gt;getppid&lt;/span&gt;(); &lt;span style="color:#859289;font-style:italic"&gt;// 获取当前进程的父进程值
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;fork()&lt;/code&gt;用于创建创建一个进程，所阐明的进程复制父进程的代码段/数据段/BSS段/等所有用户空间信息，在内和中操作系统重新为其申请了一个PCB，并使用父进程的PCB初始化。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-c"&gt;pid_t fork(void); // pid_t是int类型
+pid_t get_pid(); // 获取当前进程pid
+pid_ getppid(); // 获取当前进程的父进程值
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;fork()&lt;/code&gt;用于创建创建一个进程，所阐明的进程复制父进程的代码段/数据段/BSS段/等所有用户空间信息，在内和中操作系统重新为其申请了一个PCB，并使用父进程的PCB初始化。&lt;/p&gt;
 &lt;p&gt;实现fork()子进程替换为命令子进程, 最佳的进程替换的接口是&lt;code&gt;exevp()&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;在创建子进程前，我们需要解析传递给shell的参数&lt;/p&gt;
 &lt;p&gt;使用&lt;code&gt;strtok()&lt;/code&gt;对command以空格进行分割，所以显而易见地，得到的结果数组中，第0位是命令名称，后面全部都是选项。&lt;/p&gt;
 &lt;p&gt;使用&lt;code&gt;waitpid()&lt;/code&gt;等待子进程，&lt;code&gt;fork()&lt;/code&gt;获取的子进程id可以用于制定回收子进程。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e67e80"&gt;#include&lt;/span&gt; &lt;span style="color:#e67e80;font-style:italic"&gt;&amp;lt;pwd.h&amp;gt;&lt;/span&gt;&lt;span style="color:#e67e80"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e67e80"&gt;#include&lt;/span&gt; &lt;span style="color:#e67e80;font-style:italic"&gt;&amp;lt;sys/wait.h&amp;gt;&lt;/span&gt;&lt;span style="color:#e67e80"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e67e80"&gt;#include&lt;/span&gt; &lt;span style="color:#e67e80;font-style:italic"&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;span style="color:#e67e80"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e67e80"&gt;#include&lt;/span&gt; &lt;span style="color:#e67e80;font-style:italic"&gt;&amp;lt;string.h&amp;gt;&lt;/span&gt;&lt;span style="color:#e67e80"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e67e80"&gt;#include&lt;/span&gt; &lt;span style="color:#e67e80;font-style:italic"&gt;&amp;lt;sys/types.h&amp;gt;&lt;/span&gt;&lt;span style="color:#e67e80"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e67e80"&gt;#include&lt;/span&gt; &lt;span style="color:#e67e80;font-style:italic"&gt;&amp;lt;unistd.h&amp;gt;&lt;/span&gt;&lt;span style="color:#e67e80"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e67e80"&gt;#define MAX_COMMAND_SIZE 256
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;main&lt;/span&gt;()
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#dbbc7f"&gt;char&lt;/span&gt; &lt;span style="color:#7a8478"&gt;*&lt;/span&gt;command_argv[MAX_COMMAND_SIZE];
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#dbbc7f"&gt;char&lt;/span&gt; command[MAX_COMMAND_SIZE];
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#b2c98f"&gt;memset&lt;/span&gt;(command, &lt;span style="color:#b2c98f"&gt;&amp;#39;\n&amp;#39;&lt;/span&gt;, MAX_COMMAND_SIZE);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#e67e80"&gt;const&lt;/span&gt; &lt;span style="color:#dbbc7f"&gt;char&lt;/span&gt;&lt;span style="color:#7a8478"&gt;*&lt;/span&gt; user_name &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;getlogin&lt;/span&gt;();
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#e67e80"&gt;while&lt;/span&gt;(&lt;span style="color:#d699b6"&gt;1&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	{
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;		&lt;span style="color:#b2c98f"&gt;printf&lt;/span&gt;(&lt;span style="color:#b2c98f"&gt;&amp;#34;[%s@EazyShell]$ &amp;#34;&lt;/span&gt;, user_name);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;		&lt;span style="color:#b2c98f"&gt;fgets&lt;/span&gt;(command, MAX_COMMAND_SIZE, stdin);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;		 command[&lt;span style="color:#b2c98f"&gt;strcspn&lt;/span&gt;(command, &lt;span style="color:#b2c98f"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\n&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;&lt;/span&gt;)] &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#39;\0&amp;#39;&lt;/span&gt;; &lt;span style="color:#859289;font-style:italic"&gt;// 去掉末尾的换行符
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;		&lt;span style="color:#859289;font-style:italic"&gt;// 分割命令行，一个空格为一项子命令或参数
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;		command_argv[&lt;span style="color:#d699b6"&gt;0&lt;/span&gt;] &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;strtok&lt;/span&gt;(command,&lt;span style="color:#b2c98f"&gt;&amp;#34; &amp;#34;&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;		&lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; index &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; &lt;span style="color:#d699b6"&gt;1&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;		&lt;span style="color:#e67e80"&gt;while&lt;/span&gt;(command_argv[index&lt;span style="color:#7a8478"&gt;++&lt;/span&gt;] &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;strtok&lt;/span&gt;(&lt;span style="color:#d699b6"&gt;NULL&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34; &amp;#34;&lt;/span&gt;));
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;		&lt;span style="color:#859289;font-style:italic"&gt;// 创建子进程，并进程替换
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;		&lt;span style="color:#dbbc7f"&gt;pid_t&lt;/span&gt; id &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;fork&lt;/span&gt;();
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;		&lt;span style="color:#e67e80"&gt;if&lt;/span&gt;(id &lt;span style="color:#7a8478"&gt;==&lt;/span&gt; &lt;span style="color:#d699b6"&gt;0&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;		{
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;			&lt;span style="color:#859289;font-style:italic"&gt;// 进程替换
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;			&lt;span style="color:#b2c98f"&gt;execvp&lt;/span&gt;(command_argv[&lt;span style="color:#d699b6"&gt;0&lt;/span&gt;], command_argv);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;			&lt;span style="color:#e67e80"&gt;return&lt;/span&gt; &lt;span style="color:#7a8478"&gt;-&lt;/span&gt;&lt;span style="color:#d699b6"&gt;1&lt;/span&gt;; &lt;span style="color:#859289;font-style:italic"&gt;// 失败则退出-1
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;		}
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;		&lt;span style="color:#859289;font-style:italic"&gt;// 父进程回收子进程
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;		&lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; status &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; &lt;span style="color:#d699b6"&gt;0&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;		&lt;span style="color:#dbbc7f"&gt;pid_t&lt;/span&gt; ret &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;waitpid&lt;/span&gt;(id, &lt;span style="color:#7a8478"&gt;&amp;amp;&lt;/span&gt;status, &lt;span style="color:#d699b6"&gt;0&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;		&lt;span style="color:#e67e80"&gt;if&lt;/span&gt; (ret &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; &lt;span style="color:#d699b6"&gt;0&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;		{
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;			&lt;span style="color:#b2c98f"&gt;printf&lt;/span&gt;(&lt;span style="color:#b2c98f"&gt;&amp;#34;父进程成功回收子进程, exit_code: %d, exit_sig: %d&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\n&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;WEXITSTATUS&lt;/span&gt;(status), &lt;span style="color:#b2c98f"&gt;WTERMSIG&lt;/span&gt;(status));
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;		}
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	}
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#e67e80"&gt;return&lt;/span&gt; &lt;span style="color:#d699b6"&gt;0&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这个程序的健壮性和内存布局还有待优化，但只是一个简易的shell，用于理解它的工作原理，这就够了。&lt;/p&gt;</description></item><item><title>C语言的可变参数</title><link>http://localhost:1313/posts/c%E8%AF%AD%E8%A8%80%E7%9A%84%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0/</link><pubDate>Sat, 05 Jul 2025 18:32:52 +0000</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>http://localhost:1313/posts/c%E8%AF%AD%E8%A8%80%E7%9A%84%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0/</guid><description>&lt;h2 id="介绍"&gt;介绍&lt;/h2&gt;
+&lt;pre&gt;&lt;code class="language-c"&gt;#include &amp;lt;pwd.h&amp;gt;
+#include &amp;lt;sys/wait.h&amp;gt;
+#include &amp;lt;stdio.h&amp;gt;
+#include &amp;lt;string.h&amp;gt;
+#include &amp;lt;sys/types.h&amp;gt;
+#include &amp;lt;unistd.h&amp;gt;
+
+#define MAX_COMMAND_SIZE 256
+
+int main()
+{
+	char *command_argv[MAX_COMMAND_SIZE];
+	char command[MAX_COMMAND_SIZE];
+	memset(command, '\n', MAX_COMMAND_SIZE);
+	const char* user_name = getlogin();
+	while(1)
+	{
+		printf(&amp;quot;[%s@EazyShell]$ &amp;quot;, user_name);
+		fgets(command, MAX_COMMAND_SIZE, stdin);
+		 command[strcspn(command, &amp;quot;\n&amp;quot;)] = '\0'; // 去掉末尾的换行符
+		// 分割命令行，一个空格为一项子命令或参数
+		command_argv[0] = strtok(command,&amp;quot; &amp;quot;);
+		int index = 1;
+		while(command_argv[index++] = strtok(NULL, &amp;quot; &amp;quot;));
+
+		// 创建子进程，并进程替换
+		pid_t id = fork();
+		if(id == 0)
+		{
+			// 进程替换
+			execvp(command_argv[0], command_argv);
+			return -1; // 失败则退出-1
+		}
+
+		// 父进程回收子进程
+		int status = 0;
+		pid_t ret = waitpid(id, &amp;amp;status, 0);
+		if (ret = 0)
+		{
+			printf(&amp;quot;父进程成功回收子进程, exit_code: %d, exit_sig: %d\n&amp;quot;, WEXITSTATUS(status), WTERMSIG(status));
+		}
+	}
+
+	return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这个程序的健壮性和内存布局还有待优化，但只是一个简易的shell，用于理解它的工作原理，这就够了。&lt;/p&gt;</description></item><item><title>C语言的可变参数</title><link>https://blog.verdant.ee/posts/c%E8%AF%AD%E8%A8%80%E7%9A%84%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0/</link><pubDate>Sat, 05 Jul 2025 18:32:52 +0000</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>https://blog.verdant.ee/posts/c%E8%AF%AD%E8%A8%80%E7%9A%84%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0/</guid><description>&lt;h2 id="介绍"&gt;介绍&lt;/h2&gt;
 &lt;p&gt;C语言中，&lt;code&gt;printf()&lt;/code&gt;和&lt;code&gt;scanf()&lt;/code&gt;函数就是典型的变参函数，其优点是灵活处理参数。&lt;/p&gt;
 &lt;p&gt;想要创建变参函数需引入头文件&lt;code&gt;stdarg.h&lt;/code&gt;，它有一些宏：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;va_list 指向整个可变参数列表的指针
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;原型：typedef char* va_list;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;va_start 指向可变参数列表前的参数（...前的参数）
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;原型：void va_start(va_list ap, paramN);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;va_arg 可变参数列表
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;原型：typedef va_arg(va_list ap, type)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;va_end 结束对可变参数列表的访问，并释放资源
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;原型：void va_end(va_list ap);
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="使用例"&gt;使用例&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e67e80"&gt;#include&lt;/span&gt; &lt;span style="color:#e67e80;font-style:italic"&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;span style="color:#e67e80"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e67e80"&gt;#include&lt;/span&gt; &lt;span style="color:#e67e80;font-style:italic"&gt;&amp;lt;stdarg.h&amp;gt;&lt;/span&gt;&lt;span style="color:#e67e80"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#859289;font-style:italic"&gt;// 定义一个使用省略号的函数原型
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#dbbc7f"&gt;void&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;function&lt;/span&gt;(&lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; argument, ...)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;// 声明一个va_list类型的变量ap，这是可变参数列表
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; va_list ap;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;// 使用va_start把变量ap初始化为参数列表
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#b2c98f"&gt;va_start&lt;/span&gt;(ap, argument);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;// 第二个参数表明本函数期望传入一个int类型
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;// 但是编译器不会检查到底输入了什么。
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; output &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;va_arg&lt;/span&gt;(ap, &lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#b2c98f"&gt;printf&lt;/span&gt;(&lt;span style="color:#b2c98f"&gt;&amp;#34;可变参数：%d&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\n&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;&lt;/span&gt;, output);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#b2c98f"&gt;va_end&lt;/span&gt;(ap);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;main&lt;/span&gt;()
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#b2c98f"&gt;function&lt;/span&gt;(&lt;span style="color:#d699b6"&gt;1&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;109&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;输出：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;可变参数：109
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;函数起了作用，但是如果我们需要接受多个参数，应该如何获取呢？&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e67e80"&gt;#include&lt;/span&gt; &lt;span style="color:#e67e80;font-style:italic"&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;span style="color:#e67e80"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e67e80"&gt;#include&lt;/span&gt; &lt;span style="color:#e67e80;font-style:italic"&gt;&amp;lt;stdarg.h&amp;gt;&lt;/span&gt;&lt;span style="color:#e67e80"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#859289;font-style:italic"&gt;// 定义一个使用省略号的函数原型
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#dbbc7f"&gt;void&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;function&lt;/span&gt;(&lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; argument, ...)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;// 声明一个va_list类型的变量ap，这是可变参数列表
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; va_list ap;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;// 使用va_start把变量ap初始化为参数列表，此处的第二个参数是最后一个固定参数
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#b2c98f"&gt;va_start&lt;/span&gt;(ap, argument);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;// 第二个参数表明本函数期望传入一个int类型
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;// 但是编译器不会检查到底输入了什么。
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; arguments_list[&lt;span style="color:#d699b6"&gt;4&lt;/span&gt;];
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;for&lt;/span&gt;(&lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; i &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; &lt;span style="color:#d699b6"&gt;0&lt;/span&gt;; i &lt;span style="color:#7a8478"&gt;&amp;lt;&lt;/span&gt; &lt;span style="color:#d699b6"&gt;4&lt;/span&gt;; i&lt;span style="color:#7a8478"&gt;++&lt;/span&gt;) {
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; arguments_list[i] &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;va_arg&lt;/span&gt;(ap, &lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt;); &lt;span style="color:#859289;font-style:italic"&gt;// 按int类型提取参数
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#b2c98f"&gt;va_end&lt;/span&gt;(ap);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;// 遍历参数列表并打印
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;for&lt;/span&gt; (&lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; i &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; &lt;span style="color:#d699b6"&gt;0&lt;/span&gt;; i &lt;span style="color:#7a8478"&gt;&amp;lt;&lt;/span&gt; &lt;span style="color:#d699b6"&gt;4&lt;/span&gt;; i&lt;span style="color:#7a8478"&gt;++&lt;/span&gt;) {
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#b2c98f"&gt;printf&lt;/span&gt;(&lt;span style="color:#b2c98f"&gt;&amp;#34;可变参数%d：%d&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;\n&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;&amp;#34;&lt;/span&gt;, i &lt;span style="color:#7a8478"&gt;+&lt;/span&gt; &lt;span style="color:#d699b6"&gt;1&lt;/span&gt;, arguments_list[i]);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;main&lt;/span&gt;()
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#b2c98f"&gt;function&lt;/span&gt;(&lt;span style="color:#d699b6"&gt;1&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;10&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;12&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;111&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="扩展va_start的第二个参数的工作原理"&gt;扩展：&lt;code&gt;va_start&lt;/code&gt;的第二个参数的工作原理&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;va_list 指向整个可变参数列表的指针
+原型：typedef char* va_list;
+
+va_start 指向可变参数列表前的参数（...前的参数）
+原型：void va_start(va_list ap, paramN);
+
+va_arg 可变参数列表
+原型：typedef va_arg(va_list ap, type)
+
+va_end 结束对可变参数列表的访问，并释放资源
+原型：void va_end(va_list ap);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="使用例"&gt;使用例&lt;/h2&gt;
+&lt;pre&gt;&lt;code class="language-c"&gt;#include &amp;lt;stdio.h&amp;gt;
+#include &amp;lt;stdarg.h&amp;gt;
+
+
+// 定义一个使用省略号的函数原型
+void function(int argument, ...)
+{
+ // 声明一个va_list类型的变量ap，这是可变参数列表
+ va_list ap;
+
+ // 使用va_start把变量ap初始化为参数列表
+ va_start(ap, argument);
+
+ // 第二个参数表明本函数期望传入一个int类型
+ // 但是编译器不会检查到底输入了什么。
+ int output = va_arg(ap, int);
+
+ printf(&amp;quot;可变参数：%d\n&amp;quot;, output);
+
+ va_end(ap);
+}
+
+
+int main()
+{
+ function(1, 109);
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;输出：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;可变参数：109
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;函数起了作用，但是如果我们需要接受多个参数，应该如何获取呢？&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-c"&gt;#include &amp;lt;stdio.h&amp;gt;
+#include &amp;lt;stdarg.h&amp;gt;
+
+
+// 定义一个使用省略号的函数原型
+void function(int argument, ...)
+{
+ // 声明一个va_list类型的变量ap，这是可变参数列表
+ va_list ap;
+
+ // 使用va_start把变量ap初始化为参数列表，此处的第二个参数是最后一个固定参数
+ va_start(ap, argument);
+
+ // 第二个参数表明本函数期望传入一个int类型
+ // 但是编译器不会检查到底输入了什么。
+
+ int arguments_list[4];
+
+ for(int i = 0; i &amp;lt; 4; i++) {
+ arguments_list[i] = va_arg(ap, int); // 按int类型提取参数
+ }
+
+ va_end(ap);
+
+ // 遍历参数列表并打印
+ for (int i = 0; i &amp;lt; 4; i++) {
+ printf(&amp;quot;可变参数%d：%d\n&amp;quot;, i + 1, arguments_list[i]);
+ }
+
+}
+
+
+int main()
+{
+ function(1, 10, 12, 2, 111);
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="扩展va_start的第二个参数的工作原理"&gt;扩展：&lt;code&gt;va_start&lt;/code&gt;的第二个参数的工作原理&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;va_start&lt;/code&gt;的第二个参数用于定位可变参数列表的起始位置，具体而言，它指向函数参数列表中最后一个固定参数（即省略号前的参数），通过该参数的地址计算出第一个可变参数在内存中的位置。&lt;/p&gt;
 &lt;p&gt;C函数的参数按从右至左顺序入栈（栈底高地址，栈顶低地址）&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;va_start&lt;/code&gt;的第二个参数作为基准点，其地址加上自身大小后，即指向第一个可变参数的起始地址。&lt;/p&gt;
-&lt;p&gt;所以&lt;code&gt;...&lt;/code&gt;前至少要有一个固定参数用于寻址。&lt;/p&gt;</description></item><item><title>宅</title><link>http://localhost:1313/posts/%E5%AE%85/</link><pubDate>Mon, 30 Jun 2025 19:47:00 +0000</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>http://localhost:1313/posts/%E5%AE%85/</guid><description>&lt;p&gt;朋友上周几次约我出去打羽毛球，都被我婉拒了。那个周末刚刚考完期末，又是我最爱的阴雨天，很难不趁着大好时光不在家修养身心，而是冒着雨出去打羽毛球几个小时，大汗淋漓，虚弱疲惫地走回家，做什么事都提不起精神，睡觉也觉得浪费时间。在家里并没有什么很想干的事，我没有打游戏的习惯，很早之前就已经戒掉电子游戏。在家里的娱乐活动无非就是看书、听歌、画画、练琴，写代码折磨一下自己应该也能凑个数。我非常依赖在家里独处时的充电，只要远离人群的嘈杂即可。&lt;/p&gt;
+&lt;p&gt;所以&lt;code&gt;...&lt;/code&gt;前至少要有一个固定参数用于寻址。&lt;/p&gt;</description></item><item><title>宅</title><link>https://blog.verdant.ee/posts/%E5%AE%85/</link><pubDate>Mon, 30 Jun 2025 19:47:00 +0000</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>https://blog.verdant.ee/posts/%E5%AE%85/</guid><description>&lt;p&gt;朋友上周几次约我出去打羽毛球，都被我婉拒了。那个周末刚刚考完期末，又是我最爱的阴雨天，很难不趁着大好时光不在家修养身心，而是冒着雨出去打羽毛球几个小时，大汗淋漓，虚弱疲惫地走回家，做什么事都提不起精神，睡觉也觉得浪费时间。在家里并没有什么很想干的事，我没有打游戏的习惯，很早之前就已经戒掉电子游戏。在家里的娱乐活动无非就是看书、听歌、画画、练琴，写代码折磨一下自己应该也能凑个数。我非常依赖在家里独处时的充电，只要远离人群的嘈杂即可。&lt;/p&gt;
 &lt;p&gt;他们吐槽了一下我有点宅，只喜欢呆在家里，我无法反驳，确实是这样。没什么别的原因，单纯觉得家里安全，我是一个很怕死的人。今天去奶奶家拿饭，突然发现那里简直集齐了让我感到恐惧的所有元素。&lt;/p&gt;
 &lt;p&gt;小区旁有一条铁轨，时常有火车呼啸而过，我对噪音极度敏感。走到楼栋前，左右两旁各两个楼道入口，正常人当然选择坐电梯，第二个让我感到恐惧的，幽闭的电梯。小时候奶奶为了保障我坐电梯的安全，会讲一些关于电梯的安全事故来吓唬我，虽然今天我已经知道了那些大部分都不是真的，而且电梯层层保护非常安全，但每次走到电梯里我都会死死盯着显示楼层的那块屏幕（虽然这并没有任何作用），生怕冲顶或坠落，命丧于电子棺材里。终于煎熬地乘完电梯，可以往家门走了。楼道前一个没有封窗的常年大开的窗户，狭窄的楼道里光是远远往下眺望就已经让人胆寒，但神奇的是有那么一两个瞬间，我竟然生出了跳下去的念头，我应该很怕死的。难以想象我童年的日子是怎么近乎每天都在这里度过的。&lt;/p&gt;
 &lt;p&gt;同样地，我也抗拒旅游。也许是因为回忆起近些年旅游的滋味都不是很好。拖着个不懂事的弟弟，他总是会让所有人都不开心，大家不开心，我也没什么能开心的。冬天冷夏天热，景点人挤人，只有能量相当大的人才能感受到快乐吧。&lt;/p&gt;
 &lt;p&gt;在朋友圈里看到一个亲戚发带着自家孩子出门去苏州旅游，我很佩服她。带着家人跨越小半个中国。其中有一张照片是她的孩子站在船上，身后就是一片水。这就是我恐惧的又一个元素，水。&lt;/p&gt;
 &lt;p&gt;小时候泡温泉，失足滑落到大概高我两头的池子里，在水里扑腾了半分钟才出来，索性憋住一口气，当时我的身高是完全不足以控制自己的身体朝向的，最后抓住岸边的栏杆才保住小命。自那次以后，我对水的恐惧就开始伴随我到现在了，我也许一辈子都不会去苏州那种水乡或海边。&lt;/p&gt;
 &lt;p&gt;每次出去旅游，甚至是上立交桥都会胡思乱想。比如车子突然失控从桥上坠落，家人走散，落水&amp;hellip;&amp;hellip;我无法继续写下去我的内心所想，这又会把我拉入恐惧。语文老师曾经读过我的某一篇文章后，评价道我是很典型的悲观主义者，无法反驳，确实典型。&lt;/p&gt;
-&lt;p&gt;综上，我为了保命，保证精神不崩溃，会减少旅游等危险活动。&lt;/p&gt;</description></item><item><title>好文章</title><link>http://localhost:1313/posts/%E5%A5%BD%E6%96%87%E7%AB%A0/</link><pubDate>Wed, 18 Jun 2025 21:53:51 +0000</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>http://localhost:1313/posts/%E5%A5%BD%E6%96%87%E7%AB%A0/</guid><description>&lt;h2 id="心灵小语"&gt;心灵小语&lt;/h2&gt;
+&lt;p&gt;综上，我为了保命，保证精神不崩溃，会减少旅游等危险活动。&lt;/p&gt;</description></item><item><title>好文章</title><link>https://blog.verdant.ee/posts/%E5%A5%BD%E6%96%87%E7%AB%A0/</link><pubDate>Wed, 18 Jun 2025 21:53:51 +0000</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>https://blog.verdant.ee/posts/%E5%A5%BD%E6%96%87%E7%AB%A0/</guid><description>&lt;h2 id="心灵小语"&gt;心灵小语&lt;/h2&gt;
 &lt;p&gt;我们的语文作业从初一开始就偶尔留一项叫“心灵小语“的作业，文风可以和博客比较相似。但毕竟是要给老师看的，措辞还是要严谨一点。前两天的语文课老师读了两篇文章，巧了，我最受不了这种文章————用力堆砌耀眼夺目的辞藻，如青春、奋斗、阳光、生活。这就是老师眼中的好文章，扮演一个老师喜欢的性格，讲写点能敲出回声的文字，点意林风格的俗套故事。&lt;/p&gt;
 &lt;p&gt;对不起，这种耀眼的词汇会让我被燃烧成灰。&lt;/p&gt;
 &lt;p&gt;我不是标榜我的文章写的多好，只是单纯厌恶这种堆辞藻、假大空。以我的水平五十步笑百步又如何，名为心灵小语，心灵敲出的回声比文字还大，老师美其名曰：”以文观人”，好好观吧，多观观吹口气就破的纸壳吧；多观观用图钉钉在脸上的真诚的笑吧；多观观炽热的可燃的木头削成的心灵吧。烧了都嫌&lt;strong&gt;恶臭&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;活了十四年，我感受到的所谓的青春就是四五十个人挤在一个小屋子里研究一个这辈子也不会用到的式子的结果是什么。明明任何一个理科都非常有趣，但总是被迫去研究最没有意义的一个环节，痛苦又无奈。所以我痛恨代数，几何多在探究“为什么“而不是”是什么”。这才是数学让人有成就感的一环。&lt;/p&gt;
 &lt;p&gt;现在明白了，大家很爱说上岸这个词，原来是从苦海游上来了。&lt;/p&gt;
-&lt;p&gt;真他妈恶心，我的青春啊。&lt;/p&gt;</description></item><item><title>怪癖</title><link>http://localhost:1313/posts/%E6%80%AA%E7%99%96/</link><pubDate>Thu, 12 Jun 2025 21:16:01 +0000</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>http://localhost:1313/posts/%E6%80%AA%E7%99%96/</guid><description>&lt;p&gt;我这人怪癖挺多的，屋子里不能拉开窗帘，我讨厌被别人看到；屋子里只留一盏台灯和电子设备的光，很有安全感；电脑桌面上不能有任何图标，我爱干净。&lt;/p&gt;
+&lt;p&gt;真他妈恶心，我的青春啊。&lt;/p&gt;</description></item><item><title>怪癖</title><link>https://blog.verdant.ee/posts/%E6%80%AA%E7%99%96/</link><pubDate>Thu, 12 Jun 2025 21:16:01 +0000</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>https://blog.verdant.ee/posts/%E6%80%AA%E7%99%96/</guid><description>&lt;p&gt;我这人怪癖挺多的，屋子里不能拉开窗帘，我讨厌被别人看到；屋子里只留一盏台灯和电子设备的光，很有安全感；电脑桌面上不能有任何图标，我爱干净。&lt;/p&gt;
 &lt;p&gt;屋子里静静的，只有空调运转和电脑硬盘读写的机械声。暖黄色的台灯灯光不会分散太多注意力，在学校喧闹一天后，这是最快的“回血”方法。很难想象那些住宿学校的学生是什么支撑着他们活下去，如果是我，我大概率会跳楼。我喜欢雨天，也跟这个有点关系，非常有安全感，非常舒适，望着天上的云，总有种熟悉的感觉，说不上来是什么，是在梦里，又或许是小时候见到过类似的场景，冷白色调的阴天光线总是有种熟悉感。&lt;/p&gt;
 &lt;p&gt;我对噪音非常敏感，完全受不了人群的嘈杂声，那会让我筋疲力尽，除了睡的晚，这也是我在学校课间几乎睡满的原因。每天中午打饭时，百家争鸣百花齐放，没有一个人类，没有一个人类的行为，我正好坐在第一排，所有表演我都是最近距离的观众。光是看着折腾吵闹就已经让人筋疲力尽。&lt;/p&gt;
 &lt;p&gt;手机常年静音勿扰，我极度厌恶手机的提示音，别人能动几下手指就简单地侵入我的生活，极度厌恶。把手机打开静音模式，是我自己在主动接受信息，只有在我想看的时候才能输入信息，而不是做一半事情就被突兀的响铃和震动打断。&lt;/p&gt;
 &lt;p&gt;所有软件都是暗色模式，所有。如上文，我经常在灯光昏暗的环境下，刺眼的白光很不舒服，最极端的时间，手机、电脑、平板壁纸都是一张纯黑的图片，大道至简。但博客不同，内容风格不太适合暗色，我感觉纯技术博客更适合暗色，极客风吧。&lt;/p&gt;
 &lt;p&gt;由于长期使用Vim，我也讨厌操作鼠标，甚至浏览器都装上了Vim插件，所有能用Vim模式的软件都在用Vim模式。&lt;/p&gt;
 &lt;p&gt;高考最后一天，我们学校是考点，我在家休假。实在无聊，就去镜子前看自己，盯着看，镜子里的世界太真实了，哪一个才是真正的我？看得出神，感觉下一秒就能冲破镜框，搂到对方的后背。看着镜子里的自己，一种陌生感和恐惧感油然而生。我真的活着，我真的是我，镜子里这个人是谁？会不会他才是真正的我？&lt;/p&gt;
-&lt;p&gt;又是一段东拼西扯的意识流文字。&lt;/p&gt;</description></item><item><title>4Key音游段位单曲成绩计算的程序实现</title><link>http://localhost:1313/posts/4key%E9%9F%B3%E6%B8%B8%E6%AE%B5%E4%BD%8D%E5%8D%95%E6%9B%B2%E6%88%90%E7%BB%A9%E8%AE%A1%E7%AE%97%E7%9A%84%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0/</link><pubDate>Sat, 07 Jun 2025 13:08:07 +0000</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>http://localhost:1313/posts/4key%E9%9F%B3%E6%B8%B8%E6%AE%B5%E4%BD%8D%E5%8D%95%E6%9B%B2%E6%88%90%E7%BB%A9%E8%AE%A1%E7%AE%97%E7%9A%84%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0/</guid><description>&lt;h2 id="前言"&gt;前言&lt;/h2&gt;
+&lt;p&gt;又是一段东拼西扯的意识流文字。&lt;/p&gt;</description></item><item><title>4Key音游段位单曲成绩计算的程序实现</title><link>https://blog.verdant.ee/posts/4key%E9%9F%B3%E6%B8%B8%E6%AE%B5%E4%BD%8D%E5%8D%95%E6%9B%B2%E6%88%90%E7%BB%A9%E8%AE%A1%E7%AE%97%E7%9A%84%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0/</link><pubDate>Sat, 07 Jun 2025 13:08:07 +0000</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>https://blog.verdant.ee/posts/4key%E9%9F%B3%E6%B8%B8%E6%AE%B5%E4%BD%8D%E5%8D%95%E6%9B%B2%E6%88%90%E7%BB%A9%E8%AE%A1%E7%AE%97%E7%9A%84%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0/</guid><description>&lt;h2 id="前言"&gt;前言&lt;/h2&gt;
 &lt;p&gt;其实这个坑我很早以前就想开了，在我刚开始学编程那会就一直想写一个这个东西。但苦于数学进度没达到，要用到加权平均数，这东西我前两天才学到，之前对数学也一直是懒得学的状态，要不然几乎是看不懂那个算法的。&lt;/p&gt;
 &lt;p&gt;我手头有一个&lt;a href="https://github.com/Special-Week"&gt;Special-Week&lt;/a&gt;写的网页版的单曲成绩计算器，就以这个为研究样本吧。以下简称原作者为sw（如有冒犯请联系修改）&lt;/p&gt;
 &lt;h2 id="数据结构设计"&gt;数据结构设计&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-js" data-lang="js"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;    &lt;span style="color:#859289;font-style:italic"&gt;// 基础的4k类
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;    &lt;span style="color:#e67e80"&gt;class&lt;/span&gt; Dan4k {
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;        constructor(key1, key2, key3, key4, danName) {
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;            &lt;span style="color:#e67e80"&gt;this&lt;/span&gt;.m_key1 &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; key1;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;            &lt;span style="color:#e67e80"&gt;this&lt;/span&gt;.m_key2 &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; key2;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;            &lt;span style="color:#e67e80"&gt;this&lt;/span&gt;.m_key3 &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; key3;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;            &lt;span style="color:#e67e80"&gt;this&lt;/span&gt;.m_key4 &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; key4;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;            &lt;span style="color:#e67e80"&gt;this&lt;/span&gt;.m_danName &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; danName;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;        }
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;    }
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;每一个段（LN、Om），sw都单独写了一个内部类，继承Dan4k。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-js" data-lang="js"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;// lnDan类
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;class&lt;/span&gt; LnDan &lt;span style="color:#e67e80"&gt;extends&lt;/span&gt; Dan4k {
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; constructor(key1, lnKey1, key2, lnKey2, key3, lnKey3, key4, lnKey4, danName) {
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;super&lt;/span&gt;(key1, key2, key3, key4, danName);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;this&lt;/span&gt;.m_lnKey1 &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; lnKey1;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;this&lt;/span&gt;.m_lnKey2 &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; lnKey2;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;this&lt;/span&gt;.m_lnKey3 &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; lnKey3;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;this&lt;/span&gt;.m_lnKey4 &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; lnKey4;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;// ma段
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;class&lt;/span&gt; MaDan &lt;span style="color:#e67e80"&gt;extends&lt;/span&gt; Dan4k {
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; constructor(key1, key2, key3, key4, name1, name2, name3, name4, danName) {
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;super&lt;/span&gt;(key1, key2, key3, key4, danName);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;this&lt;/span&gt;.m_name1 &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; name1;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;this&lt;/span&gt;.m_name2 &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; name2;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;this&lt;/span&gt;.m_name3 &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; name3;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;this&lt;/span&gt;.m_name4 &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; name4;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;// reform段
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;class&lt;/span&gt; ReformDan &lt;span style="color:#e67e80"&gt;extends&lt;/span&gt; Dan4k {
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; constructor(key1, key2, key3, key4, name1, name2, name3, name4, danName) {
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;super&lt;/span&gt;(key1, key2, key3, key4, danName);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;this&lt;/span&gt;.m_name1 &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; name1;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;this&lt;/span&gt;.m_name2 &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; name2;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;this&lt;/span&gt;.m_name3 &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; name3;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;this&lt;/span&gt;.m_name4 &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; name4;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;// om段
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;class&lt;/span&gt; OmDan &lt;span style="color:#e67e80"&gt;extends&lt;/span&gt; Dan4k {
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; constructor(key1, key2, key3, key4, danName) {
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;super&lt;/span&gt;(key1, key2, key3, key4, danName);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;我打算重写的程序不带LN玩了，我自己也没玩过LN，不清楚是什么机制。那就来看看剩下的几个类。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-js"&gt;    // 基础的4k类
+    class Dan4k {
+        constructor(key1, key2, key3, key4, danName) {
+            this.m_key1 = key1;
+            this.m_key2 = key2;
+            this.m_key3 = key3;
+            this.m_key4 = key4;
+            this.m_danName = danName;
+        }
+    }
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;每一个段（LN、Om），sw都单独写了一个内部类，继承Dan4k。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-js"&gt; // lnDan类
+ class LnDan extends Dan4k {
+ constructor(key1, lnKey1, key2, lnKey2, key3, lnKey3, key4, lnKey4, danName) {
+ super(key1, key2, key3, key4, danName);
+ this.m_lnKey1 = lnKey1;
+ this.m_lnKey2 = lnKey2;
+ this.m_lnKey3 = lnKey3;
+ this.m_lnKey4 = lnKey4;
+ }
+ }
+ // ma段
+ class MaDan extends Dan4k {
+ constructor(key1, key2, key3, key4, name1, name2, name3, name4, danName) {
+ super(key1, key2, key3, key4, danName);
+ this.m_name1 = name1;
+ this.m_name2 = name2;
+ this.m_name3 = name3;
+ this.m_name4 = name4;
+ }
+ }
+ // reform段
+ class ReformDan extends Dan4k {
+ constructor(key1, key2, key3, key4, name1, name2, name3, name4, danName) {
+ super(key1, key2, key3, key4, danName);
+ this.m_name1 = name1;
+ this.m_name2 = name2;
+ this.m_name3 = name3;
+ this.m_name4 = name4;
+ }
+
+ }
+ // om段
+ class OmDan extends Dan4k {
+ constructor(key1, key2, key3, key4, danName) {
+ super(key1, key2, key3, key4, danName);
+ }
+ }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;我打算重写的程序不带LN玩了，我自己也没玩过LN，不清楚是什么机制。那就来看看剩下的几个类。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;Dan4k&lt;/code&gt;类定义了一个段位的基础属性，但是这个参数key1-4是用来做什么在当前上下文暂且不清楚，是第n首歌的物量吧。&lt;/p&gt;
 &lt;p&gt;那么由此可以推断，这些类都描述了一个谱面的基本属性：&lt;/p&gt;
 &lt;ul&gt;
@@ -499,119 +521,128 @@
 &lt;li&gt;段位名称
 然后分支匹配数据并计算。我也用C语言实现一个。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#859289;font-style:italic"&gt;// 整个段位信息
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e67e80"&gt;typedef&lt;/span&gt; &lt;span style="color:#e67e80"&gt;struct&lt;/span&gt; Dan {
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;// 段位名字
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;char&lt;/span&gt;&lt;span style="color:#7a8478"&gt;*&lt;/span&gt; dan_name; 
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;// 四首歌的名字，用于匹配数据
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;char&lt;/span&gt;&lt;span style="color:#7a8478"&gt;*&lt;/span&gt; song1_name;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;char&lt;/span&gt;&lt;span style="color:#7a8478"&gt;*&lt;/span&gt; song2_name;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;char&lt;/span&gt;&lt;span style="color:#7a8478"&gt;*&lt;/span&gt; song3_name;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;char&lt;/span&gt;&lt;span style="color:#7a8478"&gt;*&lt;/span&gt; song4_name;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;// 四首歌的物量
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; song1_key;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; song2_key;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; song3_key;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; song4_key;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}Dan;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;来看看网页版中数据是如何存储的&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-js" data-lang="js"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;// MaDan数据
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;let&lt;/span&gt; MaArr &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; [
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;new&lt;/span&gt; MaDan(&lt;span style="color:#d699b6"&gt;813&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;955&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;907&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;654&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Glitch Nerds&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Borealis&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Niflheim&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Moon&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;1dan&amp;#34;&lt;/span&gt;),
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;new&lt;/span&gt; MaDan(&lt;span style="color:#d699b6"&gt;1152&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;850&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;950&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;969&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Follow Tomorrow&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Bronze Coffin&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Keigan no Zettaireido&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;SakuraMirage&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;2dan&amp;#34;&lt;/span&gt;),
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;new&lt;/span&gt; MaDan(&lt;span style="color:#d699b6"&gt;1169&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1143&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;974&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1347&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Quon&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Genkyoku o Kirikizamu&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Gin no Kaze&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Adjudicatorz-Danzai-&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;3dan&amp;#34;&lt;/span&gt;),
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;new&lt;/span&gt; MaDan(&lt;span style="color:#d699b6"&gt;1400&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1402&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1685&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1599&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Tenkuu no Yoake&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;VALLISTA&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Crystal World ~Fracture~&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Zenithalize&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;4dan&amp;#34;&lt;/span&gt;),
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;new&lt;/span&gt; MaDan(&lt;span style="color:#d699b6"&gt;1953&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2250&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2166&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1667&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Ten Thousand Tons of Anonymous Letters&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Chips of Notes&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Despair of Elferia&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Kamigami no Asobi&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;5dan&amp;#34;&lt;/span&gt;),
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;new&lt;/span&gt; MaDan(&lt;span style="color:#d699b6"&gt;1487&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1424&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1381&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1587&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Sweet Cherry X&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Akasagarbha&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;HELLO EveryOne&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;DataErr0r&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;6dan&amp;#34;&lt;/span&gt;),
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;new&lt;/span&gt; MaDan(&lt;span style="color:#d699b6"&gt;1909&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1814&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1777&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2681&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Fairy Stage&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Xross Infection&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Wave&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Blue Zenith&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;7dan&amp;#34;&lt;/span&gt;),
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;new&lt;/span&gt; MaDan(&lt;span style="color:#d699b6"&gt;1962&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1067&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2388&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1772&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;The Lost Dedicated&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;The Party We Have Never Seen&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Finixe&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Ultimate Dream&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;8dan&amp;#34;&lt;/span&gt;),
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;new&lt;/span&gt; MaDan(&lt;span style="color:#d699b6"&gt;1799&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2023&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2283&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1787&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Dusk&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Panic Popn Picnic&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Kick-ass Kung-Fu Carnival&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Yakusoku no kimi&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;9dan&amp;#34;&lt;/span&gt;),
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;new&lt;/span&gt; MaDan(&lt;span style="color:#d699b6"&gt;2606&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2188&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2194&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2187&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Chaser&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Loli Fantasy&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Daydream&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Moon Gate&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;10dan&amp;#34;&lt;/span&gt;),
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;new&lt;/span&gt; MaDan(&lt;span style="color:#d699b6"&gt;2160&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1952&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1821&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;3249&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Border of Life&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Scorpion Dance&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;The Island of Albatross&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;beautiful loli thing&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;ex1&amp;#34;&lt;/span&gt;),
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;new&lt;/span&gt; MaDan(&lt;span style="color:#d699b6"&gt;2871&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2024&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1871&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2452&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Hitsune no youmeiri&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;紫阳花-AZISAI-&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;love&amp;amp;justice&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;message&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;ex2&amp;#34;&lt;/span&gt;),
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;new&lt;/span&gt; MaDan(&lt;span style="color:#d699b6"&gt;2327&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1593&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2166&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2200&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Jumble Rumble&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;End Time&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;++&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Crow Solace&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;ex3&amp;#34;&lt;/span&gt;),
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;new&lt;/span&gt; MaDan(&lt;span style="color:#d699b6"&gt;2731&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2653&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2033&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2761&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;EDM Jumpers&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;line-epsilon&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Contrapasso -paradiso-&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;YELL!&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;ex4&amp;#34;&lt;/span&gt;),
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;new&lt;/span&gt; MaDan(&lt;span style="color:#d699b6"&gt;3229&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2731&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2561&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2109&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Satori de Pon!&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Legend of Seeker&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Crystal World -Fracture-&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Wizdomiot&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;ex5&amp;#34;&lt;/span&gt;),
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;new&lt;/span&gt; MaDan(&lt;span style="color:#d699b6"&gt;1766&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1861&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;3171&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1680&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Sepia&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Nopea&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Satori Trisis&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Death&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;ex6&amp;#34;&lt;/span&gt;),
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;new&lt;/span&gt; MaDan(&lt;span style="color:#d699b6"&gt;2339&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2461&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2511&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2177&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Paranoia&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Boulafacet&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Paraclete -Miracle-&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Yumemi no Shonen&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;ex7&amp;#34;&lt;/span&gt;),
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;new&lt;/span&gt; MaDan(&lt;span style="color:#d699b6"&gt;1929&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2380&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2710&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;4675&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Martail Arts&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Gene Disruption&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Paradigm Shift&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Death Melody&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;ex8&amp;#34;&lt;/span&gt;),
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;new&lt;/span&gt; MaDan(&lt;span style="color:#d699b6"&gt;3468&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;3335&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;3698&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;5061&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Only my railgun&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;-Purgatorium-&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Blue Zenith&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Inner Universe&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;exfin&amp;#34;&lt;/span&gt;),
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;new&lt;/span&gt; MaDan(&lt;span style="color:#d699b6"&gt;492&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;529&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;595&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;681&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Ikitoshi Ikerumono&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Rambling Pleat&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Yi Meng Qian Xiao&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;White Eternity&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;0danv3&amp;#34;&lt;/span&gt;),
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;new&lt;/span&gt; MaDan(&lt;span style="color:#d699b6"&gt;695&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;621&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;718&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1279&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Rex Incoqnito&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Koiseyo Otome!&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Break&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;KING&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;1danv3&amp;#34;&lt;/span&gt;),
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;new&lt;/span&gt; MaDan(&lt;span style="color:#d699b6"&gt;1397&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1090&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;805&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1212&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Stargazer&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Seyana&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Love Emotion&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Mermaid Girl&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;2danv3&amp;#34;&lt;/span&gt;),
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;new&lt;/span&gt; MaDan(&lt;span style="color:#d699b6"&gt;1055&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1489&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1288&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1789&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Koi Kou Enishi&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Onegai!Kon Kon Oinari-sama&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;The Last page&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Hoshi ga Furanai Machi&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;3danv3&amp;#34;&lt;/span&gt;),
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;new&lt;/span&gt; MaDan(&lt;span style="color:#d699b6"&gt;1865&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1434&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1284&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1839&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Umiyuri Kaiteitan&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Fire in the sky&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Icyxis&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;The Crimson Empire&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;4danv3&amp;#34;&lt;/span&gt;),
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;new&lt;/span&gt; MaDan(&lt;span style="color:#d699b6"&gt;1282&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1706&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1473&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1939&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Platinum Disco&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Cute na Kanojo&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Reimei Sketchbook&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Joker&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;5danv3&amp;#34;&lt;/span&gt;),
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;new&lt;/span&gt; MaDan(&lt;span style="color:#d699b6"&gt;1694&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1636&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1803&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2115&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Chocolate Disco&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Call Me, Beep Me (If You Wanna Reap Me)&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;DIE IN THE SEA&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;unhappy century&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;6danv3&amp;#34;&lt;/span&gt;),
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;new&lt;/span&gt; MaDan(&lt;span style="color:#d699b6"&gt;1701&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1799&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2132&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1899&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Don&amp;#39;t Stop The Music&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Six Acid Strings&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Arkadia [Illusion]&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Valkyrie Revolutia&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;7danv3&amp;#34;&lt;/span&gt;),
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;new&lt;/span&gt; MaDan(&lt;span style="color:#d699b6"&gt;2237&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2081&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2280&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2000&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Don&amp;#39;t let you down&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Yoru ni Kakeru&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Snow Veil -Shoujo to Kemono no Mori-&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Positive Dance Time&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;8danv3&amp;#34;&lt;/span&gt;),
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;new&lt;/span&gt; MaDan(&lt;span style="color:#d699b6"&gt;2374&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1899&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2142&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1810&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Kikai Shoujo Gensou&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Cold Planet&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Stray Star&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Unleashed World&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;9danv3&amp;#34;&lt;/span&gt;),
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;new&lt;/span&gt; MaDan(&lt;span style="color:#d699b6"&gt;2034&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1740&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2270&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2166&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Hiensou&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Rocky Buinne&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Yue Ai Yue Ye&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Spin Eternally&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;10danv3&amp;#34;&lt;/span&gt;),
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;new&lt;/span&gt; MaDan(&lt;span style="color:#d699b6"&gt;1952&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2013&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1953&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2111&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Scorpion Dance&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Tailin no Soul&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Eiya no Parade&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Onsoku Uchuu Ryokou&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;ex1v3&amp;#34;&lt;/span&gt;),
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;new&lt;/span&gt; MaDan(&lt;span style="color:#d699b6"&gt;2107&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1953&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2386&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2674&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Moments&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Towards the Horizon&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Torikago&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Frontier Explorer&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;ex2v3&amp;#34;&lt;/span&gt;),
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;new&lt;/span&gt; MaDan(&lt;span style="color:#d699b6"&gt;2518&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2636&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2326&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2511&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Edison&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;INTERNET OVERDOSE&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Euthanasia&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Fin.ArcDeaR&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;ex3v3&amp;#34;&lt;/span&gt;),
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;new&lt;/span&gt; MaDan(&lt;span style="color:#d699b6"&gt;2634&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2212&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2336&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2602&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;ZENITHALIZE&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Asymmetrical Grooves&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Pure Ruby&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;EVERLASTING HAPPiNESS&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;ex4v3&amp;#34;&lt;/span&gt;),
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;new&lt;/span&gt; MaDan(&lt;span style="color:#d699b6"&gt;2734&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2417&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;3089&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2974&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Bring Our Ignition Back&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Unsan-musho&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Electric Angel&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Kegare Naki Bara Juuji&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;ex5v3&amp;#34;&lt;/span&gt;),
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;new&lt;/span&gt; MaDan(&lt;span style="color:#d699b6"&gt;2483&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2276&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2921&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;3194&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Defeat awaken battle ship&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Extraction&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Pastel Subliminal&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Synthesized Fortress&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;ex6v3&amp;#34;&lt;/span&gt;),
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;new&lt;/span&gt; MaDan(&lt;span style="color:#d699b6"&gt;2846&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2260&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2333&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;3347&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;LiFE Garden&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Alpha&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Stay Alive&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Heaven&amp;#39;s Fall&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;ex7v3&amp;#34;&lt;/span&gt;),
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;new&lt;/span&gt; MaDan(&lt;span style="color:#d699b6"&gt;3789&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;3663&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2424&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;3255&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Hayabusa&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Shuu no hazama&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Amatsukami&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;CRIMSON FIGHTER&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;ex8v3&amp;#34;&lt;/span&gt;),
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;new&lt;/span&gt; MaDan(&lt;span style="color:#d699b6"&gt;3888&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;3030&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;3581&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;3700&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;crazy_tek (DJ Noriken Remix)&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Nhelv&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Shuuten&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Deadly force - Put an end&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;ex9v3&amp;#34;&lt;/span&gt;),
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;new&lt;/span&gt; MaDan(&lt;span style="color:#d699b6"&gt;2828&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;3362&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;3393&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;5100&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Infinity Heaven&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;NEURO-CLOUD-9&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Kizuato&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;Runengon&amp;#34;&lt;/span&gt;, &lt;span style="color:#b2c98f"&gt;&amp;#34;exfinv3&amp;#34;&lt;/span&gt;),
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ]
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;可以看到，简单地调用构造函数新建对象。继续实现：
+&lt;pre&gt;&lt;code class="language-c"&gt;// 整个段位信息
+typedef struct Dan {
+ // 段位名字
+ char* dan_name; 
+ // 四首歌的名字，用于匹配数据
+ char* song1_name;
+ char* song2_name;
+ char* song3_name;
+ char* song4_name;
+ // 四首歌的物量
+ int song1_key;
+ int song2_key;
+ int song3_key;
+ int song4_key;
+}Dan;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;来看看网页版中数据是如何存储的&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-js"&gt; // MaDan数据
+ let MaArr = [
+ new MaDan(813, 955, 907, 654, &amp;quot;Glitch Nerds&amp;quot;, &amp;quot;Borealis&amp;quot;, &amp;quot;Niflheim&amp;quot;, &amp;quot;Moon&amp;quot;, &amp;quot;1dan&amp;quot;),
+ new MaDan(1152, 850, 950, 969, &amp;quot;Follow Tomorrow&amp;quot;, &amp;quot;Bronze Coffin&amp;quot;, &amp;quot;Keigan no Zettaireido&amp;quot;, &amp;quot;SakuraMirage&amp;quot;, &amp;quot;2dan&amp;quot;),
+ new MaDan(1169, 1143, 974, 1347, &amp;quot;Quon&amp;quot;, &amp;quot;Genkyoku o Kirikizamu&amp;quot;, &amp;quot;Gin no Kaze&amp;quot;, &amp;quot;Adjudicatorz-Danzai-&amp;quot;, &amp;quot;3dan&amp;quot;),
+ new MaDan(1400, 1402, 1685, 1599, &amp;quot;Tenkuu no Yoake&amp;quot;, &amp;quot;VALLISTA&amp;quot;, &amp;quot;Crystal World ~Fracture~&amp;quot;, &amp;quot;Zenithalize&amp;quot;, &amp;quot;4dan&amp;quot;),
+ new MaDan(1953, 2250, 2166, 1667, &amp;quot;Ten Thousand Tons of Anonymous Letters&amp;quot;, &amp;quot;Chips of Notes&amp;quot;, &amp;quot;Despair of Elferia&amp;quot;, &amp;quot;Kamigami no Asobi&amp;quot;, &amp;quot;5dan&amp;quot;),
+ new MaDan(1487, 1424, 1381, 1587, &amp;quot;Sweet Cherry X&amp;quot;, &amp;quot;Akasagarbha&amp;quot;, &amp;quot;HELLO EveryOne&amp;quot;, &amp;quot;DataErr0r&amp;quot;, &amp;quot;6dan&amp;quot;),
+ new MaDan(1909, 1814, 1777, 2681, &amp;quot;Fairy Stage&amp;quot;, &amp;quot;Xross Infection&amp;quot;, &amp;quot;Wave&amp;quot;, &amp;quot;Blue Zenith&amp;quot;, &amp;quot;7dan&amp;quot;),
+ new MaDan(1962, 1067, 2388, 1772, &amp;quot;The Lost Dedicated&amp;quot;, &amp;quot;The Party We Have Never Seen&amp;quot;, &amp;quot;Finixe&amp;quot;, &amp;quot;Ultimate Dream&amp;quot;, &amp;quot;8dan&amp;quot;),
+ new MaDan(1799, 2023, 2283, 1787, &amp;quot;Dusk&amp;quot;, &amp;quot;Panic Popn Picnic&amp;quot;, &amp;quot;Kick-ass Kung-Fu Carnival&amp;quot;, &amp;quot;Yakusoku no kimi&amp;quot;, &amp;quot;9dan&amp;quot;),
+ new MaDan(2606, 2188, 2194, 2187, &amp;quot;Chaser&amp;quot;, &amp;quot;Loli Fantasy&amp;quot;, &amp;quot;Daydream&amp;quot;, &amp;quot;Moon Gate&amp;quot;, &amp;quot;10dan&amp;quot;),
+ new MaDan(2160, 1952, 1821, 3249, &amp;quot;Border of Life&amp;quot;, &amp;quot;Scorpion Dance&amp;quot;, &amp;quot;The Island of Albatross&amp;quot;, &amp;quot;beautiful loli thing&amp;quot;, &amp;quot;ex1&amp;quot;),
+ new MaDan(2871, 2024, 1871, 2452, &amp;quot;Hitsune no youmeiri&amp;quot;, &amp;quot;紫阳花-AZISAI-&amp;quot;, &amp;quot;love&amp;amp;justice&amp;quot;, &amp;quot;message&amp;quot;, &amp;quot;ex2&amp;quot;),
+ new MaDan(2327, 1593, 2166, 2200, &amp;quot;Jumble Rumble&amp;quot;, &amp;quot;End Time&amp;quot;, &amp;quot;++&amp;quot;, &amp;quot;Crow Solace&amp;quot;, &amp;quot;ex3&amp;quot;),
+ new MaDan(2731, 2653, 2033, 2761, &amp;quot;EDM Jumpers&amp;quot;, &amp;quot;line-epsilon&amp;quot;, &amp;quot;Contrapasso -paradiso-&amp;quot;, &amp;quot;YELL!&amp;quot;, &amp;quot;ex4&amp;quot;),
+ new MaDan(3229, 2731, 2561, 2109, &amp;quot;Satori de Pon!&amp;quot;, &amp;quot;Legend of Seeker&amp;quot;, &amp;quot;Crystal World -Fracture-&amp;quot;, &amp;quot;Wizdomiot&amp;quot;, &amp;quot;ex5&amp;quot;),
+ new MaDan(1766, 1861, 3171, 1680, &amp;quot;Sepia&amp;quot;, &amp;quot;Nopea&amp;quot;, &amp;quot;Satori Trisis&amp;quot;, &amp;quot;Death&amp;quot;, &amp;quot;ex6&amp;quot;),
+ new MaDan(2339, 2461, 2511, 2177, &amp;quot;Paranoia&amp;quot;, &amp;quot;Boulafacet&amp;quot;, &amp;quot;Paraclete -Miracle-&amp;quot;, &amp;quot;Yumemi no Shonen&amp;quot;, &amp;quot;ex7&amp;quot;),
+ new MaDan(1929, 2380, 2710, 4675, &amp;quot;Martail Arts&amp;quot;, &amp;quot;Gene Disruption&amp;quot;, &amp;quot;Paradigm Shift&amp;quot;, &amp;quot;Death Melody&amp;quot;, &amp;quot;ex8&amp;quot;),
+ new MaDan(3468, 3335, 3698, 5061, &amp;quot;Only my railgun&amp;quot;, &amp;quot;-Purgatorium-&amp;quot;, &amp;quot;Blue Zenith&amp;quot;, &amp;quot;Inner Universe&amp;quot;, &amp;quot;exfin&amp;quot;),
+
+ new MaDan(492, 529, 595, 681, &amp;quot;Ikitoshi Ikerumono&amp;quot;, &amp;quot;Rambling Pleat&amp;quot;, &amp;quot;Yi Meng Qian Xiao&amp;quot;, &amp;quot;White Eternity&amp;quot;, &amp;quot;0danv3&amp;quot;),
+ new MaDan(695, 621, 718, 1279, &amp;quot;Rex Incoqnito&amp;quot;, &amp;quot;Koiseyo Otome!&amp;quot;, &amp;quot;Break&amp;quot;, &amp;quot;KING&amp;quot;, &amp;quot;1danv3&amp;quot;),
+ new MaDan(1397, 1090, 805, 1212, &amp;quot;Stargazer&amp;quot;, &amp;quot;Seyana&amp;quot;, &amp;quot;Love Emotion&amp;quot;, &amp;quot;Mermaid Girl&amp;quot;, &amp;quot;2danv3&amp;quot;),
+ new MaDan(1055, 1489, 1288, 1789, &amp;quot;Koi Kou Enishi&amp;quot;, &amp;quot;Onegai!Kon Kon Oinari-sama&amp;quot;, &amp;quot;The Last page&amp;quot;, &amp;quot;Hoshi ga Furanai Machi&amp;quot;, &amp;quot;3danv3&amp;quot;),
+ new MaDan(1865, 1434, 1284, 1839, &amp;quot;Umiyuri Kaiteitan&amp;quot;, &amp;quot;Fire in the sky&amp;quot;, &amp;quot;Icyxis&amp;quot;, &amp;quot;The Crimson Empire&amp;quot;, &amp;quot;4danv3&amp;quot;),
+ new MaDan(1282, 1706, 1473, 1939, &amp;quot;Platinum Disco&amp;quot;, &amp;quot;Cute na Kanojo&amp;quot;, &amp;quot;Reimei Sketchbook&amp;quot;, &amp;quot;Joker&amp;quot;, &amp;quot;5danv3&amp;quot;),
+ new MaDan(1694, 1636, 1803, 2115, &amp;quot;Chocolate Disco&amp;quot;, &amp;quot;Call Me, Beep Me (If You Wanna Reap Me)&amp;quot;, &amp;quot;DIE IN THE SEA&amp;quot;, &amp;quot;unhappy century&amp;quot;, &amp;quot;6danv3&amp;quot;),
+ new MaDan(1701, 1799, 2132, 1899, &amp;quot;Don't Stop The Music&amp;quot;, &amp;quot;Six Acid Strings&amp;quot;, &amp;quot;Arkadia [Illusion]&amp;quot;, &amp;quot;Valkyrie Revolutia&amp;quot;, &amp;quot;7danv3&amp;quot;),
+ new MaDan(2237, 2081, 2280, 2000, &amp;quot;Don't let you down&amp;quot;, &amp;quot;Yoru ni Kakeru&amp;quot;, &amp;quot;Snow Veil -Shoujo to Kemono no Mori-&amp;quot;, &amp;quot;Positive Dance Time&amp;quot;, &amp;quot;8danv3&amp;quot;),
+ new MaDan(2374, 1899, 2142, 1810, &amp;quot;Kikai Shoujo Gensou&amp;quot;, &amp;quot;Cold Planet&amp;quot;, &amp;quot;Stray Star&amp;quot;, &amp;quot;Unleashed World&amp;quot;, &amp;quot;9danv3&amp;quot;),
+ new MaDan(2034, 1740, 2270, 2166, &amp;quot;Hiensou&amp;quot;, &amp;quot;Rocky Buinne&amp;quot;, &amp;quot;Yue Ai Yue Ye&amp;quot;, &amp;quot;Spin Eternally&amp;quot;, &amp;quot;10danv3&amp;quot;),
+ new MaDan(1952, 2013, 1953, 2111, &amp;quot;Scorpion Dance&amp;quot;, &amp;quot;Tailin no Soul&amp;quot;, &amp;quot;Eiya no Parade&amp;quot;, &amp;quot;Onsoku Uchuu Ryokou&amp;quot;, &amp;quot;ex1v3&amp;quot;),
+ new MaDan(2107, 1953, 2386, 2674, &amp;quot;Moments&amp;quot;, &amp;quot;Towards the Horizon&amp;quot;, &amp;quot;Torikago&amp;quot;, &amp;quot;Frontier Explorer&amp;quot;, &amp;quot;ex2v3&amp;quot;),
+ new MaDan(2518, 2636, 2326, 2511, &amp;quot;Edison&amp;quot;, &amp;quot;INTERNET OVERDOSE&amp;quot;, &amp;quot;Euthanasia&amp;quot;, &amp;quot;Fin.ArcDeaR&amp;quot;, &amp;quot;ex3v3&amp;quot;),
+ new MaDan(2634, 2212, 2336, 2602, &amp;quot;ZENITHALIZE&amp;quot;, &amp;quot;Asymmetrical Grooves&amp;quot;, &amp;quot;Pure Ruby&amp;quot;, &amp;quot;EVERLASTING HAPPiNESS&amp;quot;, &amp;quot;ex4v3&amp;quot;),
+ new MaDan(2734, 2417, 3089, 2974, &amp;quot;Bring Our Ignition Back&amp;quot;, &amp;quot;Unsan-musho&amp;quot;, &amp;quot;Electric Angel&amp;quot;, &amp;quot;Kegare Naki Bara Juuji&amp;quot;, &amp;quot;ex5v3&amp;quot;),
+ new MaDan(2483, 2276, 2921, 3194, &amp;quot;Defeat awaken battle ship&amp;quot;, &amp;quot;Extraction&amp;quot;, &amp;quot;Pastel Subliminal&amp;quot;, &amp;quot;Synthesized Fortress&amp;quot;, &amp;quot;ex6v3&amp;quot;),
+ new MaDan(2846, 2260, 2333, 3347, &amp;quot;LiFE Garden&amp;quot;, &amp;quot;Alpha&amp;quot;, &amp;quot;Stay Alive&amp;quot;, &amp;quot;Heaven's Fall&amp;quot;, &amp;quot;ex7v3&amp;quot;),
+ new MaDan(3789, 3663, 2424, 3255, &amp;quot;Hayabusa&amp;quot;, &amp;quot;Shuu no hazama&amp;quot;, &amp;quot;Amatsukami&amp;quot;, &amp;quot;CRIMSON FIGHTER&amp;quot;, &amp;quot;ex8v3&amp;quot;),
+ new MaDan(3888, 3030, 3581, 3700, &amp;quot;crazy_tek (DJ Noriken Remix)&amp;quot;, &amp;quot;Nhelv&amp;quot;, &amp;quot;Shuuten&amp;quot;, &amp;quot;Deadly force - Put an end&amp;quot;, &amp;quot;ex9v3&amp;quot;),
+ new MaDan(2828, 3362, 3393, 5100, &amp;quot;Infinity Heaven&amp;quot;, &amp;quot;NEURO-CLOUD-9&amp;quot;, &amp;quot;Kizuato&amp;quot;, &amp;quot;Runengon&amp;quot;, &amp;quot;exfinv3&amp;quot;),
+ ]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;可以看到，简单地调用构造函数新建对象。继续实现：
 我们可以写一个&lt;code&gt;init&lt;/code&gt;函数，根据需要创建结构体变量。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Dan&lt;span style="color:#7a8478"&gt;*&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;dan_data_init&lt;/span&gt;(Dan&lt;span style="color:#7a8478"&gt;*&lt;/span&gt;, &lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt;&lt;span style="color:#7a8478"&gt;*&lt;/span&gt; songs_key);
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;第二个参数是存放物量的数组，这样就实现了代码复用，减少重复代码的编写，定义一次所有物量即可。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#859289;font-style:italic"&gt;// 常规段
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; mld_1dan_total_keys[] &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; {&lt;span style="color:#d699b6"&gt;813&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;955&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;907&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;654&lt;/span&gt;};
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; mld_2dan_total_keys[] &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; {&lt;span style="color:#d699b6"&gt;1152&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;850&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;950&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;969&lt;/span&gt;};
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; mld_3dan_total_keys[] &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; {&lt;span style="color:#d699b6"&gt;1169&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1143&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;974&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1347&lt;/span&gt;};
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; mld_4dan_total_keys[] &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; {&lt;span style="color:#d699b6"&gt;1400&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1402&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1685&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1599&lt;/span&gt;};
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; mld_5dan_total_keys[] &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; {&lt;span style="color:#d699b6"&gt;1953&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2250&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2166&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1667&lt;/span&gt;};
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; mld_6dan_total_keys[] &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; {&lt;span style="color:#d699b6"&gt;1487&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1424&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1381&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1587&lt;/span&gt;};
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; mld_7dan_total_keys[] &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; {&lt;span style="color:#d699b6"&gt;1909&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1814&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1777&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2681&lt;/span&gt;};
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; mld_8dan_total_keys[] &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; {&lt;span style="color:#d699b6"&gt;1962&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1067&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2388&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1772&lt;/span&gt;};
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; mld_9dan_total_keys[] &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; {&lt;span style="color:#d699b6"&gt;1799&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2023&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2283&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;1787&lt;/span&gt;};
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; mld_10dan_total_keys[] &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; {&lt;span style="color:#d699b6"&gt;2606&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2188&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2194&lt;/span&gt;, &lt;span style="color:#d699b6"&gt;2187&lt;/span&gt;};
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这里目前把常规段都录入了，那要怎么按需匹配创建结构体变量呢？可以通过一个指针数组保存这些数据数组的地址，然后根据用户输入的数字直接作为索引，创建结构体变量并进行初始化赋值。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-c"&gt;Dan* dan_data_init(Dan*, int* songs_key);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;第二个参数是存放物量的数组，这样就实现了代码复用，减少重复代码的编写，定义一次所有物量即可。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-c"&gt;// 常规段
+int mld_1dan_total_keys[] = {813, 955, 907, 654};
+int mld_2dan_total_keys[] = {1152, 850, 950, 969};
+int mld_3dan_total_keys[] = {1169, 1143, 974, 1347};
+int mld_4dan_total_keys[] = {1400, 1402, 1685, 1599};
+int mld_5dan_total_keys[] = {1953, 2250, 2166, 1667};
+int mld_6dan_total_keys[] = {1487, 1424, 1381, 1587};
+int mld_7dan_total_keys[] = {1909, 1814, 1777, 2681};
+int mld_8dan_total_keys[] = {1962, 1067, 2388, 1772};
+int mld_9dan_total_keys[] = {1799, 2023, 2283, 1787};
+int mld_10dan_total_keys[] = {2606, 2188, 2194, 2187};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这里目前把常规段都录入了，那要怎么按需匹配创建结构体变量呢？可以通过一个指针数组保存这些数据数组的地址，然后根据用户输入的数字直接作为索引，创建结构体变量并进行初始化赋值。&lt;/p&gt;
 &lt;p&gt;优点：避免if/switch分支判断逐个比较，时间复杂度为常数阶。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt;&lt;span style="color:#7a8478"&gt;*&lt;/span&gt; dan_total_keys_index[] &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; {mld_1dan_total_keys, mld_2dan_total_keys, mld_3dan_total_keys, mld_4dan_total_keys, mld_5dan_total_keys, mld_6dan_total_keys, mld_7dan_total_keys, mld_8dan_total_keys, mld_9dan_total_keys, mld_10dan_total_keys};
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;后续接着往这个数组里面装指针即可。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-c"&gt;int* dan_total_keys_index[] = {mld_1dan_total_keys, mld_2dan_total_keys, mld_3dan_total_keys, mld_4dan_total_keys, mld_5dan_total_keys, mld_6dan_total_keys, mld_7dan_total_keys, mld_8dan_total_keys, mld_9dan_total_keys, mld_10dan_total_keys};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;后续接着往这个数组里面装指针即可。&lt;/p&gt;
 &lt;p&gt;基本的数据结构实现了，就可以开始研究一下算法，后续再录入数据吧。&lt;/p&gt;
 &lt;h2 id="算法实现"&gt;算法实现&lt;/h2&gt;
 &lt;p&gt;曾经听群友讲过这个东西核心理念是加权平均数，最近才学到，那就来看看怎么做这个平均数吧。&lt;/p&gt;
 &lt;p&gt;直接看原作者是怎么实现的&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-js" data-lang="js"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;function&lt;/span&gt; normal_calculation(accArr, noteArr) {
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;            &lt;span style="color:#e67e80"&gt;let&lt;/span&gt; score1 &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; accArr[&lt;span style="color:#d699b6"&gt;0&lt;/span&gt;]
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;            &lt;span style="color:#e67e80"&gt;let&lt;/span&gt; temp1 &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; (noteArr[&lt;span style="color:#d699b6"&gt;0&lt;/span&gt;] &lt;span style="color:#7a8478"&gt;+&lt;/span&gt; noteArr[&lt;span style="color:#d699b6"&gt;1&lt;/span&gt;]) &lt;span style="color:#7a8478"&gt;*&lt;/span&gt; accArr[&lt;span style="color:#d699b6"&gt;1&lt;/span&gt;] &lt;span style="color:#7a8478"&gt;-&lt;/span&gt; noteArr[&lt;span style="color:#d699b6"&gt;0&lt;/span&gt;] &lt;span style="color:#7a8478"&gt;*&lt;/span&gt; accArr[&lt;span style="color:#d699b6"&gt;0&lt;/span&gt;]
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;            &lt;span style="color:#e67e80"&gt;let&lt;/span&gt; score2 &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; temp1 &lt;span style="color:#7a8478"&gt;/&lt;/span&gt; (noteArr[&lt;span style="color:#d699b6"&gt;1&lt;/span&gt;])
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;            &lt;span style="color:#e67e80"&gt;let&lt;/span&gt; temp2 &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; (noteArr[&lt;span style="color:#d699b6"&gt;0&lt;/span&gt;] &lt;span style="color:#7a8478"&gt;+&lt;/span&gt; noteArr[&lt;span style="color:#d699b6"&gt;1&lt;/span&gt;] &lt;span style="color:#7a8478"&gt;+&lt;/span&gt; noteArr[&lt;span style="color:#d699b6"&gt;2&lt;/span&gt;]) &lt;span style="color:#7a8478"&gt;*&lt;/span&gt; accArr[&lt;span style="color:#d699b6"&gt;2&lt;/span&gt;] &lt;span style="color:#7a8478"&gt;-&lt;/span&gt; (noteArr[&lt;span style="color:#d699b6"&gt;0&lt;/span&gt;] &lt;span style="color:#7a8478"&gt;+&lt;/span&gt; noteArr[&lt;span style="color:#d699b6"&gt;1&lt;/span&gt;]) &lt;span style="color:#7a8478"&gt;*&lt;/span&gt; accArr[&lt;span style="color:#d699b6"&gt;1&lt;/span&gt;]
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;            &lt;span style="color:#e67e80"&gt;let&lt;/span&gt; score3 &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; temp2 &lt;span style="color:#7a8478"&gt;/&lt;/span&gt; (noteArr[&lt;span style="color:#d699b6"&gt;2&lt;/span&gt;])
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;            &lt;span style="color:#e67e80"&gt;let&lt;/span&gt; temp3 &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; (noteArr[&lt;span style="color:#d699b6"&gt;0&lt;/span&gt;] &lt;span style="color:#7a8478"&gt;+&lt;/span&gt; noteArr[&lt;span style="color:#d699b6"&gt;1&lt;/span&gt;] &lt;span style="color:#7a8478"&gt;+&lt;/span&gt; noteArr[&lt;span style="color:#d699b6"&gt;2&lt;/span&gt;] &lt;span style="color:#7a8478"&gt;+&lt;/span&gt; noteArr[&lt;span style="color:#d699b6"&gt;3&lt;/span&gt;]) &lt;span style="color:#7a8478"&gt;*&lt;/span&gt; accArr[&lt;span style="color:#d699b6"&gt;3&lt;/span&gt;] &lt;span style="color:#7a8478"&gt;-&lt;/span&gt; (noteArr[&lt;span style="color:#d699b6"&gt;0&lt;/span&gt;] &lt;span style="color:#7a8478"&gt;+&lt;/span&gt; noteArr[&lt;span style="color:#d699b6"&gt;1&lt;/span&gt;] &lt;span style="color:#7a8478"&gt;+&lt;/span&gt; noteArr[&lt;span style="color:#d699b6"&gt;2&lt;/span&gt;]) &lt;span style="color:#7a8478"&gt;*&lt;/span&gt; accArr[&lt;span style="color:#d699b6"&gt;2&lt;/span&gt;]
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;            &lt;span style="color:#e67e80"&gt;let&lt;/span&gt; score4 &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; temp3 &lt;span style="color:#7a8478"&gt;/&lt;/span&gt; (noteArr[&lt;span style="color:#d699b6"&gt;3&lt;/span&gt;])
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;            &lt;span style="color:#e67e80"&gt;return&lt;/span&gt; [score1, score2, score3, score4]
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;        }
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;第一首的ACC不变，这个不说了。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-js"&gt; function normal_calculation(accArr, noteArr) {
+            let score1 = accArr[0]
+            let temp1 = (noteArr[0] + noteArr[1]) * accArr[1] - noteArr[0] * accArr[0]
+            let score2 = temp1 / (noteArr[1])
+            let temp2 = (noteArr[0] + noteArr[1] + noteArr[2]) * accArr[2] - (noteArr[0] + noteArr[1]) * accArr[1]
+            let score3 = temp2 / (noteArr[2])
+            let temp3 = (noteArr[0] + noteArr[1] + noteArr[2] + noteArr[3]) * accArr[3] - (noteArr[0] + noteArr[1] + noteArr[2]) * accArr[2]
+            let score4 = temp3 / (noteArr[3])
+            return [score1, score2, score3, score4]
+        }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;第一首的ACC不变，这个不说了。&lt;/p&gt;
 &lt;p&gt;这个temp算的是什么？？？&lt;/p&gt;
 &lt;p&gt;刚刚去看了一下引用，accArr存放着四首的玩家成绩Acc，noteArr存着这四首歌的Note总数量。&lt;/p&gt;
 &lt;p&gt;还是没搞明白这个temp在干什么，看这段代码是真想骂街啊。&lt;/p&gt;
 &lt;p&gt;用1dan举例子，Note和ACC：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;813, 955, 907, 654
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;99 98 96 94
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;del&gt;叠批来了&lt;/del&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;813, 955, 907, 654
+99 98 96 94
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;del&gt;叠批来了&lt;/del&gt;&lt;/p&gt;
 &lt;p&gt;Malody的每一个判定都有不同的权重，都有对应不同的Acc衰减，所以每一首歌曲结束后都是一个加权平均数。程序要做的事情就是逆推出原本的Acc。&lt;/p&gt;
 &lt;p&gt;所以&lt;code&gt;accArr&lt;/code&gt;是一个累计加权平均值数组。
 &lt;code&gt;noteArr&lt;/code&gt;是每批数据的权重。
 目标：计算每批数据的&lt;strong&gt;独立加权平均值&lt;/strong&gt;。&lt;/p&gt;
 &lt;h3 id="数学逻辑"&gt;数学逻辑&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;第一批数据：&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-js" data-lang="js"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e67e80"&gt;let&lt;/span&gt; score1 &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; accArr[&lt;span style="color:#d699b6"&gt;0&lt;/span&gt;]
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;直接使用第一个累计平均值a1，此时只有第一批数据。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-js"&gt;let score1 = accArr[0]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;直接使用第一个累计平均值a1，此时只有第一批数据。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;第二批数据：&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-js" data-lang="js"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e67e80"&gt;let&lt;/span&gt; temp1 &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; (noteArr[&lt;span style="color:#d699b6"&gt;0&lt;/span&gt;] &lt;span style="color:#7a8478"&gt;+&lt;/span&gt; noteArr[&lt;span style="color:#d699b6"&gt;1&lt;/span&gt;]) &lt;span style="color:#7a8478"&gt;*&lt;/span&gt; accArr[&lt;span style="color:#d699b6"&gt;1&lt;/span&gt;] &lt;span style="color:#7a8478"&gt;-&lt;/span&gt; noteArr[&lt;span style="color:#d699b6"&gt;0&lt;/span&gt;] &lt;span style="color:#7a8478"&gt;*&lt;/span&gt; accArr[&lt;span style="color:#d699b6"&gt;0&lt;/span&gt;] 
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e67e80"&gt;let&lt;/span&gt; score2 &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; temp1 &lt;span style="color:#7a8478"&gt;/&lt;/span&gt; noteArr[&lt;span style="color:#d699b6"&gt;1&lt;/span&gt;]
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;pre&gt;&lt;code class="language-js"&gt;let temp1 = (noteArr[0] + noteArr[1]) * accArr[1] - noteArr[0] * accArr[0] 
+let score2 = temp1 / noteArr[1]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
 &lt;li&gt;累计平均值&lt;code&gt;a2 = (n1s1 +n2s2) / (n1 + n2)&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;解得&lt;code&gt;s2&lt;/code&gt;:&lt;code&gt;(n1 +n2)a2 - n1s1 / n2&lt;/code&gt;
 &amp;hellip;&amp;hellip;&lt;/li&gt;
@@ -650,55 +681,58 @@
 平均分：&lt;code&gt;score4 = 4050 / 40 = 101.25&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;写着写着突然发现&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e67e80"&gt;typedef&lt;/span&gt; &lt;span style="color:#e67e80"&gt;struct&lt;/span&gt; Dan
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;    &lt;span style="color:#859289;font-style:italic"&gt;// 四首歌的物量
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;    &lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt;&lt;span style="color:#7a8478"&gt;*&lt;/span&gt; songs_total_keys;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;} Dan;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这个数据结构只需要一个数组。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-c"&gt;typedef struct Dan
+{
+    // 四首歌的物量
+    int* songs_total_keys;
+} Dan;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这个数据结构只需要一个数组。&lt;/p&gt;
 &lt;p&gt;人话说完了，该说说计算机的话了。&lt;/p&gt;
 &lt;h3 id="实现"&gt;实现&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#dbbc7f"&gt;double&lt;/span&gt; &lt;span style="color:#7a8478"&gt;*&lt;/span&gt;&lt;span style="color:#b2c98f"&gt;common_calc&lt;/span&gt;(&lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; &lt;span style="color:#7a8478"&gt;*&lt;/span&gt;total_keys, &lt;span style="color:#dbbc7f"&gt;double&lt;/span&gt; &lt;span style="color:#7a8478"&gt;*&lt;/span&gt;player_acc)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;// 权重：total_keys
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;// 分数：player_acc
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;// 返回的数组，保存计算完成的Acc
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;double&lt;/span&gt; &lt;span style="color:#7a8478"&gt;*&lt;/span&gt;result &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; (&lt;span style="color:#dbbc7f"&gt;double&lt;/span&gt; &lt;span style="color:#7a8478"&gt;*&lt;/span&gt;)&lt;span style="color:#b2c98f"&gt;malloc&lt;/span&gt;(&lt;span style="color:#e67e80"&gt;sizeof&lt;/span&gt;(&lt;span style="color:#dbbc7f"&gt;double&lt;/span&gt;) &lt;span style="color:#7a8478"&gt;*&lt;/span&gt; &lt;span style="color:#d699b6"&gt;4&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;if&lt;/span&gt; (result &lt;span style="color:#7a8478"&gt;==&lt;/span&gt; &lt;span style="color:#d699b6"&gt;NULL&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#b2c98f"&gt;printf&lt;/span&gt;(&lt;span style="color:#b2c98f"&gt;&amp;#34;[ERROR] 内存分配失败！&amp;#34;&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;return&lt;/span&gt; &lt;span style="color:#d699b6"&gt;NULL&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;double&lt;/span&gt; song1_acc, song2_acc, song3_acc, song4_acc;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;// 第一首歌：直接取第一个累积平均值
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; result[&lt;span style="color:#d699b6"&gt;0&lt;/span&gt;] &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; player_acc[&lt;span style="color:#d699b6"&gt;0&lt;/span&gt;];
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;// 第二首歌：((n0 + n1)*a1 - n0*a0) / n1
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;double&lt;/span&gt; sum2 &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; total_keys[&lt;span style="color:#d699b6"&gt;0&lt;/span&gt;] &lt;span style="color:#7a8478"&gt;+&lt;/span&gt; total_keys[&lt;span style="color:#d699b6"&gt;1&lt;/span&gt;];
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; result[&lt;span style="color:#d699b6"&gt;1&lt;/span&gt;] &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; (sum2 &lt;span style="color:#7a8478"&gt;*&lt;/span&gt; player_acc[&lt;span style="color:#d699b6"&gt;1&lt;/span&gt;] &lt;span style="color:#7a8478"&gt;-&lt;/span&gt; total_keys[&lt;span style="color:#d699b6"&gt;0&lt;/span&gt;] &lt;span style="color:#7a8478"&gt;*&lt;/span&gt; player_acc[&lt;span style="color:#d699b6"&gt;0&lt;/span&gt;]) &lt;span style="color:#7a8478"&gt;/&lt;/span&gt; total_keys[&lt;span style="color:#d699b6"&gt;1&lt;/span&gt;];
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;// 第三首歌：((n0 + n1 + n2)*a2 - (n0 + n1)*a1) / n2
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;double&lt;/span&gt; sum3 &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; sum2 &lt;span style="color:#7a8478"&gt;+&lt;/span&gt; total_keys[&lt;span style="color:#d699b6"&gt;2&lt;/span&gt;];
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; result[&lt;span style="color:#d699b6"&gt;2&lt;/span&gt;] &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; (sum3 &lt;span style="color:#7a8478"&gt;*&lt;/span&gt; player_acc[&lt;span style="color:#d699b6"&gt;2&lt;/span&gt;] &lt;span style="color:#7a8478"&gt;-&lt;/span&gt; sum2 &lt;span style="color:#7a8478"&gt;*&lt;/span&gt; player_acc[&lt;span style="color:#d699b6"&gt;1&lt;/span&gt;]) &lt;span style="color:#7a8478"&gt;/&lt;/span&gt; total_keys[&lt;span style="color:#d699b6"&gt;2&lt;/span&gt;];
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;// 第四首歌：((n0 + n1 + n2 + n3)*a3 - (n0 + n1 + n2)*a2) / n3
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#dbbc7f"&gt;double&lt;/span&gt; sum4 &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; sum3 &lt;span style="color:#7a8478"&gt;+&lt;/span&gt; total_keys[&lt;span style="color:#d699b6"&gt;3&lt;/span&gt;];
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; result[&lt;span style="color:#d699b6"&gt;3&lt;/span&gt;] &lt;span style="color:#7a8478"&gt;=&lt;/span&gt; (sum4 &lt;span style="color:#7a8478"&gt;*&lt;/span&gt; player_acc[&lt;span style="color:#d699b6"&gt;3&lt;/span&gt;] &lt;span style="color:#7a8478"&gt;-&lt;/span&gt; sum3 &lt;span style="color:#7a8478"&gt;*&lt;/span&gt; player_acc[&lt;span style="color:#d699b6"&gt;2&lt;/span&gt;]) &lt;span style="color:#7a8478"&gt;/&lt;/span&gt; total_keys[&lt;span style="color:#d699b6"&gt;3&lt;/span&gt;];
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;return&lt;/span&gt; result;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后就是主函数处理用户输入了，没什么含金量，不水了。&lt;/p&gt;</description></item><item><title>C语言的头文件与OOP范式的抽象类、接口的异同点</title><link>http://localhost:1313/posts/c%E8%AF%AD%E8%A8%80%E7%9A%84%E5%A4%B4%E6%96%87%E4%BB%B6%E4%B8%8Eoop%E8%8C%83%E5%BC%8F%E7%9A%84%E6%8A%BD%E8%B1%A1%E7%B1%BB%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%BC%82%E5%90%8C%E7%82%B9/</link><pubDate>Fri, 06 Jun 2025 20:16:56 +0000</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>http://localhost:1313/posts/c%E8%AF%AD%E8%A8%80%E7%9A%84%E5%A4%B4%E6%96%87%E4%BB%B6%E4%B8%8Eoop%E8%8C%83%E5%BC%8F%E7%9A%84%E6%8A%BD%E8%B1%A1%E7%B1%BB%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%BC%82%E5%90%8C%E7%82%B9/</guid><description>&lt;h2 id="引言"&gt;引言&lt;/h2&gt;
+&lt;pre&gt;&lt;code class="language-c"&gt;double *common_calc(int *total_keys, double *player_acc)
+{
+ // 权重：total_keys
+ // 分数：player_acc
+ // 返回的数组，保存计算完成的Acc
+ double *result = (double *)malloc(sizeof(double) * 4);
+ if (result == NULL)
+ {
+ printf(&amp;quot;[ERROR] 内存分配失败！&amp;quot;);
+ return NULL;
+ }
+
+ double song1_acc, song2_acc, song3_acc, song4_acc;
+
+ // 第一首歌：直接取第一个累积平均值
+ result[0] = player_acc[0];
+
+ // 第二首歌：((n0 + n1)*a1 - n0*a0) / n1
+ double sum2 = total_keys[0] + total_keys[1];
+ result[1] = (sum2 * player_acc[1] - total_keys[0] * player_acc[0]) / total_keys[1];
+
+ // 第三首歌：((n0 + n1 + n2)*a2 - (n0 + n1)*a1) / n2
+ double sum3 = sum2 + total_keys[2];
+ result[2] = (sum3 * player_acc[2] - sum2 * player_acc[1]) / total_keys[2];
+
+ // 第四首歌：((n0 + n1 + n2 + n3)*a3 - (n0 + n1 + n2)*a2) / n3
+ double sum4 = sum3 + total_keys[3];
+ result[3] = (sum4 * player_acc[3] - sum3 * player_acc[2]) / total_keys[3];
+
+ return result;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;然后就是主函数处理用户输入了，没什么含金量，不水了。&lt;/p&gt;</description></item><item><title>C语言的头文件与OOP范式的抽象类、接口的异同点</title><link>https://blog.verdant.ee/posts/c%E8%AF%AD%E8%A8%80%E7%9A%84%E5%A4%B4%E6%96%87%E4%BB%B6%E4%B8%8Eoop%E8%8C%83%E5%BC%8F%E7%9A%84%E6%8A%BD%E8%B1%A1%E7%B1%BB%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%BC%82%E5%90%8C%E7%82%B9/</link><pubDate>Fri, 06 Jun 2025 20:16:56 +0000</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>https://blog.verdant.ee/posts/c%E8%AF%AD%E8%A8%80%E7%9A%84%E5%A4%B4%E6%96%87%E4%BB%B6%E4%B8%8Eoop%E8%8C%83%E5%BC%8F%E7%9A%84%E6%8A%BD%E8%B1%A1%E7%B1%BB%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%BC%82%E5%90%8C%E7%82%B9/</guid><description>&lt;h2 id="引言"&gt;引言&lt;/h2&gt;
 &lt;p&gt;说真的，从去年十一月份开始接触编程，到现在也好几个月了，自认为进步速度较快，但速度快也就导致了深度浅，走马观花式的学习，现在还是有很多理解不深刻的点，今天来仔细研究一下这个问题。我也是先入为主，第一门编程语言学的是Java，所以再接触C，一些概念就混淆了。&lt;/p&gt;
 &lt;h2 id="c语言模块化设计的核心"&gt;C语言模块化设计的核心&lt;/h2&gt;
 &lt;p&gt;头文件本质是对外提供的接口&lt;strong&gt;契约&lt;/strong&gt;，包含函数声明、宏定义、结构体类型声明。例如：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#859289;font-style:italic"&gt;// math_utils.h
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e67e80"&gt;#ifndef MATH_UTILS_H
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e67e80"&gt;#define MATH_UTILS_H
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;add&lt;/span&gt;(&lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; a, &lt;span style="color:#dbbc7f"&gt;int&lt;/span&gt; b); &lt;span style="color:#859289;font-style:italic"&gt;// 函数声明
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e67e80"&gt;#endif
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;pre&gt;&lt;code class="language-c"&gt;// math_utils.h
+#ifndef MATH_UTILS_H
+#define MATH_UTILS_H
+int add(int a, int b); // 函数声明
+#endif
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
 &lt;li&gt;编译隔离：通过头文件守卫(#ifndef)实现模块之间的编译隔离。&lt;/li&gt;
 &lt;li&gt;虽然头文件可以实现函数，但这会破坏模块化。&lt;/li&gt;
 &lt;/ul&gt;
@@ -716,7 +750,7 @@
 &lt;ul&gt;
 &lt;li&gt;抽象粒度：C模块关注功能单元（做什么），而OOP抽象关注对象行为契约（是谁做什么）&lt;/li&gt;
 &lt;li&gt;扩展方式：C通过函数指针传递上下文，OOP通过继承、实现扩展。&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>这样的博客的意义是？</title><link>http://localhost:1313/posts/%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E5%8A%A0%E5%AF%86%E7%A0%81%E7%9A%84%E6%84%8F%E4%B9%89%E6%98%AF/</link><pubDate>Mon, 19 May 2025 21:53:10 +0000</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>http://localhost:1313/posts/%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E5%8A%A0%E5%AF%86%E7%A0%81%E7%9A%84%E6%84%8F%E4%B9%89%E6%98%AF/</guid><description>&lt;h2 id="博客文章的密码"&gt;博客文章的密码&lt;/h2&gt;
+&lt;/ul&gt;</description></item><item><title>这样的博客的意义是？</title><link>https://blog.verdant.ee/posts/%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E5%8A%A0%E5%AF%86%E7%A0%81%E7%9A%84%E6%84%8F%E4%B9%89%E6%98%AF/</link><pubDate>Mon, 19 May 2025 21:53:10 +0000</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>https://blog.verdant.ee/posts/%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E5%8A%A0%E5%AF%86%E7%A0%81%E7%9A%84%E6%84%8F%E4%B9%89%E6%98%AF/</guid><description>&lt;h2 id="博客文章的密码"&gt;博客文章的密码&lt;/h2&gt;
 &lt;p&gt;博客文章加密码，意义何在？&lt;/p&gt;
 &lt;p&gt;写博客的意义是？&lt;/p&gt;
 &lt;p&gt;写博客的意义之一，不是放大自己的声音，表达自己的观点吗？&lt;/p&gt;
@@ -732,15 +766,17 @@
 &lt;p&gt;最后，只能说上一句：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;我写博客只为取悦自己。&lt;/p&gt;
-&lt;/blockquote&gt;</description></item><item><title>CSS鼠标指针操作</title><link>http://localhost:1313/posts/css%E9%BC%A0%E6%A0%87%E6%8C%87%E9%92%88%E6%93%8D%E4%BD%9C/</link><pubDate>Tue, 04 Mar 2025 10:13:10 +0000</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>http://localhost:1313/posts/css%E9%BC%A0%E6%A0%87%E6%8C%87%E9%92%88%E6%93%8D%E4%BD%9C/</guid><description>&lt;p&gt;今天在上网冲浪的时候，看到Github上有一个明日方舟风格的&lt;a href="https://github.com/Yue-plus/hexo-theme-arknights"&gt;主题&lt;/a&gt;，这个主题让我感到新鲜的一点是网页中的鼠标指针特效&lt;/p&gt;
+&lt;/blockquote&gt;</description></item><item><title>CSS鼠标指针操作</title><link>https://blog.verdant.ee/posts/css%E9%BC%A0%E6%A0%87%E6%8C%87%E9%92%88%E6%93%8D%E4%BD%9C/</link><pubDate>Tue, 04 Mar 2025 10:13:10 +0000</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>https://blog.verdant.ee/posts/css%E9%BC%A0%E6%A0%87%E6%8C%87%E9%92%88%E6%93%8D%E4%BD%9C/</guid><description>&lt;p&gt;今天在上网冲浪的时候，看到Github上有一个明日方舟风格的&lt;a href="https://github.com/Yue-plus/hexo-theme-arknights"&gt;主题&lt;/a&gt;，这个主题让我感到新鲜的一点是网页中的鼠标指针特效&lt;/p&gt;
 &lt;p&gt;这么舒服的动画效果我必须也要做一个，说干就干，新建个HTML文档。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-css" data-lang="css"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#7a8478"&gt;*&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;cursor&lt;/span&gt;: &lt;span style="color:#e67e80"&gt;pointer&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这样，我们整个网页的鼠标指针样式就都变成了小手指的样式，不过这样还是太丑，我们仿照arknights主题的样式，打开PS，画一个指针图标出来看看&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-css"&gt;* {
+ cursor: pointer;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这样，我们整个网页的鼠标指针样式就都变成了小手指的样式，不过这样还是太丑，我们仿照arknights主题的样式，打开PS，画一个指针图标出来看看&lt;/p&gt;
 &lt;p&gt;使用url()属性可以替换自己的素材图片&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-css" data-lang="css"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#7a8478"&gt;*&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;cursor&lt;/span&gt;: &lt;span style="color:#d699b6"&gt;url&lt;/span&gt;(&lt;span style="color:#b2c98f"&gt;&amp;#34;./source/cu.ico&amp;#34;&lt;/span&gt;), &lt;span style="color:#e67e80"&gt;auto&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这样鼠标指针的效果就做好了（因为我的截图软件要用鼠标指针选区，所以截不到图）
+&lt;pre&gt;&lt;code class="language-css"&gt;* {
+ cursor: url(&amp;quot;./source/cu.ico&amp;quot;), auto;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这样鼠标指针的效果就做好了（因为我的截图软件要用鼠标指针选区，所以截不到图）
 a&lt;/p&gt;</description></item></channel></rss>

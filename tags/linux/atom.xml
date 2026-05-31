@@ -1,119 +1,128 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linux on 映屿</title><link>http://localhost:1313/tags/linux/</link><description>Recent content in Linux on 映屿</description><generator>Hugo</generator><language>zh-cn</language><managingEditor>im@verdant.ee (五葉地錦)</managingEditor><webMaster>im@verdant.ee (五葉地錦)</webMaster><lastBuildDate>Wed, 12 Nov 2025 16:48:02 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/linux/atom.xml" rel="self" type="application/rss+xml"/><item><title>使用Emacs收发邮件</title><link>http://localhost:1313/posts/email-with-emacs/</link><pubDate>Wed, 12 Nov 2025 16:48:02 +0800</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>http://localhost:1313/posts/email-with-emacs/</guid><description>&lt;p&gt;作为一个合格的操作系统，肯定少不了Email. 我的配置很简单，只要实现基础的收发功能即可，每天的邮件量不大。在这里记录一下配置。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linux on 映屿</title><link>https://blog.verdant.ee/tags/linux/</link><description>Recent content in Linux on 映屿</description><generator>Hugo</generator><language>zh-cn</language><managingEditor>im@verdant.ee (五葉地錦)</managingEditor><webMaster>im@verdant.ee (五葉地錦)</webMaster><lastBuildDate>Wed, 12 Nov 2025 16:48:02 +0800</lastBuildDate><atom:link href="http://blog.verdant.ee/tags/linux/atom.xml" rel="self" type="application/rss+xml"/><item><title>使用Emacs收发邮件</title><link>https://blog.verdant.ee/posts/email-with-emacs/</link><pubDate>Wed, 12 Nov 2025 16:48:02 +0800</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>https://blog.verdant.ee/posts/email-with-emacs/</guid><description>&lt;p&gt;作为一个合格的操作系统，肯定少不了Email. 我的配置很简单，只要实现基础的收发功能即可，每天的邮件量不大。在这里记录一下配置。&lt;/p&gt;
 &lt;h2 id="收邮件"&gt;收邮件&lt;/h2&gt;
 &lt;p&gt;我尝试过 &lt;strong&gt;&lt;a href="https://www.fetchmail.info"&gt;fetchmail&lt;/a&gt;&lt;/strong&gt;，但不知道这个东西拿到的邮件都在哪，所以最后还是选择了 &lt;strong&gt;mbsync&lt;/strong&gt;.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# ~/.mbsyncrc
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# GlowIsle 账户配置
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;IMAPAccount GlowIsle
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Host imap.qiye.aliyun.com
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Port 993
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;User i@glowisle.me
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Pass ******
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;TLSType IMAPS
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;AuthMechs LOGIN
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;CertificateFile /etc/ssl/certs/ca-certificates.crt
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# 远程存储
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;IMAPStore glowisle-remote
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Account GlowIsle
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# 本地存储
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;MaildirStore glowisle-local
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Path ~/mail/GlowIsle/
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Inbox ~/mail/GlowIsle/Inbox
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Subfolders Verbatim
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# 同步通道
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Channel glowisle
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Far :glowisle-remote:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Near :glowisle-local:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Patterns *
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Create Both
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Sync All
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Expunge Both
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;SyncState *
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="发邮件"&gt;发邮件&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# ~/.msmtprc
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# glowisle
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;account glowisle 
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;host smtp.qiye.aliyun.com
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;from i@glowisle.me
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;auth login
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;port 465
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;user i@glowisle.me
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;password ******* 
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;auth on
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tls on
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tls_starttls off #使用465端口时不能开启
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tls_certcheck off 
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tls_trust_file /etc/ssl/certs/ca-certificates.crt
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;account default : glowisle
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="emacs-配置"&gt;Emacs 配置&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;# ~/.mbsyncrc
+# GlowIsle 账户配置
+IMAPAccount GlowIsle
+Host imap.qiye.aliyun.com
+Port 993
+User i@glowisle.me
+Pass ******
+TLSType IMAPS
+AuthMechs LOGIN
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+# 远程存储
+IMAPStore glowisle-remote
+Account GlowIsle
+
+# 本地存储
+MaildirStore glowisle-local
+Path ~/mail/GlowIsle/
+Inbox ~/mail/GlowIsle/Inbox
+Subfolders Verbatim
+
+# 同步通道
+Channel glowisle
+Far :glowisle-remote:
+Near :glowisle-local:
+Patterns *
+Create Both
+Sync All
+Expunge Both
+SyncState *
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="发邮件"&gt;发邮件&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;# ~/.msmtprc
+# glowisle
+account glowisle 
+host smtp.qiye.aliyun.com
+from i@glowisle.me
+auth login
+port 465
+user i@glowisle.me
+password ******* 
+auth on
+tls on
+tls_starttls off #使用465端口时不能开启
+tls_certcheck off 
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
+
+account default : glowisle
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="emacs-配置"&gt;Emacs 配置&lt;/h2&gt;
 &lt;p&gt;在Doom Emacs的&lt;code&gt;init.el&lt;/code&gt;中开启 mu4e&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:email&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (mu4e +org)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#859289;font-style:italic"&gt;;; config.el&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(after! mu4e
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;;; 基本设置&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (&lt;span style="color:#e67e80"&gt;setq&lt;/span&gt; mu4e-maildir &lt;span style="color:#b2c98f"&gt;&amp;#34;~/mail&amp;#34;&lt;/span&gt; &lt;span style="color:#859289;font-style:italic"&gt;; 邮件目录&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; mu4e-get-mail-command &lt;span style="color:#b2c98f"&gt;&amp;#34;mbsync -a&amp;#34;&lt;/span&gt; &lt;span style="color:#859289;font-style:italic"&gt;; 接收邮件命令&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; mu4e-update-interval &lt;span style="color:#d699b6"&gt;300&lt;/span&gt; &lt;span style="color:#859289;font-style:italic"&gt;; 自动更新间隔（秒）&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; mu4e-view-show-images &lt;span style="color:#d699b6"&gt;t&lt;/span&gt; &lt;span style="color:#859289;font-style:italic"&gt;; 显示图片&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; mu4e-compose-signature &lt;span style="color:#b2c98f"&gt;&amp;#34;Best regards.\nVerdant&amp;#34;&lt;/span&gt;) &lt;span style="color:#859289;font-style:italic"&gt;; 邮件签名&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;;; 使用 msmtp 发送邮件&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (&lt;span style="color:#e67e80"&gt;setq&lt;/span&gt; message-send-mail-function &lt;span style="color:#e69875"&gt;&amp;#39;message-send-mail-with-sendmail&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; sendmail-program &lt;span style="color:#b2c98f"&gt;&amp;#34;/usr/bin/msmtp&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; sendmail-arguments &lt;span style="color:#7a8478"&gt;&amp;#39;&lt;/span&gt;(&lt;span style="color:#b2c98f"&gt;&amp;#34;--read-envelope-from&amp;#34;&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;--read-recipients&amp;#34;&lt;/span&gt;))
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (&lt;span style="color:#e67e80"&gt;setq&lt;/span&gt; mu4e-contexts
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (list
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (make-mu4e-context
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:name&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;GlowIsle&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:match-func&lt;/span&gt; (&lt;span style="color:#d699b6"&gt;lambda&lt;/span&gt; (msg)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (&lt;span style="color:#d699b6"&gt;when&lt;/span&gt; msg
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (string-match-p &lt;span style="color:#b2c98f"&gt;&amp;#34;^/GlowIsle&amp;#34;&lt;/span&gt; (mu4e-message-field msg &lt;span style="color:#e69875"&gt;:maildir&lt;/span&gt;))))
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:vars&lt;/span&gt; &lt;span style="color:#7a8478"&gt;&amp;#39;&lt;/span&gt;((user-mail-address &lt;span style="color:#7a8478"&gt;.&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;i@glowisle.me&amp;#34;&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (user-full-name &lt;span style="color:#7a8478"&gt;.&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;Verdant&amp;#34;&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (smtpmail-smtp-server &lt;span style="color:#7a8478"&gt;.&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;smtp.qiye.aliyun.com&amp;#34;&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (smtpmail-smtp-service &lt;span style="color:#7a8478"&gt;.&lt;/span&gt; &lt;span style="color:#d699b6"&gt;465&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (smtpmail-stream-type &lt;span style="color:#7a8478"&gt;.&lt;/span&gt; starttls)))))
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; )
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="基本使用"&gt;基本使用&lt;/h2&gt;
+&lt;pre&gt;&lt;code class="language-lisp"&gt; :email
+ (mu4e +org)
+ 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class="language-lisp"&gt;;; config.el
+(after! mu4e
+ ;; 基本设置
+ (setq mu4e-maildir &amp;quot;~/mail&amp;quot; ; 邮件目录
+ mu4e-get-mail-command &amp;quot;mbsync -a&amp;quot; ; 接收邮件命令
+ mu4e-update-interval 300 ; 自动更新间隔（秒）
+ mu4e-view-show-images t ; 显示图片
+ mu4e-compose-signature &amp;quot;Best regards.\nVerdant&amp;quot;) ; 邮件签名
+
+ ;; 使用 msmtp 发送邮件
+ (setq message-send-mail-function 'message-send-mail-with-sendmail
+ sendmail-program &amp;quot;/usr/bin/msmtp&amp;quot;
+ sendmail-arguments '(&amp;quot;--read-envelope-from&amp;quot; &amp;quot;--read-recipients&amp;quot;))
+
+
+ (setq mu4e-contexts
+ (list
+ (make-mu4e-context
+ :name &amp;quot;GlowIsle&amp;quot;
+ :match-func (lambda (msg)
+ (when msg
+ (string-match-p &amp;quot;^/GlowIsle&amp;quot; (mu4e-message-field msg :maildir))))
+ :vars '((user-mail-address . &amp;quot;i@glowisle.me&amp;quot;)
+ (user-full-name . &amp;quot;Verdant&amp;quot;)
+ (smtpmail-smtp-server . &amp;quot;smtp.qiye.aliyun.com&amp;quot;)
+ (smtpmail-smtp-service . 465)
+ (smtpmail-stream-type . starttls)))))
+
+ )
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="基本使用"&gt;基本使用&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;SPC o m&lt;/code&gt; 进入 mu4e 主页面&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Basics
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; * [J]ump to some maildir
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; * enter a [s]earch query
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; * [C]ompose a new message
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Bookmarks
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; * [bu] Unread messages (0/0)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; * [bt] Today&amp;#39;s messages (0/14)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; * [bw] Last 7 days
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; * [bp] Messages with images (0/0)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; * [bf] Flagged messages (0/1)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Misc
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; * [;]Switch focus
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; * [u]pdate email &amp;amp; database
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; * [N]ews
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; * [A]bout mu4e
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; * [H]elp
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; * [q]uit
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;p&gt;微软的Outlook邮箱使用OAuth2.0认证，我暂时没找到成功的解决方案能在Emacs上使用，如果有哪位路过的好哥们知道方法请留言或&lt;a href="mailto:i@glowisle.me"&gt;发个邮件&lt;/a&gt;探讨一下！&lt;/p&gt;</description></item><item><title>Tmux配置记录</title><link>http://localhost:1313/posts/tmux%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/</link><pubDate>Sat, 21 Jun 2025 14:19:36 +0000</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>http://localhost:1313/posts/tmux%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/</guid><description>&lt;p&gt;TMux 是终端复用神器，让你在一个终端窗口管理多个会话、窗口和窗格。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Basics
+
+ * [J]ump to some maildir
+ * enter a [s]earch query
+ * [C]ompose a new message
+
+Bookmarks
+
+ * [bu] Unread messages (0/0)
+ * [bt] Today's messages (0/14)
+ * [bw] Last 7 days
+ * [bp] Messages with images (0/0)
+ * [bf] Flagged messages (0/1)
+
+Misc
+
+ * [;]Switch focus
+ * [u]pdate email &amp;amp; database
+
+ * [N]ews
+ * [A]bout mu4e
+ * [H]elp
+ * [q]uit
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;p&gt;微软的Outlook邮箱使用OAuth2.0认证，我暂时没找到成功的解决方案能在Emacs上使用，如果有哪位路过的好哥们知道方法请留言或&lt;a href="mailto:i@glowisle.me"&gt;发个邮件&lt;/a&gt;探讨一下！&lt;/p&gt;</description></item><item><title>Tmux配置记录</title><link>https://blog.verdant.ee/posts/tmux%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/</link><pubDate>Sat, 21 Jun 2025 14:19:36 +0000</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>https://blog.verdant.ee/posts/tmux%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/</guid><description>&lt;p&gt;TMux 是终端复用神器，让你在一个终端窗口管理多个会话、窗口和窗格。&lt;/p&gt;
 &lt;p&gt;基础操作：启动Tmux&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tmux
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;所以我选择在&lt;code&gt;~/.bashrc&lt;/code&gt;里加上这句，每次打开终端都会自动进入tmux。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-shell"&gt;tmux
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;所以我选择在&lt;code&gt;~/.bashrc&lt;/code&gt;里加上这句，每次打开终端都会自动进入tmux。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;需要掌握的概念&lt;/strong&gt;：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;会话（Session）：长期运行的终端环境。&lt;/li&gt;
@@ -208,33 +217,34 @@
  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;&lt;strong&gt;配置自定义（~/.tmux.conf）&lt;/strong&gt;：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;set-option -g default-shell /bin/bash # 强制使用 Bash
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;set-option -g default-command /bin/bash # 确保新会话/Pane 也使用 Bash
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;unbind H # 移除 H 的绑定
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;unbind L # 移除 L 的绑定
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# 启用鼠标支持
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;set -g mouse on
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# 键
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;set -g prefix C-w
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;unbind C-b
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;bind -r Left previous-window # 前缀键+←：左移窗口
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;bind -r Right next-window # 前缀键+→：右移窗口
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# 屏幕分割
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;bind v split-window -h # 前缀键+v垂直分割
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;bind -n C-Left resize-pane -L 5 # Ctrl+←：向左扩大窗格 5 单位
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;bind -n C-Right resize-pane -R 5 # Ctrl+→：向右扩大窗格 5 单位
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ________________
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;lt; fuck you tmux! &amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ----------------
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; \ ^__^
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; \ (oo)\_______
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (__)\ )\/\
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ||----w |
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; || ||
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>给比我岁数还大的电脑装Fedora</title><link>http://localhost:1313/posts/%E7%BB%99%E6%AF%94%E6%88%91%E5%B2%81%E6%95%B0%E8%BF%98%E5%A4%A7%E7%9A%84%E7%94%B5%E8%84%91%E8%A3%85fedora/</link><pubDate>Fri, 13 Jun 2025 20:11:49 +0000</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>http://localhost:1313/posts/%E7%BB%99%E6%AF%94%E6%88%91%E5%B2%81%E6%95%B0%E8%BF%98%E5%A4%A7%E7%9A%84%E7%94%B5%E8%84%91%E8%A3%85fedora/</guid><description>&lt;h2 id="前言"&gt;前言&lt;/h2&gt;
+&lt;pre&gt;&lt;code class="language-conf"&gt;set-option -g default-shell /bin/bash # 强制使用 Bash
+set-option -g default-command /bin/bash # 确保新会话/Pane 也使用 Bash
+
+unbind H # 移除 H 的绑定
+unbind L # 移除 L 的绑定
+# 启用鼠标支持
+set -g mouse on
+
+# 键
+set -g prefix C-w
+unbind C-b
+
+bind -r Left previous-window # 前缀键+←：左移窗口
+bind -r Right next-window # 前缀键+→：右移窗口
+# 屏幕分割
+bind v split-window -h # 前缀键+v垂直分割
+bind -n C-Left resize-pane -L 5 # Ctrl+←：向左扩大窗格 5 单位
+bind -n C-Right resize-pane -R 5 # Ctrl+→：向右扩大窗格 5 单位
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt; ________________
+&amp;lt; fuck you tmux! &amp;gt;
+ ----------------
+ \ ^__^
+ \ (oo)\_______
+ (__)\ )\/\
+ ||----w |
+ || ||
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>给比我岁数还大的电脑装Fedora</title><link>https://blog.verdant.ee/posts/%E7%BB%99%E6%AF%94%E6%88%91%E5%B2%81%E6%95%B0%E8%BF%98%E5%A4%A7%E7%9A%84%E7%94%B5%E8%84%91%E8%A3%85fedora/</link><pubDate>Fri, 13 Jun 2025 20:11:49 +0000</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>https://blog.verdant.ee/posts/%E7%BB%99%E6%AF%94%E6%88%91%E5%B2%81%E6%95%B0%E8%BF%98%E5%A4%A7%E7%9A%84%E7%94%B5%E8%84%91%E8%A3%85fedora/</guid><description>&lt;h2 id="前言"&gt;前言&lt;/h2&gt;
 &lt;p&gt;&lt;figure class="image-caption"&gt;
  &lt;img src="https://images.glowisle.me/ccb6ab92150b3314a3cb09eee8102a56.webp" alt=""&gt;
  &lt;figcaption&gt;&lt;/figcaption&gt;
@@ -292,7 +302,7 @@
 &lt;figure class="image-caption"&gt;
  &lt;img src="./Pasted%20image%2020250613211830.webp" alt=""&gt;
  &lt;figcaption&gt;&lt;/figcaption&gt;
-&lt;/figure&gt;&lt;/p&gt;</description></item><item><title>Emacs配置记录 2——C/C++环境配置</title><link>http://localhost:1313/posts/emacs%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95-2c-c++%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</link><pubDate>Wed, 04 Jun 2025 18:58:37 +0000</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>http://localhost:1313/posts/emacs%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95-2c-c++%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</guid><description>&lt;h2 id="前言"&gt;前言&lt;/h2&gt;
+&lt;/figure&gt;&lt;/p&gt;</description></item><item><title>Emacs配置记录 2——C/C++环境配置</title><link>https://blog.verdant.ee/posts/emacs%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95-2c-c++%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</link><pubDate>Wed, 04 Jun 2025 18:58:37 +0000</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>https://blog.verdant.ee/posts/emacs%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95-2c-c++%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</guid><description>&lt;h2 id="前言"&gt;前言&lt;/h2&gt;
 &lt;p&gt;经过&lt;a href=""&gt;上一篇&lt;/a&gt;的简单调教，Emacs已经勉强变成了一个温顺的文本编辑器，但是离写代码这个宏大的目标还是有一段距离的，今天来解决主要问题：代码补全。由于我要写一点简单的C代码，那么重点就先放到C/CPP环境搭建中。&lt;/p&gt;
 &lt;p&gt;站在巨人的肩膀上，在Emacs中的代码补全使用巨硬的LSP协议。&lt;/p&gt;
 &lt;h2 id="spacemacs"&gt;Spacemacs&lt;/h2&gt;
@@ -301,59 +311,61 @@
 &lt;code&gt;git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;重启Emacs，让他下载一下自带的包。&lt;/p&gt;
 &lt;p&gt;上次没清理干净Spacemacs，不知道存在哪的备份还在，算是免去了一些折腾吧。来看看现在的Emacs都配置了什么。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; dotspacemacs-configuration-layers
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#7a8478"&gt;&amp;#39;&lt;/span&gt;(yaml
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; markdown
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; javascript
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (auto-completion &lt;span style="color:#e69875"&gt;:variables&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; auto-completion-idle-delay &lt;span style="color:#d699b6"&gt;0.01&lt;/span&gt; &lt;span style="color:#859289;font-style:italic"&gt;; 降低补全延迟&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; auto-completion-minimum-prefix-length &lt;span style="color:#d699b6"&gt;1&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (prettier &lt;span style="color:#e69875"&gt;:variables&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; prettier-always-enable &lt;span style="color:#d699b6"&gt;t&lt;/span&gt;) &lt;span style="color:#859289;font-style:italic"&gt;; 保存时自动格式化&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (javascript &lt;span style="color:#e69875"&gt;:variables&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; javascript-backend &lt;span style="color:#e69875"&gt;&amp;#39;lsp&lt;/span&gt; &lt;span style="color:#859289;font-style:italic"&gt;; 启用LSP后端&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; javascript-fmt-tool &lt;span style="color:#e69875"&gt;&amp;#39;prettier&lt;/span&gt;) &lt;span style="color:#859289;font-style:italic"&gt;; 格式化工具选Prettier&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (c-c++ &lt;span style="color:#e69875"&gt;:variables&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; c-c++-backend &lt;span style="color:#e69875"&gt;&amp;#39;lsp-clangd&lt;/span&gt;) &lt;span style="color:#859289;font-style:italic"&gt;; C/C++使用Clangd后端&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (vue &lt;span style="color:#e69875"&gt;:variables&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; vue-backend &lt;span style="color:#e69875"&gt;&amp;#39;lsp&lt;/span&gt;) &lt;span style="color:#859289;font-style:italic"&gt;; Vue使用LSP后端&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (html) &lt;span style="color:#859289;font-style:italic"&gt;; HTML/CSS支持&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (lsp) &lt;span style="color:#859289;font-style:italic"&gt;; 必须的LSP核心支持层&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (auto-completion) &lt;span style="color:#859289;font-style:italic"&gt;; 自动补全&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (syntax-checking) &lt;span style="color:#859289;font-style:italic"&gt;; 语法检查&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;;; ----------------------------------------------------------------&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;;; Example of useful layers you may want to use right away.&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;;; Uncomment some layer names and press `SPC f e R&amp;#39; (Vim style) or&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;;; `M-m f e R&amp;#39; (Emacs style) to install them.&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;;; ----------------------------------------------------------------&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;;; auto-completion&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;;; better-defaults&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; emacs-lisp
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; treemacs
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;;; git&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; helm
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; lsp
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;;; markdown&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; multiple-cursors
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;;; org&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;;; (shell :variables&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;;; shell-default-height 30&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;;; shell-default-position &amp;#39;bottom)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;;; spell-checking&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;;; syntax-checking&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#859289;font-style:italic"&gt;;; version-control&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; treemacs)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;emmm，还是有点有用的。比如C/C++这里，就启用了LSP。还有一些之前搞的前端配置。就是不知道为啥，JavaScript的补全不太好使。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-lisp"&gt; dotspacemacs-configuration-layers
+ '(yaml
+ markdown
+ javascript
+ (auto-completion :variables
+ auto-completion-idle-delay 0.01 ; 降低补全延迟
+ auto-completion-minimum-prefix-length 1)
+ (prettier :variables
+ prettier-always-enable t) ; 保存时自动格式化
+ (javascript :variables
+ javascript-backend 'lsp ; 启用LSP后端
+ javascript-fmt-tool 'prettier) ; 格式化工具选Prettier
+ (c-c++ :variables
+ c-c++-backend 'lsp-clangd) ; C/C++使用Clangd后端
+ (vue :variables
+ vue-backend 'lsp) ; Vue使用LSP后端
+ (html) ; HTML/CSS支持
+ (lsp) ; 必须的LSP核心支持层
+ (auto-completion) ; 自动补全
+ (syntax-checking) ; 语法检查
+ ;; ----------------------------------------------------------------
+ ;; Example of useful layers you may want to use right away.
+ ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
+ ;; `M-m f e R' (Emacs style) to install them.
+ ;; ----------------------------------------------------------------
+ ;; auto-completion
+ ;; better-defaults
+ emacs-lisp
+ treemacs
+ ;; git
+ helm
+ lsp
+ ;; markdown
+ multiple-cursors
+ ;; org
+ ;; (shell :variables
+ ;; shell-default-height 30
+ ;; shell-default-position 'bottom)
+ ;; spell-checking
+ ;; syntax-checking
+ ;; version-control
+ treemacs)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;emmm，还是有点有用的。比如C/C++这里，就启用了LSP。还有一些之前搞的前端配置。就是不知道为啥，JavaScript的补全不太好使。&lt;/p&gt;
 &lt;h2 id="语法检查"&gt;语法检查&lt;/h2&gt;
 &lt;p&gt;语法检查，选择当前比较成熟的flycheck，在Spacemacs中对应&lt;code&gt;syntax-checking&lt;/code&gt;，在.spacemacs中的&lt;code&gt;dotspacemacs-configuration-layers&lt;/code&gt;写入&lt;code&gt;(configuration-layer/declare-layer 'syntax-checking)&lt;/code&gt;
 该层会自动集成Flycheck及其常见语言的后端支持。&lt;/p&gt;
 &lt;p&gt;C/C++要安装&lt;code&gt;clang-tidy&lt;/code&gt;或&lt;code&gt;cppcheck&lt;/code&gt;。&lt;/p&gt;
 &lt;h3 id="进阶配置"&gt;进阶配置&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (with-eval-after-load &lt;span style="color:#e69875"&gt;&amp;#39;flycheck&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (&lt;span style="color:#e67e80"&gt;setq&lt;/span&gt; flycheck-check-syntax-automatically &lt;span style="color:#7a8478"&gt;&amp;#39;&lt;/span&gt;(save mode-enabled) &lt;span style="color:#859289;font-style:italic"&gt;;; 保存时检查&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; flycheck-display-errors-delay &lt;span style="color:#d699b6"&gt;0.5&lt;/span&gt; &lt;span style="color:#859289;font-style:italic"&gt;;; 错误显示延迟&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; flycheck-indication-mode &lt;span style="color:#e69875"&gt;&amp;#39;right-fringe&lt;/span&gt;)) &lt;span style="color:#859289;font-style:italic"&gt;;; 错误标记位置&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="spacemacs-文件基本介绍"&gt;&lt;a href="https://liuzhijun-source.github.io/spacemacs-14-days/#/Week01/Day05/day05_spacemacs%E7%9A%84%E8%BF%9B%E9%98%B6%E9%85%8D%E7%BD%AE_%E4%B8%8A?id=spacemacs-%e6%96%87%e4%bb%b6%e5%9f%ba%e6%9c%ac%e4%bb%8b%e7%bb%8d"&gt;.spacemacs 文件基本介绍&lt;/a&gt;&lt;/h2&gt;
+&lt;pre&gt;&lt;code class="language-lisp"&gt; (with-eval-after-load 'flycheck
+ (setq flycheck-check-syntax-automatically '(save mode-enabled) ;; 保存时检查
+ flycheck-display-errors-delay 0.5 ;; 错误显示延迟
+ flycheck-indication-mode 'right-fringe)) ;; 错误标记位置
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="spacemacs-文件基本介绍"&gt;&lt;a href="https://liuzhijun-source.github.io/spacemacs-14-days/#/Week01/Day05/day05_spacemacs%E7%9A%84%E8%BF%9B%E9%98%B6%E9%85%8D%E7%BD%AE_%E4%B8%8A?id=spacemacs-%e6%96%87%e4%bb%b6%e5%9f%ba%e6%9c%ac%e4%bb%8b%e7%bb%8d"&gt;.spacemacs 文件基本介绍&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;.spacemacs 文件一般会自动生成在主目录下，这个文件是配置 Spacemacs 的入口，有关于 Spacemacs 本身的配置基本都能在里面进行修改，用户设置同样在这个文件中修改。&lt;/p&gt;
 &lt;p&gt;.spacemacs 中，内容一般被分为以下几个部分，每个部分都封装在一个函数中：&lt;/p&gt;
 &lt;ul&gt;
@@ -378,7 +390,7 @@
 &lt;p&gt;Spacemacs 自己生成的配置，同样不建议自己去修改&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;摘自&lt;a href="https://liuzhijun-source.github.io/spacemacs-14-days/#/Week01/Day05/day05_spacemacs%E7%9A%84%E8%BF%9B%E9%98%B6%E9%85%8D%E7%BD%AE_%E4%B8%8A"&gt;Spacemaccs 14 Days&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;</description></item><item><title>我还是放不下Emacs！</title><link>http://localhost:1313/posts/%E6%88%91%E8%BF%98%E6%98%AF%E6%94%BE%E4%B8%8D%E4%B8%8Bemacs/</link><pubDate>Tue, 03 Jun 2025 20:07:15 +0000</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>http://localhost:1313/posts/%E6%88%91%E8%BF%98%E6%98%AF%E6%94%BE%E4%B8%8D%E4%B8%8Bemacs/</guid><description>&lt;h2 id="前言"&gt;前言&lt;/h2&gt;
+&lt;/blockquote&gt;</description></item><item><title>我还是放不下Emacs！</title><link>https://blog.verdant.ee/posts/%E6%88%91%E8%BF%98%E6%98%AF%E6%94%BE%E4%B8%8D%E4%B8%8Bemacs/</link><pubDate>Tue, 03 Jun 2025 20:07:15 +0000</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>https://blog.verdant.ee/posts/%E6%88%91%E8%BF%98%E6%98%AF%E6%94%BE%E4%B8%8D%E4%B8%8Bemacs/</guid><description>&lt;h2 id="前言"&gt;前言&lt;/h2&gt;
 &lt;p&gt;难受，真难受呀。作为一个痴迷Vim的人，总是被Emacs的强大勾引，看见别人配的酷炫全能的Emacs就走不动路，脑子里想着“没事没事，我Vim轻量启动极快，Emacs这种重量级是比不上的”，自我安慰。实际上多想玩Emacs只有我自己知道&amp;hellip;&amp;hellip;&lt;/p&gt;
 &lt;p&gt;我之前也试过&lt;a href="https://www.yingyu5658.me/post/2193909713/"&gt;配Emacs&lt;/a&gt;，但是Windows搞出来的不伦不类还很卡的东西太难受，用WSL尝试了一下Spacemacs，搞不明白那个层机制，也对ELisp这个语言不熟悉（说实话到现在Lua的一些东西我都不明白），而且之前的配置也一直想一口吃个大胖子，一天内就配到IDE的强大程度，经过几次失败和Vim配置经验后，我深知这是不可能的，除非在我使用Emacs后N周年的第N周目重新删干净再配，也许能做到。&lt;/p&gt;
 &lt;p&gt;定个小目标吧，每天配一点点，成果起码要达到以下程度：&lt;/p&gt;
@@ -404,86 +416,98 @@
 &lt;p&gt;在&lt;code&gt;rm -rf ~/.emacs.d&lt;/code&gt;后，那个不伦不类、上不去下不来的Emacs彻底成为了历史。重新输入Emacs，又看到熟悉又陌生的丑陋开屏页。&lt;/p&gt;
 &lt;h2 id="小插曲"&gt;小插曲&lt;/h2&gt;
 &lt;p&gt;WSLg间歇性抽风，打不开GUI&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Display 10.255.255.254:0 unavailable, simulating -nw
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;打开管理员Powershell，运行&lt;code&gt;wsl --update&lt;/code&gt;
+&lt;pre&gt;&lt;code&gt;Display 10.255.255.254:0 unavailable, simulating -nw
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;打开管理员Powershell，运行&lt;code&gt;wsl --update&lt;/code&gt;
 ![[public/images/我还是放不下Emacs！/Pasted image 20250603210050.png]]
 &lt;del&gt;我草，怎么这么慢？？&lt;/del&gt;&lt;/p&gt;
 &lt;h2 id="melpa配置"&gt;MELPA配置&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#b2c98f"&gt;require&lt;/span&gt; &lt;span style="color:#e69875"&gt;&amp;#39;package&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(add-to-list &lt;span style="color:#e69875"&gt;&amp;#39;package-archives&lt;/span&gt; &lt;span style="color:#7a8478"&gt;&amp;#39;&lt;/span&gt;(&lt;span style="color:#b2c98f"&gt;&amp;#34;melpa&amp;#34;&lt;/span&gt; &lt;span style="color:#7a8478"&gt;.&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;https://melpa.org/packages/&amp;#34;&lt;/span&gt;) &lt;span style="color:#d699b6"&gt;t&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(package-initialize)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;切换中国镜像源&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#b2c98f"&gt;require&lt;/span&gt; &lt;span style="color:#e69875"&gt;&amp;#39;package&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#e67e80"&gt;setq&lt;/span&gt; package-archives &lt;span style="color:#7a8478"&gt;&amp;#39;&lt;/span&gt;((&lt;span style="color:#b2c98f"&gt;&amp;#34;gnu&amp;#34;&lt;/span&gt; &lt;span style="color:#7a8478"&gt;.&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;http://mirrors.cloud.tencent.com/elpa/gnu/&amp;#34;&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (&lt;span style="color:#b2c98f"&gt;&amp;#34;melpa&amp;#34;&lt;/span&gt; &lt;span style="color:#7a8478"&gt;.&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;http://mirrors.cloud.tencent.com/elpa/melpa/&amp;#34;&lt;/span&gt;)))
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(package-initialize)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;重启Emacs，输入&lt;code&gt;package-list-packages&lt;/code&gt;就可以查看所有插件。&lt;code&gt;package-install&lt;/code&gt;，回车输入插件名就可以安装对应插件。
+&lt;pre&gt;&lt;code class="language-lisp"&gt;(require 'package)
+(add-to-list 'package-archives '(&amp;quot;melpa&amp;quot; . &amp;quot;https://melpa.org/packages/&amp;quot;) t)
+(package-initialize)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;切换中国镜像源&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-lisp"&gt;(require 'package)
+(setq package-archives '((&amp;quot;gnu&amp;quot; . &amp;quot;http://mirrors.cloud.tencent.com/elpa/gnu/&amp;quot;)
+ (&amp;quot;melpa&amp;quot; . &amp;quot;http://mirrors.cloud.tencent.com/elpa/melpa/&amp;quot;)))
+(package-initialize)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;重启Emacs，输入&lt;code&gt;package-list-packages&lt;/code&gt;就可以查看所有插件。&lt;code&gt;package-install&lt;/code&gt;，回车输入插件名就可以安装对应插件。
 默认情况下，插件会被安装到 &lt;code&gt;~/.emacs.d/elpa/&lt;/code&gt; 目录下。&lt;/p&gt;
 &lt;h2 id="use-package"&gt;use-package&lt;/h2&gt;
 &lt;p&gt;输入&lt;code&gt;package-install&lt;/code&gt;，输入&lt;code&gt;use-package&lt;/code&gt;，回车安装，然后在init.el中写&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(eval-when-compile
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (&lt;span style="color:#b2c98f"&gt;require&lt;/span&gt; &lt;span style="color:#e69875"&gt;&amp;#39;use-package&lt;/span&gt;))
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="ivy"&gt;ivy&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#b2c98f"&gt;use-package&lt;/span&gt; ivy
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:ensure&lt;/span&gt; &lt;span style="color:#d699b6"&gt;t&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:init&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (ivy-mode &lt;span style="color:#d699b6"&gt;1&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (counsel-mode &lt;span style="color:#d699b6"&gt;1&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:config&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (&lt;span style="color:#e67e80"&gt;setq&lt;/span&gt; ivy-use-virtual-buffers &lt;span style="color:#d699b6"&gt;t&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (&lt;span style="color:#e67e80"&gt;setq&lt;/span&gt; search-default-mode &lt;span style="color:#b2c98f"&gt;#&amp;#39;&lt;/span&gt;char-fold-to-regexp)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (&lt;span style="color:#e67e80"&gt;setq&lt;/span&gt; ivy-count-format &lt;span style="color:#b2c98f"&gt;&amp;#34;(%d/%d) &amp;#34;&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:bind&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ((&lt;span style="color:#b2c98f"&gt;&amp;#34;C-s&amp;#34;&lt;/span&gt; &lt;span style="color:#7a8478"&gt;.&lt;/span&gt; &lt;span style="color:#e69875"&gt;&amp;#39;swiper&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (&lt;span style="color:#b2c98f"&gt;&amp;#34;C-x b&amp;#34;&lt;/span&gt; &lt;span style="color:#7a8478"&gt;.&lt;/span&gt; &lt;span style="color:#e69875"&gt;&amp;#39;ivy-switch-buffer&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (&lt;span style="color:#b2c98f"&gt;&amp;#34;C-c v&amp;#34;&lt;/span&gt; &lt;span style="color:#7a8478"&gt;.&lt;/span&gt; &lt;span style="color:#e69875"&gt;&amp;#39;ivy-push-view&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (&lt;span style="color:#b2c98f"&gt;&amp;#34;C-c s&amp;#34;&lt;/span&gt; &lt;span style="color:#7a8478"&gt;.&lt;/span&gt; &lt;span style="color:#e69875"&gt;&amp;#39;ivy-switch-view&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (&lt;span style="color:#b2c98f"&gt;&amp;#34;C-c V&amp;#34;&lt;/span&gt; &lt;span style="color:#7a8478"&gt;.&lt;/span&gt; &lt;span style="color:#e69875"&gt;&amp;#39;ivy-pop-view&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (&lt;span style="color:#b2c98f"&gt;&amp;#34;C-x C-@&amp;#34;&lt;/span&gt; &lt;span style="color:#7a8478"&gt;.&lt;/span&gt; &lt;span style="color:#e69875"&gt;&amp;#39;counsel-mark-ring&lt;/span&gt;)&lt;span style="color:#859289;font-style:italic"&gt;; 在某些终端上 C-x C-SPC 会被映射为 C-x C-@，比如在 macOS 上，所以要手动设置&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (&lt;span style="color:#b2c98f"&gt;&amp;#34;C-x C-SPC&amp;#34;&lt;/span&gt; &lt;span style="color:#7a8478"&gt;.&lt;/span&gt; &lt;span style="color:#e69875"&gt;&amp;#39;counsel-mark-ring&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:map&lt;/span&gt; minibuffer-local-map
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (&lt;span style="color:#b2c98f"&gt;&amp;#34;C-r&amp;#34;&lt;/span&gt; &lt;span style="color:#7a8478"&gt;.&lt;/span&gt; counsel-minibuffer-history)))
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="amx"&gt;amx&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#b2c98f"&gt;use-package&lt;/span&gt; amx
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:ensure&lt;/span&gt; &lt;span style="color:#d699b6"&gt;t&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:init&lt;/span&gt; (amx-mode))
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="ace-window"&gt;ace-window&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(use&lt;span style="color:#7a8478"&gt;-&lt;/span&gt;&lt;span style="color:#e67e80"&gt;package&lt;/span&gt; ace&lt;span style="color:#7a8478"&gt;-&lt;/span&gt;window
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; :ensure t
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; :&lt;span style="color:#b2c98f"&gt;bind&lt;/span&gt; ((&lt;span style="color:#b2c98f"&gt;&amp;#34;C-x o&amp;#34;&lt;/span&gt; . &amp;#39;ace&lt;span style="color:#7a8478"&gt;-&lt;/span&gt;window)))
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="mwim"&gt;mwim&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#b2c98f"&gt;use-package&lt;/span&gt; mwim
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:ensure&lt;/span&gt; &lt;span style="color:#d699b6"&gt;t&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:bind&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (&lt;span style="color:#b2c98f"&gt;&amp;#34;C-a&amp;#34;&lt;/span&gt; &lt;span style="color:#7a8478"&gt;.&lt;/span&gt; mwim-beginning-of-code-or-line)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (&lt;span style="color:#b2c98f"&gt;&amp;#34;C-e&amp;#34;&lt;/span&gt; &lt;span style="color:#7a8478"&gt;.&lt;/span&gt; mwim-end-of-code-or-line))
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="undo-tree"&gt;undo-tree&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#b2c98f"&gt;use-package&lt;/span&gt; undo-tree
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:ensure&lt;/span&gt; &lt;span style="color:#d699b6"&gt;t&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:init&lt;/span&gt; (global-undo-tree-mode)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:custom&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (undo-tree-auto-save-history &lt;span style="color:#d699b6"&gt;nil&lt;/span&gt;))
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="smart-mode-line"&gt;smart-mode-line&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#b2c98f"&gt;use-package&lt;/span&gt; smart-mode-line
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:ensure&lt;/span&gt; &lt;span style="color:#d699b6"&gt;t&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:init&lt;/span&gt; (sml/setup))
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="good-scroll"&gt;good-scroll&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#b2c98f"&gt;use-package&lt;/span&gt; good-scroll
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:ensure&lt;/span&gt; &lt;span style="color:#d699b6"&gt;t&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:if&lt;/span&gt; window-system &lt;span style="color:#859289;font-style:italic"&gt;; 在图形化界面时才使用这个插件&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e69875"&gt;:init&lt;/span&gt; (good-scroll-mode))
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;今天就先到这里吧。&lt;/p&gt;</description></item><item><title>WSL Arch Linux ZSH输入中文输入法乱码解决方法</title><link>http://localhost:1313/posts/wsl-arch-linux-zsh%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</link><pubDate>Tue, 29 Apr 2025 10:31:26 +0000</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>http://localhost:1313/posts/wsl-arch-linux-zsh%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</guid><description>&lt;p&gt;没有进行配置的情况下输入中文，一般会显示&amp;lt;0xffffffff&amp;gt;，这是由于没有安装字体造成的。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo pacman -S noto-fonts-cjk &lt;span style="color:#859289;font-style:italic"&gt;# 安装中文字体&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo vi /etc/locale.gen &lt;span style="color:#859289;font-style:italic"&gt;# 取消注释 zh_CN.UTF-8&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo locale-gen &lt;span style="color:#859289;font-style:italic"&gt;# 生成语言环境&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#d699b6"&gt;echo&lt;/span&gt; &lt;span style="color:#b2c98f"&gt;&amp;#34;export LANG=zh_CN.UTF-8&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; ~/.zshrc &lt;span style="color:#859289;font-style:italic"&gt;# 设置默认中文环境&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#d699b6"&gt;source&lt;/span&gt; ~/.zshrc
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;source后，再次尝试输入中文，无异常。&lt;/p&gt;</description></item><item><title>Emacs EAF插件打开浏览器只显示opening http://xxx.xxx的解决方法</title><link>http://localhost:1313/posts/emacs-eaf%E6%8F%92%E4%BB%B6%E6%89%93%E5%BC%80%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%AA%E6%98%BE%E7%A4%BAopening-http-xxx-xxx%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</link><pubDate>Tue, 29 Apr 2025 10:02:49 +0000</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>http://localhost:1313/posts/emacs-eaf%E6%8F%92%E4%BB%B6%E6%89%93%E5%BC%80%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%AA%E6%98%BE%E7%A4%BAopening-http-xxx-xxx%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</guid><description>&lt;p&gt;检查是否安装全部依赖，如yay、pip等。我这里是由于没有安装pip导致的。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-lisp"&gt;(eval-when-compile
+ (require 'use-package))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="ivy"&gt;ivy&lt;/h2&gt;
+&lt;pre&gt;&lt;code class="language-lisp"&gt;(use-package ivy
+ :ensure t
+ :init
+ (ivy-mode 1)
+ (counsel-mode 1)
+ :config
+ (setq ivy-use-virtual-buffers t)
+ (setq search-default-mode #'char-fold-to-regexp)
+ (setq ivy-count-format &amp;quot;(%d/%d) &amp;quot;)
+ :bind
+ ((&amp;quot;C-s&amp;quot; . 'swiper)
+ (&amp;quot;C-x b&amp;quot; . 'ivy-switch-buffer)
+ (&amp;quot;C-c v&amp;quot; . 'ivy-push-view)
+ (&amp;quot;C-c s&amp;quot; . 'ivy-switch-view)
+ (&amp;quot;C-c V&amp;quot; . 'ivy-pop-view)
+ (&amp;quot;C-x C-@&amp;quot; . 'counsel-mark-ring); 在某些终端上 C-x C-SPC 会被映射为 C-x C-@，比如在 macOS 上，所以要手动设置
+ (&amp;quot;C-x C-SPC&amp;quot; . 'counsel-mark-ring)
+ :map minibuffer-local-map
+ (&amp;quot;C-r&amp;quot; . counsel-minibuffer-history)))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="amx"&gt;amx&lt;/h2&gt;
+&lt;pre&gt;&lt;code class="language-lisp"&gt;(use-package amx
+ :ensure t
+ :init (amx-mode))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="ace-window"&gt;ace-window&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;(use-package ace-window
+ :ensure t
+ :bind ((&amp;quot;C-x o&amp;quot; . 'ace-window)))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="mwim"&gt;mwim&lt;/h2&gt;
+&lt;pre&gt;&lt;code class="language-lisp"&gt;(use-package mwim
+ :ensure t
+ :bind
+ (&amp;quot;C-a&amp;quot; . mwim-beginning-of-code-or-line)
+ (&amp;quot;C-e&amp;quot; . mwim-end-of-code-or-line))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="undo-tree"&gt;undo-tree&lt;/h2&gt;
+&lt;pre&gt;&lt;code class="language-lisp"&gt;(use-package undo-tree
+ :ensure t
+ :init (global-undo-tree-mode)
+ :custom
+ (undo-tree-auto-save-history nil))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="smart-mode-line"&gt;smart-mode-line&lt;/h2&gt;
+&lt;pre&gt;&lt;code class="language-lisp"&gt;(use-package smart-mode-line
+ :ensure t
+ :init (sml/setup))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="good-scroll"&gt;good-scroll&lt;/h2&gt;
+&lt;pre&gt;&lt;code class="language-lisp"&gt;(use-package good-scroll
+ :ensure t
+ :if window-system ; 在图形化界面时才使用这个插件
+ :init (good-scroll-mode))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;今天就先到这里吧。&lt;/p&gt;</description></item><item><title>WSL Arch Linux ZSH输入中文输入法乱码解决方法</title><link>https://blog.verdant.ee/posts/wsl-arch-linux-zsh%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</link><pubDate>Tue, 29 Apr 2025 10:31:26 +0000</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>https://blog.verdant.ee/posts/wsl-arch-linux-zsh%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</guid><description>&lt;p&gt;没有进行配置的情况下输入中文，一般会显示&amp;lt;0xffffffff&amp;gt;，这是由于没有安装字体造成的。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-bash"&gt;sudo pacman -S noto-fonts-cjk # 安装中文字体
+sudo vi /etc/locale.gen # 取消注释 zh_CN.UTF-8
+sudo locale-gen # 生成语言环境
+echo &amp;quot;export LANG=zh_CN.UTF-8&amp;quot; &amp;gt;&amp;gt; ~/.zshrc # 设置默认中文环境
+source ~/.zshrc
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;source后，再次尝试输入中文，无异常。&lt;/p&gt;</description></item><item><title>Emacs EAF插件打开浏览器只显示opening http://xxx.xxx的解决方法</title><link>https://blog.verdant.ee/posts/emacs-eaf%E6%8F%92%E4%BB%B6%E6%89%93%E5%BC%80%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%AA%E6%98%BE%E7%A4%BAopening-http-xxx-xxx%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</link><pubDate>Tue, 29 Apr 2025 10:02:49 +0000</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>https://blog.verdant.ee/posts/emacs-eaf%E6%8F%92%E4%BB%B6%E6%89%93%E5%BC%80%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%AA%E6%98%BE%E7%A4%BAopening-http-xxx-xxx%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</guid><description>&lt;p&gt;检查是否安装全部依赖，如yay、pip等。我这里是由于没有安装pip导致的。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;sudo pacman -S python-pip&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;安装好后，进入eaf安装目录&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;cd ~/.emacs.d/site-lisp/emacs-application-framework &amp;amp;&amp;amp; ./install-eaf.py&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;重新安装eaf。等待脚本运行完成，打开emacs，输入&lt;code&gt;M-x eaf-install-and-update&lt;/code&gt;，等待执行完成。&lt;/p&gt;
-&lt;p&gt;重新输入&lt;code&gt;M-x eaf-open-browser&lt;/code&gt;，输入网址，即可正常访问网页。&lt;/p&gt;</description></item><item><title>把主力机系统换成Arch Linux是我这辈子做过的最蠢的决定</title><link>http://localhost:1313/posts/%E6%8A%8A%E4%B8%BB%E5%8A%9B%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%8D%A2%E6%88%90arch-linux%E6%98%AF%E6%88%91%E8%BF%99%E8%BE%88%E5%AD%90%E5%81%9A%E8%BF%87%E7%9A%84%E6%9C%80%E8%A0%A2%E7%9A%84%E5%86%B3%E5%AE%9A/</link><pubDate>Sun, 06 Apr 2025 17:58:48 +0000</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>http://localhost:1313/posts/%E6%8A%8A%E4%B8%BB%E5%8A%9B%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%8D%A2%E6%88%90arch-linux%E6%98%AF%E6%88%91%E8%BF%99%E8%BE%88%E5%AD%90%E5%81%9A%E8%BF%87%E7%9A%84%E6%9C%80%E8%A0%A2%E7%9A%84%E5%86%B3%E5%AE%9A/</guid><description>&lt;h1 id="前言"&gt;前言&lt;/h1&gt;
+&lt;p&gt;重新输入&lt;code&gt;M-x eaf-open-browser&lt;/code&gt;，输入网址，即可正常访问网页。&lt;/p&gt;</description></item><item><title>把主力机系统换成Arch Linux是我这辈子做过的最蠢的决定</title><link>https://blog.verdant.ee/posts/%E6%8A%8A%E4%B8%BB%E5%8A%9B%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%8D%A2%E6%88%90arch-linux%E6%98%AF%E6%88%91%E8%BF%99%E8%BE%88%E5%AD%90%E5%81%9A%E8%BF%87%E7%9A%84%E6%9C%80%E8%A0%A2%E7%9A%84%E5%86%B3%E5%AE%9A/</link><pubDate>Sun, 06 Apr 2025 17:58:48 +0000</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>https://blog.verdant.ee/posts/%E6%8A%8A%E4%B8%BB%E5%8A%9B%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%8D%A2%E6%88%90arch-linux%E6%98%AF%E6%88%91%E8%BF%99%E8%BE%88%E5%AD%90%E5%81%9A%E8%BF%87%E7%9A%84%E6%9C%80%E8%A0%A2%E7%9A%84%E5%86%B3%E5%AE%9A/</guid><description>&lt;h1 id="前言"&gt;前言&lt;/h1&gt;
 &lt;p&gt;先说结论。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;我是傻逼！&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;我是傻逼！！&lt;/strong&gt;&lt;/p&gt;
@@ -560,7 +584,7 @@
 &lt;h2 id="结语"&gt;结语&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;我是傻逼！&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;我是傻逼！！&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;我是傻逼！！！&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>安装配置Rime输入法</title><link>http://localhost:1313/posts/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AErime%E8%BE%93%E5%85%A5%E6%B3%95/</link><pubDate>Mon, 24 Mar 2025 20:37:38 +0000</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>http://localhost:1313/posts/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AErime%E8%BE%93%E5%85%A5%E6%B3%95/</guid><description>&lt;h1 id="前言"&gt;前言&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;我是傻逼！！！&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>安装配置Rime输入法</title><link>https://blog.verdant.ee/posts/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AErime%E8%BE%93%E5%85%A5%E6%B3%95/</link><pubDate>Mon, 24 Mar 2025 20:37:38 +0000</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>https://blog.verdant.ee/posts/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AErime%E8%BE%93%E5%85%A5%E6%B3%95/</guid><description>&lt;h1 id="前言"&gt;前言&lt;/h1&gt;
 &lt;p&gt;其实我有能用的fcitx5+搜狗输入法的方案，但奈何kitty终端有对这个输入法的兼容性问题，无法启用中文，又奈何kitty的界面多美观舒服，和Konsole比起来简直就不是一个时代的产物。&lt;/p&gt;
 &lt;h1 id="安装ibus框架和rime输入法引擎"&gt;安装Ibus框架和Rime输入法引擎&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;安装 IBus 和 Rime 组件&lt;/strong&gt;：
@@ -570,44 +594,51 @@
 &lt;h2 id="配置-ibus-和-rime"&gt;配置 IBus 和 Rime&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;设置环境变量&lt;/strong&gt;
 在&lt;code&gt;~/.xprofile&lt;/code&gt;添加以下内容&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#d699b6"&gt;export&lt;/span&gt; GTK_IM_MODULE&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;ibus &lt;span style="color:#d699b6"&gt;export&lt;/span&gt; QT_IM_MODULE&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;ibus &lt;span style="color:#d699b6"&gt;export&lt;/span&gt; XMODIFIERS&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;@im&lt;span style="color:#7a8478"&gt;=&lt;/span&gt;ibus
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;重启系统或执行 &lt;code&gt;source ~/.xprofile&lt;/code&gt; 使配置生效&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-bash"&gt;export GTK_IM_MODULE=ibus export QT_IM_MODULE=ibus export XMODIFIERS=@im=ibus
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;重启系统或执行 &lt;code&gt;source ~/.xprofile&lt;/code&gt; 使配置生效&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;启动 IBus 并添加 Rime 输入源&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ibus-daemon -drx
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;右键点击系统托盘中的 IBus 图标，选择 &lt;strong&gt;Preferences&lt;/strong&gt; → &lt;strong&gt;Input Method&lt;/strong&gt; → &lt;strong&gt;Add&lt;/strong&gt;，选择 &lt;strong&gt;Chinese (Rime)&lt;/strong&gt;。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-bash"&gt;ibus-daemon -drx
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;右键点击系统托盘中的 IBus 图标，选择 &lt;strong&gt;Preferences&lt;/strong&gt; → &lt;strong&gt;Input Method&lt;/strong&gt; → &lt;strong&gt;Add&lt;/strong&gt;，选择 &lt;strong&gt;Chinese (Rime)&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;配置双拼方案&lt;/strong&gt;
 编辑 Rime 的配置文件 &lt;code&gt;~/.config/ibus/rime/default.custom.yaml&lt;/code&gt;：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;patch:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;schema_list:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	- schema: double_pinyin &lt;span style="color:#859289;font-style:italic"&gt;# 自然码双拼&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	- schema: luna_pinyin &lt;span style="color:#859289;font-style:italic"&gt;# 全拼备用&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="优化-rime-的智能联想与词库"&gt;优化 Rime 的智能联想与词库&lt;/h2&gt;
+&lt;pre&gt;&lt;code class="language-bash"&gt;patch:
+schema_list:
+	- schema: double_pinyin # 自然码双拼
+	- schema: luna_pinyin # 全拼备用
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="优化-rime-的智能联想与词库"&gt;优化 Rime 的智能联想与词库&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;启用雾凇拼音方案（推荐）&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#d699b6"&gt;cd&lt;/span&gt; ~/.config/ibus/rime
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git clone https://github.com/iDvel/rime-ice.git
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cp -r rime-ice/* .
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="安装小鹤双拼方案"&gt;安装小鹤双拼方案&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#859289;font-style:italic"&gt;# 安装 plum 工具&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl -fsSL https://git.io/rime-install | bash -s -- double-pinyin flypy
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>KDE桌面环境无法在Konsole切换中文输入法的解决方案</title><link>http://localhost:1313/posts/kde%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E6%97%A0%E6%B3%95%E5%9C%A8konsole%E5%88%87%E6%8D%A2%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</link><pubDate>Sat, 08 Mar 2025 22:07:58 +0000</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>http://localhost:1313/posts/kde%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E6%97%A0%E6%B3%95%E5%9C%A8konsole%E5%88%87%E6%8D%A2%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</guid><description>&lt;h3 id="原因"&gt;原因&lt;/h3&gt;
+&lt;pre&gt;&lt;code class="language-bash"&gt;cd ~/.config/ibus/rime
+git clone https://github.com/iDvel/rime-ice.git
+cp -r rime-ice/* .
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="安装小鹤双拼方案"&gt;安装小鹤双拼方案&lt;/h2&gt;
+&lt;pre&gt;&lt;code class="language-bash"&gt;# 安装 plum 工具
+curl -fsSL https://git.io/rime-install | bash -s -- double-pinyin flypy
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>KDE桌面环境无法在Konsole切换中文输入法的解决方案</title><link>https://blog.verdant.ee/posts/kde%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E6%97%A0%E6%B3%95%E5%9C%A8konsole%E5%88%87%E6%8D%A2%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</link><pubDate>Sat, 08 Mar 2025 22:07:58 +0000</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>https://blog.verdant.ee/posts/kde%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E6%97%A0%E6%B3%95%E5%9C%A8konsole%E5%88%87%E6%8D%A2%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</guid><description>&lt;h3 id="原因"&gt;原因&lt;/h3&gt;
 &lt;p&gt;KDE默认使用Wayland会话，而fcitx4不支持Wayland，需升级到fcitx5。若无法升级到fcitx5或升级后仍然无法切换中文输入法，&lt;strong&gt;安装fcitx-qt6&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo pacman -S fcitx-qt6
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安装后执行&lt;code&gt;sudo reboot now&lt;/code&gt;进行重启，问题解决。&lt;/p&gt;</description></item><item><title>【未解决】Windows WSL报错：Error: 0x80080005 ???????</title><link>http://localhost:1313/posts/%E6%9C%AA%E8%A7%A3%E5%86%B3windows-wsl%E6%8A%A5%E9%94%99error-0x80080005/</link><pubDate>Tue, 04 Mar 2025 20:58:30 +0000</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>http://localhost:1313/posts/%E6%9C%AA%E8%A7%A3%E5%86%B3windows-wsl%E6%8A%A5%E9%94%99error-0x80080005/</guid><description>&lt;p&gt;设备环境：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;操作系统：Windows 10
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;安装系统：Arch Linux
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;错误日志：
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Installing, this may take a few minutes...
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;WslRegisterDistribution failed with error: 0x80080005
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Error: 0x80080005 ???????
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Press any key to continue...
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;网上有一篇&lt;a href="https://ask.csdn.net/questions/7625716"&gt;文章&lt;/a&gt;提到这个错误，下面的评论回复以管理员权限运行命令提示符并执行&lt;code&gt;sc stop LxssManager&lt;/code&gt;和&lt;code&gt;sc start LxssManager&lt;/code&gt;
+&lt;pre&gt;&lt;code class="language-bash"&gt;sudo pacman -S fcitx-qt6
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;安装后执行&lt;code&gt;sudo reboot now&lt;/code&gt;进行重启，问题解决。&lt;/p&gt;</description></item><item><title>【未解决】Windows WSL报错：Error: 0x80080005 ???????</title><link>https://blog.verdant.ee/posts/%E6%9C%AA%E8%A7%A3%E5%86%B3windows-wsl%E6%8A%A5%E9%94%99error-0x80080005/</link><pubDate>Tue, 04 Mar 2025 20:58:30 +0000</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>https://blog.verdant.ee/posts/%E6%9C%AA%E8%A7%A3%E5%86%B3windows-wsl%E6%8A%A5%E9%94%99error-0x80080005/</guid><description>&lt;p&gt;设备环境：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;操作系统：Windows 10
+安装系统：Arch Linux
+错误日志：
+Installing, this may take a few minutes...
+WslRegisterDistribution failed with error: 0x80080005
+Error: 0x80080005 ???????
+
+Press any key to continue...
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;网上有一篇&lt;a href="https://ask.csdn.net/questions/7625716"&gt;文章&lt;/a&gt;提到这个错误，下面的评论回复以管理员权限运行命令提示符并执行&lt;code&gt;sc stop LxssManager&lt;/code&gt;和&lt;code&gt;sc start LxssManager&lt;/code&gt;
 出现如下报错：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;C:\Windows\system32&amp;gt;sc stop LxssManager
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;[SC] OpenService 失败 1060:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;指定的服务未安装。
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;顺藤摸瓜，在网上寻找&lt;code&gt;LxssManager&lt;/code&gt;这个服务要如何安装。
+&lt;pre&gt;&lt;code&gt;C:\Windows\system32&amp;gt;sc stop LxssManager
+[SC] OpenService 失败 1060:
+
+指定的服务未安装。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;顺藤摸瓜，在网上寻找&lt;code&gt;LxssManager&lt;/code&gt;这个服务要如何安装。
 网上暂时还没有找到相关文章能够解决这个问题，但是CSDN的一篇文章引起了我的注意
 &lt;a href="https://blog.csdn.net/renwudao24/article/details/52061906"&gt;[SC] OpenService 失败：1060指定的服务未安装_[sc] openservice 失败 1060: 指定的服务未安装。-CSDN博客&lt;/a&gt;
 文章中提到了“服务”，在开始菜单中搜索服务，进入应用找到了一个名为WSL Service的服务。点左上角启动。
@@ -616,17 +647,19 @@
 勾选&lt;code&gt;适用于Linux的Windows子系统&lt;/code&gt;和&lt;code&gt;虚拟机平台&lt;/code&gt;这两项，点击确定
 重启电脑。
 回来以后，用管理员身份运行powershell，强制重置WSL服务，依次执行：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;wsl --shutdown
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;wsl --unregister Arch &lt;span style="color:#859289;font-style:italic"&gt;# 替换为你的发行版名称&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;wsl --install -d Arch &lt;span style="color:#859289;font-style:italic"&gt;# 重新注册发行版&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果提示内核缺失，在这里下&lt;a href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi"&gt;https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-bash"&gt;wsl --shutdown
+wsl --unregister Arch # 替换为你的发行版名称
+wsl --install -d Arch # 重新注册发行版
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;如果提示内核缺失，在这里下&lt;a href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi"&gt;https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;如果有以下输出：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;zcz  system32  ♥ 21:32  wsl --shutdown
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;此应用程序需要适用于 Linux 的 Windows 子系统可选组件。
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;通过运行安装它： wsl.exe --install --no-distribution
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;可能需要重新启动系统才能使更改生效。
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;错误代码: Wsl/WSL_E_WSL_OPTIONAL_COMPONENT_REQUIRED
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;两种可能：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;zcz  system32  ♥ 21:32  wsl --shutdown
+此应用程序需要适用于 Linux 的 Windows 子系统可选组件。
+通过运行安装它： wsl.exe --install --no-distribution
+可能需要重新启动系统才能使更改生效。
+错误代码: Wsl/WSL_E_WSL_OPTIONAL_COMPONENT_REQUIRED
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;两种可能：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;没有安装WSL服务&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;服务被禁用&lt;/strong&gt;
@@ -634,125 +667,137 @@
 &lt;strong&gt;强制安装WSL组件&lt;/strong&gt;
 &lt;strong&gt;以管理员身份运行 PowerShell&lt;/strong&gt;，执行以下命令：&lt;/li&gt;
 &lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#859289;font-style:italic"&gt;# 安装WSL核心组件（会自动启用虚拟化功能）&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;wsl --install
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;输出：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-gdscript3" data-lang="gdscript3"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;zcz  system32  ♥ &lt;span style="color:#d699b6"&gt;21&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;34&lt;/span&gt;  wsl &lt;span style="color:#7a8478"&gt;--&lt;/span&gt;install
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;正在安装 Windows 可选组件: Microsoft&lt;span style="color:#7a8478"&gt;-&lt;/span&gt;Windows&lt;span style="color:#7a8478"&gt;-&lt;/span&gt;Subsystem&lt;span style="color:#7a8478"&gt;-&lt;/span&gt;Linux
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Deployment &lt;span style="color:#e67e80"&gt;Image&lt;/span&gt; Servicing &lt;span style="color:#7a8478"&gt;and&lt;/span&gt; Management &lt;span style="color:#e67e80"&gt;tool&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Version: &lt;span style="color:#d699b6"&gt;10.0&lt;/span&gt;&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;&lt;span style="color:#d699b6"&gt;19041.3636&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e67e80"&gt;Image&lt;/span&gt; Version: &lt;span style="color:#d699b6"&gt;10.0&lt;/span&gt;&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;&lt;span style="color:#d699b6"&gt;19045.5487&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;启用一个或多个功能
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;[&lt;span style="color:#7a8478"&gt;==========================&lt;/span&gt;&lt;span style="color:#d699b6"&gt;100.0&lt;/span&gt;&lt;span style="color:#7a8478"&gt;%==========================&lt;/span&gt;]
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;The operation completed successfully&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;正在安装 Windows 可选组件: VirtualMachinePlatform
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Deployment &lt;span style="color:#e67e80"&gt;Image&lt;/span&gt; Servicing &lt;span style="color:#7a8478"&gt;and&lt;/span&gt; Management &lt;span style="color:#e67e80"&gt;tool&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Version: &lt;span style="color:#d699b6"&gt;10.0&lt;/span&gt;&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;&lt;span style="color:#d699b6"&gt;19041.3636&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e67e80"&gt;Image&lt;/span&gt; Version: &lt;span style="color:#d699b6"&gt;10.0&lt;/span&gt;&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;&lt;span style="color:#d699b6"&gt;19045.5487&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;启用一个或多个功能
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;[&lt;span style="color:#7a8478"&gt;==========================&lt;/span&gt;&lt;span style="color:#d699b6"&gt;100.0&lt;/span&gt;&lt;span style="color:#7a8478"&gt;%==========================&lt;/span&gt;]
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;The operation completed successfully&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;请求的操作成功。直到重新启动系统前更改将不会生效。
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;再次进行重启。
+&lt;pre&gt;&lt;code class="language-bash"&gt;# 安装WSL核心组件（会自动启用虚拟化功能）
+wsl --install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;输出：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;zcz  system32  ♥ 21:34  wsl --install
+正在安装 Windows 可选组件: Microsoft-Windows-Subsystem-Linux
+
+Deployment Image Servicing and Management tool
+Version: 10.0.19041.3636
+
+Image Version: 10.0.19045.5487
+
+启用一个或多个功能
+[==========================100.0%==========================]
+The operation completed successfully.
+正在安装 Windows 可选组件: VirtualMachinePlatform
+
+Deployment Image Servicing and Management tool
+Version: 10.0.19041.3636
+
+Image Version: 10.0.19045.5487
+
+启用一个或多个功能
+[==========================100.0%==========================]
+The operation completed successfully.
+请求的操作成功。直到重新启动系统前更改将不会生效。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;再次进行重启。
 &lt;code&gt;Restart-Computer&lt;/code&gt;
 开机加载界面显示：我们无法完成更新，正在撤销更改。。
 尝试过的方法：进入安全模式，尝试重启更新，失败。
 安全模式仍然失败，选择临时禁用WSL服务
 管理员cmd执行&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-powershell" data-lang="powershell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#d699b6"&gt;sc &lt;/span&gt;config LxssManager start= disabled
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;shutdown /&lt;span style="color:#d699b6"&gt;r &lt;/span&gt;/t &lt;span style="color:#d699b6"&gt;0&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;输出：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;C:\Windows\system32&amp;gt;sc config LxssManager start= disabled&amp;amp;&amp;amp; shutdown /r /t 0
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;[SC] OpenService 失败 1060:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;指定的服务未安装。
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;唉，老朋友，又见面了。只能祭出来我的终极大杀器。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-powershell"&gt;sc config LxssManager start= disabled
+shutdown /r /t 0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;输出：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;C:\Windows\system32&amp;gt;sc config LxssManager start= disabled&amp;amp;&amp;amp; shutdown /r /t 0
+[SC] OpenService 失败 1060:
+
+指定的服务未安装。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;唉，老朋友，又见面了。只能祭出来我的终极大杀器。&lt;/p&gt;
 &lt;h3 id="彻底重装wsl"&gt;&lt;strong&gt;彻底重装WSL&lt;/strong&gt;&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-powershell" data-lang="powershell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#859289;font-style:italic"&gt;# 卸载所有发行版&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;wsl --unregister *
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#859289;font-style:italic"&gt;# 删除残留配置&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#d699b6"&gt;Remove-Item&lt;/span&gt; -Path &lt;span style="color:#b2c98f"&gt;&amp;#34;&lt;/span&gt;$env:USERPROFILE&lt;span style="color:#b2c98f"&gt;\AppData\Local\Packages\*Linux*&amp;#34;&lt;/span&gt; -Recurse -Force
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;输出：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;zcz  system32  ♥ 22:04  # 卸载所有发行版
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;gt; wsl --unregister *
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;gt; # 删除残留配置
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;gt; Remove-Item -Path &amp;#34;$env:USERPROFILE\AppData\Local\Packages\*Linux*&amp;#34; -Recurse -Force
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;正在注销。
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;此应用程序需要适用于 Linux 的 Windows 子系统可选组件。
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;通过运行安装它： wsl.exe --install --no-distribution
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;可能需要重新启动系统才能使更改生效。
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;错误代码: Wsl/WSL_E_WSL_OPTIONAL_COMPONENT_REQUIRED
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;输入&lt;code&gt;wsl.exe --install --no-distribution&lt;/code&gt;
+&lt;pre&gt;&lt;code class="language-powershell"&gt;# 卸载所有发行版
+wsl --unregister *
+# 删除残留配置
+Remove-Item -Path &amp;quot;$env:USERPROFILE\AppData\Local\Packages\*Linux*&amp;quot; -Recurse -Force
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;输出：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;zcz  system32  ♥ 22:04  # 卸载所有发行版
+&amp;gt; wsl --unregister *
+&amp;gt; # 删除残留配置
+&amp;gt; Remove-Item -Path &amp;quot;$env:USERPROFILE\AppData\Local\Packages\*Linux*&amp;quot; -Recurse -Force
+正在注销。
+此应用程序需要适用于 Linux 的 Windows 子系统可选组件。
+通过运行安装它： wsl.exe --install --no-distribution
+可能需要重新启动系统才能使更改生效。
+错误代码: Wsl/WSL_E_WSL_OPTIONAL_COMPONENT_REQUIRED
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;输入&lt;code&gt;wsl.exe --install --no-distribution&lt;/code&gt;
 输出：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-gdscript3" data-lang="gdscript3"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;zcz  system32  ♥ &lt;span style="color:#d699b6"&gt;22&lt;/span&gt;:&lt;span style="color:#d699b6"&gt;09&lt;/span&gt;  wsl&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;exe &lt;span style="color:#7a8478"&gt;--&lt;/span&gt;install &lt;span style="color:#7a8478"&gt;--&lt;/span&gt;no&lt;span style="color:#7a8478"&gt;-&lt;/span&gt;distribution
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;正在安装 Windows 可选组件: Microsoft&lt;span style="color:#7a8478"&gt;-&lt;/span&gt;Windows&lt;span style="color:#7a8478"&gt;-&lt;/span&gt;Subsystem&lt;span style="color:#7a8478"&gt;-&lt;/span&gt;Linux
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Deployment &lt;span style="color:#e67e80"&gt;Image&lt;/span&gt; Servicing &lt;span style="color:#7a8478"&gt;and&lt;/span&gt; Management &lt;span style="color:#e67e80"&gt;tool&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Version: &lt;span style="color:#d699b6"&gt;10.0&lt;/span&gt;&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;&lt;span style="color:#d699b6"&gt;19041.3636&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e67e80"&gt;Image&lt;/span&gt; Version: &lt;span style="color:#d699b6"&gt;10.0&lt;/span&gt;&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;&lt;span style="color:#d699b6"&gt;19045.5487&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;启用一个或多个功能
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;[&lt;span style="color:#7a8478"&gt;==========================&lt;/span&gt;&lt;span style="color:#d699b6"&gt;100.0&lt;/span&gt;&lt;span style="color:#7a8478"&gt;%==========================&lt;/span&gt;]
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;The operation completed successfully&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;正在安装 Windows 可选组件: VirtualMachinePlatform
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Deployment &lt;span style="color:#e67e80"&gt;Image&lt;/span&gt; Servicing &lt;span style="color:#7a8478"&gt;and&lt;/span&gt; Management &lt;span style="color:#e67e80"&gt;tool&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Version: &lt;span style="color:#d699b6"&gt;10.0&lt;/span&gt;&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;&lt;span style="color:#d699b6"&gt;19041.3636&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e67e80"&gt;Image&lt;/span&gt; Version: &lt;span style="color:#d699b6"&gt;10.0&lt;/span&gt;&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;&lt;span style="color:#d699b6"&gt;19045.5487&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;启用一个或多个功能
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;[&lt;span style="color:#7a8478"&gt;==========================&lt;/span&gt;&lt;span style="color:#d699b6"&gt;100.0&lt;/span&gt;&lt;span style="color:#7a8478"&gt;%==========================&lt;/span&gt;]
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;The operation completed successfully&lt;span style="color:#7a8478"&gt;.&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;请求的操作成功。直到重新启动系统前更改将不会生效。
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;继续重启，显示“我们无法完成更新，正在撤销更改。”&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;zcz  system32  ♥ 22:09  wsl.exe --install --no-distribution
+正在安装 Windows 可选组件: Microsoft-Windows-Subsystem-Linux
+
+Deployment Image Servicing and Management tool
+Version: 10.0.19041.3636
+
+Image Version: 10.0.19045.5487
+
+启用一个或多个功能
+[==========================100.0%==========================]
+The operation completed successfully.
+正在安装 Windows 可选组件: VirtualMachinePlatform
+
+Deployment Image Servicing and Management tool
+Version: 10.0.19041.3636
+
+Image Version: 10.0.19045.5487
+
+启用一个或多个功能
+[==========================100.0%==========================]
+The operation completed successfully.
+请求的操作成功。直到重新启动系统前更改将不会生效。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;继续重启，显示“我们无法完成更新，正在撤销更改。”&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;以管理员身份打开CMD&lt;/strong&gt;：
 按下 &lt;code&gt;Win+S&lt;/code&gt; → 输入 &lt;code&gt;cmd&lt;/code&gt; → 右键选择 &lt;strong&gt;“以管理员身份运行”&lt;/strong&gt;  &lt;strong&gt;执行以下命令（注意语法）&lt;/strong&gt;：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-cmd" data-lang="cmd"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sc config LxssManager start= auto
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sc config vmcompute start= auto
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;net start LxssManager
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;net start vmcompute
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;仍然1085，管理员cmd执行&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;dism /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;dism /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;尝试重装WSL，出现
+&lt;pre&gt;&lt;code class="language-cmd"&gt;sc config LxssManager start= auto
+sc config vmcompute start= auto
+net start LxssManager
+net start vmcompute
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;仍然1085，管理员cmd执行&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;dism /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+
+dism /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;尝试重装WSL，出现
 ![[_posts\Windows-WSL报错：Error-0x80080005\Pasted image 20250304222548.png]]&lt;/p&gt;
 &lt;p&gt;研究了一阵子，&lt;strong&gt;&lt;code&gt;vmcompute&lt;/code&gt;&lt;/strong&gt;（虚拟机核心服务）和 &lt;strong&gt;&lt;code&gt;LxssManager&lt;/code&gt;&lt;/strong&gt;（WSL管理服务）均未注册，导致WSL安装向导崩溃。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-Powershell" data-lang="Powershell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#859289;font-style:italic"&gt;# 以管理员身份运行&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;dism.exe /online /&lt;span style="color:#d699b6"&gt;enable-feature&lt;/span&gt; /featurename:&lt;span style="color:#d699b6"&gt;Microsoft-Windows&lt;/span&gt;-Subsystem-Linux /all /norestart
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;dism.exe /online /&lt;span style="color:#d699b6"&gt;enable-feature&lt;/span&gt; /featurename:VirtualMachinePlatform /all /norestart
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;dism.exe /online /&lt;span style="color:#d699b6"&gt;enable-feature&lt;/span&gt; /featurename:HypervisorPlatform /all /norestart
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;重启，“我们无法完成更新，正在撤销更改。”
+&lt;pre&gt;&lt;code class="language-Powershell"&gt;# 以管理员身份运行
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+dism.exe /online /enable-feature /featurename:HypervisorPlatform /all /norestart
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;重启，“我们无法完成更新，正在撤销更改。”
 。。。。。、、、、
 尽力了。现在看来，是系统层面的硬伤了。可能行得通的有重装系统和保留文件重置系统两个选择。不过我还是会和这个问题死磕一下，我就不信我干不成这个事。明天还要苦逼上学，先睡了。
 2025.3.4 22:57&lt;/p&gt;
 &lt;p&gt;————————————————————————————&lt;/p&gt;
 &lt;p&gt;2025.3.5&lt;/p&gt;
 &lt;p&gt;尝试&lt;strong&gt;强制修复系统核心组件&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# 以管理员身份运行 PowerShell
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sfc /scannow
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;DISM /Online /Cleanup-Image /RestoreHealth
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;重置 Windows Update 组件&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# 管理员cmd执行 net stop wuauserv
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;net stop cryptSvc
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;net stop bits
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;net stop msiserver
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;rmdir C:\Windows\SoftwareDistribution /S /Q
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;net start wuauserv
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;net start cryptSvc
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;net start bits
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;net start msiserver
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# 强制重建WSL核心服务
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sc create vmcompute binPath= &amp;#34;C:\Windows\System32\vmcompute.exe&amp;#34; start= auto type= kernel
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sc create LxssManager binPath= &amp;#34;C:\Windows\System32\lxss\LxssManager.dll&amp;#34; start= auto type= own
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;net start vmcompute
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;net start LxssManager
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;仍然无法启动。使用wsl偶遇神秘怪异bug拼尽全力无法战胜。我都已经浪费这么长时间来研究这个问题，为什么我不直接装个Linux系统呢。周末就把这傻卵系统换成Arch！&lt;/p&gt;</description></item></channel></rss>
+&lt;pre&gt;&lt;code&gt;# 以管理员身份运行 PowerShell
+sfc /scannow
+DISM /Online /Cleanup-Image /RestoreHealth
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;重置 Windows Update 组件&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# 管理员cmd执行 net stop wuauserv
+net stop cryptSvc
+net stop bits
+net stop msiserver
+rmdir C:\Windows\SoftwareDistribution /S /Q
+net start wuauserv
+net start cryptSvc
+net start bits
+net start msiserver
+# 强制重建WSL核心服务
+sc create vmcompute binPath= &amp;quot;C:\Windows\System32\vmcompute.exe&amp;quot; start= auto type= kernel
+sc create LxssManager binPath= &amp;quot;C:\Windows\System32\lxss\LxssManager.dll&amp;quot; start= auto type= own
+net start vmcompute
+net start LxssManager
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;仍然无法启动。使用wsl偶遇神秘怪异bug拼尽全力无法战胜。我都已经浪费这么长时间来研究这个问题，为什么我不直接装个Linux系统呢。周末就把这傻卵系统换成Arch！&lt;/p&gt;</description></item></channel></rss>

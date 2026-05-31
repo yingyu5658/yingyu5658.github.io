@@ -1,12 +1,14 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>前端 on 映屿</title><link>http://localhost:1313/tags/%E5%89%8D%E7%AB%AF/</link><description>Recent content in 前端 on 映屿</description><generator>Hugo</generator><language>zh-cn</language><managingEditor>im@verdant.ee (五葉地錦)</managingEditor><webMaster>im@verdant.ee (五葉地錦)</webMaster><lastBuildDate>Tue, 04 Mar 2025 10:13:10 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/%E5%89%8D%E7%AB%AF/atom.xml" rel="self" type="application/rss+xml"/><item><title>CSS鼠标指针操作</title><link>http://localhost:1313/posts/css%E9%BC%A0%E6%A0%87%E6%8C%87%E9%92%88%E6%93%8D%E4%BD%9C/</link><pubDate>Tue, 04 Mar 2025 10:13:10 +0000</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>http://localhost:1313/posts/css%E9%BC%A0%E6%A0%87%E6%8C%87%E9%92%88%E6%93%8D%E4%BD%9C/</guid><description>&lt;p&gt;今天在上网冲浪的时候，看到Github上有一个明日方舟风格的&lt;a href="https://github.com/Yue-plus/hexo-theme-arknights"&gt;主题&lt;/a&gt;，这个主题让我感到新鲜的一点是网页中的鼠标指针特效&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>前端 on 映屿</title><link>https://blog.verdant.ee/tags/%E5%89%8D%E7%AB%AF/</link><description>Recent content in 前端 on 映屿</description><generator>Hugo</generator><language>zh-cn</language><managingEditor>im@verdant.ee (五葉地錦)</managingEditor><webMaster>im@verdant.ee (五葉地錦)</webMaster><lastBuildDate>Tue, 04 Mar 2025 10:13:10 +0000</lastBuildDate><atom:link href="http://blog.verdant.ee/tags/%E5%89%8D%E7%AB%AF/atom.xml" rel="self" type="application/rss+xml"/><item><title>CSS鼠标指针操作</title><link>https://blog.verdant.ee/posts/css%E9%BC%A0%E6%A0%87%E6%8C%87%E9%92%88%E6%93%8D%E4%BD%9C/</link><pubDate>Tue, 04 Mar 2025 10:13:10 +0000</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>https://blog.verdant.ee/posts/css%E9%BC%A0%E6%A0%87%E6%8C%87%E9%92%88%E6%93%8D%E4%BD%9C/</guid><description>&lt;p&gt;今天在上网冲浪的时候，看到Github上有一个明日方舟风格的&lt;a href="https://github.com/Yue-plus/hexo-theme-arknights"&gt;主题&lt;/a&gt;，这个主题让我感到新鲜的一点是网页中的鼠标指针特效&lt;/p&gt;
 &lt;p&gt;这么舒服的动画效果我必须也要做一个，说干就干，新建个HTML文档。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-css" data-lang="css"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#7a8478"&gt;*&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;cursor&lt;/span&gt;: &lt;span style="color:#e67e80"&gt;pointer&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这样，我们整个网页的鼠标指针样式就都变成了小手指的样式，不过这样还是太丑，我们仿照arknights主题的样式，打开PS，画一个指针图标出来看看&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-css"&gt;* {
+ cursor: pointer;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这样，我们整个网页的鼠标指针样式就都变成了小手指的样式，不过这样还是太丑，我们仿照arknights主题的样式，打开PS，画一个指针图标出来看看&lt;/p&gt;
 &lt;p&gt;使用url()属性可以替换自己的素材图片&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-css" data-lang="css"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#7a8478"&gt;*&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e67e80"&gt;cursor&lt;/span&gt;: &lt;span style="color:#d699b6"&gt;url&lt;/span&gt;(&lt;span style="color:#b2c98f"&gt;&amp;#34;./source/cu.ico&amp;#34;&lt;/span&gt;), &lt;span style="color:#e67e80"&gt;auto&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这样鼠标指针的效果就做好了（因为我的截图软件要用鼠标指针选区，所以截不到图）
+&lt;pre&gt;&lt;code class="language-css"&gt;* {
+ cursor: url(&amp;quot;./source/cu.ico&amp;quot;), auto;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这样鼠标指针的效果就做好了（因为我的截图软件要用鼠标指针选区，所以截不到图）
 a&lt;/p&gt;</description></item></channel></rss>

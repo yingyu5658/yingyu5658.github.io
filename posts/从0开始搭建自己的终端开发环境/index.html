@@ -1,11 +1,11 @@
-<!doctype html><html lang=zh-cn><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><link rel=stylesheet href=/css/style.css><meta http-equiv=X-Clacks-Overhead content="GNU Terry Pratchett"><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><link rel="shortcut icon" href=http://localhost:1313/favicon.png><title>从0开始搭建自己的终端开发环境</title><meta name=title content="从0开始搭建自己的终端开发环境"><meta name=description content="系统：WSL Arch
+<!doctype html><html lang=zh-cn><head><link rel=stylesheet href=/css/style.css><meta http-equiv=X-Clacks-Overhead content="GNU Terry Pratchett"><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><link rel="shortcut icon" href=https://blog.verdant.ee/favicon.png><title>从0开始搭建自己的终端开发环境</title><meta name=title content="从0开始搭建自己的终端开发环境"><meta name=description content="系统：WSL Arch
 主折腾点
 代码编辑器：Vim(Neovim)
 终端体验优化：tmux
 文件管理器：yazi
 代码编辑器——Neovim
 前言
-Neovim和Vim相比，在性能和易用性上有很大的提升，在异步任务表现突出；使用更加现代的lua脚本配置，可读性更高。"><meta name=keywords content="黑历史,终端,Neovim,"><link rel=canonical href=http://localhost:1313/posts/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BB%88%E7%AB%AF%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/><meta property="og:url" content="http://localhost:1313/posts/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BB%88%E7%AB%AF%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/"><meta property="og:site_name" content="映屿"><meta property="og:title" content="从0开始搭建自己的终端开发环境"><meta property="og:description" content="系统：WSL Arch
+Neovim和Vim相比，在性能和易用性上有很大的提升，在异步任务表现突出；使用更加现代的lua脚本配置，可读性更高。"><meta name=keywords content="黑历史,终端,Neovim,"><meta property="og:site_name" content="映屿"><meta property="og:title" content="从0开始搭建自己的终端开发环境"><meta property="og:url" content="https://blog.verdant.ee/posts/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BB%88%E7%AB%AF%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/"><meta property="og:description" content="Verdant 的博客。关于互联网、书籍、生活琐事以及那些一闪而过的念头。计算机技术 & 读书感悟 & 日常随笔。映屿(GlowIsle)"><meta property="og:type" content="article"><link rel=canonical href=https://blog.verdant.ee/posts/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BB%88%E7%AB%AF%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/><meta property="og:url" content="https://blog.verdant.ee/posts/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BB%88%E7%AB%AF%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/"><meta property="og:site_name" content="映屿"><meta property="og:title" content="从0开始搭建自己的终端开发环境"><meta property="og:description" content="系统：WSL Arch
 主折腾点 代码编辑器：Vim(Neovim)
 终端体验优化：tmux
 文件管理器：yazi
@@ -17,170 +17,165 @@ Neovim和Vim相比，在性能和易用性上有很大的提升，在异步任�
 主折腾点 代码编辑器：Vim(Neovim)
 终端体验优化：tmux
 文件管理器：yazi
-代码编辑器——Neovim 前言 Neovim和Vim相比，在性能和易用性上有很大的提升，在异步任务表现突出；使用更加现代的lua脚本配置，可读性更高。"><meta itemprop=datePublished content="2025-04-15T21:15:24+00:00"><meta itemprop=dateModified content="2025-04-15T21:15:24+00:00"><meta itemprop=wordCount content="2383"><meta itemprop=keywords content="黑历史,终端,Neovim"><meta name=referrer content="no-referrer-when-downgrade"><meta name=msvalidate.01 content="2E1AACF009206F2DDBAAD4B98E881460"><link rel=prefetch as=image href=https://www.blogsclub.org/badge/blog.verdant.ee><meta name=blogsclub-verify content="2fff06c4423c4f41ac048f779a7daab5"><link rel="shortcut icon" href=/favicon.ico></head><body><main><header><a href=/ class=title><p class=site-title>映屿</p></a><nav><a href=/categories/>分类</a>
-<a href=/links/>友人</a>
-<a href=/archives/>归档</a>
-<a href=/about/>关于</a></nav></header><style>.h-entry~.info,.h-entry~div:last-of-type{margin-top:2rem;padding-top:1rem;font-size:.85rem;line-height:1.6;color:var(--summary-text-color);font-family:var(--font-secondary)}.h-entry~.info p,.h-entry~div:last-of-type p{margin:.4rem 0}</style><article class=h-entry><h1 class=post-title><a href=/posts/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BB%88%E7%AB%AF%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/ class=item-link>从0开始搭建自己的终端开发环境</a></h1><div class=post-meta><div class="post-meta-item post-date"><time class=dt-published datetime=2025-04-15T21:15:24Z>April 15, 2025</time></div><div class="post-meta-item post-category">•
-<a href=/categories/%E6%8A%80%E6%9C%AF/ class=category-link>技术</a></div></div><div class=e-content><p><strong>系统</strong>：WSL Arch</p><h3 id=主折腾点>主折腾点</h3><p><strong>代码编辑器</strong>：Vim(Neovim)</p><p><strong>终端体验优化</strong>：tmux</p><p><strong>文件管理器</strong>：yazi</p><h2 id=代码编辑器neovim>代码编辑器——Neovim</h2><h3 id=前言>前言</h3><p>Neovim和Vim相比，在性能和易用性上有很大的提升，在异步任务表现突出；使用更加现代的lua脚本配置，可读性更高。</p><h4 id=为什么不用lazyvim>为什么不用Lazyvim？</h4><p>答：我个人用了很长一段时间Lazyvim，虽然开箱即用，简单调试就可以使用，但是我并不能清除的理解他到底给我装了什么，我是否需要那些插件。感觉像在用别人的软件，而自己从头开始配置vim的掌控感是使用他人的配置文件无法比拟的，在配置的过程中也可以培养排错和程序调试能力，唯一的缺点就是略微耗费时间。</p><h3 id=安装>安装</h3><p>先滚一把系统保证软件包都是最新的</p><p><code>sudo pacman -Syyu</code></p><p>安装Neovim</p><p><code>sudo pacman -S neovim</code></p><p>这时候在终端输入<code>nvim</code>就可以打开neovim了。![image-20250415212435171](E:/Blog/source/im</p><p><strong>按<code>:q</code>退出。</strong></p><p>这个初始的界面非常简陋，我们先进行核心功能配置，后续在更改主题。</p><p>nvim的用户级配置文件在<code>~/.config/nvim</code>中。</p><h3 id=安装包管理器>安装包管理器</h3><p>我们选择Lazy作为包管理器，他和其他的包管理器相比起来，在懒加载、UI界面等方面有显著优势，可以减小配置复杂度。</p><p>访问<a href=https://lazy.folke.io/installation>lazy.nvim官网</a>，官方文档永远都是最好的教程。这里有一段代码</p><div class=highlight><pre tabindex=0 style=color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lua data-lang=lua><span style=display:flex><span><span style=color:#859289;font-style:italic>-- Bootstrap lazy.nvim</span>
-</span></span><span style=display:flex><span><span style=color:#e67e80>local</span> lazypath <span style=color:#7a8478>=</span> vim.fn.stdpath(<span style=color:#b2c98f>&#34;data&#34;</span>) <span style=color:#7a8478>..</span> <span style=color:#b2c98f>&#34;/lazy/lazy.nvim&#34;</span>
-</span></span><span style=display:flex><span><span style=color:#e67e80>if</span> <span style=color:#7a8478>not</span> (vim.uv <span style=color:#7a8478>or</span> vim.loop).fs_stat(lazypath) <span style=color:#e67e80>then</span>
-</span></span><span style=display:flex><span>  <span style=color:#e67e80>local</span> lazyrepo <span style=color:#7a8478>=</span> <span style=color:#b2c98f>&#34;https://github.com/folke/lazy.nvim.git&#34;</span>
-</span></span><span style=display:flex><span>  <span style=color:#e67e80>local</span> out <span style=color:#7a8478>=</span> vim.fn.system({ <span style=color:#b2c98f>&#34;git&#34;</span>, <span style=color:#b2c98f>&#34;clone&#34;</span>, <span style=color:#b2c98f>&#34;--filter=blob:none&#34;</span>, <span style=color:#b2c98f>&#34;--branch=stable&#34;</span>, lazyrepo, lazypath })
-</span></span><span style=display:flex><span>  <span style=color:#e67e80>if</span> vim.v.shell_error <span style=color:#7a8478>~=</span> <span style=color:#d699b6>0</span> <span style=color:#e67e80>then</span>
-</span></span><span style=display:flex><span>    vim.api.nvim_echo({
-</span></span><span style=display:flex><span>      { <span style=color:#b2c98f>&#34;Failed to clone lazy.nvim:</span><span style=color:#b2c98f>\n</span><span style=color:#b2c98f>&#34;</span>, <span style=color:#b2c98f>&#34;ErrorMsg&#34;</span> },
-</span></span><span style=display:flex><span>      { out, <span style=color:#b2c98f>&#34;WarningMsg&#34;</span> },
-</span></span><span style=display:flex><span>      { <span style=color:#b2c98f>&#34;</span><span style=color:#b2c98f>\n</span><span style=color:#b2c98f>Press any key to exit...&#34;</span> },
-</span></span><span style=display:flex><span>    }, <span style=color:#e67e80>true</span>, {})
-</span></span><span style=display:flex><span>    vim.fn.getchar()
-</span></span><span style=display:flex><span>    os.exit(<span style=color:#d699b6>1</span>)
-</span></span><span style=display:flex><span>  <span style=color:#e67e80>end</span>
-</span></span><span style=display:flex><span><span style=color:#e67e80>end</span>
-</span></span><span style=display:flex><span>vim.opt.rtp:prepend(lazypath)
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#859289;font-style:italic>-- Make sure to setup `mapleader` and `maplocalleader` before</span>
-</span></span><span style=display:flex><span><span style=color:#859289;font-style:italic>-- loading lazy.nvim so that mappings are correct.</span>
-</span></span><span style=display:flex><span><span style=color:#859289;font-style:italic>-- This is also a good place to setup other settings (vim.opt)</span>
-</span></span><span style=display:flex><span>vim.g.mapleader <span style=color:#7a8478>=</span> <span style=color:#b2c98f>&#34; &#34;</span>
-</span></span><span style=display:flex><span>vim.g.maplocalleader <span style=color:#7a8478>=</span> <span style=color:#b2c98f>&#34;</span><span style=color:#b2c98f>\\</span><span style=color:#b2c98f>&#34;</span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#859289;font-style:italic>-- Setup lazy.nvim</span>
-</span></span><span style=display:flex><span>require(<span style=color:#b2c98f>&#34;lazy&#34;</span>).setup({
-</span></span><span style=display:flex><span>  spec <span style=color:#7a8478>=</span> {
-</span></span><span style=display:flex><span>    <span style=color:#859289;font-style:italic>-- import your plugins</span>
-</span></span><span style=display:flex><span>    { import <span style=color:#7a8478>=</span> <span style=color:#b2c98f>&#34;plugins&#34;</span> },
-</span></span><span style=display:flex><span>  },
-</span></span><span style=display:flex><span>  <span style=color:#859289;font-style:italic>-- Configure any other settings here. See the documentation for more details.</span>
-</span></span><span style=display:flex><span>  <span style=color:#859289;font-style:italic>-- colorscheme that will be used when installing plugins.</span>
-</span></span><span style=display:flex><span>  install <span style=color:#7a8478>=</span> { colorscheme <span style=color:#7a8478>=</span> { <span style=color:#b2c98f>&#34;habamax&#34;</span> } },
-</span></span><span style=display:flex><span>  <span style=color:#859289;font-style:italic>-- automatically check for plugin updates</span>
-</span></span><span style=display:flex><span>  checker <span style=color:#7a8478>=</span> { enabled <span style=color:#7a8478>=</span> <span style=color:#e67e80>true</span> },
-</span></span><span style=display:flex><span>})
-</span></span></code></pre></div><p>这段代码主要在为Lazy包管理器初始化，所以按照官网的目录结构，我们在<code>~/.config/nvim/lua</code>下新建一个config文件夹，把代码粘贴进去。</p><p>注意到，代码中有一段是导入plugins这个模块，所以我们需要在<code>~/.config/nvim/lua</code>下创建一个plugins文件夹</p><p>然后在<code>~/.config/nvim/init.lua</code>里粘贴这行代码</p><div class=highlight><pre tabindex=0 style=color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lua data-lang=lua><span style=display:flex><span>require(<span style=color:#b2c98f>&#34;config.lazy&#34;</span>)
-</span></span></code></pre></div><p><code>init/lua</code>是Neovim的初始化配置文件，程序会首先读取这个文件里的代码。</p><p>这行代码是引入config/lazy这个文件，初始化Lazy，所以要放在第一行。</p><p>那么经过这一番操作，Lazy安装好了，我们的目录结构应该如下：</p><div class=highlight><pre tabindex=0 style=color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>`-- nvim
-</span></span><span style=display:flex><span>    `-- lua
-</span></span><span style=display:flex><span>        `-- config
-</span></span><span style=display:flex><span>            `-- lazy.lua
-</span></span></code></pre></div><p>现在在终端输入<code>nvim</code>启动Neovim，会发现有个报错</p><div class=highlight><pre tabindex=0 style=color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>No specs found for module &#34;plugins&#34;
-</span></span></code></pre></div><p>查阅<a href=https://github.com/folke/lazy.nvim/discussions/1875>bug: No specs found for module &ldquo;plugins&rdquo; (Structured Setup) · folke/lazy.nvim · Discussion #1875</a>可得，这个问题是由于我们还没有安装任何插件导致的，他不影响什么，但是很烦人。如果想要关掉，可以在plugins下新建一个lua文件，然后输入</p><div class=highlight><pre tabindex=0 style=color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lua data-lang=lua><span style=display:flex><span><span style=color:#e67e80>return</span>{
-</span></span><span style=display:flex><span>    
-</span></span><span style=display:flex><span>}
-</span></span></code></pre></div><p>这样就可以正常启动nvim不报错了。由此可见，Lazy安装插件是返回一张表，所以以后每次新建插件文件的时候都要填写以上内容。</p><h3 id=基础配置>基础配置</h3><p>在安装插件前，我们要先进行一些基础配置，让这个编辑器用的舒服一点。</p><p>设置别名：``</p><div class=highlight><pre tabindex=0 style=color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lua data-lang=lua><span style=display:flex><span><span style=color:#e67e80>local</span> opt <span style=color:#7a8478>=</span> vim.opt
-</span></span></code></pre></div><p>声明一个本地变量opt=vim.opt，简写提高效率。</p><p>为什么要显示声明local？原因是lua脚本的所有变量默认都是全局变量，很怪对吧，我也觉得。</p><div class=highlight><pre tabindex=0 style=color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lua data-lang=lua><span style=display:flex><span>opt.relativenumber <span style=color:#7a8478>=</span> <span style=color:#e67e80>false</span>	<span style=color:#859289;font-style:italic>-- 禁用相对行号</span>
-</span></span><span style=display:flex><span>opt.number <span style=color:#7a8478>=</span> <span style=color:#e67e80>true</span>		   <span style=color:#859289;font-style:italic>-- 启用绝对行号</span>
-</span></span><span style=display:flex><span>vim.api.nvim_set_hl(<span style=color:#d699b6>0</span>, <span style=color:#b2c98f>&#34;LineNr&#34;</span>, { fg <span style=color:#7a8478>=</span> <span style=color:#b2c98f>&#34;#FFD700&#34;</span> }) <span style=color:#859289;font-style:italic>-- 所有行号设为金色</span>
-</span></span></code></pre></div><p>相对行号可以更容易的数行数来达到<code>hjkl/d/v等 + 行数</code>来快速进行文本编辑操作，但是我个人不太适应，就没开，后期可以通过修改按键配置来做到随时开关。</p><h3 id=安装插件>安装插件</h3><h4 id=neo-tree>neo-tree</h4><p>neo-tree 编辑器的文件系统资源管理器。使用此插件，用户可以直观地浏览复杂的目录层次结构，快速打开文件进行读取或编辑，并执行基本的文件系统作。</p><p>仓库：<a href=https://github.com/nvim-neo-tree/neo-tree.nvim>nvim-neo-tree/neo-tree.nvim: Neovim plugin to manage the file system and other tree like structures.</a></p><p>进入Plugins目录，新建一个文件名为nerdtree的lua脚本。先把上文提到的返回表写进去。</p><div class=highlight><pre tabindex=0 style=color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lua data-lang=lua><span style=display:flex><span><span style=color:#859289;font-style:italic>-- neo-tree.lua</span>
-</span></span><span style=display:flex><span><span style=color:#859289;font-style:italic>-- 代码来自仓库README</span>
-</span></span><span style=display:flex><span>{
-</span></span><span style=display:flex><span>  <span style=color:#b2c98f>&#34;nvim-neo-tree/neo-tree.nvim&#34;</span>,
-</span></span><span style=display:flex><span>  branch <span style=color:#7a8478>=</span> <span style=color:#b2c98f>&#34;v3.x&#34;</span>,
-</span></span><span style=display:flex><span>  dependencies <span style=color:#7a8478>=</span> {
-</span></span><span style=display:flex><span>    <span style=color:#b2c98f>&#34;nvim-lua/plenary.nvim&#34;</span>,
-</span></span><span style=display:flex><span>    <span style=color:#b2c98f>&#34;nvim-tree/nvim-web-devicons&#34;</span>, <span style=color:#859289;font-style:italic>-- not strictly required, but recommended</span>
-</span></span><span style=display:flex><span>    <span style=color:#b2c98f>&#34;MunifTanjim/nui.nvim&#34;</span>,
-</span></span><span style=display:flex><span>    <span style=color:#859289;font-style:italic>-- {&#34;3rd/image.nvim&#34;, opts = {}}, -- Optional image support in preview window: See `# Preview Mode` for more information</span>
-</span></span><span style=display:flex><span>  },
-</span></span><span style=display:flex><span>  lazy <span style=color:#7a8478>=</span> <span style=color:#e67e80>false</span>, <span style=color:#859289;font-style:italic>-- neo-tree will lazily load itself</span>
-</span></span><span style=display:flex><span>  <span style=color:#859289;font-style:italic>---@module &#34;neo-tree&#34;</span>
-</span></span><span style=display:flex><span>  <span style=color:#859289;font-style:italic>---@type neotree.Config?</span>
-</span></span><span style=display:flex><span>  opts <span style=color:#7a8478>=</span> {
-</span></span><span style=display:flex><span>    <span style=color:#859289;font-style:italic>-- fill any relevant options here</span>
-</span></span><span style=display:flex><span>  },
-</span></span><span style=display:flex><span>}
-</span></span></code></pre></div><p>插件装好了发现，不知道怎么打开啊。这时候就需要我们自己动手改一个舒服点的键位。在<code>~/.config/nvim/lua/config</code>中新建一个keymaps.lua，并在init.lua中引用</p><div class=highlight><pre tabindex=0 style=color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lua data-lang=lua><span style=display:flex><span><span style=color:#859289;font-style:italic>-- 习惯上，我喜欢把leader键映射到空格，敲起来顺手</span>
-</span></span><span style=display:flex><span><span style=color:#859289;font-style:italic>-- 基础按键配置</span>
-</span></span><span style=display:flex><span>vim.g.mapleader <span style=color:#7a8478>=</span> <span style=color:#b2c98f>&#34; &#34;</span>
-</span></span><span style=display:flex><span><span style=color:#e67e80>local</span> opt <span style=color:#7a8478>=</span> { noremap <span style=color:#7a8478>=</span> <span style=color:#e67e80>true</span>, slient <span style=color:#7a8478>=</span> <span style=color:#e67e80>true</span> }
-</span></span><span style=display:flex><span><span style=color:#859289;font-style:italic>-- 窗口切换更顺手，少按一个w</span>
-</span></span><span style=display:flex><span>vim.keymap.set(<span style=color:#b2c98f>&#34;n&#34;</span>, <span style=color:#b2c98f>&#34;&lt;C-h&gt;&#34;</span>, <span style=color:#b2c98f>&#34;&lt;C-w&gt;h&#34;</span>)
-</span></span><span style=display:flex><span>vim.keymap.set(<span style=color:#b2c98f>&#34;n&#34;</span>, <span style=color:#b2c98f>&#34;&lt;C-j&gt;&#34;</span>, <span style=color:#b2c98f>&#34;&lt;C-w&gt;j&#34;</span>)
-</span></span><span style=display:flex><span>vim.keymap.set(<span style=color:#b2c98f>&#34;n&#34;</span>, <span style=color:#b2c98f>&#34;&lt;C-k&gt;&#34;</span>, <span style=color:#b2c98f>&#34;&lt;C-w&gt;k&#34;</span>)
-</span></span><span style=display:flex><span>vim.keymap.set(<span style=color:#b2c98f>&#34;n&#34;</span>, <span style=color:#b2c98f>&#34;&lt;C-l&gt;&#34;</span>, <span style=color:#b2c98f>&#34;&lt;C-w&gt;l&#34;</span>)
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#859289;font-style:italic>-- Neotree</span>
-</span></span><span style=display:flex><span>vim.keymap.set(<span style=color:#b2c98f>&#34;n&#34;</span>, <span style=color:#b2c98f>&#34;&lt;Leader&gt;e&#34;</span>, <span style=color:#b2c98f>&#34;&lt;cmd&gt;Neotree toggle&lt;CR&gt;&#34;</span>, opts)
-</span></span></code></pre></div><h4 id=代码补全格式化检查>代码补全、格式化、检查</h4><p>要让vim看起来像一个正经的处理代码的文本编辑器，这些是必不可少的。</p><div class=highlight><pre tabindex=0 style=color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lua data-lang=lua><span style=display:flex><span><span style=color:#859289;font-style:italic>-- 文件路径：lua/plugins/code-edit.lua</span>
-</span></span><span style=display:flex><span><span style=color:#e67e80>return</span> {
-</span></span><span style=display:flex><span>  <span style=color:#859289;font-style:italic>-- LSP 核心组件 (必须最先声明)</span>
-</span></span><span style=display:flex><span>  {
-</span></span><span style=display:flex><span>    <span style=color:#b2c98f>&#34;neovim/nvim-lspconfig&#34;</span>,
-</span></span><span style=display:flex><span>    dependencies <span style=color:#7a8478>=</span> {
-</span></span><span style=display:flex><span>      <span style=color:#b2c98f>&#34;williamboman/mason.nvim&#34;</span>,
-</span></span><span style=display:flex><span>      <span style=color:#b2c98f>&#34;williamboman/mason-lspconfig.nvim&#34;</span>,
-</span></span><span style=display:flex><span>    },
-</span></span><span style=display:flex><span>    config <span style=color:#7a8478>=</span> <span style=color:#e67e80>function</span>()
-</span></span><span style=display:flex><span>      <span style=color:#859289;font-style:italic>-- 延迟加载 LSP 配置</span>
-</span></span><span style=display:flex><span>      vim.schedule(<span style=color:#e67e80>function</span>()
-</span></span><span style=display:flex><span>        <span style=color:#e67e80>local</span> lspconfig <span style=color:#7a8478>=</span> require(<span style=color:#b2c98f>&#34;lspconfig&#34;</span>)
-</span></span><span style=display:flex><span>        <span style=color:#e67e80>local</span> mason <span style=color:#7a8478>=</span> require(<span style=color:#b2c98f>&#34;mason&#34;</span>)
-</span></span><span style=display:flex><span>        <span style=color:#e67e80>local</span> mason_lspconfig <span style=color:#7a8478>=</span> require(<span style=color:#b2c98f>&#34;mason-lspconfig&#34;</span>)
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>        <span style=color:#859289;font-style:italic>-- 通用 LSP 配置</span>
-</span></span><span style=display:flex><span>        <span style=color:#e67e80>local</span> on_attach <span style=color:#7a8478>=</span> <span style=color:#e67e80>function</span>(client, bufnr)
-</span></span><span style=display:flex><span>          <span style=color:#859289;font-style:italic>-- 快捷键配置...</span>
-</span></span><span style=display:flex><span>        <span style=color:#e67e80>end</span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>        mason.setup()
-</span></span><span style=display:flex><span>        mason_lspconfig.setup({
-</span></span><span style=display:flex><span>          ensure_installed <span style=color:#7a8478>=</span> { <span style=color:#b2c98f>&#34;tsserver&#34;</span>, <span style=color:#b2c98f>&#34;cssls&#34;</span>, <span style=color:#b2c98f>&#34;html&#34;</span>, <span style=color:#b2c98f>&#34;clangd&#34;</span>, <span style=color:#b2c98f>&#34;eslint&#34;</span> }
-</span></span><span style=display:flex><span>        })
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>        mason_lspconfig.setup_handlers({
-</span></span><span style=display:flex><span>          <span style=color:#e67e80>function</span>(server_name)
-</span></span><span style=display:flex><span>            lspconfig[server_name].setup({
-</span></span><span style=display:flex><span>              on_attach <span style=color:#7a8478>=</span> on_attach,
-</span></span><span style=display:flex><span>              capabilities <span style=color:#7a8478>=</span> require(<span style=color:#b2c98f>&#34;cmp_nvim_lsp&#34;</span>).default_capabilities(),
-</span></span><span style=display:flex><span>              <span style=color:#859289;font-style:italic>-- 各语言特殊配置...</span>
-</span></span><span style=display:flex><span>            })
-</span></span><span style=display:flex><span>          <span style=color:#e67e80>end</span>
-</span></span><span style=display:flex><span>        })
-</span></span><span style=display:flex><span>      <span style=color:#e67e80>end</span>)
-</span></span><span style=display:flex><span>    <span style=color:#e67e80>end</span>
-</span></span><span style=display:flex><span>  },
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>  <span style=color:#859289;font-style:italic>-- 自动补全引擎（需在 LSP 之后加载）</span>
-</span></span><span style=display:flex><span>  {
-</span></span><span style=display:flex><span>    <span style=color:#b2c98f>&#34;hrsh7th/nvim-cmp&#34;</span>,
-</span></span><span style=display:flex><span>    dependencies <span style=color:#7a8478>=</span> {
-</span></span><span style=display:flex><span>      <span style=color:#b2c98f>&#34;hrsh7th/cmp-nvim-lsp&#34;</span>,
-</span></span><span style=display:flex><span>      <span style=color:#b2c98f>&#34;L3MON4D3/LuaSnip&#34;</span>,
-</span></span><span style=display:flex><span>    },
-</span></span><span style=display:flex><span>    config <span style=color:#7a8478>=</span> <span style=color:#e67e80>function</span>()
-</span></span><span style=display:flex><span>      <span style=color:#859289;font-style:italic>-- cmp 配置...</span>
-</span></span><span style=display:flex><span>    <span style=color:#e67e80>end</span>
-</span></span><span style=display:flex><span>  },
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>  <span style=color:#859289;font-style:italic>-- 格式化工具</span>
-</span></span><span style=display:flex><span>  {
-</span></span><span style=display:flex><span>    <span style=color:#b2c98f>&#34;stevearc/conform.nvim&#34;</span>,
-</span></span><span style=display:flex><span>    config <span style=color:#7a8478>=</span> <span style=color:#e67e80>function</span>()
-</span></span><span style=display:flex><span>      <span style=color:#859289;font-style:italic>-- conform 配置...</span>
-</span></span><span style=display:flex><span>    <span style=color:#e67e80>end</span>
-</span></span><span style=display:flex><span>  },
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>  <span style=color:#859289;font-style:italic>-- 语法高亮增强</span>
-</span></span><span style=display:flex><span>  {
-</span></span><span style=display:flex><span>    <span style=color:#b2c98f>&#34;nvim-treesitter/nvim-treesitter&#34;</span>,
-</span></span><span style=display:flex><span>    build <span style=color:#7a8478>=</span> <span style=color:#b2c98f>&#34;:TSUpdate&#34;</span>,
-</span></span><span style=display:flex><span>    config <span style=color:#7a8478>=</span> <span style=color:#e67e80>function</span>()
-</span></span><span style=display:flex><span>      <span style=color:#859289;font-style:italic>-- treesitter 配置...</span>
-</span></span><span style=display:flex><span>    <span style=color:#e67e80>end</span>
-</span></span><span style=display:flex><span>  }
-</span></span><span style=display:flex><span>}
-</span></span></code></pre></div><p>代码编辑器的配置就告一段落了，真写规范的代码还是建议vscode（虽然有点偏离终端的主题了）。如果你爱折腾vim那当然也可以，工具自己用的趁手就是最好的。</p><h2 id=oh-my-zsh>Oh-My-Zsh</h2><p>Oh My Zsh 是基于 zsh 命令行的一个扩展工具集，提供了丰富的扩展功能。</p><h3 id=安装zsh>安装<strong>ZSH</strong></h3><p><code>sudo pacman -S zsh</code></p><p>设置默认终端为zsh</p><p><code>chsh -s /bin/zsh</code></p><h3 id=安装oh-my-zsh>安装Oh-My-Zsh</h3><p>国内镜像</p><p><code>sh -c "$(curl -fsSL https://gitee.com/pocmon/ohmyzsh/raw/master/tools/install.sh)"</code></p><p>我个人觉得这个主题就挺好的了，不多改动。</p><h4 id=插件安装>插件安装</h4><h4 id=zsh--autosuggestions>zsh -autosuggestions</h4><p>预测命令</p><div class=highlight><pre tabindex=0 style=color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>git clone https://github.moeyy.xyz/https://github.com/zsh-users/zsh-autosuggestions <span style=color:#b2c98f>${</span>ZSH_CUSTOM<span style=color:#e67e80>:-</span>~/.oh-my-zsh/custom<span style=color:#b2c98f>}</span>/plugins/zsh-autosuggestions
-</span></span></code></pre></div><h4 id=zsh-syntax-highlighting>zsh-syntax-highlighting</h4><p>语法检查，命令正确时为绿色，否则红色。</p><div class=highlight><pre tabindex=0 style=color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>git clone https://github.moeyy.xyz/https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-</span></span></code></pre></div><h4 id=启用插件>启用插件</h4><p><code>nvim ~/.zshrc</code></p><p>修改：</p><div class=highlight><pre tabindex=0 style=color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>plugins=(
-</span></span><span style=display:flex><span>  git
-</span></span><span style=display:flex><span>  zsh-autosuggestions
-</span></span><span style=display:flex><span>  zsh-syntax-highlighting
-</span></span><span style=display:flex><span>  )
-</span></span></code></pre></div><p>重启终端即可启用。</p><h4 id=别名设置>别名设置</h4><p>别名可以更快地帮助我们启用命令</p><p><code>nvim ~/.zshrc</code></p><div class=highlight><pre tabindex=0 style=color:#d6cbb4;background-color:#252b2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>alias s=&#34;neofetch&#34;
-</span></span><span style=display:flex><span>alias vim=&#34;nvim&#34;
-</span></span><span style=display:flex><span>alias c=&#34;clear&#34;
-</span></span><span style=display:flex><span>alias gcl = &#34;git clone&#34;
-</span></span></code></pre></div><p>这里根据我的习惯改了几个别名。</p></div></article><a class=u-url href=http://localhost:1313/posts/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BB%88%E7%AB%AF%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/ style=display:none>Permalink</a><hr><div class=post-meta><div class="post-meta-item post-tag">#
-<a href=http://localhost:1313/tags/%E9%BB%91%E5%8E%86%E5%8F%B2/>黑历史</a>
-,
-<a href=http://localhost:1313/tags/%E7%BB%88%E7%AB%AF/>终端</a>
-,
-<a href=http://localhost:1313/tags/neovim/>Neovim</a></div></div><div class=info><p>文章内容遵循 <a href=https://creativecommons.org/licenses/by-nc-sa/4.0/>CC BY-NC-SA 4.0</a> 标准共享。</p><p>有想对我说的？向<a href="mailto:im@verdant.ee?subject=回复《%e4%bb%8e0%e5%bc%80%e5%a7%8b%e6%90%ad%e5%bb%ba%e8%87%aa%e5%b7%b1%e7%9a%84%e7%bb%88%e7%ab%af%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83》"> im@verdant.ee </a>发送一封<a href=https://useplaintext.email/>纯文本邮件</a>吧。</p></div></div></main><footer><div class=copyright>© 2024 - 2026 | Made with ❤️ by <a href=https://verdant.ee>Verdant</a>.<div class=footer-item>| <button id=toggle-theme-btn>Dark/Light</button></div></div><script>console.log("Loaded");const modes={Dark:"dark",Light:"light"};function getCurrentMode(){let e=localStorage.getItem("theme");return e===null?null:e}const toggleColorSchemeBtn=document.getElementById("toggle-theme-btn"),body=document.body,currentMode=getCurrentMode();currentMode===modes.Dark&&body.classList.toggle("dark-mode"),toggleColorSchemeBtn.addEventListener("click",()=>{body.classList.toggle("dark-mode"),body.classList.contains("dark-mode")?localStorage.setItem("theme",modes.Dark):localStorage.setItem("theme",modes.Light)})</script></footer></body></html>
+代码编辑器——Neovim 前言 Neovim和Vim相比，在性能和易用性上有很大的提升，在异步任务表现突出；使用更加现代的lua脚本配置，可读性更高。"><meta itemprop=datePublished content="2025-04-15T21:15:24+00:00"><meta itemprop=dateModified content="2025-04-15T21:15:24+00:00"><meta itemprop=wordCount content="2383"><meta itemprop=keywords content="黑历史,终端,Neovim"><meta name=referrer content="no-referrer-when-downgrade"><link rel=alternate type=application/rss+xml href=/atom.xml title=映屿><meta name=msvalidate.01 content="2E1AACF009206F2DDBAAD4B98E881460"><link rel=prefetch as=image href=https://www.blogsclub.org/badge/blog.verdant.ee><meta name=blogsclub-verify content="2fff06c4423c4f41ac048f779a7daab5"><link rel="shortcut icon" href=/favicon.ico></head><body><main><header class=post-header><span class=site-title><a href=/>映屿</a></span><nav>[<a href=/categories/>分类</a>]
+[<a href=/links/>友人</a>]
+[<a href=/archives/>归档</a>]
+[<a href=/about/>关于</a>]</nav></header><hr><article class=h-entry><header class=entry-meta><h1 class="p-name post-title">从0开始搭建自己的终端开发环境</h1><div class=meta-line><time class=dt-published datetime=2025-04-15T21:15:24Z>2025-04-15
+</time><span class=meta-categories>[<a href=/categories/%E6%8A%80%E6%9C%AF/ class=p-category>技术</a>]</span></div></header><div class="e-content entry-body"><p><strong>系统</strong>：WSL Arch</p><h3 id=主折腾点>主折腾点</h3><p><strong>代码编辑器</strong>：Vim(Neovim)</p><p><strong>终端体验优化</strong>：tmux</p><p><strong>文件管理器</strong>：yazi</p><h2 id=代码编辑器neovim>代码编辑器——Neovim</h2><h3 id=前言>前言</h3><p>Neovim和Vim相比，在性能和易用性上有很大的提升，在异步任务表现突出；使用更加现代的lua脚本配置，可读性更高。</p><h4 id=为什么不用lazyvim>为什么不用Lazyvim？</h4><p>答：我个人用了很长一段时间Lazyvim，虽然开箱即用，简单调试就可以使用，但是我并不能清除的理解他到底给我装了什么，我是否需要那些插件。感觉像在用别人的软件，而自己从头开始配置vim的掌控感是使用他人的配置文件无法比拟的，在配置的过程中也可以培养排错和程序调试能力，唯一的缺点就是略微耗费时间。</p><h3 id=安装>安装</h3><p>先滚一把系统保证软件包都是最新的</p><p><code>sudo pacman -Syyu</code></p><p>安装Neovim</p><p><code>sudo pacman -S neovim</code></p><p>这时候在终端输入<code>nvim</code>就可以打开neovim了。![image-20250415212435171](E:/Blog/source/im</p><p><strong>按<code>:q</code>退出。</strong></p><p>这个初始的界面非常简陋，我们先进行核心功能配置，后续在更改主题。</p><p>nvim的用户级配置文件在<code>~/.config/nvim</code>中。</p><h3 id=安装包管理器>安装包管理器</h3><p>我们选择Lazy作为包管理器，他和其他的包管理器相比起来，在懒加载、UI界面等方面有显著优势，可以减小配置复杂度。</p><p>访问<a href=https://lazy.folke.io/installation>lazy.nvim官网</a>，官方文档永远都是最好的教程。这里有一段代码</p><pre><code class=language-lua>-- Bootstrap lazy.nvim
+local lazypath = vim.fn.stdpath(&quot;data&quot;) .. &quot;/lazy/lazy.nvim&quot;
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  local lazyrepo = &quot;https://github.com/folke/lazy.nvim.git&quot;
+  local out = vim.fn.system({ &quot;git&quot;, &quot;clone&quot;, &quot;--filter=blob:none&quot;, &quot;--branch=stable&quot;, lazyrepo, lazypath })
+  if vim.v.shell_error ~= 0 then
+    vim.api.nvim_echo({
+      { &quot;Failed to clone lazy.nvim:\n&quot;, &quot;ErrorMsg&quot; },
+      { out, &quot;WarningMsg&quot; },
+      { &quot;\nPress any key to exit...&quot; },
+    }, true, {})
+    vim.fn.getchar()
+    os.exit(1)
+  end
+end
+vim.opt.rtp:prepend(lazypath)
+
+-- Make sure to setup `mapleader` and `maplocalleader` before
+-- loading lazy.nvim so that mappings are correct.
+-- This is also a good place to setup other settings (vim.opt)
+vim.g.mapleader = &quot; &quot;
+vim.g.maplocalleader = &quot;\\&quot;
+
+-- Setup lazy.nvim
+require(&quot;lazy&quot;).setup({
+  spec = {
+    -- import your plugins
+    { import = &quot;plugins&quot; },
+  },
+  -- Configure any other settings here. See the documentation for more details.
+  -- colorscheme that will be used when installing plugins.
+  install = { colorscheme = { &quot;habamax&quot; } },
+  -- automatically check for plugin updates
+  checker = { enabled = true },
+})
+</code></pre><p>这段代码主要在为Lazy包管理器初始化，所以按照官网的目录结构，我们在<code>~/.config/nvim/lua</code>下新建一个config文件夹，把代码粘贴进去。</p><p>注意到，代码中有一段是导入plugins这个模块，所以我们需要在<code>~/.config/nvim/lua</code>下创建一个plugins文件夹</p><p>然后在<code>~/.config/nvim/init.lua</code>里粘贴这行代码</p><pre><code class=language-lua>require(&quot;config.lazy&quot;)
+</code></pre><p><code>init/lua</code>是Neovim的初始化配置文件，程序会首先读取这个文件里的代码。</p><p>这行代码是引入config/lazy这个文件，初始化Lazy，所以要放在第一行。</p><p>那么经过这一番操作，Lazy安装好了，我们的目录结构应该如下：</p><pre><code>`-- nvim
+    `-- lua
+        `-- config
+            `-- lazy.lua
+</code></pre><p>现在在终端输入<code>nvim</code>启动Neovim，会发现有个报错</p><pre><code>No specs found for module &quot;plugins&quot;
+</code></pre><p>查阅<a href=https://github.com/folke/lazy.nvim/discussions/1875>bug: No specs found for module &ldquo;plugins&rdquo; (Structured Setup) · folke/lazy.nvim · Discussion #1875</a>可得，这个问题是由于我们还没有安装任何插件导致的，他不影响什么，但是很烦人。如果想要关掉，可以在plugins下新建一个lua文件，然后输入</p><pre><code class=language-lua>return{
+    
+}
+</code></pre><p>这样就可以正常启动nvim不报错了。由此可见，Lazy安装插件是返回一张表，所以以后每次新建插件文件的时候都要填写以上内容。</p><h3 id=基础配置>基础配置</h3><p>在安装插件前，我们要先进行一些基础配置，让这个编辑器用的舒服一点。</p><p>设置别名：``</p><pre><code class=language-lua>local opt = vim.opt
+</code></pre><p>声明一个本地变量opt=vim.opt，简写提高效率。</p><p>为什么要显示声明local？原因是lua脚本的所有变量默认都是全局变量，很怪对吧，我也觉得。</p><pre><code class=language-lua>opt.relativenumber = false	-- 禁用相对行号
+opt.number = true		   -- 启用绝对行号
+vim.api.nvim_set_hl(0, &quot;LineNr&quot;, { fg = &quot;#FFD700&quot; }) -- 所有行号设为金色
+</code></pre><p>相对行号可以更容易的数行数来达到<code>hjkl/d/v等 + 行数</code>来快速进行文本编辑操作，但是我个人不太适应，就没开，后期可以通过修改按键配置来做到随时开关。</p><h3 id=安装插件>安装插件</h3><h4 id=neo-tree>neo-tree</h4><p>neo-tree 编辑器的文件系统资源管理器。使用此插件，用户可以直观地浏览复杂的目录层次结构，快速打开文件进行读取或编辑，并执行基本的文件系统作。</p><p>仓库：<a href=https://github.com/nvim-neo-tree/neo-tree.nvim>nvim-neo-tree/neo-tree.nvim: Neovim plugin to manage the file system and other tree like structures.</a></p><p>进入Plugins目录，新建一个文件名为nerdtree的lua脚本。先把上文提到的返回表写进去。</p><pre><code class=language-lua>-- neo-tree.lua
+-- 代码来自仓库README
+{
+  &quot;nvim-neo-tree/neo-tree.nvim&quot;,
+  branch = &quot;v3.x&quot;,
+  dependencies = {
+    &quot;nvim-lua/plenary.nvim&quot;,
+    &quot;nvim-tree/nvim-web-devicons&quot;, -- not strictly required, but recommended
+    &quot;MunifTanjim/nui.nvim&quot;,
+    -- {&quot;3rd/image.nvim&quot;, opts = {}}, -- Optional image support in preview window: See `# Preview Mode` for more information
+  },
+  lazy = false, -- neo-tree will lazily load itself
+  ---@module &quot;neo-tree&quot;
+  ---@type neotree.Config?
+  opts = {
+    -- fill any relevant options here
+  },
+}
+</code></pre><p>插件装好了发现，不知道怎么打开啊。这时候就需要我们自己动手改一个舒服点的键位。在<code>~/.config/nvim/lua/config</code>中新建一个keymaps.lua，并在init.lua中引用</p><pre><code class=language-lua>-- 习惯上，我喜欢把leader键映射到空格，敲起来顺手
+-- 基础按键配置
+vim.g.mapleader = &quot; &quot;
+local opt = { noremap = true, slient = true }
+-- 窗口切换更顺手，少按一个w
+vim.keymap.set(&quot;n&quot;, &quot;&lt;C-h&gt;&quot;, &quot;&lt;C-w&gt;h&quot;)
+vim.keymap.set(&quot;n&quot;, &quot;&lt;C-j&gt;&quot;, &quot;&lt;C-w&gt;j&quot;)
+vim.keymap.set(&quot;n&quot;, &quot;&lt;C-k&gt;&quot;, &quot;&lt;C-w&gt;k&quot;)
+vim.keymap.set(&quot;n&quot;, &quot;&lt;C-l&gt;&quot;, &quot;&lt;C-w&gt;l&quot;)
+
+-- Neotree
+vim.keymap.set(&quot;n&quot;, &quot;&lt;Leader&gt;e&quot;, &quot;&lt;cmd&gt;Neotree toggle&lt;CR&gt;&quot;, opts)
+</code></pre><h4 id=代码补全格式化检查>代码补全、格式化、检查</h4><p>要让vim看起来像一个正经的处理代码的文本编辑器，这些是必不可少的。</p><pre><code class=language-lua>-- 文件路径：lua/plugins/code-edit.lua
+return {
+  -- LSP 核心组件 (必须最先声明)
+  {
+    &quot;neovim/nvim-lspconfig&quot;,
+    dependencies = {
+      &quot;williamboman/mason.nvim&quot;,
+      &quot;williamboman/mason-lspconfig.nvim&quot;,
+    },
+    config = function()
+      -- 延迟加载 LSP 配置
+      vim.schedule(function()
+        local lspconfig = require(&quot;lspconfig&quot;)
+        local mason = require(&quot;mason&quot;)
+        local mason_lspconfig = require(&quot;mason-lspconfig&quot;)
+
+        -- 通用 LSP 配置
+        local on_attach = function(client, bufnr)
+          -- 快捷键配置...
+        end
+
+        mason.setup()
+        mason_lspconfig.setup({
+          ensure_installed = { &quot;tsserver&quot;, &quot;cssls&quot;, &quot;html&quot;, &quot;clangd&quot;, &quot;eslint&quot; }
+        })
+
+        mason_lspconfig.setup_handlers({
+          function(server_name)
+            lspconfig[server_name].setup({
+              on_attach = on_attach,
+              capabilities = require(&quot;cmp_nvim_lsp&quot;).default_capabilities(),
+              -- 各语言特殊配置...
+            })
+          end
+        })
+      end)
+    end
+  },
+
+  -- 自动补全引擎（需在 LSP 之后加载）
+  {
+    &quot;hrsh7th/nvim-cmp&quot;,
+    dependencies = {
+      &quot;hrsh7th/cmp-nvim-lsp&quot;,
+      &quot;L3MON4D3/LuaSnip&quot;,
+    },
+    config = function()
+      -- cmp 配置...
+    end
+  },
+
+  -- 格式化工具
+  {
+    &quot;stevearc/conform.nvim&quot;,
+    config = function()
+      -- conform 配置...
+    end
+  },
+
+  -- 语法高亮增强
+  {
+    &quot;nvim-treesitter/nvim-treesitter&quot;,
+    build = &quot;:TSUpdate&quot;,
+    config = function()
+      -- treesitter 配置...
+    end
+  }
+}
+</code></pre><p>代码编辑器的配置就告一段落了，真写规范的代码还是建议vscode（虽然有点偏离终端的主题了）。如果你爱折腾vim那当然也可以，工具自己用的趁手就是最好的。</p><h2 id=oh-my-zsh>Oh-My-Zsh</h2><p>Oh My Zsh 是基于 zsh 命令行的一个扩展工具集，提供了丰富的扩展功能。</p><h3 id=安装zsh>安装<strong>ZSH</strong></h3><p><code>sudo pacman -S zsh</code></p><p>设置默认终端为zsh</p><p><code>chsh -s /bin/zsh</code></p><h3 id=安装oh-my-zsh>安装Oh-My-Zsh</h3><p>国内镜像</p><p><code>sh -c "$(curl -fsSL https://gitee.com/pocmon/ohmyzsh/raw/master/tools/install.sh)"</code></p><p>我个人觉得这个主题就挺好的了，不多改动。</p><h4 id=插件安装>插件安装</h4><h4 id=zsh--autosuggestions>zsh -autosuggestions</h4><p>预测命令</p><pre><code class=language-bash>git clone https://github.moeyy.xyz/https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+</code></pre><h4 id=zsh-syntax-highlighting>zsh-syntax-highlighting</h4><p>语法检查，命令正确时为绿色，否则红色。</p><pre><code>git clone https://github.moeyy.xyz/https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+</code></pre><h4 id=启用插件>启用插件</h4><p><code>nvim ~/.zshrc</code></p><p>修改：</p><pre><code>plugins=(
+  git
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+  )
+</code></pre><p>重启终端即可启用。</p><h4 id=别名设置>别名设置</h4><p>别名可以更快地帮助我们启用命令</p><p><code>nvim ~/.zshrc</code></p><pre><code>alias s=&quot;neofetch&quot;
+alias vim=&quot;nvim&quot;
+alias c=&quot;clear&quot;
+alias gcl = &quot;git clone&quot;
+</code></pre><p>这里根据我的习惯改了几个别名。</p></div></article><hr><footer class=post-footer><div class=post-declaration><p>条目共享：遵循 <a href=https://creativecommons.org/licenses/by-nc-sa/4.0/ rel="license noopener">CC BY-NC-SA 4.0</a> 协议。</p><p>交流通道：向 <a href="mailto:im@verdant.ee?subject=回复《%e4%bb%8e0%e5%bc%80%e5%a7%8b%e6%90%ad%e5%bb%ba%e8%87%aa%e5%b7%b1%e7%9a%84%e7%bb%88%e7%ab%af%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83》">im@verdant.ee</a> 发送一封 <a href=https://useplaintext.email/>纯文本邮件</a>。</p></div></footer></main><footer><div class=copyright>© 2024 - 2026 <a href=https://verdant.ee>Verdant</a>. Build with Hugo.</div></footer></body></html>
