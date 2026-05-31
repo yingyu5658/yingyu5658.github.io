@@ -1,93 +1,8 @@
-<!doctype html><html lang=zh-cn><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=36549&amp;path=livereload" data-no-instant defer></script><link rel=stylesheet href=/css/style.css><meta http-equiv=X-Clacks-Overhead content="GNU Terry Pratchett"><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><link rel="shortcut icon" href=http://localhost:36549/favicon.png><title>Java小程序之两数计算器</title><meta name=title content="Java小程序之两数计算器"><meta name=description content='这个案例是我练习方法的使用时做的，应该能有更好的方式实现这个功能。
-代码如下
-
-import org.w3c.dom.ls.LSOutput;
-
-import java.util.Scanner;
-
-public class Basic {
-    public static void main(String[] args) {
-        for (; ; ) {
-
-
-            System.out.println("欢迎使用！");
-            System.out.println("按键1 2 3 4分别为加 减 乘 除，输入后请回车");
-            Scanner startSc = new Scanner(System.in);
-            int selectNumber = startSc.nextInt();
-            if(selectNumber >4) {
-                System.out.println("请输入正确的数字以选择！");
-            }
-            //以下为加法
-            if (selectNumber == 1) {
-                System.out.println("请输入您要计算的第一个数字");
-                Scanner jiafaSc = new Scanner(System.in);
-                int jiafa1 = jiafaSc.nextInt();
-                System.out.println("请输入您要计算的第二个数字");
-                int jiafa2 = jiafaSc.nextInt();
-                jiafa(jiafa1, jiafa2);
-            }
-            //以下为减法
-            if (selectNumber == 2) {
-                System.out.println("请输入您要计算的第一个数字");
-                Scanner jianfaSc = new Scanner(System.in);
-                int jianfa1 = jianfaSc.nextInt();
-                System.out.println("请输入您要计算的第二个数字");
-                int jianfa2 = jianfaSc.nextInt();
-                jianfa(jianfa1, jianfa2);
-            }
-            //以下为乘法
-            if (selectNumber == 3) {
-                System.out.println("请输入您要计算的第一个数字");
-                Scanner chengfaSc = new Scanner(System.in);
-                int chengfa1 = chengfaSc.nextInt();
-                System.out.println("请输入您要计算的第二个数字");
-                int chengfa2 = chengfaSc.nextInt();
-                chengfa(chengfa1, chengfa2);
-            }
-            if (selectNumber == 4) {
-                System.out.println("请输入您要计算的第一个数字");
-                Scanner chufaSc = new Scanner(System.in);
-                int chufa1 = chufaSc.nextInt();
-                System.out.println("请输入您要计算的第二个数字");
-                int chufa2 = chufaSc.nextInt();
-                chufa(chufa1, chufa2);
-            }
-            System.out.println("-----------------------------------------");
-        }
-    }
-    //加减乘除各项功能的方法，上面直接调用
-    public static int jiafa(int a, int b) {
-        int jieguo = a + b;
-        System.out.println(jieguo);
-        return a + b;
-    }
-
-    public static int jianfa(int a, int b) {
-        int jieguo = a - b;
-        System.out.println(jieguo);
-        return a - b;
-    }
-
-    public static int chengfa(int a, int b) {
-        int jieguo = a * b;
-        System.out.println(jieguo);
-        return a * b;
-    }
-
-    public static int chufa(int a, int b) {
-        int jieguo = a / b;
-        System.out.println(jieguo);
-        return a / b;
-    }
-}
-'><meta name=keywords content="黑历史,"><meta property="og:site_name" content="映屿"><meta property="og:title" content="Java小程序之两数计算器"><meta property="og:url" content="http://localhost:36549/posts/90/"><meta property="og:description" content="Verdant 的博客。关于互联网、书籍、生活琐事以及那些一闪而过的念头。计算机技术 & 读书感悟 & 日常随笔。映屿(GlowIsle)"><meta property="og:type" content="article"><link rel=canonical href=http://localhost:36549/posts/90/><meta property="og:url" content="http://localhost:36549/posts/90/"><meta property="og:site_name" content="映屿"><meta property="og:title" content="Java小程序之两数计算器"><meta property="og:description" content='这个案例是我练习方法的使用时做的，应该能有更好的方式实现这个功能。 代码如下
-import org.w3c.dom.ls.LSOutput; import java.util.Scanner; public class Basic { public static void main(String[] args) { for (; ; ) { System.out.println("欢迎使用！"); System.out.println("按键1 2 3 4分别为加 减 乘 除，输入后请回车"); Scanner startSc = new Scanner(System.in); int selectNumber = startSc.nextInt(); if(selectNumber >4) { System.out.println("请输入正确的数字以选择！"); } //以下为加法 if (selectNumber == 1) { System.out.println("请输入您要计算的第一个数字"); Scanner jiafaSc = new Scanner(System.in); int jiafa1 = jiafaSc.nextInt(); System.out.println("请输入您要计算的第二个数字"); int jiafa2 = jiafaSc.nextInt(); jiafa(jiafa1, jiafa2); } //以下为减法 if (selectNumber == 2) { System.out.println("请输入您要计算的第一个数字"); Scanner jianfaSc = new Scanner(System.in); int jianfa1 = jianfaSc.nextInt(); System.out.println("请输入您要计算的第二个数字"); int jianfa2 = jianfaSc.nextInt(); jianfa(jianfa1, jianfa2); } //以下为乘法 if (selectNumber == 3) { System.out.println("请输入您要计算的第一个数字"); Scanner chengfaSc = new Scanner(System.in); int chengfa1 = chengfaSc.nextInt(); System.out.println("请输入您要计算的第二个数字"); int chengfa2 = chengfaSc.nextInt(); chengfa(chengfa1, chengfa2); } if (selectNumber == 4) { System.out.println("请输入您要计算的第一个数字"); Scanner chufaSc = new Scanner(System.in); int chufa1 = chufaSc.nextInt(); System.out.println("请输入您要计算的第二个数字"); int chufa2 = chufaSc.nextInt(); chufa(chufa1, chufa2); } System.out.println("-----------------------------------------"); } } //加减乘除各项功能的方法，上面直接调用 public static int jiafa(int a, int b) { int jieguo = a + b; System.out.println(jieguo); return a + b; } public static int jianfa(int a, int b) { int jieguo = a - b; System.out.println(jieguo); return a - b; } public static int chengfa(int a, int b) { int jieguo = a * b; System.out.println(jieguo); return a * b; } public static int chufa(int a, int b) { int jieguo = a / b; System.out.println(jieguo); return a / b; } }'><meta property="og:locale" content="zh_cn"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2024-11-30T18:51:07+00:00"><meta property="article:modified_time" content="2024-11-30T18:51:07+00:00"><meta property="article:tag" content="黑历史"><meta name=twitter:card content="summary"><meta name=twitter:title content="Java小程序之两数计算器"><meta name=twitter:description content='这个案例是我练习方法的使用时做的，应该能有更好的方式实现这个功能。 代码如下
-import org.w3c.dom.ls.LSOutput; import java.util.Scanner; public class Basic { public static void main(String[] args) { for (; ; ) { System.out.println("欢迎使用！"); System.out.println("按键1 2 3 4分别为加 减 乘 除，输入后请回车"); Scanner startSc = new Scanner(System.in); int selectNumber = startSc.nextInt(); if(selectNumber >4) { System.out.println("请输入正确的数字以选择！"); } //以下为加法 if (selectNumber == 1) { System.out.println("请输入您要计算的第一个数字"); Scanner jiafaSc = new Scanner(System.in); int jiafa1 = jiafaSc.nextInt(); System.out.println("请输入您要计算的第二个数字"); int jiafa2 = jiafaSc.nextInt(); jiafa(jiafa1, jiafa2); } //以下为减法 if (selectNumber == 2) { System.out.println("请输入您要计算的第一个数字"); Scanner jianfaSc = new Scanner(System.in); int jianfa1 = jianfaSc.nextInt(); System.out.println("请输入您要计算的第二个数字"); int jianfa2 = jianfaSc.nextInt(); jianfa(jianfa1, jianfa2); } //以下为乘法 if (selectNumber == 3) { System.out.println("请输入您要计算的第一个数字"); Scanner chengfaSc = new Scanner(System.in); int chengfa1 = chengfaSc.nextInt(); System.out.println("请输入您要计算的第二个数字"); int chengfa2 = chengfaSc.nextInt(); chengfa(chengfa1, chengfa2); } if (selectNumber == 4) { System.out.println("请输入您要计算的第一个数字"); Scanner chufaSc = new Scanner(System.in); int chufa1 = chufaSc.nextInt(); System.out.println("请输入您要计算的第二个数字"); int chufa2 = chufaSc.nextInt(); chufa(chufa1, chufa2); } System.out.println("-----------------------------------------"); } } //加减乘除各项功能的方法，上面直接调用 public static int jiafa(int a, int b) { int jieguo = a + b; System.out.println(jieguo); return a + b; } public static int jianfa(int a, int b) { int jieguo = a - b; System.out.println(jieguo); return a - b; } public static int chengfa(int a, int b) { int jieguo = a * b; System.out.println(jieguo); return a * b; } public static int chufa(int a, int b) { int jieguo = a / b; System.out.println(jieguo); return a / b; } }'><meta itemprop=name content="Java小程序之两数计算器"><meta itemprop=description content='这个案例是我练习方法的使用时做的，应该能有更好的方式实现这个功能。 代码如下
-import org.w3c.dom.ls.LSOutput; import java.util.Scanner; public class Basic { public static void main(String[] args) { for (; ; ) { System.out.println("欢迎使用！"); System.out.println("按键1 2 3 4分别为加 减 乘 除，输入后请回车"); Scanner startSc = new Scanner(System.in); int selectNumber = startSc.nextInt(); if(selectNumber >4) { System.out.println("请输入正确的数字以选择！"); } //以下为加法 if (selectNumber == 1) { System.out.println("请输入您要计算的第一个数字"); Scanner jiafaSc = new Scanner(System.in); int jiafa1 = jiafaSc.nextInt(); System.out.println("请输入您要计算的第二个数字"); int jiafa2 = jiafaSc.nextInt(); jiafa(jiafa1, jiafa2); } //以下为减法 if (selectNumber == 2) { System.out.println("请输入您要计算的第一个数字"); Scanner jianfaSc = new Scanner(System.in); int jianfa1 = jianfaSc.nextInt(); System.out.println("请输入您要计算的第二个数字"); int jianfa2 = jianfaSc.nextInt(); jianfa(jianfa1, jianfa2); } //以下为乘法 if (selectNumber == 3) { System.out.println("请输入您要计算的第一个数字"); Scanner chengfaSc = new Scanner(System.in); int chengfa1 = chengfaSc.nextInt(); System.out.println("请输入您要计算的第二个数字"); int chengfa2 = chengfaSc.nextInt(); chengfa(chengfa1, chengfa2); } if (selectNumber == 4) { System.out.println("请输入您要计算的第一个数字"); Scanner chufaSc = new Scanner(System.in); int chufa1 = chufaSc.nextInt(); System.out.println("请输入您要计算的第二个数字"); int chufa2 = chufaSc.nextInt(); chufa(chufa1, chufa2); } System.out.println("-----------------------------------------"); } } //加减乘除各项功能的方法，上面直接调用 public static int jiafa(int a, int b) { int jieguo = a + b; System.out.println(jieguo); return a + b; } public static int jianfa(int a, int b) { int jieguo = a - b; System.out.println(jieguo); return a - b; } public static int chengfa(int a, int b) { int jieguo = a * b; System.out.println(jieguo); return a * b; } public static int chufa(int a, int b) { int jieguo = a / b; System.out.println(jieguo); return a / b; } }'><meta itemprop=datePublished content="2024-11-30T18:51:07+00:00"><meta itemprop=dateModified content="2024-11-30T18:51:07+00:00"><meta itemprop=wordCount content="782"><meta itemprop=keywords content="黑历史"><meta name=referrer content="no-referrer-when-downgrade"><link rel=alternate type=application/rss+xml href=/atom.xml title=映屿><meta name=msvalidate.01 content="2E1AACF009206F2DDBAAD4B98E881460"><link rel=prefetch as=image href=https://www.blogsclub.org/badge/blog.verdant.ee><meta name=blogsclub-verify content="2fff06c4423c4f41ac048f779a7daab5"><link rel="shortcut icon" href=/favicon.ico></head><body><main><header class=post-header><span class=site-title><a href=/>映屿</a></span><nav>[<a href=/categories/>分类</a>]
-[<a href=/links/>友人</a>]
-[<a href=/archives/>归档</a>]
-[<a href=/about/>关于</a>]</nav></header><hr><article class=h-entry><header class=entry-meta><h1 class="p-name post-title">Java小程序之两数计算器</h1><div class=meta-line><time class=dt-published datetime=2024-11-30T18:51:07Z>2024-11-30
-</time><span class=meta-categories>[<a href=/categories/%E6%8A%80%E6%9C%AF/ class=p-category>技术</a>]</span></div></header><div class="e-content entry-body"><p>这个案例是我练习方法的使用时做的，应该能有更好的方式实现这个功能。
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=X-Clacks-Overhead content="GNU Terry Pratchett"><meta name=referrer content="no-referrer-when-downgrade"><title>Java小程序之两数计算器 | 映屿</title><style>body{font-family:monospace;line-height:1.7;max-width:720px;margin:40px auto;padding:0 20px;color:#000;background:#fff}pre{border:1px dashed #555;padding:12px;overflow-x:auto}img{max-width:100%}</style><link rel="shortcut icon" href=https://blog.verdant.ee/favicon.png><link rel=canonical href=https://blog.verdant.ee/posts/90/><meta name=title content="Java小程序之两数计算器"><meta name=description content="这个案例是我练习方法的使用时做的，应该能有更好的方式实现这个功能。 代码如下
+import org.w3c.dom.ls.LSOutput; import java.util.Scanner; public class Basic { …"><meta property=og:site_name content="映屿"><meta property=og:title content="Java小程序之两数计算器"><meta property=og:url content="https://blog.verdant.ee/posts/90/"><meta property=og:description content="这个案例是我练习方法的使用时做的，应该能有更好的方式实现这个功能。 代码如下
+import org.w3c.dom.ls.LSOutput; import java.util.Scanner; public class Basic { …"><meta property=og:type content="article"><meta name=twitter:card content="summary"><meta name=twitter:title content="Java小程序之两数计算器"><meta name=twitter:description content="这个案例是我练习方法的使用时做的，应该能有更好的方式实现这个功能。 代码如下
+import org.w3c.dom.ls.LSOutput; import java.util.Scanner; public class Basic { …"><link rel=alternate type=application/rss+xml href=/atom.xml title=映屿><meta name=msvalidate.01 content="2E1AACF009206F2DDBAAD4B98E881460"><link rel=prefetch as=image href=https://www.blogsclub.org/badge/blog.verdant.ee><meta name=blogsclub-verify content="2fff06c4423c4f41ac048f779a7daab5"><link rel="shortcut icon" href=/favicon.ico></head><body><main><header><span class=site-title><a href=/>映屿</a></span><nav><nav><a href=/>首页</a> / <a href=/archives/>归档</a> / <a href=/about/>关于</a></nav></nav></header><hr><article><header><h1>Java小程序之两数计算器</h1><div class=meta><time datetime=2024-11-30T18:51:07Z>2024-11-30</time>
+<span class=cats>[<a href=/categories/%E6%8A%80%E6%9C%AF/>技术</a>]</span></div></header><div class=body><p>这个案例是我练习方法的使用时做的，应该能有更好的方式实现这个功能。
 代码如下</p><pre><code class=language-java>
 import org.w3c.dom.ls.LSOutput;
 
@@ -168,4 +83,4 @@ public class Basic {
         return a / b;
     }
 }
-</code></pre></div></article><hr><footer class=post-footer><div class=post-declaration><p>条目共享：遵循 <a href=https://creativecommons.org/licenses/by-nc-sa/4.0/ rel="license noopener">CC BY-NC-SA 4.0</a> 协议。</p><p>交流通道：向 <a href="mailto:im@verdant.ee?subject=回复《Java%e5%b0%8f%e7%a8%8b%e5%ba%8f%e4%b9%8b%e4%b8%a4%e6%95%b0%e8%ae%a1%e7%ae%97%e5%99%a8》">im@verdant.ee</a> 发送一封 <a href=https://useplaintext.email/>纯文本邮件</a>。</p></div></footer></main><footer><div class=copyright>© 2024 - 2026 <a href=https://verdant.ee>Verdant</a>. Build with Hugo.</div></footer></body></html>
+</code></pre></div></article><hr><footer><p>条目共享：遵循 <a href=https://creativecommons.org/licenses/by-nc-sa/4.0/ rel="license noopener">CC BY-NC-SA 4.0</a> 协议。</p><p>交流通道：向 <a href="mailto:im@verdant.ee?subject=回复《Java%e5%b0%8f%e7%a8%8b%e5%ba%8f%e4%b9%8b%e4%b8%a4%e6%95%b0%e8%ae%a1%e7%ae%97%e5%99%a8》">im@verdant.ee</a> 发送一封 <a href=https://useplaintext.email/>纯文本邮件</a>。</p></footer></main><footer><footer>© 2024 - 2026 Verdant.</footer></footer></body></html>
