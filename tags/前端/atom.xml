@@ -1,4 +1,114 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>前端 on 映屿</title><link>https://blog.verdant.ee/tags/%E5%89%8D%E7%AB%AF/</link><description>Recent content in 前端 on 映屿</description><generator>Hugo</generator><language>zh-cn</language><managingEditor>im@verdant.ee (五葉地錦)</managingEditor><webMaster>im@verdant.ee (五葉地錦)</webMaster><lastBuildDate>Tue, 04 Mar 2025 10:13:10 +0000</lastBuildDate><atom:link href="http://blog.verdant.ee/tags/%E5%89%8D%E7%AB%AF/atom.xml" rel="self" type="application/rss+xml"/><item><title>CSS鼠标指针操作</title><link>https://blog.verdant.ee/posts/css%E9%BC%A0%E6%A0%87%E6%8C%87%E9%92%88%E6%93%8D%E4%BD%9C/</link><pubDate>Tue, 04 Mar 2025 10:13:10 +0000</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>https://blog.verdant.ee/posts/css%E9%BC%A0%E6%A0%87%E6%8C%87%E9%92%88%E6%93%8D%E4%BD%9C/</guid><description>&lt;p&gt;今天在上网冲浪的时候，看到Github上有一个明日方舟风格的&lt;a href="https://github.com/Yue-plus/hexo-theme-arknights"&gt;主题&lt;/a&gt;，这个主题让我感到新鲜的一点是网页中的鼠标指针特效&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>前端 on 映屿</title><link>https://blog.verdant.ee/tags/%E5%89%8D%E7%AB%AF/</link><description>Recent content in 前端 on 映屿</description><generator>Hugo</generator><language>zh-cn</language><managingEditor>im@verdant.ee (五葉地錦)</managingEditor><webMaster>im@verdant.ee (五葉地錦)</webMaster><lastBuildDate>Mon, 01 Jun 2026 09:51:37 +0800</lastBuildDate><atom:link href="http://blog.verdant.ee/tags/%E5%89%8D%E7%AB%AF/atom.xml" rel="self" type="application/rss+xml"/><item><title>不否定技术的进步，也不盲目跟风</title><link>https://blog.verdant.ee/posts/talk-about-themotherfucking-website/</link><pubDate>Mon, 01 Jun 2026 09:51:37 +0800</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>https://blog.verdant.ee/posts/talk-about-themotherfucking-website/</guid><description>&lt;h2 id="4kb-首页"&gt;4KB 首页&lt;/h2&gt;
+&lt;p&gt;利用周末的时间，我重构了我的博客。现在我的网站首页只有 4.05KB，所有内容均可在 200 ~ 300ms 加载完成，在任何老旧的设备和浏览器上都显示正常，没有一行 JavaScript，这是全部的 CSS：&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-css"&gt;body {
+	font-family: monospace;
+	line-height: 1.7;
+	max-width: 760px;
+	margin: 40px auto;
+	padding: 0 20px;
+	background: #ffffea;
+}
+
+pre {
+	border: 1px dashed #555;
+	padding: 12px;
+	overflow-x: auto;
+}
+	
+img {
+	max-width: 100%;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;为什么我会这么做？一方面，我真的好奇一个网页究竟可以做到多小，另一方面，我的精神洁癖让我必须这么做，不允许任何一行臃肿的、拖慢加载速度的代码出现在我的项目里，保证纯粹和干净。&lt;/p&gt;
+&lt;p&gt;事实证明，从技术层面，一个博客完全不需要那些复杂且庞大的前端框架，以及一大堆的 CDN和边缘存储，或一系列上周五刚被发明出来的新名词。滥用那些所谓的「新技术」，只是你对极简主义不自信的表现。&lt;/p&gt;
+&lt;p&gt;如果你把 JavaScript 精简到仅 100 行、10 行，甚至 0 行，把从某个镜像源拉取的字体文件、CSS 全部大刀阔斧地砍去，保留必要的阅读体验优化内联在 HTML 中，你将完全不需要任何网络层的优化。不仅要对极简主义有自信，更要对历史悠久、全世界各地的技术人才积极贡献的 WWW 服务器的性能自信。这就足够了，足够轻量、快速。&lt;/p&gt;
+&lt;h2 id="我的精神洁癖是怎样产生的"&gt;我的精神洁癖是怎样产生的&lt;/h2&gt;
+&lt;p&gt;虽然 C++ 无疑是一门糟糕的编程语言，但 C++ 之父 &lt;a href="https://www.stroustrup.com/index.html"&gt;Bjarne Stroustrup 的主页&lt;/a&gt;。当你点开他的主页，你肯定会觉得这网站丑爆了，这未免太简陋了！但无论从思想上，还是技术实践上，这都是网页设计的典范。只有少量的图片，和简明的文本，以及通往网站各处的超链接。&lt;/p&gt;
+&lt;p&gt;没有过度装饰，这是他站点的 CSS：&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-css："&gt;div.day {
+	padding:0.5em;
+	border-style:solid;
+	border-width:2px;
+	background-color:rgb(252,221,163);
+	width:250px;
+	float:right
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;他为什么要让自己的网页看起来如此「简陋」呢？在&lt;a href="https://www.stroustrup.com/bs_faq.html"&gt;FAQ&lt;/a&gt;中有&lt;a href="https://www.stroustrup.com/bs_faq.html#looks"&gt;明确的解答&lt;/a&gt;：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;gt; 为什么你不让你的网站看起来更现代呢？&lt;/p&gt;
+&lt;p&gt;我是一个「内容提供者」，而不是一个「网页设计师」，我可以把我的时间用来改进我的内容，或者网页的外观，但不能二者兼得。&lt;/p&gt;
+&lt;p&gt;在某些人看来「又酷又现代」的东西往往会被其他人认为是不好的品味，而且时尚瞬息万变。此外，非常简单的 html 下载和显示速度比其他任何东西都快，但许多人仍然遭受网络连接速度慢的困扰。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;虽然个人博客的作者即可以是内容提供者，也可以是网页设计师，但内容质量和网页外观之间必定有种奇妙的关系，或许是反比，我完全可以说我常看的那几个博客外观好看质量又高，这非常主观。不过，我相信万事万物之间一定都有那种奇妙的关系，并且有一个绝对值可以衡量所有事物关系的不变的总和，在这个庞大的算式中的每一项此消彼长……&lt;/p&gt;
+&lt;p&gt;品味是主观的，加载速度和简单的 HTML 的优越性，是不可变的客观上的技术事实，而什么会直接关联加载速度、阅读体验？这是一句废话：你的网页中有什么。&lt;/p&gt;
+&lt;p&gt;一开始我也非常鄙夷这种「落后」的设计，也觉得这实在是太丑了！但见过一些真正糟糕的网页后，我就养成了自己的精神洁癖。&lt;/p&gt;
+&lt;h2 id="开心就好"&gt;开心就好&lt;/h2&gt;
+&lt;p&gt;我见过太多的个人博客的网页中，塞入了各种杂七杂八的东西，比如：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;音乐播放器&lt;/li&gt;
+&lt;li&gt;弹窗公告&lt;/li&gt;
+&lt;li&gt;随机美女视频&lt;/li&gt;
+&lt;li&gt;随机文案&lt;/li&gt;
+&lt;li&gt;一层又一层的 CDN&lt;/li&gt;
+&lt;li&gt;Bullshit generator&lt;sup id="fnref:1"&gt;&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref"&gt;1&lt;/a&gt;&lt;/sup&gt; 文章摘要&lt;/li&gt;
+&lt;li&gt;占屏幕 40% 的 Cookie 政策提示&lt;/li&gt;
+&lt;li&gt;微博客系统&lt;/li&gt;
+&lt;li&gt;20MB CSS, 40MB JavaScript（还经过了混淆！）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;试想一下这种画面：你在一个图书馆，用你八年前的 Macbook 打开了某个网页。经过了长达十秒的加载，&lt;em&gt;现代前端框架&lt;/em&gt;终于把他 10MB 的 JavaScript 加载完毕，然后再经过十秒，等待&lt;em&gt;现代前端框架&lt;/em&gt;从服务器上请求 HTML 页面。加载好后，你的电脑风扇转了起来，正当你把耳朵凑近电脑，想听听是不是风扇的声音时，网页突然开始自动播放音乐。&lt;/p&gt;
+&lt;p&gt;你只好忍着周围人的白眼，按了静音，听清楚就是风扇转起来了。为什么我只是看个网页，风扇就会转得这么厉害呢？定睛一看，原来是网页右下角的看板娘跳出来了，它的 Live2D 又请求了不少资源，你的硬件经过一顿计算，终于把这和博客文章一点关系都没有的小人加载出来了。&lt;/p&gt;
+&lt;p&gt;好了，现在应该可以看看有什么文章了吧？点开一篇文章，经过长达二十秒的加载，你发现 Bullshit generator 生成 Bullshit 的速度，比你滚动鼠标滚轮的速度还快，好吧，那先看看侧边栏上有什么吧。&lt;/p&gt;
+&lt;p&gt;侧边栏上有自动获取你定位，还根本不准的天气预报，还有又一次网络请求的随机文案，底下还有一个女人扭屁股的视频在自动播放。&lt;/p&gt;
+&lt;p&gt;经过一番折磨，现在终于可以看到文章写了什么了！拜读后，发现竟然是 Bullshit generator 生成的口水文。滥用引用块、无序列表、「不是……，而是……」。以及，把一个句子，用逗号，拆分成很多小短句。寸止一般的阅读体验，已经满足不了他们了。&lt;/p&gt;
+&lt;p&gt;他们开始&lt;/p&gt;
+&lt;p&gt;把一篇本能流畅阅读的文章。&lt;/p&gt;
+&lt;p&gt;拆行，&lt;/p&gt;
+&lt;p&gt;写成诗。&lt;/p&gt;
+&lt;p&gt;自动获取定位，完全不尊重读者隐私；自动播放视频、请求 Live2D 资源，毫无保留地浪费读者珍贵的计算资源；自动生成摘要，完全不在乎读者的阅读感受。这样的网站非常糟糕。而站长一般自称技术宅，沉浸在自己的网站缝合了几个别人造的根本没有用的轮子的快乐中。也许最有技术含量的操作，就是解决一下 &lt;code&gt;npm install&lt;/code&gt; 的冲突。&lt;/p&gt;
+&lt;p&gt;对技术，应当在热情中探索，在敬畏中实践。不过，既然是个人博客，开心就好吧！反正也没人强迫我读。&lt;/p&gt;
+&lt;h2 id="一个网站应该是什么样"&gt;一个网站应该是什么样？&lt;/h2&gt;
+&lt;p&gt;吐槽了这么多反面例子，我们来看看正面的例子是怎样的。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://motherfuckingwebsite.com/"&gt;Motherfucking website&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://bettermotherfuckingwebsite.com/"&gt;Better motherfucking website&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://thebestmotherfucking.website/"&gt;The best motherfucking website&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://gist.github.com/NARKOZ/cfd9b40669a96f068e53cbc9f1f9edbf"&gt;More?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这些网站都是用来批判当今 Web 过度设计、太过臃肿，并给出示范的。最忌讳盲目跟风，无论是技术上，还是设计上，不要加自己或用户不需要的东西。&lt;/p&gt;
+&lt;p&gt;我曾经一直想给的我站点加一个侧边栏，但我迟迟没有动手。原因在于我想了一下：这个侧边栏我会放什么？我的头像？邮箱？社交媒体链接？&lt;/p&gt;
+&lt;p&gt;显然，那些的东西关于页面已经有了。我也不可能放天气预报和随机鸡汤，这就代表目前根本不需要这个东西，那就不加。如无必要，勿增实体。&lt;/p&gt;
+&lt;p&gt;回到更通用的博客设计，你也可以这样追问自己：我真的需要一个重量级的前端框架来承载一个小体量站点吗？&lt;/p&gt;
+&lt;p&gt;你不是企业，没有成百上千人的开发团队，也没有日均几万的访问量，所以保持简单是极好的。如果硬要用，那多少有点为写而写的意味。&lt;/p&gt;
+&lt;p&gt;真正需要的：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一点结构清晰的 HTML&lt;/li&gt;
+&lt;li&gt;一点保证阅读体验的 CSS&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Stop，点到为止&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;收手吧，你不需要 JavaScript，不需要 Cookie，不需要追踪，不需要侵犯用户隐私。来看你网站的那个人究竟是谁，对你来说真的那么重要吗？这只是个人博客，难不成你还能让右边扭屁股的女人按用户的喜好展示？&lt;/p&gt;
+&lt;h2 id="话又说回来了"&gt;话又说回来了&lt;/h2&gt;
+&lt;p&gt;话又说回来了，我并没有在倡议所有人都像 Bjarne Stroustrup 那样完全不写任何样式，不用任何前端框架。框架解决的是复杂交互问题，而博客实际上并没有多少复杂交互。我这次重构网页用了一些很激进的奇技淫巧，把页面压缩到很小，只是在用一种极端的方式抗争。&lt;/p&gt;
+&lt;p&gt;我在技术问题上确实又理想、又保守、又复古，这是有理由的。在那个环境适当落后甚至严苛的年代，发展出了令人敬佩又向往的黑客精神。&lt;/p&gt;
+&lt;p&gt;黑客精神（Hacker Spirit），指一种热衷于解决问题、克服限制，并从中获得精神愉悦的态度或文化。其核心在于动手去创造性地解决问题，而不局限于计算机领域，任何职业者只要倾心专注于技能与创造都可能具备这种精神。&lt;/p&gt;
+&lt;p&gt;那个年代的人，愿意为了节省一个比特而研究各种位运算优化，因为热情、好奇，在机缘巧合下干出了改变世界的大事。常常与黑客精神一同被提起的，也有 Unix 哲学，我愿意称他为黑客精神的工程化体现。即使从事 Web 开发，也最好了解一下 Unix 哲学。&lt;/p&gt;
+&lt;p&gt;最重要的三点：让程序只做好一件事、小即是美、更糟就是更好。&lt;/p&gt;
+&lt;p&gt;「更糟就是更好」的意思是：软件的品质并不随着功能的增加而提高，从实用性以及易用性来考虑，功能较少的软件反而更受到使用者和市场青睐。&lt;/p&gt;
+&lt;p&gt;如何践行这三点呢？&lt;/p&gt;
+&lt;p&gt;让程序只做好一件事。抛弃无用功能，让博客回归展示文字的本职工作；&lt;/p&gt;
+&lt;p&gt;小即是美，如无必要，勿增实体；减少引入第三方库，减少从网络链接资源；每一行 JavaScript 都必须解决必要且 HTML 和 CSS 无法解决的问题；每一次使用框架都必须解决必要且原生代码无法解决的问题；尊重计算资源，尊重每一个比特。&lt;/p&gt;
+&lt;p&gt;更糟就是更好，HTML 和纯文本看起来比那些精美的单页应用更糟糕、更简陋、更丑陋，但它更简单、更可控且标准固定。因为简单，所以长寿。你现在绝对无法轻易运行一个十年前基于固定版本的 Node.js 版本的复杂项目，但你绝对可以轻松打开一个十年前的网页。&lt;/p&gt;
+&lt;p&gt;最好使用稳定的东西，如简单的 HTML，而不是引入复杂的框架或库，你可以访问二十年前的网页，但很难用六年前那个版本的前端库，因为 HTML 已经是一种成熟而稳定的通用标准。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;感谢阅读！请允许我为又一次轰炸你的 RSS 阅读器滑跪道歉！！是因为我不小心把 &lt;code&gt;hugo server&lt;/code&gt; 的产物直接推送构建，导致文章 guid 生成为 &lt;code&gt;localhost:1313/foo/&lt;/code&gt; 和 RSS 阅读器存储的 &lt;code&gt;blog.verdant.ee/foo/&lt;/code&gt; 不同，就被认为是一篇新文章了，本当にすみません！&lt;/p&gt;
+&lt;div class="footnotes" role="doc-endnotes"&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id="fn:1"&gt;
+&lt;p&gt;&lt;a href="https://www.gnu.org/philosophy/words-to-avoid.html#ArtificialIntelligence"&gt;https://www.gnu.org/philosophy/words-to-avoid.html#ArtificialIntelligence&lt;/a&gt;&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</description></item><item><title>CSS鼠标指针操作</title><link>https://blog.verdant.ee/posts/css%E9%BC%A0%E6%A0%87%E6%8C%87%E9%92%88%E6%93%8D%E4%BD%9C/</link><pubDate>Tue, 04 Mar 2025 10:13:10 +0000</pubDate><author>im@verdant.ee (五葉地錦)</author><guid>https://blog.verdant.ee/posts/css%E9%BC%A0%E6%A0%87%E6%8C%87%E9%92%88%E6%93%8D%E4%BD%9C/</guid><description>&lt;p&gt;今天在上网冲浪的时候，看到Github上有一个明日方舟风格的&lt;a href="https://github.com/Yue-plus/hexo-theme-arknights"&gt;主题&lt;/a&gt;，这个主题让我感到新鲜的一点是网页中的鼠标指针特效&lt;/p&gt;
 &lt;p&gt;这么舒服的动画效果我必须也要做一个，说干就干，新建个HTML文档。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-css"&gt;* {
  cursor: pointer;
