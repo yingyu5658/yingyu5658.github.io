@@ -29,4 +29,6 @@ Require stack:
     at wrapModuleLoad (node:internal/modules/cjs/loader:242:24)
     at Module.require (node:internal/modules/cjs/loader:1494:12)
 </code></pre><h2 id=解决方法>解决方法</h2><p>使用path.join拼接完整路径</p><pre><code class=language-js>const File = require(path.join(__dirname, &quot;../js/File.js&quot;));
-</code></pre><p>经过测试，只能用这种方法导入，太怪了</p></article><hr><footer><p>条目共享：遵循 <a href=https://creativecommons.org/licenses/by-nc-sa/4.0/ rel="license noopener">CC BY-NC-SA 4.0</a> 协议。</p><p>交流通道：向 <a href="mailto:im@verdant.ee?subject=回复《Electron%20CommonJS%20require%e8%b8%a9%e5%9d%91》">im@verdant.ee</a> 发送一封 <a href=https://useplaintext.email>纯文本邮件</a>。</p></footer><footer><footer>© 2024 - 2026 Verdant.</footer></footer></main></body></html>
+</code></pre><p>经过测试，只能用这种方法导入，太怪了</p></article><hr><footer><p>本站文章采用 <a href=https://creativecommons.org/licenses/by-nc-sa/4.0/ rel="license noopener" target=_blank>CC BY-NC-SA 4.0</a> 协议共享。</p><p>参与讨论：<a href="mailto:im@verdant.ee?subject=回复：《Electron%20CommonJS%20require%e8%b8%a9%e5%9d%91》">私信作者</a>
+｜ <a href="mailto:~verdant/public-inbox@lists.sr.ht?subject=回复《Electron%20CommonJS%20require%e8%b8%a9%e5%9d%91》">公开邮件列表</a>
+｜ <a href=https://lists.sr.ht/~verdant/public-inbox>浏览往期讨论</a></p></footer><footer><footer>© 2024 - 2026 Verdant.</footer></footer></main></body></html>
