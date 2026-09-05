@@ -64,9 +64,7 @@
 ;;; init.el ends here
 </code></pre><p>基础的设置和插件镜像源就配置好了，此配置可完全复制照抄。</p><p>重启Emacs，按下<code>M-x</code>输入<code>package-list-packages</code>即可查看仓库中的所有插件</p><blockquote><p>在此列表界面下还可按下h显示帮助，按U检查所有已安装插件是否需要更新，如有就标注更新，按i标记想要安装，最后按下x就可更新。</p></blockquote><p>插件默认会被安装到<code>~/.emacs.d/elpa</code>下，Windows同理。</p><p>删除插件输入<code>package-delete</code>，然后输入想删除的插件名即可。</p><h2 id=use-package>use-package</h2><h3 id=安装>安装</h3><p>输入命令<code>package-install</code>回车后输入use-package回车，然后在init.el的最上面写</p><pre><code class=language-lisp>(eval-when-compile
  (require 'use-package))
-</code></pre><p>每次启动Emacs优先加载此插件</p></article><hr><footer><p>本站文章采用 <a href=https://creativecommons.org/licenses/by-nc-sa/4.0/ rel="license noopener" target=_blank>CC BY-NC-SA 4.0</a> 协议共享。</p><p>参与讨论：<a href="mailto:im@verdant.ee?subject=回复：《%e5%88%9d%e6%8a%98%e8%85%beEmacs%e8%ae%b0%e5%bd%95》">私信作者</a>
-｜ <a href="mailto:~verdant/public-inbox@lists.sr.ht?subject=回复《%e5%88%9d%e6%8a%98%e8%85%beEmacs%e8%ae%b0%e5%bd%95》">公开邮件列表</a>
-｜ <a href=https://lists.sr.ht/~verdant/public-inbox>浏览往期讨论</a></p></footer><footer><footer>© 2024 - 2026 Verdant. |
+</code></pre><p>每次启动Emacs优先加载此插件</p></article><hr><footer><p>本站文章采用 <a href=https://creativecommons.org/licenses/by-nc-sa/4.0/ rel="license noopener" target=_blank>CC BY-NC-SA 4.0</a> 协议共享。</p><p><a href="mailto:im@verdant.ee?subject=回复：《%e5%88%9d%e6%8a%98%e8%85%beEmacs%e8%ae%b0%e5%bd%95》">使用邮件评论</a></p></footer><footer><footer>© 2024 - 2026 Verdant. |
 <a href=https://512kb.club/>512KB Club</a> Green Team |
 <a href="https://baccyflap.com/noai/?prv&s=vdt" target=_top>←</a>
 <a href=https://baccyflap.com/noai target=_blank>No AI Webring</a>

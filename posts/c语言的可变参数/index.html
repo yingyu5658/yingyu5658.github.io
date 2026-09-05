@@ -79,9 +79,7 @@ int main()
 {
         function(1, 10, 12, 2, 111);
 }
-</code></pre><h2 id=扩展va_start的第二个参数的工作原理>扩展：<code>va_start</code>的第二个参数的工作原理</h2><p><code>va_start</code>的第二个参数用于定位可变参数列表的起始位置，具体而言，它指向函数参数列表中最后一个固定参数（即省略号前的参数），通过该参数的地址计算出第一个可变参数在内存中的位置。</p><p>C函数的参数按从右至左顺序入栈（栈底高地址，栈顶低地址）</p><p><code>va_start</code>的第二个参数作为基准点，其地址加上自身大小后，即指向第一个可变参数的起始地址。</p><p>所以<code>...</code>前至少要有一个固定参数用于寻址。</p></article><hr><footer><p>本站文章采用 <a href=https://creativecommons.org/licenses/by-nc-sa/4.0/ rel="license noopener" target=_blank>CC BY-NC-SA 4.0</a> 协议共享。</p><p>参与讨论：<a href="mailto:im@verdant.ee?subject=回复：《C%e8%af%ad%e8%a8%80%e7%9a%84%e5%8f%af%e5%8f%98%e5%8f%82%e6%95%b0》">私信作者</a>
-｜ <a href="mailto:~verdant/public-inbox@lists.sr.ht?subject=回复《C%e8%af%ad%e8%a8%80%e7%9a%84%e5%8f%af%e5%8f%98%e5%8f%82%e6%95%b0》">公开邮件列表</a>
-｜ <a href=https://lists.sr.ht/~verdant/public-inbox>浏览往期讨论</a></p></footer><footer><footer>© 2024 - 2026 Verdant. |
+</code></pre><h2 id=扩展va_start的第二个参数的工作原理>扩展：<code>va_start</code>的第二个参数的工作原理</h2><p><code>va_start</code>的第二个参数用于定位可变参数列表的起始位置，具体而言，它指向函数参数列表中最后一个固定参数（即省略号前的参数），通过该参数的地址计算出第一个可变参数在内存中的位置。</p><p>C函数的参数按从右至左顺序入栈（栈底高地址，栈顶低地址）</p><p><code>va_start</code>的第二个参数作为基准点，其地址加上自身大小后，即指向第一个可变参数的起始地址。</p><p>所以<code>...</code>前至少要有一个固定参数用于寻址。</p></article><hr><footer><p>本站文章采用 <a href=https://creativecommons.org/licenses/by-nc-sa/4.0/ rel="license noopener" target=_blank>CC BY-NC-SA 4.0</a> 协议共享。</p><p><a href="mailto:im@verdant.ee?subject=回复：《C%e8%af%ad%e8%a8%80%e7%9a%84%e5%8f%af%e5%8f%98%e5%8f%82%e6%95%b0》">使用邮件评论</a></p></footer><footer><footer>© 2024 - 2026 Verdant. |
 <a href=https://512kb.club/>512KB Club</a> Green Team |
 <a href="https://baccyflap.com/noai/?prv&s=vdt" target=_top>←</a>
 <a href=https://baccyflap.com/noai target=_blank>No AI Webring</a>
